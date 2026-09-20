@@ -1,0 +1,10 @@
+{
+  "name":"Adrián Hub",
+  "short_name":"Hub",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#0d1518",
+  "theme_color":"#0d1518",
+  "icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

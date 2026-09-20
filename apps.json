@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "apps": [
+    {"id":"english","name":"Adaptive English","subtitle":"Inglés adaptativo","group":"Estudio","url":"https://adrianxds-ads.github.io/adaptive-english/","glyph":"EN"},
+    {"id":"catala","name":"Català · Verbs","subtitle":"Verbos y automatización","group":"Estudio","url":"https://adrianxds-ads.github.io/adaptive-verbs-catala/","glyph":"CA"},
+    {"id":"hoti0108","name":"HOTI0108","subtitle":"Estudio, flashcards y examen","group":"Estudio","url":"https://adrianxds-ads.github.io/adaptive-hoti0108/","glyph":"HT"}
+  ]
+}
