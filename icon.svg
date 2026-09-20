@@ -1,1 +1,11 @@
-²ø1šYì
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="AdriÃ¡n Hub">
+  <defs>
+    <linearGradient id="g" x1="64" y1="48" x2="448" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4AA7C8"/>
+      <stop offset="1" stop-color="#7AA5EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="#0D1518"/>
+  <rect x="64" y="64" width="384" height="384" rx="112" fill="url(#g)"/>
+  <path d="M256 132 365 380h-62l-23-58h-49l-22 58h-62l109-248Zm0 87-32 82h64l-32-82Z" fill="#071014"/>
+</svg>
