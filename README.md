@@ -13,9 +13,9 @@ Consume Adrián Core directamente desde GitHub Pages:
 
 Así el Hub sirve como primer consumidor real de la fuente visual central.
 
-## Apps iniciales
+## Apps actuales
 - Adaptive English
+- Cambridge B2
 - Català · Verbs
 - HOTI0108
-
-Las siguientes apps se incorporarán al registro cuando se confirme su URL pública vigente.
+- Limpieza 2.2 (acceso privado por Tailscale)
