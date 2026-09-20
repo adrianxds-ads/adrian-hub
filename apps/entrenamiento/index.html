@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518"><title>Entrenamiento 2.0 · Hub</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css"></head><body>
+<main class="app"><header class="hero"><div><p class="kicker">HUB · ENTRENAMIENTO 2.0</p><h1>GYM PRO</h1><p>Recuperación, cuerpo y actividad en una sola lectura.</p></div><div class="score"><b id="score">—</b><span>/100</span></div></header>
+<section class="progress ad-card"><div><span>GYM PRO SCORE</span><strong id="scoreLabel">Esperando datos</strong></div><div class="track"><i id="scoreFill"></i></div></section>
+<section class="grid" id="metrics"></section>
+<section class="panel ad-card"><div class="head"><h2>Tendencia</h2><select id="chartMetric"><option value="weight">Peso</option><option value="rhr">FCR</option><option value="hrv">VFC</option><option value="sleep">Sueño</option><option value="steps">Pasos</option></select></div><div id="chart" class="chart"></div></section>
+<section class="panel ad-card"><h2>Estado de datos</h2><div id="sources" class="sources"></div></section>
+<section class="panel ad-card"><h2>Decisión de hoy</h2><p id="decision">Aún no hay suficientes datos normalizados para recomendar cambios de carga.</p></section>
+<footer><a class="ad-button" href="../../index.html">← HUB</a><button class="ad-button" id="refresh">ACTUALIZAR</button></footer></main>
+<script src="./app.js"></script><script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=6"></script></body></html>
