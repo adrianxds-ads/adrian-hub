@@ -13,6 +13,8 @@ Consume Adrián Core directamente desde GitHub Pages:
 
 Así el Hub sirve como primer consumidor real de la fuente visual central.
 
+También consume `components/adrian-keyboard.js?v=401`. El buscador del Hub es el primer campo activo con el Teclado Adrián v4: QWERTY compacto, ES/CA/EN, mayúsculas, pulsación larga para acentos y pantalla `123`.
+
 ## Apps actuales
 - Adaptive English
 - Cambridge B2
