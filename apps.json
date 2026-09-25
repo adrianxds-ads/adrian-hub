@@ -1,8 +1,9 @@
 {
-  "version": 5,
+  "version": 6,
   "apps": [
     {"id":"english","name":"Adaptive English","subtitle":"Inglés adaptativo","group":"Estudio","kind":"pwa-study","url":"https://adrianxds-ads.github.io/adaptive-english/","repo":"https://github.com/adrianxds-ads/adaptive-english","glyph":"EN"},
     {"id":"phrasal-verbs","name":"Phrasal Verbs","subtitle":"B2 · 50 esenciales adaptativos","group":"Estudio","kind":"pwa-study","url":"https://adrianxds-ads.github.io/adaptive-phrasal-verbs/","repo":"https://github.com/adrianxds-ads/adaptive-phrasal-verbs","glyph":"PV"},
+    {"id":"b2-cloze","name":"B2 Multiple-Choice Cloze","subtitle":"Part 1 · 120 preguntas · 20 s","group":"Estudio","kind":"pwa-study","url":"https://adrianxds-ads.github.io/b2-multiple-choice-cloze/","repo":"https://github.com/adrianxds-ads/b2-multiple-choice-cloze","glyph":"MC"},
     {"id":"cambridge","name":"Cambridge B2","subtitle":"Exámenes y práctica B2","group":"Estudio","kind":"pwa-exam","url":"https://adrianxds-ads.github.io/adaptive-exam/","repo":"https://github.com/adrianxds-ads/adaptive-exam","glyph":"B2"},
     {"id":"catala","name":"Català · Verbs","subtitle":"Verbos y automatización","group":"Estudio","kind":"pwa-study","url":"https://adrianxds-ads.github.io/adaptive-verbs-catala/","repo":"https://github.com/adrianxds-ads/adaptive-verbs-catala","glyph":"CA"},
     {"id":"hoti0108","name":"HOTI0108","subtitle":"Estudio, flashcards y examen","group":"Estudio","kind":"pwa-study","url":"https://adrianxds-ads.github.io/adaptive-hoti0108/","repo":"https://github.com/adrianxds-ads/adaptive-hoti0108","glyph":"HT"},
