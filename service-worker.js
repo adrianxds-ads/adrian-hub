@@ -1,4 +1,4 @@
-const CACHE='adrian-hub-v8-dc-inbox';
+const CACHE='adrian-hub-v9-dc-inbox-ticktick';
 const PAYLOADS='dc-inbox-payloads';
 const SHELL=['./','./index.html','./chatgpt.html','./styles.css','./app.js','./apps.json','./manifest.webmanifest','./icon.svg','./apps/dc-inbox/','./apps/dc-inbox/index.html','./apps/dc-inbox/styles.css','./apps/dc-inbox/app.js'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));

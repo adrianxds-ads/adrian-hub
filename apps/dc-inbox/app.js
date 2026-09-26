@@ -1,12 +1,20 @@
 const STORE='dcInboxHistoryV1';
+const BRIDGE='https://adrin.tail8fd071.ts.net/dc-inbox';
 const $=s=>document.querySelector(s);
 const els={badge:$('#sourceBadge'),status:$('#statusText'),title:$('#itemTitle'),text:$('#itemText'),files:$('#files'),route:$('#routeText'),result:$('#result'),history:$('#history')};
 let current=null;
 const clean=s=>(s||'').toString().trim();
 const short=(s,n=220)=>s.length>n?s.slice(0,n-1)+'…':s;
 const esc=s=>clean(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function taskRoute(x,hay){
+  if(x.url||(x.files||[]).length) return '';
+  const t=clean(x.title||x.text).toLocaleLowerCase('es');
+  const verbs=/^(comprar|llamar|mandar|enviar|hacer|pagar|pedir|recoger|reservar|revisar|buscar|firmar|llevar|traer|cancelar|renovar|solicitar|responder|escribir|preparar|devolver|ir|sacar|poner|mirar|comprobar|arreglar|limpiar|pedir|recordar)\b/;
+  return verbs.test(t)?'TickTick · Inbox':'';
+}
 function classify(x){
   const hay=[x.title,x.text,x.url,...(x.files||[]).map(f=>f.name)].join(' ').toLocaleLowerCase('es');
+  const task=taskRoute(x,hay); if(task) return task;
   if(/indeed|linkedin|empleo|trabajo|oferta|vacante|candidatura|curr[ií]culum|cv\b/.test(hay)) return 'Empleo';
   if(/hoti0108|mf1074|uf008|turismo|actividad|instituci[oó] pau casals/.test(hay)) return 'HOTI0108';
   if(/generalitat|abogado|autofirma|ok mobility|notificaci[oó]n|recurso|tr[aá]mite/.test(hay)) return 'Documentos · gestiones';
@@ -41,10 +49,28 @@ function saveCurrent(status){
   localStorage.setItem(STORE,JSON.stringify(rows.slice(0,80)));
   drawHistory();
 }
-function action(mode){
+async function bridgeTask(){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),7000);
+  try{
+    const res=await fetch(BRIDGE+'/task',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({source_id:current.id,title:current.title,source:current.source})});
+    const data=await res.json();
+    if(!res.ok||!data.ok) throw new Error(data.error||'puente no disponible');
+    saveCurrent(data.duplicate?'TickTick · ya existía':'TickTick · creado');
+    els.result.textContent=data.duplicate?'✓ Ya estaba enviado a TickTick.':'✓ Creado en TickTick.';
+  }finally{clearTimeout(timer)}
+}
+async function action(mode){
   if(!current){els.result.textContent='Primero comparte o pega algo.';return}
-  if(mode==='auto'){saveCurrent('Clasificado');els.result.textContent=`Clasificado → ${current.route}`;}
-  if(mode==='pc'){saveCurrent('Pendiente de puente DC');els.result.textContent='En cola para enviarlo al PC cuando activemos el puente DC.';}
+  if(mode==='auto'){
+    if(current.route.startsWith('TickTick')){
+      els.status.textContent='Enviando a TickTick…'; els.result.textContent='';
+      try{await bridgeTask();els.status.textContent='Acción completada'}
+      catch(e){els.status.textContent='Puente no disponible';els.result.textContent='No se creó la tarea. Puedes guardarla y reintentar después.'}
+      return;
+    }
+    saveCurrent('Clasificado');els.result.textContent=`Clasificado → ${current.route}`;
+  }
+  if(mode==='pc'){saveCurrent('Pendiente de puente DC');els.result.textContent='Guardado para enviar al PC en la siguiente fase.';}
   if(mode==='later'){saveCurrent('Guardado');els.result.textContent='Guardado en DC Inbox.';}
 }async function loadShared(){
   const id=new URLSearchParams(location.search).get('share');
