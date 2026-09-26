@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518">
+<title>DC Inbox · Adrián Hub</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+<a class="back" href="../../">‹ Hub</a>
+<header><p class="eyebrow">DC · CAPTURA UNIVERSAL</p><h1>DC Inbox</h1><p>Comparte aquí enlaces, texto, imágenes o PDF. Se clasifican y quedan listos para su destino.</p></header>
+<section class="card"><div class="statusline"><span id="sourceBadge">ENTRADA</span><strong id="statusText">Esperando captura</strong></div><h2 id="itemTitle">Nada compartido todavía</h2><p id="itemText">Usa Compartir → Adrián Hub desde cualquier app.</p><div id="files" class="files"></div><div class="route"><span>Destino sugerido</span><b id="routeText">Inbox general</b></div><div class="actions"><button id="autoBtn">AUTOMÁTICO</button><button id="pcBtn">AL PC</button><button id="laterBtn">GUARDAR</button></div><p id="result" class="result"></p></section>
+<section class="card manual"><h2>Captura manual</h2><textarea id="manualInput" rows="4" placeholder="Pega un enlace, texto o una nota…"></textarea><button id="manualBtn">PROCESAR</button></section>
+<section><div class="sectiontitle"><h2>Últimas capturas</h2><button id="clearBtn" class="ghost">Limpiar</button></div><div id="history" class="history"></div></section>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
