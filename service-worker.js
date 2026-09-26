@@ -1,8 +1,9 @@
-const CACHE='adrian-hub-v10-dc-inbox-pending';
+const CACHE_PREFIX='adrian-hub-';
+const CACHE='adrian-hub-v11-github-garden-dc-inbox';
 const PAYLOADS='dc-inbox-payloads';
 const SHELL=['./','./index.html','./chatgpt.html','./styles.css','./app.js','./apps.json','./manifest.webmanifest','./icon.svg','./apps/dc-inbox/','./apps/dc-inbox/index.html','./apps/dc-inbox/styles.css','./apps/dc-inbox/app.js'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE&&k!==PAYLOADS).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith(CACHE_PREFIX)&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 async function acceptShare(req){
   const fd=await req.formData(),id=Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);
   const files=fd.getAll('files').filter(v=>v instanceof File),cache=await caches.open(PAYLOADS),base=new URL('./__dc_share/',self.registration.scope);
