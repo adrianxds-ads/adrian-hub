@@ -65,7 +65,7 @@ async function action(mode){
     if(current.route.startsWith('TickTick')){
       els.status.textContent='Enviando a TickTick…'; els.result.textContent='';
       try{await bridgeTask();els.status.textContent='Acción completada'}
-      catch(e){els.status.textContent='Puente no disponible';els.result.textContent='No se creó la tarea. Puedes guardarla y reintentar después.'}
+      catch(e){saveCurrent('Pendiente TickTick');els.status.textContent='Pendiente';els.result.textContent='No se creó todavía. Desbloquea el Pixel y pulsa AUTOMÁTICO otra vez.'}
       return;
     }
     saveCurrent('Clasificado');els.result.textContent=`Clasificado → ${current.route}`;
