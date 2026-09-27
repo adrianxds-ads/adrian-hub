@@ -19,23 +19,24 @@
 <section class="daily-card ad-card">
 <div class="section-head"><div><span class="eyebrow">ENTRENAMIENTO DEL DÍA</span><h2 id="dailyDate">Hoy</h2></div><strong id="dailyCount">Sin plan</strong></div>
 <div id="dailyExercises" class="daily-exercises"></div>
-<div class="daily-actions"><button class="ad-button primary" id="playDaily">▶ PLAY DEL DÍA</button><button class="ad-button secondary" id="editDaily">EDITAR</button></div>
+<div class="daily-actions"><button class="ad-button primary" id="playDaily">▶ PLAY DEL DÍA</button><button class="ad-button secondary" id="editDaily">EDITAR RUTINA</button></div>
 </section>
 
-<section class="run-shell ad-card" id="setupView">
-<div class="section-head"><div><span class="eyebrow">BIBLIOTECA</span><h2>Construye la rutina</h2></div><strong id="selectedCount">0 ejercicios</strong></div>
+<section class="run-shell ad-card hidden" id="setupView">
+<div class="section-head"><div><span class="eyebrow">BIBLIOTECA</span><h2>Construye la rutina</h2></div><div class="setup-head-actions"><strong id="selectedCount">0 ejercicios</strong><button class="mini" id="closeSetup">CERRAR</button></div></div>
 <div class="template-row" id="templates"></div>
 <p class="hint">Selecciona solo ejercicios que tengas pautados y toleres bien. Si un movimiento molesta, se salta.</p>
-<div class="exercise-list" id="exerciseList"></div>
 <div class="plan-actions">
 <button class="ad-button secondary" id="saveToday">GUARDAR HOY</button>
 <button class="ad-button secondary" id="saveTomorrow">GUARDAR MAÑANA</button>
 </div>
+<div class="exercise-list" id="exerciseList"></div>
 <div class="setup-actions">
 <button class="ad-button secondary" id="clearSelection">LIMPIAR</button>
 <button class="ad-button primary" id="startWorkout">▶ START GYM RUN</button>
 </div>
 </section>
+<div class="selection-dock hidden" id="selectionDock"><span><b id="dockCount">0</b> ejercicios</span><button id="startWorkoutDock">▶ START</button></div>
 
 <section class="run-shell ad-card hidden" id="runView">
 <div class="session-strip">
@@ -47,10 +48,11 @@
 
 <div class="coach-row">
 <label>ENTRENADOR
-<select id="coachMode"><option value="tones">TONOS</option><option value="voice">VOZ 1·2·3·4</option><option value="ticks">TIC-TIC</option></select>
+<select id="coachMode"><option value="voice">COACH VOZ</option><option value="tones">TONOS</option><option value="ticks">TIC-TIC</option></select>
 </label>
 <div class="tempo-info"><span>RITMO</span><b id="tempoInfo">4 s / rep</b></div>
 </div>
+<div class="coach-cue" id="coachCue">EMPUJA · VUELVE</div>
 
 <div class="number-grid">
 <div class="number-box"><span>KG</span><div class="stepper"><button data-step="kg" data-delta="-5">−</button><input id="kgInput" type="number" inputmode="decimal" step="0.5"><button data-step="kg" data-delta="5">+</button></div></div>
