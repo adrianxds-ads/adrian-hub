@@ -12,33 +12,59 @@
 <body>
 <main class="app">
 <header class="hero">
-<div><p class="kicker">HUB · ENTRENAMIENTO 2.0</p><h1>ADAPTIVE GYM</h1><p>Una serie cada vez. Mismo lenguaje de juego.</p></div>
+<div><p class="kicker">HUB · ENTRENAMIENTO 2.0</p><h1>ADAPTIVE GYM</h1><p>Rutina, ritmo, descanso y progreso.</p></div>
 <div class="hero-actions"><button id="soundBtn" class="mini">SOUND ON</button><a class="mini" href="../../index.html">← HUB</a></div>
 </header>
 
+<section class="daily-card ad-card">
+<div class="section-head"><div><span class="eyebrow">ENTRENAMIENTO DEL DÍA</span><h2 id="dailyDate">Hoy</h2></div><strong id="dailyCount">Sin plan</strong></div>
+<div id="dailyExercises" class="daily-exercises"></div>
+<div class="daily-actions"><button class="ad-button primary" id="playDaily">▶ PLAY DEL DÍA</button><button class="ad-button secondary" id="editDaily">EDITAR</button></div>
+</section>
+
 <section class="run-shell ad-card" id="setupView">
-<div class="section-head"><div><span class="eyebrow">GYM RUN</span><h2>Elige la ronda</h2></div><strong id="selectedCount">0 ejercicios</strong></div>
+<div class="section-head"><div><span class="eyebrow">BIBLIOTECA</span><h2>Construye la rutina</h2></div><strong id="selectedCount">0 ejercicios</strong></div>
 <div class="template-row" id="templates"></div>
-<p class="hint">Las plantillas antiguas son biblioteca. Ajusta la selección a lo que tengas pautado y salta cualquier ejercicio que no sea tolerado.</p>
+<p class="hint">Selecciona solo ejercicios que tengas pautados y toleres bien. Si un movimiento molesta, se salta.</p>
 <div class="exercise-list" id="exerciseList"></div>
+<div class="plan-actions">
+<button class="ad-button secondary" id="saveToday">GUARDAR HOY</button>
+<button class="ad-button secondary" id="saveTomorrow">GUARDAR MAÑANA</button>
+</div>
 <div class="setup-actions">
 <button class="ad-button secondary" id="clearSelection">LIMPIAR</button>
-<button class="ad-button primary" id="startWorkout">START GYM RUN</button>
+<button class="ad-button primary" id="startWorkout">▶ START GYM RUN</button>
 </div>
 </section>
 
 <section class="run-shell ad-card hidden" id="runView">
+<div class="session-strip">
+<div><span>SESIÓN</span><b id="sessionClock">00:00</b></div>
+<button id="sessionPause" class="session-pause">Ⅱ PAUSA</button>
+</div>
 <div class="run-top"><div><span class="eyebrow" id="runProgress">EJERCICIO 1/1</span><h2 id="runName">—</h2><p id="runMeta">—</p></div><button class="mini danger" id="skipExercise">SALTAR</button></div>
 <div class="note hidden" id="runNote"></div>
+
+<div class="coach-row">
+<label>ENTRENADOR
+<select id="coachMode"><option value="tones">TONOS</option><option value="voice">VOZ 1·2·3·4</option><option value="ticks">TIC-TIC</option></select>
+</label>
+<div class="tempo-info"><span>RITMO</span><b id="tempoInfo">4 s / rep</b></div>
+</div>
 
 <div class="number-grid">
 <div class="number-box"><span>KG</span><div class="stepper"><button data-step="kg" data-delta="-5">−</button><input id="kgInput" type="number" inputmode="decimal" step="0.5"><button data-step="kg" data-delta="5">+</button></div></div>
 <div class="number-box"><span>REPS</span><div class="stepper"><button data-step="reps" data-delta="-1">−</button><input id="repsInput" type="number" inputmode="numeric" min="0"><button data-step="reps" data-delta="1">+</button></div></div>
 </div>
 
+<div class="tempo-stage">
+<div class="rep-readout"><span>REP</span><b id="repReadout">—</b></div>
+<div class="beat-readout" id="beatReadout"><i>1</i><i>2</i><i>3</i><i>4</i></div>
+</div>
+
 <div class="timer-stage" id="timerStage">
-<div class="timer-ring" id="timerRing"><b id="timerText">00:45</b><span id="timerLabel">SERIE 1/2</span></div>
-<button class="start-set" id="timerAction">START SERIE</button>
+<div class="timer-ring" id="timerRing"><b id="timerText">00:44</b><span id="timerLabel">SERIE 1/2</span></div>
+<button class="start-set" id="timerAction">▶ START SERIE</button>
 </div>
 <div class="run-actions"><button class="ad-button secondary" id="finishWorkout">FINALIZAR</button><button class="ad-button secondary" id="completeNow">SERIE HECHA</button></div>
 </section>
