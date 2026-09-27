@@ -13,14 +13,15 @@
 <main class="shell">
 <a class="back" href="../../">‹ Hub</a>
 <header><p class="eyebrow">TDAH · TRANSICIONES</p><h1>Cambio</h1><p>Soltar una actividad, aterrizar en la siguiente y dejar constancia de que la hiciste.</p></header>
-<section class="card" id="chooseView">
+<section class="card choose-card" id="chooseView">
 <p class="step">1 · ¿QUÉ VAS A HACER AHORA?</p>
-<div class="targets" id="targets"></div>
-<div id="customSaved" class="saved-targets"></div>
 <div class="custom-box">
-<label for="customTask">TAREA PERSONALIZADA</label>
-<div class="custom-row"><input id="customTask" type="text" placeholder="Ej. Mandar carta a la Generalitat" autocomplete="off"><button id="customBtn">USAR</button></div>
+<label for="customTask">ESCRIBE LA TAREA</label>
+<div class="custom-row"><textarea id="customTask" class="task-input" rows="2" placeholder="Ej. SACAR LA ROPA DE LA LAVADORA" data-ad-keyboard="es" inputmode="none" autocomplete="off" autocorrect="off" spellcheck="false"></textarea><button id="customBtn">USAR TAREA</button></div>
 </div>
+<div id="customSaved" class="saved-targets"></div>
+<p class="preset-label">O ELIGE UNA HABITUAL</p>
+<div class="targets" id="targets"></div>
 <div class="duration-box"><span>TIEMPO DE TAREA</span><div class="duration-chips" id="durationChips"></div><div class="minutes-row"><input id="minutesInput" type="number" min="1" max="240" value="25" inputmode="numeric"><b>min</b></div></div>
 <div class="audio-row"><button id="voiceBtn" class="toggle active">VOZ · SÍ</button><button id="ticksBtn" class="toggle active">TIC-TAC · SÍ</button></div>
 <button class="primary" id="startBtn" disabled>EMPEZAR CAMBIO · 2 MIN</button>
@@ -33,10 +34,17 @@
 <div class="actions"><button id="cancelBtn">CANCELAR</button><button class="primary" id="nextBtn">YA HE EMPEZADO</button></div>
 <button id="finishBtn" class="finish hidden">✓ TERMINAR ANTES Y GUARDAR</button>
 </section>
+<section class="card daily-card">
+<div class="daily-head"><div><span>RETO DE HOY</span><b><strong id="dailyScore">0</strong> / 15</b></div><em id="dailyRank">EMPEZAMOS</em></div>
+<div id="dailySteps" class="daily-steps" aria-label="Progreso diario de tareas"></div>
+<div id="dailyChart" class="daily-chart"></div>
+<small id="dayStamp" class="day-stamp"></small>
+</section>
 <section class="card stats"><div><span>HOY</span><strong id="todayCount">0</strong></div><div><span>7 DÍAS</span><strong id="weekCount">0</strong></div><div><span>TOTAL</span><strong id="totalCount">0</strong></div></section>
 <section><div class="sectiontitle"><h2>Diario de tareas hechas</h2><button id="resetBtn" class="ghost">Reiniciar</button></div><div id="history" class="history"></div></section>
 </main>
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-keyboard.js?v=410"></script>
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 </body>

@@ -11,3 +11,25 @@ button,input{font:inherit}button{min-height:48px;border:1px solid #35515b;border
 .stats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.stats div+div{border-left:1px solid var(--ad-border,#2a3a40)}.stats span{display:block;color:#9eb0b5;font-size:11px;font-weight:900;letter-spacing:.1em}.stats strong{display:block;margin-top:4px;font-size:28px}.sectiontitle{display:flex;align-items:center;justify-content:space-between;gap:12px}.sectiontitle h2{font-size:18px}.ghost{min-height:38px;padding:0 12px;background:transparent}
 .history{display:grid;gap:9px}.hist{padding:13px 14px;border:1px solid var(--ad-border,#2a3a40);border-radius:15px;background:#111d21}.hist b{display:block}.hist small{display:block;margin-top:5px;color:#9eb0b5}.hist em{display:block;margin-top:4px;color:#9ec29f;font-style:normal;font-size:13px;font-weight:800}.empty{padding:18px;text-align:center;color:#91a5aa}
 @media(max-width:560px){.shell{padding-inline:12px}.card{padding:16px}.targets{grid-template-columns:1fr}.target{min-height:56px}.actions{grid-template-columns:1fr}.custom-row{grid-template-columns:1fr}.rainbow-ring{width:min(76vw,300px)}}
+/* Cambio v3 · entrada protagonista + reto diario AVS */
+body{background:
+radial-gradient(circle at 8% 3%,rgba(122,165,236,.25),transparent 25%),
+radial-gradient(circle at 88% 12%,rgba(187,158,240,.18),transparent 28%),
+radial-gradient(circle at 55% 42%,rgba(50,164,143,.10),transparent 34%),
+var(--ad-bg,#0d1518)}
+.choose-card{border-color:rgba(122,165,236,.48);box-shadow:0 18px 45px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.04)}
+.custom-box{margin:0 0 15px;padding:16px;border:1px solid rgba(74,167,200,.48);border-radius:20px;background:linear-gradient(135deg,rgba(74,167,200,.16),rgba(122,165,236,.12) 52%,rgba(187,158,240,.13))}
+.custom-box label{color:#d8c7f6!important;font-size:12px!important}
+.custom-row{grid-template-columns:1fr}.task-input{width:100%;min-height:92px;box-sizing:border-box;resize:none;border:2px solid #4aa7c8!important;border-radius:17px!important;background:#101b20!important;color:#f5fbfc!important;padding:15px 16px!important;font:900 22px/1.25 system-ui!important;letter-spacing:.01em;box-shadow:inset 0 0 0 1px rgba(122,165,236,.16),0 0 0 0 rgba(74,167,200,0);transition:.18s ease}
+.task-input:focus{outline:0;border-color:#bb9ef0!important;box-shadow:0 0 0 4px rgba(187,158,240,.18),0 12px 28px rgba(0,0,0,.18)}.task-input::placeholder{color:#72878d;font-weight:750}
+#customBtn{min-height:52px;background:linear-gradient(90deg,#4aa7c8,#7aa5ec,#bb9ef0);border:0;color:#071014;font-size:15px}
+.preset-label{margin:14px 0 9px;color:#9eb0b5;font-size:11px;font-weight:950;letter-spacing:.1em}
+.target{position:relative;overflow:hidden}.target:before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none}.target:nth-child(1):before{background:#57965a}.target:nth-child(2):before{background:#4aa7c8}.target:nth-child(3):before{background:#7aa5ec}.target:nth-child(4):before{background:#bb9ef0}.target:nth-child(5):before{background:#e7bf57}.target b,.target small{position:relative;z-index:1}
+.saved-target{border-color:rgba(187,158,240,.38);background:rgba(187,158,240,.09)}
+.duration-chip:nth-child(1){border-color:#904311}.duration-chip:nth-child(2){border-color:#90570c}.duration-chip:nth-child(3){border-color:#57965a}.duration-chip:nth-child(4){border-color:#4aa7c8}.duration-chip:nth-child(5){border-color:#bb9ef0}.duration-chip.selected{background:linear-gradient(90deg,#4aa7c8,#7aa5ec,#bb9ef0);border-color:transparent}
+#startBtn{min-height:58px;background:linear-gradient(90deg,#32a48f 0%,#4aa7c8 35%,#7aa5ec 66%,#bb9ef0 84%,#e7bf57 100%);border:0;font-size:16px;box-shadow:0 10px 26px rgba(74,167,200,.18)}
+.daily-card{overflow:hidden;border-color:rgba(231,191,87,.42);background:linear-gradient(160deg,rgba(21,33,38,.96),rgba(35,35,50,.94))}
+.daily-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:13px}.daily-head span{display:block;color:#96ccdf;font-size:11px;font-weight:950;letter-spacing:.12em}.daily-head b{display:block;margin-top:2px;font-size:29px;line-height:1}.daily-head b strong{font-size:44px}.daily-head em{font-style:normal;font-size:12px;font-weight:950;letter-spacing:.08em;padding:7px 10px;border-radius:999px;background:#1a272c;color:#c5d3d6}
+.daily-steps{display:grid;grid-template-columns:repeat(15,1fr);gap:4px;margin:4px 0 13px}.daily-step{height:16px;border-radius:5px;opacity:.16;transform:scaleY(.72);transition:.2s ease}.daily-step.done{opacity:1;transform:scaleY(1);box-shadow:0 0 9px color-mix(in srgb,currentColor 40%,transparent)}.daily-step.current{outline:2px solid rgba(255,255,255,.85);outline-offset:1px}
+.daily-chart{width:100%;overflow:hidden;border-radius:16px;background:#101815;border:1px solid rgba(255,255,255,.09)}.daily-chart svg{display:block;width:100%;height:auto}.day-stamp{display:block;margin-top:8px;text-align:right;color:#879a9f;font-weight:750}
+@media(max-width:560px){.task-input{min-height:104px;font-size:21px}.daily-head b strong{font-size:40px}.daily-steps{gap:3px}.daily-step{height:14px}}

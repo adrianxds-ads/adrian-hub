@@ -8,7 +8,8 @@ const presets=[
   {id:'gym',name:'Gimnasio',sub:'Prepararte y salir'}
 ];
 const $=s=>document.querySelector(s);
-const els={choose:$('#chooseView'),timerView:$('#timerView'),targets:$('#targets'),saved:$('#customSaved'),custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),sub:$('#timerSub'),ring:$('#timerRing'),instruction:$('#instruction'),next:$('#nextBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount')};
+const AVS=window.ADRIAN_VISUAL_SYSTEM?.ranks||[];
+const els={choose:$('#chooseView'),timerView:$('#timerView'),targets:$('#targets'),saved:$('#customSaved'),custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),sub:$('#timerSub'),ring:$('#timerRing'),instruction:$('#instruction'),next:$('#nextBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount'),dailyScore:$('#dailyScore'),dailyRank:$('#dailyRank'),dailySteps:$('#dailySteps'),dailyChart:$('#dailyChart'),dayStamp:$('#dayStamp')};
 let selected=null,active=null,tickId=null,audioCtx=null,lastTickSecond=null,wakeLock=null;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
@@ -136,16 +137,43 @@ function completeTask(early=false,expired=false){
   if(!active)return;
   const now=Date.now(),actualMs=active.taskStartedAt?Math.max(0,now-active.taskStartedAt):0,rows=history();
   rows.unshift({id:now.toString(36),name:active.target.name,completedAt:new Date(now).toISOString(),taskStartedAt:active.taskStartedAt?new Date(active.taskStartedAt).toISOString():null,transitionStartedAt:new Date(active.startedAt).toISOString(),plannedMinutes:active.plannedMinutes,actualMinutes:Math.max(1,Math.round(actualMs/60000)),early});
-  saveHistory(rows);const name=active.target.name;active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
+  saveHistory(rows);const name=active.target.name,todayN=rows.filter(r=>dayKey(r.completedAt)===dayKey(now)).length;active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
   els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;
   els.targets.querySelectorAll('.target').forEach(b=>b.classList.remove('selected'));els.saved.querySelectorAll('.saved-target').forEach(b=>b.classList.remove('selected'));drawStats();
-  if(!expired)playDone();setTimeout(()=>speak(expired?`Tiempo. ${name} queda guardado en tu diario.`:`Hecho. ${name} queda guardado en tu diario.`),650);
+  if(!expired)playDone();const msg=todayN===15?`Día oro. Quince tareas completadas hoy.`:todayN>15?`Hecho. Llevas ${todayN} tareas hoy. Ya estás por encima del día oro.`:`${expired?'Tiempo.':'Hecho.'} ${name}. Llevas ${todayN} de quince hoy.`;setTimeout(()=>speak(msg),650);
+}
+function rankInfo(n){
+  const fallback=['#422522','#512927','#632d2a','#762f32','#843729','#904311','#90570c','#8b6b05','#798136','#57965a','#32a48f','#4aa7c8','#7aa5ec','#bb9ef0','#e7bf57'];
+  const i=clamp(Math.round(n||1),1,15)-1,x=AVS[i]||{};
+  return {name:x.name||('Nivel '+(i+1)),color:x.color||fallback[i],band:x.band||x.color||fallback[i],text:x.text||'#eef5f7'};
+}
+function dailyChartHtml(rows){
+  const sorted=[...rows].sort((a,b)=>new Date(a.completedAt)-new Date(b.completedAt));
+  const w=720,h=260,L=38,R=13,T=14,B=31,maxY=15,now=new Date(),start=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime(),end=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1).getTime();
+  const xFor=ts=>L+clamp((ts-start)/(end-start),0,1)*(w-L-R),yFor=v=>T+((maxY-clamp(v,0,maxY))/maxY)*(h-T-B);
+  const bands=Array.from({length:15},(_,i)=>{const x=rankInfo(i+1);return `<rect x="${L}" y="${yFor(i+1)}" width="${w-L-R}" height="${Math.max(1,yFor(i)-yFor(i+1))}" fill="${x.band}" fill-opacity=".60"/>`}).join('');
+  const grid=[0,5,10,15].map(v=>`<line x1="${L}" y1="${yFor(v)}" x2="${w-R}" y2="${yFor(v)}" stroke="rgba(255,255,255,.22)"/><text x="${L-8}" y="${yFor(v)+4}" text-anchor="end" fill="#c5d3d6" font-size="11" font-weight="850">${v}</text>`).join('');
+  const hours=[0,6,12,18,24].map(hr=>{const ts=hr===24?end:new Date(now.getFullYear(),now.getMonth(),now.getDate(),hr).getTime();return `<text x="${xFor(ts)}" y="${h-10}" text-anchor="${hr===0?'start':hr===24?'end':'middle'}" fill="#b5c5c9" font-size="11" font-weight="800">${String(hr).padStart(2,'0')}:00</text>`}).join('');
+  const pts=sorted.map((r,i)=>({r,v:i+1,x:xFor(new Date(r.completedAt).getTime()),y:yFor(Math.min(15,i+1))}));
+  const shadow=pts.length>1?`<polyline points="${pts.map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')}" fill="none" stroke="#050806" stroke-opacity=".75" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`:'';
+  const segments=pts.slice(1).map((q,i)=>`<line x1="${pts[i].x}" y1="${pts[i].y}" x2="${q.x}" y2="${q.y}" stroke="${rankInfo(Math.min(15,q.v)).color}" stroke-width="4" stroke-linecap="round"/>`).join('');
+  const dots=pts.map(q=>{const ri=rankInfo(Math.min(15,q.v)),time=new Date(q.r.completedAt).toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});return `<circle cx="${q.x}" cy="${q.y}" r="5" fill="${ri.color}" stroke="${ri.text}" stroke-width="2"><title>${q.v}. ${esc(q.r.name||q.r.target||'Tarea')} · ${time}</title></circle>`}).join('');
+  const empty=!pts.length?`<text x="${(L+w-R)/2}" y="${h/2}" text-anchor="middle" fill="#9eb0b5" font-size="16" font-weight="850">TU PRIMERA TAREA PONDRÁ EL PRIMER PUNTO</text>`:'';
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet"><rect x="${L}" y="${T}" width="${w-L-R}" height="${h-T-B}" rx="10" fill="#101815"/>${bands}${grid}<line x1="${L}" y1="${yFor(15)}" x2="${w-R}" y2="${yFor(15)}" stroke="#f1da9e" stroke-width="2" stroke-dasharray="7 6"/>${shadow}${segments}${dots}${hours}${empty}</svg>`;
+}
+function renderDaily(todayRows){
+  const count=todayRows.length,rank=Math.min(15,count),ri=rank?rankInfo(rank):null;
+  els.dailyScore.textContent=String(count);
+  els.dailyRank.textContent=count>=15?`ORO · META 15${count>15?' +'+(count-15):''}`:rank?`${rank}/15 · ${ri.name.toLocaleUpperCase('es')}`:'EMPEZAMOS';
+  els.dailyRank.style.color=ri?.text||'#c5d3d6';els.dailyRank.style.border=`1px solid ${ri?.color||'#35515b'}`;els.dailyRank.style.background=ri?.band||'#1a272c';
+  els.dailySteps.innerHTML=Array.from({length:15},(_,i)=>{const x=rankInfo(i+1),done=i<count,current=i===Math.min(count,15)-1;return `<i class="daily-step ${done?'done':''} ${current?'current':''}" style="background:${x.color};color:${x.color}" title="${i+1} · ${esc(x.name)}"></i>`}).join('');
+  els.dailyChart.innerHTML=dailyChartHtml(todayRows);
+  els.dayStamp.textContent=new Date().toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'}).toLocaleUpperCase('es');
 }
 function drawStats(){
-  const rows=history(),today=dayKey(Date.now()),weekAgo=Date.now()-7*24*60*60*1000;
-  els.today.textContent=rows.filter(r=>dayKey(r.completedAt)===today).length;
-  els.week.textContent=rows.filter(r=>new Date(r.completedAt).getTime()>=weekAgo).length;
-  els.total.textContent=rows.length;
+  const rows=history(),today=dayKey(Date.now()),weekAgo=Date.now()-7*24*60*60*1000,todayRows=rows.filter(r=>dayKey(r.completedAt)===today);
+  els.today.textContent=todayRows.length;els.week.textContent=rows.filter(r=>new Date(r.completedAt).getTime()>=weekAgo).length;els.total.textContent=rows.length;
+  renderDaily(todayRows);
   els.history.innerHTML=rows.length?rows.slice(0,20).map(r=>{
     const when=new Date(r.completedAt),mins=r.actualMinutes||r.plannedMinutes,planned=r.plannedMinutes?` · objetivo ${r.plannedMinutes} min`:'';
     return `<div class="hist"><b>✓ ${esc(r.name||r.target||'Tarea')}</b><small>${esc(when.toLocaleString('es-ES'))}</small><em>${mins?`${mins} min realizados`:'Completada'}${planned}</em></div>`;
@@ -156,7 +184,7 @@ els.customBtn.onclick=()=>{
   const minutes=clamp(Math.round(Number(els.minutes.value)||25),1,240);
   saveCustomTask(name,minutes);selectTarget({id:'custom-new',name,sub:'Tarea personalizada',custom:true});
 };
-els.custom.addEventListener('keydown',e=>{if(e.key==='Enter')els.customBtn.click()});
+els.custom.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();els.customBtn.click()}});
 els.minutes.addEventListener('change',()=>setMinutes(els.minutes.value));
 els.voice.onclick=()=>{const s=settings();s.voice=!s.voice;saveSettings(s);renderAudio();if(s.voice)speak('Voz activada.')};
 els.ticks.onclick=async()=>{const s=settings();s.ticks=!s.ticks;saveSettings(s);renderAudio();if(s.ticks){await ensureAudio();playTick(true,0)}};
@@ -164,4 +192,5 @@ els.start.onclick=startTransition;els.cancel.onclick=cancelActive;els.next.oncli
 $('#resetBtn').onclick=()=>{localStorage.removeItem(STORE);localStorage.removeItem(OLD_STORE);drawStats()};
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&active)acquireWakeLock()});
 renderTargets();drawStats();restoreActive();
+let renderedDay=dayKey(Date.now());setInterval(()=>{const d=dayKey(Date.now());if(d!==renderedDay){renderedDay=d;drawStats()}},30000);
 if(active){showActive();runTimer();acquireWakeLock()}
