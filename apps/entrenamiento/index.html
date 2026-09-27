@@ -1,14 +1,66 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0d1518"><title>Entrenamiento 2.0 · Hub</title>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518">
+<title>Adaptive Gym · Hub</title>
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
-<link rel="stylesheet" href="./styles.css"></head><body>
-<main class="app"><header class="hero"><div><p class="kicker">HUB · ENTRENAMIENTO 2.0</p><h1>GYM PRO</h1><p>Recuperación, cuerpo y actividad en una sola lectura.</p></div><div class="score"><b id="score">—</b><span>/100</span></div></header>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="app">
+<header class="hero">
+<div><p class="kicker">HUB · ENTRENAMIENTO 2.0</p><h1>ADAPTIVE GYM</h1><p>Una serie cada vez. Mismo lenguaje de juego.</p></div>
+<div class="hero-actions"><button id="soundBtn" class="mini">SOUND ON</button><a class="mini" href="../../index.html">← HUB</a></div>
+</header>
+
+<section class="run-shell ad-card" id="setupView">
+<div class="section-head"><div><span class="eyebrow">GYM RUN</span><h2>Elige la ronda</h2></div><strong id="selectedCount">0 ejercicios</strong></div>
+<div class="template-row" id="templates"></div>
+<p class="hint">Las plantillas antiguas son biblioteca. Ajusta la selección a lo que tengas pautado y salta cualquier ejercicio que no sea tolerado.</p>
+<div class="exercise-list" id="exerciseList"></div>
+<div class="setup-actions">
+<button class="ad-button secondary" id="clearSelection">LIMPIAR</button>
+<button class="ad-button primary" id="startWorkout">START GYM RUN</button>
+</div>
+</section>
+
+<section class="run-shell ad-card hidden" id="runView">
+<div class="run-top"><div><span class="eyebrow" id="runProgress">EJERCICIO 1/1</span><h2 id="runName">—</h2><p id="runMeta">—</p></div><button class="mini danger" id="skipExercise">SALTAR</button></div>
+<div class="note hidden" id="runNote"></div>
+
+<div class="number-grid">
+<div class="number-box"><span>KG</span><div class="stepper"><button data-step="kg" data-delta="-5">−</button><input id="kgInput" type="number" inputmode="decimal" step="0.5"><button data-step="kg" data-delta="5">+</button></div></div>
+<div class="number-box"><span>REPS</span><div class="stepper"><button data-step="reps" data-delta="-1">−</button><input id="repsInput" type="number" inputmode="numeric" min="0"><button data-step="reps" data-delta="1">+</button></div></div>
+</div>
+
+<div class="timer-stage" id="timerStage">
+<div class="timer-ring" id="timerRing"><b id="timerText">00:45</b><span id="timerLabel">SERIE 1/2</span></div>
+<button class="start-set" id="timerAction">START SERIE</button>
+</div>
+<div class="run-actions"><button class="ad-button secondary" id="finishWorkout">FINALIZAR</button><button class="ad-button secondary" id="completeNow">SERIE HECHA</button></div>
+</section>
+
+<section class="run-shell ad-card hidden" id="resultView">
+<span class="eyebrow">RUN COMPLETE</span><h2 id="resultTitle">Sesión guardada</h2>
+<div class="result-grid" id="resultGrid"></div>
+<button class="ad-button primary" id="anotherRun">NEXT RUN</button>
+</section>
+
+<section class="panel ad-card">
+<div class="section-head"><div><span class="eyebrow">HISTORIAL</span><h2>Tu gráfica</h2></div><strong id="historyLabel">Sin sesiones</strong></div>
+<div class="workout-chart" id="workoutChart"></div>
+</section>
+
 <section class="progress ad-card"><div><span>GYM PRO SCORE</span><strong id="scoreLabel">Esperando datos</strong></div><div class="track"><i id="scoreFill"></i></div></section>
 <section class="grid" id="metrics"></section>
-<section class="panel ad-card"><div class="head"><h2>Tendencia</h2><select id="chartMetric"><option value="weight">Peso</option><option value="rhr">FCR</option><option value="hrv">VFC</option><option value="sleep">Sueño</option><option value="steps">Pasos</option></select></div><div id="chart" class="chart"></div></section>
+<section class="panel ad-card"><div class="head"><h2>Tendencia corporal</h2><select id="chartMetric"><option value="weight">Peso</option><option value="rhr">FCR</option><option value="hrv">VFC</option><option value="sleep">Sueño</option><option value="steps">Pasos</option></select></div><div id="chart" class="chart"></div></section>
 <section class="panel ad-card"><h2>Estado de datos</h2><div id="sources" class="sources"></div></section>
 <section class="panel ad-card"><h2>Decisión de hoy</h2><p id="decision">Aún no hay suficientes datos normalizados para recomendar cambios de carga.</p></section>
-<footer><a class="ad-button" href="../../index.html">← HUB</a><button class="ad-button" id="refresh">ACTUALIZAR</button></footer></main>
-<script src="./app.js"></script><script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script></body></html>
+</main>
+<script src="./app.js"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
+</body>
+</html>
