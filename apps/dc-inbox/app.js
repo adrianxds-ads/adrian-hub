@@ -9,8 +9,10 @@ const esc=s=>clean(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 function taskRoute(x,hay){
   if(x.url||(x.files||[]).length) return '';
   const t=clean(x.title||x.text).toLocaleLowerCase('es');
-  const verbs=/^(comprar|llamar|mandar|enviar|hacer|pagar|pedir|recoger|reservar|revisar|buscar|firmar|llevar|traer|cancelar|renovar|solicitar|responder|escribir|preparar|devolver|ir|sacar|poner|mirar|comprobar|arreglar|limpiar|pedir|recordar)\b/;
-  return verbs.test(t)?'TickTick · Inbox':'';
+  const verbs=/(^|\b)(comprar|llamar|mandar|enviar|hacer|pagar|pedir|recoger|reservar|revisar|buscar|firmar|llevar|traer|cancelar|renovar|solicitar|responder|escribir|preparar|devolver|ir|sacar|poner|mirar|comprobar|arreglar|limpiar|recordar)\b/;
+  const cue=/\b(tengo que|hay que|debo|deber[ií]a|necesito|me toca|toca|recu[eé]rdame|acu[eé]rdame|recordarme|no olvidar|que no se me olvide)\b/;
+  const timed=/^(hoy|ma[nñ]ana|pasado ma[nñ]ana|esta tarde|esta noche|el (lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo))\b/;
+  return (/^(comprar|llamar|mandar|enviar|hacer|pagar|pedir|recoger|reservar|revisar|buscar|firmar|llevar|traer|cancelar|renovar|solicitar|responder|escribir|preparar|devolver|ir|sacar|poner|mirar|comprobar|arreglar|limpiar|recordar)\b/.test(t)||cue.test(t)||(timed.test(t)&&verbs.test(t)))?'TickTick · Inbox':'';
 }
 function classify(x){
   const hay=[x.title,x.text,x.url,...(x.files||[]).map(f=>f.name)].join(' ').toLocaleLowerCase('es');
@@ -66,6 +68,40 @@ async function bridgeTask(){
     return 'sent';
   }finally{clearTimeout(timer)}
 }
+function blobToBase64(blob){
+  return new Promise((resolve,reject)=>{
+    const r=new FileReader();
+    r.onerror=()=>reject(r.error||new Error('No pude leer el archivo'));
+    r.onload=()=>resolve(String(r.result||'').split(',')[1]||'');
+    r.readAsDataURL(blob);
+  });
+}
+async function captureFiles(){
+  const out=[]; let total=0;
+  for(const f of (current.files||[])){
+    if(!f.key) continue;
+    const res=await caches.match(f.key);
+    if(!res) continue;
+    const blob=await res.blob();
+    total+=blob.size;
+    if(blob.size>15*1024*1024||total>25*1024*1024) throw new Error('Archivo demasiado grande para enviar al PC');
+    out.push({name:f.name||'archivo',type:f.type||blob.type||'',size:blob.size,data_base64:await blobToBase64(blob)});
+  }
+  return out;
+}
+async function bridgeCapture(){
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);
+  try{
+    const files=await captureFiles();
+    const payload={source_id:current.id,source:current.source,title:current.title,text:current.text,url:current.url,route:current.route,files};
+    const res=await fetch(BRIDGE+'/capture',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify(payload)});
+    const data=await res.json();
+    if(!res.ok||!data.ok) throw new Error(data.error||'puente no disponible');
+    saveCurrent(data.duplicate?'PC · ya guardado':'PC · guardado');
+    els.result.textContent=data.duplicate?'✓ Ya estaba guardado en el PC.':'✓ Guardado en el PC.';
+    return 'saved';
+  }finally{clearTimeout(timer)}
+}
 async function action(mode){
   if(!current){els.result.textContent='Primero comparte o pega algo.';return}
   if(mode==='auto'){
@@ -75,9 +111,17 @@ async function action(mode){
       catch(e){saveCurrent('Pendiente de puente');els.status.textContent='Pendiente';els.result.textContent='No pude contactar con el puente DC. La captura queda guardada en este Inbox para reintentar.'}
       return;
     }
-    saveCurrent('Clasificado');els.result.textContent=`Clasificado → ${current.route}`;
+    els.status.textContent='Guardando en el PC…'; els.result.textContent='';
+    try{await bridgeCapture();els.status.textContent='Acción completada'}
+    catch(e){saveCurrent('Pendiente PC');els.status.textContent='Pendiente';els.result.textContent='No pude guardar en el PC todavía. La captura queda conservada en este Inbox.'}
+    return;
   }
-  if(mode==='pc'){saveCurrent('Pendiente de puente DC');els.result.textContent='Guardado para enviar al PC en la siguiente fase.';}
+  if(mode==='pc'){
+    els.status.textContent='Guardando en el PC…'; els.result.textContent='';
+    try{await bridgeCapture();els.status.textContent='Acción completada'}
+    catch(e){saveCurrent('Pendiente PC');els.status.textContent='Pendiente';els.result.textContent='No pude guardar en el PC todavía. La captura queda conservada en este Inbox.'}
+    return;
+  }
   if(mode==='later'){saveCurrent('Guardado');els.result.textContent='Guardado en DC Inbox.';}
 }async function loadShared(){
   const id=new URLSearchParams(location.search).get('share');
