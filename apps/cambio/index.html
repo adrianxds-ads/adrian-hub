@@ -12,22 +12,31 @@
 <body>
 <main class="shell">
 <a class="back" href="../../">‹ Hub</a>
-<header><p class="eyebrow">TDAH · TRANSICIONES</p><h1>Cambio</h1><p>El objetivo no es concentrarte más: es soltar una actividad y empezar la siguiente.</p></header>
+<header><p class="eyebrow">TDAH · TRANSICIONES</p><h1>Cambio</h1><p>Soltar una actividad, aterrizar en la siguiente y dejar constancia de que la hiciste.</p></header>
 <section class="card" id="chooseView">
-<p class="step">1 · ELIGE EL SIGUIENTE DESTINO</p>
+<p class="step">1 · ¿QUÉ VAS A HACER AHORA?</p>
 <div class="targets" id="targets"></div>
+<div id="customSaved" class="saved-targets"></div>
+<div class="custom-box">
+<label for="customTask">TAREA PERSONALIZADA</label>
+<div class="custom-row"><input id="customTask" type="text" placeholder="Ej. Mandar carta a la Generalitat" autocomplete="off"><button id="customBtn">USAR</button></div>
+</div>
+<div class="duration-box"><span>TIEMPO DE TAREA</span><div class="duration-chips" id="durationChips"></div><div class="minutes-row"><input id="minutesInput" type="number" min="1" max="240" value="25" inputmode="numeric"><b>min</b></div></div>
+<div class="audio-row"><button id="voiceBtn" class="toggle active">VOZ · SÍ</button><button id="ticksBtn" class="toggle active">TIC-TAC · SÍ</button></div>
 <button class="primary" id="startBtn" disabled>EMPEZAR CAMBIO · 2 MIN</button>
 </section>
 <section class="card hidden" id="timerView">
 <p class="step" id="phaseLabel">2 · SUELTA LO ANTERIOR</p>
 <h2 id="targetTitle">—</h2>
-<div class="timer" id="timer">02:00</div>
+<div class="rainbow-ring" id="timerRing"><div><b id="timer">02:00</b><span id="timerSub">TRANSICIÓN</span></div></div>
 <p id="instruction">Cierra lo anterior. Levántate. Prepara únicamente lo necesario para empezar.</p>
 <div class="actions"><button id="cancelBtn">CANCELAR</button><button class="primary" id="nextBtn">YA HE EMPEZADO</button></div>
+<button id="finishBtn" class="finish hidden">✓ TERMINAR ANTES Y GUARDAR</button>
 </section>
-<section class="card stats"><div><span>HOY</span><strong id="todayCount">0</strong></div><div><span>RACHA</span><strong id="streakCount">0</strong></div><div><span>TOTAL</span><strong id="totalCount">0</strong></div></section>
-<section><div class="sectiontitle"><h2>Últimos cambios</h2><button id="resetBtn" class="ghost">Reiniciar</button></div><div id="history" class="history"></div></section>
+<section class="card stats"><div><span>HOY</span><strong id="todayCount">0</strong></div><div><span>7 DÍAS</span><strong id="weekCount">0</strong></div><div><span>TOTAL</span><strong id="totalCount">0</strong></div></section>
+<section><div class="sectiontitle"><h2>Diario de tareas hechas</h2><button id="resetBtn" class="ghost">Reiniciar</button></div><div id="history" class="history"></div></section>
 </main>
+<script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 </body>
