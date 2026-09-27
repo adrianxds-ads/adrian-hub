@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518">
+<title>Cambio · Adrián Hub</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+<a class="back" href="../../">‹ Hub</a>
+<header><p class="eyebrow">TDAH · TRANSICIONES</p><h1>Cambio</h1><p>El objetivo no es concentrarte más: es soltar una actividad y empezar la siguiente.</p></header>
+<section class="card" id="chooseView">
+<p class="step">1 · ELIGE EL SIGUIENTE DESTINO</p>
+<div class="targets" id="targets"></div>
+<button class="primary" id="startBtn" disabled>EMPEZAR CAMBIO · 2 MIN</button>
+</section>
+<section class="card hidden" id="timerView">
+<p class="step" id="phaseLabel">2 · SUELTA LO ANTERIOR</p>
+<h2 id="targetTitle">—</h2>
+<div class="timer" id="timer">02:00</div>
+<p id="instruction">Cierra lo anterior. Levántate. Prepara únicamente lo necesario para empezar.</p>
+<div class="actions"><button id="cancelBtn">CANCELAR</button><button class="primary" id="nextBtn">YA HE EMPEZADO</button></div>
+</section>
+<section class="card stats"><div><span>HOY</span><strong id="todayCount">0</strong></div><div><span>RACHA</span><strong id="streakCount">0</strong></div><div><span>TOTAL</span><strong id="totalCount">0</strong></div></section>
+<section><div class="sectiontitle"><h2>Últimos cambios</h2><button id="resetBtn" class="ghost">Reiniciar</button></div><div id="history" class="history"></div></section>
+</main>
+<script src="./app.js"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
+</body>
+</html>
