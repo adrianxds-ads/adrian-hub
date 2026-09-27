@@ -50,13 +50,20 @@ function saveCurrent(status){
   drawHistory();
 }
 async function bridgeTask(){
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),7000);
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
   try{
     const res=await fetch(BRIDGE+'/task',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({source_id:current.id,title:current.title,source:current.source})});
     const data=await res.json();
-    if(!res.ok||!data.ok) throw new Error(data.error||'puente no disponible');
+    if(!res.ok&&!data.ok) throw new Error(data.error||'puente no disponible');
+    if(!data.ok) throw new Error(data.error||'puente no disponible');
+    if(data.queued){
+      saveCurrent(data.duplicate?'TickTick · sigue en cola':'TickTick · en cola');
+      els.result.textContent=data.duplicate?'⏳ Sigue en cola para TickTick.':'⏳ Guardado en cola. Se enviará automáticamente cuando el Pixel esté disponible.';
+      return 'queued';
+    }
     saveCurrent(data.duplicate?'TickTick · ya existía':'TickTick · creado');
     els.result.textContent=data.duplicate?'✓ Ya estaba enviado a TickTick.':'✓ Creado en TickTick.';
+    return 'sent';
   }finally{clearTimeout(timer)}
 }
 async function action(mode){
@@ -64,8 +71,8 @@ async function action(mode){
   if(mode==='auto'){
     if(current.route.startsWith('TickTick')){
       els.status.textContent='Enviando a TickTick…'; els.result.textContent='';
-      try{await bridgeTask();els.status.textContent='Acción completada'}
-      catch(e){saveCurrent('Pendiente TickTick');els.status.textContent='Pendiente';els.result.textContent='No se creó todavía. Desbloquea el Pixel y pulsa AUTOMÁTICO otra vez.'}
+      try{const state=await bridgeTask();els.status.textContent=state==='queued'?'En cola':'Acción completada'}
+      catch(e){saveCurrent('Pendiente de puente');els.status.textContent='Pendiente';els.result.textContent='No pude contactar con el puente DC. La captura queda guardada en este Inbox para reintentar.'}
       return;
     }
     saveCurrent('Clasificado');els.result.textContent=`Clasificado → ${current.route}`;
