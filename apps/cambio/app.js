@@ -249,10 +249,12 @@ function extendTask(){
   persistActive();showActive();speak('Vale, Adri. Quince minutos más. Sigue con la misma tarea.');
 }
 function paintTimer(left,total){
-  const remaining=clamp(Math.max(0,left)/Math.max(1,total),0,1),elapsed=1-remaining;
+  const remaining=clamp(Math.max(0,left)/Math.max(1,total),0,1),elapsed=1-remaining,visible=Math.max(.012,elapsed);
   const rank=elapsed>=.9999?15:clamp(1+Math.floor(Math.pow(elapsed,.65)*14),1,15),ri=rankInfo(rank);
-  const fg=rank>=10?'#071014':'#F6FBFC';
-  els.ring.style.setProperty('--timer-color',ri.color);els.ring.style.setProperty('--timer-fg',fg);els.ring.style.setProperty('--timer-progress',(elapsed*100).toFixed(2));
+  const progress=clamp(visible*100,0,100),angle=-90+progress*3.6;
+  els.ring.style.setProperty('--timer-progress',progress.toFixed(2));
+  els.ring.style.setProperty('--timer-angle',angle.toFixed(2)+'deg');
+  els.ring.style.setProperty('--timer-stage-color',ri.text||ri.color);
   els.timerStage.textContent=`${ri.name.toLocaleUpperCase('es')} · ${rank}/15`;
 }
 function runTimer(){
