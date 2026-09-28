@@ -16,14 +16,15 @@
 <section class="card choose-card" id="chooseView">
 <p class="step">1 · ¿QUÉ VAS A HACER AHORA?</p>
 <div class="custom-box">
-<label for="customTask">ESCRIBE LA TAREA</label>
-<div class="custom-row"><textarea id="customTask" class="task-input" rows="2" placeholder="Ej. SACAR LA ROPA DE LA LAVADORA" data-ad-keyboard="es" inputmode="none" autocomplete="off" autocorrect="off" spellcheck="false"></textarea><button id="customBtn">USAR TAREA</button></div>
+<label for="customTask">ESCRIBE UNA NUEVA TAREA</label>
+<div class="custom-row"><textarea id="customTask" class="task-input" rows="2" placeholder="Ej. MANDAR DOCUMENTO A LA GENERALITAT" data-ad-keyboard="es" inputmode="none" autocomplete="off" autocorrect="off" spellcheck="false"></textarea><button id="customBtn">AÑADIR Y USAR</button></div>
 </div>
-<div id="customSaved" class="saved-targets"></div>
-<p class="preset-label">O ELIGE UNA HABITUAL</p>
-<div class="targets" id="targets"></div>
+<div class="library-head"><div><span>BIBLIOTECA DE TAREAS</span><b id="libraryCount">0 activas</b></div><small>Toca una para usarla</small></div>
+<div class="targets task-library" id="targets"></div>
+<details class="archive-panel" id="archivePanel"><summary>ARCHIVO · <span id="archiveCount">0</span></summary><div id="archiveList" class="archive-list"></div></details>
 <div class="duration-box"><span>TIEMPO DE TAREA</span><div class="duration-chips" id="durationChips"></div><div class="minutes-row"><input id="minutesInput" type="number" min="1" max="240" value="25" inputmode="numeric"><b>min</b></div></div>
-<div class="audio-row"><button id="voiceBtn" class="toggle active">VOZ · SÍ</button><button id="ticksBtn" class="toggle active">TIC-TAC · SÍ</button></div>
+<div class="preamble-box"><span>PREÁMBULO</span><div class="preamble-grid"><label>LEVANTARME<div><input id="transitionInput" type="number" min="1" max="10" value="2" inputmode="numeric"><b>min</b></div></label><label>PREPARARME<div><input id="prepInput" type="number" min="1" max="15" value="5" inputmode="numeric"><b>min</b></div></label></div></div>
+<div class="audio-row"><button id="voiceBtn" class="toggle active">VOZ · SÍ</button><button id="ticksBtn" class="toggle active">TIC-TAC · SÍ</button><button id="nameBtn" class="toggle active">ME LLAMAS · ADRI</button></div>
 <button class="primary" id="startBtn" disabled>EMPEZAR CAMBIO · 2 MIN</button>
 </section>
 <section class="card hidden" id="timerView">
@@ -31,6 +32,7 @@
 <h2 id="targetTitle">—</h2>
 <div class="rainbow-ring" id="timerRing"><div><b id="timer">02:00</b><span id="timerSub">TRANSICIÓN</span></div></div>
 <p id="instruction">Cierra lo anterior. Levántate. Prepara únicamente lo necesario para empezar.</p>
+<div id="coachLine" class="coach-line">Venga, Adri. Solo hay que hacer el cambio.</div>
 <div class="actions"><button id="cancelBtn">CANCELAR</button><button class="primary" id="nextBtn">YA HE EMPEZADO</button></div>
 <button id="finishBtn" class="finish hidden">✓ TERMINAR ANTES Y GUARDAR</button>
 </section>

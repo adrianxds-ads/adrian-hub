@@ -1,57 +1,172 @@
-const STORE='cambioHistoryV2',OLD_STORE='cambioHistoryV1',ACTIVE='cambioActiveV2',CUSTOM='cambioCustomTasksV1',SETTINGS='cambioSettingsV1';
-const TRANSITION_MS=2*60*1000,PREP_MS=5*60*1000,DURATIONS=[10,15,25,45,60];
-const presets=[
-  {id:'anki',name:'Anki',sub:'Hacer tarjetas, no configurar'},
-  {id:'hoti',name:'HOTI0108',sub:'Entrar y hacer la siguiente tarea'},
-  {id:'empleo',name:'Buscar trabajo',sub:'Abrir ofertas y actuar'},
-  {id:'limpieza',name:'Limpieza',sub:'Una acción física concreta'},
-  {id:'gym',name:'Gimnasio',sub:'Prepararte y salir'}
+const STORE='cambioHistoryV2',OLD_STORE='cambioHistoryV1',ACTIVE='cambioActiveV2',CUSTOM='cambioCustomTasksV1',TASKS='cambioTaskLibraryV1',SETTINGS='cambioSettingsV1';
+const DURATIONS=[10,15,25,45,60];
+const DEFAULT_TASKS=[
+  {id:'laundry',name:'Sacar ropa de la lavadora y tender',aliases:['Sacar la ropa de la lavadora'],sub:'Lavadora · tender',category:'Casa',minutes:10},
+  {id:'dishes',name:'Lavar los platos',sub:'Cocina · dejar fregadero libre',category:'Casa',minutes:15},
+  {id:'tidy',name:'Recoger un poco',aliases:['Limpieza'],sub:'Quince minutos de orden visible',category:'Casa',minutes:15},
+  {id:'living',name:'Despejar el salón',sub:'Recoger superficies y suelo',category:'Casa',minutes:15},
+  {id:'kitchen',name:'Recoger la cocina',sub:'Orden rápido de cocina',category:'Casa',minutes:20},
+  {id:'bathroom',name:'Recoger el baño',sub:'Orden rápido de baño',category:'Casa',minutes:20},
+  {id:'hoti',name:'Hacer el curso HOTI0108',aliases:['HOTI0108'],sub:'Abrir la siguiente tarea y avanzar',category:'Curso',minutes:25},
+  {id:'english',name:'Estudiar inglés',sub:'Entrenamiento de inglés',category:'Idiomas',minutes:25},
+  {id:'anki',name:'Hacer Anki',aliases:['Anki'],sub:'Tarjetas, no configurar el sistema',category:'Idiomas',minutes:15},
+  {id:'empleo',name:'Buscar trabajo',sub:'Abrir ofertas y actuar',category:'Trabajo',minutes:25},
+  {id:'gym',name:'Gimnasio',sub:'Prepararte, salir y entrenar',category:'Salud',minutes:60}
 ];
 const $=s=>document.querySelector(s);
 const AVS=window.ADRIAN_VISUAL_SYSTEM?.ranks||[];
-const els={choose:$('#chooseView'),timerView:$('#timerView'),targets:$('#targets'),saved:$('#customSaved'),custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),sub:$('#timerSub'),ring:$('#timerRing'),instruction:$('#instruction'),next:$('#nextBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount'),dailyScore:$('#dailyScore'),dailyRank:$('#dailyRank'),dailySteps:$('#dailySteps'),dailyChart:$('#dailyChart'),dayStamp:$('#dayStamp')};
+const els={
+  choose:$('#chooseView'),timerView:$('#timerView'),targets:$('#targets'),archiveList:$('#archiveList'),archiveCount:$('#archiveCount'),libraryCount:$('#libraryCount'),
+  custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),transition:$('#transitionInput'),prep:$('#prepInput'),
+  voice:$('#voiceBtn'),ticks:$('#ticksBtn'),nameBtn:$('#nameBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),sub:$('#timerSub'),
+  ring:$('#timerRing'),instruction:$('#instruction'),coach:$('#coachLine'),next:$('#nextBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),
+  history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount'),dailyScore:$('#dailyScore'),dailyRank:$('#dailyRank'),dailySteps:$('#dailySteps'),
+  dailyChart:$('#dailyChart'),dayStamp:$('#dayStamp')
+};
 let selected=null,active=null,tickId=null,audioCtx=null,lastTickSecond=null,wakeLock=null;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const dayKey=d=>new Date(d).toLocaleDateString('sv-SE');
+const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es').replace(/[^a-z0-9]+/g,' ').trim();
+const makeId=name=>'task-'+norm(name).replace(/\s+/g,'-').slice(0,42)+'-'+Date.now().toString(36).slice(-5);
 function loadJSON(k,fallback){try{return JSON.parse(localStorage.getItem(k)||'null')??fallback}catch{return fallback}}
-function settings(){return {...{voice:true,ticks:true},...loadJSON(SETTINGS,{})}}
-function saveSettings(x){localStorage.setItem(SETTINGS,JSON.stringify(x))}
-function customTasks(){return loadJSON(CUSTOM,[])}
 function history(){
   const current=loadJSON(STORE,null);if(current)return current;
   return loadJSON(OLD_STORE,[]).map(x=>({...x,name:x.target||x.name,plannedMinutes:x.plannedMinutes||null}));
 }
-function saveHistory(rows){localStorage.setItem(STORE,JSON.stringify(rows.slice(0,200)))}
-function renderTargets(){
-  els.targets.innerHTML=presets.map(t=>`<button class="target" data-id="${t.id}"><b>${esc(t.name)}</b><small>${esc(t.sub)}</small></button>`).join('');
-  els.targets.querySelectorAll('.target').forEach(b=>b.onclick=()=>selectTarget(presets.find(t=>t.id===b.dataset.id)));
-  renderSaved();renderDurations();renderAudio();
+function saveHistory(rows){localStorage.setItem(STORE,JSON.stringify(rows.slice(0,500)))}
+function settings(){return {...{voice:true,ticks:true,transitionMin:2,prepMin:5,coachName:'Adri'},...loadJSON(SETTINGS,{})}}
+function saveSettings(x){localStorage.setItem(SETTINGS,JSON.stringify(x))}
+function buildInitialLibrary(){
+  const now=new Date().toISOString(),base=DEFAULT_TASKS.map((x,i)=>({...x,archived:false,order:i,createdAt:now}));
+  const names=new Set(base.flatMap(x=>[norm(x.name),...(x.aliases||[]).map(norm)]));
+  const oldCustom=loadJSON(CUSTOM,[]);
+  oldCustom.forEach((x,i)=>{
+    if(!x?.name||names.has(norm(x.name)))return;
+    base.push({id:makeId(x.name),name:x.name,sub:'Tarea creada por Adri',category:'Personal',minutes:clamp(Math.round(Number(x.minutes)||25),1,240),archived:false,order:100+i,createdAt:now});
+    names.add(norm(x.name));
+  });
+  history().forEach((r,i)=>{
+    const name=r.name||r.target;if(!name||names.has(norm(name)))return;
+    base.push({id:makeId(name),name,sub:'Tarea histórica',category:'Archivo',minutes:clamp(Math.round(Number(r.plannedMinutes)||25),1,240),archived:true,order:1000+i,createdAt:r.completedAt||now});
+    names.add(norm(name));
+  });
+  localStorage.setItem(TASKS,JSON.stringify(base));return base;
 }
-function renderSaved(){
-  const rows=customTasks();
-  els.saved.innerHTML=rows.map((t,i)=>`<button class="saved-target" data-i="${i}">${esc(t.name)}</button>`).join('');
-  els.saved.querySelectorAll('.saved-target').forEach(b=>b.onclick=()=>{const t=rows[Number(b.dataset.i)];selectTarget({...t,id:'custom-'+Number(b.dataset.i),custom:true});setMinutes(t.minutes||25)});
+function taskLibrary(){const x=loadJSON(TASKS,null);return Array.isArray(x)&&x.length?x:buildInitialLibrary()}
+function saveTaskLibrary(rows){localStorage.setItem(TASKS,JSON.stringify(rows))}
+function taskMatchesHistory(t,r){
+  if(r.taskId===t.id)return true;if(r.taskId)return false;
+  const names=[t.name,...(t.aliases||[])].map(norm);return names.includes(norm(r.name||r.target));
+}
+function taskCount(t){return history().filter(r=>taskMatchesHistory(t,r)).length}
+function taskLast(t){
+  const rows=history().filter(r=>taskMatchesHistory(t,r));
+  if(!rows.length)return null;return new Date(rows.reduce((a,b)=>new Date(a.completedAt)>new Date(b.completedAt)?a:b).completedAt);
+}
+function taskById(id){return taskLibrary().find(x=>x.id===id)||null}
+function upsertTask(name,minutes){
+  const rows=taskLibrary(),key=norm(name),found=rows.find(x=>norm(x.name)===key);
+  if(found){found.archived=false;found.minutes=minutes;found.sub=found.sub||'Tarea personal';saveTaskLibrary(rows);return found}
+  const maxOrder=Math.max(100,...rows.map(x=>Number(x.order)||0));
+  const t={id:makeId(name),name,sub:'Tarea creada por Adri',category:'Personal',minutes,archived:false,order:maxOrder+1,createdAt:new Date().toISOString()};
+  rows.push(t);saveTaskLibrary(rows);return t;
+}
+function setArchived(id,value){
+  const rows=taskLibrary(),t=rows.find(x=>x.id===id);if(!t)return;
+  t.archived=!!value;saveTaskLibrary(rows);
+  if(selected?.id===id){selected=null;els.start.disabled=true}
+  renderLibrary();
+}
+function taskCardHtml(t){
+  const count=taskCount(t),last=taskLast(t),sel=selected?.id===t.id;
+  const countText=count===1?'HECHA 1 VEZ':`HECHA ${count} VECES`;
+  const lastText=last?` · última ${last.toLocaleDateString('es-ES',{day:'numeric',month:'short'})}`:'';
+  return `<article class="task-card ${sel?'selected':''}" data-id="${esc(t.id)}">
+    <button class="task-main" data-task="${esc(t.id)}"><span>${esc(t.category||'Tarea')}</span><b>${esc(t.name)}</b><small>${esc(t.sub||'')}</small><em>${countText}${esc(lastText)}</em></button>
+    <button class="task-archive" data-archive="${esc(t.id)}" title="Archivar">ARCHIVAR</button>
+  </article>`;
+}
+function renderLibrary(){
+  const rows=taskLibrary().sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)),activeRows=rows.filter(x=>!x.archived),archived=rows.filter(x=>x.archived);
+  els.libraryCount.textContent=`${activeRows.length} activas`;els.archiveCount.textContent=String(archived.length);
+  els.targets.innerHTML=activeRows.map(taskCardHtml).join('');
+  els.targets.querySelectorAll('[data-task]').forEach(b=>b.onclick=()=>{const t=taskById(b.dataset.task);if(t)selectTarget(t)});
+  els.targets.querySelectorAll('[data-archive]').forEach(b=>b.onclick=e=>{e.stopPropagation();setArchived(b.dataset.archive,true)});
+  els.archiveList.innerHTML=archived.length?archived.map(t=>{
+    const count=taskCount(t),last=taskLast(t);
+    return `<div class="archived-task"><div><b>${esc(t.name)}</b><small>${count===1?'Hecha 1 vez':`Hecha ${count} veces`}${last?' · '+last.toLocaleDateString('es-ES'):''}</small></div><button data-restore="${esc(t.id)}">RECUPERAR</button></div>`;
+  }).join(''):'<div class="archive-empty">No hay tareas archivadas.</div>';
+  els.archiveList.querySelectorAll('[data-restore]').forEach(b=>b.onclick=()=>setArchived(b.dataset.restore,false));
 }
 function renderDurations(){
   const n=Number(els.minutes.value)||25;
   els.chips.innerHTML=DURATIONS.map(x=>`<button class="duration-chip ${x===n?'selected':''}" data-min="${x}">${x} min</button>`).join('');
   els.chips.querySelectorAll('.duration-chip').forEach(b=>b.onclick=()=>setMinutes(Number(b.dataset.min)));
 }
-function renderAudio(){
+function renderControls(){
   const s=settings();
+  els.transition.value=clamp(Math.round(Number(s.transitionMin)||2),1,10);
+  els.prep.value=clamp(Math.round(Number(s.prepMin)||5),1,15);
   els.voice.classList.toggle('active',s.voice);els.voice.textContent=`VOZ · ${s.voice?'SÍ':'NO'}`;
   els.ticks.classList.toggle('active',s.ticks);els.ticks.textContent=`TIC-TAC · ${s.ticks?'SÍ':'NO'}`;
+  els.nameBtn.textContent=`ME LLAMAS · ${String(s.coachName||'Adri').toLocaleUpperCase('es')}`;
+  els.nameBtn.classList.toggle('active',s.voice);
+  els.start.textContent=`EMPEZAR CAMBIO · ${els.transition.value} MIN`;
 }
 function setMinutes(n){els.minutes.value=clamp(Math.round(Number(n)||25),1,240);renderDurations()}
 function selectTarget(t){
-  selected=t;els.start.disabled=!selected;
-  els.targets.querySelectorAll('.target').forEach(b=>b.classList.toggle('selected',b.dataset.id===t.id));
-  els.saved.querySelectorAll('.saved-target').forEach(b=>b.classList.toggle('selected',b.textContent===t.name));
+  selected=t;els.start.disabled=false;setMinutes(t.minutes||25);
+  els.targets.querySelectorAll('.task-card').forEach(x=>x.classList.toggle('selected',x.dataset.id===t.id));
 }
-function saveCustomTask(name,minutes){
-  const rows=customTasks().filter(x=>x.name.toLocaleLowerCase('es')!==name.toLocaleLowerCase('es'));
-  rows.unshift({name,minutes});localStorage.setItem(CUSTOM,JSON.stringify(rows.slice(0,12)));renderSaved();
+function updatePreamble(){
+  const s=settings();s.transitionMin=clamp(Math.round(Number(els.transition.value)||2),1,10);s.prepMin=clamp(Math.round(Number(els.prep.value)||5),1,15);saveSettings(s);renderControls();
+}
+const COACH={
+ transition:[
+  c=>`Venga, ${c.name}. Deja lo que estabas haciendo y muévete a ${c.task}.`,
+  c=>`${c.name}, sabes que lo tienes que hacer. Levántate ya y cambiamos a ${c.task}.`,
+  c=>`Vamos, ${c.name}. No hace falta pensarlo más. Ahora toca ${c.task}.`,
+  c=>`${c.name}, solo tienes que levantarte. Lo demás viene después.`,
+  c=>`Venga, fuera de aquí. ${c.name}, en ${c.mins} minutos estamos con ${c.task}.`,
+  c=>`${c.name}, cambio de pantalla, cambio de tarea. Vamos con ${c.task}.`
+ ],
+ prep:[
+  c=>`Bien, ${c.name}. Prepara solo lo necesario para ${c.task}.`,
+  c=>`${c.name}, nada de montar otro sistema. Deja ${c.task} listo y empieza.`,
+  c=>`Venga, ${c.name}. Tienes ${c.mins} minutos para colocarte y arrancar.`,
+  c=>`Ya estás en el sitio, ${c.name}. Ahora prepara lo mínimo y entra en ${c.task}.`,
+  c=>`Una cosa cada vez, ${c.name}. Ahora solo preparar ${c.task}.`
+ ],
+ task:[
+  c=>`${c.name}, ya está. Ahora solo ${c.task}. Lo demás puede esperar.`,
+  c=>`Venga, ${c.name}. Empieza. No hace falta hacerlo perfecto; hace falta hacerlo.`,
+  c=>`${c.name}, ya has cruzado la parte difícil. Sigue con ${c.task}.`,
+  c=>`Ahora sí, ${c.name}: ${c.task}. Sin cambiar de carril.`,
+  c=>`Vamos, ${c.name}. ${c.minutes} minutos para esta tarea y nada más.`
+ ],
+ five:[
+  c=>`${c.name}, te quedan cinco minutos. Quédate exactamente con la misma tarea.`,
+  c=>`Últimos cinco, ${c.name}. No abras nada nuevo; termina este bloque.`,
+  c=>`${c.name}, cinco minutos más. Mantén el carril.`
+ ],
+ done:[
+  c=>`Bien, ${c.name}. Otra hecha. Llevas ${c.n} de quince hoy.`,
+  c=>`Eso es, ${c.name}. ${c.task} fuera. Van ${c.n} tareas hoy.`,
+  c=>`${c.name}, hecha y guardada. Un punto más: ${c.n} de quince.`,
+  c=>`Muy bien, ${c.name}. Ya no está pendiente. Llevas ${c.n}.`,
+  c=>`Perfecto, ${c.name}. Una menos en la cabeza y una más en el diario.`
+ ]
+};
+const coachLast={};
+function coachText(kind,extra={}){
+  const arr=COACH[kind]||[],s=settings(),ctx={name:s.coachName||'Adri',task:active?.target?.name||extra.task||'la tarea',mins:extra.mins||'',minutes:active?.plannedMinutes||extra.minutes||'',n:extra.n||0};
+  if(!arr.length)return '';
+  let i=Math.floor(Math.random()*arr.length);if(arr.length>1&&i===coachLast[kind])i=(i+1)%arr.length;coachLast[kind]=i;
+  return arr[i](ctx);
+}
+function setCoach(kind,extra={},speakIt=true){
+  const text=coachText(kind,extra);if(els.coach)els.coach.textContent=text;if(speakIt&&text)speak(text);return text;
 }
 async function ensureAudio(){
   try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;if(!audioCtx)audioCtx=new AC();if(audioCtx.state==='suspended')await audioCtx.resume();return audioCtx.state==='running'}catch{return false}
@@ -66,29 +181,33 @@ function playAlarm(){[880,1174.66,1567.98,1174.66,1567.98].forEach((f,i)=>tone(f
 function speak(text,rate=1.12){
   if(!settings().voice||!('speechSynthesis'in window))return;
   if(speechSynthesis.speaking)speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);u.lang='es-ES';u.rate=rate;u.volume=.9;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang==='es-ES'&&/(Google|Natural|Microsoft)/i.test(v.name))||voices.find(v=>v.lang?.toLowerCase().startsWith('es'))||null;speechSynthesis.speak(u);
+  const u=new SpeechSynthesisUtterance(text);u.lang='es-ES';u.rate=rate;u.volume=.9;
+  const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang==='es-ES'&&/(Google|Natural|Microsoft)/i.test(v.name))||voices.find(v=>v.lang?.toLowerCase().startsWith('es'))||null;speechSynthesis.speak(u);
 }
 async function acquireWakeLock(){try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen')}catch{}}
 function releaseWakeLock(){try{wakeLock?.release()}catch{}wakeLock=null}
 function persistActive(){localStorage.setItem(ACTIVE,JSON.stringify(active))}
 function restoreActive(){active=loadJSON(ACTIVE,null)}
-function phaseTotal(phase){if(phase==='transition')return TRANSITION_MS;if(phase==='prep')return PREP_MS;return (active?.plannedMinutes||25)*60*1000}
+function phaseTotal(phase){
+  if(phase==='transition')return (active?.transitionMin??settings().transitionMin??2)*60000;
+  if(phase==='prep')return (active?.prepMin??settings().prepMin??5)*60000;
+  return (active?.plannedMinutes||25)*60000;
+}
 function format(ms){const s=Math.max(0,Math.ceil(ms/1000)),m=Math.floor(s/60),r=s%60;return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`}
 async function startTransition(){
   if(!selected)return;
-  const plannedMinutes=clamp(Math.round(Number(els.minutes.value)||25),1,240);
-  if(selected.custom)saveCustomTask(selected.name,plannedMinutes);
+  const s=settings(),plannedMinutes=clamp(Math.round(Number(els.minutes.value)||25),1,240),transitionMin=clamp(Math.round(Number(s.transitionMin)||2),1,10),prepMin=clamp(Math.round(Number(s.prepMin)||5),1,15);
   await ensureAudio();await acquireWakeLock();
-  active={target:{name:selected.name,id:selected.id,custom:!!selected.custom},plannedMinutes,phase:'transition',startedAt:Date.now(),phaseStartedAt:Date.now(),deadline:Date.now()+TRANSITION_MS};
-  persistActive();showActive();runTimer();
-  speak(`Vale. Cambiamos a ${selected.name}. Tienes dos minutos para soltar lo anterior y prepararte.`);
+  active={target:{name:selected.name,id:selected.id},plannedMinutes,transitionMin,prepMin,phase:'transition',startedAt:Date.now(),phaseStartedAt:Date.now(),deadline:Date.now()+transitionMin*60000};
+  const lib=taskLibrary(),t=lib.find(x=>x.id===selected.id);if(t){t.minutes=plannedMinutes;t.lastUsedAt=new Date().toISOString();saveTaskLibrary(lib)}
+  persistActive();showActive();runTimer();setCoach('transition',{mins:transitionMin});
 }
 function setPhase(phase){
-  const now=Date.now();active.phase=phase;active.phaseStartedAt=now;active.deadline=now+phaseTotal(phase);lastTickSecond=null;
+  if(!active)return;const now=Date.now();active.phase=phase;active.phaseStartedAt=now;active.deadline=now+phaseTotal(phase);lastTickSecond=null;
   if(phase==='task'&&!active.taskStartedAt)active.taskStartedAt=now;
   persistActive();showActive();runTimer();
-  if(phase==='prep')speak(`Bien. Ahora tienes cinco minutos para colocarte y empezar ${active.target.name}. Solo prepara lo necesario.`);
-  if(phase==='task')speak(`Ya estás. Empieza ${active.target.name}. Has elegido ${active.plannedMinutes} minutos. Ahora solo haz la tarea.`);
+  if(phase==='prep')setCoach('prep',{mins:active.prepMin});
+  if(phase==='task')setCoach('task');
 }
 function advancePhase(){
   if(!active)return;
@@ -99,17 +218,16 @@ function advancePhase(){
 function cancelActive(){
   active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
   if('speechSynthesis'in window)speechSynthesis.cancel();
-  els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;
-  els.targets.querySelectorAll('.target').forEach(b=>b.classList.remove('selected'));els.saved.querySelectorAll('.saved-target').forEach(b=>b.classList.remove('selected'));
+  els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;renderLibrary();
 }
 function showActive(){
   els.choose.classList.add('hidden');els.timerView.classList.remove('hidden');els.title.textContent=active.target.name;
   els.next.classList.remove('hidden');els.finish.classList.add('hidden');els.next.disabled=false;
   if(active.phase==='transition'){
-    els.phase.textContent='2 · DESPEGA';els.sub.textContent='TRANSICIÓN';els.next.textContent='LISTO · IR A PREPARAR';
-    els.instruction.textContent='Cierra lo anterior. Levántate. Muévete hacia la nueva tarea.';
+    els.phase.textContent='2 · DESPEGA';els.sub.textContent=`${active.transitionMin||settings().transitionMin} MIN · TRANSICIÓN`;els.next.textContent='LISTO · IR A PREPARAR';
+    els.instruction.textContent='Cierra lo anterior, levántate y muévete hacia la nueva tarea.';
   }else if(active.phase==='prep'){
-    els.phase.textContent='3 · ATERRIZA';els.sub.textContent='PREPARACIÓN';els.next.textContent='YA ESTOY LISTO · EMPEZAR';
+    els.phase.textContent='3 · ATERRIZA';els.sub.textContent=`${active.prepMin||settings().prepMin} MIN · PREPARACIÓN`;els.next.textContent='YA ESTOY LISTO · EMPEZAR';
     els.instruction.textContent='Prepara solo lo necesario. No optimices el sistema: deja la tarea lista para hacer.';
   }else{
     els.phase.textContent='4 · HAZ LA TAREA';els.sub.textContent=`${active.plannedMinutes} MIN`;els.next.classList.add('hidden');els.finish.classList.remove('hidden');
@@ -120,12 +238,12 @@ function runTimer(){
   clearInterval(tickId);lastTickSecond=null;
   const update=()=>{
     if(!active)return;
-    const left=active.deadline-Date.now(),total=phaseTotal(active.phase),p=clamp(100*Math.max(0,left)/total,0,100);
+    const left=active.deadline-Date.now(),total=phaseTotal(active.phase),p=clamp(100*Math.max(0,left)/Math.max(1,total),0,100);
     els.timer.textContent=format(left);els.ring.style.setProperty('--p',p.toFixed(2));
     const sec=Math.ceil(left/1000);
     if(left>0&&sec<=10&&sec!==lastTickSecond){lastTickSecond=sec;playTick(sec<=3,sec)}
-    if(active.phase==='task'&&active.plannedMinutes>5&&left<=5*60*1000&&!active.fiveMinuteCue){
-      active.fiveMinuteCue=true;persistActive();speak('Te quedan cinco minutos. Sigue con la misma tarea.');
+    if(active.phase==='task'&&active.plannedMinutes>5&&left<=5*60000&&!active.fiveMinuteCue){
+      active.fiveMinuteCue=true;persistActive();setCoach('five');
     }
     if(left>0)return;
     if(active.phase==='task'){playAlarm();completeTask(false,true);return}
@@ -135,12 +253,21 @@ function runTimer(){
 }
 function completeTask(early=false,expired=false){
   if(!active)return;
-  const now=Date.now(),actualMs=active.taskStartedAt?Math.max(0,now-active.taskStartedAt):0,rows=history();
-  rows.unshift({id:now.toString(36),name:active.target.name,completedAt:new Date(now).toISOString(),taskStartedAt:active.taskStartedAt?new Date(active.taskStartedAt).toISOString():null,transitionStartedAt:new Date(active.startedAt).toISOString(),plannedMinutes:active.plannedMinutes,actualMinutes:Math.max(1,Math.round(actualMs/60000)),early});
-  saveHistory(rows);const name=active.target.name,todayN=rows.filter(r=>dayKey(r.completedAt)===dayKey(now)).length;active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
-  els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;
-  els.targets.querySelectorAll('.target').forEach(b=>b.classList.remove('selected'));els.saved.querySelectorAll('.saved-target').forEach(b=>b.classList.remove('selected'));drawStats();
-  if(!expired)playDone();const msg=todayN===15?`Día oro. Quince tareas completadas hoy.`:todayN>15?`Hecho. Llevas ${todayN} tareas hoy. Ya estás por encima del día oro.`:`${expired?'Tiempo.':'Hecho.'} ${name}. Llevas ${todayN} de quince hoy.`;setTimeout(()=>speak(msg),650);
+  const now=Date.now(),actualMs=active.taskStartedAt?Math.max(0,now-active.taskStartedAt):0,rows=history(),taskId=active.target.id,name=active.target.name;
+  rows.unshift({id:now.toString(36),taskId,name,completedAt:new Date(now).toISOString(),taskStartedAt:active.taskStartedAt?new Date(active.taskStartedAt).toISOString():null,transitionStartedAt:new Date(active.startedAt).toISOString(),plannedMinutes:active.plannedMinutes,actualMinutes:Math.max(1,Math.round(actualMs/60000)),early});
+  saveHistory(rows);
+  const todayN=rows.filter(r=>dayKey(r.completedAt)===dayKey(now)).length,s=settings(),coachName=s.coachName||'Adri';
+  active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
+  els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;renderLibrary();drawStats();
+  if(!expired)playDone();
+  let msg;
+  if(todayN===15)msg=`Día oro, ${coachName}. Quince tareas completadas hoy.`;
+  else if(todayN>15)msg=`Hecho, ${coachName}. Llevas ${todayN} tareas hoy. Ya estás por encima del día oro.`;
+  else{
+    const variants=COACH.done,ctx={name:coachName,task:name,n:todayN},i=Math.floor(Math.random()*variants.length);msg=variants[i](ctx);
+    if(expired)msg='Tiempo. '+msg;
+  }
+  setTimeout(()=>speak(msg),650);
 }
 function rankInfo(n){
   const fallback=['#422522','#512927','#632d2a','#762f32','#843729','#904311','#90570c','#8b6b05','#798136','#57965a','#32a48f','#4aa7c8','#7aa5ec','#bb9ef0','#e7bf57'];
@@ -171,26 +298,28 @@ function renderDaily(todayRows){
   els.dayStamp.textContent=new Date().toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'}).toLocaleUpperCase('es');
 }
 function drawStats(){
-  const rows=history(),today=dayKey(Date.now()),weekAgo=Date.now()-7*24*60*60*1000,todayRows=rows.filter(r=>dayKey(r.completedAt)===today);
+  const rows=history(),today=dayKey(Date.now()),weekAgo=Date.now()-7*24*60*60000,todayRows=rows.filter(r=>dayKey(r.completedAt)===today);
   els.today.textContent=todayRows.length;els.week.textContent=rows.filter(r=>new Date(r.completedAt).getTime()>=weekAgo).length;els.total.textContent=rows.length;
   renderDaily(todayRows);
-  els.history.innerHTML=rows.length?rows.slice(0,20).map(r=>{
+  els.history.innerHTML=rows.length?rows.slice(0,30).map(r=>{
     const when=new Date(r.completedAt),mins=r.actualMinutes||r.plannedMinutes,planned=r.plannedMinutes?` · objetivo ${r.plannedMinutes} min`:'';
     return `<div class="hist"><b>✓ ${esc(r.name||r.target||'Tarea')}</b><small>${esc(when.toLocaleString('es-ES'))}</small><em>${mins?`${mins} min realizados`:'Completada'}${planned}</em></div>`;
   }).join(''):'<div class="empty">Todavía no hay tareas terminadas. La primera aparecerá aquí.</div>';
 }
 els.customBtn.onclick=()=>{
   const name=els.custom.value.trim();if(!name)return;
-  const minutes=clamp(Math.round(Number(els.minutes.value)||25),1,240);
-  saveCustomTask(name,minutes);selectTarget({id:'custom-new',name,sub:'Tarea personalizada',custom:true});
+  const minutes=clamp(Math.round(Number(els.minutes.value)||25),1,240),t=upsertTask(name,minutes);
+  els.custom.value='';window.AdrianKeyboard?.close?.();renderLibrary();selectTarget(t);
 };
 els.custom.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();els.customBtn.click()}});
-els.minutes.addEventListener('change',()=>setMinutes(els.minutes.value));
-els.voice.onclick=()=>{const s=settings();s.voice=!s.voice;saveSettings(s);renderAudio();if(s.voice)speak('Voz activada.')};
-els.ticks.onclick=async()=>{const s=settings();s.ticks=!s.ticks;saveSettings(s);renderAudio();if(s.ticks){await ensureAudio();playTick(true,0)}};
+els.minutes.addEventListener('change',()=>{setMinutes(els.minutes.value);if(selected){const lib=taskLibrary(),t=lib.find(x=>x.id===selected.id);if(t){t.minutes=Number(els.minutes.value);saveTaskLibrary(lib)}}});
+els.transition.addEventListener('change',updatePreamble);els.prep.addEventListener('change',updatePreamble);
+els.voice.onclick=()=>{const s=settings();s.voice=!s.voice;saveSettings(s);renderControls();if(s.voice)speak(`Voz activada, ${s.coachName||'Adri'}.`)};
+els.ticks.onclick=async()=>{const s=settings();s.ticks=!s.ticks;saveSettings(s);renderControls();if(s.ticks){await ensureAudio();playTick(true,0)}};
+els.nameBtn.onclick=()=>{const s=settings();s.coachName=s.coachName==='Adrián'?'Adri':'Adrián';saveSettings(s);renderControls();if(s.voice)speak(`Perfecto. Te llamaré ${s.coachName}.`)};
 els.start.onclick=startTransition;els.cancel.onclick=cancelActive;els.next.onclick=advancePhase;els.finish.onclick=()=>completeTask(true,false);
-$('#resetBtn').onclick=()=>{localStorage.removeItem(STORE);localStorage.removeItem(OLD_STORE);drawStats()};
+$('#resetBtn').onclick=()=>{localStorage.removeItem(STORE);localStorage.removeItem(OLD_STORE);drawStats();renderLibrary()};
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&active)acquireWakeLock()});
-renderTargets();drawStats();restoreActive();
-let renderedDay=dayKey(Date.now());setInterval(()=>{const d=dayKey(Date.now());if(d!==renderedDay){renderedDay=d;drawStats()}},30000);
-if(active){showActive();runTimer();acquireWakeLock()}
+taskLibrary();renderLibrary();renderDurations();renderControls();drawStats();restoreActive();
+let renderedDay=dayKey(Date.now());setInterval(()=>{const d=dayKey(Date.now());if(d!==renderedDay){renderedDay=d;drawStats();renderLibrary()}},30000);
+if(active){showActive();runTimer();acquireWakeLock();if(!els.coach.textContent)setCoach(active.phase==='task'?'task':active.phase==='prep'?'prep':'transition',{},false)}
