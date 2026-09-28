@@ -35,45 +35,45 @@ const TEMPLATES=[
 const P=(cue,sec)=>({cue,sec});
 const TEMPO_PHASES={
 legpress:[P("EMPUJA",2),P("VUELVE",3)],
-legcurl:[P("FLEXIONA",2),P("APRIETA",0.5),P("VUELVE",3)],
-latneutral:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-seatedrow:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-bicepsmachine:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
-tricepsrope:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-abmachine:[P("CIERRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+legcurl:[P("FLEXIONA",2),P("VUELVE",3)],
+latneutral:[P("BAJA",2),P("VUELVE",3)],
+seatedrow:[P("TIRA",2),P("VUELVE",3)],
+bicepsmachine:[P("SUBE",2),P("BAJA",3)],
+tricepsrope:[P("EXTIENDE",2),P("VUELVE",3)],
+abmachine:[P("CIERRA",2),P("VUELVE",3)],
 bench:[P("EMPUJA",2),P("VUELVE",3)],
 inclinepress:[P("EMPUJA",2),P("VUELVE",3)],
-chestfly:[P("CIERRA",2),P("APRIETA",0.5),P("ABRE",2.5)],
-cablecross:[P("CIERRA",2),P("APRIETA",0.5),P("ABRE",2.5)],
+chestfly:[P("CIERRA",2),P("ABRE",3)],
+cablecross:[P("CIERRA",2),P("ABRE",3)],
 dips:[P("EMPUJA",2),P("VUELVE",3)],
 shoulderpress:[P("EMPUJA",2),P("VUELVE",3)],
-latwide:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-onearmrow:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-seatedcable:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-straightarm:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-hyperext:[P("SUBE",2),P("PAUSA",0.5),P("BAJA",2.5)],
-reversefly:[P("ABRE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+latwide:[P("BAJA",2),P("VUELVE",3)],
+onearmrow:[P("TIRA",2),P("VUELVE",3)],
+seatedcable:[P("TIRA",2),P("VUELVE",3)],
+straightarm:[P("BAJA",2),P("VUELVE",3)],
+hyperext:[P("SUBE",2),P("BAJA",3)],
+reversefly:[P("ABRE",2),P("VUELVE",3)],
 military:[P("EMPUJA",2),P("VUELVE",3)],
 lateralraise:[P("SUBE",2),P("BAJA",3)],
 frontraise:[P("SUBE",2),P("BAJA",3)],
-facepull:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-reardelt:[P("ABRE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-shrugs:[P("SUBE",1.5),P("APRIETA",1),P("BAJA",2.5)],
+facepull:[P("TIRA",2),P("VUELVE",3)],
+reardelt:[P("ABRE",2),P("VUELVE",3)],
+shrugs:[P("SUBE",2),P("BAJA",3)],
 frenchpress:[P("EXTIENDE",2),P("VUELVE",3)],
-pushdown:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+pushdown:[P("EXTIENDE",2),P("VUELVE",3)],
 machinedips:[P("EMPUJA",2),P("VUELVE",3)],
 overheadtri:[P("EXTIENDE",2),P("VUELVE",3)],
-kickbacks:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+kickbacks:[P("EXTIENDE",2),P("VUELVE",3)],
 diamond:[P("EMPUJA",2),P("VUELVE",3)],
-barcurl:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+barcurl:[P("SUBE",2),P("BAJA",3)],
 hammercurl:[P("SUBE",2),P("BAJA",3)],
-concentration:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+concentration:[P("SUBE",2),P("BAJA",3)],
 preacher:[P("SUBE",2),P("BAJA",3)],
 inclinecurl:[P("SUBE",2),P("BAJA",3)],
-cablecurl:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
-legext:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
-lunges:[P("BAJA",2.5),P("SUBE",2)],
-calf:[P("SUBE",1.5),P("APRIETA",1),P("BAJA",2.5)]
+cablecurl:[P("SUBE",2),P("BAJA",3)],
+legext:[P("EXTIENDE",2),P("VUELVE",3)],
+lunges:[P("BAJA",3),P("SUBE",2)],
+calf:[P("SUBE",2),P("BAJA",3)]
 };
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE="adaptive_gym_v2";
@@ -82,8 +82,8 @@ let session=null,timerHandle=null,clockHandle=null,timerMode="idle",timerTotal=0
 function loadSaved(){
   try{
     const old=JSON.parse(localStorage.getItem("adaptive_gym_v1"))||{},x=JSON.parse(localStorage.getItem(STORE))||{};
-    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),plans:x.plans&&typeof x.plans==="object"?x.plans:{},lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice",tempoScale:x.tempoScale&&typeof x.tempoScale==="object"?x.tempoScale:{}};
-  }catch{return {history:[],kg:{},plans:{},lastSelection:[],coachMode:"voice",tempoScale:{}}}
+    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),plans:x.plans&&typeof x.plans==="object"?x.plans:{},lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice"};
+  }catch{return {history:[],kg:{},plans:{},lastSelection:[],coachMode:"voice"}}
 }
 function persist(){saved.lastSelection=[...selected];saved.coachMode=$("#coachMode")?.value||saved.coachMode||"tones";localStorage.setItem(STORE,JSON.stringify(saved))}
 function localDay(delta=0){const d=new Date();d.setDate(d.getDate()+delta);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-")}
@@ -91,11 +91,7 @@ function prettyDay(delta=0){return new Intl.DateTimeFormat("es-ES",{weekday:"lon
 function exById(id){return EXERCISES.find(x=>x.id===id)}
 function sameSelection(ids,set=selected){if(ids.length!==set.size)return false;return ids.every(id=>set.has(id))}
 function matchingTemplateId(set=selected){return TEMPLATES.find(t=>sameSelection(t.ids,set))?.id||""}
-function tempoScale(ex){return Math.max(.75,Math.min(1.35,Number(saved.tempoScale?.[ex?.id]||1)))}
-function phasesFor(ex){
-  const base=TEMPO_PHASES[ex?.id]||[P("MUEVE",2),P("VUELVE",3)],scale=tempoScale(ex);
-  return base.map(x=>({cue:x.cue,sec:Math.round(x.sec*scale*10)/10}));
-}
+function phasesFor(ex){return TEMPO_PHASES[ex?.id]||[P("MUEVE",2),P("VUELVE",3)]}
 function repSeconds(ex){return ex?.durationSec||phasesFor(ex).reduce((n,p)=>n+p.sec,0)}
 function secLabel(n){return Number(n).toFixed(1).replace(".",",")}
 function phasePlanText(ex){return ex?.durationSec?"MANTÉN · RESPIRA":phasesFor(ex).map(p=>`${p.cue} ${secLabel(p.sec)} s`).join(" · ")}
@@ -106,24 +102,13 @@ function updatePhaseUI(ex,reps){
     $("#coachCue").textContent="MANTÉN · RESPIRA";
     $("#phaseSummary").textContent=`${ex.durationSec} s de trabajo`;
     $("#beatReadout").innerHTML="";
-    $("#tempoCalibrate").classList.add("hidden");
     return;
   }
-  const phases=phasesFor(ex),per=repSeconds(ex),count=Math.max(1,Number(reps)||ex.repsDefault||1),scale=tempoScale(ex);
-  const tag=Math.abs(scale-1)<.01?"BASE":`${scale>1?"+":""}${Math.round((scale-1)*100)}%`;
-  $("#tempoInfo").textContent=`${secLabel(per)} s / rep · ${tag}`;
+  const phases=phasesFor(ex),per=repSeconds(ex),count=Math.max(1,Number(reps)||ex.repsDefault||1);
+  $("#tempoInfo").textContent=`TEMPO PRESCRITO · ${secLabel(per)} s / rep`;
   $("#coachCue").textContent=phasePlanText(ex);
   $("#phaseSummary").textContent=`${count} reps · ${fmt(per*count)} de trabajo`;
   $("#beatReadout").innerHTML=phases.map(p=>`<i><b>${p.cue}</b><small>${secLabel(p.sec)}s</small></i>`).join("");
-  $("#tempoCalibrate").classList.remove("hidden");
-}
-function adjustTempo(delta){
-  const ex=currentEx();if(!ex||ex.durationSec)return;
-  saved.tempoScale=saved.tempoScale||{};
-  if(delta===0)delete saved.tempoScale[ex.id];
-  else saved.tempoScale[ex.id]=Math.max(.75,Math.min(1.35,Math.round((tempoScale(ex)+delta)*100)/100));
-  persist();const reps=Math.max(1,Number($("#repsInput").value)||ex.repsDefault||1);updatePhaseUI(ex,reps);
-  if(timerMode==="idle"){timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;renderTimer()}
 }
 function currentEx(){return session?exById(session.ids[session.exIndex]):null}
 function currentKg(ex){return Number(saved.kg?.[ex.id]??ex.kg??0)}
@@ -254,7 +239,6 @@ $("#playDaily").onclick=playDaily;$("#editDaily").onclick=editDaily;$("#closeSet
 $("#timerAction").onclick=startSet;$("#completeNow").onclick=()=>timerMode==="rest"?advanceAfterRest():completeSet(true);$("#sessionPause").onclick=toggleSessionPause;
 $("#skipExercise").onclick=skipExercise;$("#finishWorkout").onclick=finishSession;$("#anotherRun").onclick=()=>{renderDaily();show(null);window.scrollTo({top:0,behavior:"smooth"})};
 $$("[data-step]").forEach(b=>b.onclick=()=>{const input=b.dataset.step==="kg"?$("#kgInput"):$("#repsInput"),delta=Number(b.dataset.delta);input.value=Math.max(0,(Number(input.value)||0)+delta);if(b.dataset.step==="reps"&&session&&timerMode==="idle"){const ex=currentEx(),reps=Number(input.value)||ex.repsDefault;timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;updatePhaseUI(ex,reps);renderTimer()}});
-$("#tempoFaster").onclick=()=>adjustTempo(-.05);$("#tempoReset").onclick=()=>adjustTempo(0);$("#tempoSlower").onclick=()=>adjustTempo(.05);
 $("#soundBtn").onclick=async()=>{soundOn=!soundOn;if(soundOn)await ensureAudio();$("#soundBtn").textContent=soundOn?"SOUND ON":"SOUND OFF";if(!soundOn&&"speechSynthesis"in window)speechSynthesis.cancel()};
 $("#coachMode").onchange=()=>persist();$("#chartMetric").onchange=drawHealth;
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&session)acquireWakeLock()});
