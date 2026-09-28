@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518"><title>Room Quality · HOTI0108</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css"><link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css"><link rel="stylesheet" href="./styles.css"></head>
+<body><main class="shell"><header class="top"><div><p class="kicker">HOTI0108 · PROTOTIPO INTERACTIVO</p><h1>ROOM QUALITY</h1><p class="sub">Control de calidad de habitaciones · Demo para Tania</p></div><a class="hub" href="../../index.html">← HUB</a></header>
+<section id="home"><div class="stats"><div class="stat"><b>12</b><span>Habitaciones</span></div><div class="stat"><b>8</b><span>Listas</span></div><div class="stat"><b>2</b><span>Incidencias</span></div></div>
+<div class="card ai"><b>ANÁLISIS IA · DEMO</b><p>La planta 3 concentra más segundas revisiones. Conviene comprobar baño y reposición de amenities.</p></div><div id="rooms"></div><p class="legend">Demo académica · Datos ficticios · UF0049</p></section>
+<section id="inspect" class="hidden"><button class="back" id="back">← HABITACIONES</button><div class="card"><p class="kicker">REVISIÓN</p><h2 id="roomTitle">Habitación</h2><p id="roomMeta"></p></div><div class="check" id="check"></div>
+<div class="card"><strong>Observaciones / incidencia</strong><textarea id="note" placeholder="Ej.: falta una toalla, mancha en espejo..."></textarea><button class="action" id="finish">FINALIZAR REVISIÓN</button></div></section>
+<section id="result" class="hidden result"><div class="card"><p class="kicker">REVISIÓN COMPLETADA</p><div class="score" id="score">100%</div><h2 id="verdict">Habitación conforme</h2><p id="summary"></p><button class="action" id="again">VOLVER A HABITACIONES</button></div></section></main>
+<script src="./app.js"></script><script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script><script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script></body></html>
