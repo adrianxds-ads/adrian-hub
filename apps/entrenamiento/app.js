@@ -1,5 +1,5 @@
 const FALLBACK={updated:null,score:null,decision:"Aún no hay suficientes datos normalizados para recomendar cambios de carga.",metrics:{weight:{v:"89,48",u:"kg",label:"Peso",note:"02/09"},fat:{v:"16,7",u:"%",label:"Grasa",note:"BIA · puntual"},muscle:{v:"71,14",u:"kg",label:"Músculo",note:"BIA · puntual"},rhr:{v:"70",u:"lpm",label:"FCR",note:"19/09 · puntual"},hrv:{v:"—",u:"ms",label:"VFC",note:"normalización pendiente"},sleep:{v:"—",u:"h",label:"Sueño",note:"deduplicación pendiente"},steps:{v:"—",u:"",label:"Pasos",note:"deduplicación pendiente"},photos:{v:"30/08",u:"",label:"Body Check",note:"última sesión"}},sources:[["Withings","Sin medición nueva","warn"],["FC / FCR","Disponible","ok"],["VFC","Disponible · normalizar","warn"],["Sueño","Duplicados detectados","warn"],["Pasos","Duplicados detectados","warn"],["Body Check","Sin sesión nueva","warn"]],series:{weight:[90.30,89.48],rhr:[73,75,74,72,69,69,67,66,67,72,72,74,71,68,70,77,81,80,72,69,66,67,70],hrv:[],sleep:[],steps:[]}};
-const E=(id,name,group,o={})=>({id,name,group,sets:2,reps:"10–12",repsDefault:11,tempoSec:4,rest:75,kg:0,...o});
+const E=(id,name,group,o={})=>({id,name,group,sets:2,reps:"10–12",repsDefault:11,rest:75,kg:0,...o});
 const EXERCISES=[
 E("legpress","Prensa de piernas","Piernas",{kg:100,rir:3,rest:90,source:"Gymbro",note:"Punto de partida guardado en TickTick: 100 kg. Ajusta al escalón real de la máquina."}),
 E("legcurl","Curl femoral tumbado","Piernas",{kg:35,rir:3,rest:75,source:"Gymbro"}),
@@ -32,13 +32,48 @@ const TEMPLATES=[
 {id:"mixed",name:"MIXED",ids:["bench","latneutral","shoulderpress","legpress","bicepsmachine","plank"]}
 ];
 
-const COACH_CUES={
-legpress:["EMPUJA","VUELVE"],legcurl:["FLEXIONA","VUELVE"],latneutral:["BAJA","VUELVE"],seatedrow:["TIRA","VUELVE"],bicepsmachine:["SUBE","BAJA"],tricepsrope:["EXTIENDE","VUELVE"],abmachine:["CIERRA","VUELVE"],
-bench:["EMPUJA","VUELVE"],inclinepress:["EMPUJA","VUELVE"],chestfly:["CIERRA","ABRE"],cablecross:["CIERRA","ABRE"],dips:["EMPUJA","VUELVE"],shoulderpress:["EMPUJA","VUELVE"],
-latwide:["BAJA","VUELVE"],onearmrow:["TIRA","VUELVE"],seatedcable:["TIRA","VUELVE"],straightarm:["BAJA","VUELVE"],hyperext:["SUBE","BAJA"],reversefly:["ABRE","VUELVE"],
-military:["EMPUJA","VUELVE"],lateralraise:["SUBE","BAJA"],frontraise:["SUBE","BAJA"],facepull:["TIRA","VUELVE"],reardelt:["ABRE","VUELVE"],shrugs:["SUBE","BAJA"],
-frenchpress:["EXTIENDE","VUELVE"],pushdown:["EXTIENDE","VUELVE"],machinedips:["EMPUJA","VUELVE"],overheadtri:["EXTIENDE","VUELVE"],kickbacks:["EXTIENDE","VUELVE"],diamond:["EMPUJA","VUELVE"],
-barcurl:["SUBE","BAJA"],hammercurl:["SUBE","BAJA"],concentration:["SUBE","BAJA"],preacher:["SUBE","BAJA"],inclinecurl:["SUBE","BAJA"],cablecurl:["SUBE","BAJA"],legext:["EXTIENDE","VUELVE"],lunges:["BAJA","SUBE"],calf:["SUBE","BAJA"]
+const P=(cue,sec)=>({cue,sec});
+const TEMPO_PHASES={
+legpress:[P("EMPUJA",2),P("VUELVE",3)],
+legcurl:[P("FLEXIONA",2),P("APRIETA",0.5),P("VUELVE",3)],
+latneutral:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+seatedrow:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+bicepsmachine:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+tricepsrope:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+abmachine:[P("CIERRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+bench:[P("EMPUJA",2),P("VUELVE",3)],
+inclinepress:[P("EMPUJA",2),P("VUELVE",3)],
+chestfly:[P("CIERRA",2),P("APRIETA",0.5),P("ABRE",2.5)],
+cablecross:[P("CIERRA",2),P("APRIETA",0.5),P("ABRE",2.5)],
+dips:[P("EMPUJA",2),P("VUELVE",3)],
+shoulderpress:[P("EMPUJA",2),P("VUELVE",3)],
+latwide:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+onearmrow:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+seatedcable:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+straightarm:[P("BAJA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+hyperext:[P("SUBE",2),P("PAUSA",0.5),P("BAJA",2.5)],
+reversefly:[P("ABRE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+military:[P("EMPUJA",2),P("VUELVE",3)],
+lateralraise:[P("SUBE",2),P("BAJA",3)],
+frontraise:[P("SUBE",2),P("BAJA",3)],
+facepull:[P("TIRA",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+reardelt:[P("ABRE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+shrugs:[P("SUBE",1.5),P("APRIETA",1),P("BAJA",2.5)],
+frenchpress:[P("EXTIENDE",2),P("VUELVE",3)],
+pushdown:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+machinedips:[P("EMPUJA",2),P("VUELVE",3)],
+overheadtri:[P("EXTIENDE",2),P("VUELVE",3)],
+kickbacks:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+diamond:[P("EMPUJA",2),P("VUELVE",3)],
+barcurl:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+hammercurl:[P("SUBE",2),P("BAJA",3)],
+concentration:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+preacher:[P("SUBE",2),P("BAJA",3)],
+inclinecurl:[P("SUBE",2),P("BAJA",3)],
+cablecurl:[P("SUBE",2),P("APRIETA",0.5),P("BAJA",2.5)],
+legext:[P("EXTIENDE",2),P("APRIETA",0.5),P("VUELVE",2.5)],
+lunges:[P("BAJA",2.5),P("SUBE",2)],
+calf:[P("SUBE",1.5),P("APRIETA",1),P("BAJA",2.5)]
 };
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE="adaptive_gym_v2";
@@ -47,8 +82,8 @@ let session=null,timerHandle=null,clockHandle=null,timerMode="idle",timerTotal=0
 function loadSaved(){
   try{
     const old=JSON.parse(localStorage.getItem("adaptive_gym_v1"))||{},x=JSON.parse(localStorage.getItem(STORE))||{};
-    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),plans:x.plans&&typeof x.plans==="object"?x.plans:{},lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice"};
-  }catch{return {history:[],kg:{},plans:{},lastSelection:[],coachMode:"voice"}}
+    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),plans:x.plans&&typeof x.plans==="object"?x.plans:{},lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice",tempoScale:x.tempoScale&&typeof x.tempoScale==="object"?x.tempoScale:{}};
+  }catch{return {history:[],kg:{},plans:{},lastSelection:[],coachMode:"voice",tempoScale:{}}}
 }
 function persist(){saved.lastSelection=[...selected];saved.coachMode=$("#coachMode")?.value||saved.coachMode||"tones";localStorage.setItem(STORE,JSON.stringify(saved))}
 function localDay(delta=0){const d=new Date();d.setDate(d.getDate()+delta);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-")}
@@ -56,8 +91,40 @@ function prettyDay(delta=0){return new Intl.DateTimeFormat("es-ES",{weekday:"lon
 function exById(id){return EXERCISES.find(x=>x.id===id)}
 function sameSelection(ids,set=selected){if(ids.length!==set.size)return false;return ids.every(id=>set.has(id))}
 function matchingTemplateId(set=selected){return TEMPLATES.find(t=>sameSelection(t.ids,set))?.id||""}
-function coachCues(ex){return COACH_CUES[ex?.id]||["MUEVE","VUELVE"]}
-function workSeconds(ex,reps=ex.repsDefault){return ex.durationSec||Math.max(4,(Number(reps)||ex.repsDefault||1)*(ex.tempoSec||4))}
+function tempoScale(ex){return Math.max(.75,Math.min(1.35,Number(saved.tempoScale?.[ex?.id]||1)))}
+function phasesFor(ex){
+  const base=TEMPO_PHASES[ex?.id]||[P("MUEVE",2),P("VUELVE",3)],scale=tempoScale(ex);
+  return base.map(x=>({cue:x.cue,sec:Math.round(x.sec*scale*10)/10}));
+}
+function repSeconds(ex){return ex?.durationSec||phasesFor(ex).reduce((n,p)=>n+p.sec,0)}
+function secLabel(n){return Number(n).toFixed(1).replace(".",",")}
+function phasePlanText(ex){return ex?.durationSec?"MANTÉN · RESPIRA":phasesFor(ex).map(p=>`${p.cue} ${secLabel(p.sec)} s`).join(" · ")}
+function workSeconds(ex,reps=ex.repsDefault){return ex.durationSec||Math.max(4,(Number(reps)||ex.repsDefault||1)*repSeconds(ex))}
+function updatePhaseUI(ex,reps){
+  if(ex.durationSec){
+    $("#tempoInfo").textContent="CRONO";
+    $("#coachCue").textContent="MANTÉN · RESPIRA";
+    $("#phaseSummary").textContent=`${ex.durationSec} s de trabajo`;
+    $("#beatReadout").innerHTML="";
+    $("#tempoCalibrate").classList.add("hidden");
+    return;
+  }
+  const phases=phasesFor(ex),per=repSeconds(ex),count=Math.max(1,Number(reps)||ex.repsDefault||1),scale=tempoScale(ex);
+  const tag=Math.abs(scale-1)<.01?"BASE":`${scale>1?"+":""}${Math.round((scale-1)*100)}%`;
+  $("#tempoInfo").textContent=`${secLabel(per)} s / rep · ${tag}`;
+  $("#coachCue").textContent=phasePlanText(ex);
+  $("#phaseSummary").textContent=`${count} reps · ${fmt(per*count)} de trabajo`;
+  $("#beatReadout").innerHTML=phases.map(p=>`<i><b>${p.cue}</b><small>${secLabel(p.sec)}s</small></i>`).join("");
+  $("#tempoCalibrate").classList.remove("hidden");
+}
+function adjustTempo(delta){
+  const ex=currentEx();if(!ex||ex.durationSec)return;
+  saved.tempoScale=saved.tempoScale||{};
+  if(delta===0)delete saved.tempoScale[ex.id];
+  else saved.tempoScale[ex.id]=Math.max(.75,Math.min(1.35,Math.round((tempoScale(ex)+delta)*100)/100));
+  persist();const reps=Math.max(1,Number($("#repsInput").value)||ex.repsDefault||1);updatePhaseUI(ex,reps);
+  if(timerMode==="idle"){timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;renderTimer()}
+}
 function currentEx(){return session?exById(session.ids[session.exIndex]):null}
 function currentKg(ex){return Number(saved.kg?.[ex.id]??ex.kg??0)}
 function fmt(sec){sec=Math.max(0,Math.ceil(sec));return String(Math.floor(sec/60)).padStart(2,"0")+":"+String(sec%60).padStart(2,"0")}
@@ -76,7 +143,7 @@ function renderSetup(){
   activeTemplate=matchingTemplateId(selected);
   $("#templates").innerHTML=TEMPLATES.map(t=>`<button class="template ${t.id===activeTemplate?"active":""}" data-template="${t.id}">${t.name}</button>`).join("");
   const ordered=[...EXERCISES].sort((a,b)=>(selected.has(b.id)-selected.has(a.id))||a.group.localeCompare(b.group)||a.name.localeCompare(b.name));
-  $("#exerciseList").innerHTML=ordered.map(x=>`<label class="exercise"><input type="checkbox" data-ex="${x.id}" ${selected.has(x.id)?"checked":""}><div><b>${x.name}</b><small>${x.group} · ${x.sets}×${x.reps}${x.rir?` · RIR ${x.rir}`:""} · descanso ${x.rest}s</small></div><span class="seconds">${fmt(workSeconds(x))}</span></label>`).join("");
+  $("#exerciseList").innerHTML=ordered.map(x=>`<label class="exercise"><input type="checkbox" data-ex="${x.id}" ${selected.has(x.id)?"checked":""}><div><b>${x.name}</b><small>${x.group} · ${x.sets}×${x.reps}${x.rir?` · RIR ${x.rir}`:""} · descanso ${x.rest}s</small></div><span class="seconds">${x.durationSec?fmt(x.durationSec):`${secLabel(repSeconds(x))}s/rep`}<small>${x.durationSec?"":fmt(workSeconds(x))}</small></span></label>`).join("");
   $("#selectedCount").textContent=`${selected.size} ejercicios`;syncDock();
 }
 function chooseTemplate(id){const t=TEMPLATES.find(x=>x.id===id);if(!t)return;activeTemplate=id;selected=new Set(t.ids);persist();renderSetup()}
@@ -106,8 +173,7 @@ function showCurrent(){
   $("#runMeta").textContent=`${ex.group} · ${ex.sets}×${ex.reps}${ex.rir?` · RIR ${ex.rir}`:""} · descanso ${ex.rest}s`;
   $("#kgInput").value=currentKg(ex);$("#repsInput").value=reps;$("#repsInput").disabled=!!ex.durationSec;
   $("#runNote").textContent=ex.note||"";$("#runNote").classList.toggle("hidden",!ex.note);
-  $("#tempoInfo").textContent=ex.durationSec?"CRONO":`${ex.tempoSec}s / rep`;
-  const cues=coachCues(ex);$("#coachCue").textContent=ex.durationSec?"MANTÉN · RESPIRA":`${cues[0]} · ${cues[1]}`;
+  updatePhaseUI(ex,reps);
   $("#repReadout").textContent=ex.durationSec?"TIEMPO":`1/${reps}`;setBeat(-1);$("#timerRing").classList.remove("paused");renderTimer();$("#timerAction").textContent="▶ START SERIE";$("#timerAction").classList.remove("running");
 }
 async function ensureAudio(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;if(!audioCtx)audioCtx=new AC();if(audioCtx.state==="suspended")await audioCtx.resume();return audioCtx.state==="running"}catch{return false}}
@@ -115,13 +181,12 @@ function tone(f,dur=.026,gain=.016,type="square",delay=0){if(!soundOn||!audioCtx
 function playTick(strong=false,step=0){const f=strong?(step%2?1540:1260):(step%2?1280:980);tone(f,strong?.034:.026,strong?.026:.016,"square")}
 function playDone(){[440,587.33,783.99,1046.5].forEach((f,i)=>tone(f,i===3?.11:.052,i===3?.024:.020,i%2?"sine":"triangle",i*.047))}
 function speak(text,rate=1.6){if(!soundOn||!("speechSynthesis"in window)||($("#coachMode")?.value!=="voice"))return;const u=new SpeechSynthesisUtterance(text);u.lang="es-ES";u.rate=rate;u.volume=.8;speechSynthesis.speak(u)}
-function coachBeat(n){
-  const mode=$("#coachMode").value;if(!soundOn)return;
+function coachPhase(index){
+  const mode=$("#coachMode").value,phases=phasesFor(currentEx()),phase=phases[index];if(!soundOn||!phase)return;
   if(mode==="voice"){
-    if(n===0||n===2){if("speechSynthesis"in window&&speechSynthesis.speaking)speechSynthesis.cancel();const cues=coachCues(currentEx());speak(cues[n===0?0:1],2)}
-    else playTick(false,n);
-  }else if(mode==="ticks")playTick(n===0,n);
-  else{const f=[1046.5,740,830.61,932.33][n];tone(f,n===0?.055:.038,n===0?.026:.017,n===0?"triangle":"sine")}
+    if("speechSynthesis"in window&&speechSynthesis.speaking)speechSynthesis.cancel();speak(phase.cue,1.75);
+  }else if(mode==="ticks")playTick(index===0,index);
+  else{const f=[1046.5,830.61,740,932.33][index%4];tone(f,index===0?.055:.04,index===0?.026:.018,index===0?"triangle":"sine")}
 }
 function setBeat(n){$$(".beat-readout i").forEach((el,i)=>el.classList.toggle("active",i===n))}
 function renderTimer(){
@@ -149,9 +214,13 @@ function runClock(onEnd){
 }
 function updateTempo(){
   const ex=currentEx();if(!ex||ex.durationSec){setBeat(-1);return}
-  const elapsed=Math.max(0,timerTotal-timerLeft),quarter=(ex.tempoSec||4)/4,beat=Math.floor(elapsed/quarter)%4,beatIndex=Math.floor(elapsed/quarter);
-  if(beatIndex!==timerLastBeat){timerLastBeat=beatIndex;setBeat(beat);coachBeat(beat)}
-  const target=Math.max(1,Number($("#repsInput").value)||ex.repsDefault||1),rep=Math.min(target,Math.floor(elapsed/(ex.tempoSec||4))+1);$("#repReadout").textContent=`${rep}/${target}`;
+  const phases=phasesFor(ex),per=repSeconds(ex),elapsed=Math.max(0,timerTotal-timerLeft),target=Math.max(1,Number($("#repsInput").value)||ex.repsDefault||1);
+  const repIndex=Math.min(target-1,Math.floor(elapsed/per)),inside=Math.max(0,elapsed-repIndex*per);
+  let phaseIndex=phases.length-1,acc=0;
+  for(let i=0;i<phases.length;i++){acc+=phases[i].sec;if(inside<acc){phaseIndex=i;break}}
+  const eventKey=repIndex*10+phaseIndex;
+  if(eventKey!==timerLastBeat){timerLastBeat=eventKey;setBeat(phaseIndex);coachPhase(phaseIndex)}
+  $("#repReadout").textContent=`${Math.min(target,repIndex+1)}/${target}`;
 }
 function completeSet(manual=true){
   if(!session||timerMode==="rest")return;const ex=currentEx();clearTimer();setBeat(-1);
@@ -184,7 +253,8 @@ $("#clearSelection").onclick=()=>{selected.clear();persist();renderSetup()};$("#
 $("#playDaily").onclick=playDaily;$("#editDaily").onclick=editDaily;$("#closeSetup").onclick=()=>show(null);$("#startWorkout").onclick=()=>startWorkout();$("#startWorkoutDock").onclick=()=>startWorkout();
 $("#timerAction").onclick=startSet;$("#completeNow").onclick=()=>timerMode==="rest"?advanceAfterRest():completeSet(true);$("#sessionPause").onclick=toggleSessionPause;
 $("#skipExercise").onclick=skipExercise;$("#finishWorkout").onclick=finishSession;$("#anotherRun").onclick=()=>{renderDaily();show(null);window.scrollTo({top:0,behavior:"smooth"})};
-$$("[data-step]").forEach(b=>b.onclick=()=>{const input=b.dataset.step==="kg"?$("#kgInput"):$("#repsInput"),delta=Number(b.dataset.delta);input.value=Math.max(0,(Number(input.value)||0)+delta);if(b.dataset.step==="reps"&&session&&timerMode==="idle"){const ex=currentEx();timerTotal=workSeconds(ex,Number(input.value)||ex.repsDefault);timerLeft=timerTotal;renderTimer()}});
+$$("[data-step]").forEach(b=>b.onclick=()=>{const input=b.dataset.step==="kg"?$("#kgInput"):$("#repsInput"),delta=Number(b.dataset.delta);input.value=Math.max(0,(Number(input.value)||0)+delta);if(b.dataset.step==="reps"&&session&&timerMode==="idle"){const ex=currentEx(),reps=Number(input.value)||ex.repsDefault;timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;updatePhaseUI(ex,reps);renderTimer()}});
+$("#tempoFaster").onclick=()=>adjustTempo(-.05);$("#tempoReset").onclick=()=>adjustTempo(0);$("#tempoSlower").onclick=()=>adjustTempo(.05);
 $("#soundBtn").onclick=async()=>{soundOn=!soundOn;if(soundOn)await ensureAudio();$("#soundBtn").textContent=soundOn?"SOUND ON":"SOUND OFF";if(!soundOn&&"speechSynthesis"in window)speechSynthesis.cancel()};
 $("#coachMode").onchange=()=>persist();$("#chartMetric").onchange=drawHealth;
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&session)acquireWakeLock()});
