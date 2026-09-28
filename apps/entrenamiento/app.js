@@ -77,17 +77,26 @@ calf:[P("SUBE",2),P("BAJA",3)]
 };
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const STORE="adaptive_gym_v2";
-let health=FALLBACK,saved=loadSaved(),selected=new Set(saved.lastSelection?.length?saved.lastSelection:TEMPLATES[0].ids),activeTemplate="";
-let session=null,timerHandle=null,clockHandle=null,timerMode="idle",timerTotal=0,timerLeft=0,timerDeadline=0,timerLastBeat=-1,audioCtx=null,soundOn=true,wakeLock=null;
+let health=FALLBACK,saved=loadSaved(),selected=new Set(saved.lastSelection?.length?saved.lastSelection:TEMPLATES[0].ids),activeTemplate="",viewDay=localDay(),editingPlanId=null;
+let session=null,timerHandle=null,clockHandle=null,timerMode="idle",timerTotal=0,timerLeft=0,timerDeadline=0,timerLastBeat=-1,audioCtx=null,soundOn=true,wakeLock=null,restCueMarks=new Set();
+function normalizePlans(raw={}){
+  const out={};
+  for(const [day,value] of Object.entries(raw||{})){
+    if(Array.isArray(value)&&value.every(x=>typeof x==="string")) out[day]=value.length?[{id:`legacy-${day}`,name:"Sesión 1",ids:value}]:[];
+    else if(Array.isArray(value)) out[day]=value.filter(x=>x&&Array.isArray(x.ids)).map((x,i)=>({id:x.id||`plan-${day}-${i+1}`,name:x.name||`Sesión ${i+1}`,ids:x.ids.filter(id=>exById(id))}));
+  }
+  return out;
+}
 function loadSaved(){
   try{
     const old=JSON.parse(localStorage.getItem("adaptive_gym_v1"))||{},x=JSON.parse(localStorage.getItem(STORE))||{};
-    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),plans:x.plans&&typeof x.plans==="object"?x.plans:{},lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice"};
-  }catch{return {history:[],kg:{},plans:{},lastSelection:[],coachMode:"voice"}}
+    return {history:Array.isArray(x.history)?x.history:(Array.isArray(old.history)?old.history:[]),kg:x.kg&&typeof x.kg==="object"?x.kg:(old.kg||{}),lastReps:x.lastReps&&typeof x.lastReps==="object"?x.lastReps:{},plans:normalizePlans(x.plans&&typeof x.plans==="object"?x.plans:{}),routines:Array.isArray(x.routines)?x.routines:[],lastSelection:Array.isArray(x.lastSelection)?x.lastSelection:(old.lastSelection||[]),coachMode:x.coachMode||"voice"};
+  }catch{return {history:[],kg:{},lastReps:{},plans:{},routines:[],lastSelection:[],coachMode:"voice"}}
 }
 function persist(){saved.lastSelection=[...selected];saved.coachMode=$("#coachMode")?.value||saved.coachMode||"tones";localStorage.setItem(STORE,JSON.stringify(saved))}
 function localDay(delta=0){const d=new Date();d.setDate(d.getDate()+delta);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-")}
-function prettyDay(delta=0){return new Intl.DateTimeFormat("es-ES",{weekday:"long",day:"numeric",month:"long"}).format(new Date(Date.now()+delta*86400000))}
+function addDays(day,delta){const d=new Date(day+"T12:00:00");d.setDate(d.getDate()+delta);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-")}
+function prettyDayKey(day){return new Intl.DateTimeFormat("es-ES",{weekday:"long",day:"numeric",month:"long"}).format(new Date(day+"T12:00:00"))}
 function exById(id){return EXERCISES.find(x=>x.id===id)}
 function sameSelection(ids,set=selected){if(ids.length!==set.size)return false;return ids.every(id=>set.has(id))}
 function matchingTemplateId(set=selected){return TEMPLATES.find(t=>sameSelection(t.ids,set))?.id||""}
@@ -112,72 +121,99 @@ function updatePhaseUI(ex,reps){
 }
 function currentEx(){return session?exById(session.ids[session.exIndex]):null}
 function currentKg(ex){return Number(saved.kg?.[ex.id]??ex.kg??0)}
+function currentReps(ex){return Number(saved.lastReps?.[ex.id]??ex.repsDefault??0)}
 function fmt(sec){sec=Math.max(0,Math.ceil(sec));return String(Math.floor(sec/60)).padStart(2,"0")+":"+String(sec%60).padStart(2,"0")}
 function syncDock(){const dock=$("#selectionDock");if(!dock)return;$("#dockCount").textContent=selected.size;dock.classList.toggle("hidden",$("#setupView").classList.contains("hidden")||!selected.size)}
 function show(view){document.body.classList.toggle("session-active",view==="#runView");["#setupView","#runView","#resultView"].forEach(id=>$(id).classList.add("hidden"));if(view)$(view).classList.remove("hidden");syncDock();if(view)requestAnimationFrame(()=>$(view).scrollIntoView({block:"start"}))}
 
+function dayPlans(day=viewDay){return Array.isArray(saved.plans?.[day])?saved.plans[day]:[]}
+function planLabel(day){return `Sesión ${dayPlans(day).length+1}`}
 function renderDaily(){
-  const ids=(saved.plans?.[localDay()]||[]).filter(id=>exById(id));
-  $("#dailyDate").textContent=prettyDay(0);
-  $("#dailyCount").textContent=ids.length?`${ids.length} ejercicios`:"Sin plan";
-  $("#dailyExercises").innerHTML=ids.length?ids.map(id=>`<span class="daily-pill">${exById(id).name}</span>`).join(""):'<span class="daily-empty">Guarda una selección para que mañana solo tengas que pulsar PLAY.</span>';
-  $("#playDaily").disabled=!ids.length;$("#playDaily").style.opacity=ids.length?"1":".45";
-  $("#editDaily").textContent=ids.length?"EDITAR RUTINA":"CREAR RUTINA";
+  const plans=dayPlans(viewDay);
+  $("#dailyDate").textContent=prettyDayKey(viewDay);
+  $("#dayPicker").value=viewDay;
+  $("#dailyCount").textContent=plans.length?`${plans.length} ${plans.length===1?"sesión":"sesiones"}`:"Sin plan";
+  $("#deleteDay").disabled=!plans.length;$("#deleteDay").style.opacity=plans.length?"1":".4";
+  $("#dailyExercises").innerHTML=plans.length?plans.map(plan=>`<article class="day-session" data-plan="${plan.id}">
+    <div class="day-session-head"><div><b>${plan.name}</b><small>${plan.ids.length} ejercicios</small></div><button class="plan-x" data-delete-plan="${plan.id}" aria-label="Borrar sesión">×</button></div>
+    <div class="daily-exercises">${plan.ids.map(id=>{const ex=exById(id);return ex?`<span class="daily-pill">${ex.name}<button data-remove-ex="${id}" data-plan="${plan.id}" aria-label="Quitar ${ex.name}">×</button></span>`:""}).join("")}</div>
+    <div class="day-session-actions"><button data-play-plan="${plan.id}">▶ PLAY</button><button data-edit-plan="${plan.id}">EDITAR</button></div>
+  </article>`).join(""):'<span class="daily-empty">No hay sesión programada para este día.</span>';
+}
+function renderSavedRoutines(){
+  $("#savedRoutines").innerHTML=(saved.routines||[]).length?saved.routines.map(r=>`<div class="saved-routine"><button data-use-routine="${r.id}"><b>${r.name}</b><small>${r.ids.length} ejercicios</small></button><button class="plan-x" data-delete-routine="${r.id}">×</button></div>`).join(""):'<span class="hint">Aún no hay rutinas guardadas.</span>';
 }
 function renderSetup(){
   activeTemplate=matchingTemplateId(selected);
   $("#templates").innerHTML=TEMPLATES.map(t=>`<button class="template ${t.id===activeTemplate?"active":""}" data-template="${t.id}">${t.name}</button>`).join("");
+  renderSavedRoutines();
   const ordered=[...EXERCISES].sort((a,b)=>(selected.has(b.id)-selected.has(a.id))||a.group.localeCompare(b.group)||a.name.localeCompare(b.name));
   $("#exerciseList").innerHTML=ordered.map(x=>`<label class="exercise"><input type="checkbox" data-ex="${x.id}" ${selected.has(x.id)?"checked":""}><div><b>${x.name}</b><small>${x.group} · ${x.sets}×${x.reps}${x.rir?` · RIR ${x.rir}`:""} · descanso ${x.rest}s</small></div><span class="seconds">${x.durationSec?fmt(x.durationSec):`${secLabel(repSeconds(x))}s/rep`}<small>${x.durationSec?"":fmt(workSeconds(x))}</small></span></label>`).join("");
   $("#selectedCount").textContent=`${selected.size} ejercicios`;syncDock();
 }
-function chooseTemplate(id){const t=TEMPLATES.find(x=>x.id===id);if(!t)return;activeTemplate=id;selected=new Set(t.ids);persist();renderSetup()}
-function savePlan(delta){if(!selected.size)return;saved.plans[localDay(delta)]=[...selected];persist();renderDaily();flash(delta===0?"Plan de hoy guardado":"Plan de mañana guardado")}
+function chooseTemplate(id){const t=TEMPLATES.find(x=>x.id===id);if(!t)return;selected=new Set(t.ids);persist();renderSetup()}
+function openEditor(planId=null,day=viewDay){viewDay=day;editingPlanId=planId;const plan=planId?dayPlans(day).find(x=>x.id===planId):null;selected=new Set(plan?.ids||[]);$("#routineName").value=plan?.name||"";renderDaily();renderSetup();show("#setupView")}
+function savePlan(delta){if(!selected.size)return;const targetDay=addDays(viewDay,delta),plans=dayPlans(targetDay),existing=delta===0&&editingPlanId?plans.find(x=>x.id===editingPlanId):null;const name=$("#routineName").value.trim()||existing?.name||planLabel(targetDay);if(existing){existing.ids=[...selected];existing.name=name}else plans.push({id:`plan-${Date.now().toString(36)}`,name,ids:[...selected]});saved.plans[targetDay]=plans;persist();viewDay=targetDay;editingPlanId=null;renderDaily();show(null)}
+function saveRoutine(){if(!selected.size)return;const name=$("#routineName").value.trim()||`Rutina ${(saved.routines||[]).length+1}`;saved.routines=saved.routines||[];saved.routines.push({id:`routine-${Date.now().toString(36)}`,name,ids:[...selected],createdAt:new Date().toISOString()});persist();renderSavedRoutines();flash("Rutina guardada")}
+function deleteRoutine(id){saved.routines=(saved.routines||[]).filter(r=>r.id!==id);persist();renderSavedRoutines()}
+function deletePlan(planId){saved.plans[viewDay]=dayPlans(viewDay).filter(p=>p.id!==planId);persist();renderDaily()}
+function removeExerciseFromPlan(planId,exId){const p=dayPlans(viewDay).find(x=>x.id===planId);if(!p)return;p.ids=p.ids.filter(id=>id!==exId);if(!p.ids.length)return deletePlan(planId);persist();renderDaily()}
+function deleteDay(){if(!dayPlans(viewDay).length)return;delete saved.plans[viewDay];persist();renderDaily()}
+function changeDay(delta){viewDay=addDays(viewDay,delta);editingPlanId=null;renderDaily()}
 function flash(msg){const el=$("#selectedCount"),old=el.textContent;el.textContent=msg;setTimeout(()=>{if(el)el.textContent=old},1400)}
-function playDaily(){const ids=(saved.plans?.[localDay()]||[]).filter(id=>exById(id));if(ids.length){selected=new Set(ids);startWorkout(ids)}}
-function editDaily(){const ids=(saved.plans?.[localDay()]||[]).filter(id=>exById(id));if(ids.length)selected=new Set(ids);renderSetup();show("#setupView")}
-
-function startWorkout(ids=[...selected]){
+function startWorkout(ids=[...selected],meta={}){
   if(!ids.length)return;
-  clearTimer();stopClock();session={id:Date.now(),startedAt:Date.now(),ids:[...ids],exIndex:0,setIndex:0,records:[],skipped:[],paused:false,activeMs:0,clockLast:performance.now(),timerWasRunning:false};
-  acquireWakeLock();show("#runView");$("#coachMode").value=saved.coachMode||"tones";$("#sessionClock").textContent="00:00";$("#sessionPause").textContent="Ⅱ PAUSA";$("#sessionPause").classList.remove("paused");startClock();showCurrent();
+  clearTimer();stopClock();
+  session={id:Date.now(),startedAt:Date.now(),ids:[...ids],exIndex:0,setIndex:0,records:[],skipped:[],paused:false,activeMs:0,clockLast:performance.now(),timerWasRunning:false,planId:meta.planId||null,planDay:meta.planDay||viewDay,planName:meta.planName||$("#routineName")?.value?.trim()||"Sesión libre",setStartedAt:null};
+  acquireWakeLock();show("#runView");$("#coachMode").value=saved.coachMode||"voice";$("#sessionClock").textContent="00:00";$("#sessionPause").textContent="Ⅱ PAUSA";$("#sessionPause").classList.remove("paused");startClock();showCurrent();
+  const ex=currentEx();setTimeout(()=>announceCurrent(ex,true),250);
 }
 function startClock(){stopClock();if(!session)return;session.clockLast=performance.now();clockHandle=setInterval(()=>{if(!session)return;const now=performance.now();if(!session.paused)session.activeMs+=Math.max(0,now-session.clockLast);session.clockLast=now;$("#sessionClock").textContent=fmt(session.activeMs/1000)},250)}
 function stopClock(){if(clockHandle){clearInterval(clockHandle);clockHandle=null}}
 function toggleSessionPause(){
   if(!session)return;
   const now=performance.now();if(!session.paused)session.activeMs+=Math.max(0,now-session.clockLast);session.clockLast=now;
-  session.paused=!session.paused;$("#sessionPause").textContent=session.paused?"▶ CONTINUAR":"Ⅱ PAUSA";$("#sessionPause").classList.toggle("paused",session.paused);$("#timerRing").classList.toggle("paused",session.paused);
-  if(session.paused){session.timerWasRunning=!!timerHandle;pauseTimer();if("speechSynthesis"in window)speechSynthesis.cancel()}
-  else if(session.timerWasRunning&&(timerMode==="running"||timerMode==="rest"))runClock(timerMode==="running"?()=>completeSet(false):advanceAfterRest);
+  session.paused=!session.paused;$("#sessionPause").textContent=session.paused?"▶ CONTINUAR":"Ⅱ PAUSA";$("#sessionPause").classList.toggle("paused",session.paused);
+  if(session.paused){session.timerWasRunning=!!timerHandle;pauseTimer();if("speechSynthesis"in window)speechSynthesis.cancel();setTrainer("Sesión en pausa.",false)}
+  else{setTrainer("Seguimos.",false);if(session.timerWasRunning&&(timerMode==="running"||timerMode==="rest"))runClock(timerMode==="running"?()=>completeSet(false):advanceAfterRest)}
+  renderTimer();
 }
 function showCurrent(){
   const ex=currentEx();if(!ex){finishSession();return}
-  clearTimer();timerMode="idle";const reps=ex.repsDefault||0;timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;
+  clearTimer();timerMode="idle";const reps=ex.durationSec?0:currentReps(ex);timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;
   $("#runProgress").textContent=`EJERCICIO ${session.exIndex+1}/${session.ids.length}`;$("#runName").textContent=ex.name;
   $("#runMeta").textContent=`${ex.group} · ${ex.sets}×${ex.reps}${ex.rir?` · RIR ${ex.rir}`:""} · descanso ${ex.rest}s`;
   $("#kgInput").value=currentKg(ex);$("#repsInput").value=reps;$("#repsInput").disabled=!!ex.durationSec;
   $("#runNote").textContent=ex.note||"";$("#runNote").classList.toggle("hidden",!ex.note);
   updatePhaseUI(ex,reps);
-  $("#repReadout").textContent=ex.durationSec?"TIEMPO":`1/${reps}`;setBeat(-1);$("#timerRing").classList.remove("paused");renderTimer();$("#timerAction").textContent="▶ START SERIE";$("#timerAction").classList.remove("running");
+  $("#repReadout").textContent=ex.durationSec?"TIEMPO":`1/${reps}`;setBeat(-1);renderTimer();$("#timerAction").textContent="▶ START SERIE";$("#timerAction").classList.remove("running");
+}
+function announceCurrent(ex,first=false){
+  if(!ex)return;
+  const reps=ex.durationSec?`${ex.durationSec} segundos`:currentReps(ex)+" repeticiones",kg=currentKg(ex),setNo=session?.setIndex+1||1;
+  const intro=first?`Vamos, Adri. Empezamos con ${ex.name}.`:`Siguiente ejercicio: ${ex.name}.`;
+  const load=kg>0?` ${kg} kilos.`:"";
+  const rhythm=ex.durationSec?"":` Ritmo: ${phasesFor(ex).map(p=>`${p.cue.toLowerCase()} ${String(p.sec).replace(".",",")} segundos`).join(", luego ")}.`;
+  setTrainer(`${intro}${load} ${reps}. Serie ${setNo} de ${ex.sets}.${rhythm}`,true,1.45);
 }
 async function ensureAudio(){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return false;if(!audioCtx)audioCtx=new AC();if(audioCtx.state==="suspended")await audioCtx.resume();return audioCtx.state==="running"}catch{return false}}
 function tone(f,dur=.026,gain=.016,type="square",delay=0){if(!soundOn||!audioCtx||audioCtx.state!=="running")return;const t=audioCtx.currentTime+delay,o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=f;o.type=type;g.gain.setValueAtTime(gain,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+dur+.01)}
 function playTick(strong=false,step=0){const f=strong?(step%2?1540:1260):(step%2?1280:980);tone(f,strong?.034:.026,strong?.026:.016,"square")}
 function playDone(){[440,587.33,783.99,1046.5].forEach((f,i)=>tone(f,i===3?.11:.052,i===3?.024:.020,i%2?"sine":"triangle",i*.047))}
-function speak(text,rate=1.6){if(!soundOn||!("speechSynthesis"in window)||($("#coachMode")?.value!=="voice"))return;const u=new SpeechSynthesisUtterance(text);u.lang="es-ES";u.rate=rate;u.volume=.8;speechSynthesis.speak(u)}
+function speak(text,rate=1.6){if(!soundOn||!("speechSynthesis"in window)||($("#coachMode")?.value!=="voice"))return false;const u=new SpeechSynthesisUtterance(text);u.lang="es-ES";u.rate=rate;u.volume=.82;speechSynthesis.speak(u);return true}
+function setTrainer(text,voice=true,rate=1.55){$("#trainerTalk").textContent=text;if(voice)speak(text,rate)}
 function coachPhase(index){
   const mode=$("#coachMode").value,phases=phasesFor(currentEx()),phase=phases[index];if(!soundOn||!phase)return;
-  if(mode==="voice"){
-    if("speechSynthesis"in window&&speechSynthesis.speaking)speechSynthesis.cancel();speak(phase.cue,1.75);
-  }else if(mode==="ticks")playTick(index===0,index);
+  if(mode==="voice"){if("speechSynthesis"in window&&speechSynthesis.speaking)speechSynthesis.cancel();speak(phase.cue,1.75)}
+  else if(mode==="ticks")playTick(index===0,index);
   else{const f=[1046.5,830.61,740,932.33][index%4];tone(f,index===0?.055:.04,index===0?.026:.018,index===0?"triangle":"sine")}
 }
 function setBeat(n){$$(".beat-readout i").forEach((el,i)=>el.classList.toggle("active",i===n))}
 function renderTimer(){
-  $("#timerText").textContent=fmt(timerLeft);const ex=currentEx();
-  $("#timerLabel").textContent=timerMode==="rest"?"DESCANSO":`SERIE ${session?.setIndex+1||1}/${ex?.sets||1}`;
-  $("#timerRing").style.setProperty("--p",timerTotal?Math.min(100,100*(timerTotal-timerLeft)/timerTotal):0);$("#timerRing").classList.toggle("rest",timerMode==="rest");
+  const ex=currentEx(),label=timerMode==="rest"?"DESCANSO":`SERIE ${session?.setIndex+1||1}/${ex?.sets||1}`;
+  $("#timerStage").classList.toggle("rest-mode",timerMode==="rest");
+  if(window.AdrianVisualTimer)window.AdrianVisualTimer.update($("#timerRing"),{remaining:Math.max(0,timerLeft),total:Math.max(1,timerTotal),text:fmt(timerLeft),label,paused:!!session?.paused});
+  else $("#timerRing").textContent=`${fmt(timerLeft)} · ${label}`;
 }
 function clearTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null}timerLastBeat=-1}
 function pauseTimer(){if(timerHandle){timerLeft=Math.max(0,(timerDeadline-performance.now())/1000);clearInterval(timerHandle);timerHandle=null}}
@@ -185,21 +221,27 @@ async function startSet(){
   if(!session||session.paused)return;
   if(timerMode==="rest"){advanceAfterRest();return}
   if(timerMode==="running")return;
-  await ensureAudio();const ex=currentEx(),reps=Math.max(0,Number($("#repsInput").value)||0);timerMode="running";timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;timerLastBeat=-1;
-  $("#timerAction").textContent="EN CURSO";$("#timerAction").classList.add("running");runClock(()=>completeSet(false));
+  await ensureAudio();const ex=currentEx(),reps=ex.durationSec?0:Math.max(1,Number($("#repsInput").value)||currentReps(ex));
+  timerMode="running";timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;timerLastBeat=-1;session.setStartedAt=Date.now();
+  $("#timerAction").textContent="EN CURSO";$("#timerAction").classList.add("running");setTrainer(`Serie ${session.setIndex+1}. Vamos.`,true,1.7);runClock(()=>completeSet(false));
 }
 function runClock(onEnd){
   clearTimer();timerDeadline=performance.now()+timerLeft*1000;
   timerHandle=setInterval(()=>{
     if(!session||session.paused)return;timerLeft=Math.max(0,(timerDeadline-performance.now())/1000);
     if(timerMode==="running")updateTempo();
-    else if(timerMode==="rest"){const shown=Math.ceil(timerLeft);if(shown>0&&shown<=3&&shown!==timerLastBeat){timerLastBeat=shown;playTick(true,shown)}}
+    else if(timerMode==="rest"){
+      const shown=Math.ceil(timerLeft);
+      if(shown===20&&!restCueMarks.has(20)){restCueMarks.add(20);setTrainer("Te quedan 20 segundos de descanso. Ve preparándote para la siguiente serie.",true,1.55)}
+      if(shown===8&&!restCueMarks.has(8)){restCueMarks.add(8);setTrainer("Ocho segundos. Colócate y prepárate.",true,1.6)}
+      if(shown>0&&shown<=3&&shown!==timerLastBeat){timerLastBeat=shown;playTick(true,shown)}
+    }
     renderTimer();if(timerLeft<=0){clearTimer();onEnd()}
   },60);
 }
 function updateTempo(){
   const ex=currentEx();if(!ex||ex.durationSec){setBeat(-1);return}
-  const phases=phasesFor(ex),per=repSeconds(ex),elapsed=Math.max(0,timerTotal-timerLeft),target=Math.max(1,Number($("#repsInput").value)||ex.repsDefault||1);
+  const phases=phasesFor(ex),per=repSeconds(ex),elapsed=Math.max(0,timerTotal-timerLeft),target=Math.max(1,Number($("#repsInput").value)||currentReps(ex)||1);
   const repIndex=Math.min(target-1,Math.floor(elapsed/per)),inside=Math.max(0,elapsed-repIndex*per);
   let phaseIndex=phases.length-1,acc=0;
   for(let i=0;i<phases.length;i++){acc+=phases[i].sec;if(inside<acc){phaseIndex=i;break}}
@@ -209,22 +251,41 @@ function updateTempo(){
 }
 function completeSet(manual=true){
   if(!session||timerMode==="rest")return;const ex=currentEx();clearTimer();setBeat(-1);
-  const kg=Math.max(0,Number($("#kgInput").value)||0),reps=ex.durationSec?0:Math.max(0,Number($("#repsInput").value)||0);
-  saved.kg[ex.id]=kg;session.records.push({exerciseId:ex.id,set:session.setIndex+1,kg,reps,at:Date.now(),manual});persist();
+  const kg=Math.max(0,Number($("#kgInput").value)||0),reps=ex.durationSec?0:Math.max(1,Number($("#repsInput").value)||currentReps(ex)),actualSec=session.setStartedAt?Math.round((Date.now()-session.setStartedAt)/100)/10:null;
+  saved.kg[ex.id]=kg;if(!ex.durationSec)saved.lastReps[ex.id]=reps;
+  session.records.push({exerciseId:ex.id,exerciseName:ex.name,set:session.setIndex+1,kg,reps,durationSec:ex.durationSec||null,prescribedRepSeconds:ex.durationSec?null:repSeconds(ex),phases:ex.durationSec?[]:phasesFor(ex),restSec:ex.rest,actualSec,at:Date.now(),manual});persist();
   if(session.setIndex+1>=ex.sets&&session.exIndex+1>=session.ids.length){playDone();finishSession();return}
   startRest(ex.rest);
 }
-function startRest(sec){timerMode="rest";timerTotal=sec;timerLeft=sec;timerLastBeat=-1;$("#repReadout").textContent="REST";$("#timerAction").textContent="SALTAR DESCANSO";$("#timerAction").classList.remove("running");renderTimer();speak(`Descanso. ${sec} segundos`,1.5);runClock(advanceAfterRest)}
-function advanceAfterRest(){clearTimer();const ex=currentEx();if(session.setIndex+1<ex.sets)session.setIndex++;else{session.exIndex++;session.setIndex=0}const next=currentEx();showCurrent();if(next)speak(`Siguiente. ${next.name}`,1.5)}
-function skipExercise(){const ex=currentEx();if(!ex)return;session.skipped.push(ex.id);clearTimer();session.exIndex++;session.setIndex=0;showCurrent()}
+function startRest(sec){
+  timerMode="rest";timerTotal=sec;timerLeft=sec;timerLastBeat=-1;restCueMarks=new Set();$("#repReadout").textContent="REST";$("#timerAction").textContent="SALTAR DESCANSO";$("#timerAction").classList.remove("running");renderTimer();
+  const done=(session.records.length%3===0)?"Muy bien. Otra serie hecha.":(session.records.length%2===0?"Bien. Seguimos sumando.":"Bien. Serie hecha.");
+  setTrainer(`${done} Descansa ${sec} segundos.`,true,1.55);runClock(advanceAfterRest);
+}
+function advanceAfterRest(){
+  clearTimer();const prev=currentEx(),same=session.setIndex+1<prev.sets;
+  if(same)session.setIndex++;else{session.exIndex++;session.setIndex=0}
+  const next=currentEx();showCurrent();
+  if(!next)return;
+  if(same)setTrainer(`Descanso terminado. Serie ${session.setIndex+1} de ${next.name}. Mismo objetivo.`,true,1.55);
+  else announceCurrent(next,false);
+}
+function skipExercise(){const ex=currentEx();if(!ex)return;session.skipped.push(ex.id);clearTimer();session.exIndex++;session.setIndex=0;const next=currentEx();showCurrent();if(next)announceCurrent(next,false)}
 function finishSession(){
   if(!session)return;pauseTimer();stopClock();if("speechSynthesis"in window)speechSynthesis.cancel();releaseWakeLock();
   const totalSets=session.ids.reduce((n,id)=>n+(exById(id)?.sets||0),0),minutes=Math.max(1,Math.round(session.activeMs/60000));
-  const rec={id:session.id,date:new Date(session.startedAt).toISOString(),minutes,sets:session.records.length,totalSets,exercises:new Set(session.records.map(r=>r.exerciseId)).size,planned:session.ids.length,skipped:session.skipped.length,records:session.records};
-  saved.history=[...(saved.history||[]),rec].slice(-60);persist();session=null;renderHistory();renderResult(rec);show("#resultView")
+  const rec={id:session.id,date:new Date(session.startedAt).toISOString(),finishedAt:new Date().toISOString(),planId:session.planId,planDay:session.planDay,planName:session.planName,minutes,sets:session.records.length,totalSets,exercises:new Set(session.records.map(r=>r.exerciseId)).size,planned:session.ids.length,skipped:session.skipped.length,records:session.records};
+  saved.history=[...(saved.history||[]),rec].slice(-365);persist();const summary=`Sesión terminada. ${rec.sets} series, ${rec.exercises} ejercicios y ${rec.minutes} minutos. Buen trabajo.`;session=null;renderHistory();renderResult(rec);show("#resultView");setTimeout(()=>speak(summary,1.45),300);
 }
 function renderResult(r){$("#resultTitle").textContent=`${r.sets} series completadas`;$("#resultGrid").innerHTML=[["SERIES",r.sets],["EJERCICIOS",r.exercises],["MIN",r.minutes]].map(x=>`<div class="result-card"><b>${x[1]}</b><span>${x[0]}</span></div>`).join("")}
+function dayKeyFromIso(iso){return new Date(iso).toLocaleDateString("sv-SE")}
 function renderHistory(){const h=(saved.history||[]).slice(-10),total=(saved.history||[]).reduce((n,x)=>n+x.sets,0);$("#historyLabel").textContent=h.length?`${saved.history.length} sesiones · ${total} series`:"Sin sesiones";$("#workoutChart").innerHTML=h.length?h.map(x=>{const pct=x.totalSets?Math.max(8,Math.round(100*x.sets/x.totalSets)):8;return `<i class="workout-bar" style="height:${pct}%" title="${x.sets}/${x.totalSets} series · ${x.minutes} min"><span>${x.sets}</span></i>`}).join(""):'<div class="hint">Tu primera sesión aparecerá aquí.</div>'}
+function exportDayJson(){
+  const sessions=(saved.history||[]).filter(r=>dayKeyFromIso(r.date)===viewDay);
+  const plans=dayPlans(viewDay).map(p=>({...p,exercises:p.ids.map(id=>{const ex=exById(id);return ex?{id:ex.id,name:ex.name,sets:ex.sets,reps:ex.reps,restSec:ex.rest,phases:ex.durationSec?[]:phasesFor(ex)}:null}).filter(Boolean)}));
+  const payload={schema:"ADAPTIVE_GYM_DAY_V1",day:viewDay,exportedAt:new Date().toISOString(),plans,sessions,lastKnown:{kg:saved.kg,lastReps:saved.lastReps}};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`adaptive-gym-${viewDay}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
 async function acquireWakeLock(){try{if("wakeLock"in navigator)wakeLock=await navigator.wakeLock.request("screen")}catch{}}
 function releaseWakeLock(){try{wakeLock?.release()}catch{}wakeLock=null}
 
@@ -233,11 +294,14 @@ function drawHealth(){const key=$("#chartMetric").value,a=health.series[key]||[]
 async function loadHealth(){try{const r=await fetch("./data/latest.json?"+Date.now(),{cache:"no-store"});if(r.ok)health=await r.json()}catch{}renderHealth()}
 
 $("#templates").addEventListener("click",e=>{const b=e.target.closest("[data-template]");if(b)chooseTemplate(b.dataset.template)});
-$("#exerciseList").addEventListener("change",e=>{const id=e.target.dataset.ex;if(!id)return;e.target.checked?selected.add(id):selected.delete(id);activeTemplate="";persist();renderSetup()});
-$("#clearSelection").onclick=()=>{selected.clear();persist();renderSetup()};$("#saveToday").onclick=()=>savePlan(0);$("#saveTomorrow").onclick=()=>savePlan(1);
-$("#playDaily").onclick=playDaily;$("#editDaily").onclick=editDaily;$("#closeSetup").onclick=()=>show(null);$("#startWorkout").onclick=()=>startWorkout();$("#startWorkoutDock").onclick=()=>startWorkout();
+$("#savedRoutines").addEventListener("click",e=>{const use=e.target.closest("[data-use-routine]"),del=e.target.closest("[data-delete-routine]");if(del){deleteRoutine(del.dataset.deleteRoutine);return}if(use){const r=(saved.routines||[]).find(x=>x.id===use.dataset.useRoutine);if(r){selected=new Set(r.ids);$("#routineName").value=r.name;renderSetup()}}});
+$("#exerciseList").addEventListener("change",e=>{const id=e.target.dataset.ex;if(!id)return;e.target.checked?selected.add(id):selected.delete(id);persist();renderSetup()});
+$("#clearSelection").onclick=()=>{selected.clear();persist();renderSetup()};$("#saveToday").onclick=()=>savePlan(0);$("#saveTomorrow").onclick=()=>savePlan(1);$("#saveRoutine").onclick=saveRoutine;
+$("#prevDay").onclick=()=>changeDay(-1);$("#nextDay").onclick=()=>changeDay(1);$("#dayPicker").onchange=e=>{if(e.target.value){viewDay=e.target.value;editingPlanId=null;renderDaily()}};$("#addSession").onclick=()=>openEditor(null,viewDay);$("#deleteDay").onclick=deleteDay;
+$("#dailyExercises").addEventListener("click",e=>{const play=e.target.closest("[data-play-plan]"),edit=e.target.closest("[data-edit-plan]"),del=e.target.closest("[data-delete-plan]"),remove=e.target.closest("[data-remove-ex]");if(remove){removeExerciseFromPlan(remove.dataset.plan,remove.dataset.removeEx);return}if(del){deletePlan(del.dataset.deletePlan);return}if(edit){openEditor(edit.dataset.editPlan,viewDay);return}if(play){const p=dayPlans(viewDay).find(x=>x.id===play.dataset.playPlan);if(p)startWorkout(p.ids,{planId:p.id,planDay:viewDay,planName:p.name})}});
+$("#closeSetup").onclick=()=>{editingPlanId=null;show(null)};const startSelected=()=>startWorkout([...selected],{planId:editingPlanId,planDay:viewDay,planName:$("#routineName").value.trim()||"Sesión libre"});$("#startWorkout").onclick=startSelected;$("#startWorkoutDock").onclick=startSelected;
 $("#timerAction").onclick=startSet;$("#completeNow").onclick=()=>timerMode==="rest"?advanceAfterRest():completeSet(true);$("#sessionPause").onclick=toggleSessionPause;
-$("#skipExercise").onclick=skipExercise;$("#finishWorkout").onclick=finishSession;$("#anotherRun").onclick=()=>{renderDaily();show(null);window.scrollTo({top:0,behavior:"smooth"})};
+$("#skipExercise").onclick=skipExercise;$("#finishWorkout").onclick=finishSession;$("#anotherRun").onclick=()=>{renderDaily();show(null);window.scrollTo({top:0,behavior:"smooth"})};$("#exportJson").onclick=exportDayJson;
 $$("[data-step]").forEach(b=>b.onclick=()=>{const input=b.dataset.step==="kg"?$("#kgInput"):$("#repsInput"),delta=Number(b.dataset.delta);input.value=Math.max(0,(Number(input.value)||0)+delta);if(b.dataset.step==="reps"&&session&&timerMode==="idle"){const ex=currentEx(),reps=Number(input.value)||ex.repsDefault;timerTotal=workSeconds(ex,reps);timerLeft=timerTotal;updatePhaseUI(ex,reps);renderTimer()}});
 $("#soundBtn").onclick=async()=>{soundOn=!soundOn;if(soundOn)await ensureAudio();$("#soundBtn").textContent=soundOn?"SOUND ON":"SOUND OFF";if(!soundOn&&"speechSynthesis"in window)speechSynthesis.cancel()};
 $("#coachMode").onchange=()=>persist();$("#chartMetric").onchange=drawHealth;

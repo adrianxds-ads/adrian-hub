@@ -7,6 +7,7 @@
 <title>Adaptive Gym · Hub</title>
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/visual-timer.css?v=1.0.0">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -17,18 +18,21 @@
 </header>
 
 <section class="daily-card ad-card">
-<div class="section-head"><div><span class="eyebrow">ENTRENAMIENTO DEL DÍA</span><h2 id="dailyDate">Hoy</h2></div><strong id="dailyCount">Sin plan</strong></div>
+<div class="section-head"><div><span class="eyebrow">AGENDA GYM</span><h2 id="dailyDate">Hoy</h2></div><strong id="dailyCount">Sin plan</strong></div>
+<div class="day-nav"><button id="prevDay">‹</button><input id="dayPicker" type="date"><button id="nextDay">›</button></div>
 <div id="dailyExercises" class="daily-exercises"></div>
-<div class="daily-actions"><button class="ad-button primary" id="playDaily">▶ PLAY DEL DÍA</button><button class="ad-button secondary" id="editDaily">EDITAR RUTINA</button></div>
+<div class="daily-actions"><button class="ad-button primary" id="addSession">＋ AÑADIR SESIÓN</button><button class="ad-button secondary danger" id="deleteDay">BORRAR DÍA</button></div>
 </section>
 
 <section class="run-shell ad-card hidden" id="setupView">
 <div class="section-head"><div><span class="eyebrow">BIBLIOTECA</span><h2>Construye la rutina</h2></div><div class="setup-head-actions"><strong id="selectedCount">0 ejercicios</strong><button class="mini" id="closeSetup">CERRAR</button></div></div>
 <div class="template-row" id="templates"></div>
+<div class="saved-routines" id="savedRoutines"></div>
+<div class="routine-save"><input id="routineName" type="text" placeholder="Nombre de esta rutina"><button id="saveRoutine">GUARDAR EN BIBLIOTECA</button></div>
 <p class="hint">Selecciona solo ejercicios que tengas pautados y toleres bien. Si un movimiento molesta, se salta.</p>
 <div class="plan-actions">
-<button class="ad-button secondary" id="saveToday">GUARDAR HOY</button>
-<button class="ad-button secondary" id="saveTomorrow">GUARDAR MAÑANA</button>
+<button class="ad-button secondary" id="saveToday">GUARDAR EN ESTE DÍA</button>
+<button class="ad-button secondary" id="saveTomorrow">GUARDAR DÍA SIGUIENTE</button>
 </div>
 <div class="exercise-list" id="exerciseList"></div>
 <div class="setup-actions">
@@ -45,6 +49,7 @@
 </div>
 <div class="run-top"><div><span class="eyebrow" id="runProgress">EJERCICIO 1/1</span><h2 id="runName">—</h2><p id="runMeta">—</p></div><button class="mini danger" id="skipExercise">SALTAR</button></div>
 <div class="note hidden" id="runNote"></div>
+<div class="trainer-talk" id="trainerTalk">Preparado cuando tú quieras.</div>
 
 <div class="coach-row">
 <label>ENTRENADOR
@@ -66,7 +71,7 @@
 </div>
 
 <div class="timer-stage" id="timerStage">
-<div class="timer-ring" id="timerRing"><b id="timerText">00:44</b><span id="timerLabel">SERIE 1/2</span></div>
+<div class="ad-visual-timer ad-visual-timer--large" id="timerRing" aria-label="Temporizador de entrenamiento"></div>
 <button class="start-set" id="timerAction">▶ START SERIE</button>
 </div>
 <div class="run-actions"><button class="ad-button secondary" id="finishWorkout">FINALIZAR</button><button class="ad-button secondary" id="completeNow">SERIE HECHA</button></div>
@@ -79,7 +84,7 @@
 </section>
 
 <section class="panel ad-card">
-<div class="section-head"><div><span class="eyebrow">HISTORIAL</span><h2>Tu gráfica</h2></div><strong id="historyLabel">Sin sesiones</strong></div>
+<div class="section-head"><div><span class="eyebrow">HISTORIAL</span><h2>Tu gráfica</h2></div><div class="history-actions"><strong id="historyLabel">Sin sesiones</strong><button class="mini" id="exportJson">JSON DEL DÍA</button></div></div>
 <div class="workout-chart" id="workoutChart"></div>
 </section>
 
@@ -89,6 +94,8 @@
 <section class="panel ad-card"><h2>Estado de datos</h2><div id="sources" class="sources"></div></section>
 <section class="panel ad-card"><h2>Decisión de hoy</h2><p id="decision">Aún no hay suficientes datos normalizados para recomendar cambios de carga.</p></section>
 </main>
+<script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/visual-timer.js?v=1.0.0"></script>
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 </body>
