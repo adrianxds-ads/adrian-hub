@@ -16,10 +16,10 @@ const DEFAULT_TASKS=[
 const $=s=>document.querySelector(s);
 const AVS=window.ADRIAN_VISUAL_SYSTEM?.ranks||[];
 const els={
-  choose:$('#chooseView'),timerView:$('#timerView'),targets:$('#targets'),archiveList:$('#archiveList'),archiveCount:$('#archiveCount'),libraryCount:$('#libraryCount'),
+  choose:$('#chooseView'),timerView:$('#timerView'),libraryPanel:$('#libraryPanel'),targets:$('#targets'),archiveList:$('#archiveList'),archiveCount:$('#archiveCount'),libraryCount:$('#libraryCount'),
   custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),transition:$('#transitionInput'),prep:$('#prepInput'),
-  voice:$('#voiceBtn'),ticks:$('#ticksBtn'),nameBtn:$('#nameBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),sub:$('#timerSub'),
-  ring:$('#timerRing'),instruction:$('#instruction'),coach:$('#coachLine'),next:$('#nextBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),
+  voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),timerStage:$('#timerStage'),sub:$('#timerSub'),
+  ring:$('#timerRing'),instruction:$('#instruction'),coach:$('#coachLine'),next:$('#nextBtn'),addTime:$('#addTimeBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),
   history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount'),dailyScore:$('#dailyScore'),dailyRank:$('#dailyRank'),dailySteps:$('#dailySteps'),
   dailyChart:$('#dailyChart'),dayStamp:$('#dayStamp')
 };
@@ -35,7 +35,7 @@ function history(){
   return loadJSON(OLD_STORE,[]).map(x=>({...x,name:x.target||x.name,plannedMinutes:x.plannedMinutes||null}));
 }
 function saveHistory(rows){localStorage.setItem(STORE,JSON.stringify(rows.slice(0,500)))}
-function settings(){return {...{voice:true,ticks:true,transitionMin:2,prepMin:5,coachName:'Adri'},...loadJSON(SETTINGS,{})}}
+function settings(){return {...{voice:true,ticks:true,transitionMin:2,prepMin:5},...loadJSON(SETTINGS,{}),coachName:'Adri'}}
 function saveSettings(x){localStorage.setItem(SETTINGS,JSON.stringify(x))}
 function buildInitialLibrary(){
   const now=new Date().toISOString(),base=DEFAULT_TASKS.map((x,i)=>({...x,archived:false,order:i,createdAt:now}));
@@ -78,12 +78,20 @@ function setArchived(id,value){
   if(selected?.id===id){selected=null;els.start.disabled=true}
   renderLibrary();
 }
+function taskCycleVisual(t){
+  const count=taskCount(t);let rank=1,completedCycles=0;
+  if(count>0){const rem=count%15;if(rem===0){rank=15;completedCycles=Math.max(0,Math.floor(count/15)-1)}else{rank=rem;completedCycles=Math.floor(count/15)}}
+  const ri=rankInfo(rank),rings=Math.min(completedCycles,3),layers=[];
+  for(let i=0;i<rings;i++){const a=2+i*5;layers.push(`inset 0 0 0 ${a}px #E7BF57`);if(i<rings-1)layers.push(`inset 0 0 0 ${a+3}px #142126`)}
+  return {count,rank,ri,completedCycles,shadow:layers.join(',')};
+}
 function taskCardHtml(t){
-  const count=taskCount(t),last=taskLast(t),sel=selected?.id===t.id;
-  const countText=count===1?'HECHA 1 VEZ':`HECHA ${count} VECES`;
-  const lastText=last?` · última ${last.toLocaleDateString('es-ES',{day:'numeric',month:'short'})}`:'';
-  return `<article class="task-card ${sel?'selected':''}" data-id="${esc(t.id)}">
-    <button class="task-main" data-task="${esc(t.id)}"><span>${esc(t.category||'Tarea')}</span><b>${esc(t.name)}</b><small>${esc(t.sub||'')}</small><em>${countText}${esc(lastText)}</em></button>
+  const v=taskCycleVisual(t),last=taskLast(t),sel=selected?.id===t.id;
+  const countText=v.count===1?'HECHA 1 VEZ':`HECHA ${v.count} VECES`,lastText=last?` · última ${last.toLocaleDateString('es-ES',{day:'numeric',month:'short'})}`:'';
+  const cycleText=v.completedCycles?` · ${v.completedCycles} ${v.completedCycles===1?'CICLO ORO':'CICLOS ORO'}`:'';
+  const style=`--task-color:${v.ri.color};--task-text:${v.ri.text};${v.shadow?`box-shadow:${v.shadow};`:''}`;
+  return `<article class="task-card ${sel?'selected':''}" data-id="${esc(t.id)}" style="${style}">
+    <button class="task-main" data-task="${esc(t.id)}"><span><i class="task-color-dot"></i>${esc(t.category||'Tarea')} · ${v.rank}/15</span><b>${esc(t.name)}</b><small>${esc(t.sub||'')}</small><em>${countText}${esc(lastText)}${cycleText}</em></button>
     <button class="task-archive" data-archive="${esc(t.id)}" title="Archivar">ARCHIVAR</button>
   </article>`;
 }
@@ -110,14 +118,14 @@ function renderControls(){
   els.prep.value=clamp(Math.round(Number(s.prepMin)||5),1,15);
   els.voice.classList.toggle('active',s.voice);els.voice.textContent=`VOZ · ${s.voice?'SÍ':'NO'}`;
   els.ticks.classList.toggle('active',s.ticks);els.ticks.textContent=`TIC-TAC · ${s.ticks?'SÍ':'NO'}`;
-  els.nameBtn.textContent=`ME LLAMAS · ${String(s.coachName||'Adri').toLocaleUpperCase('es')}`;
-  els.nameBtn.classList.toggle('active',s.voice);
   els.start.textContent=`EMPEZAR CAMBIO · ${els.transition.value} MIN`;
 }
 function setMinutes(n){els.minutes.value=clamp(Math.round(Number(n)||25),1,240);renderDurations()}
 function selectTarget(t){
   selected=t;els.start.disabled=false;setMinutes(t.minutes||25);
   els.targets.querySelectorAll('.task-card').forEach(x=>x.classList.toggle('selected',x.dataset.id===t.id));
+  if(els.libraryCount)els.libraryCount.textContent='✓ '+t.name;
+  if(els.libraryPanel)els.libraryPanel.open=false;
 }
 function updatePreamble(){
   const s=settings();s.transitionMin=clamp(Math.round(Number(els.transition.value)||2),1,10);s.prepMin=clamp(Math.round(Number(els.prep.value)||5),1,15);saveSettings(s);renderControls();
@@ -198,7 +206,7 @@ async function startTransition(){
   if(!selected)return;
   const s=settings(),plannedMinutes=clamp(Math.round(Number(els.minutes.value)||25),1,240),transitionMin=clamp(Math.round(Number(s.transitionMin)||2),1,10),prepMin=clamp(Math.round(Number(s.prepMin)||5),1,15);
   await ensureAudio();await acquireWakeLock();
-  active={target:{name:selected.name,id:selected.id},plannedMinutes,transitionMin,prepMin,phase:'transition',startedAt:Date.now(),phaseStartedAt:Date.now(),deadline:Date.now()+transitionMin*60000};
+  active={target:{name:selected.name,id:selected.id},plannedMinutes,transitionMin,prepMin,extensionMinutes:0,phase:'transition',startedAt:Date.now(),phaseStartedAt:Date.now(),deadline:Date.now()+transitionMin*60000};
   const lib=taskLibrary(),t=lib.find(x=>x.id===selected.id);if(t){t.minutes=plannedMinutes;t.lastUsedAt=new Date().toISOString();saveTaskLibrary(lib)}
   persistActive();showActive();runTimer();setCoach('transition',{mins:transitionMin});
 }
@@ -222,7 +230,7 @@ function cancelActive(){
 }
 function showActive(){
   els.choose.classList.add('hidden');els.timerView.classList.remove('hidden');els.title.textContent=active.target.name;
-  els.next.classList.remove('hidden');els.finish.classList.add('hidden');els.next.disabled=false;
+  els.next.classList.remove('hidden');els.addTime.classList.add('hidden');els.finish.classList.add('hidden');els.next.disabled=false;
   if(active.phase==='transition'){
     els.phase.textContent='2 · DESPEGA';els.sub.textContent=`${active.transitionMin||settings().transitionMin} MIN · TRANSICIÓN`;els.next.textContent='LISTO · IR A PREPARAR';
     els.instruction.textContent='Cierra lo anterior, levántate y muévete hacia la nueva tarea.';
@@ -230,16 +238,29 @@ function showActive(){
     els.phase.textContent='3 · ATERRIZA';els.sub.textContent=`${active.prepMin||settings().prepMin} MIN · PREPARACIÓN`;els.next.textContent='YA ESTOY LISTO · EMPEZAR';
     els.instruction.textContent='Prepara solo lo necesario. No optimices el sistema: deja la tarea lista para hacer.';
   }else{
-    els.phase.textContent='4 · HAZ LA TAREA';els.sub.textContent=`${active.plannedMinutes} MIN`;els.next.classList.add('hidden');els.finish.classList.remove('hidden');
+    const extra=active.extensionMinutes?` · +${active.extensionMinutes} EXTRA`:'';
+    els.phase.textContent='4 · HAZ LA TAREA';els.sub.textContent=`${active.plannedMinutes} MIN${extra}`;els.next.classList.add('hidden');els.addTime.classList.remove('hidden');els.finish.classList.remove('hidden');
     els.instruction.textContent='Ya no hay que preparar nada. Haz únicamente la tarea que elegiste.';
   }
+}
+function extendTask(){
+  if(!active||active.phase!=='task')return;
+  active.extensionMinutes=(active.extensionMinutes||0)+15;active.plannedMinutes+=15;active.deadline+=15*60000;active.fiveMinuteCue=false;
+  persistActive();showActive();speak('Vale, Adri. Quince minutos más. Sigue con la misma tarea.');
+}
+function paintTimer(left,total){
+  const remaining=clamp(Math.max(0,left)/Math.max(1,total),0,1),elapsed=1-remaining;
+  const rank=elapsed>=.9999?15:clamp(1+Math.floor(Math.pow(elapsed,.65)*14),1,15),ri=rankInfo(rank);
+  const fg=rank>=10?'#071014':'#F6FBFC';
+  els.ring.style.setProperty('--timer-color',ri.color);els.ring.style.setProperty('--timer-fg',fg);els.ring.style.setProperty('--timer-progress',(elapsed*100).toFixed(2));
+  els.timerStage.textContent=`${ri.name.toLocaleUpperCase('es')} · ${rank}/15`;
 }
 function runTimer(){
   clearInterval(tickId);lastTickSecond=null;
   const update=()=>{
     if(!active)return;
-    const left=active.deadline-Date.now(),total=phaseTotal(active.phase),p=clamp(100*Math.max(0,left)/Math.max(1,total),0,100);
-    els.timer.textContent=format(left);els.ring.style.setProperty('--p',p.toFixed(2));
+    const left=active.deadline-Date.now(),total=phaseTotal(active.phase);
+    els.timer.textContent=format(left);paintTimer(left,total);
     const sec=Math.ceil(left/1000);
     if(left>0&&sec<=10&&sec!==lastTickSecond){lastTickSecond=sec;playTick(sec<=3,sec)}
     if(active.phase==='task'&&active.plannedMinutes>5&&left<=5*60000&&!active.fiveMinuteCue){
@@ -254,9 +275,9 @@ function runTimer(){
 function completeTask(early=false,expired=false){
   if(!active)return;
   const now=Date.now(),actualMs=active.taskStartedAt?Math.max(0,now-active.taskStartedAt):0,rows=history(),taskId=active.target.id,name=active.target.name;
-  rows.unshift({id:now.toString(36),taskId,name,completedAt:new Date(now).toISOString(),taskStartedAt:active.taskStartedAt?new Date(active.taskStartedAt).toISOString():null,transitionStartedAt:new Date(active.startedAt).toISOString(),plannedMinutes:active.plannedMinutes,actualMinutes:Math.max(1,Math.round(actualMs/60000)),early});
+  rows.unshift({id:now.toString(36),taskId,name,completedAt:new Date(now).toISOString(),taskStartedAt:active.taskStartedAt?new Date(active.taskStartedAt).toISOString():null,transitionStartedAt:new Date(active.startedAt).toISOString(),plannedMinutes:active.plannedMinutes,extensionMinutes:active.extensionMinutes||0,actualMinutes:Math.max(1,Math.round(actualMs/60000)),early});
   saveHistory(rows);
-  const todayN=rows.filter(r=>dayKey(r.completedAt)===dayKey(now)).length,s=settings(),coachName=s.coachName||'Adri';
+  const todayN=rows.filter(r=>dayKey(r.completedAt)===dayKey(now)).length,coachName='Adri';
   active=null;localStorage.removeItem(ACTIVE);clearInterval(tickId);tickId=null;releaseWakeLock();
   els.timerView.classList.add('hidden');els.choose.classList.remove('hidden');selected=null;els.start.disabled=true;renderLibrary();drawStats();
   if(!expired)playDone();
@@ -276,15 +297,15 @@ function rankInfo(n){
 }
 function dailyChartHtml(rows){
   const sorted=[...rows].sort((a,b)=>new Date(a.completedAt)-new Date(b.completedAt));
-  const w=720,h=260,L=38,R=13,T=14,B=31,maxY=15,now=new Date(),start=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime(),end=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1).getTime();
+  const w=720,h=420,L=48,R=18,T=20,B=48,maxY=15,now=new Date(),start=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime(),end=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1).getTime();
   const xFor=ts=>L+clamp((ts-start)/(end-start),0,1)*(w-L-R),yFor=v=>T+((maxY-clamp(v,0,maxY))/maxY)*(h-T-B);
   const bands=Array.from({length:15},(_,i)=>{const x=rankInfo(i+1);return `<rect x="${L}" y="${yFor(i+1)}" width="${w-L-R}" height="${Math.max(1,yFor(i)-yFor(i+1))}" fill="${x.band}" fill-opacity=".60"/>`}).join('');
-  const grid=[0,5,10,15].map(v=>`<line x1="${L}" y1="${yFor(v)}" x2="${w-R}" y2="${yFor(v)}" stroke="rgba(255,255,255,.22)"/><text x="${L-8}" y="${yFor(v)+4}" text-anchor="end" fill="#c5d3d6" font-size="11" font-weight="850">${v}</text>`).join('');
-  const hours=[0,6,12,18,24].map(hr=>{const ts=hr===24?end:new Date(now.getFullYear(),now.getMonth(),now.getDate(),hr).getTime();return `<text x="${xFor(ts)}" y="${h-10}" text-anchor="${hr===0?'start':hr===24?'end':'middle'}" fill="#b5c5c9" font-size="11" font-weight="800">${String(hr).padStart(2,'0')}:00</text>`}).join('');
+  const grid=[0,5,10,15].map(v=>`<line x1="${L}" y1="${yFor(v)}" x2="${w-R}" y2="${yFor(v)}" stroke="rgba(255,255,255,.22)"/><text x="${L-10}" y="${yFor(v)+5}" text-anchor="end" fill="#c5d3d6" font-size="14" font-weight="900">${v}</text>`).join('');
+  const hours=[0,6,12,18,24].map(hr=>{const ts=hr===24?end:new Date(now.getFullYear(),now.getMonth(),now.getDate(),hr).getTime();return `<text x="${xFor(ts)}" y="${h-14}" text-anchor="${hr===0?'start':hr===24?'end':'middle'}" fill="#b5c5c9" font-size="14" font-weight="850">${String(hr).padStart(2,'0')}:00</text>`}).join('');
   const pts=sorted.map((r,i)=>({r,v:i+1,x:xFor(new Date(r.completedAt).getTime()),y:yFor(Math.min(15,i+1))}));
   const shadow=pts.length>1?`<polyline points="${pts.map(q=>q.x.toFixed(1)+','+q.y.toFixed(1)).join(' ')}" fill="none" stroke="#050806" stroke-opacity=".75" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`:'';
   const segments=pts.slice(1).map((q,i)=>`<line x1="${pts[i].x}" y1="${pts[i].y}" x2="${q.x}" y2="${q.y}" stroke="${rankInfo(Math.min(15,q.v)).color}" stroke-width="4" stroke-linecap="round"/>`).join('');
-  const dots=pts.map(q=>{const ri=rankInfo(Math.min(15,q.v)),time=new Date(q.r.completedAt).toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});return `<circle cx="${q.x}" cy="${q.y}" r="5" fill="${ri.color}" stroke="${ri.text}" stroke-width="2"><title>${q.v}. ${esc(q.r.name||q.r.target||'Tarea')} · ${time}</title></circle>`}).join('');
+  const dots=pts.map(q=>{const ri=rankInfo(Math.min(15,q.v)),time=new Date(q.r.completedAt).toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});return `<circle cx="${q.x}" cy="${q.y}" r="7" fill="${ri.color}" stroke="${ri.text}" stroke-width="2.5"><title>${q.v}. ${esc(q.r.name||q.r.target||'Tarea')} · ${time}</title></circle>`}).join('');
   const empty=!pts.length?`<text x="${(L+w-R)/2}" y="${h/2}" text-anchor="middle" fill="#9eb0b5" font-size="16" font-weight="850">TU PRIMERA TAREA PONDRÁ EL PRIMER PUNTO</text>`:'';
   return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet"><rect x="${L}" y="${T}" width="${w-L-R}" height="${h-T-B}" rx="10" fill="#101815"/>${bands}${grid}<line x1="${L}" y1="${yFor(15)}" x2="${w-R}" y2="${yFor(15)}" stroke="#f1da9e" stroke-width="2" stroke-dasharray="7 6"/>${shadow}${segments}${dots}${hours}${empty}</svg>`;
 }
@@ -309,15 +330,14 @@ function drawStats(){
 els.customBtn.onclick=()=>{
   const name=els.custom.value.trim();if(!name)return;
   const minutes=clamp(Math.round(Number(els.minutes.value)||25),1,240),t=upsertTask(name,minutes);
-  els.custom.value='';window.AdrianKeyboard?.close?.();renderLibrary();selectTarget(t);
+  els.custom.value='';els.custom.blur();renderLibrary();selectTarget(t);
 };
 els.custom.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();els.customBtn.click()}});
 els.minutes.addEventListener('change',()=>{setMinutes(els.minutes.value);if(selected){const lib=taskLibrary(),t=lib.find(x=>x.id===selected.id);if(t){t.minutes=Number(els.minutes.value);saveTaskLibrary(lib)}}});
 els.transition.addEventListener('change',updatePreamble);els.prep.addEventListener('change',updatePreamble);
-els.voice.onclick=()=>{const s=settings();s.voice=!s.voice;saveSettings(s);renderControls();if(s.voice)speak(`Voz activada, ${s.coachName||'Adri'}.`)};
+els.voice.onclick=()=>{const s=settings();s.voice=!s.voice;saveSettings(s);renderControls();if(s.voice)speak('Voz activada, Adri.')};
 els.ticks.onclick=async()=>{const s=settings();s.ticks=!s.ticks;saveSettings(s);renderControls();if(s.ticks){await ensureAudio();playTick(true,0)}};
-els.nameBtn.onclick=()=>{const s=settings();s.coachName=s.coachName==='Adrián'?'Adri':'Adrián';saveSettings(s);renderControls();if(s.voice)speak(`Perfecto. Te llamaré ${s.coachName}.`)};
-els.start.onclick=startTransition;els.cancel.onclick=cancelActive;els.next.onclick=advancePhase;els.finish.onclick=()=>completeTask(true,false);
+els.start.onclick=startTransition;els.cancel.onclick=cancelActive;els.next.onclick=advancePhase;els.addTime.onclick=extendTask;els.finish.onclick=()=>completeTask(true,false);
 $('#resetBtn').onclick=()=>{localStorage.removeItem(STORE);localStorage.removeItem(OLD_STORE);drawStats();renderLibrary()};
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&active)acquireWakeLock()});
 taskLibrary();renderLibrary();renderDurations();renderControls();drawStats();restoreActive();
