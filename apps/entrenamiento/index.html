@@ -61,8 +61,9 @@
 <div class="phase-summary" id="phaseSummary">11 reps · 55 s de trabajo</div>
 
 <div class="number-grid">
-<div class="number-box"><span>KG</span><div class="stepper"><button data-step="kg" data-delta="-5">−</button><input id="kgInput" type="number" inputmode="decimal" step="0.5"><button data-step="kg" data-delta="5">+</button></div></div>
-<div class="number-box"><span>REPS</span><div class="stepper"><button data-step="reps" data-delta="-1">−</button><input id="repsInput" type="number" inputmode="numeric" min="0"><button data-step="reps" data-delta="1">+</button></div></div>
+<div class="number-box"><span>KG</span><div class="stepper"><button data-step="kg" data-delta="-5" aria-label="Bajar kilos">−</button><input id="kgInput" type="number" inputmode="decimal" step="0.5"><button data-step="kg" data-delta="5" aria-label="Subir kilos">+</button></div></div>
+<div class="number-box"><span>REPS</span><div class="stepper"><button data-step="reps" data-delta="-1" aria-label="Bajar repeticiones">−</button><input id="repsInput" type="number" inputmode="numeric" min="1"><button data-step="reps" data-delta="1" aria-label="Subir repeticiones">+</button></div></div>
+<div class="number-box"><span>SERIES</span><div class="stepper"><button data-step="sets" data-delta="-1" aria-label="Bajar series">−</button><input id="setsInput" type="number" inputmode="numeric" min="1" max="12"><button data-step="sets" data-delta="1" aria-label="Subir series">+</button></div></div>
 </div>
 
 <div class="tempo-stage">
@@ -96,6 +97,7 @@
 </main>
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/visual-timer.js?v=1.0.0"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/natural-voice.js?v=1.0.0"></script>
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 </body>

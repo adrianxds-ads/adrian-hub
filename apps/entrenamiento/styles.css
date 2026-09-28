@@ -31,3 +31,24 @@ body.session-active #runView{display:block!important;margin:0;min-height:calc(10
 .trainer-talk{margin:12px 0;padding:12px 14px;border:1px solid rgba(74,167,200,.36);border-radius:15px;background:linear-gradient(135deg,rgba(74,167,200,.11),rgba(122,165,236,.08));color:#e5f6fb;font-size:14px;font-weight:800;line-height:1.4;text-align:center}.trainer-talk:before{content:"COACH";display:block;margin-bottom:4px;color:#96ccdf;font-size:9px;font-weight:1000;letter-spacing:.14em}
 .timer-stage .ad-visual-timer{width:min(76vw,320px);margin:10px auto 8px}.timer-stage.rest-mode .ad-visual-timer{filter:saturate(.9)}.timer-stage.rest-mode .ad-visual-timer__caption{color:#9ecf9f!important}.start-set{margin-top:10px}.history-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}.history-actions .mini{min-height:36px}.history-actions strong{white-space:nowrap}
 @media(max-width:520px){.routine-save{grid-template-columns:1fr}.routine-save button{width:100%}.day-session{padding:10px}.day-session-head b{font-size:16px}.day-nav{grid-template-columns:44px 1fr 44px}.trainer-talk{font-size:13px}.timer-stage .ad-visual-timer{width:min(80vw,300px)}.history-actions{align-items:flex-end;flex-direction:column;gap:5px}}
+
+/* Adaptive Gym · tactile numeric controls */
+.number-grid{grid-template-columns:1fr!important;gap:9px!important;margin:10px 0!important}
+.number-box{display:grid!important;grid-template-columns:74px 1fr;align-items:center;gap:8px;padding:8px 10px!important;border-radius:18px!important}
+.number-box>span{text-align:left!important;font-size:13px!important;letter-spacing:.11em!important}
+.stepper{grid-template-columns:68px minmax(86px,1fr) 68px!important;gap:8px!important;margin-top:0!important;align-items:center}
+.stepper button{min-height:66px!important;border-radius:16px!important;font-size:40px!important;line-height:1!important;touch-action:none;user-select:none;-webkit-user-select:none}
+.stepper input{height:66px!important;font-size:clamp(48px,14vw,68px)!important;line-height:1!important;font-variant-numeric:tabular-nums}
+.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.trainer-talk{padding:10px 12px!important;font-size:clamp(20px,5.5vw,27px)!important;font-weight:950!important;letter-spacing:.025em;line-height:1.12!important}
+.trainer-talk:before{font-size:9px!important;margin-bottom:5px!important}
+.phase-summary{display:none!important}
+.coach-row{margin:9px 0 2px!important}.coach-cue{font-size:13px!important;margin:4px 0!important;color:#b7cdd4!important;letter-spacing:.035em!important}
+.run-top p{font-size:11px!important;margin-top:3px!important}.run-top h2{font-size:clamp(27px,7.5vw,40px)!important}
+.tempo-stage{margin:7px 0 3px!important}.rep-readout b{font-size:32px!important}
+@media(max-width:520px){.number-box{grid-template-columns:64px 1fr}.stepper{grid-template-columns:62px minmax(78px,1fr) 62px!important}.stepper button{min-height:62px!important;font-size:38px!important}.stepper input{height:62px!important}.trainer-talk{font-size:22px!important}}
+
+/* Win over Hub large-text accessibility rule for deliberate gym numerics */
+body .stepper button{font-size:40px!important}
+body .stepper input{font-size:clamp(48px,14vw,68px)!important}
+@media(max-width:520px){body .stepper button{font-size:38px!important}}
