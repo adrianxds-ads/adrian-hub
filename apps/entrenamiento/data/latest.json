@@ -1,0 +1,24 @@
+{
+  "updated": null,
+  "score": null,
+  "decision": "Aún no hay suficientes datos normalizados para recomendar cambios de carga.",
+  "metrics": {
+    "weight": {"v":"-","u":"kg","label":"Peso","note":"sin dato normalizado"},
+    "fat": {"v":"-","u":"%","label":"Grasa","note":"sin dato normalizado"},
+    "muscle": {"v":"-","u":"kg","label":"Músculo","note":"sin dato normalizado"},
+    "rhr": {"v":"-","u":"lpm","label":"FCR","note":"sin dato normalizado"},
+    "hrv": {"v":"-","u":"ms","label":"VFC","note":"sin dato normalizado"},
+    "sleep": {"v":"-","u":"h","label":"Sueño","note":"sin dato normalizado"},
+    "steps": {"v":"-","u":"","label":"Pasos","note":"sin dato normalizado"},
+    "photos": {"v":"-","u":"","label":"Body Check","note":"sin dato normalizado"}
+  },
+  "sources": [
+    ["Withings","Pendiente","warn"],
+    ["FC / FCR","Pendiente","warn"],
+    ["VFC","Pendiente","warn"],
+    ["Sueño","Pendiente","warn"],
+    ["Pasos","Pendiente","warn"],
+    ["Body Check","Pendiente","warn"]
+  ],
+  "series": {"weight":[],"rhr":[],"hrv":[],"sleep":[],"steps":[]}
+}
