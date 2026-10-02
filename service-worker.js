@@ -1,5 +1,5 @@
 const CACHE_PREFIX='adrian-hub-';
-const CACHE='adrian-hub-v23-cambio-shared-timer';
+const CACHE='adrian-hub-v24-loadfix1';
 const PAYLOADS='dc-inbox-payloads';
 const SHELL=['./','./index.html','./chatgpt.html','./styles.css','./app.js','./apps.json','./manifest.webmanifest','./icon.svg','./apps/dc-inbox/','./apps/dc-inbox/index.html','./apps/dc-inbox/styles.css','./apps/dc-inbox/app.js','./apps/cambio/','./apps/cambio/index.html','./apps/cambio/styles.css','./apps/cambio/app.js','./apps/entrenamiento/','./apps/entrenamiento/index.html','./apps/entrenamiento/styles.css','./apps/entrenamiento/app.js','./apps/entrenamiento/data/latest.json'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
@@ -12,4 +12,4 @@ async function acceptShare(req){
   await cache.put(new URL('meta/'+id,base).href,new Response(JSON.stringify(meta),{headers:{'Content-Type':'application/json'}}));
   return Response.redirect(new URL('./apps/dc-inbox/?share='+encodeURIComponent(id),self.registration.scope).href,303);
 }
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method==='POST'&&u.pathname.endsWith('/share-target')){e.respondWith(acceptShare(e.request));return}if(e.request.method!=='GET'||u.origin!==location.origin)return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r;}).catch(()=>caches.match(e.request)));});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method==='POST'&&u.pathname.endsWith('/share-target')){e.respondWith(acceptShare(e.request));return;}if(e.request.method!=='GET'||u.origin!==location.origin)return;const update=fetch(e.request,{cache:'no-store'}).then(async r=>{if(r&&r.ok){const c=await caches.open(CACHE);await c.put(e.request,r.clone());}return r;}).catch(()=>null);e.waitUntil(update.then(()=>{}));e.respondWith((async()=>{const c=await caches.open(CACHE),hit=await c.match(e.request,{ignoreSearch:true});if(hit)return hit;const fresh=await update;if(fresh)return fresh;if(e.request.mode==='navigate')return (await c.match('./index.html'))||(await c.match('./'))||Response.error();return Response.error();})());});
