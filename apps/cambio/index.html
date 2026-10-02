@@ -8,6 +8,7 @@
 <link rel="icon" href="../../icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/visual-timer.css?v=1.0.0">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -33,7 +34,7 @@
 <section class="card hidden" id="timerView">
 <p class="step" id="phaseLabel">2 · SUELTA LO ANTERIOR</p>
 <h2 id="targetTitle">—</h2>
-<div class="time-disk" id="timerRing"><i class="time-sweep" aria-hidden="true"></i><div class="time-face"><em id="timerStage">MARRÓN · 1/15</em><b id="timer">02:00</b><span id="timerSub">TRANSICIÓN</span></div></div>
+<div class="ad-visual-timer ad-visual-timer--large" id="timerRing" aria-label="Temporizador visual"></div>
 <p id="instruction">Cierra lo anterior. Levántate. Prepara únicamente lo necesario para empezar.</p>
 <div id="coachLine" class="coach-line">Venga, Adri. Solo hay que hacer el cambio.</div>
 <div class="actions"><button id="cancelBtn">CANCELAR</button><button class="primary" id="nextBtn">YA HE EMPEZADO</button></div>
@@ -50,6 +51,8 @@
 <section><div class="sectiontitle"><h2>Diario de tareas hechas</h2><button id="resetBtn" class="ghost">Reiniciar</button></div><div id="history" class="history"></div></section>
 </main>
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/visual-timer.js?v=1.0.0"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/natural-voice.js?v=1.0.0"></script>
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 </body>

@@ -18,7 +18,7 @@ const AVS=window.ADRIAN_VISUAL_SYSTEM?.ranks||[];
 const els={
   choose:$('#chooseView'),timerView:$('#timerView'),libraryPanel:$('#libraryPanel'),targets:$('#targets'),archiveList:$('#archiveList'),archiveCount:$('#archiveCount'),libraryCount:$('#libraryCount'),
   custom:$('#customTask'),customBtn:$('#customBtn'),chips:$('#durationChips'),minutes:$('#minutesInput'),transition:$('#transitionInput'),prep:$('#prepInput'),
-  voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),timer:$('#timer'),timerStage:$('#timerStage'),sub:$('#timerSub'),
+  voice:$('#voiceBtn'),ticks:$('#ticksBtn'),start:$('#startBtn'),phase:$('#phaseLabel'),title:$('#targetTitle'),
   ring:$('#timerRing'),instruction:$('#instruction'),coach:$('#coachLine'),next:$('#nextBtn'),addTime:$('#addTimeBtn'),finish:$('#finishBtn'),cancel:$('#cancelBtn'),
   history:$('#history'),today:$('#todayCount'),week:$('#weekCount'),total:$('#totalCount'),dailyScore:$('#dailyScore'),dailyRank:$('#dailyRank'),dailySteps:$('#dailySteps'),
   dailyChart:$('#dailyChart'),dayStamp:$('#dayStamp')
@@ -186,10 +186,12 @@ function tone(f,dur=.03,gain=.018,type='sine',delay=0){
 function playTick(strong=false,step=0){if(!settings().ticks)return;const f=strong?(step%2?1540:1260):(step%2?1280:980);tone(f,strong?.04:.028,strong?.026:.015,'square')}
 function playDone(){[392,523.25,659.25,783.99].forEach((f,i)=>tone(f,i===3?.16:.08,i===3?.03:.022,i%2?'sine':'triangle',i*.08))}
 function playAlarm(){[880,1174.66,1567.98,1174.66,1567.98].forEach((f,i)=>tone(f,.12,.035,i%2?'triangle':'sine',i*.16))}
-function speak(text,rate=1.12){
-  if(!settings().voice||!('speechSynthesis'in window))return;
+function speak(text,rate=1.07){
+  if(!settings().voice)return;
+  if(window.AdrianVoice){window.AdrianVoice.speak(text,{lang:'es-ES',style:'conversation',rate,interrupt:true,volume:.94});return;}
+  if(!('speechSynthesis'in window))return;
   if(speechSynthesis.speaking)speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);u.lang='es-ES';u.rate=rate;u.volume=.9;
+  const u=new SpeechSynthesisUtterance(text);u.lang='es-ES';u.rate=Math.min(1.16,rate||1.07);u.volume=.92;
   const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang==='es-ES'&&/(Google|Natural|Microsoft)/i.test(v.name))||voices.find(v=>v.lang?.toLowerCase().startsWith('es'))||null;speechSynthesis.speak(u);
 }
 async function acquireWakeLock(){try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen')}catch{}}
@@ -232,14 +234,14 @@ function showActive(){
   els.choose.classList.add('hidden');els.timerView.classList.remove('hidden');els.title.textContent=active.target.name;
   els.next.classList.remove('hidden');els.addTime.classList.add('hidden');els.finish.classList.add('hidden');els.next.disabled=false;
   if(active.phase==='transition'){
-    els.phase.textContent='2 · DESPEGA';els.sub.textContent=`${active.transitionMin||settings().transitionMin} MIN · TRANSICIÓN`;els.next.textContent='LISTO · IR A PREPARAR';
+    els.phase.textContent='2 · DESPEGA';els.next.textContent='LISTO · IR A PREPARAR';
     els.instruction.textContent='Cierra lo anterior, levántate y muévete hacia la nueva tarea.';
   }else if(active.phase==='prep'){
-    els.phase.textContent='3 · ATERRIZA';els.sub.textContent=`${active.prepMin||settings().prepMin} MIN · PREPARACIÓN`;els.next.textContent='YA ESTOY LISTO · EMPEZAR';
+    els.phase.textContent='3 · ATERRIZA';els.next.textContent='YA ESTOY LISTO · EMPEZAR';
     els.instruction.textContent='Prepara solo lo necesario. No optimices el sistema: deja la tarea lista para hacer.';
   }else{
     const extra=active.extensionMinutes?` · +${active.extensionMinutes} EXTRA`:'';
-    els.phase.textContent='4 · HAZ LA TAREA';els.sub.textContent=`${active.plannedMinutes} MIN${extra}`;els.next.classList.add('hidden');els.addTime.classList.remove('hidden');els.finish.classList.remove('hidden');
+    els.phase.textContent='4 · HAZ LA TAREA';els.next.classList.add('hidden');els.addTime.classList.remove('hidden');els.finish.classList.remove('hidden');
     els.instruction.textContent='Ya no hay que preparar nada. Haz únicamente la tarea que elegiste.';
   }
 }
@@ -249,20 +251,16 @@ function extendTask(){
   persistActive();showActive();speak('Vale, Adri. Quince minutos más. Sigue con la misma tarea.');
 }
 function paintTimer(left,total){
-  const remaining=clamp(Math.max(0,left)/Math.max(1,total),0,1),elapsed=1-remaining,visible=Math.max(.012,elapsed);
-  const rank=elapsed>=.9999?15:clamp(1+Math.floor(Math.pow(elapsed,.65)*14),1,15),ri=rankInfo(rank);
-  const progress=clamp(visible*100,0,100),angle=-90+progress*3.6;
-  els.ring.style.setProperty('--timer-progress',progress.toFixed(2));
-  els.ring.style.setProperty('--timer-angle',angle.toFixed(2)+'deg');
-  els.ring.style.setProperty('--timer-stage-color',ri.text||ri.color);
-  els.timerStage.textContent=`${ri.name.toLocaleUpperCase('es')} · ${rank}/15`;
+  if(!window.AdrianVisualTimer)return;
+  const phaseLabel=active?.phase==='transition'?'TRANSICIÓN':active?.phase==='prep'?'PREPARACIÓN':'TAREA';
+  window.AdrianVisualTimer.update(els.ring,{remaining:Math.max(0,left)/1000,total:Math.max(1,total)/1000,text:format(left),label:phaseLabel});
 }
 function runTimer(){
   clearInterval(tickId);lastTickSecond=null;
   const update=()=>{
     if(!active)return;
     const left=active.deadline-Date.now(),total=phaseTotal(active.phase);
-    els.timer.textContent=format(left);paintTimer(left,total);
+    paintTimer(left,total);
     const sec=Math.ceil(left/1000);
     if(left>0&&sec<=10&&sec!==lastTickSecond){lastTickSecond=sec;playTick(sec<=3,sec)}
     if(active.phase==='task'&&active.plannedMinutes>5&&left<=5*60000&&!active.fiveMinuteCue){
