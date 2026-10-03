@@ -11,4 +11,4 @@ function render(query=''){
 }
 fetch('./apps.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{registry=data.apps||[];render();}).catch(()=>{groupsEl.innerHTML='<div class="empty ad-card">No se pudo cargar el directorio.</div>';});
 searchEl.addEventListener('input',e=>render(e.target.value));
-if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js?v=loadfix3').catch(()=>{});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js?v=recovery2').catch(()=>{});
