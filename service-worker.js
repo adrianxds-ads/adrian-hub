@@ -1,5 +1,5 @@
 const CACHE_PREFIX='adrian-hub-';
-const CACHE='adrian-hub-v25-loadfix3';
+const CACHE='adrian-hub-v25-loadfix4';
 const PAYLOADS='dc-inbox-payloads';
 const SHELL=['./','./index.html','./chatgpt.html','./styles.css','./app.js','./apps.json','./manifest.webmanifest','./icon.svg','./apps/dc-inbox/','./apps/dc-inbox/index.html','./apps/dc-inbox/styles.css','./apps/dc-inbox/app.js','./apps/cambio/','./apps/cambio/index.html','./apps/cambio/styles.css','./apps/cambio/app.js','./apps/entrenamiento/','./apps/entrenamiento/index.html','./apps/entrenamiento/styles.css','./apps/entrenamiento/app.js','./apps/entrenamiento/data/latest.json'];
 const CORE_RE=/\.(?:html|js|css|json|webmanifest)$/i;
