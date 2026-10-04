@@ -19,4 +19,4 @@ function renderHubStars(){const s=readHubStars(),host=document.querySelector('#h
 renderHubStars();
 window.addEventListener('storage',e=>{if(e.key==='adrian_hub_stars_v1')renderHubStars();});
 window.addEventListener('hub:star-progress',renderHubStars);
-if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js?v=recovery2').catch(()=>{});
+if('serviceWorker' in navigator) navigator.serviceWorker.register('./service-worker.js?v=core-sync-20261004').catch(()=>{});
