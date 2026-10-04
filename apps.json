@@ -1,5 +1,5 @@
 {
-    "version": 12,
+    "version": 13,
     "apps": [
         {
             "id": "english",
@@ -116,6 +116,15 @@
             "url": "https://adrin.tail8fd071.ts.net/limpieza/",
             "repo": "https://github.com/adrianxds-ads/limpieza-2.0",
             "glyph": "LI"
+        },
+        {
+            "id": "job-engine",
+            "name": "Job Engine",
+            "subtitle": "Ofertas · candidaturas · JSON IA · métricas",
+            "group": "Trabajo",
+            "kind": "hub-module",
+            "url": "./apps/job-engine/",
+            "glyph": "JB"
         }
     ]
 }

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518">
+<title>Job Engine · Adrián Hub</title>
+<link rel="icon" href="../../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css?v=0.1.1">
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <a class="back" href="../../">‹ Hub</a>
+    <div class="brand"><span>JOB ENGINE · v0.1</span><b>BASELINE · 04/10/2026</b></div>
+  </header>
+
+  <section id="viewToday" class="view active" data-view="today">
+    <div class="hero">
+      <p class="eyebrow">BÚSQUEDA DE EMPLEO · MODO PRODUCCIÓN</p>
+      <h1>Hoy</h1>
+      <p class="hero-copy">Capturar → analizar → elegir → producir → enviar → medir.</p>
+    </div>
+    <section class="kpis" id="todayKpis"></section>
+    <section class="card class-card">
+      <div class="class-head"><div><span>CLASE DE EMPLEO</span><b id="classStatus">35 min · circuito cerrado</b></div><em id="classBadge">LISTA</em></div>
+      <div class="targets-grid">
+        <label>REVISAR<input id="targetReview" type="number" min="1" max="50" value="8"></label>
+        <label>SELECCIONAR<input id="targetSelect" type="number" min="1" max="30" value="4"></label>
+        <label>ENVIAR<input id="targetSend" type="number" min="1" max="20" value="2"></label>
+      </div>
+      <label class="duration-label">DURACIÓN<input id="sessionMinutes" type="number" min="10" max="180" value="35"><span>min</span></label>
+      <button id="startSessionBtn" class="primary hero-button">EMPEZAR CLASE</button>
+      <p class="guardrail">Durante la clase el sistema oculta configuración y empuja únicamente acciones de empleo reales.</p>
+    </section>
+    <section class="card next-card"><div class="section-head"><div><span>SIGUIENTE ACCIÓN</span><b id="nextActionTitle">Añade la primera oferta de hoy</b></div><button id="todayNewOfferBtn" class="mini">+ OFERTA</button></div><p id="nextActionText">Solo entran ofertas desde el baseline. Lo anterior queda fuera de las estadísticas.</p></section>
+    <section class="mini-stats" id="todayMiniStats"></section>
+  </section>
+
+  <section id="viewOffers" class="view" data-view="offers">
+    <div class="view-head"><div><p class="eyebrow">RADAR CONTROLADO</p><h1>Ofertas</h1></div><button id="newOfferBtn" class="primary compact">+ NUEVA OFERTA</button></div>
+    <div class="offer-toolbar">
+      <input id="offerSearch" type="search" placeholder="Buscar empresa, puesto, ciudad…" autocomplete="off">
+      <select id="offerFilter"><option value="ACTIVE">ACTIVAS</option><option value="ALL">TODAS</option><option value="NEW">NUEVAS</option><option value="SELECTED">SELECCIONADAS</option><option value="PREPARED">PREPARADAS</option><option value="APPLIED">ENVIADAS</option><option value="RESPONSE">RESPUESTAS</option><option value="INTERVIEW">ENTREVISTAS</option><option value="DISCARDED">DESCARTADAS</option></select>
+    </div>
+    <div class="batchbar"><span id="selectedCount">0 seleccionadas</span><button id="generatePackBtn" class="secondary" disabled>GENERAR PACK IA</button></div>
+    <div id="offerList" class="offer-list"></div>
+  </section>
+
+  <section id="viewPipeline" class="view" data-view="pipeline">
+    <div class="view-head"><div><p class="eyebrow">EMBUDO REAL</p><h1>Pipeline</h1></div></div>
+    <div id="pipelineSummary" class="pipeline-summary"></div>
+    <div id="pipelineGroups" class="pipeline-groups"></div>
+  </section>
+
+  <section id="viewStats" class="view" data-view="stats">
+    <div class="view-head"><div><p class="eyebrow">EVIDENCIA · DESDE 04/10/2026</p><h1>Estadísticas</h1></div></div>
+    <section class="kpis" id="statsKpis"></section>
+    <section class="card chart-card"><div class="section-head"><div><span>FUNNEL</span><b>NUEVA → OFERTA</b></div></div><div id="funnelChart" class="chart"></div></section>
+    <section class="card chart-card"><div class="section-head"><div><span>FIT SCORE</span><b>Distribución de encaje</b></div></div><div id="fitChart" class="chart"></div></section>
+    <section class="card chart-card"><div class="section-head"><div><span>SALARIOS</span><b>Solo ofertas con dato real</b></div></div><div id="salaryChart" class="chart"></div></section>
+    <section class="card chart-card"><div class="section-head"><div><span>FUENTES</span><b>Qué canales alimentan candidaturas</b></div></div><div id="sourceChart" class="chart"></div></section>
+  </section>
+
+  <section id="viewJson" class="view" data-view="json">
+    <div class="view-head"><div><p class="eyebrow">PROTOCOLO UNIVERSAL</p><h1>JSON</h1></div></div>
+    <section class="card"><div class="section-head"><div><span>PERFIL MAESTRO</span><b>ADRIAN_PROFILE_MASTER_V1</b></div></div><p class="muted">Guarda únicamente hechos verdaderos. La IA podrá cambiar el énfasis, nunca inventar experiencia.</p><textarea id="profileText" class="codebox" placeholder="Pega aquí el perfil profesional maestro o su JSON…"></textarea><button id="saveProfileBtn" class="secondary full">GUARDAR PERFIL</button></section>
+    <section class="card"><div class="section-head"><div><span>RESPUESTA IA</span><b>JOB_APPLICATION_ANALYSIS_V1</b></div></div><textarea id="aiResponseText" class="codebox tall" placeholder="Pega aquí el JSON devuelto por ChatGPT / Claude…"></textarea><button id="previewAiBtn" class="primary full">VALIDAR Y PREVISUALIZAR</button><div id="aiImportPreview" class="import-preview hidden"></div></section>
+    <section class="card"><div class="section-head"><div><span>BACKUP</span><b>Todo Job Engine</b></div></div><div class="two-actions"><button id="exportBackupBtn" class="secondary">COPIAR BACKUP JSON</button><button id="importBackupBtn" class="secondary">PEGAR BACKUP</button></div><textarea id="backupText" class="codebox hidden" placeholder="Pega un backup completo y pulsa IMPORTAR"></textarea><button id="confirmBackupBtn" class="primary full hidden">IMPORTAR BACKUP</button></section>
+  </section>
+</main>
+
+<nav class="bottom-nav" aria-label="Job Engine">
+  <button class="nav-btn active" data-go="today"><span>HOY</span></button>
+  <button class="nav-btn" data-go="offers"><span>OFERTAS</span></button>
+  <button class="nav-btn" data-go="pipeline"><span>PIPELINE</span></button>
+  <button class="nav-btn" data-go="stats"><span>ESTADÍST.</span></button>
+  <button class="nav-btn" data-go="json"><span>JSON</span></button>
+</nav>
+
+<section id="offerModal" class="modal hidden" aria-hidden="true"><div class="modal-card"><div class="modal-head"><div><span>NUEVA OFERTA</span><b>Solo desde 04/10/2026</b></div><button class="icon-btn" data-close="offerModal">×</button></div><div class="mode-tabs"><button class="mode-tab active" data-entry="manual">TEXTO</button><button class="mode-tab" data-entry="json">JSON</button></div><div id="manualEntry" class="entry-pane"><div class="form-grid"><label>PUESTO<input id="offerTitle"></label><label>EMPRESA<input id="offerCompany"></label><label>UBICACIÓN<input id="offerLocation"></label><label>SALARIO<input id="offerSalary" placeholder="Ej. 24.000–28.000 €/año"></label><label>FUENTE<input id="offerSource" value="InfoJobs"></label><label>URL<input id="offerUrl" type="url"></label></div><label>OFERTA COMPLETA<textarea id="offerDescription" class="offer-text" placeholder="Pega aquí el texto de la oferta. Se guardará como snapshot."></textarea></label><button id="saveOfferBtn" class="primary full">GUARDAR OFERTA</button></div><div id="jsonEntry" class="entry-pane hidden"><textarea id="offerJsonText" class="codebox tall" placeholder='{"schema":"JOB_OFFER_V1", ...}'></textarea><button id="saveOfferJsonBtn" class="primary full">IMPORTAR JOB_OFFER_V1</button></div><p id="offerModalError" class="error-line"></p></div></section>
+
+<section id="detailModal" class="modal hidden" aria-hidden="true"><div class="modal-card detail-card"><div class="modal-head"><div><span>APPLICATION LAB</span><b id="detailHeading">Oferta</b></div><button class="icon-btn" data-close="detailModal">×</button></div><div id="detailBody"></div></div></section>
+
+<section id="jsonModal" class="modal hidden" aria-hidden="true"><div class="modal-card"><div class="modal-head"><div><span>PACK IA</span><b>JOB_AI_REQUEST_V1</b></div><button class="icon-btn" data-close="jsonModal">×</button></div><textarea id="generatedJson" class="codebox giant" readonly></textarea><button id="copyGeneratedBtn" class="primary full">COPIAR JSON</button></div></section>
+
+<section id="sessionOverlay" class="session-overlay hidden" aria-hidden="true"><div class="session-shell"><div class="session-top"><div><span>CLASE DE EMPLEO</span><b id="sessionClock">35:00</b></div><button id="finishSessionBtn" class="finish-session">FINALIZAR</button></div><div class="session-progress" id="sessionProgress"></div><div class="session-action" id="sessionAction"></div><div id="sessionOfferQueue" class="session-queue"></div><p class="session-rule">Nada de configurar la aplicación. Solo revisar, seleccionar y enviar.</p></div></section>
+
+<script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
+<script src="./app.js?v=0.1.1"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
+</body>
+</html>
