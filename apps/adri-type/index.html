@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101713">
+<title>ADRI · TYPE · Hub</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+  <a class="back" href="../../">‹ HUB</a>
+  <header class="hero">
+    <div class="glyph">TY</div>
+    <div><p class="eyebrow">ADRI · TYPE · v0.2</p><h1>Escritura ambiental.</h1><p>PPM, FLOW, hábito, pruebas formales e historial técnico mientras escribes de verdad.</p></div>
+  </header>
+
+  <section class="panel ad-card">
+    <div class="panel-copy"><span>ORDENADOR</span><h2>Historial y gráficas</h2><p>Abre el dashboard real de la extensión instalada en Chrome. Los datos permanecen locales en el PC.</p></div>
+    <button id="openHistory" data-adri-type-open-history type="button" class="ad-button primary">ABRIR HISTORIAL Y GRÁFICAS</button>
+    <p id="status" class="status">En el PC, ADRI · TYPE abrirá el historial automáticamente.</p>
+  </section>
+
+  <section class="stats-preview ad-card" aria-label="Métricas disponibles">
+    <div><b>PPM</b><span>velocidad</span></div>
+    <div><b>FLOW</b><span>continuidad</span></div>
+    <div><b>PALABRAS</b><span>hábito</span></div>
+    <div><b>TÉCNICA</b><span>teclas</span></div>
+  </section>
+
+  <section class="mobile-note ad-card">
+    <span>MÓVIL</span><b>La ficha sí forma parte del Hub.</b><p>El historial real todavía no se sincroniza entre dispositivos. En móvil esta pantalla sirve como acceso de la colección; cuando merezca la pena, podremos añadir sincronización sin alterar el tracker local.</p>
+  </section>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>

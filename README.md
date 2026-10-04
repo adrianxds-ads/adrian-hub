@@ -16,6 +16,7 @@ Así el Hub sirve como primer consumidor real de la fuente visual central.
 También consume `components/adrian-keyboard.js?v=410`. El buscador del Hub es el primer campo activo con el Teclado Adrián v4.1: QWERTY compacto, ES/CA/EN, letras ampliadas, pulsación larga para acentos, `.` y `@` en el panel principal, pantalla `123` y ventana flotante grande de escritura.
 
 ## Apps actuales
+- ADRI ? TYPE (launcher del tracker local; historial real en el PC)
 - Adaptive English
 - Cambridge B2
 - Català · Verbs
