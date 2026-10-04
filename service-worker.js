@@ -1,5 +1,5 @@
 const CACHE_PREFIX='adrian-hub-';
-const CACHE='adrian-hub-v26-adri-type';
+const CACHE='adrian-hub-v27-hub-control';
 const PAYLOADS='dc-inbox-payloads';
 const SHELL=['./progress-storage.js','./','./index.html','./chatgpt.html','./styles.css','./app.js','./apps.json','./manifest.webmanifest','./icon.svg','./apps/dc-inbox/','./apps/dc-inbox/index.html','./apps/dc-inbox/styles.css','./apps/dc-inbox/app.js','./apps/cambio/','./apps/cambio/index.html','./apps/cambio/styles.css','./apps/cambio/app.js','./apps/entrenamiento/','./apps/entrenamiento/index.html','./apps/entrenamiento/styles.css','./apps/entrenamiento/app.js','./apps/entrenamiento/data/latest.json','./apps/adri-type/','./apps/adri-type/index.html','./apps/adri-type/styles.css','./apps/adri-type/app.js'];
 const CORE_RE=/\.(?:html|js|css|json|webmanifest)$/i;
