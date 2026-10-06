@@ -330,16 +330,28 @@ def audit(args, cfg: dict) -> int:
         print(f"No {provider} API key is available in the process environment. No request was sent.", file=sys.stderr)
         return 3
     spent = 0.0
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    transcript_path = RUNS_DIR / (datetime.now().strftime("%Y%m%d-%H%M%S") + "-transcript.jsonl")
+    def log_event(payload: dict):
+        with transcript_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
     for turn in range(1, int(cfg["max_turns"]) + 1):
         if turn >= int(cfg.get("force_report_turn", cfg["max_turns"])):
             messages.append({"role": "user", "content": "FINALIZATION REQUIRED: stop investigating and return the final audit now using action=report. Include uncertainty for anything not verified. Do not request another tool."})
         ceiling = estimated_call_ceiling(messages, SYSTEM, int(cfg["max_output_tokens_per_turn"]), model_cfg)
         if spent + ceiling > float(cfg["max_usd_per_run"]):
-            print(f"Budget guard stopped before turn {turn}: ${spent:.6f} spent; next-call ceiling ${ceiling:.6f}.", file=sys.stderr)
+            print(f"Budget guard stopped before turn {turn}: ${spent:.6f} spent; next-call ceiling ${ceiling:.6f}. Transcript: {transcript_path}", file=sys.stderr)
             return 4
         text, usage = call_model(messages, SYSTEM, model, int(cfg["max_output_tokens_per_turn"]), model_cfg)
         spent += token_cost(usage, model_cfg)
-        action = parse_action(text)
+        log_event({"turn": turn, "type": "model", "usage": usage, "cost_total": spent, "text": text})
+        try:
+            action = parse_action(text)
+        except Exception as exc:
+            messages.append({"role": "assistant", "content": text or "(empty response)"})
+            messages.append({"role": "user", "content": "FORMAT ERROR: your previous reply was not one valid JSON object. Return exactly one JSON object using one allowed action. No markdown, no prose outside JSON."})
+            log_event({"turn": turn, "type": "format_error", "error": str(exc)})
+            continue
         if action.get("action") == "report":
             report = str(action.get("content", "")).strip()
             path = save_report(report, {"model": model, "provider": provider, "turns": turn, "cost": spent})
@@ -349,6 +361,7 @@ def audit(args, cfg: dict) -> int:
             result = run_tool(action, cfg)
         except Exception as exc:
             result = "TOOL ERROR: " + str(exc)
+        log_event({"turn": turn, "type": "tool", "action": action, "result": result[:20000]})
         messages.append({"role": "assistant", "content": text})
         messages.append({"role": "user", "content": "TOOL RESULT:\n" + result[:80000]})
     print("Max turns reached without a final report.", file=sys.stderr)
