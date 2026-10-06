@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-06T15:01:24+02:00",
+  "hub": {
+    "id": "hub",
+    "name": "Adrián Hub",
+    "version": "30.0.0",
+    "build": "version-center-20261006",
+    "releasedAt": "2026-10-06",
+    "changes": [
+      "Nuevo Version Center al final del Hub con versión del Hub y de cada aplicación.",
+      "Cada entrada muestra versión funcional, build/commit y historial de cambios.",
+      "Comprobación pública con cache:no-store para detectar una versión desfasada.",
+      "Los enlaces de lanzamiento incluyen hubv, appv y build para evitar abrir una revisión anterior sin identificarla."
+    ],
+    "history": [
+      {
+        "version": "29",
+        "date": "2026-10-04",
+        "changes": [
+          "Sincronización global de estrellas entre apps.",
+          "Juego de la Oca movido al final del Hub.",
+          "Job Engine y sincronización de progreso entre dispositivos."
+        ]
+      }
+    ]
+  },
+  "apps": [
+    {
+      "id": "english",
+      "name": "Adaptive English",
+      "version": "3.34",
+      "build": "ad2556c",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "Contrato común de rendimiento del Hub.",
+        "Caché alineada con Adrian Core 1.0.1.",
+        "Sincronización global de estrellas y Oca compartida."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
+        "contains": "const APP_VERSION = \"3.34\""
+      }
+    },
+    {
+      "id": "phrasal-verbs",
+      "name": "Adaptive Phrasal Verbs",
+      "version": "0.12.0",
+      "build": "a225069",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "Contraportada llevada a paridad visual con Adaptive.",
+        "Skills coloreadas con AVS 1–15.",
+        "Progress JSON global y AI Valuation añadidos.",
+        "Contrato común de rendimiento y caché alineada."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
+        "contains": "const APP_VERSION=\"0.12.0\""
+      }
+    },
+    {
+      "id": "pizarras",
+      "name": "Pizarras 2.0",
+      "version": "2.1.4",
+      "build": "e33b6af",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "El contrato termina y se contabiliza al vencer el tiempo sin depender de la última animación/pregunta.",
+        "Recuperación al volver a primer plano o reabrir una sesión vencida.",
+        "Contrato común de rendimiento y Oca compartida."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
+        "contains": "const APP_VERSION='2.1.4'"
+      }
+    },
+    {
+      "id": "b2-cloze",
+      "name": "B2 Multiple-Choice Cloze",
+      "version": "1.10.4",
+      "build": "1468be1",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "Contrato común de rendimiento del Hub.",
+        "Caché alineada con Adrian Core 1.0.1.",
+        "Sincronización global de estrellas y Oca compartida."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
+        "contains": "const APP_VERSION = \"1.10.4\""
+      }
+    },
+    {
+      "id": "cambridge",
+      "name": "Cambridge B2",
+      "version": "1.2.5",
+      "build": "d6ea012",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "OCR Originals 01–10 separados del Practice Bank 11–30.",
+        "80 Parts nativas como estadística principal y 40 Parts OCR aparte.",
+        "Contrato común de rendimiento y caché alineada."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
+        "contains": "const APP_VERSION=\"1.2.5\""
+      }
+    },
+    {
+      "id": "catala",
+      "name": "Català · Verbs",
+      "version": "0.9.4",
+      "build": "8dae599",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "Contrato común de rendimiento del Hub.",
+        "Caché alineada con Adrian Core 1.0.1.",
+        "Sincronización global de estrellas y Oca compartida."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
+        "contains": "const APP_VERSION = \"0.9.4\""
+      }
+    },
+    {
+      "id": "hoti0108",
+      "name": "HOTI0108",
+      "version": "2.6.3-read-first",
+      "build": "a92e131",
+      "releasedAt": "2026-10-06",
+      "kind": "public",
+      "changes": [
+        "Contrato común de rendimiento adaptado a la evaluación HOTI.",
+        "Caché alineada con Adrian Core 1.0.1.",
+        "Sincronización global de estrellas y Oca compartida."
+      ],
+      "verify": {
+        "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
+        "contains": "const APP_VERSION='2.6.3-read-first'"
+      }
+    },
+    {
+      "id": "entrenamiento",
+      "name": "Adaptive Gym",
+      "version": "1.0.0",
+      "build": "hub30-baseline",
+      "releasedAt": "2026-10-06",
+      "kind": "bundled",
+      "changes": [
+        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+        "Rutinas, series, temporizador y métricas integrados en el Hub."
+      ]
+    },
+    {
+      "id": "cambio",
+      "name": "Cambio",
+      "version": "1.0.0",
+      "build": "hub30-baseline",
+      "releasedAt": "2026-10-06",
+      "kind": "bundled",
+      "changes": [
+        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+        "Entrenamiento para soltar una tarea y comenzar la siguiente."
+      ]
+    },
+    {
+      "id": "dcinbox",
+      "name": "DC Inbox",
+      "version": "1.0.0",
+      "build": "hub30-baseline",
+      "releasedAt": "2026-10-06",
+      "kind": "bundled",
+      "changes": [
+        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+        "Compartir, clasificar y enrutar contenido desde el Hub."
+      ]
+    },
+    {
+      "id": "adri-type",
+      "name": "Hub Control",
+      "version": "0.3",
+      "build": "hub30-bundled",
+      "releasedAt": "2026-10-06",
+      "kind": "bundled",
+      "changes": [
+        "Cuadro de mando flotante TYPE/FLOW/SPEED registrado en Version Center.",
+        "Atajos y textos guardados permanecen integrados en el Hub."
+      ]
+    },
+    {
+      "id": "limpieza",
+      "name": "Limpieza 2.2",
+      "version": "2.2",
+      "build": "private",
+      "releasedAt": "2026-10-06",
+      "kind": "private",
+      "changes": [
+        "Aplicación privada registrada en Version Center.",
+        "La verificación automática queda marcada como privada porque requiere acceso Tailscale."
+      ]
+    },
+    {
+      "id": "job-engine",
+      "name": "Job Engine",
+      "version": "0.1",
+      "build": "10d64c5",
+      "releasedAt": "2026-10-04",
+      "kind": "bundled",
+      "changes": [
+        "Baseline inicial: ofertas, candidaturas, JSON IA y métricas.",
+        "Registrado ahora en Version Center del Hub 30."
+      ]
+    }
+  ]
+}
