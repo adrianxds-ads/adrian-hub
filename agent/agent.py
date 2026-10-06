@@ -159,6 +159,7 @@ Allowed actions:
 {"action":"report","content":"Final audit report in Spanish..."}
 Use tools economically. Prefer targeted reads/searches instead of asking for whole repositories.
 The final report must be in Spanish and include severity, evidence, affected files, reproduction logic, proposed fix, confidence, and what you could not verify.
+Keep the final report concise: prioritize the 5 most important findings and stay within the report character limit provided by the harness.
 Do not claim a bug is reproduced unless the evidence supports that claim.
 """
 
@@ -286,6 +287,44 @@ def required_key_present(provider: str) -> bool:
     return bool(provider_api_key(provider))
 
 
+def recover_partial_report(text: str) -> str | None:
+    """Best-effort recovery when a report JSON was truncated by the model limit."""
+    marker = '"content"'
+    pos = text.find(marker)
+    if pos < 0 or '"report"' not in text[:pos]:
+        return None
+    colon = text.find(':', pos + len(marker))
+    if colon < 0:
+        return None
+    quote = text.find('"', colon + 1)
+    if quote < 0:
+        return None
+    fragment = text[quote + 1:].rstrip()
+    # A complete JSON would already have parsed. Here we expect a truncated JSON string.
+    # Trim only a small damaged suffix (e.g. trailing backslash / partial escape) until
+    # the JSON string itself can be decoded safely.
+    for trim in range(0, min(32, len(fragment)) + 1):
+        candidate = fragment[:-trim] if trim else fragment
+        if not candidate:
+            break
+        try:
+            recovered = json.loads('"' + candidate + '"')
+        except json.JSONDecodeError:
+            continue
+        recovered = recovered.strip()
+        return recovered or None
+    return None
+
+
+def save_partial_report(content: str, meta: dict, reason: str) -> Path:
+    notice = (
+        "INFORME PARCIAL RECUPERADO AUTOMÁTICAMENTE\n\n"
+        f"Motivo: {reason}\n"
+        "El contenido siguiente procede de la última respuesta del auditor y puede terminar de forma abrupta.\n\n"
+    )
+    return save_report(notice + content, meta)
+
+
 def save_report(content: str, meta: dict) -> Path:
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -332,25 +371,56 @@ def audit(args, cfg: dict) -> int:
     spent = 0.0
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     transcript_path = RUNS_DIR / (datetime.now().strftime("%Y%m%d-%H%M%S") + "-transcript.jsonl")
+    force_report_turn = int(cfg.get("force_report_turn", cfg["max_turns"]))
+    max_report_chars = int(cfg.get("max_report_chars", 9000))
+    recovery_report_chars = int(cfg.get("recovery_report_chars", 5500))
+    last_partial_report = None
+    last_partial_reason = None
     def log_event(payload: dict):
         with transcript_path.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
     for turn in range(1, int(cfg["max_turns"]) + 1):
-        if turn >= int(cfg.get("force_report_turn", cfg["max_turns"])):
-            messages.append({"role": "user", "content": "FINALIZATION REQUIRED: stop investigating and return the final audit now using action=report. Include uncertainty for anything not verified. Do not request another tool."})
-        ceiling = estimated_call_ceiling(messages, SYSTEM, int(cfg["max_output_tokens_per_turn"]), model_cfg)
+        finalizing = turn >= force_report_turn
+        if finalizing:
+            limit = recovery_report_chars if last_partial_report else max_report_chars
+            messages.append({"role": "user", "content": (
+                "FINALIZATION REQUIRED: stop investigating and return the final audit now using action=report. "
+                f"The report content MUST be <= {limit} characters. Prioritize at most 5 findings, compress evidence, "
+                "include uncertainty for anything not verified, and do not request another tool. "
+                "Return exactly one complete JSON object; no markdown outside JSON."
+            )})
+        if finalizing:
+            max_tokens = int(cfg.get("recovery_output_tokens", 1800) if last_partial_report else cfg.get("final_output_tokens", 2600))
+        else:
+            max_tokens = int(cfg["max_output_tokens_per_turn"])
+        ceiling = estimated_call_ceiling(messages, SYSTEM, max_tokens, model_cfg)
         if spent + ceiling > float(cfg["max_usd_per_run"]):
+            if last_partial_report:
+                path = save_partial_report(last_partial_report, {"model": model, "provider": provider, "turns": turn - 1, "cost": spent}, last_partial_reason or "budget guard")
+                print(json.dumps({"ok": True, "partial": True, "report": str(path), "cost_usd": round(spent, 6), "turns": turn - 1, "warning": "budget guard used recovered partial report"}, ensure_ascii=False, indent=2))
+                return 0
             print(f"Budget guard stopped before turn {turn}: ${spent:.6f} spent; next-call ceiling ${ceiling:.6f}. Transcript: {transcript_path}", file=sys.stderr)
             return 4
-        text, usage = call_model(messages, SYSTEM, model, int(cfg["max_output_tokens_per_turn"]), model_cfg)
+        text, usage = call_model(messages, SYSTEM, model, max_tokens, model_cfg)
         spent += token_cost(usage, model_cfg)
         log_event({"turn": turn, "type": "model", "usage": usage, "cost_total": spent, "text": text})
         try:
             action = parse_action(text)
         except Exception as exc:
+            recovered = recover_partial_report(text) if finalizing else None
+            if recovered:
+                last_partial_report = recovered
+                last_partial_reason = f"turn {turn}: {exc}"
             messages.append({"role": "assistant", "content": text or "(empty response)"})
-            messages.append({"role": "user", "content": "FORMAT ERROR: your previous reply was not one valid JSON object. Return exactly one JSON object using one allowed action. No markdown, no prose outside JSON."})
-            log_event({"turn": turn, "type": "format_error", "error": str(exc)})
+            if finalizing:
+                messages.append({"role": "user", "content": (
+                    "FORMAT/TRUNCATION ERROR: your previous report was not valid complete JSON. "
+                    f"Retry with action=report and content <= {recovery_report_chars} characters. "
+                    "Use fewer findings and shorter evidence. Return exactly one complete JSON object."
+                )})
+            else:
+                messages.append({"role": "user", "content": "FORMAT ERROR: your previous reply was not one valid JSON object. Return exactly one JSON object using one allowed action. No markdown, no prose outside JSON."})
+            log_event({"turn": turn, "type": "format_error", "error": str(exc), "partial_report_recovered": bool(recovered)})
             continue
         if action.get("action") == "report":
             report = str(action.get("content", "")).strip()
@@ -364,6 +434,10 @@ def audit(args, cfg: dict) -> int:
         log_event({"turn": turn, "type": "tool", "action": action, "result": result[:20000]})
         messages.append({"role": "assistant", "content": text})
         messages.append({"role": "user", "content": "TOOL RESULT:\n" + result[:80000]})
+    if last_partial_report:
+        path = save_partial_report(last_partial_report, {"model": model, "provider": provider, "turns": int(cfg["max_turns"]), "cost": spent}, last_partial_reason or "max turns reached")
+        print(json.dumps({"ok": True, "partial": True, "report": str(path), "cost_usd": round(spent, 6), "turns": int(cfg["max_turns"]), "warning": "max turns reached; recovered partial report saved"}, ensure_ascii=False, indent=2))
+        return 0
     print("Max turns reached without a final report.", file=sys.stderr)
     return 5
 

@@ -8,8 +8,9 @@ This is the first local agent for the Adrián Hub ecosystem.
 - OpenRouter credentials can be read from Windows Credential Manager (`AdrianHubAgent/openrouter`); environment variables remain supported as overrides.
 - The agent never reads plaintext credential files.
 - No API call is made when the required environment variable is absent.
-- Default spend ceiling: USD 0.50 per run.
+- Default spend ceiling: USD 0.35 per run.
 - Reports are written only to `agent/runs/`, which is git-ignored.
+- Finalization reserves recovery turns, enforces a compact report size, and saves a recovered partial report if a provider truncates the final JSON.
 
 ## Providers and models
 - Default: OpenRouter + `anthropic/claude-sonnet-5.5` via local alias `openrouter-claude-sonnet-5-5`.
