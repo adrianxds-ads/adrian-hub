@@ -1,4 +1,4 @@
-const HUB_VERSION='30.0.1';
+const HUB_VERSION='30.0.2',HUB_BUILD='hub-30.0.2-20261006';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -70,7 +70,7 @@ function orderedVersionEntries(){
 function statusText(entry){if(entry.id==='hub')return'ESTE HUB';if(entry.kind==='bundled')return'INCLUIDA EN HUB';if(entry.kind==='private')return'PRIVADA';return'COMPROBANDO';}
 function renderVersionCenter(){
   const host=document.querySelector('#versionList'),hubLabel=document.querySelector('#hubVersionLabel');if(!host||!versionCatalog)return;
-  if(hubLabel)hubLabel.textContent=`Hub v${versionCatalog.hub.version}`;
+  if(hubLabel)hubLabel.textContent=`Hub v${HUB_VERSION}`;
   host.innerHTML=orderedVersionEntries().map(entry=>`<button class="version-row" type="button" data-version-id="${esc(entry.id)}"><span class="version-main"><b>${esc(entry.name)}</b><small>${entry.id==='hub'?'Versión del sistema':'Versión de la aplicación'}</small></span><span class="version-build"><strong>v${esc(entry.version)}</strong><small>${esc(entry.build||'—')}</small></span><span class="version-status ${entry.kind==='private'?'private':entry.kind==='bundled'?'bundled':''}" id="versionStatus-${esc(entry.id)}">${statusText(entry)}</span></button>`).join('');
   host.querySelectorAll('[data-version-id]').forEach(btn=>btn.addEventListener('click',()=>openVersionDialog(btn.dataset.versionId)));
   const footer=document.querySelector('#coreStatus');if(footer)footer.textContent=`Hub v${versionCatalog.hub.version} · AVS 2.0 · Jardín GitHub 1.3`;
@@ -79,15 +79,8 @@ function setVersionStatus(id,text,kind='checking'){
   const el=document.getElementById(`versionStatus-${id}`);if(!el)return;el.textContent=text;el.className=`version-status ${kind}`;
 }
 async function verifyEntry(entry){
-  if(entry.id==='hub'){try{const r=await fetch(`./versions.json?check=${Date.now()}`,{cache:'no-store'}),data=await r.json(),ok=r.ok&&data?.hub?.version===entry.version;setVersionStatus(entry.id,ok?'VERIFICADA':'DESFASADA',ok?'ok':'bad');return ok;}catch{setVersionStatus(entry.id,'SIN RED','warn');return false;}}
-  if(entry.kind==='bundled'){setVersionStatus(entry.id,`HUB v${versionCatalog.hub.version}`,'ok');return true;}
-  if(entry.kind==='private'){setVersionStatus(entry.id,'PRIVADA','private');return null;}
-  if(!entry.verify?.url){setVersionStatus(entry.id,'SIN PRUEBA','warn');return null;}
-  try{
-    const u=new URL(entry.verify.url,location.href);u.searchParams.set('hub_version_check',Date.now());
-    const r=await fetch(u.href,{cache:'no-store'}),text=await r.text(),ok=r.ok&&text.includes(entry.verify.contains);
-    setVersionStatus(entry.id,ok?'PUBLICADA':'DESFASADA',ok?'ok':'bad');return ok;
-  }catch(e){setVersionStatus(entry.id,'NO VERIFICADA','warn');return false;}
+ const result=await window.AdrianVersionVerifier.verify(entry,{version:HUB_VERSION,build:HUB_BUILD});
+ setVersionStatus(entry.id,result.text,result.kind);return result.ok;
 }
 async function verifyAllVersions(){
   if(!versionCatalog)return;

@@ -4,14 +4,13 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.0.1",
-    "build": "p1-sync-encoding-20261006",
+    "version": "30.0.2",
+    "build": "hub-30.0.2-20261006",
     "releasedAt": "2026-10-06",
     "changes": [
-      "Adrian Core Sync 1.0.3 reconcilia autom?ticamente escrituras rechazadas para evitar progreso divergente entre dispositivos.",
-      "Texto UTF-8 reparado en el Hub y en las siete apps p?blicas principales.",
-      "El servidor local de sincronizaci?n queda bajo control de versiones Git con estado, secretos, logs y backups excluidos.",
-      "Version Center actualizado con los builds reales publicados tras la correcci?n."
+      "Version Center compara la versión del cliente con el registro y verifica las huellas SHA-256 del código servido.",
+      "Las apps incluidas requieren evidencia de sus propios archivos; Hub Control se comprueba como extensión.",
+      "Reparadas las notas con caracteres dañados."
     ],
     "history": [
       {
@@ -33,178 +32,297 @@
           "Job Engine y sincronización de progreso entre dispositivos."
         ]
       }
-    ]
+    ],
+    "verify": {
+      "files": [
+        {
+          "url": "app.js",
+          "sha256": "afd4ebff5bda3f1ce4d0ed4c203ddc41e3a48b8ef8b039e6928aea9f8137eb56"
+        },
+        {
+          "url": "version-verifier.js",
+          "sha256": "3fdd8b92ec5faed4c62b1bdd42a485cf4d81a353b3c80f8ce1da8cdce7519f7f"
+        },
+        {
+          "url": "index.html",
+          "sha256": "8d0d5177c12e3506dd8fe2aa996926998cb9287a246d2242add8ed3c7d53ad92"
+        },
+        {
+          "url": "styles.css",
+          "sha256": "b9f05bf7e0369837a78693712a1caece7d94bcc90905099a685d2bc5059b5a15"
+        }
+      ]
+    }
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
       "version": "3.34",
-      "build": "7c5db7a",
+      "build": "sha256-9af6757e8e40",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-        "contains": "const APP_VERSION = \"3.34\""
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
+            "sha256": "44a991c49fec233697ec5d0b9cd9646e9a82d9121c9074404adc26e7f3998872"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
+            "sha256": "030ca780f7525b4795fb1dcc31589ac46f5cbf752f46dd9787d27ec876bbbd90"
+          }
+        ]
+      },
+      "sourceCommit": "7c5db7aa454663af11c5853208ae9cf2c1bad763"
     },
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
       "version": "0.12.0",
-      "build": "133be70",
+      "build": "sha256-b087399a35ff",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contraportada llevada a paridad visual con Adaptive.",
         "Skills coloreadas con AVS 1–15.",
         "Progress JSON global y AI Valuation añadidos.",
         "Contrato común de rendimiento y caché alineada."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-        "contains": "const APP_VERSION=\"0.12.0\""
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
+            "sha256": "a550054fc74c58fd75383db77ef5a801ba03ed95226b0e3404cb1a661b1c46ee"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
+            "sha256": "474a99c5b8c000fcd716edd9edc9b35691866f2d0cbda1cdcb6c8b91cad8e772"
+          }
+        ]
+      },
+      "sourceCommit": "133be70b64d9b5bc8865abae3c17b87f0b10a9c9"
     },
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
       "version": "2.1.4",
-      "build": "f606e1c",
+      "build": "sha256-fa87dd542b95",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "El contrato termina y se contabiliza al vencer el tiempo sin depender de la última animación/pregunta.",
         "Recuperación al volver a primer plano o reabrir una sesión vencida.",
         "Contrato común de rendimiento y Oca compartida."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-        "contains": "const APP_VERSION='2.1.4'"
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
+            "sha256": "c9c52718bce5696af10e38bf66bc215567846c97fdc4c9ca19cd0b5088a86978"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
+            "sha256": "dda682711d163140222e787f96e20c76f940320b85956fe5d6c65e95c3c1bbd4"
+          }
+        ]
+      },
+      "sourceCommit": "f606e1c35a24e4a9088c54765f143d1ef060b72b"
     },
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
       "version": "1.10.4",
-      "build": "fbce70c",
+      "build": "sha256-a52c9d8588b8",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-        "contains": "const APP_VERSION = \"1.10.4\""
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
+            "sha256": "3edf22a966ebc7081a135d60f157abae5dd699dac932376c2853b9433d108142"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
+            "sha256": "9dab184ba42bdc3fa9e50d6fca8db692fd40748c8b37d060a5f908277eb388b4"
+          }
+        ]
+      },
+      "sourceCommit": "fbce70caf59eb4978e0a783aed38638309ed8e96"
     },
     {
       "id": "cambridge",
       "name": "Cambridge B2",
       "version": "1.2.5",
-      "build": "971b71f",
+      "build": "sha256-abff306dfbd7",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "OCR Originals 01–10 separados del Practice Bank 11–30.",
         "80 Parts nativas como estadística principal y 40 Parts OCR aparte.",
         "Contrato común de rendimiento y caché alineada."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-        "contains": "const APP_VERSION=\"1.2.5\""
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
+            "sha256": "48e72a21b050e7b498e191963dbeead57ce7b3dbe9490b3dd2254db8f82d6cb5"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
+            "sha256": "91c8fe1c98d075854a4977af537dd046c7019e64897ffc6dea139fd8d8378504"
+          }
+        ]
+      },
+      "sourceCommit": "971b71fa7e717d0b29e2afef0c78f6fb315299b0"
     },
     {
       "id": "catala",
       "name": "Català · Verbs",
       "version": "0.9.4",
-      "build": "16a44d0",
+      "build": "sha256-85e6a240815a",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-        "contains": "const APP_VERSION = \"0.9.4\""
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
+            "sha256": "99d7ccfd849b48cf6e2b0d6bc23d6375801a7e86ef7ad9a39cceebedf7b9815f"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
+            "sha256": "5582c04ca6e906983c1bdd8fe83d63457506c9583ee776a3d46cf969bae680ad"
+          }
+        ]
+      },
+      "sourceCommit": "16a44d00964c98af6803d1ae1a056cf9cb36aab9"
     },
     {
       "id": "hoti0108",
       "name": "HOTI0108",
       "version": "2.6.3-read-first",
-      "build": "d0bca01",
+      "build": "sha256-769fabaefa5f",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento adaptado a la evaluación HOTI.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
       ],
       "verify": {
-        "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-        "contains": "const APP_VERSION='2.6.3-read-first'"
-      }
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
+            "sha256": "56f02afcc8ae9297671e157b8774750ea4c11a08f5b43a43faa0ba43b4a0418d"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
+            "sha256": "9f696f80004db337fc1da2ce11d99504224aa544cdc8d71fc0314a946e81ea40"
+          }
+        ]
+      },
+      "sourceCommit": "d0bca01039121be2c1529fd082af6cdbb0eb7aec"
     },
     {
       "id": "entrenamiento",
       "name": "Adaptive Gym",
       "version": "1.0.0",
-      "build": "hub30-baseline",
+      "build": "sha256-05de0ece782b",
       "releasedAt": "2026-10-06",
       "kind": "bundled",
       "changes": [
         "Primera versión registrada en Version Center; funcionalidad previa preservada.",
         "Rutinas, series, temporizador y métricas integrados en el Hub."
-      ]
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/entrenamiento/index.html",
+            "sha256": "4847dd16100b08e4e0d5e0a02008b479fb9cef15840563ea58bd9db54d4acb9c"
+          },
+          {
+            "url": "./apps/entrenamiento/app.js",
+            "sha256": "434143a49348af30ec0c4104236f80da5f1d6c5a4fafb29b0757b744f992cd9e"
+          }
+        ]
+      }
     },
     {
       "id": "cambio",
       "name": "Cambio",
       "version": "1.0.0",
-      "build": "hub30-baseline",
+      "build": "sha256-3495411eacd2",
       "releasedAt": "2026-10-06",
       "kind": "bundled",
       "changes": [
         "Primera versión registrada en Version Center; funcionalidad previa preservada.",
         "Entrenamiento para soltar una tarea y comenzar la siguiente."
-      ]
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/cambio/index.html",
+            "sha256": "d6ceaa0dc1fbf6d9b81e5116bf613943b5ee115afad92b50ba6731729abcdd08"
+          },
+          {
+            "url": "./apps/cambio/app.js",
+            "sha256": "f7f57de3b5de2986a6746d717438568d58c852cb66bf3f04c0030536fa43a255"
+          }
+        ]
+      }
     },
     {
       "id": "dcinbox",
       "name": "DC Inbox",
       "version": "1.0.0",
-      "build": "hub30-baseline",
+      "build": "sha256-1e4914084bf8",
       "releasedAt": "2026-10-06",
       "kind": "bundled",
       "changes": [
         "Primera versión registrada en Version Center; funcionalidad previa preservada.",
         "Compartir, clasificar y enrutar contenido desde el Hub."
-      ]
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/dc-inbox/index.html",
+            "sha256": "c7e936f1b2cfd0bae3dec2f522d3ec3cc61d0fccbe4e724435ef417340b8cd70"
+          },
+          {
+            "url": "./apps/dc-inbox/app.js",
+            "sha256": "6f07ae5657290d31b519ea7f0d36cdf5b37cf729ece8bdd1ec55cfab4b7aa302"
+          }
+        ]
+      }
     },
     {
       "id": "adri-type",
@@ -235,13 +353,25 @@
       "id": "job-engine",
       "name": "Job Engine",
       "version": "0.1",
-      "build": "10d64c5",
+      "build": "sha256-71692fa2db7b",
       "releasedAt": "2026-10-04",
       "kind": "bundled",
       "changes": [
         "Baseline inicial: ofertas, candidaturas, JSON IA y métricas.",
         "Registrado ahora en Version Center del Hub 30."
-      ]
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/job-engine/index.html",
+            "sha256": "5e7176c02d331f22119c330da28b5ddf5598802a54af3c729747bd1f6c03467f"
+          },
+          {
+            "url": "./apps/job-engine/app.js",
+            "sha256": "6e4e6020d0daac2fc478b6fc6db638b042c8f9d1e020aa7420329c75b987f121"
+          }
+        ]
+      }
     }
   ]
 }
