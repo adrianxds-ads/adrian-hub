@@ -209,13 +209,14 @@
     {
       "id": "adri-type",
       "name": "Hub Control",
-      "version": "0.3",
-      "build": "hub30-bundled",
+      "version": "0.4.3",
+      "build": "hc-0.4.3-20261006",
       "releasedAt": "2026-10-06",
-      "kind": "bundled",
+      "kind": "extension",
       "changes": [
-        "Cuadro de mando flotante TYPE/FLOW/SPEED registrado en Version Center.",
-        "Atajos y textos guardados permanecen integrados en el Hub."
+        "F8 alterna panel y burbuja; margen y cierre conservan su estado.",
+        "Corregidos el registro duplicado de F8 al reactivar y el margen al redimensionar.",
+        "Implementación en adrian-typing-tracker; esta ficha requiere la extensión de Chrome."
       ]
     },
     {
