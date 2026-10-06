@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "mode": "audit-only",
+  "default_provider": "anthropic",
+  "default_model": "claude-sonnet-5-5",
+  "max_usd_per_run": 0.5,
+  "max_turns": 18,
+  "max_output_tokens_per_turn": 4000,
+  "max_read_lines": 400,
+  "max_search_matches": 50,
+  "allowed_repositories": [
+    "adrian-hub",
+    "adrian-core",
+    "adaptive-english",
+    "adaptive-phrasal-verbs",
+    "adaptive-pizarras",
+    "b2-multiple-choice-cloze",
+    "adaptive-exam",
+    "adaptive-verbs-catala",
+    "adaptive-hoti0108",
+    "adrian-sync-server"
+  ],
+  "models": {
+    "claude-sonnet-5-5": {
+      "provider": "anthropic",
+      "input_usd_per_million": 2.0,
+      "output_usd_per_million": 10.0
+    },
+    "claude-opus-5-5": {
+      "provider": "anthropic",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 20.0
+    },
+    "gpt-6-sol": {
+      "provider": "openai",
+      "input_usd_per_million": 4.0,
+      "output_usd_per_million": 15.0,
+      "pricing_note": "conservative long-context ceiling for budget guard"
+    }
+  }
+}

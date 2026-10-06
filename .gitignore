@@ -1,0 +1,4 @@
+agent/.env.local
+agent/runs/
+agent/__pycache__/
+*.pyc
