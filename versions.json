@@ -5,7 +5,7 @@
     "id": "hub",
     "name": "Adrián Hub",
     "version": "30.1.0",
-    "build": "update-center-20261006",
+    "build": "12a7620",
     "releasedAt": "2026-10-06",
     "changes": [
       "Nuevo panel estilo Windows Update: estado global claro y botón ACTUALIZAR TODO.",
