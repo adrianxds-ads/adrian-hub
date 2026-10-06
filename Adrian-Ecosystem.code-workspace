@@ -1,0 +1,18 @@
+{
+  "folders": [
+    { "path": "." },
+    { "path": "..\adrian-core" },
+    { "path": "..\adaptive-english" },
+    { "path": "..\adaptive-phrasal-verbs" },
+    { "path": "..\adaptive-pizarras" },
+    { "path": "..\b2-multiple-choice-cloze" },
+    { "path": "..\adaptive-exam" },
+    { "path": "..\adaptive-verbs-catala" },
+    { "path": "..\adaptive-hoti0108" },
+    { "path": "..\adrian-sync-server" }
+  ],
+  "settings": {
+    "files.exclude": { "**/.git": true },
+    "search.exclude": { "**/backups": true }
+  }
+}

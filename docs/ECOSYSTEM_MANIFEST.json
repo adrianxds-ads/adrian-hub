@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-06",
+  "workspace": "C:\\Users\\adria\\agent-workbench\\Adrian-Ecosystem.code-workspace",
+  "branch": "agent-workbench-2026-10-06",
+  "productionHub": "https://adrianxds-ads.github.io/adrian-hub/",
+  "repositories": [
+    {"name":"adrian-hub","role":"control point, registry, bundled apps","baseline":"f623078","productionVersion":"30.0.1"},
+    {"name":"adrian-core","role":"shared components, sync, visual system","baseline":"cb9e332","productionVersion":"sync 1.0.3"},
+    {"name":"adaptive-english","role":"English adaptive study app","baseline":"7c5db7a","productionVersion":"3.34"},
+    {"name":"adaptive-phrasal-verbs","role":"Phrasal verbs study app","baseline":"133be70","productionVersion":"0.12.0"},
+    {"name":"adaptive-pizarras","role":"Pizarras timed study engine","baseline":"f606e1c","productionVersion":"2.1.4"},
+    {"name":"b2-multiple-choice-cloze","role":"B2 cloze adaptive study app","baseline":"fbce70c","productionVersion":"1.10.4"},
+    {"name":"adaptive-exam","role":"Cambridge B2 practice bank","baseline":"971b71f","productionVersion":"1.2.5"},
+    {"name":"adaptive-verbs-catala","role":"Catalan verbs adaptive study app","baseline":"16a44d0","productionVersion":"0.9.4"},
+    {"name":"adaptive-hoti0108","role":"HOTI0108 study and course app","baseline":"d0bca01","productionVersion":"2.6.3-read-first"},
+    {"name":"adrian-sync-server","role":"local cross-device sync server","baseline":"97b2df6","productionVersion":"local service; state excluded from Git"}
+  ],
+  "productionRules": {
+    "doNotCommit": ["API keys", "tokens", "secret.txt", "state.json", "server.log", "sync backups"],
+    "versionRegistry": "adrian-hub/versions.json",
+    "sharedSyncClient": "adrian-core/components/adrian-sync.js"
+  }
+}
