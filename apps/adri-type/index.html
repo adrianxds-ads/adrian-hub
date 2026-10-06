@@ -14,13 +14,13 @@
   <a class="back" href="../../">‹ HUB</a>
   <header class="hero">
     <div class="glyph">HC</div>
-    <div><p class="eyebrow">HUB CONTROL · TYPE · v0.3</p><h1>Cuadro de mando flotante.</h1><p>TYPE, FLOW/SPEED, estadísticas, atajos y textos guardados mientras trabajas en el ordenador.</p></div>
+    <div><p class="eyebrow">HUB CONTROL · EXTENSIÓN PARA CHROME</p><h1>Cuadro de mando flotante.</h1><p>TYPE, FLOW/SPEED, estadísticas, atajos y textos guardados mientras trabajas en el ordenador.</p></div>
   </header>
 
   <section class="panel ad-card">
     <div class="panel-copy"><span>ORDENADOR</span><h2>Historial y gráficas</h2><p>Abre el dashboard real de la extensión instalada en Chrome. Los datos permanecen locales en el PC.</p></div>
-    <button id="openHistory" data-adri-type-open-history type="button" class="ad-button primary">ABRIR HISTORIAL Y GRÁFICAS</button>
-    <p id="status" class="status">En el PC, HUB CONTROL abrirá el historial automáticamente.</p>
+    <button id="openHistory" hidden disabled data-adri-type-open-history type="button" class="ad-button primary">ABRIR HISTORIAL Y GRÁFICAS</button>
+    <p id="status" class="status" role="status" aria-live="polite">Comprobando la extensión de Chrome…</p>
   </section>
 
   <section class="stats-preview ad-card" aria-label="Métricas disponibles">
@@ -31,7 +31,7 @@
   </section>
 
   <section class="mobile-note ad-card">
-    <span>MÓVIL</span><b>La ficha sí forma parte del Hub.</b><p>El historial real todavía no se sincroniza entre dispositivos. En móvil esta pantalla sirve como acceso de la colección; cuando merezca la pena, podremos añadir sincronización sin alterar el tracker local.</p>
+    <span>MÓVIL</span><b>La ficha sí forma parte del Hub.</b><p>El panel flotante, F8 y el historial están disponibles en Chrome del ordenador. Las estadísticas de la extensión se guardan en ese PC.</p>
   </section>
 </main>
 <script src="./app.js"></script>

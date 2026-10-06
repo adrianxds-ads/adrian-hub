@@ -4,13 +4,15 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.0.4",
-    "build": "hub-30.0.4-20261006",
+    "version": "30.0.5",
+    "build": "hub-30.0.5-20261006",
     "releasedAt": "2026-10-06",
     "changes": [
-      "Version Center compara la versión del cliente con el registro y verifica las huellas SHA-256 del código servido.",
-      "Las apps incluidas requieren evidencia de sus propios archivos; Hub Control se comprueba como extensión.",
-      "Reparadas las notas con caracteres dañados."
+      "Version Center verifica versión ejecutada y huellas SHA-256 del código servido, sin aprobar automáticamente apps incluidas.",
+      "Builds reproducibles y precache verificado; las instalaciones incompletas se rechazan sin mezclar cachés.",
+      "Core activo con sincronización 1.0.4, teclado 4.1.2 y copias de Oca/logros coherentes.",
+      "Hub Control se identifica como extensión 0.4.3; su ficha móvil informa de la disponibilidad real.",
+      "Corregidos foco y desplazamiento del teclado en Cambridge 1.2.7."
     ],
     "history": [
       {
@@ -37,7 +39,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "a566f0aa8a5361fceaa1c319cac8ff45a750e032e59ebb31b7a30b7739fee858"
+          "sha256": "301a231c152cd3ba3b65642a7d917c5ae854c314bff92aadb5f0a7697763631f"
         },
         {
           "url": "version-verifier.js",
@@ -45,7 +47,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "6dfd9c60f92aeb25500a606804624f14460031184c1bf7f5987d9ad54440887e"
+          "sha256": "32999d7bdad6eb8be4f928eec5c98eee15e1840776c6283daa1e36373ca4d0f9"
         },
         {
           "url": "styles.css",
@@ -57,18 +59,18 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "ebd2b20f52acac8f722d6e1eabe7c98b551c2dc37f4df7c076c39e89386bdace"
+          "sha256": "ddd0492c43b1aba6b7926b871b124df72f6d33c4ca55aa4e88eefb3e132a2893"
         }
       ]
     },
-    "cacheBuild": "6bcfc4a9c1f4ccbd"
+    "cacheBuild": "a67a9f9730f27400"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
       "version": "3.34.1",
-      "build": "sha256-81b04f7839cb",
+      "build": "sha256-d06fa00cc736",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -94,19 +96,19 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "9058a0741da7a6c6378875ee7c7982ed1a9aa1548dab1ae54517f88174d50b44"
+            "sha256": "faefdf0c63639e9e4d48a822662bd058b9c2b2434bd298fadafc2c4284be01ad"
           }
         ]
       },
-      "sourceCommit": "acc68e50e45dba4ae743c847c3fbe996765066db",
-      "cacheBuild": "a3efc8774a034a69",
-      "sourceDirty": true
+      "sourceCommit": "9810327c6762f9226dd5dba9120a0c43fe3e7581",
+      "cacheBuild": "45245ade53286592",
+      "sourceDirty": false
     },
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
       "version": "0.12.1",
-      "build": "sha256-46be2581dad9",
+      "build": "sha256-ad5da7003b61",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -133,19 +135,19 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "31c87dd40d6330306945e363070d7ed6e3675a4d2c66eec3553c25f2cc3b8106"
+            "sha256": "ef3043a96ea513887b09de08373d54ab3c4182486043bfac371ed80444f0d08d"
           }
         ]
       },
-      "sourceCommit": "f43597bc32297b30e12cb02824472d0899ee05e0",
-      "cacheBuild": "c4d2e5d54816943f",
-      "sourceDirty": true
+      "sourceCommit": "2d07c2c96c3daf969dd25a6dca67ddfeaac2d077",
+      "cacheBuild": "37548e6fee26434b",
+      "sourceDirty": false
     },
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
       "version": "2.1.5",
-      "build": "sha256-f25ce0e1496b",
+      "build": "sha256-f1ddb022d365",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -171,19 +173,19 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "31350a93269b0bc0b3a0c6b7d78ac9d3c07b250337849b8daa9364f42f1e38fa"
+            "sha256": "9e3827a7f47c9b589bde0d4c8232106c234e568aecf62f3134efb1cdedf5b71b"
           }
         ]
       },
-      "sourceCommit": "be866b4843a16716548a70248ddbb9677fd9d246",
-      "cacheBuild": "ddc9d41c145b9b57",
-      "sourceDirty": true
+      "sourceCommit": "b924076e15f2ffe9cdd83dce7d7c46af7d9e3dc4",
+      "cacheBuild": "7dac71f8b61a54b1",
+      "sourceDirty": false
     },
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
       "version": "1.10.5",
-      "build": "sha256-84b4b4233fdf",
+      "build": "sha256-ad04978c65a5",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -209,37 +211,35 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "d215d33d650d1bd426cf90e46ed1e4b66776dfa3a7c984d2ac35168112474d7b"
+            "sha256": "480eeb4275f4676469ca352494b1566964126d4c114e3d52a3eba635e2662bfc"
           }
         ]
       },
-      "sourceCommit": "e3a283b0ec17f057c35c4fdc702d2cfe232ee397",
-      "cacheBuild": "eb797ba7ba036931",
-      "sourceDirty": true
+      "sourceCommit": "7d1107c6c53938fc3e38c8442d7e9e602be4095d",
+      "cacheBuild": "eb888081688a5ffb",
+      "sourceDirty": false
     },
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.6",
-      "build": "sha256-2a83bd12a1b8",
+      "version": "1.2.7",
+      "build": "sha256-c1e470eb2dd1",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "OCR Originals 01–10 separados del Practice Bank 11–30.",
-        "80 Parts nativas como estadística principal y 40 Parts OCR aparte.",
-        "Contrato común de rendimiento y caché alineada."
+        "Teclado 4.1.2 conserva el foco al escribir y evita que una barra fuera de pantalla provoque saltos.",
+        "Navegación anterior/siguiente mantiene visible la respuesta sobre el teclado en vertical y horizontal.",
+        "Build verificable y precache íntegro; sincronización protegida 1.0.4."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "d8b7ce0c9710894f13d30fab94ca3c564f8cac962270b085ee3ed9f407bac9b8"
+            "sha256": "a27bca1d445e6819d4ab48142f66c24c8a60068a4191dc57fe3ac93e92dfb95d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "e12989dd1ef5199acf7ed71558eebed7fc056cf17f4575e4e593700c8a4b72f4"
+            "sha256": "4e5dd47a6ba83fae0f05f2fbc9d4c80d1411a53719908693f096db1d2c85770c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -247,19 +247,19 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "e6c353dca8d0e0a8f5561dff0e58cddd18e2d27762166b3e7b1e4e13b784c852"
+            "sha256": "40508823210d9db486a93a86e2152f8ea9b1b4fa4b2ec63ddb4d0cf8381248b8"
           }
         ]
       },
-      "sourceCommit": "ad2a869d916e38dc32fa5c3a889baf93fb405b06",
-      "cacheBuild": "8f5d4c6b64c0dca6",
-      "sourceDirty": true
+      "sourceCommit": "ee42a5e01238c4663ff91e03800a3195a0b81063",
+      "cacheBuild": "b60a9062dd00c638",
+      "sourceDirty": false
     },
     {
       "id": "catala",
       "name": "Català · Verbs",
       "version": "0.9.5",
-      "build": "sha256-29bff2b8315e",
+      "build": "sha256-492c8aac1cd3",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -285,19 +285,19 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "45af523d79185f9abe6463213029cccd5b4f3b72d6440a3dbd219b472cc2169c"
+            "sha256": "11912cb66d268916ad08e0f96145ce5c0df5d6cc412ce0e342d416cc05e6e130"
           }
         ]
       },
-      "sourceCommit": "a2f3dc088323bc8115dbbc66e1921ae1c8a866a2",
-      "cacheBuild": "8f55e40e6bf1d228",
-      "sourceDirty": true
+      "sourceCommit": "c39fc4e641049421d7eaf1abbe91ce604f0082b6",
+      "cacheBuild": "58c365eb899a8e7f",
+      "sourceDirty": false
     },
     {
       "id": "hoti0108",
       "name": "HOTI0108",
       "version": "2.6.4-read-first",
-      "build": "sha256-aab76c578c7c",
+      "build": "sha256-4c00fe6cff88",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
@@ -323,13 +323,13 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "55f2f01fc7f5c783aabd5fc0ba9e84e2d7c63eff578d2c517c696b6d2dc39a6c"
+            "sha256": "ce9f7d3c0c96346e5c3635d52440cd3c1740fe176eddb4c283ab33903a24bd6e"
           }
         ]
       },
-      "sourceCommit": "3a80f146a77352142064dc5c86788db504992605",
-      "cacheBuild": "1158145c7bc31fa6",
-      "sourceDirty": true
+      "sourceCommit": "929d9bc5fef1d4914da69ffe8d683747725914fe",
+      "cacheBuild": "14e578defc07bb4d",
+      "sourceDirty": false
     },
     {
       "id": "entrenamiento",
@@ -425,7 +425,8 @@
       "changes": [
         "F8 alterna panel y burbuja; margen y cierre conservan su estado.",
         "Corregidos el registro duplicado de F8 al reactivar y el margen al redimensionar.",
-        "Implementación en adrian-typing-tracker; esta ficha requiere la extensión de Chrome."
+        "Implementación en adrian-typing-tracker; esta ficha requiere la extensión de Chrome.",
+        "En móvil se muestra información; los controles locales solo aparecen si la extensión está disponible."
       ]
     },
     {
