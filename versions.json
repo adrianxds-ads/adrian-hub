@@ -1,19 +1,30 @@
 {
-  "schema": 1,
-  "generatedAt": "2026-10-06T16:08:04+02:00",
+  "schema": 2,
+  "generatedAt": "2026-10-06T16:25:53+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.0.1",
-    "build": "p1-sync-encoding-20261006",
+    "version": "30.1.0",
+    "build": "update-center-20261006",
     "releasedAt": "2026-10-06",
     "changes": [
-      "Adrian Core Sync 1.0.3 reconcilia autom?ticamente escrituras rechazadas para evitar progreso divergente entre dispositivos.",
-      "Texto UTF-8 reparado en el Hub y en las siete apps p?blicas principales.",
-      "El servidor local de sincronizaci?n queda bajo control de versiones Git con estado, secretos, logs y backups excluidos.",
-      "Version Center actualizado con los builds reales publicados tras la correcci?n."
+      "Nuevo panel estilo Windows Update: estado global claro y botón ACTUALIZAR TODO.",
+      "La autoauditoría distingue versión pública de copia PWA instalada en este dispositivo.",
+      "ACTUALIZAR TODO renueva las cachés y service workers de las siete apps públicas sin borrar progreso.",
+      "Después de actualizar, el Hub vuelve a auditar automáticamente y confirma si todo está al día."
     ],
     "history": [
+      {
+        "version": "30.0.1",
+        "date": "2026-10-06",
+        "build": "f623078",
+        "changes": [
+          "Adrian Core Sync 1.0.3 reconcilia automáticamente escrituras rechazadas para evitar progreso divergente entre dispositivos.",
+          "Texto UTF-8 reparado en el Hub y en las siete apps públicas principales.",
+          "El servidor local de sincronización queda bajo control de versiones Git con estado, secretos, logs y backups excluidos.",
+          "Version Center actualizado con los builds reales publicados tras la corrección."
+        ]
+      },
       {
         "version": "30.0.0",
         "date": "2026-10-06",
@@ -44,8 +55,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -53,7 +64,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
         "contains": "const APP_VERSION = \"3.34\""
-      }
+      },
+      "cachePrefixes": [
+        "ae-campaign1-"
+      ]
     },
     {
       "id": "phrasal-verbs",
@@ -63,8 +77,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contraportada llevada a paridad visual con Adaptive.",
         "Skills coloreadas con AVS 1–15.",
         "Progress JSON global y AI Valuation añadidos.",
@@ -73,7 +87,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
         "contains": "const APP_VERSION=\"0.12.0\""
-      }
+      },
+      "cachePrefixes": [
+        "apv-"
+      ]
     },
     {
       "id": "pizarras",
@@ -83,8 +100,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "El contrato termina y se contabiliza al vencer el tiempo sin depender de la última animación/pregunta.",
         "Recuperación al volver a primer plano o reabrir una sesión vencida.",
         "Contrato común de rendimiento y Oca compartida."
@@ -92,7 +109,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
         "contains": "const APP_VERSION='2.1.4'"
-      }
+      },
+      "cachePrefixes": [
+        "pizarras-"
+      ]
     },
     {
       "id": "b2-cloze",
@@ -102,8 +122,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -111,7 +131,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
         "contains": "const APP_VERSION = \"1.10.4\""
-      }
+      },
+      "cachePrefixes": [
+        "b2-territorio-1-"
+      ]
     },
     {
       "id": "cambridge",
@@ -121,8 +144,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "OCR Originals 01–10 separados del Practice Bank 11–30.",
         "80 Parts nativas como estadística principal y 40 Parts OCR aparte.",
         "Contrato común de rendimiento y caché alineada."
@@ -130,7 +153,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
         "contains": "const APP_VERSION=\"1.2.5\""
-      }
+      },
+      "cachePrefixes": [
+        "adaptive-exam-"
+      ]
     },
     {
       "id": "catala",
@@ -140,8 +166,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -149,7 +175,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
         "contains": "const APP_VERSION = \"0.9.4\""
-      }
+      },
+      "cachePrefixes": [
+        "avc-campaign1-"
+      ]
     },
     {
       "id": "hoti0108",
@@ -159,8 +188,8 @@
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
-        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
+        "Texto y símbolos UTF-8 reparados en la interfaz.",
+        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento adaptado a la evaluación HOTI.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -168,7 +197,10 @@
       "verify": {
         "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
         "contains": "const APP_VERSION='2.6.3-read-first'"
-      }
+      },
+      "cachePrefixes": [
+        "adaptive-hoti0108-"
+      ]
     },
     {
       "id": "entrenamiento",

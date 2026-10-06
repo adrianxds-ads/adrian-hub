@@ -1,4 +1,4 @@
-const HUB_VERSION='30.0.1';
+const HUB_VERSION='30.1.0';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -67,34 +67,108 @@ function orderedVersionEntries(){
   const byId=Object.fromEntries((versionCatalog.apps||[]).map(x=>[x.id,x]));
   return[versionCatalog.hub,...registry.map(a=>byId[a.id]).filter(Boolean)];
 }
-function statusText(entry){if(entry.id==='hub')return'ESTE HUB';if(entry.kind==='bundled')return'INCLUIDA EN HUB';if(entry.kind==='private')return'PRIVADA';return'COMPROBANDO';}
+function statusText(entry){if(entry.id==='hub')return'COMPROBANDO';if(entry.kind==='bundled')return'ACTUALIZADA';if(entry.kind==='private')return'PRIVADA';return'COMPROBANDO';}
 function renderVersionCenter(){
   const host=document.querySelector('#versionList'),hubLabel=document.querySelector('#hubVersionLabel');if(!host||!versionCatalog)return;
   if(hubLabel)hubLabel.textContent=`Hub v${versionCatalog.hub.version}`;
-  host.innerHTML=orderedVersionEntries().map(entry=>`<button class="version-row" type="button" data-version-id="${esc(entry.id)}"><span class="version-main"><b>${esc(entry.name)}</b><small>${entry.id==='hub'?'Versión del sistema':'Versión de la aplicación'}</small></span><span class="version-build"><strong>v${esc(entry.version)}</strong><small>${esc(entry.build||'—')}</small></span><span class="version-status ${entry.kind==='private'?'private':entry.kind==='bundled'?'bundled':''}" id="versionStatus-${esc(entry.id)}">${statusText(entry)}</span></button>`).join('');
+  host.innerHTML=orderedVersionEntries().map(entry=>`<button class="version-row" type="button" data-version-id="${esc(entry.id)}"><span class="version-main"><b>${esc(entry.name)}</b><small>${entry.id==='hub'?'Versión del sistema':'Versión de la aplicación'}</small></span><span class="version-build"><strong>v${esc(entry.version)}</strong><small>${esc(entry.build||'—')}</small></span><span class="version-status ${entry.kind==='private'?'private':entry.kind==='bundled'?'ok':''}" id="versionStatus-${esc(entry.id)}">${statusText(entry)}</span></button>`).join('');
   host.querySelectorAll('[data-version-id]').forEach(btn=>btn.addEventListener('click',()=>openVersionDialog(btn.dataset.versionId)));
   const footer=document.querySelector('#coreStatus');if(footer)footer.textContent=`Hub v${versionCatalog.hub.version} · AVS 2.0 · Jardín GitHub 1.3`;
+  renderLastUpdate();
 }
 function setVersionStatus(id,text,kind='checking'){
   const el=document.getElementById(`versionStatus-${id}`);if(!el)return;el.textContent=text;el.className=`version-status ${kind}`;
 }
+const UPDATE_STATE_KEY='adrian_hub_update_state_v1';
+let versionAudit={};
+function appForVersion(id){return registry.find(x=>x.id===id)||null;}
+function updateSummary(kind,headline,detail,icon){
+  const box=document.querySelector('#updateSummary'),h=document.querySelector('#updateHeadline'),d=document.querySelector('#updateDetail'),i=document.querySelector('#updateIcon');
+  if(box)box.className=`update-summary ${kind||''}`;if(h)h.textContent=headline||'';if(d)d.textContent=detail||'';if(i)i.textContent=icon||'✓';
+}
+function renderLastUpdate(){
+  const el=document.querySelector('#lastUpdateLabel');if(!el)return;
+  try{const x=JSON.parse(localStorage.getItem(UPDATE_STATE_KEY)||'null');el.textContent=x?.at?`Última actualización: ${new Date(x.at).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}`:'Todavía no has usado ACTUALIZAR TODO';}catch{el.textContent='Historial de actualización no disponible';}
+}
+async function refreshVersionCatalog(redraw=true){
+  const r=await fetch(`./versions.json?catalog=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw new Error('Version catalog '+r.status);
+  versionCatalog=await r.json();versionMap=Object.fromEntries((versionCatalog.apps||[]).map(x=>[x.id,x]));
+  if(redraw){render();renderVersionCenter();}
+  return versionCatalog;
+}
+function matchingCacheNames(entry,names){const ps=entry.cachePrefixes||[];return names.filter(n=>ps.some(p=>n.startsWith(p)));}
+async function inspectInstalled(entry){
+  if(!('caches' in window)||!entry.verify?.url)return{state:'unknown',cacheCount:0};
+  try{
+    const names=matchingCacheNames(entry,await caches.keys());let seen=false,fresh=false,stale=false;
+    for(const name of names){const c=await caches.open(name),r=await c.match(entry.verify.url,{ignoreSearch:true});if(!r)continue;seen=true;const text=await r.clone().text();if(text.includes(entry.verify.contains))fresh=true;else stale=true;}
+    return{state:fresh?'fresh':stale?'stale':seen?'stale':'none',cacheCount:names.length};
+  }catch{return{state:'unknown',cacheCount:0};}
+}
 async function verifyEntry(entry){
-  if(entry.id==='hub'){try{const r=await fetch(`./versions.json?check=${Date.now()}`,{cache:'no-store'}),data=await r.json(),ok=r.ok&&data?.hub?.version===entry.version;setVersionStatus(entry.id,ok?'VERIFICADA':'DESFASADA',ok?'ok':'bad');return ok;}catch{setVersionStatus(entry.id,'SIN RED','warn');return false;}}
-  if(entry.kind==='bundled'){setVersionStatus(entry.id,`HUB v${versionCatalog.hub.version}`,'ok');return true;}
-  if(entry.kind==='private'){setVersionStatus(entry.id,'PRIVADA','private');return null;}
-  if(!entry.verify?.url){setVersionStatus(entry.id,'SIN PRUEBA','warn');return null;}
+  if(entry.id==='hub'){
+    const current=HUB_VERSION===entry.version;versionAudit[entry.id]={ok:current,pending:!current,type:'hub'};setVersionStatus(entry.id,current?'ACTUALIZADA':'ACTUALIZACIÓN DISPONIBLE',current?'ok':'pending');return versionAudit[entry.id];
+  }
+  if(entry.kind==='bundled'){versionAudit[entry.id]={ok:true,pending:false,type:'bundled'};setVersionStatus(entry.id,'ACTUALIZADA','ok');return versionAudit[entry.id];}
+  if(entry.kind==='private'){versionAudit[entry.id]={ok:null,pending:false,type:'private'};setVersionStatus(entry.id,'PRIVADA','private');return versionAudit[entry.id];}
+  if(!entry.verify?.url){versionAudit[entry.id]={ok:null,pending:false,type:'unknown'};setVersionStatus(entry.id,'SIN COMPROBAR','warn');return versionAudit[entry.id];}
   try{
     const u=new URL(entry.verify.url,location.href);u.searchParams.set('hub_version_check',Date.now());
-    const r=await fetch(u.href,{cache:'no-store'}),text=await r.text(),ok=r.ok&&text.includes(entry.verify.contains);
-    setVersionStatus(entry.id,ok?'PUBLICADA':'DESFASADA',ok?'ok':'bad');return ok;
-  }catch(e){setVersionStatus(entry.id,'NO VERIFICADA','warn');return false;}
+    const r=await fetch(u.href,{cache:'no-store'}),text=await r.text(),remoteOk=r.ok&&text.includes(entry.verify.contains);
+    if(!remoteOk){versionAudit[entry.id]={ok:false,pending:true,type:'remote'};setVersionStatus(entry.id,'PUBLICACIÓN PENDIENTE','bad');return versionAudit[entry.id];}
+    const installed=await inspectInstalled(entry),pending=installed.state==='stale';
+    versionAudit[entry.id]={ok:!pending,pending,type:pending?'cache':'current',installed:installed.state};
+    setVersionStatus(entry.id,pending?'ACTUALIZACIÓN DISPONIBLE':'ACTUALIZADA',pending?'pending':'ok');return versionAudit[entry.id];
+  }catch(e){versionAudit[entry.id]={ok:false,pending:false,type:'network'};setVersionStatus(entry.id,'SIN COMPROBAR','warn');return versionAudit[entry.id];}
 }
-async function verifyAllVersions(){
-  if(!versionCatalog)return;
-  const btn=document.querySelector('#verifyVersionsBtn'),stamp=document.querySelector('#versionCheckedAt');if(btn){btn.disabled=true;btn.textContent='COMPROBANDO…';}
-  await Promise.all(orderedVersionEntries().map(verifyEntry));
-  if(stamp)stamp.textContent=`Última comprobación: ${new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}`;
-  if(btn){btn.disabled=false;btn.textContent='COMPROBAR AHORA';}
+function renderAuditSummary(){
+  const entries=orderedVersionEntries(),relevant=entries.filter(x=>x.id==='hub'||x.kind==='public'),pending=relevant.filter(x=>versionAudit[x.id]?.pending),network=relevant.filter(x=>versionAudit[x.id]?.type==='network'),remote=relevant.filter(x=>versionAudit[x.id]?.type==='remote');
+  if(pending.length){updateSummary('pending',`${pending.length} actualización${pending.length===1?'':'es'} disponible${pending.length===1?'':'s'}`,`Pulsa ACTUALIZAR TODO para renovar ${pending.map(x=>x.name).join(', ')}.`,`↓`);return;}
+  if(remote.length){updateSummary('bad',`${remote.length} publicación${remote.length===1?'':'es'} pendiente${remote.length===1?'':'s'}`,'El repositorio declara una versión que todavía no está disponible públicamente.','!');return;}
+  if(network.length){updateSummary('warn','No se pudo comprobar todo',`${network.length} componente${network.length===1?'':'s'} sin verificar. Reintenta cuando haya conexión.`,'?');return;}
+  updateSummary('ok','Todo está actualizado',`Hub v${versionCatalog?.hub?.version||HUB_VERSION} · ${entries.filter(x=>x.kind==='public').length} apps públicas al día.`,'✓');
+}
+async function verifyAllVersions({refresh=true}={}){
+  const btn=document.querySelector('#verifyVersionsBtn'),updateBtn=document.querySelector('#updateAllVersionsBtn'),stamp=document.querySelector('#versionCheckedAt');
+  if(btn){btn.disabled=true;btn.textContent='COMPROBANDO…';}if(updateBtn)updateBtn.disabled=true;updateSummary('checking','Buscando actualizaciones','Comparando versión pública y copia instalada…','↻');
+  try{if(refresh)await refreshVersionCatalog(true);versionAudit={};await Promise.all(orderedVersionEntries().map(verifyEntry));renderAuditSummary();if(stamp)stamp.textContent=`Última comprobación: ${new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}`;}
+  catch(e){console.error('Update audit failed',e);updateSummary('warn','No se pudo comprobar','El Version Center no pudo completar la auditoría.','?');}
+  finally{if(btn){btn.disabled=false;btn.textContent='BUSCAR ACTUALIZACIONES';}if(updateBtn)updateBtn.disabled=false;}
+}
+function waitForWorker(reg,timeout=14000){
+  const worker=reg.installing||reg.waiting;if(!worker||['installed','activated'].includes(worker.state))return Promise.resolve();
+  return Promise.race([new Promise((resolve,reject)=>worker.addEventListener('statechange',()=>{if(['installed','activated'].includes(worker.state))resolve();else if(worker.state==='redundant')reject(new Error('Service worker redundant'));})),new Promise((_,reject)=>setTimeout(()=>reject(new Error('Service worker timeout')),timeout))]);
+}
+async function preflightApp(entry,stamp){
+  const app=appForVersion(entry.id);if(!app)throw new Error('App missing from registry');
+  const base=new URL(app.url,location.href);if(base.origin!==location.origin)throw new Error('Different origin');
+  const sw=new URL('service-worker.js',base);sw.searchParams.set('hub_preflight',stamp);const r=await fetch(sw.href,{cache:'no-store'});if(!r.ok)throw new Error(`SW ${r.status}`);return{base,sw};
+}
+async function updateOneApp(entry,stamp,onProgress){
+  setVersionStatus(entry.id,'ACTUALIZANDO','checking');const {base,sw}=await preflightApp(entry,stamp);
+  const names=matchingCacheNames(entry,await caches.keys());await Promise.all(names.map(name=>caches.delete(name)));
+  const updateSw=new URL(sw.href);updateSw.searchParams.delete('hub_preflight');updateSw.searchParams.set('hub_update',stamp);
+  const reg=await navigator.serviceWorker.register(updateSw.href,{scope:new URL('./',base).href,updateViaCache:'none'});await waitForWorker(reg);try{await reg.update();}catch{}
+  onProgress?.();return true;
+}
+async function refreshHubWorker(stamp){
+  if(!('serviceWorker' in navigator))return;const sw=new URL('./service-worker.js',location.href);sw.searchParams.set('hub_update',stamp);sw.searchParams.set('target',versionCatalog?.hub?.version||HUB_VERSION);
+  const reg=await navigator.serviceWorker.register(sw.href,{scope:new URL('./',location.href).href,updateViaCache:'none'});try{await reg.update();}catch{}
+}
+async function updateAllVersions(){
+  if(!versionCatalog)return;const checkBtn=document.querySelector('#verifyVersionsBtn'),btn=document.querySelector('#updateAllVersionsBtn'),bar=document.querySelector('#updateProgressBar'),label=document.querySelector('#updateProgressLabel');
+  if(checkBtn)checkBtn.disabled=true;if(btn){btn.disabled=true;btn.textContent='ACTUALIZANDO…';}const stamp=String(Date.now());
+  try{
+    await refreshVersionCatalog(true);const publicApps=orderedVersionEntries().filter(x=>x.kind==='public');let done=0;if(bar){bar.hidden=false;bar.max=publicApps.length;bar.value=0;}if(label)label.textContent=`0 / ${publicApps.length}`;updateSummary('checking','Actualizando todo el Hub','Preparando las aplicaciones sin tocar tu progreso…','↓');
+    const preflight=await Promise.allSettled(publicApps.map(e=>preflightApp(e,stamp)));const ready=publicApps.filter((_,i)=>preflight[i].status==='fulfilled'),blocked=publicApps.filter((_,i)=>preflight[i].status==='rejected');
+    blocked.forEach(e=>setVersionStatus(e.id,'SIN RED · CONSERVADA','warn'));
+    const results=await Promise.allSettled(ready.map(e=>updateOneApp(e,stamp,()=>{done++;if(bar)bar.value=done;if(label)label.textContent=`${done} / ${publicApps.length}`;updateSummary('checking','Actualizando todo el Hub',`${done} de ${publicApps.length} apps renovadas…`,'↓');})));
+    await refreshHubWorker(stamp);localStorage.setItem(UPDATE_STATE_KEY,JSON.stringify({at:Date.now(),hubVersion:versionCatalog.hub.version,updated:ready.length,failed:blocked.length+results.filter(x=>x.status==='rejected').length}));renderLastUpdate();
+    await new Promise(r=>setTimeout(r,700));await verifyAllVersions({refresh:true});
+    const failed=blocked.length+results.filter(x=>x.status==='rejected').length;if(failed)updateSummary('warn','Actualización parcial',`${publicApps.length-failed} apps actualizadas · ${failed} requieren nueva comprobación.`,'!');
+    else if(HUB_VERSION!==versionCatalog.hub.version){updateSummary('ok','Hub actualizado','La nueva versión del Hub está lista. Recargando…','✓');setTimeout(()=>{const u=new URL(location.href);u.searchParams.set('updated',Date.now());location.replace(u.href);},650);}
+  }catch(e){console.error('Update all failed',e);updateSummary('bad','No se pudo completar la actualización','No se han borrado datos de progreso. Vuelve a intentarlo.','!');}
+  finally{if(bar)bar.hidden=true;if(label)label.textContent='';if(btn){btn.disabled=false;btn.textContent='ACTUALIZAR TODO';}if(checkBtn)checkBtn.disabled=false;}
 }
 function openVersionDialog(id){
   const entry=id==='hub'?versionCatalog?.hub:versionFor(id),dialog=document.querySelector('#versionDialog'),body=document.querySelector('#versionDialogBody');if(!entry||!dialog||!body)return;
@@ -103,12 +177,13 @@ function openVersionDialog(id){
   body.innerHTML=`<div class="version-dialog-title"><span>${entry.id==='hub'?'HUB':'APLICACIÓN'}</span><h2>${esc(entry.name)}</h2><p><b>v${esc(entry.version)}</b> · build <code>${esc(entry.build||'—')}</code> · ${esc(entry.releasedAt||'')}</p></div><h3>Qué cambió</h3><ul class="version-change-list">${changes}</ul>${history?`<h3>Historial registrado</h3>${history}`:''}`;
   dialog.showModal();
 }
-document.querySelector('#verifyVersionsBtn')?.addEventListener('click',verifyAllVersions);
+document.querySelector('#verifyVersionsBtn')?.addEventListener('click',()=>verifyAllVersions({refresh:true}));
+document.querySelector('#updateAllVersionsBtn')?.addEventListener('click',updateAllVersions);
 document.querySelector('#versionDialogClose')?.addEventListener('click',()=>document.querySelector('#versionDialog')?.close());
 document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
 
 if('serviceWorker' in navigator){
   let refreshed=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshed)return;refreshed=true;if(sessionStorage.getItem('hub-sw-v30.0.1-reloaded')!=='1'){sessionStorage.setItem('hub-sw-v30.0.1-reloaded','1');location.reload();}});
-  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.0.1-p1-20261006',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshed)return;refreshed=true;if(sessionStorage.getItem('hub-sw-v30.1.0-reloaded')!=='1'){sessionStorage.setItem('hub-sw-v30.1.0-reloaded','1');location.reload();}});
+  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.1.0-update-center-20261006',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }
