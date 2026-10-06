@@ -1,4 +1,4 @@
-const HUB_VERSION='30.1.0';
+const HUB_VERSION='30.1.1';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -184,6 +184,6 @@ document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.targ
 
 if('serviceWorker' in navigator){
   let refreshed=false;
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshed)return;refreshed=true;if(sessionStorage.getItem('hub-sw-v30.1.0-reloaded')!=='1'){sessionStorage.setItem('hub-sw-v30.1.0-reloaded','1');location.reload();}});
-  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.1.0-update-center-20261006',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(refreshed)return;refreshed=true;if(sessionStorage.getItem('hub-sw-v30.1.1-reloaded')!=='1'){sessionStorage.setItem('hub-sw-v30.1.1-reloaded','1');location.reload();}});
+  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.1.1-sync-body-fix-20261006',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }

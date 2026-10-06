@@ -1,19 +1,28 @@
 {
   "schema": 2,
-  "generatedAt": "2026-10-06T16:25:53+02:00",
+  "generatedAt": "2026-10-06T16:38:14+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.1.0",
-    "build": "12a7620",
+    "version": "30.1.1",
+    "build": "sync-body-fix-20261006",
     "releasedAt": "2026-10-06",
     "changes": [
-      "Nuevo panel estilo Windows Update: estado global claro y botón ACTUALIZAR TODO.",
-      "La autoauditoría distingue versión pública de copia PWA instalada en este dispositivo.",
-      "ACTUALIZAR TODO renueva las cachés y service workers de las siete apps públicas sin borrar progreso.",
-      "Después de actualizar, el Hub vuelve a auditar automáticamente y confirma si todo está al día."
+      "Adrian Core Sync 1.0.4 corrige el indicador de sincronización cuando el Hub carga antes de que exista document.body.",
+      "La actualización conjunta mantiene el mismo flujo y ahora termina sin errores de consola en un perfil limpio."
     ],
     "history": [
+      {
+        "version": "30.1.0",
+        "date": "2026-10-06",
+        "build": "12a7620",
+        "changes": [
+          "Nuevo panel estilo Windows Update con autoauditoría y botón ACTUALIZAR TODO.",
+          "Comparación entre versión pública y caché PWA instalada.",
+          "Actualización conjunta de las siete apps públicas sin borrar progreso.",
+          "Reauditoría automática al terminar la actualización."
+        ]
+      },
       {
         "version": "30.0.1",
         "date": "2026-10-06",
