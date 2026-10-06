@@ -239,9 +239,26 @@ def call_openai(messages: list[dict], system: str, model: str, max_tokens: int):
     return text, usage
 
 
+def provider_api_key(provider: str) -> str | None:
+    env_name = {
+        "anthropic": "ANTHROPIC_API_KEY",
+        "openai": "OPENAI_API_KEY",
+        "openrouter": "OPENROUTER_API_KEY",
+    }.get(provider)
+    if env_name and os.environ.get(env_name):
+        return os.environ[env_name]
+    if provider == "openrouter":
+        try:
+            import keyring
+            return keyring.get_password("AdrianHubAgent", "openrouter")
+        except Exception:
+            return None
+    return None
+
+
 def call_openrouter(messages: list[dict], system: str, model: str, max_tokens: int):
     from openai import OpenAI
-    client = OpenAI(api_key=os.environ.get("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1")
+    client = OpenAI(api_key=provider_api_key("openrouter"), base_url="https://openrouter.ai/api/v1")
     chat_messages = [{"role": "system", "content": system}, *messages]
     response = client.chat.completions.create(model=model, messages=chat_messages, max_tokens=max_tokens)
     text = response.choices[0].message.content or ""
@@ -266,12 +283,7 @@ def call_model(messages: list[dict], system: str, model: str, max_tokens: int, m
 
 
 def required_key_present(provider: str) -> bool:
-    key_name = (
-        "ANTHROPIC_API_KEY" if provider == "anthropic" else
-        "OPENAI_API_KEY" if provider == "openai" else
-        "OPENROUTER_API_KEY" if provider == "openrouter" else ""
-    )
-    return bool(key_name and os.environ.get(key_name))
+    return bool(provider_api_key(provider))
 
 
 def save_report(content: str, meta: dict) -> Path:
@@ -319,6 +331,8 @@ def audit(args, cfg: dict) -> int:
         return 3
     spent = 0.0
     for turn in range(1, int(cfg["max_turns"]) + 1):
+        if turn >= int(cfg.get("force_report_turn", cfg["max_turns"])):
+            messages.append({"role": "user", "content": "FINALIZATION REQUIRED: stop investigating and return the final audit now using action=report. Include uncertainty for anything not verified. Do not request another tool."})
         ceiling = estimated_call_ceiling(messages, SYSTEM, int(cfg["max_output_tokens_per_turn"]), model_cfg)
         if spent + ceiling > float(cfg["max_usd_per_run"]):
             print(f"Budget guard stopped before turn {turn}: ${spent:.6f} spent; next-call ceiling ${ceiling:.6f}.", file=sys.stderr)

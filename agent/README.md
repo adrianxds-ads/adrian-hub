@@ -5,8 +5,8 @@ This is the first local agent for the Adrián Hub ecosystem.
 ## Current safety mode
 - Read-only over the isolated `C:\Users\adria\agent-workbench` worktree.
 - No code-writing tool exists in this version.
-- API credentials are accepted only through standard process environment variables.
-- The agent never reads local credential files.
+- OpenRouter credentials can be read from Windows Credential Manager (`AdrianHubAgent/openrouter`); environment variables remain supported as overrides.
+- The agent never reads plaintext credential files.
 - No API call is made when the required environment variable is absent.
 - Default spend ceiling: USD 0.50 per run.
 - Reports are written only to `agent/runs/`, which is git-ignored.

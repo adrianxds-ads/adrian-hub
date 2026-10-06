@@ -3,8 +3,8 @@
   "mode": "audit-only",
   "default_provider": "openrouter",
   "default_model": "openrouter-claude-sonnet-5-5",
-  "max_usd_per_run": 0.5,
-  "max_turns": 18,
+  "max_usd_per_run": 0.35,
+  "max_turns": 8,
   "max_output_tokens_per_turn": 4000,
   "max_read_lines": 400,
   "max_search_matches": 50,
@@ -51,5 +51,6 @@
       "output_usd_per_million": 20.0,
       "pricing_source": "OpenRouter 2026-10-06"
     }
-  }
+  },
+  "force_report_turn": 7
 }
