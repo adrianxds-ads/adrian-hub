@@ -239,17 +239,38 @@ def call_openai(messages: list[dict], system: str, model: str, max_tokens: int):
     return text, usage
 
 
+def call_openrouter(messages: list[dict], system: str, model: str, max_tokens: int):
+    from openai import OpenAI
+    client = OpenAI(api_key=os.environ.get("OPENROUTER_API_KEY"), base_url="https://openrouter.ai/api/v1")
+    chat_messages = [{"role": "system", "content": system}, *messages]
+    response = client.chat.completions.create(model=model, messages=chat_messages, max_tokens=max_tokens)
+    text = response.choices[0].message.content or ""
+    usage_obj = getattr(response, "usage", None)
+    usage = {
+        "input_tokens": int(getattr(usage_obj, "prompt_tokens", 0) or 0),
+        "output_tokens": int(getattr(usage_obj, "completion_tokens", 0) or 0),
+    }
+    return text, usage
+
+
 def call_model(messages: list[dict], system: str, model: str, max_tokens: int, model_cfg: dict):
     provider = model_cfg["provider"]
+    api_model = model_cfg.get("api_model", model)
     if provider == "anthropic":
-        return call_anthropic(messages, system, model, max_tokens)
+        return call_anthropic(messages, system, api_model, max_tokens)
     if provider == "openai":
-        return call_openai(messages, system, model, max_tokens)
+        return call_openai(messages, system, api_model, max_tokens)
+    if provider == "openrouter":
+        return call_openrouter(messages, system, api_model, max_tokens)
     raise ValueError(f"Unsupported provider: {provider}")
 
 
 def required_key_present(provider: str) -> bool:
-    key_name = "ANTHROPIC_API_KEY" if provider == "anthropic" else "OPENAI_API_KEY" if provider == "openai" else ""
+    key_name = (
+        "ANTHROPIC_API_KEY" if provider == "anthropic" else
+        "OPENAI_API_KEY" if provider == "openai" else
+        "OPENROUTER_API_KEY" if provider == "openrouter" else ""
+    )
     return bool(key_name and os.environ.get(key_name))
 
 

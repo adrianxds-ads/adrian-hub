@@ -11,21 +11,30 @@ This is the first local agent for the Adrián Hub ecosystem.
 - Default spend ceiling: USD 0.50 per run.
 - Reports are written only to `agent/runs/`, which is git-ignored.
 
-## Models configured
-- Default: `claude-sonnet-5-5` through Anthropic.
-- Premium override: `claude-opus-5-5`.
-- Alternative provider: `gpt-6-sol` through OpenAI Responses API.
+## Providers and models
+- Default: OpenRouter + `anthropic/claude-sonnet-5.5` via local alias `openrouter-claude-sonnet-5-5`.
+- Premium OpenRouter override: `anthropic/claude-opus-5.5` via `openrouter-claude-opus-5-5`.
+- Direct Anthropic remains available: `claude-sonnet-5-5`, `claude-opus-5-5`.
+- Direct OpenAI remains available: `gpt-6-sol`.
 
-## Before enabling paid API access
-Set the chosen API key as a Windows user/process environment variable outside this repository: `ANTHROPIC_API_KEY` or `OPENAI_API_KEY`. Do not paste the key into chat or store it inside the workbench.
+OpenRouter endpoint: `https://openrouter.ai/api/v1`.
 
-## Useful commands
+## Safe OpenRouter launch
+Use `run-openrouter.ps1`. It prompts for the API key with hidden input, places it only in the current process environment, runs the audit, then deletes the environment variable.
+
+Examples:
+- `powershell -ExecutionPolicy Bypass -File .\run-openrouter.ps1 -DryRun`
+- `powershell -ExecutionPolicy Bypass -File .\run-openrouter.ps1`
+- `powershell -ExecutionPolicy Bypass -File .\run-openrouter.ps1 -Model openrouter-claude-opus-5-5`
+- `powershell -ExecutionPolicy Bypass -File .\run-openrouter.ps1 -Mission "Audit only Pizarras session completion"`
+
+Do not paste API keys into chat, source files, Git, `.env` files, or documentation.
+
+## Other useful commands
 - `python agent.py doctor`
 - `python agent.py inventory`
 - `python agent.py audit --dry-run`
-- `python agent.py audit`
-- `python agent.py audit --model claude-opus-5-5`
-- `python agent.py audit --model gpt-6-sol`
-- `python agent.py audit --mission "Audit only Pizarras session completion"`
+- `python agent.py audit --model openrouter-claude-sonnet-5-5 --dry-run`
+- `python agent.py audit --model openrouter-claude-opus-5-5 --dry-run`
 
 The agent can autonomously request `list`, `read`, `search`, and `git_status` operations. The local harness validates every requested path and refuses anything outside the isolated workbench. A later phase may add write/test tools behind explicit approval; they do not exist yet.
