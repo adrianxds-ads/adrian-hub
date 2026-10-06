@@ -1,6 +1,6 @@
 {
   "version": 15,
-  "hubVersion": "30.0.2",
+  "hubVersion": "30.0.3",
   "apps": [
     {
       "id": "english",
