@@ -1,6 +1,6 @@
 {
-    "version": 14,
-    "hubVersion": "30.0.0",
+    "version": 15,
+    "hubVersion": "30.0.1",
     "apps": [
         {
             "id": "english",
@@ -45,7 +45,7 @@
         {
             "id": "cambridge",
             "name": "Cambridge B2",
-            "subtitle": "ExÃ¡menes y prÃ¡ctica B2",
+            "subtitle": "Exámenes y práctica B2",
             "group": "Estudio",
             "kind": "pwa-exam",
             "url": "https://adrianxds-ads.github.io/adaptive-exam/",
@@ -55,7 +55,7 @@
         {
             "id": "catala",
             "name": "Català · Verbs",
-            "subtitle": "Verbos y automatizaciÃ³n",
+            "subtitle": "Verbos y automatización",
             "group": "Estudio",
             "kind": "pwa-study",
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/",
@@ -75,7 +75,7 @@
         {
             "id": "entrenamiento",
             "name": "Adaptive Gym",
-            "subtitle": "Rutinas, series, temporizador y mÃ©tricas",
+            "subtitle": "Rutinas, series, temporizador y métricas",
             "group": "Salud",
             "kind": "hub-module",
             "url": "./apps/entrenamiento/",
@@ -88,7 +88,7 @@
             "group": "Sistema",
             "kind": "hub-module",
             "url": "./apps/cambio/",
-            "glyph": "â†»"
+            "glyph": "↻"
         },
         {
             "id": "dcinbox",
@@ -111,7 +111,7 @@
         {
             "id": "limpieza",
             "name": "Limpieza 2.2",
-            "subtitle": "InspecciÃ³n y objetivos Â· requiere Tailscale",
+            "subtitle": "Inspección y objetivos · requiere Tailscale",
             "group": "Hogar",
             "kind": "private-pwa",
             "url": "https://adrin.tail8fd071.ts.net/limpieza/",

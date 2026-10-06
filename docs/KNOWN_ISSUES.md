@@ -3,8 +3,8 @@
 This file is an audit queue, not proof that every item is still reproducible. Each item must be verified against the current build before editing.
 
 ## Critical / state integrity
-- Pizarras: a completed timed lesson has previously reached the final question and become stuck without recording completion/progress. Current `versions.json` claims a recovery fix in Pizarras 2.1.4; this must be independently reproduced and verified.
-- Cross-device Hub state: progress/garden/shared game state has previously appeared on one device but not another. Verify current sync end-to-end on desktop and mobile.
+- Pizarras historical final-question freeze: verified against 2.1.4 on 2026-10-06 with an expired 89-answer session; completion was recorded once and `activeSession` cleared. Keep as regression test.
+- Cross-device Hub state: Core Sync 1.0.3 fixes the confirmed rejected-regression path and passed a protocol simulation. Real desktop/mobile end-to-end verification remains pending.
 
 ## Hub control / UI
 - Hub Control has had reports that minimize/hide/close behaviour and F8 invocation were absent or not observable in the served version. Verify code, deployed build and cached client separately.

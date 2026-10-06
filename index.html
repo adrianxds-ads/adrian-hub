@@ -2,42 +2,42 @@
 <html lang="es">
 <head>
 <script src="./progress-storage.js?v=20261003"></script>
-<script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-sync.js?v=1.0.2-20261004b"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-sync.js?v=1.0.3-20261006"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d1518">
-<meta name="hub-version" content="30.0.0">
-<title>Adrián Hub · v30.0.0</title>
+<meta name="hub-version" content="30.0.1">
+<title>Adrián Hub · v30.0.1</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
-<link rel="stylesheet" href="./styles.css?v=30.0.0">
+<link rel="stylesheet" href="./styles.css?v=30.0.1">
 <style id="mobile-viewport-containment">html,body{overflow-x:clip}</style>
 </head>
 <body>
 <main class="shell">
-<header class="hero"><div class="mark">A</div><div class="hero-copy"><p class="eyebrow">ADRIÃN Â· HUB</p><h1>Todas tus apps.</h1><p class="intro">Un solo punto de entrada. Identidad visual compartida por AdriÃ¡n Core.</p></div><div class="hub-stars" id="hubStarCounter" title="Cada 5 medallas de oro = 1 estrella"><span aria-hidden="true">â˜…</span><div><small>ESTRELLAS</small><b id="hubStarCount">0</b><em id="hubStarProgress">5 OROS = 1 STAR</em></div></div></header>
-<section class="toolbar"><input id="search" type="search" placeholder="Buscar appâ€¦" autocomplete="off" data-ad-keyboard="es"><span id="count"></span></section>
+<header class="hero"><div class="mark">A</div><div class="hero-copy"><p class="eyebrow">ADRIÁN · HUB</p><h1>Todas tus apps.</h1><p class="intro">Un solo punto de entrada. Identidad visual compartida por Adrián Core.</p></div><div class="hub-stars" id="hubStarCounter" title="Cada 5 medallas de oro = 1 estrella"><span aria-hidden="true">★</span><div><small>ESTRELLAS</small><b id="hubStarCount">0</b><em id="hubStarProgress">5 OROS = 1 STAR</em></div></div></header>
+<section class="toolbar"><input id="search" type="search" placeholder="Buscar app…" autocomplete="off" data-ad-keyboard="es"><span id="count"></span></section>
 <div id="groups"></div>
 <section class="hub-secondary" aria-label="Herramientas secundarias">
-<section class="hub-chat-panel ad-card"><div class="hub-chat-copy"><span>CHATGPT Â· PROYECTO HUB</span><b>Acceso y enlace del proyecto</b><small id="chatgptHubLinkStatus">Comprobando enlaceâ€¦</small></div><div class="hub-chat-actions"><button id="openChatgptHubBtn" class="ad-button hub-chat-primary" type="button">ABRIR CHATGPT Â· HUB</button><button id="setChatgptHubUrlBtn" class="ad-button" type="button">VINCULAR PROYECTO</button><button id="copyHubTechBtn" class="ad-button" type="button">COPIAR JSON TÃ‰CNICO</button></div></section>
-<section class="garden-shell"><div class="garden-intro"><span>JUEGO VISUAL</span><b>JardÃ­n GitHub</b><small>Tu ecosistema va creciendo poco a poco.</small></div><div id="githubGarden" data-adrian-garden data-mode="overview" data-navigate="true"></div></section>
+<section class="hub-chat-panel ad-card"><div class="hub-chat-copy"><span>CHATGPT · PROYECTO HUB</span><b>Acceso y enlace del proyecto</b><small id="chatgptHubLinkStatus">Comprobando enlace…</small></div><div class="hub-chat-actions"><button id="openChatgptHubBtn" class="ad-button hub-chat-primary" type="button">ABRIR CHATGPT · HUB</button><button id="setChatgptHubUrlBtn" class="ad-button" type="button">VINCULAR PROYECTO</button><button id="copyHubTechBtn" class="ad-button" type="button">COPIAR JSON TÉCNICO</button></div></section>
+<section class="garden-shell"><div class="garden-intro"><span>JUEGO VISUAL</span><b>Jardín GitHub</b><small>Tu ecosistema va creciendo poco a poco.</small></div><div id="githubGarden" data-adrian-garden data-mode="overview" data-navigate="true"></div></section>
 </section>
 <section id="hubOcaHost" data-hub-oca></section>
 <section class="version-center ad-card" id="versionCenter" aria-labelledby="versionCenterTitle">
   <div class="version-center-head"><div><span>VERSION CENTER · HUB 30</span><h2 id="versionCenterTitle">Versiones y actualizaciones</h2><p>Versión funcional + build real. Pulsa cualquier fila para ver exactamente qué cambió.</p></div><button id="verifyVersionsBtn" class="ad-button" type="button">COMPROBAR AHORA</button></div>
   <div id="versionList" class="version-list"></div>
-  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.0.0</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
+  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.0.1</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
 </section>
-<footer><span>Core</span><strong id="coreStatus">Hub v30.0.0 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
+<footer><span>Core</span><strong id="coreStatus">Hub v30.0.1 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
 </main>
 <dialog id="versionDialog" class="version-dialog"><div class="version-dialog-shell"><button id="versionDialogClose" class="version-dialog-close" type="button" aria-label="Cerrar">×</button><div id="versionDialogBody"></div></div></dialog>
 <script src="https://adrianxds-ads.github.io/adrian-core/design/adrian-visual-system.js?v=2"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-keyboard.js?v=410"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/github-garden.js?v=7"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-path-game.js?v=core-20261004b"></script>
-<script src="./app.js?v=30.0.0"></script>
+<script src="./app.js?v=30.0.1"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=9"></script>
 
 </body>

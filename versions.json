@@ -1,19 +1,29 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-06T15:01:24+02:00",
+  "generatedAt": "2026-10-06T16:08:04+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.0.0",
-    "build": "version-center-20261006",
+    "version": "30.0.1",
+    "build": "p1-sync-encoding-20261006",
     "releasedAt": "2026-10-06",
     "changes": [
-      "Nuevo Version Center al final del Hub con versión del Hub y de cada aplicación.",
-      "Cada entrada muestra versión funcional, build/commit y historial de cambios.",
-      "Comprobación pública con cache:no-store para detectar una versión desfasada.",
-      "Los enlaces de lanzamiento incluyen hubv, appv y build para evitar abrir una revisión anterior sin identificarla."
+      "Adrian Core Sync 1.0.3 reconcilia autom?ticamente escrituras rechazadas para evitar progreso divergente entre dispositivos.",
+      "Texto UTF-8 reparado en el Hub y en las siete apps p?blicas principales.",
+      "El servidor local de sincronizaci?n queda bajo control de versiones Git con estado, secretos, logs y backups excluidos.",
+      "Version Center actualizado con los builds reales publicados tras la correcci?n."
     ],
     "history": [
+      {
+        "version": "30.0.0",
+        "date": "2026-10-06",
+        "changes": [
+          "Nuevo Version Center al final del Hub con versión del Hub y de cada aplicación.",
+          "Cada entrada muestra versión funcional, build/commit y historial de cambios.",
+          "Comprobación pública con cache:no-store para detectar una versión desfasada.",
+          "Los enlaces de lanzamiento incluyen hubv, appv y build para evitar abrir una revisión anterior sin identificarla."
+        ]
+      },
       {
         "version": "29",
         "date": "2026-10-04",
@@ -30,10 +40,12 @@
       "id": "english",
       "name": "Adaptive English",
       "version": "3.34",
-      "build": "ad2556c",
+      "build": "7c5db7a",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -47,10 +59,12 @@
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
       "version": "0.12.0",
-      "build": "a225069",
+      "build": "133be70",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contraportada llevada a paridad visual con Adaptive.",
         "Skills coloreadas con AVS 1–15.",
         "Progress JSON global y AI Valuation añadidos.",
@@ -65,10 +79,12 @@
       "id": "pizarras",
       "name": "Pizarras 2.0",
       "version": "2.1.4",
-      "build": "e33b6af",
+      "build": "f606e1c",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "El contrato termina y se contabiliza al vencer el tiempo sin depender de la última animación/pregunta.",
         "Recuperación al volver a primer plano o reabrir una sesión vencida.",
         "Contrato común de rendimiento y Oca compartida."
@@ -82,10 +98,12 @@
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
       "version": "1.10.4",
-      "build": "1468be1",
+      "build": "fbce70c",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -99,10 +117,12 @@
       "id": "cambridge",
       "name": "Cambridge B2",
       "version": "1.2.5",
-      "build": "d6ea012",
+      "build": "971b71f",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "OCR Originals 01–10 separados del Practice Bank 11–30.",
         "80 Parts nativas como estadística principal y 40 Parts OCR aparte.",
         "Contrato común de rendimiento y caché alineada."
@@ -116,10 +136,12 @@
       "id": "catala",
       "name": "Català · Verbs",
       "version": "0.9.4",
-      "build": "8dae599",
+      "build": "16a44d0",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento del Hub.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
@@ -133,10 +155,12 @@
       "id": "hoti0108",
       "name": "HOTI0108",
       "version": "2.6.3-read-first",
-      "build": "a92e131",
+      "build": "d0bca01",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
+        "Texto y s?mbolos UTF-8 reparados en la interfaz.",
+        "Sincronizaci?n compartida actualizada a Adrian Core Sync 1.0.3.",
         "Contrato común de rendimiento adaptado a la evaluación HOTI.",
         "Caché alineada con Adrian Core 1.0.1.",
         "Sincronización global de estrellas y Oca compartida."
