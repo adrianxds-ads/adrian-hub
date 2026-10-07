@@ -1,9 +1,13 @@
 """El Triaje: deterministic zero-cost router for Adrian Hub agents."""
-import argparse, json, re, unicodedata
+import argparse, json, re, unicodedata, sys
 from pathlib import Path
 
 HERE=Path(__file__).resolve().parent
 RULES_PATH=HERE/"triage_rules.json"
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 
 def norm(text):
     text=unicodedata.normalize("NFD",str(text or "").casefold())
@@ -47,9 +51,11 @@ def route(text, rules=None):
         scores["constructor"]+=7
     if any(x in n for x in ("bug","fallo","funciona mal","roto","rota")) and any(x in n for x in ("arregl","repar","corrig","solucion")):
         scores["reparador"]+=6;scores["tester"]+=2
+    if re.match(r"^(arregla|arreglar|repara|reparar|soluciona|solucionar|parchea|parchear)\b",n):
+        scores["reparador"]+=2
     if any(x in n for x in ("texto","writing","correo","blog","redaccion","documento")) and any(x in n for x in ("corrig","edit","reescrib","redact","pul")):
         scores["editor"]+=7;scores["reparador"]=max(0,scores["reparador"]-3)
-    if any(x in n for x in ("prueba","test","regresion","responsive","consola")) and any(x in n for x in ("comprueba","prueba","verifica","test")):
+    if any(phrase_hit(n,x) for x in ("prueba","test","regresion","responsive","consola")) and any(phrase_hit(n,x) for x in ("comprueba","prueba","verifica","test")):
         scores["tester"]+=5
     if any(x in n for x in ("publica","publicar","borra","borrar","elimina","eliminar","credencial","presupuesto","gasto")):
         scores["guardian"]+=4

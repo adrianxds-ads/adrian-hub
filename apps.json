@@ -1,6 +1,6 @@
 {
-  "version": 23,
-  "hubVersion": "30.4.5",
+  "version": 24,
+  "hubVersion": "30.4.6",
   "apps": [
     {
       "id": "english",
@@ -131,7 +131,7 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "subtitle": "El Triaje activo · Auditor · Reparador · Operador · 8 en formación",
+      "subtitle": "El Triaje v1.0.1 · Auditor · Reparador · Operador · 8 en formación",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "https://adrin.tail8fd071.ts.net/dc-inbox/agents/ui/",

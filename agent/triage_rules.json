@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "philosophy": [
     "Usar herramientas locales o deterministas antes que IA de pago.",
     "No ejecutar acciones: El Triaje solo clasifica, deriva y propone presupuesto.",
@@ -180,7 +180,8 @@
         "consola",
         "pwa",
         "sync",
-        "regresión"
+        "regresión",
+        "pruebas"
       ]
     },
     "bibliotecario": {
@@ -339,6 +340,28 @@
     }
   },
   "overrides": [
+    {
+      "contains": [
+        "publicar",
+        "pruebas"
+      ],
+      "route": [
+        "tester",
+        "guardian",
+        "operador"
+      ]
+    },
+    {
+      "contains": [
+        "publica",
+        "pruebas"
+      ],
+      "route": [
+        "tester",
+        "guardian",
+        "operador"
+      ]
+    },
     {
       "contains": [
         "arregla",
@@ -595,6 +618,13 @@
         "tester",
         "guardian",
         "operador"
+      ]
+    ],
+    [
+      "Arregla Keyboard Speak y comprueba que no rompa nada",
+      [
+        "reparador",
+        "tester"
       ]
     ]
   ]

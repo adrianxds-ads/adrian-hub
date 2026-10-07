@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T21:45:33.073759+00:00",
+  "generatedAt": "2026-10-07T21:50:16.080704+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.5",
-    "build": "hub-30.4.5-20261007",
+    "version": "30.4.6",
+    "build": "hub-30.4.6-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Agent Center 0.6.0 activa El Triaje como primer especialista nuevo entrenado tras cerrar el organigrama.",
-      "El Triaje clasifica localmente a coste cero, devuelve pipeline, confianza y techo activo de gasto, y nunca ejecuta acciones por sí mismo.",
-      "Su entrenamiento inicial queda versionado en reglas y 27 casos; las decisiones reales se registran localmente para futuras correcciones."
+      "Agent Center 0.6.1 incorpora la primera corrección aprendida de El Triaje tras una prueba pública real.",
+      "El Triaje prioriza correctamente reparar antes de probar cuando una petición comienza por arreglar/reparar.",
+      "Se corrige la detección de 'prueba' dentro de 'comprueba' y se fuerza UTF-8 en la salida local para preservar nombres y reglas en castellano."
     ],
     "history": [
+      {
+        "version": "30.4.5",
+        "date": "2026-10-07",
+        "build": "hub-30.4.5-20261007",
+        "changes": [
+          "Agent Center 0.6.0 activa El Triaje como primer especialista nuevo entrenado tras cerrar el organigrama.",
+          "El Triaje clasifica localmente a coste cero, devuelve pipeline, confianza y techo activo de gasto, y nunca ejecuta acciones por sí mismo.",
+          "Su entrenamiento inicial queda versionado en reglas y 27 casos; las decisiones reales se registran localmente para futuras correcciones."
+        ]
+      },
       {
         "version": "30.4.4",
         "date": "2026-10-07",
@@ -180,7 +190,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "b6787392fced1f9b8155f93069c9f02e05e555910a4c78f7ec982ee77eb8fdb6"
+          "sha256": "5849924e54fe5f702ff2080bf065990b198b3743a36aa287e60a93bfaf438396"
         },
         {
           "url": "version-verifier.js",
@@ -188,7 +198,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "fe6ed56f79bb68ea5107865e6a15f304e2bbf867e17e02ae84b6ee30e58bf2df"
+          "sha256": "4356a1d1c570a51c6190d6d7f23f05871f7768c69da308954bf23b72a420c0c1"
         },
         {
           "url": "styles.css",
@@ -196,15 +206,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "860c1bd3c694d0c2fa534bd75e6ba46ff455868f665ee70b2f65aa7e56b1cb2d"
+          "sha256": "202fe5033c3e823656290d914159699c440d7a9d643deddcd5ccc2756c3328f9"
         },
         {
           "url": "build-assets.js",
-          "sha256": "144a9d529aea1892cef1abd966b3176e0ec18804117b76f28cc88ec96a27ab09"
+          "sha256": "7ec5deca17c2fff53cf7eb4cce0f4da2d5c9bbf7bd83e10985a1e9e77b0e6d12"
         }
       ]
     },
-    "cacheBuild": "c48bec2bd1466fe7"
+    "cacheBuild": "5128756cc60165bd"
   },
   "apps": [
     {
@@ -666,22 +676,21 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.6.0",
-      "build": "sha256-e6ca1f2adac0",
+      "version": "0.6.1",
+      "build": "sha256-ddcc0eeeff22",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "El Triaje pasa de Próximo a operativo con clasificación local de coste cero.",
-        "Muestra especialista principal, secuencia de agentes, confianza y techo de gasto antes de ejecutar nada.",
-        "Puede derivar directamente a El Auditor, El Reparador o El Operador y copiar la misión al especialista.",
-        "Las frases ambiguas se detienen sin gasto; el fallback de IA queda reservado para una fase posterior.",
-        "Entrenamiento v1: reglas versionadas, 27 casos automáticos y registro local de decisiones reales."
+        "El Triaje aprende de la primera prueba pública: 'arregla ... y comprueba' deriva primero a El Reparador.",
+        "La ruta 'publica si pasan las pruebas' queda fijada como El Tester → El Guardián → El Operador.",
+        "Entrenamiento v1.0.1: 28 casos automáticos.",
+        "Salida UTF-8 corregida para conservar tildes y nombres de los agentes."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "7cc2c368c99c61894095b873d8e9b9b75610e7af8a3916b494865e1ed5e0dbe0"
+            "sha256": "db40609681846fa95e18c009bb78594cfe8cf576faadc4d24c4e3a18cdc4f0da"
           },
           {
             "url": "./apps/agents/app.js",
