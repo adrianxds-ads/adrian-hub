@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T21:33:49.388696+00:00",
+  "generatedAt": "2026-10-07T21:45:33.073759+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.4",
-    "build": "hub-30.4.4-20261007",
+    "version": "30.4.5",
+    "build": "hub-30.4.5-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Agent Center 0.5.0 cierra el organigrama de agentes con 12 oficios definidos.",
-      "El Triaje aparece como futura puerta de entrada para derivar tareas y controlar coste.",
-      "Se mantienen operativos El Auditor, El Reparador y El Operador; ocho especialistas nuevos quedan claramente marcados En formación sin acciones ficticias."
+      "Agent Center 0.6.0 activa El Triaje como primer especialista nuevo entrenado tras cerrar el organigrama.",
+      "El Triaje clasifica localmente a coste cero, devuelve pipeline, confianza y techo activo de gasto, y nunca ejecuta acciones por sí mismo.",
+      "Su entrenamiento inicial queda versionado en reglas y 27 casos; las decisiones reales se registran localmente para futuras correcciones."
     ],
     "history": [
+      {
+        "version": "30.4.4",
+        "date": "2026-10-07",
+        "build": "hub-30.4.4-20261007",
+        "changes": [
+          "Agent Center 0.5.0 cierra el organigrama de agentes con 12 oficios definidos.",
+          "El Triaje aparece como futura puerta de entrada para derivar tareas y controlar coste.",
+          "Se mantienen operativos El Auditor, El Reparador y El Operador; ocho especialistas nuevos quedan claramente marcados En formación sin acciones ficticias."
+        ]
+      },
       {
         "version": "30.4.3",
         "date": "2026-10-07",
@@ -170,7 +180,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "cd7a1507fa9e88f812c01a7b180d17537b67f1673eeeeb32bcd3d372188e7bd1"
+          "sha256": "b6787392fced1f9b8155f93069c9f02e05e555910a4c78f7ec982ee77eb8fdb6"
         },
         {
           "url": "version-verifier.js",
@@ -178,7 +188,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "e14ad08b7e5bb3945c70b4bb3476d6244275da6d27d4b91753a31d68e6690a61"
+          "sha256": "fe6ed56f79bb68ea5107865e6a15f304e2bbf867e17e02ae84b6ee30e58bf2df"
         },
         {
           "url": "styles.css",
@@ -186,15 +196,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "93e1fb2a2e4cf460ee0e48bc871a2f0041346759682f78423e8f988aebc0afe6"
+          "sha256": "860c1bd3c694d0c2fa534bd75e6ba46ff455868f665ee70b2f65aa7e56b1cb2d"
         },
         {
           "url": "build-assets.js",
-          "sha256": "3daa57e8459b6ba6b537d618286a1f2f9f5a43cf7fc6d03ae34812ceccd53923"
+          "sha256": "144a9d529aea1892cef1abd966b3176e0ec18804117b76f28cc88ec96a27ab09"
         }
       ]
     },
-    "cacheBuild": "9bc2d6b276deb839"
+    "cacheBuild": "c48bec2bd1466fe7"
   },
   "apps": [
     {
@@ -656,29 +666,30 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.5.0",
-      "build": "sha256-01ace9a09d53",
+      "version": "0.6.0",
+      "build": "sha256-e6ca1f2adac0",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "Organigrama completo: El Triaje, El Auditor, El Reparador, El Operador, El Editor, El Constructor, El Tester, El Bibliotecario, El Investigador, El Entrenador, El Secretario y El Guardián.",
-        "Tres agentes quedan en servicio y los especialistas futuros se distinguen visualmente como En formación.",
-        "Cada ficha futura define primera misión, permisos o estrategia de coste sin simular capacidades todavía inexistentes.",
-        "El panel de gasto OpenRouter y las acciones reales del Auditor y Reparador se conservan."
+        "El Triaje pasa de Próximo a operativo con clasificación local de coste cero.",
+        "Muestra especialista principal, secuencia de agentes, confianza y techo de gasto antes de ejecutar nada.",
+        "Puede derivar directamente a El Auditor, El Reparador o El Operador y copiar la misión al especialista.",
+        "Las frases ambiguas se detienen sin gasto; el fallback de IA queda reservado para una fase posterior.",
+        "Entrenamiento v1: reglas versionadas, 27 casos automáticos y registro local de decisiones reales."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "ecd786c35426a3050a44c240e05582def804769ce25b416b28ae899468564d89"
+            "sha256": "7cc2c368c99c61894095b873d8e9b9b75610e7af8a3916b494865e1ed5e0dbe0"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "21cab5f83d74ff68b08ea807f3b753e573fb38afa92841f8ec33eb43883a4c22"
+            "sha256": "cea6cf47b96dce7f5e92bd58545f2c90074bbd4f9fe7034af6d8f718e9f52a0a"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "465359b2a9806f2b00102fc60ef7f766ccfc47db72b19040cd7ec06f52874319"
+            "sha256": "ab7c222867f80349e2d7441050c4e1666c94fd610edccdaec46e750d28c6612e"
           }
         ]
       }

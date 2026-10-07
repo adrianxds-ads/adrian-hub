@@ -23,6 +23,53 @@ async function refreshSpend(){
   }
 }
 
+const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc'};
+function renderTriage(t){
+  const box=$('#triageResult'),status=$('#triageStatus'),go=$('#triageGo');
+  box.hidden=false;go.hidden=true;go.dataset.target='';
+  if(t.status==='ambiguous'){
+    status.textContent='AMBIGUO';status.className='status guarded';
+    $('#triageConfidence').textContent='REGLAS · 0 USD';
+    $('#triagePrimary').textContent='Necesita segunda mirada';
+    $('#triageReason').textContent='Las reglas locales no tienen señales suficientes. De momento El Triaje se detiene aquí en vez de gastar por su cuenta.';
+    $('#triagePipeline').innerHTML='<span class="triage-chip waiting">FALLBACK IA · AÚN NO ACTIVADO</span>';
+    $('#triageBudget').textContent='$0.0000';
+    return;
+  }
+  const primary=t.primary||{};
+  status.textContent='DERIVADO';status.className='status ready';
+  $('#triageConfidence').textContent='CONFIANZA '+Math.round((t.confidence||0)*100)+'%';
+  $('#triagePrimary').textContent=primary.name||'Ruta preparada';
+  $('#triageReason').textContent=t.reason||'';
+  $('#triagePipeline').innerHTML=(t.pipeline||[]).map((x,i)=>'<span class="triage-chip '+(x.active?'active':'training')+'">'+(i?'<i>→</i> ':'')+x.name+(x.active?'':' · EN FORMACIÓN')+'</span>').join('');
+  $('#triageBudget').textContent=money(t.active_ceiling_usd||0);
+  const target=TRIAGE_TARGETS[primary.id];
+  if(target&&primary.active){
+    go.hidden=false;go.dataset.target=target;go.textContent='IR A '+primary.name.toUpperCase();
+  }
+}
+async function startTriage(){
+  const text=$('#triageRequest').value.trim();
+  if(!text){showToast('Escribe primero qué quieres hacer.');return;}
+  const btn=$('#triageBtn'),status=$('#triageStatus');
+  btn.disabled=true;status.textContent='CLASIFICANDO';status.className='status checking';
+  try{
+    const d=await request('/triage',{method:'POST',body:JSON.stringify({request:text})});
+    renderTriage(d.triage);
+  }catch(e){
+    status.textContent='ERROR';status.className='status failed';showToast(e.message);
+  }finally{btn.disabled=false;}
+}
+function goToTriageTarget(){
+  const key=$('#triageGo').dataset.target,target=document.querySelector('[data-agent="'+key+'"]');
+  if(!target)return;
+  const text=$('#triageRequest').value.trim();
+  if(key==='audit'&&text)$('#auditMission').value=text;
+  if(key==='repair'&&text)$('#repairMission').value=text;
+  target.scrollIntoView({behavior:'smooth',block:'start'});
+  target.classList.add('triage-highlight');setTimeout(()=>target.classList.remove('triage-highlight'),1800);
+}
+
 function renderAudit(state){
   const badge=$('#auditStatus'),head=$('#auditHeadline'),meta=$('#auditMeta');
   const busy=!!state?.running;$('#agentDryRun').disabled=busy;$('#agentAuditOpus').disabled=busy;
@@ -74,6 +121,9 @@ async function showReport(kind){
   }catch(e){showToast('No se pudo cargar: '+e.message);}
 }
 
+$('#triageBtn').addEventListener('click',startTriage);
+$('#triageGo').addEventListener('click',goToTriageTarget);
+$('#triageRequest').addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter')startTriage();});
 $('#agentDryRun').addEventListener('click',()=>startAudit(true));
 $('#agentAuditOpus').addEventListener('click',()=>startAudit(false));
 $('#agentReport').addEventListener('click',()=>showReport('audit'));

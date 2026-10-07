@@ -29,11 +29,22 @@
   <div class="spend-foot"><span>Auditor: máx. $0,35/run ordinario</span><span>Reparador: máx. $1,65/run</span></div>
 </section>
 
-<section class="triage-card ad-card" aria-label="El Triaje">
-  <div class="agent-head"><span class="agent-glyph triage-glyph">TR</span><div><small>ROUTER AGENT</small><h2>El Triaje</h2></div><span class="status next">PRÓXIMO</span></div>
-  <p>Recibirá cada petición antes que nadie. Su trabajo será decidir qué especialista necesita, cuánto contexto hace falta y cuál es el presupuesto razonable.</p>
-  <div class="triage-flow" aria-label="Flujo previsto"><span>PETICIÓN</span><i>→</i><span>CLASIFICA</span><i>→</i><span>DERIVA</span><i>→</i><span>CONTROLA COSTE</span></div>
-  <dl><div><dt>Objetivo</dt><dd>Evitar usar modelos caros para tareas que pueden resolverse gratis o con herramientas locales</dd></div><div><dt>Permisos</dt><dd>Enrutamiento y presupuesto · sin editar ni publicar</dd></div><div><dt>Coste objetivo</dt><dd>Cero o muy bajo; escalar solo cuando compense</dd></div></dl>
+<section class="triage-card ad-card" aria-label="El Triaje" data-agent="triage">
+  <div class="agent-head"><span class="agent-glyph triage-glyph">TR</span><div><small>ROUTER AGENT</small><h2>El Triaje</h2></div><span class="status ready" id="triageStatus">LISTO</span></div>
+  <p>Recibe la petición antes que nadie. Decide qué especialista necesita, qué secuencia conviene y cuánto presupuesto máximo tiene sentido reservar.</p>
+  <div class="triage-flow" aria-label="Flujo"><span>PETICIÓN</span><i>→</i><span>CLASIFICA</span><i>→</i><span>DERIVA</span><i>→</i><span>CONTROLA COSTE</span></div>
+  <dl><div><dt>Objetivo</dt><dd>Evitar usar modelos caros para tareas que pueden resolverse gratis o con herramientas locales</dd></div><div><dt>Permisos</dt><dd>Enrutamiento y presupuesto · sin editar ni publicar</dd></div><div><dt>Coste</dt><dd>0 USD en la clasificación local actual</dd></div></dl>
+  <label class="mission triage-mission"><span>¿QUÉ QUIERES HACER?</span><textarea id="triageRequest" maxlength="2000" rows="3" placeholder="Ej.: Arregla Keyboard Speak y comprueba que no rompa nada."></textarea></label>
+  <div class="actions triage-actions">
+    <button class="ad-button primary wide" id="triageBtn" type="button">HACER TRIAJE · 0 USD</button>
+  </div>
+  <div class="triage-result" id="triageResult" hidden>
+    <div class="triage-result-head"><span id="triageConfidence">—</span><b id="triagePrimary">—</b></div>
+    <p id="triageReason"></p>
+    <div class="triage-pipeline" id="triagePipeline"></div>
+    <div class="triage-budget"><span>TECHO ACTIVO</span><b id="triageBudget">$0.0000</b></div>
+    <button class="ad-button" id="triageGo" type="button" hidden>IR AL ESPECIALISTA</button>
+  </div>
 </section>
 
 <div class="section-heading"><div><span>EN SERVICIO</span><h2>El equipo operativo</h2></div><b>3 activos</b></div>
@@ -89,7 +100,7 @@
   <p>El Triaje derivará; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.5.0</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.6.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">

@@ -1,0 +1,601 @@
+{
+  "version": "1.0.0",
+  "philosophy": [
+    "Usar herramientas locales o deterministas antes que IA de pago.",
+    "No ejecutar acciones: El Triaje solo clasifica, deriva y propone presupuesto.",
+    "No enviar contexto completo si un especialista puede trabajar con un paquete mínimo.",
+    "Si una petición mezcla oficios, devolver una secuencia corta en lugar de fusionar agentes.",
+    "Las acciones irreversibles o sensibles deben pasar por El Guardián o confirmación explícita."
+  ],
+  "agents": {
+    "auditor": {
+      "name": "El Auditor",
+      "active": true,
+      "max_usd": 0.35,
+      "tier": "premium",
+      "verbs": [
+        "audita",
+        "auditar",
+        "revisa",
+        "revisar",
+        "diagnostica",
+        "diagnosticar",
+        "analiza",
+        "analizar",
+        "inspecciona",
+        "inspeccionar"
+      ],
+      "nouns": [
+        "auditoría",
+        "arquitectura",
+        "coherencia",
+        "ux",
+        "diseño",
+        "problemas",
+        "fallos",
+        "riesgos"
+      ]
+    },
+    "reparador": {
+      "name": "El Reparador",
+      "active": true,
+      "max_usd": 1.65,
+      "tier": "premium",
+      "verbs": [
+        "arregla",
+        "arreglar",
+        "repara",
+        "reparar",
+        "corrige",
+        "corregir",
+        "soluciona",
+        "solucionar",
+        "parchea",
+        "parchear"
+      ],
+      "nouns": [
+        "bug",
+        "error",
+        "fallo",
+        "teclado",
+        "regresión",
+        "parche",
+        "rota",
+        "roto",
+        "funciona mal"
+      ]
+    },
+    "operador": {
+      "name": "El Operador",
+      "active": true,
+      "max_usd": 0,
+      "tier": "local",
+      "verbs": [
+        "abre",
+        "reinicia",
+        "reiniciar",
+        "ejecuta",
+        "ejecutar",
+        "comprueba",
+        "comprobar",
+        "despliega",
+        "desplegar"
+      ],
+      "nouns": [
+        "pc",
+        "ordenador",
+        "pixel",
+        "dc",
+        "desktop commander",
+        "tailscale",
+        "servicio",
+        "watchdog",
+        "servidor",
+        "adb",
+        "limpieza"
+      ]
+    },
+    "editor": {
+      "name": "El Editor",
+      "active": false,
+      "max_usd": 0.25,
+      "tier": "cheap-first",
+      "verbs": [
+        "edita",
+        "editar",
+        "reescribe",
+        "reescribir",
+        "corrige",
+        "corregir",
+        "pule",
+        "pulir",
+        "redacta",
+        "redactar",
+        "traduce",
+        "traducir"
+      ],
+      "nouns": [
+        "texto",
+        "writing",
+        "documento",
+        "correo",
+        "email",
+        "blog",
+        "actividad",
+        "redacción",
+        "estilo",
+        "voz",
+        "cambridge writing"
+      ]
+    },
+    "constructor": {
+      "name": "El Constructor",
+      "active": false,
+      "max_usd": 1.5,
+      "tier": "premium-once",
+      "verbs": [
+        "crea",
+        "crear",
+        "construye",
+        "construir",
+        "monta",
+        "montar",
+        "diseña",
+        "diseñar",
+        "implementa",
+        "implementar"
+      ],
+      "nouns": [
+        "app",
+        "aplicación",
+        "módulo",
+        "pantalla",
+        "web",
+        "prototipo",
+        "feature",
+        "función nueva"
+      ]
+    },
+    "tester": {
+      "name": "El Tester",
+      "active": false,
+      "max_usd": 0.15,
+      "tier": "local-first",
+      "verbs": [
+        "prueba",
+        "probar",
+        "testea",
+        "testear",
+        "verifica",
+        "verificar",
+        "comprueba",
+        "comprobar"
+      ],
+      "nouns": [
+        "test",
+        "prueba",
+        "playwright",
+        "responsive",
+        "móvil",
+        "consola",
+        "pwa",
+        "sync",
+        "regresión"
+      ]
+    },
+    "bibliotecario": {
+      "name": "El Bibliotecario",
+      "active": false,
+      "max_usd": 0.05,
+      "tier": "local-first",
+      "verbs": [
+        "busca",
+        "buscar",
+        "encuentra",
+        "encontrar",
+        "localiza",
+        "localizar",
+        "recupera",
+        "recuperar"
+      ],
+      "nouns": [
+        "archivo",
+        "documento",
+        "apunte",
+        "cambridge",
+        "hoti",
+        "drive",
+        "docs",
+        "banco",
+        "examen",
+        "informe",
+        "dato"
+      ]
+    },
+    "investigador": {
+      "name": "El Investigador",
+      "active": false,
+      "max_usd": 0.35,
+      "tier": "search-first",
+      "verbs": [
+        "investiga",
+        "investigar",
+        "averigua",
+        "averiguar",
+        "compara",
+        "comparar",
+        "contrasta",
+        "contrastar"
+      ],
+      "nouns": [
+        "web",
+        "internet",
+        "fuentes",
+        "actualidad",
+        "mercado",
+        "noticias",
+        "información",
+        "investigación"
+      ]
+    },
+    "entrenador": {
+      "name": "El Entrenador",
+      "active": false,
+      "max_usd": 0.15,
+      "tier": "cheap-first",
+      "verbs": [
+        "practica",
+        "practicar",
+        "entrena",
+        "entrenar",
+        "estudia",
+        "estudiar",
+        "repasa",
+        "repasar",
+        "aprende",
+        "aprender"
+      ],
+      "nouns": [
+        "inglés",
+        "catalán",
+        "cambridge",
+        "vocabulario",
+        "gramática",
+        "ejercicios",
+        "errores",
+        "anki",
+        "estudio"
+      ]
+    },
+    "secretario": {
+      "name": "El Secretario",
+      "active": false,
+      "max_usd": 0.05,
+      "tier": "connector-first",
+      "verbs": [
+        "agenda",
+        "programa",
+        "programar",
+        "envía",
+        "enviar",
+        "responde",
+        "responder",
+        "recuerda",
+        "recordar",
+        "organiza",
+        "organizar"
+      ],
+      "nouns": [
+        "calendar",
+        "calendario",
+        "gmail",
+        "correo",
+        "email",
+        "tasks",
+        "tarea",
+        "cita",
+        "evento",
+        "recordatorio"
+      ]
+    },
+    "guardian": {
+      "name": "El Guardián",
+      "active": false,
+      "max_usd": 0,
+      "tier": "rules-first",
+      "verbs": [
+        "protege",
+        "proteger",
+        "autoriza",
+        "autorizar",
+        "bloquea",
+        "bloquear",
+        "limita",
+        "limitar",
+        "respalda",
+        "respaldar"
+      ],
+      "nouns": [
+        "permiso",
+        "presupuesto",
+        "gasto",
+        "backup",
+        "copia",
+        "credencial",
+        "publicación",
+        "publicar",
+        "seguridad",
+        "riesgo",
+        "borrar",
+        "eliminar",
+        "gaste",
+        "gastar",
+        "céntimos",
+        "centimos",
+        "euros",
+        "dólares",
+        "dolares"
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "contains": [
+        "arregla",
+        "fallo"
+      ],
+      "route": [
+        "reparador",
+        "tester"
+      ]
+    },
+    {
+      "contains": [
+        "repara",
+        "fallo"
+      ],
+      "route": [
+        "reparador",
+        "tester"
+      ]
+    },
+    {
+      "contains": [
+        "gaste",
+        "céntimos"
+      ],
+      "route": [
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "gaste",
+        "centimos"
+      ],
+      "route": [
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "corrige",
+        "texto"
+      ],
+      "route": [
+        "editor"
+      ]
+    },
+    {
+      "contains": [
+        "corrige",
+        "writing"
+      ],
+      "route": [
+        "editor"
+      ]
+    },
+    {
+      "contains": [
+        "corrige",
+        "bug"
+      ],
+      "route": [
+        "reparador",
+        "tester"
+      ]
+    },
+    {
+      "contains": [
+        "crea",
+        "app"
+      ],
+      "route": [
+        "constructor",
+        "tester",
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "nueva",
+        "app"
+      ],
+      "route": [
+        "constructor",
+        "tester",
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "audita",
+        "app"
+      ],
+      "route": [
+        "auditor",
+        "tester"
+      ]
+    },
+    {
+      "contains": [
+        "busca",
+        "archivo"
+      ],
+      "route": [
+        "bibliotecario"
+      ]
+    },
+    {
+      "contains": [
+        "busca",
+        "información",
+        "web"
+      ],
+      "route": [
+        "investigador"
+      ]
+    },
+    {
+      "contains": [
+        "calendar"
+      ],
+      "route": [
+        "secretario"
+      ]
+    },
+    {
+      "contains": [
+        "gasto"
+      ],
+      "route": [
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "openrouter"
+      ],
+      "route": [
+        "guardian"
+      ]
+    },
+    {
+      "contains": [
+        "pixel"
+      ],
+      "route": [
+        "operador",
+        "tester"
+      ]
+    },
+    {
+      "contains": [
+        "desktop commander"
+      ],
+      "route": [
+        "operador"
+      ]
+    }
+  ],
+  "training_examples": [
+    [
+      "Keyboard Speak vuelve a tapar el ejercicio cuando sale el teclado",
+      [
+        "reparador",
+        "tester"
+      ]
+    ],
+    [
+      "Audita la estética de todas las apps",
+      [
+        "auditor",
+        "tester"
+      ]
+    ],
+    [
+      "Hazme una app nueva para practicar listening",
+      [
+        "constructor",
+        "tester",
+        "guardian"
+      ]
+    ],
+    [
+      "Corrige este writing de Cambridge pero conserva mi voz",
+      [
+        "editor"
+      ]
+    ],
+    [
+      "Busca los exámenes de Cambridge que ya tenemos guardados",
+      [
+        "bibliotecario"
+      ]
+    ],
+    [
+      "Investiga qué ha cambiado hoy en la normativa",
+      [
+        "investigador"
+      ]
+    ],
+    [
+      "Ponme una sesión de catalán con mis errores frecuentes",
+      [
+        "entrenador"
+      ]
+    ],
+    [
+      "Agenda la clase de inglés del miércoles",
+      [
+        "secretario"
+      ]
+    ],
+    [
+      "Comprueba que el PC Agent siga vivo",
+      [
+        "operador"
+      ]
+    ],
+    [
+      "No dejes que esta tarea gaste más de 30 céntimos",
+      [
+        "guardian"
+      ]
+    ],
+    [
+      "Revisa el código y dime si hay problemas, sin tocar nada",
+      [
+        "auditor"
+      ]
+    ],
+    [
+      "Arregla este fallo y prueba que no rompa nada",
+      [
+        "reparador",
+        "tester"
+      ]
+    ],
+    [
+      "Encuentra mi documento HOTI sobre promoción turística",
+      [
+        "bibliotecario"
+      ]
+    ],
+    [
+      "Redacta un correo a la profesora",
+      [
+        "editor",
+        "secretario"
+      ]
+    ],
+    [
+      "Publica la nueva versión si todas las pruebas pasan",
+      [
+        "tester",
+        "guardian",
+        "operador"
+      ]
+    ]
+  ]
+}
