@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "philosophy": [
     "Usar herramientas locales o deterministas antes que IA de pago.",
     "No ejecutar acciones: El Triaje solo clasifica, deriva y propone presupuesto.",
@@ -337,9 +337,98 @@
         "dólares",
         "dolares"
       ]
+    },
+    "consejero": {
+      "name": "El Consejero",
+      "active": true,
+      "max_usd": 0,
+      "tier": "local-first",
+      "verbs": [
+        "vigila",
+        "vigilar",
+        "monitoriza",
+        "monitorizar",
+        "observa",
+        "observar",
+        "sigue",
+        "seguir",
+        "avisa",
+        "avisar",
+        "detecta",
+        "detectar",
+        "aconseja",
+        "aconsejar"
+      ],
+      "nouns": [
+        "patrones",
+        "correo importante",
+        "correos de empleo",
+        "empleo",
+        "plaud",
+        "agenda",
+        "semana",
+        "ruido",
+        "newsletter",
+        "spam",
+        "seguimiento"
+      ]
     }
   },
   "overrides": [
+    {
+      "contains": [
+        "vigila",
+        "correo"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
+    {
+      "contains": [
+        "vigilar",
+        "correo"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
+    {
+      "contains": [
+        "correos",
+        "empleo"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
+    {
+      "contains": [
+        "patrones",
+        "semana"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
+    {
+      "contains": [
+        "plaud",
+        "vigila"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
+    {
+      "contains": [
+        "newsletter",
+        "spam"
+      ],
+      "route": [
+        "consejero"
+      ]
+    },
     {
       "contains": [
         "publicar",
@@ -625,6 +714,24 @@
       [
         "reparador",
         "tester"
+      ]
+    ],
+    [
+      "Vigila mis correos de empleo y avísame si llega algo importante",
+      [
+        "consejero"
+      ]
+    ],
+    [
+      "Mira patrones de mi semana y dime qué merece atención",
+      [
+        "consejero"
+      ]
+    ],
+    [
+      "Detecta newsletters y spam repetitivo durante varios días",
+      [
+        "consejero"
       ]
     ]
   ]

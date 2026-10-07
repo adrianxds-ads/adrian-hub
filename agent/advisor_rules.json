@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "job_terms": [
+    "entrevista",
+    "interview",
+    "recruiter",
+    "selección",
+    "seleccion",
+    "candidatura",
+    "application",
+    "proceso de selección",
+    "proceso de seleccion",
+    "oferta de empleo",
+    "job offer",
+    "indeed",
+    "infojobs",
+    "linkedin jobs",
+    "talent acquisition",
+    "rrhh",
+    "recursos humanos"
+  ],
+  "calendar_terms": [
+    "cita",
+    "appointment",
+    "entrevista",
+    "interview",
+    "consulta",
+    "visita",
+    "reunión",
+    "reunion",
+    "meeting",
+    "clase",
+    "class"
+  ],
+  "noise_terms": [
+    "unsubscribe",
+    "darse de baja",
+    "newsletter",
+    "substack",
+    "promoción",
+    "promocion",
+    "oferta exclusiva",
+    "marketing",
+    "digest"
+  ],
+  "plaud_action_terms": [
+    "tengo que",
+    "hay que",
+    "recordar",
+    "apuntar",
+    "hacer",
+    "enviar",
+    "llamar",
+    "comprar",
+    "revisar"
+  ],
+  "cleanup_threshold": 4,
+  "cleanup_window_days": 7,
+  "policies": {
+    "destructive_actions": "never",
+    "calendar_auto_create": "only_after_local_google_oauth_and_high_confidence",
+    "ai_default": "none",
+    "premium_ai": "only_when_rules_cannot_resolve_a_relevant_item"
+  }
+}

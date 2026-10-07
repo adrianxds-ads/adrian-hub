@@ -4,16 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.7",
-    "build": "hub-30.4.7-20261008",
+    "version": "30.4.8",
+    "build": "hub-30.4.8-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Recuperación del Hub en Pixel tras detectar una mezcla de assets causada por un manifiesto de integridad desfasado después de retirar la Oca.",
-      "release-build calcula ahora huellas canónicas LF y dispone de una prueba automática que bloquea publicaciones con fingerprints incoherentes.",
-      "El service worker queda limitado estrictamente a /adrian-hub/, deja de interceptar Adrián Core y solo usa fallback HTML para la portada real.",
-      "Bootstrap de autorrecuperación en el HTML y verificación correcta de los módulos privados del Centro de Agentes."
+      "Agent Center 0.7.0 activa El Consejero v0.1 como observador local de coste cero.",
+      "Motor local con latido cada 15 minutos para clasificar empleo, candidatos de Calendar, señales de Plaud y remitentes repetitivos sin llamadas de IA.",
+      "El Triaje 1.1.0 incorpora El Consejero y pasa 31 casos de entrenamiento.",
+      "Las fuentes externas permanecen explícitamente POR CONECTAR hasta completar su autorización local; ninguna acción destructiva está habilitada."
     ],
     "history": [
+      {
+        "version": "30.4.7",
+        "date": "2026-10-08",
+        "build": "hub-30.4.7-20261008",
+        "changes": [
+          "Recuperación del Hub en Pixel tras detectar una mezcla de assets causada por un manifiesto de integridad desfasado después de retirar la Oca.",
+          "release-build calcula ahora huellas canónicas LF y dispone de una prueba automática que bloquea publicaciones con fingerprints incoherentes.",
+          "El service worker queda limitado estrictamente a /adrian-hub/, deja de interceptar Adrián Core y solo usa fallback HTML para la portada real.",
+          "Bootstrap de autorrecuperación en el HTML y verificación correcta de los módulos privados del Centro de Agentes."
+        ]
+      },
       {
         "version": "30.4.6",
         "date": "2026-10-07",
@@ -201,7 +212,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "eacf57d4e6a4a5c2044d5e1608bdadbcd7c630ebea3e0b64ec9f497683a927f0"
+          "sha256": "bbee31f5523f4501f88c86a0dfd8c05d74c44790253a43527c44c39dcc5a471e"
         },
         {
           "url": "version-verifier.js",
@@ -209,7 +220,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "7ed5f5d3408b47860841b367f6f131ae95789338a5c9d14347cf982329c0741f"
+          "sha256": "a549b1b170347a7ad1d917e4794da131c012c4684dbf8ae8583d78087f865e6c"
         },
         {
           "url": "styles.css",
@@ -217,15 +228,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "d74983ebf48ef549f5455857aad784e481e42e67d6c7bc5b32d29de1d3a8e41e"
+          "sha256": "e083a7f4281457f68b0e03ac781636373e60a01eb481e591bff56ee04b479df7"
         },
         {
           "url": "build-assets.js",
-          "sha256": "734b9505e994e47b941d6a8957b0fe55ecdbe2395035123fdc6b7ad1ac694671"
+          "sha256": "54297d49f68ab8bc96641e778096c2223646a33a5fbc953f0bbf87deccbe4ede"
         }
       ]
     },
-    "cacheBuild": "afa52754e867aee5"
+    "cacheBuild": "58e494f8d19b5d9b"
   },
   "apps": [
     {
@@ -687,29 +698,30 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.6.1",
-      "build": "sha256-21655c1a7161",
-      "releasedAt": "2026-10-07",
+      "version": "0.7.0",
+      "build": "sha256-afc4b44b0edf",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "El Triaje aprende de la primera prueba pública: 'arregla ... y comprueba' deriva primero a El Reparador.",
-        "La ruta 'publica si pasan las pruebas' queda fijada como El Tester → El Guardián → El Operador.",
-        "Entrenamiento v1.0.1: 28 casos automáticos.",
-        "Salida UTF-8 corregida para conservar tildes y nombres de los agentes."
+        "El Consejero v0.1 entra en servicio como observador local de coste cero.",
+        "Latido local cada 15 minutos; motor SQLite para empleo, candidatos de Calendar, Plaud y limpieza de remitentes repetitivos.",
+        "Gmail, Google Calendar y Plaud muestran estado real POR CONECTAR hasta disponer de autorización local; no se simulan accesos.",
+        "El Triaje 1.1.0 conoce El Consejero y suma 31 casos de entrenamiento.",
+        "Panel de eventos, señales, coste de IA y observaciones recientes dentro del Centro de Agentes."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "db40609681846fa95e18c009bb78594cfe8cf576faadc4d24c4e3a18cdc4f0da"
+            "sha256": "b6ae88da8ab86a265b03a8ef0932e9bb082ab503b6f894c81050e95205e1137d"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "cea6cf47b96dce7f5e92bd58545f2c90074bbd4f9fe7034af6d8f718e9f52a0a"
+            "sha256": "56a6f79a95bf3ab13fc9165a01ddac39ba0a143f389624e13e14aba90e037673"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "2cc324e130f4be2c6fe565244b60564435a8d237f5bd890fce8d26e264aa6e10"
+            "sha256": "7da3750064f5a3d9aa40a02692746124a68a45f0c97af916247563ef983263b6"
           }
         ]
       }

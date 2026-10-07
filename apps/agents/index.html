@@ -47,7 +47,7 @@
   </div>
 </section>
 
-<div class="section-heading"><div><span>EN SERVICIO</span><h2>El equipo operativo</h2></div><b>3 activos</b></div>
+<div class="section-heading"><div><span>EN SERVICIO</span><h2>El equipo operativo</h2></div><b>4 activos + Triaje</b></div>
 <section class="agent-grid" aria-label="Agentes en servicio">
 <article class="agent-card ad-card" data-agent="audit">
   <div class="agent-head"><span class="agent-glyph">AU</span><div><small>AUDIT AGENT</small><h2>El Auditor</h2></div><span class="status checking" id="auditStatus">CONECTANDO</span></div>
@@ -81,6 +81,20 @@
   <dl><div><dt>Oficio</dt><dd>Servidor privado, watchdog y servicios Windows</dd></div><div><dt>Acceso</dt><dd>PC + Tailscale</dd></div><div><dt>Interfaz</dt><dd>Limpieza 2.2 y servicios locales</dd></div><div><dt>IA</dt><dd>No consume Opus por estar encendido</dd></div></dl>
   <div class="actions"><a class="ad-button primary" href="https://adrin.tail8fd071.ts.net/limpieza/">ABRIR LIMPIEZA 2.2</a><a class="ad-button" href="https://adrianxds-ads.github.io/adrian-hub/apps/dc-inbox/">ABRIR DC INBOX</a></div>
 </article>
+
+<article class="agent-card ad-card advisor-card" data-agent="advisor">
+  <div class="agent-head"><span class="agent-glyph advisor-glyph">CN</span><div><small>ADVISOR AGENT</small><h2>El Consejero</h2></div><span class="status checking" id="advisorStatus">COMPROBANDO</span></div>
+  <p>Observa tu ecosistema en segundo plano con reglas locales. Busca señales útiles en empleo, agenda, grabaciones y ruido recurrente antes de gastar IA.</p>
+  <dl><div><dt>Latido</dt><dd>Cada 15 min cuando el PC está disponible</dd></div><div><dt>IA base</dt><dd>0 USD · reglas locales y SQLite</dd></div><div><dt>Acciones</dt><dd>Observa y propone · nunca borra ni envía por sí solo</dd></div><div><dt>Fuentes</dt><dd>Gmail · Google Calendar · Plaud</dd></div></dl>
+  <div class="advisor-sources" id="advisorSources">
+    <div data-source="gmail"><b>Gmail</b><span>COMPROBANDO</span></div>
+    <div data-source="calendar"><b>Calendar</b><span>COMPROBANDO</span></div>
+    <div data-source="plaud"><b>Plaud</b><span>COMPROBANDO</span></div>
+  </div>
+  <div class="advisor-kpis"><div><small>EVENTOS</small><b id="advisorEvents">0</b></div><div><small>SEÑALES</small><b id="advisorFindings">0</b></div><div><small>IA HOY</small><b id="advisorCost">$0.0000</b></div></div>
+  <div class="advisor-recent" id="advisorRecent"><small>Aún no hay observaciones reales.</small></div>
+  <div class="actions"><button class="ad-button primary" id="advisorRefresh" type="button">ACTUALIZAR ESTADO</button><button class="ad-button" id="advisorTick" type="button">PROCESAR AHORA · 0 USD</button></div>
+</article>
 </section>
 
 <div class="section-heading training-heading"><div><span>EN FORMACIÓN</span><h2>Los próximos especialistas</h2></div><b>8 oficios</b></div>
@@ -100,7 +114,7 @@
   <p>El Triaje derivará; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.6.1</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.7.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">

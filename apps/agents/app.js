@@ -23,7 +23,38 @@ async function refreshSpend(){
   }
 }
 
-const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc'};
+const ADVISOR_KIND={job:'EMPLEO',calendar_candidate:'CALENDAR',cleanup_candidate:'LIMPIEZA',action_candidate:'ACCIÓN',noise_signal:'RUIDO',calendar_observed:'AGENDA'};
+function advisorTime(ts){if(!ts)return'—';try{return new Date(Number(ts)*1000).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}catch{return'—';}}
+function renderAdvisor(d){
+  const status=$('#advisorStatus');
+  status.textContent='LISTO';status.className='status ready';
+  $('#advisorEvents').textContent=String(d.events||0);
+  $('#advisorFindings').textContent=String(d.findings||0);
+  $('#advisorCost').textContent=money(d.ai_cost_usd||0);
+  for(const src of d.sources||[]){
+    const row=document.querySelector('[data-source="'+src.source+'"]');if(!row)continue;
+    const span=row.querySelector('span');
+    span.textContent=src.connected?'CONECTADO':'POR CONECTAR';
+    span.className=src.connected?'source-ready':'source-pending';
+    row.title=src.note||'';
+  }
+  const recent=$('#advisorRecent');
+  if(!(d.recent||[]).length){recent.innerHTML='<small>Aún no hay observaciones reales. El motor local está preparado.</small>';}
+  else recent.innerHTML=d.recent.slice(0,5).map(x=>'<div><span>'+(ADVISOR_KIND[x.kind]||x.kind.toUpperCase())+'</span><b>'+escHtml(x.summary)+'</b><small>'+Math.round((x.confidence||0)*100)+'% · '+advisorTime(x.created_at)+'</small></div>').join('');
+}
+function escHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+async function refreshAdvisor(){
+  try{const d=await request('/advisor/status');renderAdvisor(d);}
+  catch(e){const s=$('#advisorStatus');s.textContent='SIN PC';s.className='status offline';}
+}
+async function tickAdvisor(){
+  const b=$('#advisorTick');b.disabled=true;
+  try{await request('/advisor/tick',{method:'POST',body:'{}'});await refreshAdvisor();showToast('El Consejero ha procesado la cola · 0 USD');}
+  catch(e){showToast(e.message);}
+  finally{b.disabled=false;}
+}
+
+const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc',consejero:'advisor'};
 function renderTriage(t){
   const box=$('#triageResult'),status=$('#triageStatus'),go=$('#triageGo');
   box.hidden=false;go.hidden=true;go.dataset.target='';
@@ -121,6 +152,8 @@ async function showReport(kind){
   }catch(e){showToast('No se pudo cargar: '+e.message);}
 }
 
+$('#advisorRefresh').addEventListener('click',refreshAdvisor);
+$('#advisorTick').addEventListener('click',tickAdvisor);
 $('#triageBtn').addEventListener('click',startTriage);
 $('#triageGo').addEventListener('click',goToTriageTarget);
 $('#triageRequest').addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter')startTriage();});
@@ -132,5 +165,5 @@ $('#repairOpus').addEventListener('click',()=>startRepair(false));
 $('#repairReport').addEventListener('click',()=>showReport('repair'));
 $('#reportClose').addEventListener('click',()=>$('#reportDialog').close());
 $('#reportDialog').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
-refreshSpend();refreshAudit();refreshRepair();
-setInterval(refreshSpend,60000);
+refreshSpend();refreshAudit();refreshRepair();refreshAdvisor();
+setInterval(refreshSpend,60000);setInterval(refreshAdvisor,60000);
