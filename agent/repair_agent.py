@@ -11,6 +11,7 @@ Return exactly one JSON object:
 {"action":"read","path":"app.js","start":1,"end":120}
 {"action":"replace","path":"app.js","old":"exact original substring","new":"replacement"}
 {"action":"write","path":"styles.css","content":"complete content"}
+{"action":"patch","changes":[{"path":"app.js","old":"exact substring","new":"replacement"}]}
 {"action":"test"}
 {"action":"report","content":"concise Spanish result with limitations"}
 Only app.js,index.html,manifest.webmanifest,service-worker.js,README.md are writable.
@@ -52,10 +53,26 @@ def main():
         try:
             act=base.parse_action(text);kind=act.get("action")
             if kind=="report":
+                if last_test is None:raise ValueError("Run test before reporting")
                 report=runs/(stamp+"-repair-report.md")
                 report.write_text("# Claude repair report\n\n"+str(act.get("content",""))+"\n",encoding="utf-8")
                 print(json.dumps({"ok":True,"report":str(report),"cost_usd":spent,"last_test":last_test}),flush=True);return 0
-            if kind=="test":
+            if kind=="patch":
+                prepared={}
+                for change in act.get("changes",[]):
+                    fn=change.get("path","")
+                    if fn not in ALLOWED:raise ValueError("File not allowed")
+                    raw=root/fn
+                    if raw.is_symlink():raise ValueError("Symlink refused")
+                    f=raw.resolve()
+                    if f.parent!=root:raise ValueError("Unsafe path")
+                    original=prepared.get(f,f.read_text(encoding="utf-8"))
+                    old=change["old"]
+                    if not old or original.count(old)!=1:raise ValueError("Patch substring must match exactly once: "+fn)
+                    prepared[f]=original.replace(old,change["new"],1)
+                for f,body in prepared.items():f.write_text(body,encoding="utf-8")
+                result="Batch applied: "+str(len(act.get("changes",[])))+" changes"
+            elif kind=="test":
                 r=subprocess.run(["python",str(test),"--root",str(root)],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=180)
                 last_test={"exit_code":r.returncode,"output":(r.stdout+r.stderr)[-16000:]}
                 result=json.dumps(last_test,ensure_ascii=False)

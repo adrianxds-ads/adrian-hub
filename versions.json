@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T11:10:05.418140+00:00",
+  "generatedAt": "2026-10-07T13:59:58.295010+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -335,24 +335,24 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.3",
-      "build": "sha256-9f5828d431b1",
+      "version": "1.0.4",
+      "build": "sha256-7c1c60b8cf39",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Letra del hueco ampliada a 32–40 px y protegida frente al estilo común del Hub.",
-        "Dictado natural con palabras de antes, después o ambas: azul en el texto impreso y solo la respuesta en el hueco.",
-        "Contracciones y contexto parcial reconocidos; Gboard estable y corrección individual explícita."
+        "Frase de transformación completa sobre el editor y pantalla compacta al escribir en móvil.",
+        "Texto multilínea acotado, desplazamiento con el teclado y botones estables al comprobar.",
+        "Reparación con Claude Opus; dictado natural, 120 preguntas, puntuación y progreso preservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "7864c1330bdd568f80a38691cc5726cf52a142ffb451b888711b0a1418c1422a"
+            "sha256": "c66ae7f1b183a83beac2c2708686e9a79a60ecb7d86cd13a7feb2afdc33d3ec4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "a0bd92fdcde59ab0d9c4e7ea86faa910aa6744aa51198a261b75349a67a1c89f"
+            "sha256": "06a6bc65d8f90584ae5391f0171300c33a842db6888889a1804a04360864530a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -360,17 +360,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "2f5f9d18594455118220386f9d1d71d563cb3e33084c350a459938cd41f3b367"
+            "sha256": "5e28d282956d4f84309b17c9ed47c4e0a20f7841351e12c68b3e550b88e835c1"
           }
         ]
       },
-      "sourceCommit": "c1e6572f6168ac50ac1e7020549599b1211fa779",
-      "cacheBuild": "913887972f5fb277",
+      "sourceCommit": "47024f9363820fe6840ae1184c03753d662811d6",
+      "cacheBuild": "ec47b18d34fd79e6",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.3",
+          "date": "2026-10-07",
+          "changes": [
+            "Letra del hueco ampliada a 32–40 px y protegida frente al estilo común del Hub.",
+            "Dictado natural con palabras de antes, después o ambas: azul en el texto impreso y solo la respuesta en el hueco.",
+            "Contracciones y contexto parcial reconocidos; Gboard estable y corrección individual explícita."
+          ]
+        },
         {
           "version": "1.0.2",
           "date": "2026-10-07",
