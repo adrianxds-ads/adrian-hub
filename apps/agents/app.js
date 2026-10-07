@@ -1,4 +1,4 @@
-const API='https://adrin.tail8fd071.ts.net/dc-inbox/agents';
+const API=location.origin+'/dc-inbox/agents';
 const COMMANDS={'repair-info':'python .\\agent\\repair_agent.py --root <CHECKOUT_AISLADO> --test-script <REGRESION.py> --mission-file <MISION.txt>'};
 const $=s=>document.querySelector(s);
 let pollTimer=0;

@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T20:57:29.618847+00:00",
+  "generatedAt": "2026-10-07T21:02:40.239768+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.1",
-    "build": "hub-30.4.1-20261007",
+    "version": "30.4.2",
+    "build": "hub-30.4.2-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Agent Center 0.2.0 conecta Audit Agent con el bridge privado del PC a través de Tailscale.",
-      "La auditoría Opus puede probarse sin gasto; una ejecución con API exige confirmación explícita y mantiene el tope de 0,35 USD.",
-      "El Hub muestra estado de ejecución y permite leer el último informe sin exponer credenciales al navegador."
+      "Agent Center 0.2.1 se abre por la ruta privada de Tailscale servida por el bridge existente.",
+      "Interfaz y API comparten origen, evitando el bloqueo de red privada del navegador desde GitHub Pages.",
+      "El Hub público sigue siendo la puerta de entrada; volver y ChatGPT regresan explícitamente al origen público."
     ],
     "history": [
+      {
+        "version": "30.4.1",
+        "date": "2026-10-07",
+        "build": "hub-30.4.1-20261007",
+        "changes": [
+          "Agent Center 0.2.0 conecta Audit Agent con el bridge privado del PC a través de Tailscale.",
+          "La auditoría Opus puede probarse sin gasto; una ejecución con API exige confirmación explícita y mantiene el tope de 0,35 USD.",
+          "El Hub muestra estado de ejecución y permite leer el último informe sin exponer credenciales al navegador."
+        ]
+      },
       {
         "version": "30.4.0",
         "date": "2026-10-07",
@@ -140,7 +150,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "b1423f3f70f65885bd4208ffc32219712955141d8f54332f054bb9b0069021d9"
+          "sha256": "3d524a471954fb429c007e53d5abb00fd4897c7734514ac00d83effd0814b8fa"
         },
         {
           "url": "version-verifier.js",
@@ -148,7 +158,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "1b0fafebeb7834fb389e57bfae18b039aeee446af4cf1a6280c6cb2739dbe203"
+          "sha256": "b219324eb74b3864a34faabd74cfbb8dcb6f6ec433259792493b36dedc82c7ac"
         },
         {
           "url": "styles.css",
@@ -156,15 +166,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "30ad9c07b48a72ef206afdb3f3c43a8752f4b47e2a2edf2f3f9d9e83064f66b1"
+          "sha256": "d7a2242cacd52572ec8cc59acb063589fffe0535a3ed427458f97e7c3bb00147"
         },
         {
           "url": "build-assets.js",
-          "sha256": "70dc0eeb91c6ff7015ffd5a93050dcd191513c737ad9254cb177697a9f31b6e3"
+          "sha256": "4e2dfdb89c55fe6b07a5909362a0b39eead25e7adf4593016c7bfa26dcd62c28"
         }
       ]
     },
-    "cacheBuild": "f79044d400f16608"
+    "cacheBuild": "90a5552b0ec17c6f"
   },
   "apps": [
     {
@@ -626,25 +636,24 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.2.0",
-      "build": "sha256-076956c82691",
+      "version": "0.2.1",
+      "build": "sha256-b03eae2460a0",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "Audit Agent ya se puede comprobar y lanzar desde el propio Hub.",
-        "La prueba en seco verifica modelo, credencial y presupuesto sin llamar a la API.",
-        "La ejecución Opus exige confirmación de coste y se procesa en segundo plano en el PC.",
-        "Estado y último informe quedan accesibles desde la tarjeta del agente."
+        "La interfaz operativa se sirve por Tailscale desde el bridge de DC Inbox.",
+        "API y UI comparten origen privado, eliminando el bloqueo PNA de Chrome.",
+        "Navegación de vuelta y acceso a ChatGPT conservan el Hub público."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "b8896625ad7dfa423e54faad7666ae00b8064fff37df400a2f1364897484e1a3"
+            "sha256": "bb7a5ea2a79a02419bc2549c5b1d602ad1cd21bd02002c77e9a52372693c3314"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "9fc2cc7ac2625c8e6f89da9dac1b9bb1fd0ff103885ec4c266a8be496f8dbdcb"
+            "sha256": "6c39bfd52ad7a5d0d604b0af8220b0819e13c63480eca0f1e2bc426b047e61d0"
           },
           {
             "url": "./apps/agents/styles.css",
