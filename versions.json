@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.3.0",
-    "build": "hub-30.3.0-20261006",
+    "version": "30.3.1",
+    "build": "hub-30.3.1-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Nueva Biblioteca integrada en el Hub con los 233 episodios numerados de Easy Catalan.",
-      "Reproducción directa del MP3 oficial, búsqueda y orden 1→233 / 233→1.",
-      "Estado visual pendiente/escuchado, contador y reanudación local de la posición."
+      "Compatibilidad del Hub reparada: el listado ya no depende de Object.groupBy.",
+      "Carga del catálogo reforzada con petición fresca y validación de registro no vacío.",
+      "El Service Worker del Hub activa la reparación inmediatamente y recarga una vez la portada si estaba atrapada en una caché anterior."
     ],
     "history": [
+      {
+        "version": "30.3.0",
+        "date": "2026-10-07",
+        "build": "hub-30.3.0-20261006",
+        "changes": [
+          "Nueva Biblioteca integrada en el Hub con los 233 episodios numerados de Easy Catalan.",
+          "Reproducción directa del MP3 oficial, búsqueda y orden 1→233 / 233→1.",
+          "Estado visual pendiente/escuchado, contador y reanudación local de la posición."
+        ]
+      },
       {
         "version": "30.2.3",
         "date": "2026-10-07",
@@ -110,7 +120,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "6b3bf9b49a2f9125498ac9c5b9b656d1d6e9eec92e3025329e3c82c99c42f1c5"
+          "sha256": "8cade6a5e4904301c1732b59a70459e23a633e70e56386c6074a44a585be9a93"
         },
         {
           "url": "version-verifier.js",
@@ -118,7 +128,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "477d7582ad7911bd5e70f10a0c8dc56e38971a06c879d864a71452c8a82e146b"
+          "sha256": "6ab9a2c9cdd686416795a02d7c46e3308dc4959b3a9222aa13e3377f763d5d13"
         },
         {
           "url": "styles.css",
@@ -126,15 +136,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "2e1639093c953f38bba03f47e299bfaa7b7dbfdf247c8e062ceb84de9e28315d"
+          "sha256": "04776f5d8fcc92b1521a675ea1225cfe17e2fe6815999fba1883e0cc82f50365"
         },
         {
           "url": "build-assets.js",
-          "sha256": "4669ab631542b72be9e6aaf964545b4bb2f725a59eddb6521ed940b0c47e0edb"
+          "sha256": "4926451444523ed3e1e5ba0f859fb1357e1fb9e3828efc2ba625d90d9761ef5c"
         }
       ]
     },
-    "cacheBuild": "d21ba0ce84349deb"
+    "cacheBuild": "c9569227c37dd5e9"
   },
   "apps": [
     {
