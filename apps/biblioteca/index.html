@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1518">
+<title>Biblioteca · Easy Catalan</title>
+<link rel="icon" href="../../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+<a class="back" href="../../">‹ Hub</a>
+
+<header class="podcast-head">
+  <img id="artwork" class="artwork" alt="Easy Catalan">
+  <div class="podcast-copy">
+    <p class="eyebrow">BIBLIOTECA · PODCASTS</p>
+    <h1>Easy Catalan</h1>
+    <p class="tagline">Obrir, escoltar, marcar. Res més.</p>
+    <div class="progress-line"><strong id="heardCount">0</strong><span> escoltats de <b id="totalCount">233</b></span></div>
+  </div>
+</header>
+
+<section class="tools" aria-label="Buscar y ordenar">
+  <label class="searchbox"><span>BUSCAR</span><input id="search" type="search" placeholder="Número, títol o tema…" autocomplete="off"></label>
+  <button id="sortBtn" class="sort-btn" type="button" aria-label="Cambiar orden"><span>ORDRE</span><b id="sortLabel">1 → 233</b></button>
+</section>
+
+<div class="legend"><span><i class="pending-dot">×</i>Pendent</span><span><i class="done-dot">✓</i>Escoltat</span><small id="shownCount"></small></div>
+
+<section id="episodes" class="episodes" aria-live="polite"></section>
+<div id="empty" class="empty" hidden>No he trobat cap episodi.</div>
+</main>
+
+<section id="player" class="player" hidden aria-label="Reproductor">
+  <button id="playerToggle" class="player-toggle" type="button" aria-label="Reproducir o pausar">▶</button>
+  <div class="player-copy"><b id="playerTitle">—</b><div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Posición"><span id="remaining">0:00</span></div></div>
+  <button id="playerDone" class="player-done" type="button" aria-label="Marcar como escuchado">✓</button>
+</section>
+
+<audio id="audio" preload="metadata"></audio>
+<script src="./app.js"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10"></script>
+</body>
+</html>

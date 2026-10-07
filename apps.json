@@ -73,6 +73,15 @@
       "glyph": "CA"
     },
     {
+      "id": "biblioteca",
+      "name": "Biblioteca",
+      "subtitle": "Easy Catalan · 233 episodis · àudio directe",
+      "group": "Estudio",
+      "kind": "hub-module",
+      "url": "./apps/biblioteca/",
+      "glyph": "BI"
+    },
+    {
       "id": "hoti0108",
       "name": "HOTI0108",
       "subtitle": "Estudio, flashcards y examen",
@@ -139,4 +148,4 @@
       "glyph": "JB"
     }
   ]
-}
+}\n
