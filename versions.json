@@ -336,7 +336,7 @@
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
       "version": "1.0.4",
-      "build": "sha256-7c1c60b8cf39",
+      "build": "sha256-b781634e7829",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
@@ -348,7 +348,7 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "c66ae7f1b183a83beac2c2708686e9a79a60ecb7d86cd13a7feb2afdc33d3ec4"
+            "sha256": "4e98a21f68a8a4f030c21ac67eefa5b041261faa7789c52bc4a5aaf064796d24"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
@@ -360,12 +360,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "5e28d282956d4f84309b17c9ed47c4e0a20f7841351e12c68b3e550b88e835c1"
+            "sha256": "1edfd76c930623a3a870a8b5f4fbe05493fbbb194e19aed4ab41268a02736ec9"
           }
         ]
       },
-      "sourceCommit": "47024f9363820fe6840ae1184c03753d662811d6",
-      "cacheBuild": "ec47b18d34fd79e6",
+      "sourceCommit": "0a1fd22ea0773e9fccdc8fd167fea55a878141bb",
+      "cacheBuild": "e33c74e09668e40a",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
