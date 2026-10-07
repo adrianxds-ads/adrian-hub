@@ -180,11 +180,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "828fcb29a2714c1ce207dbf6d0bab8257953da1fb3f32feb244e8aa9760e7d07"
+          "sha256": "7092f2c16f4944747f1200f9ab3ffdb3503aad85dbbe598d2d5ff3238742e516"
         }
       ]
     },
-    "cacheBuild": "3f140313161e25f8"
+    "cacheBuild": "260c4aa52f25a1b9"
   },
   "apps": [
     {
@@ -647,7 +647,7 @@
       "id": "agents",
       "name": "Centro de Agentes",
       "version": "0.4.0",
-      "build": "sha256-91d88272d566",
+      "build": "sha256-c87f3ec1124f",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
@@ -659,7 +659,7 @@
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "99085f5d94de27b08a1522d3d527ef69a7176d98ed68da3463cc19dbf24b0488"
+            "sha256": "ecd786c35426a3050a44c240e05582def804769ce25b416b28ae899468564d89"
           },
           {
             "url": "./apps/agents/app.js",
