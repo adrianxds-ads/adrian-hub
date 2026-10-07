@@ -1,16 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T06:15:09.972180+00:00",
+  "generatedAt": "2026-10-07T11:10:05.418140+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.2.3",
-    "build": "hub-30.2.3-20261006",
+    "version": "30.3.0",
+    "build": "hub-30.3.0-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Key Word Speaking 1.0.3: letra grande y dictado natural con contexto impreso en azul; Grammar conservado."
+      "Nueva Biblioteca integrada en el Hub con los 233 episodios numerados de Easy Catalan.",
+      "Reproducción directa del MP3 oficial, búsqueda y orden 1→233 / 233→1.",
+      "Estado visual pendiente/escuchado, contador y reanudación local de la posición."
     ],
     "history": [
+      {
+        "version": "30.2.3",
+        "date": "2026-10-07",
+        "build": "hub-30.2.3-20261006",
+        "changes": [
+          "Key Word Speaking 1.0.3: letra grande y dictado natural con contexto impreso en azul; Grammar conservado."
+        ]
+      },
       {
         "version": "30.2.2",
         "date": "2026-10-07",
@@ -100,7 +110,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "b3c6faa73e5c6e5f6f6c2e7c5a97622caffa64b9fbc11476c5c71cd8b58d7841"
+          "sha256": "6b3bf9b49a2f9125498ac9c5b9b656d1d6e9eec92e3025329e3c82c99c42f1c5"
         },
         {
           "url": "version-verifier.js",
@@ -108,7 +118,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "0496396a1797eb77af8d835892ef77bc3222f3dfe2617bc3ff21ef057f63ddc8"
+          "sha256": "477d7582ad7911bd5e70f10a0c8dc56e38971a06c879d864a71452c8a82e146b"
         },
         {
           "url": "styles.css",
@@ -116,15 +126,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "7f8e43d993541f88d97f90835595827631b9a0e90d8b076088755af9ca82fc81"
+          "sha256": "2e1639093c953f38bba03f47e299bfaa7b7dbfdf247c8e062ceb84de9e28315d"
         },
         {
           "url": "build-assets.js",
-          "sha256": "ba5b2678bede9cedc1cf0745d19fdc2c6c6073879c9257c0a87e54a743c5f50f"
+          "sha256": "4669ab631542b72be9e6aaf964545b4bb2f725a59eddb6521ed940b0c47e0edb"
         }
       ]
     },
-    "cacheBuild": "67c50c5ef83db692"
+    "cacheBuild": "d21ba0ce84349deb"
   },
   "apps": [
     {
@@ -408,6 +418,36 @@
       "cachePrefixes": [
         "avc-campaign1-"
       ]
+    },
+    {
+      "id": "biblioteca",
+      "name": "Biblioteca · Easy Catalan",
+      "version": "0.1.0",
+      "build": "sha256-cf90720695f5",
+      "releasedAt": "2026-10-07",
+      "kind": "bundled",
+      "changes": [
+        "Primera versión: catálogo oficial de 233 episodios de Easy Catalan.",
+        "Audio directo sin pasar por YouTube, Spotify o Amazon.",
+        "Búsqueda, orden, X/✓, fichas oscurecidas al completar y contador de escuchados.",
+        "La posición de reproducción se conserva localmente para continuar más tarde."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/biblioteca/index.html",
+            "sha256": "786a3b40a00bcd6512b210c1059a8bc4cfad1639643c713c7f733010f696de6a"
+          },
+          {
+            "url": "./apps/biblioteca/app.js",
+            "sha256": "fe6e3cc526898723f8d25f19a25e9f93b27b093e282b6c07f370a302f4090c14"
+          },
+          {
+            "url": "./apps/biblioteca/styles.css",
+            "sha256": "d23ce0470931407939c8e067048dc17bb87a16958953841fa6a66d74689cdb22"
+          }
+        ]
+      }
     },
     {
       "id": "hoti0108",

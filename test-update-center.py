@@ -24,7 +24,7 @@ with sync_playwright() as p:
  assert page.evaluate("async()=>{const r=await verifyEntry(fixtureEntry);return r.pending===true}")
  page.evaluate("async()=>await updateAllVersions()")
  result=page.evaluate("JSON.parse(localStorage.getItem(UPDATE_STATE_KEY))")
- assert result['failed']==1 and result['updated']==6,result
+ assert result['failed']==1 and result['updated']==7,result
  assert page.evaluate("async()=>await caches.has(fixtureCache)")
  assert page.evaluate("localStorage.getItem('fixture-progress')")=='preserved'
  assert 'parcial' in page.locator('#updateHeadline').inner_text().lower()

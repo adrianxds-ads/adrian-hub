@@ -1,6 +1,6 @@
 {
-  "version": 16,
-  "hubVersion": "30.2.3",
+  "version": 17,
+  "hubVersion": "30.3.0",
   "apps": [
     {
       "id": "english",
@@ -148,4 +148,4 @@
       "glyph": "JB"
     }
   ]
-}\n
+}
