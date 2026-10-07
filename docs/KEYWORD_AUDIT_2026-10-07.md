@@ -1,4 +1,4 @@
-# Key Word Speaking 1.0.1 audit
+# Key Word Speaking 1.0.2 audit
 - Reproduced 1.0.0: compositionend rewrote full-sentence Gboard input.
 - Fixed multiline answer sizing, composition/Enter handling, explicit-only extraction with exact printed boundaries, stale microphone callbacks and per-question voice flag.
 - Immediate per-question 0/1/2 points and correct-answer streak; existing statistics key, medals and Oca preserved.
@@ -7,3 +7,5 @@
 - Edge tests: wrong full sentence retained, word count checked, composing Enter ignored, streak appears, duplicate submission ignored.
 - Grammar/adaptive-exam and all other study repositories remain clean.
 - Mobile tests emulate browser dimensions/composition; physical Pixel keyboard verification remains unobserved.
+
+- Offline reload reproduced missing scripts because cache keys ignored versioned query variants; K service worker now uses ignoreSearch with release SHA-256 validation.

@@ -4,11 +4,11 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.2.1",
-    "build": "hub-30.2.1-20261006",
+    "version": "30.2.2",
+    "build": "hub-30.2.2-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Key Word Speaking 1.0.1: auditoría y corrección móvil; Grammar conservado."
+      "Key Word Speaking 1.0.2: teclado, corrección individual, banco y caché offline auditados; Grammar conservado."
     ],
     "history": [
       {
@@ -92,7 +92,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "9674e55c10400c342de6668523f48142513f2b6f2b62c7fa2a7628a11f80c71f"
+          "sha256": "246b6247bdcc899d2b6f89d887e6318b80513e2c978a47010dc5fa3a8e5480e8"
         },
         {
           "url": "version-verifier.js",
@@ -100,7 +100,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "2f5ac1a2758e699db9d187d9123ebeb235250558d61370ebb5554e2968e0a805"
+          "sha256": "ad0977edcf3e282498af4882ff1b79f1cc66c4c3a4c43267b7bd7f7113519a6f"
         },
         {
           "url": "styles.css",
@@ -112,11 +112,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "bd30d0845b91e9efeab61a31f9b284aa86255a2a5880fad8dbbd0669d05bbdcc"
+          "sha256": "249d41606ba84b4c2fffb067f4fe1509a54ad76e345d0931e546b4299721ad7c"
         }
       ]
     },
-    "cacheBuild": "d26092eb691bd8d7"
+    "cacheBuild": "8b69cfe4e9ca160d"
   },
   "apps": [
     {
@@ -307,37 +307,38 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.1",
-      "build": "sha256-970c0f3c42fd",
+      "version": "1.0.2",
+      "build": "sha256-9c44fc84535c",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
         "Teclado Gboard estable y respuesta multilínea visible.",
         "Corrección individual, puntos y racha inmediata; extracción segura de frases completas.",
-        "Corregidos once ejercicios del banco y variantes opcionales; progreso, medallas y Grammar preservados."
+        "Corregidos once ejercicios del banco y variantes opcionales; progreso, medallas y Grammar preservados.",
+        "Caché offline compatible con enlaces de recursos versionados, validada por huella SHA-256."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "deffe7a414b7cea5cbd437ab84885ac58a4ac35ee2ff86097c8e38377d4e97ce"
+            "sha256": "674a0c3e9c3fe88f786a8c732820e58a68ff2509b8bdb3bdc9f61ec70c631902"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "f347184bf0f1c08b98f3b39d983d16a803fc359fe621172e8c0a32c7afde1e29"
+            "sha256": "6a09d12e3a5c26b2b6da766996c091f648a195ecf583cd704d8b89b496239917"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "974012a34650014e8e6bb31330ffa63f48760a9d65a3c990505429a3e7fd1eca"
+            "sha256": "693304fb0fdd1fe67e43fec5ad0ab113bb9e702f85a56e12e77a046961af9fba"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "a7dc5d7a152b4c6e91fcf1af3fe1dc0f535bfbb3002d85b579398103d6249e0f"
+            "sha256": "c513a1f5bf0d565df9ec702e0948ed9e240a95e8e5471ddbb26c3490893a18e3"
           }
         ]
       },
-      "sourceCommit": "41bb4f06fccbdc9e752533e3f73d7b31dd8b124b",
-      "cacheBuild": "aa596805d7aa2115",
+      "sourceCommit": "2bcffa9bde3bcf2d3800cdf4fa7d723b63c9c859",
+      "cacheBuild": "bad1180643361197",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
