@@ -1,6 +1,6 @@
 {
-  "version": 17,
-  "hubVersion": "30.3.1",
+  "version": 18,
+  "hubVersion": "30.4.0",
   "apps": [
     {
       "id": "english",
@@ -127,6 +127,15 @@
       "url": "./apps/adri-type/",
       "glyph": "HC",
       "repo": "https://github.com/adrianxds-ads/adrian-typing-tracker"
+    },
+    {
+      "id": "agents",
+      "name": "Agentes",
+      "subtitle": "Audit Agent · Repair Agent · PC Agent",
+      "group": "Sistema",
+      "kind": "hub-module",
+      "url": "./apps/agents/",
+      "glyph": "AI"
     },
     {
       "id": "limpieza",

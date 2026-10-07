@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T13:59:58.295010+00:00",
+  "generatedAt": "2026-10-07T20:17:08.225360+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.3.1",
-    "build": "hub-30.3.1-20261006",
+    "version": "30.4.0",
+    "build": "hub-30.4.0-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Compatibilidad del Hub reparada: el listado ya no depende de Object.groupBy.",
-      "Carga del catálogo reforzada con petición fresca y validación de registro no vacío.",
-      "El Service Worker del Hub activa la reparación inmediatamente y recarga una vez la portada si estaba atrapada en una caché anterior."
+      "Nuevo Centro de Agentes integrado en el Hub como módulo visible.",
+      "Audit Agent, Repair Agent y PC Agent conservan especialidad, permisos y límites separados.",
+      "La primera fase organiza acceso y documentación sin fusionar agentes ni ejecutar acciones desde la portada."
     ],
     "history": [
+      {
+        "version": "30.3.1",
+        "date": "2026-10-07",
+        "build": "hub-30.3.1-20261006",
+        "changes": [
+          "Compatibilidad del Hub reparada: el listado ya no depende de Object.groupBy.",
+          "Carga del catálogo reforzada con petición fresca y validación de registro no vacío.",
+          "El Service Worker del Hub activa la reparación inmediatamente y recarga una vez la portada si estaba atrapada en una caché anterior."
+        ]
+      },
       {
         "version": "30.3.0",
         "date": "2026-10-07",
@@ -120,7 +130,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "8cade6a5e4904301c1732b59a70459e23a633e70e56386c6074a44a585be9a93"
+          "sha256": "2e2532b08f29f1f9b65b3b42e0145cafbe786a852ab705e87944bdbe12e152b0"
         },
         {
           "url": "version-verifier.js",
@@ -128,23 +138,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "6ab9a2c9cdd686416795a02d7c46e3308dc4959b3a9222aa13e3377f763d5d13"
+          "sha256": "d4635386b833db8953ff3693affb9f14cdbc8e30b451b58790a13c1f59505fb1"
         },
         {
           "url": "styles.css",
-          "sha256": "6c1dccf1cc2676b1fe7cfa4cf99c247f52825205d1707c240b19de924ae66575"
+          "sha256": "9179eb23c2e982240bfaa0f25764eea167cec4ab2ec320d72d9b3ee1c933879c"
         },
         {
           "url": "service-worker.js",
-          "sha256": "04776f5d8fcc92b1521a675ea1225cfe17e2fe6815999fba1883e0cc82f50365"
+          "sha256": "249a8786280068193f8467c5cc4e61adbf3b32dbb33fce2c4938ac8397704909"
         },
         {
           "url": "build-assets.js",
-          "sha256": "4926451444523ed3e1e5ba0f859fb1357e1fb9e3828efc2ba625d90d9761ef5c"
+          "sha256": "bb4abec1489141ec1ad0f851a17cce96370c2912e34f05df6e3f6b529f8a83fa"
         }
       ]
     },
-    "cacheBuild": "c9569227c37dd5e9"
+    "cacheBuild": "6ac3ee190c7feb64"
   },
   "apps": [
     {
@@ -602,6 +612,35 @@
         "Implementación en adrian-typing-tracker; esta ficha requiere la extensión de Chrome.",
         "En móvil se muestra información; los controles locales solo aparecen si la extensión está disponible."
       ]
+    },
+    {
+      "id": "agents",
+      "name": "Centro de Agentes",
+      "version": "0.1.0",
+      "build": "sha256-7addd36f24ea",
+      "releasedAt": "2026-10-07",
+      "kind": "bundled",
+      "changes": [
+        "Primera interfaz visible para los agentes existentes del ecosistema.",
+        "Distingue Audit Agent, Repair Agent y PC Agent por función, permisos, modelo y coste máximo.",
+        "Añade accesos seguros y copia de comandos sin automatizar todavía ejecuciones."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/agents/index.html",
+            "sha256": "b4715b3a2cf88008b3798d7323fe28d5aacb45367be4a94e2b5b1209826122d0"
+          },
+          {
+            "url": "./apps/agents/app.js",
+            "sha256": "50251244d2e27ac90b40935468bb99deb33284698b0a3733ac56bebec6c33ed5"
+          },
+          {
+            "url": "./apps/agents/styles.css",
+            "sha256": "141751cf49c8224c610f9320ab850f5a251a7cba33950d60d05ef4b18cf9262a"
+          }
+        ]
+      }
     },
     {
       "id": "limpieza",
