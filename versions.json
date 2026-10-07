@@ -1,16 +1,24 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T05:46:53.655557+00:00",
+  "generatedAt": "2026-10-07T06:15:09.972180+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.2.2",
-    "build": "hub-30.2.2-20261006",
+    "version": "30.2.3",
+    "build": "hub-30.2.3-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Key Word Speaking 1.0.2: teclado, corrección individual, banco y caché offline auditados; Grammar conservado."
+      "Key Word Speaking 1.0.3: letra grande y dictado natural con contexto impreso en azul; Grammar conservado."
     ],
     "history": [
+      {
+        "version": "30.2.2",
+        "date": "2026-10-07",
+        "build": "hub-30.2.2-20261006",
+        "changes": [
+          "Key Word Speaking 1.0.2: teclado, corrección individual, banco y caché offline auditados; Grammar conservado."
+        ]
+      },
       {
         "version": "30.2.0",
         "date": "2026-10-07",
@@ -92,7 +100,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "246b6247bdcc899d2b6f89d887e6318b80513e2c978a47010dc5fa3a8e5480e8"
+          "sha256": "b3c6faa73e5c6e5f6f6c2e7c5a97622caffa64b9fbc11476c5c71cd8b58d7841"
         },
         {
           "url": "version-verifier.js",
@@ -100,7 +108,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "ad0977edcf3e282498af4882ff1b79f1cc66c4c3a4c43267b7bd7f7113519a6f"
+          "sha256": "0496396a1797eb77af8d835892ef77bc3222f3dfe2617bc3ff21ef057f63ddc8"
         },
         {
           "url": "styles.css",
@@ -112,11 +120,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "249d41606ba84b4c2fffb067f4fe1509a54ad76e345d0931e546b4299721ad7c"
+          "sha256": "ba5b2678bede9cedc1cf0745d19fdc2c6c6073879c9257c0a87e54a743c5f50f"
         }
       ]
     },
-    "cacheBuild": "8b69cfe4e9ca160d"
+    "cacheBuild": "67c50c5ef83db692"
   },
   "apps": [
     {
@@ -307,25 +315,24 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.2",
-      "build": "sha256-9c44fc84535c",
+      "version": "1.0.3",
+      "build": "sha256-9f5828d431b1",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Teclado Gboard estable y respuesta multilínea visible.",
-        "Corrección individual, puntos y racha inmediata; extracción segura de frases completas.",
-        "Corregidos once ejercicios del banco y variantes opcionales; progreso, medallas y Grammar preservados.",
-        "Caché offline compatible con enlaces de recursos versionados, validada por huella SHA-256."
+        "Letra del hueco ampliada a 32–40 px y protegida frente al estilo común del Hub.",
+        "Dictado natural con palabras de antes, después o ambas: azul en el texto impreso y solo la respuesta en el hueco.",
+        "Contracciones y contexto parcial reconocidos; Gboard estable y corrección individual explícita."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "674a0c3e9c3fe88f786a8c732820e58a68ff2509b8bdb3bdc9f61ec70c631902"
+            "sha256": "7864c1330bdd568f80a38691cc5726cf52a142ffb451b888711b0a1418c1422a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "6a09d12e3a5c26b2b6da766996c091f648a195ecf583cd704d8b89b496239917"
+            "sha256": "a0bd92fdcde59ab0d9c4e7ea86faa910aa6744aa51198a261b75349a67a1c89f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -333,17 +340,27 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "c513a1f5bf0d565df9ec702e0948ed9e240a95e8e5471ddbb26c3490893a18e3"
+            "sha256": "2f5f9d18594455118220386f9d1d71d563cb3e33084c350a459938cd41f3b367"
           }
         ]
       },
-      "sourceCommit": "2bcffa9bde3bcf2d3800cdf4fa7d723b63c9c859",
-      "cacheBuild": "bad1180643361197",
+      "sourceCommit": "c1e6572f6168ac50ac1e7020549599b1211fa779",
+      "cacheBuild": "913887972f5fb277",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.2",
+          "date": "2026-10-07",
+          "changes": [
+            "Teclado Gboard estable y respuesta multilínea visible.",
+            "Corrección individual, puntos y racha inmediata; extracción segura de frases completas.",
+            "Corregidos once ejercicios del banco y variantes opcionales; progreso, medallas y Grammar preservados.",
+            "Caché offline compatible con enlaces de recursos versionados, validada por huella SHA-256."
+          ]
+        },
         {
           "version": "1.0.0",
           "date": "2026-10-07",
