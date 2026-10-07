@@ -11,7 +11,7 @@ for c in config['consumers']:
  for p in repo.rglob('*.html'):
   s=p.read_text(encoding='utf-8-sig')
   assert 'hub-nav.js?v=6' not in s,str(p)
-  if 'adrian-sync.js' in s:assert 'adrian-sync.js?v=1.0.5-20261007' in s,str(p)
+  if 'adrian-sync.js' in s:assert 'adrian-sync.js?v=1.0.6-20261007' in s,str(p)
 catalog=json.loads((w/'adrian-hub/versions.json').read_text(encoding='utf-8-sig'))
 for e in [catalog['hub']]+catalog['apps']:
  for f in e.get('verify',{}).get('files',[]):

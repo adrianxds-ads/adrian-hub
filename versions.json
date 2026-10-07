@@ -4,12 +4,12 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.1.2",
-    "build": "hub-30.1.2-20261007",
+    "version": "30.1.3",
+    "build": "hub-30.1.3-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Centro de actualización conservado con comprobación SHA-256 y preparación sin borrar cachés anteriores.",
-      "Integradas las reparaciones de progreso, Core, extensión y Cambridge con el código actual de producción."
+      "Sync 1.0.6: conciliación conservadora de historiales Cambridge por identificador.",
+      "Versiones y huellas coordinadas; pendientes y conflictos incompatibles conservados."
     ],
     "history": [
       {
@@ -66,7 +66,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "762daf4ad02d7c4ff88429ab0e7f22e79b84a7958ef5297ff694366f56d6a5bd"
+          "sha256": "a5944ed21843bccc25d7c854a44add6b752c3e4c67e042dd46775c9b8dff9a7d"
         },
         {
           "url": "version-verifier.js",
@@ -74,7 +74,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "e6cf356ea4b838cc91097005ecefd32476139421b9694a19efa6c9b971e017c1"
+          "sha256": "3affd65f7da77550c74bcaaeb1780c415cb64934aa3a675c8f639c60f7aea63f"
         },
         {
           "url": "styles.css",
@@ -86,36 +86,32 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "99dae3eb4d308c9f1cabafb42bd01578fd4d5e271d0286e2cc37588b814f6ed2"
+          "sha256": "79fed8c62e352f116a298eb4670137210d1743951ae6e3435603df1ee5b6093a"
         }
       ]
     },
-    "cacheBuild": "c476497ef0dbac5e"
+    "cacheBuild": "ce8b09421284f96c"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.1",
-      "build": "sha256-23452bf110f7",
+      "version": "3.34.2",
+      "build": "sha256-3d8f3223c30a",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "Contrato común de rendimiento del Hub.",
-        "Caché alineada con Adrian Core 1.0.1.",
-        "Sincronización global de estrellas y Oca compartida."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "2bc4cb3240ce6548bccd6c85c4c099b70c87cc29ec25a645820bfe10038f64b8"
+            "sha256": "1e18abee4ce34ea47f71f2be3ef222f3f48d993bb470873fc26218409ff4359b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "2020e940ca891d85864df93f921d485100d2234ef3d42665c74bfd5243daacd5"
+            "sha256": "806b2b11297a41ae74d73e38c6017ec605b8ac726eeb55496523b3d6a0c6cbfc"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -123,12 +119,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "fb86abaec04f5178e27a9cb4cf8453cdb7d469fad581355b191a978d49d6932a"
+            "sha256": "29a8323189dc4d1572d158b8635758ba606407e01027137aeb947d08c007bce5"
           }
         ]
       },
-      "sourceCommit": "ebccce0e6aaa02e85bbd262760d92c16b9ac7a92",
-      "cacheBuild": "02f74e096dfefdb7",
+      "sourceCommit": "38421150c6822f68461bba4c3f5cd079c536a962",
+      "cacheBuild": "7d5aa71ac87c71e0",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -137,27 +133,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.1",
-      "build": "sha256-43e28e334316",
+      "version": "0.12.2",
+      "build": "sha256-856b6aaf6c1a",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "Contraportada llevada a paridad visual con Adaptive.",
-        "Skills coloreadas con AVS 1–15.",
-        "Progress JSON global y AI Valuation añadidos.",
-        "Contrato común de rendimiento y caché alineada."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "040841f369b4d89dfaa556a023b7639f6fbcf1468083988b7fa8e4063c508032"
+            "sha256": "b13a4665e6410f1580d21ed05b09a6f695647c9510f2e57843017c9911589026"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "346210ea959c0a85c03e980ef0d20aae58aedf1d665cdd72801d95b692e57f59"
+            "sha256": "d0a2da90a86b24815f90800fd0e83edc18aae1553c3757c8abe501edf81c4004"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -165,12 +156,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "c79866e01e19afeb7b3ffed7659f8e3ccd9516c80d4325df9e7508913efd2d01"
+            "sha256": "34adb0e3c25f3b7f8843c825e5cea3e1d9d98d45a620fbc077a5962dbf62a3de"
           }
         ]
       },
-      "sourceCommit": "72c4464ce4f71faddb2e08a344f063ab5811a13a",
-      "cacheBuild": "35632ba0b50fee3c",
+      "sourceCommit": "b4c97c3656a07293279597da287091cc778d2328",
+      "cacheBuild": "5479cd49dc5455b9",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -179,26 +170,22 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.5",
-      "build": "sha256-97ee0da08732",
+      "version": "2.1.6",
+      "build": "sha256-f3c565c51207",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "El contrato termina y se contabiliza al vencer el tiempo sin depender de la última animación/pregunta.",
-        "Recuperación al volver a primer plano o reabrir una sesión vencida.",
-        "Contrato común de rendimiento y Oca compartida."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "d521d4b7e01586bcc3aa1e8ee98c755ad784d800652a1c8fd875ccef46d1fc43"
+            "sha256": "a6247638b823998fa51a7c04e156297eb34fc0718949fc886f0a0954d8e0ecb9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "6c20fe66bd505b8e092e0fcd54f7e3c705ee0d65426df971c2f2ae6ce83e4378"
+            "sha256": "c2a003023050bba1b5050592f66847846cfa10571801f99ff5177d082e09d1fd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -206,12 +193,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "8ee12e7a056d8e147f700b89432ba08038d80b03a11afeee02d32b26fac9d084"
+            "sha256": "5e1f86582e6cda6ec2ae11906b9255cebf32a4604d6e80630b7f34e866e71e8b"
           }
         ]
       },
-      "sourceCommit": "3b1193fc3dbc502cad203776a811d0b951a8dbb5",
-      "cacheBuild": "0a013f93cf8403be",
+      "sourceCommit": "3b613ad771efe63bfc4138dd14456aced2893bb9",
+      "cacheBuild": "eeff172babd625b1",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -220,26 +207,22 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.5",
-      "build": "sha256-f97b0887c8ed",
+      "version": "1.10.6",
+      "build": "sha256-2db137ea8813",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "Contrato común de rendimiento del Hub.",
-        "Caché alineada con Adrian Core 1.0.1.",
-        "Sincronización global de estrellas y Oca compartida."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "7555045c9f722f5b50579e324a2d62c97d0730edbb331a2ada1abed044396b66"
+            "sha256": "08d18fb4438f5915de91dc8fbafbba0faf0b95a701562d3c09a0a63f3abc2a81"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "9735ccf2239b144f9f8a530e01120c8bce23960632d5cd65992bfe54d2705f2a"
+            "sha256": "688aafc04956c357433d8f534162ff4276576ac328982e0779a681fd9d033aff"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -247,12 +230,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "8ef07b068af0f6752035f208e0cedc3055824cc7ef99fc33dcf8ac153ddd0886"
+            "sha256": "c78b066db40f3011f72df143eb29364ce5a67e7959bb8b7f2981a21b438bd87b"
           }
         ]
       },
-      "sourceCommit": "01ab8c84ba48ac47a22d310ec6d7779644b86fa6",
-      "cacheBuild": "8ccb241e06a9b03f",
+      "sourceCommit": "f4f0935ffdbd300364f2a0ebbb1987e4c06038ed",
+      "cacheBuild": "54c178e8f31eb1fc",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -261,23 +244,22 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.8",
-      "build": "sha256-76636cf44494",
+      "version": "1.2.9",
+      "build": "sha256-1135516f5ea4",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Modo de escritura de producción conservado con contexto y foco visible.",
-        "Integrado teclado 4.1.2 y ajuste horizontal; sincronización protegida 1.0.5."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "d7b169d6da23bf6f5b84a78a17dc525d79a71edec54d9b301070ddd4c09a9e08"
+            "sha256": "e1501b4cc521105527f66f57b0f689e3ab9594b0a626f4cebe19f96a7cb31ac4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "a528cdf86d60ea1e8cd923222c0d6fac615af05e576973a623ca3ab60c347146"
+            "sha256": "66b1c7dae0a904cfcab48fb2d2e4bda67cdd69b438a6d739eaf12d6f71593793"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -285,12 +267,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "3512c51bc6347590a76d87c75190dbd666b3aafac9c2888459865d89b3e89cc0"
+            "sha256": "d5d6d0fa42067935cef8f71d0d81414abd312709c88fa928987dfb65ed1322cc"
           }
         ]
       },
-      "sourceCommit": "8bb8841196319dc28e103842260b7f6642860712",
-      "cacheBuild": "feb715da912d7ead",
+      "sourceCommit": "505463c8a3efedbfac89952c37831fe12a0dad92",
+      "cacheBuild": "0327c01fd4136088",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -299,26 +281,22 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.5",
-      "build": "sha256-f256c9ee9f8e",
+      "version": "0.9.6",
+      "build": "sha256-ec60e3a6bef8",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "Contrato común de rendimiento del Hub.",
-        "Caché alineada con Adrian Core 1.0.1.",
-        "Sincronización global de estrellas y Oca compartida."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "a99bb99d6681c997a16dd3d947b89e41bc6d7bf0ae2c67989233aed52d4e1f5b"
+            "sha256": "32c6724370abe4e83cb016af0457bc5683f7ead2e7dd2fd7ca41413f3af444d9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "90415e2776e3e6b81ed054ea66f9759604c7d4d0d452bf2260297c6d1f509a5f"
+            "sha256": "83a6bc732fe3e06f8874c3e84b6a4442a3f72040b9a0fe5be683070a641ce86d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -326,12 +304,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "1da1900a7329edc4127434b02f5f9801a144232c9c11bbced878beb6a0a6af94"
+            "sha256": "610b0801f82ddd2ec0bba2ea5047ced6da4d320ce6f9c2fa3e9ee733944350a5"
           }
         ]
       },
-      "sourceCommit": "cd32b93cba6f744cee1af4f8b3955e8030b081a8",
-      "cacheBuild": "ce4789472544bdc1",
+      "sourceCommit": "15a1577d1ee33b2e305bd25b493810de4d4d64a5",
+      "cacheBuild": "6e13d0dc4f4529c9",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -340,26 +318,22 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.4-read-first",
-      "build": "sha256-ee35d4610e8b",
+      "version": "2.6.5-read-first",
+      "build": "sha256-22be2d4d4a38",
       "releasedAt": "2026-10-06",
       "kind": "public",
       "changes": [
-        "Texto y símbolos UTF-8 reparados en la interfaz.",
-        "Sincronización compartida actualizada a Adrian Core Sync 1.0.3.",
-        "Contrato común de rendimiento adaptado a la evaluación HOTI.",
-        "Caché alineada con Adrian Core 1.0.1.",
-        "Sincronización global de estrellas y Oca compartida."
+        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "0ec3a80c2263c124719e5e14cc1d0e3cba0379b0d6afdd7aaaae611685c8c7ed"
+            "sha256": "6ad590df1afcf1ffd42dd6cd6b8b416a08b37675f9d0003f24a17e8984c5125f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "a4aa2a5092871144237bbd2bec1f85fb0e114ae4723127814fb04db0a740e8d3"
+            "sha256": "4a46dacbcc34f441c73d2673093eed0db022a9aa226308bb42d78561b1ec5381"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -367,12 +341,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "be2596d98cf11751d851abb5509ede8ee3a0eab53695aee3c5a4754e04309410"
+            "sha256": "f475738be80e4f890fc4bd50612df344c97f9e52610715f83c0d883cd2d9e49e"
           }
         ]
       },
-      "sourceCommit": "08a88b7666607bbe724bfb045c80a6ed2b7c8b73",
-      "cacheBuild": "50ef51c11f05a37a",
+      "sourceCommit": "6a66a8a283049dc4725737147491142cd1403966",
+      "cacheBuild": "af26e034c4a13fe3",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
