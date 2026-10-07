@@ -1,17 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-06T16:08:04+02:00",
+  "generatedAt": "2026-10-07T05:35:39+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.1.3",
-    "build": "hub-30.1.3-20261007",
+    "version": "30.1.4",
+    "build": "hub-30.1.4-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Sync 1.0.6: conciliación conservadora de historiales Cambridge por identificador.",
-      "Versiones y huellas coordinadas; pendientes y conflictos incompatibles conservados."
+      "Sync 1.0.7: fusión automática determinista del progreso divergente con revisión-base por clave.",
+      "Baselines por dispositivo y conciliación compatible con estados comprimidos; los conflictos inseguros se preservan."
     ],
     "history": [
+      {
+        "version": "30.1.3",
+        "date": "2026-10-07",
+        "build": "hub-30.1.3-20261007",
+        "changes": [
+          "Sync 1.0.6: conciliación conservadora de historiales Cambridge por identificador.",
+          "Versiones y huellas coordinadas; pendientes y conflictos incompatibles conservados."
+        ]
+      },
       {
         "version": "30.1.1",
         "date": "2026-10-06",
@@ -66,7 +75,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "a5944ed21843bccc25d7c854a44add6b752c3e4c67e042dd46775c9b8dff9a7d"
+          "sha256": "b6bad6d524fe792227005b8b86b7bdf7f0cd4103941ead30f6236a3ef382d52b"
         },
         {
           "url": "version-verifier.js",
@@ -74,7 +83,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "3affd65f7da77550c74bcaaeb1780c415cb64934aa3a675c8f639c60f7aea63f"
+          "sha256": "9d695420ca1b029a238260aed93067a93b2c60aa9f95816a91bf08e449378683"
         },
         {
           "url": "styles.css",
@@ -86,32 +95,32 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "79fed8c62e352f116a298eb4670137210d1743951ae6e3435603df1ee5b6093a"
+          "sha256": "8ebb6c781562fd4874337c0808a77f02c76dfd0df8fd4096d396c88e58400287"
         }
       ]
     },
-    "cacheBuild": "ce8b09421284f96c"
+    "cacheBuild": "496232571d409c4b"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.2",
-      "build": "sha256-3d8f3223c30a",
-      "releasedAt": "2026-10-06",
+      "version": "3.34.3",
+      "build": "sha256-dc8e2c2a146c",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "1e18abee4ce34ea47f71f2be3ef222f3f48d993bb470873fc26218409ff4359b"
+            "sha256": "d5fa5b6d6feae8e52eb3d5ba2816762b5a4a144531eb1a7d19c9bd11475fbeb8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "806b2b11297a41ae74d73e38c6017ec605b8ac726eeb55496523b3d6a0c6cbfc"
+            "sha256": "3d326ac991bd04d87ebf05ce6cd8b639f91a0bf7fa00683e1753ece847600af8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -119,12 +128,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "29a8323189dc4d1572d158b8635758ba606407e01027137aeb947d08c007bce5"
+            "sha256": "08032f254f2cfab9a9ccf760d0804410ea1ee858fb855a08ecf8e9fd727fa708"
           }
         ]
       },
-      "sourceCommit": "38421150c6822f68461bba4c3f5cd079c536a962",
-      "cacheBuild": "7d5aa71ac87c71e0",
+      "sourceCommit": "6d3df0377d89c58a38493d3d0042e64681751d9a",
+      "cacheBuild": "acc5d256ebc5baec",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -133,22 +142,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.2",
-      "build": "sha256-856b6aaf6c1a",
-      "releasedAt": "2026-10-06",
+      "version": "0.12.3",
+      "build": "sha256-908340b9d4cf",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "b13a4665e6410f1580d21ed05b09a6f695647c9510f2e57843017c9911589026"
+            "sha256": "26af27c4a532a07dc2179da4f9a934116e84c4534669fee9b0f5c41a70f012bd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "d0a2da90a86b24815f90800fd0e83edc18aae1553c3757c8abe501edf81c4004"
+            "sha256": "be8b15a7da2d3ce852f1285a97e5afb921f386c373d0320ae30d17c07496fdb8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -156,12 +165,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "34adb0e3c25f3b7f8843c825e5cea3e1d9d98d45a620fbc077a5962dbf62a3de"
+            "sha256": "79528673336822bc53d3a4983565a9703e5499cab76ddfff02f9d06f2d1d4ba0"
           }
         ]
       },
-      "sourceCommit": "b4c97c3656a07293279597da287091cc778d2328",
-      "cacheBuild": "5479cd49dc5455b9",
+      "sourceCommit": "5b352bf9fc936b54f793b859a860819af3dc346a",
+      "cacheBuild": "4c45be64b339e544",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -170,22 +179,22 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.6",
-      "build": "sha256-f3c565c51207",
-      "releasedAt": "2026-10-06",
+      "version": "2.1.7",
+      "build": "sha256-5dc53fcff20c",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "a6247638b823998fa51a7c04e156297eb34fc0718949fc886f0a0954d8e0ecb9"
+            "sha256": "b7318e2d9d49b78d523ab9499a6099c8668e82442aa1d9fd94aee7a3cf907803"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "c2a003023050bba1b5050592f66847846cfa10571801f99ff5177d082e09d1fd"
+            "sha256": "84efc40e8c2763dcc4b9311f9405144cf94c15ddd4f1b685c3ad7b24634d01d9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -193,12 +202,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "5e1f86582e6cda6ec2ae11906b9255cebf32a4604d6e80630b7f34e866e71e8b"
+            "sha256": "a1e9ac5b7405e131f9fb5559ad875eefac5e580afdc1fc093b39e44bc240d35b"
           }
         ]
       },
-      "sourceCommit": "3b613ad771efe63bfc4138dd14456aced2893bb9",
-      "cacheBuild": "eeff172babd625b1",
+      "sourceCommit": "c447b09ec815253a79a7b2fa06bd494fdf1e382b",
+      "cacheBuild": "e2782ddccb578666",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -207,22 +216,22 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.6",
-      "build": "sha256-2db137ea8813",
-      "releasedAt": "2026-10-06",
+      "version": "1.10.7",
+      "build": "sha256-fd3681abd81d",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "08d18fb4438f5915de91dc8fbafbba0faf0b95a701562d3c09a0a63f3abc2a81"
+            "sha256": "41884573fa2da856f32cd3e9aa3c09861192c5deaa0e20487058fbe9827d5fd3"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "688aafc04956c357433d8f534162ff4276576ac328982e0779a681fd9d033aff"
+            "sha256": "1b24cb42d732255b508663c8907a1a690cdaf068f7e167690657f775a2ec95dd"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -230,12 +239,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "c78b066db40f3011f72df143eb29364ce5a67e7959bb8b7f2981a21b438bd87b"
+            "sha256": "b21a28fa7d728a7ee736546527afb2e8e77f4070bee0a2420c547664df906721"
           }
         ]
       },
-      "sourceCommit": "f4f0935ffdbd300364f2a0ebbb1987e4c06038ed",
-      "cacheBuild": "54c178e8f31eb1fc",
+      "sourceCommit": "0b337371fe8d7520ffdb9d987a7be74fa7502c11",
+      "cacheBuild": "fe52024b992a99da",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -244,22 +253,22 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.9",
-      "build": "sha256-1135516f5ea4",
-      "releasedAt": "2026-10-06",
+      "version": "1.2.10",
+      "build": "sha256-0ae10de3982d",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "e1501b4cc521105527f66f57b0f689e3ab9594b0a626f4cebe19f96a7cb31ac4"
+            "sha256": "bb58211cdef6277cb831876340c78f6ce20b5a721ff63dbe66fb572483094605"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "66b1c7dae0a904cfcab48fb2d2e4bda67cdd69b438a6d739eaf12d6f71593793"
+            "sha256": "4d7f1fb67ff8a0690bff5f4b39f2ed95c5bc0e386c6d5a2fb78d9994d7c5b9ce"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -267,12 +276,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "d5d6d0fa42067935cef8f71d0d81414abd312709c88fa928987dfb65ed1322cc"
+            "sha256": "3450e196c111858b7f08f66bbdd12a374af055ce2a1ea73783a22df0ea06644b"
           }
         ]
       },
-      "sourceCommit": "505463c8a3efedbfac89952c37831fe12a0dad92",
-      "cacheBuild": "0327c01fd4136088",
+      "sourceCommit": "0ce6d7fdddeef9f2d11439fa90b1dcbe376e4e24",
+      "cacheBuild": "53a65e18030ad606",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -281,22 +290,22 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.6",
-      "build": "sha256-ec60e3a6bef8",
-      "releasedAt": "2026-10-06",
+      "version": "0.9.7",
+      "build": "sha256-c241f6cdf153",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "32c6724370abe4e83cb016af0457bc5683f7ead2e7dd2fd7ca41413f3af444d9"
+            "sha256": "52807f0ea44a52d38a035e0227ec9281d6fe1f310d9a012473c446800e09463e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "83a6bc732fe3e06f8874c3e84b6a4442a3f72040b9a0fe5be683070a641ce86d"
+            "sha256": "6d480dd0e18e7ec25d88a73295538e52c82a5c2407ed2b5136ac53bfd098dedd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -304,12 +313,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "610b0801f82ddd2ec0bba2ea5047ced6da4d320ce6f9c2fa3e9ee733944350a5"
+            "sha256": "c4b0cec7967b002d9a41fc5f894b6733dc775d5a8479a6983e462bb7e71ac3f0"
           }
         ]
       },
-      "sourceCommit": "15a1577d1ee33b2e305bd25b493810de4d4d64a5",
-      "cacheBuild": "6e13d0dc4f4529c9",
+      "sourceCommit": "8656734585b8690550ab147ba37a42e0c1fb03a9",
+      "cacheBuild": "828fb456e7fea4f3",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -318,22 +327,22 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.5-read-first",
-      "build": "sha256-22be2d4d4a38",
-      "releasedAt": "2026-10-06",
+      "version": "2.6.6-read-first",
+      "build": "sha256-846b1a96f85a",
+      "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.6 con unión de intentos Cambridge identificados y protección de conflictos."
+        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "6ad590df1afcf1ffd42dd6cd6b8b416a08b37675f9d0003f24a17e8984c5125f"
+            "sha256": "fa723f867d2c5ba5d75b35e12c3952575899f5c6a56b42c41d7950cbb8376110"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "4a46dacbcc34f441c73d2673093eed0db022a9aa226308bb42d78561b1ec5381"
+            "sha256": "a3e58f52f3aa291c4344729136e7a1919094df61c05666e656cc89d7201aece3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -341,12 +350,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "f475738be80e4f890fc4bd50612df344c97f9e52610715f83c0d883cd2d9e49e"
+            "sha256": "0f4d261e673b210dc9ab09cd241d818aa35164b9e23fff4fb18e327860160e72"
           }
         ]
       },
-      "sourceCommit": "6a66a8a283049dc4725737147491142cd1403966",
-      "cacheBuild": "af26e034c4a13fe3",
+      "sourceCommit": "1eb5c9310205ddf2a8fc8ffdea4b88dd620af00c",
+      "cacheBuild": "4413cd2c8a0c8d3b",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
