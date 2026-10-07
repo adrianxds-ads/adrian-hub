@@ -1,14 +1,20 @@
 """Generate reproducible release cache IDs and Version Center fingerprints. No consumer apply or deployment."""
 from pathlib import Path
-import hashlib,json,re,subprocess,argparse
+import hashlib,json,re,subprocess,argparse,datetime
 from urllib.parse import urlparse,unquote
-parser=argparse.ArgumentParser();parser.add_argument('--hub-version');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--hub-version');parser.add_argument('--hub-only',action='store_true');args=parser.parse_args()
 hub=Path(__file__).parent;w=hub.parent
-names=['adrian-hub','adaptive-english','adaptive-exam','adaptive-hoti0108','adaptive-phrasal-verbs','adaptive-pizarras','adaptive-verbs-catala','b2-multiple-choice-cloze','adaptive-keyword-speaking']
-digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+all_names=['adrian-hub','adaptive-english','adaptive-exam','adaptive-hoti0108','adaptive-phrasal-verbs','adaptive-pizarras','adaptive-verbs-catala','b2-multiple-choice-cloze','adaptive-keyword-speaking']
+names=['adrian-hub'] if args.hub_only else all_names
+TEXT_EXT={'.js','.cjs','.html','.css','.json','.webmanifest','.svg','.py','.md','.txt'}
+def digest(p):
+ b=p.read_bytes()
+ if p.suffix.lower() in TEXT_EXT:b=b.replace(b'\r\n',b'\n')
+ return hashlib.sha256(b).hexdigest()
 if args.hub_version:
- p=hub/'app.js';s=p.read_text(encoding='utf-8-sig');old=re.search(r"HUB_VERSION='([^']+)'",s).group(1);s=s.replace("HUB_VERSION='"+old+"'","HUB_VERSION='"+args.hub_version+"'");s=re.sub(r"HUB_BUILD='[^']+'","HUB_BUILD='hub-"+args.hub_version+"-20261006'",s);p.write_text(s,encoding='utf-8',newline='\n')
+ p=hub/'app.js';s=p.read_text(encoding='utf-8-sig');old=re.search(r"HUB_VERSION='([^']+)'",s).group(1);s=s.replace("HUB_VERSION='"+old+"'","HUB_VERSION='"+args.hub_version+"'");stamp=datetime.date.today().strftime('%Y%m%d');s=re.sub(r"HUB_BUILD='[^']+'","HUB_BUILD='hub-"+args.hub_version+"-"+stamp+"'",s);p.write_text(s,encoding='utf-8',newline='\n')
  p=hub/'index.html';p.write_text(p.read_text(encoding='utf-8-sig').replace(old,args.hub_version),encoding='utf-8',newline='\n')
+ p=hub/'service-worker.js';sw=p.read_text(encoding='utf-8-sig').replace('styles.css?v='+old,'styles.css?v='+args.hub_version).replace('app.js?v='+old,'app.js?v='+args.hub_version);oldfix=''.join(old.split('.'));newfix=''.join(args.hub_version.split('.'));sw=sw.replace("hubfix')!=='"+oldfix+"'","hubfix')!=='"+newfix+"'").replace("u.searchParams.set('hubfix','"+oldfix+"')","u.searchParams.set('hubfix','"+newfix+"')");p.write_text(sw,encoding='utf-8',newline='\n')
 node="""const fs=require('fs'),vm=require('vm');const ctx={self:{AdrianRelease:{build:'test'},addEventListener(){}},importScripts(){}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),ctx);console.log(JSON.stringify(vm.runInContext("typeof ASSETS!=='undefined'?ASSETS:SHELL",ctx)));"""
 builds={}
 for name in names:
@@ -47,10 +53,11 @@ registry=json.loads((hub/'apps.json').read_text(encoding='utf-8'));registry['hub
 for a in [x['hub']]+x['apps']:
  if a['id']=='hub':files=[('app.js',hub/'app.js'),('version-verifier.js',hub/'version-verifier.js'),('index.html',hub/'index.html'),('styles.css',hub/'styles.css'),('service-worker.js',hub/'service-worker.js'),('build-assets.js',hub/'build-assets.js')]
  elif a['kind']=='public':
+  if args.hub_only:continue
   base=byid[a['id']]['url'];repo=w/base.rstrip('/').split('/')[-1];s=(repo/'app.js').read_text(encoding='utf-8-sig');a['version']=re.search(r"const APP_VERSION\s*=\s*['\"]([^'\"]+)",s).group(1);files=[(base+f,repo/f) for f in ['app.js','index.html','service-worker.js','build-assets.js']]
   a['cacheBuild']=builds[repo.name];a['sourceCommit']=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip();a['sourceDirty']=bool(subprocess.check_output(['git','-C',str(repo),'status','--porcelain'],text=True).strip())
  elif a['kind']=='bundled':
-  base=byid[a['id']]['url'];repo=hub/base.removeprefix('./');files=[(base+f,repo/f) for f in ['index.html','app.js','styles.css'] if (repo/f).exists()]
+  base=byid[a['id']]['url'];local=hub/'apps'/a['id'];repo=local if local.is_dir() else hub/base.removeprefix('./');verify_base=('./apps/'+a['id']+'/') if local.is_dir() else base;files=[(verify_base+f,repo/f) for f in ['index.html','app.js','styles.css'] if (repo/f).exists()]
  else:continue
  a['verify']={'files':[{'url':url,'sha256':digest(p)} for url,p in files]}
  if a['id']!='hub':a['build']='sha256-'+hashlib.sha256(''.join(f['sha256'] for f in a['verify']['files']).encode()).hexdigest()[:12]

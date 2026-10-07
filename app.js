@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.6';
-const HUB_BUILD='hub-30.4.6-20261007';
+const HUB_VERSION='30.4.7';
+const HUB_BUILD='hub-30.4.7-20261008';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
