@@ -1,58 +1,83 @@
 # Publicación verificada de Adrián Hub — 7 de octubre de 2026
 
-Estado: **Sync 1.0.6 y Hub 30.1.3 publicados y verificados**, con autorización expresa. Cierra la mejora adicional de conciliación Cambridge posterior a los seis bloques originales y su aceptación.
+Estado final: **Hub 30.1.4 y Sync 1.0.7 publicados, probados y aceptados en PC↔Pixel real**. Los seis bloques iniciales, la mejora Cambridge 1.0.6 y la reconciliación automática determinista 1.0.7 quedan cerrados.
 
-## Versiones publicadas
+## Versiones finales
 
 | Componente | Versión |
 | --- | --- |
-| Hub | 30.1.3 |
-| Core / servidor Sync | 1.0.6 |
+| Hub | 30.1.4 |
+| Core / servidor Sync | 1.0.7 |
 | Hub Control | 0.4.3 |
 | Teclado compartido | 4.1.2 |
-| english | 3.34.2 |
-| phrasal-verbs | 0.12.2 |
-| pizarras | 2.1.6 |
-| b2-cloze | 1.10.6 |
-| cambridge | 1.2.9 |
-| catala | 0.9.6 |
-| hoti0108 | 2.6.5-read-first |
+| english | 3.34.3 |
+| phrasal-verbs | 0.12.3 |
+| pizarras | 2.1.7 |
+| b2-cloze | 1.10.7 |
+| cambridge | 1.2.10 |
+| catala | 0.9.7 |
+| hoti0108 | 2.6.6-read-first |
 
-## Resultado
+## Qué cierra Sync 1.0.7
 
-Cambridge une historiales por identificador de intento, conserva resultados completos y evita duplicarlos al reenviar. Identificadores con datos incompatibles, registros antiguos sin id y metadatos diferentes siguen preservados como conflicto. Las otras apps conservan sus guardas; la conciliación automática de contadores agregados sigue abierta.
+Sync 1.0.7 incorpora revisión-base por clave y fusión determinista de estados divergentes. El servidor conserva snapshots de ancestros y puede combinar contribuciones concurrentes sin sumar dos veces el mismo progreso.
 
-Servidor y Core se publicaron antes de sus consumidores. Se conservaron una referencia Git previa y un snapshot privado del estado antes del reinicio. El servidor arrancó con la misma revisión previa; ninguna restauración sobrescribió estado. Los repositorios reales se actualizaron por fast-forward y los archivos locales no comprometidos de Cambridge se preservaron.
+La política cubre las campañas English/B2 Cloze/Català, Phrasal Verbs, Pizarras, HOTI0108, intentos Cambridge identificados, estrellas del Hub, Oca y el estado legacy del Path Game. Los estados comprimidos se normalizan antes de fusionar. Un conflicto que no puede demostrarse seguro se conserva en lugar de inventar progreso o destruir una rama.
 
-## Pruebas
+El cliente mantiene baselines por dispositivo, envía `baseRevision`, adopta el resultado canónico devuelto por el servidor y conserva snapshots locales de recuperación para claves protegidas.
 
-- 67 archivos realmente publicados coinciden con SHA-256 esperados.
-- Navegador real sobre publicación: Hub 30.1.3, evidencia de versiones, Sync 1.0.6, Cambridge 1.2.9, contexto/foco/escritura y activación de service workers.
-- PC con Chrome aislado Sync 1.0.6 → servidor real → Pixel con su perfil real Sync 1.0.5: pasó.
-- Pixel → servidor real → PC: pasó.
-- Escritura offline, recarga real del PC y entrega al Pixel al reconectar: pasó.
-- Diez claves protegidas del Pixel y del servidor permanecieron idénticas a las copias previas. Revisión 257 → 261 por las operaciones de prueba.
-- Clave desechable eliminada de ambos clientes; queda solo el marcador normal de borrado del servidor. Retirado el forward temporal ADB y devuelto el Pixel a ChatGPT.
-- Unión conmutativa, asociativa e idempotente, colisiones, registros antiguos, reloj atrasado, ACK, recuperación y cola tras recarga: pruebas sintéticas pasadas.
-- Cachés, precache, catálogo, consumidores, centro de actualización y móvil en tres tamaños: pasaron antes de publicar.
+## Pruebas automáticas
 
-## Límites
+- 12 pruebas específicas de política de fusión: campañas, Phrasal, Pizarras, HOTI, Cambridge, estrellas, Oca, Path Game, identidades incompatibles y pares seguros.
+- Prueba de protocolo: rama A aceptada desde una base común, rama B fusionada desde esa misma base y contribuciones de ambos dispositivos preservadas.
+- Integridad de cliente: `baseRevision`, adopción del resultado fusionado, estados comprimidos, borrados protegidos, recuperación, cola offline y conflictos no resolubles.
+- Version Center, service workers, caches y coherencia de catálogo: pasaron.
+- Consumo de Core, copias fallback, pins de Sync/Nav y fingerprints Git canónicos: pasaron.
+- Móvil 360×640, 390×844 y 740×420: Hub Control, Cambridge Parts 2/3/4, foco, teclado y límites de campos: pasaron.
+- 28 fingerprints de archivos públicos de las siete apps: verificados contra la publicación real.
+- Hub público verificado como `30.1.4 / hub-30.1.4-20261007`.
+- Core público y servidor verificados como Sync 1.0.7.
 
-La prueba real de transporte usa una clave desechable; no inventa resultados de ejercicios para forzar una unión en producción. La unión de historiales se verifica de forma aislada. El Pixel mantuvo su sesión 1.0.5 abierta para preservar continuidad; su actualización espera el cierre natural. La compatibilidad entre ambas versiones quedó probada. Las sesiones y workers abiertos pueden conservar la versión previa hasta cerrarse.
+## Aceptación real PC↔Pixel de divergencia 1.0.7
 
-## Commits de código publicados
+La prueba final se realizó con Chrome real de Windows y el perfil real del Pixel 10, ambos en Sync 1.0.7.
+
+Para no tocar respuestas ni puntuaciones se utilizó únicamente `adaptive_hoti0108_v1` y dos marcadores temporales en mapas de posición de navegación. No se modificaron intentos, rondas, puntos, exámenes ni historiales.
+
+1. PC y Pixel partieron de la misma revisión-base HOTI 319.
+2. PC creó una rama en `studyPositions` y Pixel otra distinta en `flashPositions`.
+3. La rama PC fue aceptada en la revisión HOTI 321.
+4. El servidor recibió la rama Pixel desde la base 319 y produjo un estado canónico que contenía **ambas contribuciones**.
+5. El Pixel adoptó ese estado fusionado, quedó sin pendiente para HOTI y registró la nueva base.
+6. Se restauró el valor HOTI previo mediante el protocolo normal de Sync. El servidor eliminó los marcadores y el Pixel quedó restaurado, sin pendiente, con base 330.
+7. La comparación semántica final confirma que HOTI coincide exactamente con la copia previa a la prueba.
+8. Las claves desechables de aceptación quedaron borradas; no queda ninguna clave de aceptación viva en el servidor.
+
+Tras la prueba se retiró el forward ADB temporal. Chrome volvió a segundo plano/congelable y ChatGPT quedó otra vez en primer plano.
+
+## Estado del progreso
+
+La prueba final no alteró progreso de estudio. HOTI terminó con el mismo contenido semántico que antes de la aceptación. Las demás claves protegidas no fueron utilizadas para crear la divergencia.
+
+Durante la aceptación hubo actividad normal de sincronización en otras apps; esos cambios legítimos se conservaron y no se restauraron desde snapshots antiguos.
+
+## Política de conflictos restante
+
+No queda pendiente una “fusión universal” como tarea de desarrollo. Sync 1.0.7 fusiona automáticamente los esquemas conocidos con reglas específicas. Los casos que violan invariantes o cuya identidad no es demostrable se mantienen como conflicto preservado **por diseño**, para priorizar integridad frente a una unión especulativa.
+
+## Commits finales de código
 
 | Repositorio | Commit |
 | --- | --- |
-| adaptive-english | 3842115 |
-| adaptive-exam | 505463c |
-| adaptive-hoti0108 | 6a66a8a |
-| adaptive-phrasal-verbs | b4c97c3 |
-| adaptive-pizarras | 3b613ad |
-| adaptive-verbs-catala | 15a1577 |
-| b2-multiple-choice-cloze | f4f0935 |
-| adrian-hub | eca96f0 |
-| adrian-core | b6773df |
-| adrian-sync-server | 896486e |
+| adrian-core | c3e3a83 |
+| adrian-sync-server | 0b5ab96 |
+| adrian-hub | fcd49a6 |
+| adaptive-english | 6d3df03 |
+| adaptive-exam | 0ce6d7f |
+| adaptive-hoti0108 | 1eb5c93 |
+| adaptive-phrasal-verbs | 5b352bf |
+| adaptive-pizarras | c447b09 |
+| adaptive-verbs-catala | 8656734 |
+| b2-multiple-choice-cloze | 0b33737 |
 
-Los seis bloques iniciales constan en REPAIR-2026-10-07.md. El detalle del candidato adicional figura en SYNC-1.0.6-CANDIDATE.md. Este cierre añade commits documentales sin cambiar el código servido.
+Los seis bloques originales constan en `REPAIR-2026-10-07.md`. El candidato Cambridge anterior se conserva como historial en `SYNC-1.0.6-CANDIDATE.md`. Este documento representa el cierre final de la jornada.
