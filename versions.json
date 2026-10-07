@@ -1,17 +1,25 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T06:45:27+02:00",
+  "generatedAt": "2026-10-07T05:46:53.655557+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.2.0",
-    "build": "hub-30.2.0-20261006",
+    "version": "30.2.1",
+    "build": "hub-30.2.1-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Key Word Speaking entra como aplicación oficial del Hub con práctica B2 Part 4 por voz o teclado y corrección 0/1/2.",
-      "Sync 1.0.8 protege y fusiona su historial entre dispositivos; 30/30 cuenta como oro global y alimenta la Oca común."
+      "Key Word Speaking 1.0.1: auditoría y corrección móvil; Grammar conservado."
     ],
     "history": [
+      {
+        "version": "30.2.0",
+        "date": "2026-10-07",
+        "build": "hub-30.2.0-20261006",
+        "changes": [
+          "Key Word Speaking entra como aplicación oficial del Hub con práctica B2 Part 4 por voz o teclado y corrección 0/1/2.",
+          "Sync 1.0.8 protege y fusiona su historial entre dispositivos; 30/30 cuenta como oro global y alimenta la Oca común."
+        ]
+      },
       {
         "version": "30.1.4",
         "date": "2026-10-07",
@@ -84,7 +92,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e5c090fcb563b08ea5dbf947d5ec0c7454f942e73595ce64892a2534332f2aab"
+          "sha256": "9674e55c10400c342de6668523f48142513f2b6f2b62c7fa2a7628a11f80c71f"
         },
         {
           "url": "version-verifier.js",
@@ -92,7 +100,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "7b5a02a9e18b9d80544c7777f104a6ac02c37af8180a2ff0178ecfe31c7afa66"
+          "sha256": "2f5ac1a2758e699db9d187d9123ebeb235250558d61370ebb5554e2968e0a805"
         },
         {
           "url": "styles.css",
@@ -104,11 +112,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "690690a0a894349f185de597d4c52f52f0156c591153607ffb7390a8fbfccd49"
+          "sha256": "bd30d0845b91e9efeab61a31f9b284aa86255a2a5880fad8dbbd0669d05bbdcc"
         }
       ]
     },
-    "cacheBuild": "797e7086c48d9596"
+    "cacheBuild": "d26092eb691bd8d7"
   },
   "apps": [
     {
@@ -299,24 +307,24 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.0",
-      "build": "sha256-c2f816a805bc",
+      "version": "1.0.1",
+      "build": "sha256-970c0f3c42fd",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Primera versión oficial del Hub: 120 Key Word Transformations B2 First Part 4, voz + teclado.",
-        "Corrección Cambridge-style 0/1/2, revisión completa de fallos, estadísticas y medallas.",
-        "Sync 1.0.8, oro global, Oca común, PWA offline y Version Center."
+        "Teclado Gboard estable y respuesta multilínea visible.",
+        "Corrección individual, puntos y racha inmediata; extracción segura de frases completas.",
+        "Corregidos once ejercicios del banco y variantes opcionales; progreso, medallas y Grammar preservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "1e4510b15f5f89f29046278238f26f2d2582f6086266f86e6ef930d63c090307"
+            "sha256": "deffe7a414b7cea5cbd437ab84885ac58a4ac35ee2ff86097c8e38377d4e97ce"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "acffa70e4376f12db5ed7bfeb0896967fc305bbf336421d7827714d4ec5709ac"
+            "sha256": "f347184bf0f1c08b98f3b39d983d16a803fc359fe621172e8c0a32c7afde1e29"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -324,15 +332,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "07832aff5c5f2a7ffbbacfad4300dcd12d9722f697d3049341a5edbc2db2f729"
+            "sha256": "a7dc5d7a152b4c6e91fcf1af3fe1dc0f535bfbb3002d85b579398103d6249e0f"
           }
         ]
       },
-      "sourceCommit": "4b1c624fbfdf3e004d3312afa9ce7431e4c6ba7f",
-      "cacheBuild": "7011d8ad77681ca3",
+      "sourceCommit": "41bb4f06fccbdc9e752533e3f73d7b31dd8b124b",
+      "cacheBuild": "aa596805d7aa2115",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
+      ],
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-07",
+          "changes": [
+            "Primera versión oficial del Hub: 120 Key Word Transformations B2 First Part 4, voz + teclado.",
+            "Corrección Cambridge-style 0/1/2, revisión completa de fallos, estadísticas y medallas.",
+            "Sync 1.0.8, oro global, Oca común, PWA offline y Version Center."
+          ]
+        }
       ]
     },
     {
