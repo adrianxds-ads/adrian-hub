@@ -27,5 +27,5 @@ with sync_playwright() as p:
  page.locator('[data-action="close"]').click();assert page.locator('.ad-keyboard').is_hidden()
  worker=page.evaluate("async()=>{const r=await navigator.serviceWorker.ready,sw=r.active;if(sw.state!=='activated')await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('activation timeout')),15000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve();}else if(sw.state==='redundant'){clearTimeout(timer);reject(Error('redundant worker'));}};sw.addEventListener('statechange',done);done();});return sw.state}");assert worker=='activated'
  assert not errors,errors;c.close();b.close()
-health=json.load(urllib.request.urlopen('http://127.0.0.1:8788/health',timeout=5));assert health['version']=='1.0.7'
+health=json.load(urllib.request.urlopen('http://127.0.0.1:8788/health',timeout=5));assert health['version']=='1.0.8'
 print('PASS ACTUAL PUBLICATION: Hub '+version+', real public/bundled evidence, Sync 1.0.8, actual Hub/Cambridge SW activation, Cambridge 1.2.11 context/focus/typing. Fresh isolated stores; no writes to real sync service.')
