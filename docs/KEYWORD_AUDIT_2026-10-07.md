@@ -9,3 +9,11 @@
 - Mobile tests emulate browser dimensions/composition; physical Pixel keyboard verification remains unobserved.
 
 - Offline reload reproduced missing scripts because cache keys ignored versioned query variants; K service worker now uses ignoreSearch with release SHA-256 validation.
+
+## Published verification
+- K commit 2bcffa9; Hub functional release cee5e5b, versions K 1.0.2 / Hub 30.2.2.
+- All ten public release fingerprints match local SHA-256 evidence.
+- Actual service worker activation and expected K cache build passed.
+- Offline reload, question rendering and correct-answer scoring passed.
+- Actual Hub 30.2.2 visible UI and service-worker activation passed.
+- All app working trees checked clean; Grammar commit unchanged at 53c3e9a4fcb94fdb5fa8d020427600552384ee0a.
