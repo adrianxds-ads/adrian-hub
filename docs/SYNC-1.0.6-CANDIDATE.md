@@ -1,6 +1,6 @@
 # Sync 1.0.6 — candidato preparado el 7 de octubre de 2026
 
-Estado: **probado y comprometido localmente, pendiente de aprobación de publicación**. Producción continúa en Sync 1.0.5 y Hub 30.1.2.
+Estado final: **publicado y verificado tras autorización**. Sync 1.0.6 y Hub 30.1.3. Este documento conserva la preparación del candidato; el cierre actual figura en DEPLOYMENT-2026-10-07.md.
 
 La unión automática cubre intentos Cambridge identificados. Conserva cada resultado completo, evita duplicados y mantiene como conflicto cualquier identificador con contenido distinto, metadatos incompatibles o registro sin identificador. Los contadores agregados de otras apps siguen preservados sin conciliación automática.
 
@@ -26,8 +26,8 @@ El ACK del servidor confirma únicamente el payload exacto. Cuando guarda una un
 | adaptive-verbs-catala | 15a1577 |
 | b2-multiple-choice-cloze | f4f0935 |
 
-## Publicación pendiente
+## Publicación completada
 
 Publicar servidor y Core compatibles con preservación previa, después apps y Hub; comprobar huellas reales y transporte con una clave desechable. Las sesiones abiertas activan el nuevo worker al cerrarse naturalmente.
 
-La aprobación se requiere según la instrucción del usuario de pedir permiso antes de publicar cambios con riesgo relevante: esta versión añade uniones que escriben sobre historiales reales de Cambridge. El comportamiento de unión se ha verificado con datos sintéticos; su publicación y aceptación real todavía no se han ejecutado.
+El usuario autorizó la publicación. Se verificaron 67 huellas servidas, servidor 1.0.6, interfaz pública, workers activos y transporte PC 1.0.6 ↔ Pixel 1.0.5. La unión se probó con datos sintéticos; la prueba real usó una clave desechable y conservó las diez claves de progreso protegidas.
