@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T21:24:03.765751+00:00",
+  "generatedAt": "2026-10-07T21:33:49.388696+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.3",
-    "build": "hub-30.4.3-20261007",
+    "version": "30.4.4",
+    "build": "hub-30.4.4-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Agent Center 0.4.0 convierte El Reparador en agente operativo para Keyboard Speak con preflight gratuito.",
-      "Cada reparación crea un checkout aislado, exige confirmación de coste, ejecuta regresión y nunca publica automáticamente.",
-      "El panel OpenRouter muestra uso diario, límite y margen restante reales mediante la API de la clave."
+      "Agent Center 0.5.0 cierra el organigrama de agentes con 12 oficios definidos.",
+      "El Triaje aparece como futura puerta de entrada para derivar tareas y controlar coste.",
+      "Se mantienen operativos El Auditor, El Reparador y El Operador; ocho especialistas nuevos quedan claramente marcados En formación sin acciones ficticias."
     ],
     "history": [
+      {
+        "version": "30.4.3",
+        "date": "2026-10-07",
+        "build": "hub-30.4.3-20261007",
+        "changes": [
+          "Agent Center 0.4.0 convierte El Reparador en agente operativo para Keyboard Speak con preflight gratuito.",
+          "Cada reparación crea un checkout aislado, exige confirmación de coste, ejecuta regresión y nunca publica automáticamente.",
+          "El panel OpenRouter muestra uso diario, límite y margen restante reales mediante la API de la clave."
+        ]
+      },
       {
         "version": "30.4.2",
         "date": "2026-10-07",
@@ -160,7 +170,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "7e2f47554b65ffe58395079cf2222a64bee92e384a8e5c11bb3480dacc00fc02"
+          "sha256": "cd7a1507fa9e88f812c01a7b180d17537b67f1673eeeeb32bcd3d372188e7bd1"
         },
         {
           "url": "version-verifier.js",
@@ -168,7 +178,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "789a4827ba48d70d1cf4f83b210b31c040474d83ee4055528aec66b2f66ad570"
+          "sha256": "e14ad08b7e5bb3945c70b4bb3476d6244275da6d27d4b91753a31d68e6690a61"
         },
         {
           "url": "styles.css",
@@ -176,15 +186,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "ff67ce9f4a61c926b4110ae4b54db789b3db561f4fb51b1f5528eed89db30c48"
+          "sha256": "93e1fb2a2e4cf460ee0e48bc871a2f0041346759682f78423e8f988aebc0afe6"
         },
         {
           "url": "build-assets.js",
-          "sha256": "7092f2c16f4944747f1200f9ab3ffdb3503aad85dbbe598d2d5ff3238742e516"
+          "sha256": "3daa57e8459b6ba6b537d618286a1f2f9f5a43cf7fc6d03ae34812ceccd53923"
         }
       ]
     },
-    "cacheBuild": "260c4aa52f25a1b9"
+    "cacheBuild": "9bc2d6b276deb839"
   },
   "apps": [
     {
@@ -646,14 +656,15 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.4.0",
-      "build": "sha256-c87f3ec1124f",
+      "version": "0.5.0",
+      "build": "sha256-01ace9a09d53",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "El Reparador ya tiene preflight, misión, lanzamiento Opus y consulta de parche.",
-        "OpenRouter muestra gasto diario, saldo del límite y límite total en vivo.",
-        "Se consolidan los apodos El Auditor, El Reparador y El Operador; quedan reservados El Editor y El Constructor."
+        "Organigrama completo: El Triaje, El Auditor, El Reparador, El Operador, El Editor, El Constructor, El Tester, El Bibliotecario, El Investigador, El Entrenador, El Secretario y El Guardián.",
+        "Tres agentes quedan en servicio y los especialistas futuros se distinguen visualmente como En formación.",
+        "Cada ficha futura define primera misión, permisos o estrategia de coste sin simular capacidades todavía inexistentes.",
+        "El panel de gasto OpenRouter y las acciones reales del Auditor y Reparador se conservan."
       ],
       "verify": {
         "files": [
@@ -667,7 +678,7 @@
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "8e3d01a615c66e98b6074a1cc5fb91e4111f35ece80368b5b5f2fb3d30d1805d"
+            "sha256": "465359b2a9806f2b00102fc60ef7f766ccfc47db72b19040cd7ec06f52874319"
           }
         ]
       }

@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "hubVersion": "30.4.3",
+  "version": 22,
+  "hubVersion": "30.4.4",
   "apps": [
     {
       "id": "english",
@@ -131,7 +131,7 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "subtitle": "Auditor · Reparador · Operador · gasto OpenRouter en vivo",
+      "subtitle": "12 oficios · 3 activos · Triaje y 8 especialistas en formación",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "https://adrin.tail8fd071.ts.net/dc-inbox/agents/ui/",
