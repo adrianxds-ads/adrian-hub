@@ -18,17 +18,23 @@
 
 <section class="agent-grid" aria-label="Agentes disponibles">
 <article class="agent-card ad-card" data-agent="audit">
-  <div class="agent-head"><span class="agent-glyph">HA</span><div><small>HUB AGENT · AUDITOR</small><h2>Audit Agent</h2></div><span class="status ready">LISTO</span></div>
-  <p>Especialista en auditar el ecosistema de aplicaciones sin modificar el código.</p>
-  <dl><div><dt>Especialidad</dt><dd>Arquitectura, bugs, UX, coherencia y repositorios</dd></div><div><dt>Permisos</dt><dd>Solo lectura · workbench aislado</dd></div><div><dt>Modelo</dt><dd>Sonnet 5.5 por defecto · Opus 5.5 premium</dd></div><div><dt>Límite actual</dt><dd>0,35 USD por auditoría</dd></div></dl>
-  <div class="actions"><button class="ad-button primary" data-copy="audit-opus">COPIAR AUDITORÍA OPUS</button><a class="ad-button" href="../../chatgpt.html">ABRIR CHATGPT · HUB</a></div>
+  <div class="agent-head"><span class="agent-glyph">HA</span><div><small>HUB AGENT · AUDITOR</small><h2>Audit Agent</h2></div><span class="status checking" id="auditStatus">CONECTANDO</span></div>
+  <p>Especialista en auditar el ecosistema de aplicaciones sin modificar el código. Trabaja sobre el workbench aislado.</p>
+  <dl><div><dt>Especialidad</dt><dd>Arquitectura, bugs, UX, coherencia y repositorios</dd></div><div><dt>Permisos</dt><dd>Solo lectura · workbench aislado</dd></div><div><dt>Modelo premium</dt><dd>Claude Opus 5.5 vía OpenRouter</dd></div><div><dt>Límite</dt><dd>0,35 USD por auditoría</dd></div></dl>
+  <div class="agent-live"><b id="auditHeadline">Comprobando PC Agent…</b><small id="auditMeta">La consulta de estado no consume API.</small></div>
+  <label class="mission"><span>MISIÓN OPCIONAL</span><textarea id="auditMission" maxlength="1200" rows="3" placeholder="Ej.: Audita solo Keyboard Speak: legibilidad móvil, teclado y dictado."></textarea></label>
+  <div class="actions audit-actions">
+    <button class="ad-button" id="agentDryRun" type="button">PROBAR SIN GASTO</button>
+    <button class="ad-button primary" id="agentAuditOpus" type="button">AUDITAR CON OPUS</button>
+    <button class="ad-button wide" id="agentReport" type="button">VER ÚLTIMO INFORME</button>
+  </div>
 </article>
 
 <article class="agent-card ad-card" data-agent="repair">
   <div class="agent-head"><span class="agent-glyph">RA</span><div><small>HUB AGENT · REPARADOR</small><h2>Repair Agent</h2></div><span class="status guarded">ACOTADO</span></div>
   <p>Especialista en reparar una aplicación concreta dentro de un checkout aislado y con una regresión definida.</p>
   <dl><div><dt>Especialidad</dt><dd>Parche pequeño, prueba, diff y reparación controlada</dd></div><div><dt>Permisos</dt><dd>Solo archivos autorizados · sin despliegue ni credenciales</dd></div><div><dt>Modelo</dt><dd>Opus 5.5</dd></div><div><dt>Límite actual</dt><dd>1,65 USD por ejecución</dd></div></dl>
-  <div class="actions"><button class="ad-button primary" data-copy="repair-info">COPIAR COMANDO BASE</button><a class="ad-button" href="../../chatgpt.html">PREPARAR REPARACIÓN</a></div>
+  <div class="actions"><button class="ad-button primary" data-copy="repair-info" type="button">COPIAR COMANDO BASE</button><a class="ad-button" href="../../chatgpt.html">PREPARAR REPARACIÓN</a></div>
 </article>
 
 <article class="agent-card ad-card" data-agent="pc">
@@ -45,8 +51,12 @@
   <p>Este centro no fusiona los agentes. Solo los hace visibles y organiza el acceso. Cada agente conserva su contexto, permisos, límites y entrenamiento.</p>
 </section>
 
-<footer><a href="../../">← Volver al Hub</a><span>Agent Center · 0.1.0</span></footer>
+<footer><a href="../../">← Volver al Hub</a><span>Agent Center · 0.2.0</span></footer>
 </main>
+
+<dialog id="reportDialog" class="report-dialog">
+  <div class="report-shell"><button id="reportClose" class="dialog-close" type="button" aria-label="Cerrar">×</button><span>ÚLTIMO INFORME</span><h2>Audit Agent</h2><pre id="reportContent">Cargando…</pre></div>
+</dialog>
 <script src="./app.js"></script>
 </body>
 </html>

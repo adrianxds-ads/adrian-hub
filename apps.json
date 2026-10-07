@@ -1,6 +1,6 @@
 {
-  "version": 18,
-  "hubVersion": "30.4.0",
+  "version": 19,
+  "hubVersion": "30.4.1",
   "apps": [
     {
       "id": "english",
@@ -131,7 +131,7 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "subtitle": "Audit Agent · Repair Agent · PC Agent",
+      "subtitle": "Audit Agent real · Opus · Repair · PC Agent",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "./apps/agents/",

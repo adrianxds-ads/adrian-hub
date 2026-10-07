@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T20:17:08.225360+00:00",
+  "generatedAt": "2026-10-07T20:57:29.618847+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.0",
-    "build": "hub-30.4.0-20261007",
+    "version": "30.4.1",
+    "build": "hub-30.4.1-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Nuevo Centro de Agentes integrado en el Hub como módulo visible.",
-      "Audit Agent, Repair Agent y PC Agent conservan especialidad, permisos y límites separados.",
-      "La primera fase organiza acceso y documentación sin fusionar agentes ni ejecutar acciones desde la portada."
+      "Agent Center 0.2.0 conecta Audit Agent con el bridge privado del PC a través de Tailscale.",
+      "La auditoría Opus puede probarse sin gasto; una ejecución con API exige confirmación explícita y mantiene el tope de 0,35 USD.",
+      "El Hub muestra estado de ejecución y permite leer el último informe sin exponer credenciales al navegador."
     ],
     "history": [
+      {
+        "version": "30.4.0",
+        "date": "2026-10-07",
+        "build": "hub-30.4.0-20261007",
+        "changes": [
+          "Nuevo Centro de Agentes integrado en el Hub como módulo visible.",
+          "Audit Agent, Repair Agent y PC Agent conservan especialidad, permisos y límites separados.",
+          "La primera fase organiza acceso y documentación sin fusionar agentes ni ejecutar acciones desde la portada."
+        ]
+      },
       {
         "version": "30.3.1",
         "date": "2026-10-07",
@@ -130,7 +140,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "2e2532b08f29f1f9b65b3b42e0145cafbe786a852ab705e87944bdbe12e152b0"
+          "sha256": "b1423f3f70f65885bd4208ffc32219712955141d8f54332f054bb9b0069021d9"
         },
         {
           "url": "version-verifier.js",
@@ -138,7 +148,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "d4635386b833db8953ff3693affb9f14cdbc8e30b451b58790a13c1f59505fb1"
+          "sha256": "1b0fafebeb7834fb389e57bfae18b039aeee446af4cf1a6280c6cb2739dbe203"
         },
         {
           "url": "styles.css",
@@ -146,15 +156,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "249a8786280068193f8467c5cc4e61adbf3b32dbb33fce2c4938ac8397704909"
+          "sha256": "30ad9c07b48a72ef206afdb3f3c43a8752f4b47e2a2edf2f3f9d9e83064f66b1"
         },
         {
           "url": "build-assets.js",
-          "sha256": "bb4abec1489141ec1ad0f851a17cce96370c2912e34f05df6e3f6b529f8a83fa"
+          "sha256": "70dc0eeb91c6ff7015ffd5a93050dcd191513c737ad9254cb177697a9f31b6e3"
         }
       ]
     },
-    "cacheBuild": "6ac3ee190c7feb64"
+    "cacheBuild": "f79044d400f16608"
   },
   "apps": [
     {
@@ -616,28 +626,29 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.1.0",
-      "build": "sha256-7addd36f24ea",
+      "version": "0.2.0",
+      "build": "sha256-076956c82691",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "Primera interfaz visible para los agentes existentes del ecosistema.",
-        "Distingue Audit Agent, Repair Agent y PC Agent por función, permisos, modelo y coste máximo.",
-        "Añade accesos seguros y copia de comandos sin automatizar todavía ejecuciones."
+        "Audit Agent ya se puede comprobar y lanzar desde el propio Hub.",
+        "La prueba en seco verifica modelo, credencial y presupuesto sin llamar a la API.",
+        "La ejecución Opus exige confirmación de coste y se procesa en segundo plano en el PC.",
+        "Estado y último informe quedan accesibles desde la tarjeta del agente."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "b4715b3a2cf88008b3798d7323fe28d5aacb45367be4a94e2b5b1209826122d0"
+            "sha256": "b8896625ad7dfa423e54faad7666ae00b8064fff37df400a2f1364897484e1a3"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "50251244d2e27ac90b40935468bb99deb33284698b0a3733ac56bebec6c33ed5"
+            "sha256": "9fc2cc7ac2625c8e6f89da9dac1b9bb1fd0ff103885ec4c266a8be496f8dbdcb"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "141751cf49c8224c610f9320ab850f5a251a7cba33950d60d05ef4b18cf9262a"
+            "sha256": "8625db9bd3076b5a7b4488cbd8af9f6082dae32921d2c332222a760feb3f7421"
           }
         ]
       }
