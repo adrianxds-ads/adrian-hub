@@ -1,6 +1,6 @@
 {
-  "version": 15,
-  "hubVersion": "30.1.4",
+  "version": 16,
+  "hubVersion": "30.2.0",
   "apps": [
     {
       "id": "english",
@@ -51,6 +51,16 @@
       "url": "https://adrianxds-ads.github.io/adaptive-exam/",
       "repo": "https://github.com/adrianxds-ads/adaptive-exam",
       "glyph": "B2"
+    },
+    {
+      "id": "keyword-speaking",
+      "name": "Key Word Speaking",
+      "subtitle": "B2 Part 4 · transformaciones · voz + teclado",
+      "group": "Estudio",
+      "kind": "pwa-study",
+      "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/",
+      "repo": "https://github.com/adrianxds-ads/adaptive-keyword-speaking",
+      "glyph": "KW"
     },
     {
       "id": "catala",

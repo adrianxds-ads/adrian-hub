@@ -1,17 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T05:35:39+02:00",
+  "generatedAt": "2026-10-07T06:45:27+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.1.4",
-    "build": "hub-30.1.4-20261007",
+    "version": "30.2.0",
+    "build": "hub-30.2.0-20261006",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Sync 1.0.7: fusión automática determinista del progreso divergente con revisión-base por clave.",
-      "Baselines por dispositivo y conciliación compatible con estados comprimidos; los conflictos inseguros se preservan."
+      "Key Word Speaking entra como aplicación oficial del Hub con práctica B2 Part 4 por voz o teclado y corrección 0/1/2.",
+      "Sync 1.0.8 protege y fusiona su historial entre dispositivos; 30/30 cuenta como oro global y alimenta la Oca común."
     ],
     "history": [
+      {
+        "version": "30.1.4",
+        "date": "2026-10-07",
+        "build": "hub-30.1.4-20261007",
+        "changes": [
+          "Sync 1.0.7: fusión automática determinista del progreso divergente con revisión-base por clave.",
+          "Baselines por dispositivo y conciliación compatible con estados comprimidos; los conflictos inseguros se preservan."
+        ]
+      },
       {
         "version": "30.1.3",
         "date": "2026-10-07",
@@ -75,7 +84,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "b6bad6d524fe792227005b8b86b7bdf7f0cd4103941ead30f6236a3ef382d52b"
+          "sha256": "e5c090fcb563b08ea5dbf947d5ec0c7454f942e73595ce64892a2534332f2aab"
         },
         {
           "url": "version-verifier.js",
@@ -83,7 +92,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "9d695420ca1b029a238260aed93067a93b2c60aa9f95816a91bf08e449378683"
+          "sha256": "7b5a02a9e18b9d80544c7777f104a6ac02c37af8180a2ff0178ecfe31c7afa66"
         },
         {
           "url": "styles.css",
@@ -95,32 +104,32 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "8ebb6c781562fd4874337c0808a77f02c76dfd0df8fd4096d396c88e58400287"
+          "sha256": "690690a0a894349f185de597d4c52f52f0156c591153607ffb7390a8fbfccd49"
         }
       ]
     },
-    "cacheBuild": "496232571d409c4b"
+    "cacheBuild": "797e7086c48d9596"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.3",
-      "build": "sha256-dc8e2c2a146c",
+      "version": "3.34.4",
+      "build": "sha256-4e47f78e2ff0",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "d5fa5b6d6feae8e52eb3d5ba2816762b5a4a144531eb1a7d19c9bd11475fbeb8"
+            "sha256": "d238b0131f94e5660193867d87099cb8b152db5f11a290a31077d96a0162a214"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "3d326ac991bd04d87ebf05ce6cd8b639f91a0bf7fa00683e1753ece847600af8"
+            "sha256": "4ac56e99adbf89a24a54e552daaf9c121f4b4910cdd64e45f9d9b459ebff1dbe"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -128,12 +137,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "08032f254f2cfab9a9ccf760d0804410ea1ee858fb855a08ecf8e9fd727fa708"
+            "sha256": "04a7c8c66314d208385fd2c0253f98e02f0d0ef8629d4e4df12d2f48236d9048"
           }
         ]
       },
-      "sourceCommit": "6d3df0377d89c58a38493d3d0042e64681751d9a",
-      "cacheBuild": "acc5d256ebc5baec",
+      "sourceCommit": "242e9d4ec71c550f544498dde838d116a6903b37",
+      "cacheBuild": "e24918b66f0d5f61",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -142,22 +151,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.3",
-      "build": "sha256-908340b9d4cf",
+      "version": "0.12.4",
+      "build": "sha256-862f3b080c7e",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "26af27c4a532a07dc2179da4f9a934116e84c4534669fee9b0f5c41a70f012bd"
+            "sha256": "1d051c9c1940c8d8523fde85a0eb80b59fd38f4e3cf906e59acd6cc9ea857732"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "be8b15a7da2d3ce852f1285a97e5afb921f386c373d0320ae30d17c07496fdb8"
+            "sha256": "076ea907c8cbe298039df05d49ae69049180e691e0e780145c784c5ab39d9ad4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -165,12 +174,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "79528673336822bc53d3a4983565a9703e5499cab76ddfff02f9d06f2d1d4ba0"
+            "sha256": "b67b6def1f28bb363bcfa8c619657e162cb0b34b813c2bcf93281c9d230a1dd1"
           }
         ]
       },
-      "sourceCommit": "5b352bf9fc936b54f793b859a860819af3dc346a",
-      "cacheBuild": "4c45be64b339e544",
+      "sourceCommit": "2b1dba33d4f1c963e9bf25644c2f17b7ca211666",
+      "cacheBuild": "625d380af0b46315",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -179,22 +188,22 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.7",
-      "build": "sha256-5dc53fcff20c",
+      "version": "2.1.8",
+      "build": "sha256-636936cb0254",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "b7318e2d9d49b78d523ab9499a6099c8668e82442aa1d9fd94aee7a3cf907803"
+            "sha256": "8b717beb967cbd9b8e30de57ad4704877efcb9390d0c3820ca884230b4721ba4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "84efc40e8c2763dcc4b9311f9405144cf94c15ddd4f1b685c3ad7b24634d01d9"
+            "sha256": "7d4c1a6c888fea90c901b2b5da16fb0aa9eb90a3c34953fadb2262e79a06c885"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -202,12 +211,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "a1e9ac5b7405e131f9fb5559ad875eefac5e580afdc1fc093b39e44bc240d35b"
+            "sha256": "f30b0f6285dd2ddc97dfdfd2cc62178ad89c3c8b8e79ec7d924a9960d0f65d1f"
           }
         ]
       },
-      "sourceCommit": "c447b09ec815253a79a7b2fa06bd494fdf1e382b",
-      "cacheBuild": "e2782ddccb578666",
+      "sourceCommit": "038ef1e1eed604c275d65c37eff29cd8f6b21654",
+      "cacheBuild": "78d21b7833371566",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -216,22 +225,22 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.7",
-      "build": "sha256-fd3681abd81d",
+      "version": "1.10.8",
+      "build": "sha256-8edb5526bc94",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "41884573fa2da856f32cd3e9aa3c09861192c5deaa0e20487058fbe9827d5fd3"
+            "sha256": "710ab10a5b7c46b6c3f0bb860097e9831236fd7af6758a0b034cb8b30616eb69"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "1b24cb42d732255b508663c8907a1a690cdaf068f7e167690657f775a2ec95dd"
+            "sha256": "63af35db6685169ac8b7914d7513bcf90e465acb2506ad35ddf4ab879e07f922"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -239,12 +248,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "b21a28fa7d728a7ee736546527afb2e8e77f4070bee0a2420c547664df906721"
+            "sha256": "60be5d47d366f6204473c57bc18d73d849b503db9bb1bbfd48344a72a55b4f9b"
           }
         ]
       },
-      "sourceCommit": "0b337371fe8d7520ffdb9d987a7be74fa7502c11",
-      "cacheBuild": "fe52024b992a99da",
+      "sourceCommit": "b69b16fffeb0e364a10afded5158acdb4c4ef594",
+      "cacheBuild": "dac0adda124e84ce",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -253,22 +262,22 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.10",
-      "build": "sha256-0ae10de3982d",
+      "version": "1.2.11",
+      "build": "sha256-67525ecb704a",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "bb58211cdef6277cb831876340c78f6ce20b5a721ff63dbe66fb572483094605"
+            "sha256": "3d069454386bfcfb37966f4df120725894d6cd152f4f68051504d33356340b29"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "4d7f1fb67ff8a0690bff5f4b39f2ed95c5bc0e386c6d5a2fb78d9994d7c5b9ce"
+            "sha256": "0da7b60fbbbc08266d407a4a361f7721624f47ac93e3811956029f6542789142"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -276,36 +285,75 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "3450e196c111858b7f08f66bbdd12a374af055ce2a1ea73783a22df0ea06644b"
+            "sha256": "a00ece489333de34131564f56fe468876e29860f50d0f228a6e53e8e583b99b2"
           }
         ]
       },
-      "sourceCommit": "0ce6d7fdddeef9f2d11439fa90b1dcbe376e4e24",
-      "cacheBuild": "53a65e18030ad606",
+      "sourceCommit": "53c3e9a4fcb94fdb5fa8d020427600552384ee0a",
+      "cacheBuild": "ab46d1770a294342",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ]
     },
     {
-      "id": "catala",
-      "name": "Català · Verbs",
-      "version": "0.9.7",
-      "build": "sha256-c241f6cdf153",
+      "id": "keyword-speaking",
+      "name": "Key Word Speaking",
+      "version": "1.0.0",
+      "build": "sha256-87111bf88604",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Primera versión oficial del Hub: 120 Key Word Transformations B2 First Part 4, voz + teclado.",
+        "Corrección Cambridge-style 0/1/2, revisión completa de fallos, estadísticas y medallas.",
+        "Sync 1.0.8, oro global, Oca común, PWA offline y Version Center."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
+            "sha256": "1e4510b15f5f89f29046278238f26f2d2582f6086266f86e6ef930d63c090307"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
+            "sha256": "acffa70e4376f12db5ed7bfeb0896967fc305bbf336421d7827714d4ec5709ac"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
+            "sha256": "974012a34650014e8e6bb31330ffa63f48760a9d65a3c990505429a3e7fd1eca"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
+            "sha256": "b7f0215789c4b15a75fbbcda9cf2bddc2b26a1caa7796daf8300405a08e1ec73"
+          }
+        ]
+      },
+      "sourceCommit": "dab2bfdb57856184de6bb2650ee7aab7d12497a5",
+      "cacheBuild": "dbd320ef303bea35",
+      "sourceDirty": false,
+      "cachePrefixes": [
+        "keyword-speaking-"
+      ]
+    },
+    {
+      "id": "catala",
+      "name": "Català · Verbs",
+      "version": "0.9.8",
+      "build": "sha256-6c6c564cf2c0",
+      "releasedAt": "2026-10-07",
+      "kind": "public",
+      "changes": [
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "52807f0ea44a52d38a035e0227ec9281d6fe1f310d9a012473c446800e09463e"
+            "sha256": "7694e2e11ed163a44bb366a6365c397ce45262599585e122a55f877fbaea7fc2"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "6d480dd0e18e7ec25d88a73295538e52c82a5c2407ed2b5136ac53bfd098dedd"
+            "sha256": "29d192eebb90eedf3ca296ba2c68b788a6c438e4665ee48b4fbcd9ca1461f538"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -313,12 +361,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "c4b0cec7967b002d9a41fc5f894b6733dc775d5a8479a6983e462bb7e71ac3f0"
+            "sha256": "a2eb32ead0565e91d164ec944c4225558d152a7ef641dbdbab553becbc38948a"
           }
         ]
       },
-      "sourceCommit": "8656734585b8690550ab147ba37a42e0c1fb03a9",
-      "cacheBuild": "828fb456e7fea4f3",
+      "sourceCommit": "ad4c207ae80477f2062a9839cf5052060027c97a",
+      "cacheBuild": "df84f097d5cfcbc5",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -327,22 +375,22 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.6-read-first",
-      "build": "sha256-846b1a96f85a",
+      "version": "2.6.7-read-first",
+      "build": "sha256-7f7bbdee273a",
       "releasedAt": "2026-10-07",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.7 con revisión-base y fusión automática del progreso divergente."
+        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "fa723f867d2c5ba5d75b35e12c3952575899f5c6a56b42c41d7950cbb8376110"
+            "sha256": "7c6023d428a6adad69ed083e3abdf5bb25d0dc257c14d504f96c00717821ccc4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "a3e58f52f3aa291c4344729136e7a1919094df61c05666e656cc89d7201aece3"
+            "sha256": "4364a2bdd6d02aeb386219beca34c128796880946c33df0c591ddadb46f0e35d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -350,12 +398,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "0f4d261e673b210dc9ab09cd241d818aa35164b9e23fff4fb18e327860160e72"
+            "sha256": "860205fa632194a1c4bb6a7f16369a134badb6264b45c1028ccc3ef97f30a7c0"
           }
         ]
       },
-      "sourceCommit": "1eb5c9310205ddf2a8fc8ffdea4b88dd620af00c",
-      "cacheBuild": "4413cd2c8a0c8d3b",
+      "sourceCommit": "b0216655ff74bf81714659c1322cff7cdf6a7424",
+      "cacheBuild": "de98c245fa281ed4",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"

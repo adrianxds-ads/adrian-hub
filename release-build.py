@@ -4,7 +4,7 @@ import hashlib,json,re,subprocess,argparse
 from urllib.parse import urlparse,unquote
 parser=argparse.ArgumentParser();parser.add_argument('--hub-version');args=parser.parse_args()
 hub=Path(__file__).parent;w=hub.parent
-names=['adrian-hub','adaptive-english','adaptive-exam','adaptive-hoti0108','adaptive-phrasal-verbs','adaptive-pizarras','adaptive-verbs-catala','b2-multiple-choice-cloze']
+names=['adrian-hub','adaptive-english','adaptive-exam','adaptive-hoti0108','adaptive-phrasal-verbs','adaptive-pizarras','adaptive-verbs-catala','b2-multiple-choice-cloze','adaptive-keyword-speaking']
 digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 if args.hub_version:
  p=hub/'app.js';s=p.read_text(encoding='utf-8-sig');old=re.search(r"HUB_VERSION='([^']+)'",s).group(1);s=s.replace("HUB_VERSION='"+old+"'","HUB_VERSION='"+args.hub_version+"'");s=re.sub(r"HUB_BUILD='[^']+'","HUB_BUILD='hub-"+args.hub_version+"-20261006'",s);p.write_text(s,encoding='utf-8',newline='\n')

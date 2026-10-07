@@ -1,5 +1,5 @@
-const HUB_VERSION='30.1.4';
-const HUB_BUILD='hub-30.1.4-20261007';
+const HUB_VERSION='30.2.0';
+const HUB_BUILD='hub-30.2.0-20261006';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -44,8 +44,8 @@ const HUB_STAR_KEY='adrian_hub_stars_v1',HUB_STAR_STEP=5;
 function parseStore(key){try{return JSON.parse(localStorage.getItem(key)||'{}')||{};}catch{return{};}}
 function perfectCount(rows=[]){return(rows||[]).filter(r=>{const c=Number(r?.correct??r?.score),t=Number(r?.total??15);return Number.isFinite(c)&&Number.isFinite(t)&&t>0&&c/t>=1-1e-9;}).length;}
 function goldInventory(){
-  const english=parseStore('adaptive_english_campaign1_v1'),cloze=parseStore('adaptive_b2_cloze_campaign1_v1'),catala=parseStore('adaptive_verbs_catala_campaign1_v1'),phrasal=parseStore('adaptive_phrasal_verbs_v1'),hoti=parseStore('adaptive_hoti0108_v1'),pizarras=parseStore('pizarras_state_v1'),cambridge=parseStore('cambridgeB2ExerciseStatsV3');
-  return{english:perfectCount((english.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'b2-cloze':perfectCount((cloze.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),catala:perfectCount((catala.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'phrasal-verbs':perfectCount(phrasal.history||[]),hoti0108:perfectCount((hoti.studyGame?.roundHistory||[]).filter(x=>Number(x.total)===15)),pizarras:perfectCount((pizarras.history||[]).filter(x=>x?.type==='quick'&&Number(x.questions)===15).map(x=>({correct:x.correct,total:15}))),cambridge:perfectCount(cambridge.attempts||[])};
+  const english=parseStore('adaptive_english_campaign1_v1'),cloze=parseStore('adaptive_b2_cloze_campaign1_v1'),catala=parseStore('adaptive_verbs_catala_campaign1_v1'),phrasal=parseStore('adaptive_phrasal_verbs_v1'),hoti=parseStore('adaptive_hoti0108_v1'),pizarras=parseStore('pizarras_state_v1'),cambridge=parseStore('cambridgeB2ExerciseStatsV3'),keyword=parseStore('keywordSpeakingStatsV1');
+  return{english:perfectCount((english.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'b2-cloze':perfectCount((cloze.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),catala:perfectCount((catala.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'phrasal-verbs':perfectCount(phrasal.history||[]),hoti0108:perfectCount((hoti.studyGame?.roundHistory||[]).filter(x=>Number(x.total)===15)),pizarras:perfectCount((pizarras.history||[]).filter(x=>x?.type==='quick'&&Number(x.questions)===15).map(x=>({correct:x.correct,total:15}))),cambridge:perfectCount(cambridge.attempts||[]),'keyword-speaking':perfectCount(keyword.sessions||[])};
 }
 function readHubStars(){
   const old=parseStore(HUB_STAR_KEY),apps={...(old.apps||{})},actual=goldInventory();
