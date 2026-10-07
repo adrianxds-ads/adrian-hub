@@ -13,17 +13,30 @@
 <main class="shell">
 <header class="hero">
   <a class="back" href="https://adrianxds-ads.github.io/adrian-hub/" aria-label="Volver al Hub">‹</a>
-  <div><p class="eyebrow">ADRIÁN HUB · AGENTES</p><h1>Centro de Agentes</h1><p class="intro">Especialistas separados. Una sola puerta para encontrarlos, entender qué sabe hacer cada uno y decidir a quién escalar un trabajo.</p></div>
+  <div><p class="eyebrow">ADRIÁN HUB · AGENTES</p><h1>Centro de Agentes</h1><p class="intro">Cada especialista conserva su contexto, sus permisos y su oficio. Aquí solo comparten la puerta de entrada.</p></div>
 </header>
+
+<section class="spend-panel ad-card" aria-label="Gasto de agentes">
+  <div class="spend-head">
+    <div><span>OPENROUTER · CONTROL DE GASTO</span><h2>Consumo de los agentes</h2><p id="spendNote">Leyendo el uso real de la clave de agentes…</p></div>
+    <a class="ad-button spend-link" href="https://openrouter.ai/activity" target="_blank" rel="noopener">ABRIR ACTIVITY</a>
+  </div>
+  <div class="spend-kpis">
+    <div><small>HOY</small><b id="spendToday">—</b></div>
+    <div><small>RESTANTE</small><b id="spendRemaining">—</b></div>
+    <div><small>LÍMITE CLAVE</small><b id="spendLimit">—</b></div>
+  </div>
+  <div class="spend-foot"><span>Auditor: máx. $0,35/run ordinario</span><span>Reparador: máx. $1,65/run</span></div>
+</section>
 
 <section class="agent-grid" aria-label="Agentes disponibles">
 <article class="agent-card ad-card" data-agent="audit">
-  <div class="agent-head"><span class="agent-glyph">HA</span><div><small>HUB AGENT · AUDITOR</small><h2>Audit Agent</h2></div><span class="status checking" id="auditStatus">CONECTANDO</span></div>
-  <p>Especialista en auditar el ecosistema de aplicaciones sin modificar el código. Trabaja sobre el workbench aislado.</p>
-  <dl><div><dt>Especialidad</dt><dd>Arquitectura, bugs, UX, coherencia y repositorios</dd></div><div><dt>Permisos</dt><dd>Solo lectura · workbench aislado</dd></div><div><dt>Modelo premium</dt><dd>Claude Opus 5.5 vía OpenRouter</dd></div><div><dt>Límite</dt><dd>0,35 USD por auditoría</dd></div></dl>
-  <div class="agent-live"><b id="auditHeadline">Comprobando PC Agent…</b><small id="auditMeta">La consulta de estado no consume API.</small></div>
+  <div class="agent-head"><span class="agent-glyph">AU</span><div><small>AUDIT AGENT</small><h2>El Auditor</h2></div><span class="status checking" id="auditStatus">CONECTANDO</span></div>
+  <p>Inspecciona el ecosistema sin modificarlo. Busca fallos, incoherencias, riesgos y oportunidades antes de tocar código.</p>
+  <dl><div><dt>Oficio</dt><dd>Auditoría técnica, UX, arquitectura y coherencia</dd></div><div><dt>Permisos</dt><dd>Solo lectura · workbench aislado</dd></div><div><dt>Cerebro</dt><dd>Claude Opus 5.5 vía OpenRouter</dd></div><div><dt>Límite</dt><dd>0,35 USD por auditoría ordinaria</dd></div></dl>
+  <div class="agent-live"><b id="auditHeadline">Comprobando El Operador…</b><small id="auditMeta">La consulta de estado no consume API.</small></div>
   <label class="mission"><span>MISIÓN OPCIONAL</span><textarea id="auditMission" maxlength="1200" rows="3" placeholder="Ej.: Audita solo Keyboard Speak: legibilidad móvil, teclado y dictado."></textarea></label>
-  <div class="actions audit-actions">
+  <div class="actions">
     <button class="ad-button" id="agentDryRun" type="button">PROBAR SIN GASTO</button>
     <button class="ad-button primary" id="agentAuditOpus" type="button">AUDITAR CON OPUS</button>
     <button class="ad-button wide" id="agentReport" type="button">VER ÚLTIMO INFORME</button>
@@ -31,31 +44,42 @@
 </article>
 
 <article class="agent-card ad-card" data-agent="repair">
-  <div class="agent-head"><span class="agent-glyph">RA</span><div><small>HUB AGENT · REPARADOR</small><h2>Repair Agent</h2></div><span class="status guarded">ACOTADO</span></div>
-  <p>Especialista en reparar una aplicación concreta dentro de un checkout aislado y con una regresión definida.</p>
-  <dl><div><dt>Especialidad</dt><dd>Parche pequeño, prueba, diff y reparación controlada</dd></div><div><dt>Permisos</dt><dd>Solo archivos autorizados · sin despliegue ni credenciales</dd></div><div><dt>Modelo</dt><dd>Opus 5.5</dd></div><div><dt>Límite actual</dt><dd>1,65 USD por ejecución</dd></div></dl>
-  <div class="actions"><button class="ad-button primary" data-copy="repair-info" type="button">COPIAR COMANDO BASE</button><a class="ad-button" href="https://adrianxds-ads.github.io/adrian-hub/chatgpt.html">PREPARAR REPARACIÓN</a></div>
+  <div class="agent-head"><span class="agent-glyph repair-glyph">RP</span><div><small>REPAIR AGENT</small><h2>El Reparador</h2></div><span class="status checking" id="repairStatus">COMPROBANDO</span></div>
+  <p>Trabaja sobre una copia aislada, modifica solo archivos permitidos y debe ejecutar una regresión antes de entregar el parche.</p>
+  <dl><div><dt>Objetivo inicial</dt><dd>Keyboard Speak</dd></div><div><dt>Permisos</dt><dd>Copia nueva por ejecución · sin publicar · sin credenciales</dd></div><div><dt>Cerebro</dt><dd>Claude Opus 5.5 vía OpenRouter</dd></div><div><dt>Límite</dt><dd>1,65 USD por ejecución</dd></div></dl>
+  <div class="agent-live repair-live"><b id="repairHeadline">Comprobando baseline y presupuesto…</b><small id="repairMeta">El preflight no consume API.</small></div>
+  <label class="mission"><span>MISIÓN DE REPARACIÓN</span><textarea id="repairMission" maxlength="1600" rows="3" placeholder="Ej.: Corrige el teclado móvil de Keyboard Speak sin alterar banco, puntuación ni dictado."></textarea></label>
+  <div class="actions">
+    <button class="ad-button" id="repairDryRun" type="button">PROBAR SIN GASTO</button>
+    <button class="ad-button primary" id="repairOpus" type="button">REPARAR CON OPUS</button>
+    <button class="ad-button wide" id="repairReport" type="button">VER ÚLTIMO PARCHE</button>
+  </div>
 </article>
 
 <article class="agent-card ad-card" data-agent="pc">
-  <div class="agent-head"><span class="agent-glyph">PC</span><div><small>PC AGENT · INFRAESTRUCTURA</small><h2>PC Agent</h2></div><span class="status local">LOCAL</span></div>
-  <p>Especialista en los servicios privados del ordenador. Mantiene la infraestructura local sobre la que funciona Limpieza 2.2.</p>
-  <dl><div><dt>Especialidad</dt><dd>Servidor privado, watchdog y servicios Windows</dd></div><div><dt>Acceso</dt><dd>PC + Tailscale</dd></div><div><dt>Interfaz visible</dt><dd>Limpieza 2.2</dd></div><div><dt>IA</dt><dd>No consume Opus por estar encendido</dd></div></dl>
+  <div class="agent-head"><span class="agent-glyph operator-glyph">OP</span><div><small>PC AGENT</small><h2>El Operador</h2></div><span class="status local">LOCAL</span></div>
+  <p>Mantiene la infraestructura privada del ordenador y ejecuta operaciones locales que los demás agentes no deben hacer por sí solos.</p>
+  <dl><div><dt>Oficio</dt><dd>Servidor privado, watchdog y servicios Windows</dd></div><div><dt>Acceso</dt><dd>PC + Tailscale</dd></div><div><dt>Interfaz</dt><dd>Limpieza 2.2 y servicios locales</dd></div><div><dt>IA</dt><dd>No consume Opus por estar encendido</dd></div></dl>
   <div class="actions"><a class="ad-button primary" href="https://adrin.tail8fd071.ts.net/limpieza/">ABRIR LIMPIEZA 2.2</a><a class="ad-button" href="https://adrianxds-ads.github.io/adrian-hub/apps/dc-inbox/">ABRIR DC INBOX</a></div>
 </article>
 </section>
 
-<section class="rule ad-card">
-  <span>REGLA DEL SISTEMA</span>
-  <h2>Separados por especialidad</h2>
-  <p>Este centro no fusiona los agentes. Solo los hace visibles y organiza el acceso. Cada agente conserva su contexto, permisos, límites y entrenamiento.</p>
+<section class="roadmap ad-card">
+  <span>PRÓXIMOS OFICIOS</span>
+  <div><b>El Editor</b><small>Textos, writings, documentos, corrección y voz de Adrián.</small></div>
+  <div><b>El Constructor</b><small>Crear aplicaciones o módulos nuevos sin mezclar ese trabajo con las reparaciones.</small></div>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.2.1</span></footer>
+<section class="rule ad-card">
+  <span>REGLA DEL SISTEMA</span><h2>Especialistas, no un megaagente</h2>
+  <p>El Centro organiza el acceso. Cada agente conserva entrenamiento, permisos y límites propios; El Operador hace de frontera para las acciones locales sensibles.</p>
+</section>
+
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.3.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">
-  <div class="report-shell"><button id="reportClose" class="dialog-close" type="button" aria-label="Cerrar">×</button><span>ÚLTIMO INFORME</span><h2>Audit Agent</h2><pre id="reportContent">Cargando…</pre></div>
+  <div class="report-shell"><button id="reportClose" class="dialog-close" type="button" aria-label="Cerrar">×</button><span>ÚLTIMO INFORME</span><h2>El Auditor</h2><pre id="reportContent">Cargando…</pre></div>
 </dialog>
 <script src="./app.js"></script>
 </body>

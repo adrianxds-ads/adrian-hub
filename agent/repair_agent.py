@@ -4,7 +4,7 @@ from pathlib import Path
 HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location("audit_agent",HERE/"agent.py")
 base=importlib.util.module_from_spec(spec); spec.loader.exec_module(base)
-ALLOWED={"app.js","index.html","manifest.webmanifest","service-worker.js","README.md"}
+ALLOWED={"app.js","index.html","styles.css","manifest.webmanifest","service-worker.js","README.md"}
 SYSTEM="""You are Claude, the software repair engineer for Adrian Hub.
 Work exclusively through these JSON tools in an isolated checkout. No shell/network/credentials/deploy tools.
 Return exactly one JSON object:
@@ -14,7 +14,7 @@ Return exactly one JSON object:
 {"action":"patch","changes":[{"path":"app.js","old":"exact substring","new":"replacement"}]}
 {"action":"test"}
 {"action":"report","content":"concise Spanish result with limitations"}
-Only app.js,index.html,manifest.webmanifest,service-worker.js,README.md are writable.
+Only app.js,index.html,styles.css,manifest.webmanifest,service-worker.js,README.md are writable.
 Prefer exact substring replacements. Preserve scoring, question banks, stats/progress keys and existing voice semantics.
 The caller supplies trusted regression tests; you cannot alter them. Test before your final report.
 Never claim actual Pixel keyboard verification: headless viewport tests are simulations.

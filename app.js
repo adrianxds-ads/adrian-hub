@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.2';
-const HUB_BUILD='hub-30.4.2-20261007';
+const HUB_VERSION='30.4.3';
+const HUB_BUILD='hub-30.4.3-20261007';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -193,5 +193,5 @@ document.querySelector('#versionDialogClose')?.addEventListener('click',()=>docu
 document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
 
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.4.2-agent-private-ui-20261007',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.4.3-repair-agent-20261007',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
 }

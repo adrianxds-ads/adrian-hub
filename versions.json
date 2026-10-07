@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T21:02:40.239768+00:00",
+  "generatedAt": "2026-10-07T21:24:03.765751+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.2",
-    "build": "hub-30.4.2-20261007",
+    "version": "30.4.3",
+    "build": "hub-30.4.3-20261007",
     "releasedAt": "2026-10-07",
     "changes": [
-      "Agent Center 0.2.1 se abre por la ruta privada de Tailscale servida por el bridge existente.",
-      "Interfaz y API comparten origen, evitando el bloqueo de red privada del navegador desde GitHub Pages.",
-      "El Hub público sigue siendo la puerta de entrada; volver y ChatGPT regresan explícitamente al origen público."
+      "Agent Center 0.4.0 convierte El Reparador en agente operativo para Keyboard Speak con preflight gratuito.",
+      "Cada reparación crea un checkout aislado, exige confirmación de coste, ejecuta regresión y nunca publica automáticamente.",
+      "El panel OpenRouter muestra uso diario, límite y margen restante reales mediante la API de la clave."
     ],
     "history": [
+      {
+        "version": "30.4.2",
+        "date": "2026-10-07",
+        "build": "hub-30.4.2-20261007",
+        "changes": [
+          "Agent Center 0.2.1 se abre por la ruta privada de Tailscale servida por el bridge existente.",
+          "Interfaz y API comparten origen, evitando el bloqueo de red privada del navegador desde GitHub Pages.",
+          "El Hub público sigue siendo la puerta de entrada; volver y ChatGPT regresan explícitamente al origen público."
+        ]
+      },
       {
         "version": "30.4.1",
         "date": "2026-10-07",
@@ -150,7 +160,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "3d524a471954fb429c007e53d5abb00fd4897c7734514ac00d83effd0814b8fa"
+          "sha256": "7e2f47554b65ffe58395079cf2222a64bee92e384a8e5c11bb3480dacc00fc02"
         },
         {
           "url": "version-verifier.js",
@@ -158,7 +168,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "b219324eb74b3864a34faabd74cfbb8dcb6f6ec433259792493b36dedc82c7ac"
+          "sha256": "789a4827ba48d70d1cf4f83b210b31c040474d83ee4055528aec66b2f66ad570"
         },
         {
           "url": "styles.css",
@@ -166,15 +176,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "d7a2242cacd52572ec8cc59acb063589fffe0535a3ed427458f97e7c3bb00147"
+          "sha256": "ff67ce9f4a61c926b4110ae4b54db789b3db561f4fb51b1f5528eed89db30c48"
         },
         {
           "url": "build-assets.js",
-          "sha256": "4e2dfdb89c55fe6b07a5909362a0b39eead25e7adf4593016c7bfa26dcd62c28"
+          "sha256": "828fcb29a2714c1ce207dbf6d0bab8257953da1fb3f32feb244e8aa9760e7d07"
         }
       ]
     },
-    "cacheBuild": "90a5552b0ec17c6f"
+    "cacheBuild": "3f140313161e25f8"
   },
   "apps": [
     {
@@ -636,28 +646,28 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.2.1",
-      "build": "sha256-b03eae2460a0",
+      "version": "0.4.0",
+      "build": "sha256-91d88272d566",
       "releasedAt": "2026-10-07",
       "kind": "bundled",
       "changes": [
-        "La interfaz operativa se sirve por Tailscale desde el bridge de DC Inbox.",
-        "API y UI comparten origen privado, eliminando el bloqueo PNA de Chrome.",
-        "Navegación de vuelta y acceso a ChatGPT conservan el Hub público."
+        "El Reparador ya tiene preflight, misión, lanzamiento Opus y consulta de parche.",
+        "OpenRouter muestra gasto diario, saldo del límite y límite total en vivo.",
+        "Se consolidan los apodos El Auditor, El Reparador y El Operador; quedan reservados El Editor y El Constructor."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "bb7a5ea2a79a02419bc2549c5b1d602ad1cd21bd02002c77e9a52372693c3314"
+            "sha256": "99085f5d94de27b08a1522d3d527ef69a7176d98ed68da3463cc19dbf24b0488"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "6c39bfd52ad7a5d0d604b0af8220b0819e13c63480eca0f1e2bc426b047e61d0"
+            "sha256": "21cab5f83d74ff68b08ea807f3b753e573fb38afa92841f8ec33eb43883a4c22"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "8625db9bd3076b5a7b4488cbd8af9f6082dae32921d2c332222a760feb3f7421"
+            "sha256": "8e3d01a615c66e98b6074a1cc5fb91e4111f35ece80368b5b5f2fb3d30d1805d"
           }
         ]
       }
