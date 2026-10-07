@@ -33,10 +33,21 @@ Archivo de progreso del servidor idéntico al snapshot anterior al despliegue: *
 
 Se preservaron snapshots locales del estado antes de reiniciar. La primera comprobación de fuente provocó un rollback automático por diferencias CRLF/LF; se comparó después la fuente canónica, se reinició correctamente y se verificó el estado. Ninguna restauración sobrescribió state.json.
 
+## Aceptación final PC↔Pixel
+
+- PC → servidor HTTPS real → Pixel: pasó.
+- Pixel → servidor HTTPS real → PC: pasó.
+- Escritura sin conexión, recarga real del PC y entrega al Pixel al reconectar: pasó.
+- Los diez valores de progreso protegidos del Pixel permanecieron iguales a su copia previa. La repetición final mantuvo también los valores protegidos del servidor.
+- Al recuperar la conexión, una ejecución previa subió pendientes de Catalán y Oca; ambos valores coincidían exactamente con la copia preservada del Pixel y no eran borrados. La comprobación inicial de igualdad estricta del servidor se ajustó para reconocer estas subidas legítimas.
+- La clave desechable se retiró de ambos clientes; solo queda su marcador de borrado normal en el servidor. Las copias de preservación permanecen privadas.
+- Bloqueo diagnosticado: el Pixel no resolvía el servidor privado antes de abrir Tailscale. Tras abrir la aplicación instalada, indicó Connected, resolvió el servidor y respondió HTTP 200 con Sync 1.0.5. No se modificaron credenciales ni configuración VPN.
+- La prueba verifica el transporte y la persistencia de pendientes; no reproduce una sesión de ejercicios ni modifica el progreso para forzar un conflicto.
+
 ## Límites reales
 
 - Los progresos agregados divergentes se conservan y se muestran como conflicto pendiente. Su conciliación semántica universal automática sigue abierta.
-- Falta una prueba de progreso real PC↔Pixel con los perfiles del usuario. Las pruebas móviles realizadas emulan viewport y touch en Chrome.
+- La aceptación de transporte PC↔Pixel se completó con Chrome real de Windows (perfil aislado) y el perfil real del Pixel. Se usó una clave desechable, sin modificar respuestas de estudio.
 - Una app que ya estaba abierta conserva su sesión y worker anterior hasta terminarla y cerrar sus pestañas. ACTUALIZAR TODO prepara la nueva versión; su activación espera ese cierre.
 
 ## Commits de publicación
