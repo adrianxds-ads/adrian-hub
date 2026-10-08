@@ -603,41 +603,61 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.15",
-      "build": "sha256-2b00c9dae9b4",
+      "version": "1.2.16",
+      "build": "sha256-d7c9ac44dafd",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Estilo del acceso Quiz separado del contenido; regla móvil de progreso coherente.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Quiz: 3 minutos por defecto, tiempo orientativo de examen y sin límite.",
+        "Tabla de las siete partes, preferencia persistente y 18 rondas verificadas en móvil y escritorio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "2fd8695516b601f653c9bc27bad557d2b852ca400861ab5995a1149ab16891e4"
+            "sha256": "29eedc17ab28000d3da701949ed19cc1fd458cca5a704bcf37a6ed1a970ef2ed"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "038309f39601ee4743a4778fae03b9f3eeb2d21ea0ea2442f50a633ec3be9207"
+            "sha256": "447c68f3e9586ff5d6f7a71543327e3804af3f1fe4bd8ef66d39bf9ae15417fa"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "512a4516f57019d5096b5f0c0d345c72329c0f3105c7af6f525016bb6024c151"
+            "sha256": "4c928fc5710286f1fa7ba97cf0ddbc1aadae06c0ea8f8408d329fd89f0fcdaaf"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "5c28ee924d7cfb17f322686bae6c3dc501370ea8643267b4f44ab5b3068666a4"
+            "sha256": "01da6464587b65fad368580dafcb82b798828dfea5d388bc0586a4909b7de0f1"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.html",
+            "sha256": "72927976a135b9b0b2ed32f89422ee0b963f7654003ddf2d62196ecd3570946c"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.js",
+            "sha256": "ada7aa468f4185c61aec38dbc990a94003d09e79f7ffb4dbc0b854f393ab954e"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.css",
+            "sha256": "9fd99ecc66f92931c8c50e5826e6927f8e2ad0559b00999b2df8c0e6c9b1e0cb"
           }
         ]
       },
-      "sourceCommit": "c901bb9f4cea7d147b7285c3c10ea9fd3193c7dd",
-      "cacheBuild": "33c9197b1de7f5ef",
-      "sourceDirty": true,
+      "sourceCommit": "014414fc6ce8d4a558090894367a9d31621488c8",
+      "cacheBuild": "983ef9f33b601577",
+      "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.15",
+          "date": "2026-10-08",
+          "changes": [
+            "Estilo del acceso Quiz separado del contenido; regla móvil de progreso coherente.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "1.2.14",
           "date": "2026-10-08",
