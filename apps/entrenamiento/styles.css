@@ -52,3 +52,12 @@ body.session-active #runView{display:block!important;margin:0;min-height:calc(10
 body .stepper button{font-size:40px!important}
 body .stepper input{font-size:clamp(48px,14vw,68px)!important}
 @media(max-width:520px){body .stepper button{font-size:38px!important}}
+
+
+ /* Mobile review: touch targets and readable fields. */
+button,.back,a.mini{min-height:48px!important}
+button,input,select,textarea{font-size:16px}
+input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height:48px;min-width:0}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
+.back{display:inline-flex;align-items:center}
+@media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}

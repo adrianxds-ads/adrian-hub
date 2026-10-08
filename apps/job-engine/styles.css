@@ -17,3 +17,12 @@
 html,body{overflow-x:hidden}.shell,.view,.card,.topbar,.class-head,.section-head,.view-head,.offer-card,.modal-card,.session-shell{min-width:0;max-width:100%}.topbar>*,.class-head>*,.section-head>*,.view-head>*{min-width:0}.brand{min-width:0;max-width:62%;overflow:hidden}.brand span,.brand b{overflow-wrap:anywhere}.kpis,.targets-grid,.mini-stats,.pipeline-summary,.session-progress,.bottom-nav{grid-template-columns:repeat(var(--cols,1),minmax(0,1fr))}.kpis{--cols:4}.targets-grid{--cols:3}.mini-stats{--cols:2}.pipeline-summary{--cols:3}.session-progress{--cols:3}.bottom-nav{--cols:5}input,select,textarea,button{min-width:0}.nav-btn{width:100%;overflow:hidden;text-overflow:clip;white-space:nowrap;letter-spacing:.03em}.targets-grid label{min-width:0}.targets-grid input{min-width:0;padding-inline:6px}.class-head em{flex:0 1 auto;white-space:nowrap}.offer-top{grid-template-columns:auto minmax(0,1fr) auto}.offer-title{overflow:hidden}.duration-label{grid-template-columns:minmax(0,1fr) 72px auto}.two-actions,.offer-actions{min-width:0}
 @media(max-width:620px){.kpis{--cols:2}.pipeline-summary{--cols:2}.brand{max-width:58%}.nav-btn{font-size:7.6px}.targets-grid{gap:5px}.targets-grid label{font-size:7.8px}.class-head b{font-size:18px}.class-head em{font-size:8px;padding-inline:7px}.duration-label{grid-template-columns:minmax(0,1fr) 68px auto}.session-progress{gap:5px}}
 @media(max-width:390px){.brand{max-width:54%}.nav-btn{font-size:7px}.targets-grid input{font-size:20px}.class-head b{font-size:17px}}
+
+
+ /* Mobile review: touch targets and readable fields. */
+button,.back,a.mini{min-height:48px!important}
+button,input,select,textarea{font-size:16px}
+input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height:48px;min-width:0}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
+.back{display:inline-flex;align-items:center}
+@media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}

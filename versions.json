@@ -1,19 +1,30 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07T21:50:16.080704+00:00",
+  "generatedAt": "2026-10-08T02:52:10.859023+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.8",
-    "build": "hub-30.4.8-20261008",
+    "version": "30.4.9",
+    "build": "hub-30.4.9-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Agent Center 0.7.0 activa El Consejero v0.1 como observador local de coste cero.",
-      "Motor local con latido cada 15 minutos para clasificar empleo, candidatos de Calendar, señales de Plaud y remitentes repetitivos sin llamadas de IA.",
-      "El Triaje 1.1.0 incorpora El Consejero y pasa 31 casos de entrenamiento.",
-      "Las fuentes externas permanecen explícitamente POR CONECTAR hasta completar su autorización local; ninguna acción destructiva está habilitada."
+      "Revisión visual del Hub y sus 14 apps públicas: lectura, controles táctiles y prioridad de la acción principal.",
+      "English, Phrasal, Cloze y Català muestran la sesión antes de las métricas; Pizarras y Cambridge priorizan el comienzo del estudio.",
+      "Key Word conserva dictado y corrección; herramientas del Hub amplían controles y campos.",
+      "Las tarjetas muestran la versión; las huellas técnicas siguen disponibles en Actualizaciones."
     ],
     "history": [
+      {
+        "version": "30.4.8",
+        "date": "2026-10-08",
+        "build": "hub-30.4.8-20261008",
+        "changes": [
+          "Agent Center 0.7.0 activa El Consejero v0.1 como observador local de coste cero.",
+          "Motor local con latido cada 15 minutos para clasificar empleo, candidatos de Calendar, señales de Plaud y remitentes repetitivos sin llamadas de IA.",
+          "El Triaje 1.1.0 incorpora El Consejero y pasa 31 casos de entrenamiento.",
+          "Las fuentes externas permanecen explícitamente POR CONECTAR hasta completar su autorización local; ninguna acción destructiva está habilitada."
+        ]
+      },
       {
         "version": "30.4.7",
         "date": "2026-10-08",
@@ -212,7 +223,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "bbee31f5523f4501f88c86a0dfd8c05d74c44790253a43527c44c39dcc5a471e"
+          "sha256": "894e036d10dc0cbb19c4681c21202e447f5f6404776a0af7f848f49a5ed7351c"
         },
         {
           "url": "version-verifier.js",
@@ -220,249 +231,310 @@
         },
         {
           "url": "index.html",
-          "sha256": "a549b1b170347a7ad1d917e4794da131c012c4684dbf8ae8583d78087f865e6c"
+          "sha256": "8420a41fc320979c22fa5ad047acc6d3d7fb2a8ef2c5f0e5c2afe0a8052e0a0f"
         },
         {
           "url": "styles.css",
-          "sha256": "9179eb23c2e982240bfaa0f25764eea167cec4ab2ec320d72d9b3ee1c933879c"
+          "sha256": "ad21ebd9bb01e3ae295390f37f24cd7777f6eb3bbe1cd4536b922b6d5349c6cb"
         },
         {
           "url": "service-worker.js",
-          "sha256": "e083a7f4281457f68b0e03ac781636373e60a01eb481e591bff56ee04b479df7"
+          "sha256": "49566027838881edb6e1fbd2644f1bd22cb444c4ad48502c131c97f2f82ac09a"
         },
         {
           "url": "build-assets.js",
-          "sha256": "54297d49f68ab8bc96641e778096c2223646a33a5fbc953f0bbf87deccbe4ede"
+          "sha256": "dae42fb2c1ec5cef3ef0ed603f2c9e3d7a13611e2beeea0021c87a5fe1168b02"
         }
       ]
     },
-    "cacheBuild": "58e494f8d19b5d9b"
+    "cacheBuild": "7bdc5143e5851689"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.4",
-      "build": "sha256-4e47f78e2ff0",
-      "releasedAt": "2026-10-07",
+      "version": "3.34.5",
+      "build": "sha256-cc2dafecde31",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "d238b0131f94e5660193867d87099cb8b152db5f11a290a31077d96a0162a214"
+            "sha256": "39272d13a3ffe3a31913ecba68bb40453f732bd3bde1482885b6b4e9ecaa6fba"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "4ac56e99adbf89a24a54e552daaf9c121f4b4910cdd64e45f9d9b459ebff1dbe"
+            "sha256": "e211411985c4eef2e82875a92d686768051117ccb6d3f416d605ff96f7151b7e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "c6823ef0d82a9078e098fed76213df27e0836e016d8af6910eef8346287779de"
+            "sha256": "f5d639cca0509b057f964cbb991670a7027deffe7a412d689369dce85732138d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "04a7c8c66314d208385fd2c0253f98e02f0d0ef8629d4e4df12d2f48236d9048"
+            "sha256": "1a8112cae06b364cfda348fbfe1215c368a22d0a23e8da199b6d31e175c0be87"
           }
         ]
       },
-      "sourceCommit": "242e9d4ec71c550f544498dde838d116a6903b37",
-      "cacheBuild": "e24918b66f0d5f61",
+      "sourceCommit": "01f92af4f29ce0e090bb63cdc454af546439e906",
+      "cacheBuild": "1826bd7f495e86d3",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
+      ],
+      "history": [
+        {
+          "version": "3.34.4",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.4",
-      "build": "sha256-862f3b080c7e",
-      "releasedAt": "2026-10-07",
+      "version": "0.12.5",
+      "build": "sha256-be8eda1b5314",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "1d051c9c1940c8d8523fde85a0eb80b59fd38f4e3cf906e59acd6cc9ea857732"
+            "sha256": "abf6214208047275c1a5f4fa28ec603aa7a3343312db5a20642146e8db9f5c7b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "076ea907c8cbe298039df05d49ae69049180e691e0e780145c784c5ab39d9ad4"
+            "sha256": "057e15a267cd940c522a419cd3014994fbcb7aa5f3813ad65dd555c1bdcdc714"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "f0f8293c0bcf171fe19fa9b96bf5bdafb209e345a9675292cde0c9502fbe5323"
+            "sha256": "5c99a6d0c08c9703c5d8760bf9cbb3b689a08bc514c50443338b17e616bbeb11"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "b67b6def1f28bb363bcfa8c619657e162cb0b34b813c2bcf93281c9d230a1dd1"
+            "sha256": "333422b50689a281a82b90e1994df62017118ea41e23d00c6461585679b93d4d"
           }
         ]
       },
-      "sourceCommit": "2b1dba33d4f1c963e9bf25644c2f17b7ca211666",
-      "cacheBuild": "625d380af0b46315",
+      "sourceCommit": "3c582b824674b64fbc4dba25a00aeedf07412721",
+      "cacheBuild": "171616c4f15335ea",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
+      ],
+      "history": [
+        {
+          "version": "0.12.4",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.8",
-      "build": "sha256-636936cb0254",
-      "releasedAt": "2026-10-07",
+      "version": "2.1.9",
+      "build": "sha256-e148697369f8",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "8b717beb967cbd9b8e30de57ad4704877efcb9390d0c3820ca884230b4721ba4"
+            "sha256": "5450112d02a1acddc3dfdc445f368b3d164ea6d6eb477c0b71e323dcf45485ff"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "7d4c1a6c888fea90c901b2b5da16fb0aa9eb90a3c34953fadb2262e79a06c885"
+            "sha256": "92f63ce18e89d681192913843f2219cf19f9e0cfdecc018f8f7fc400db306cd1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "dcbdb20f1a99af60694c57c2fdf4cb263e50e86393cea10ec8d120b6a382f9e3"
+            "sha256": "d05477a550f7b2a6f58c3b59f0f899197e27069fbf52f2f41c59511f4cbf6605"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "f30b0f6285dd2ddc97dfdfd2cc62178ad89c3c8b8e79ec7d924a9960d0f65d1f"
+            "sha256": "b236972a933f0d097ab6978d9af66ccce9e439cb6c7b7ed9606c5fd98e756361"
           }
         ]
       },
-      "sourceCommit": "038ef1e1eed604c275d65c37eff29cd8f6b21654",
-      "cacheBuild": "78d21b7833371566",
+      "sourceCommit": "2547ba3bb28a9e5524425361883a829adeb34a3c",
+      "cacheBuild": "19f5e97e9f4cf3fc",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
+      ],
+      "history": [
+        {
+          "version": "2.1.8",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.8",
-      "build": "sha256-8edb5526bc94",
-      "releasedAt": "2026-10-07",
+      "version": "1.10.9",
+      "build": "sha256-73b559a2f850",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "710ab10a5b7c46b6c3f0bb860097e9831236fd7af6758a0b034cb8b30616eb69"
+            "sha256": "a36b3212fd473a18eb6ac89cde6896adf6d50bbd707ea6acc43f3851187675d6"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "63af35db6685169ac8b7914d7513bcf90e465acb2506ad35ddf4ab879e07f922"
+            "sha256": "bca6a7dacece5e0cb589fa0cbc326807e7c46f2d75c240268add5a5cd7670f46"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "ddd50d9b82a49df08c16b8ed371ce4def57c87215e7e01b86c1400c9952d86f9"
+            "sha256": "b9b4933eeb06d9f7dd3768a1ac08971eedff311b93750b69c8b113f0e647eca1"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "60be5d47d366f6204473c57bc18d73d849b503db9bb1bbfd48344a72a55b4f9b"
+            "sha256": "d005d482f80b9eb3482b0edc9e064545c6a1a3df07481bb9014023f13cddc36d"
           }
         ]
       },
-      "sourceCommit": "b69b16fffeb0e364a10afded5158acdb4c4ef594",
-      "cacheBuild": "dac0adda124e84ce",
+      "sourceCommit": "751d6a999677399495db1c046e332a982a3bb1cb",
+      "cacheBuild": "7cec4d781ba8c8e4",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
+      ],
+      "history": [
+        {
+          "version": "1.10.8",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.11",
-      "build": "sha256-67525ecb704a",
-      "releasedAt": "2026-10-07",
+      "version": "1.2.12",
+      "build": "sha256-b43be5a832c8",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "3d069454386bfcfb37966f4df120725894d6cd152f4f68051504d33356340b29"
+            "sha256": "b83b3ce19563c7335b96fba3f90403a6304761a56c28c647b7d6a871659cf5f2"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "0da7b60fbbbc08266d407a4a361f7721624f47ac93e3811956029f6542789142"
+            "sha256": "feb70a0c44da6f5ca1203a4957b54a5cc477966b10a6f000cc5e3aae07c4cef1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "cd6f3e3165a736190d8547464f32f493b20b50a5ed3a68951a06be236a474c2d"
+            "sha256": "512a4516f57019d5096b5f0c0d345c72329c0f3105c7af6f525016bb6024c151"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "a00ece489333de34131564f56fe468876e29860f50d0f228a6e53e8e583b99b2"
+            "sha256": "b07646a6677401591b89d2fe41037019d75eaf9178060599cd6b530b40c23ae1"
           }
         ]
       },
-      "sourceCommit": "53c3e9a4fcb94fdb5fa8d020427600552384ee0a",
-      "cacheBuild": "ab46d1770a294342",
+      "sourceCommit": "767c2d8f51baeb8e71449c30ae4a567332fe5d90",
+      "cacheBuild": "fc2300e8a3d83523",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
+      ],
+      "history": [
+        {
+          "version": "1.2.11",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.4",
-      "build": "sha256-b781634e7829",
-      "releasedAt": "2026-10-07",
+      "version": "1.0.5",
+      "build": "sha256-f4a494836344",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Frase de transformación completa sobre el editor y pantalla compacta al escribir en móvil.",
-        "Texto multilínea acotado, desplazamiento con el teclado y botones estables al comprobar.",
-        "Reparación con Claude Opus; dictado natural, 120 preguntas, puntuación y progreso preservados."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "4e98a21f68a8a4f030c21ac67eefa5b041261faa7789c52bc4a5aaf064796d24"
+            "sha256": "81428aab44c8f5b5435bebf62055e245aba896fc69721a5e93711e81100c57b1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "06a6bc65d8f90584ae5391f0171300c33a842db6888889a1804a04360864530a"
+            "sha256": "25d061cbe30620413a494308886fa23f996345c8fa611289553e0c285e8f9f7a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "693304fb0fdd1fe67e43fec5ad0ab113bb9e702f85a56e12e77a046961af9fba"
+            "sha256": "c5796c361305e9b77d2f3d68de17cea4f9587da9e27685ca7b89bd13129928f9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "1edfd76c930623a3a870a8b5f4fbe05493fbbb194e19aed4ab41268a02736ec9"
+            "sha256": "f1e3a71368e0c1e8f43005da51f30635b734f70fe436257d33b7ae7bbdfb04c0"
           }
         ]
       },
-      "sourceCommit": "0a1fd22ea0773e9fccdc8fd167fea55a878141bb",
-      "cacheBuild": "e33c74e09668e40a",
+      "sourceCommit": "8e4ac2d6fe3ae0296989e466621c870c44c21584",
+      "cacheBuild": "f04af2d909852761",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.4",
+          "date": "2026-10-07",
+          "changes": [
+            "Frase de transformación completa sobre el editor y pantalla compacta al escribir en móvil.",
+            "Texto multilínea acotado, desplazamiento con el teclado y botones estables al comprobar.",
+            "Reparación con Claude Opus; dictado natural, 120 preguntas, puntuación y progreso preservados."
+          ]
+        },
         {
           "version": "1.0.3",
           "date": "2026-10-07",
@@ -496,52 +568,60 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.8",
-      "build": "sha256-6c6c564cf2c0",
-      "releasedAt": "2026-10-07",
+      "version": "0.9.9",
+      "build": "sha256-881a559d4b31",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "7694e2e11ed163a44bb366a6365c397ce45262599585e122a55f877fbaea7fc2"
+            "sha256": "0982ad294de2ceb8f4fe2456b4cd9373a49fc99c77cf259b2035c70dc95e0aa5"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "29d192eebb90eedf3ca296ba2c68b788a6c438e4665ee48b4fbcd9ca1461f538"
+            "sha256": "0304a9854d12d147ce065e386e568b272ef0c2646b857e222897700eface68e9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "5113fad1cbc22537a61c514b1913d4d624bf9103d95cca735a0c778bb6d49fbc"
+            "sha256": "2a5011427c5830eea519a230b3f1348fe18ddf738433192bcb0f7d6f178c3816"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "a2eb32ead0565e91d164ec944c4225558d152a7ef641dbdbab553becbc38948a"
+            "sha256": "a4858aead09bf51fe513b0b211cf03887f52e82188222bf4c7b35d6d5acceefd"
           }
         ]
       },
-      "sourceCommit": "ad4c207ae80477f2062a9839cf5052060027c97a",
-      "cacheBuild": "df84f097d5cfcbc5",
+      "sourceCommit": "7383ab21c31e68681b97d166a5365871622eecac",
+      "cacheBuild": "d97cf9b6e7b5bc1e",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
+      ],
+      "history": [
+        {
+          "version": "0.9.8",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "biblioteca",
       "name": "Biblioteca · Easy Catalan",
-      "version": "0.1.0",
-      "build": "sha256-cf90720695f5",
-      "releasedAt": "2026-10-07",
+      "version": "0.1.1",
+      "build": "sha256-895b673132d8",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Primera versión: catálogo oficial de 233 episodios de Easy Catalan.",
-        "Audio directo sin pasar por YouTube, Spotify o Amazon.",
-        "Búsqueda, orden, X/✓, fichas oscurecidas al completar y contador de escuchados.",
-        "La posición de reproducción se conserva localmente para continuar más tarde."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
       ],
       "verify": {
         "files": [
@@ -555,58 +635,79 @@
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "d23ce0470931407939c8e067048dc17bb87a16958953841fa6a66d74689cdb22"
+            "sha256": "0f9f51bf4a22f3b37a028e8cb8927f361a376564e206777ca151d5c9bb28bf77"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "0.1.0",
+          "date": "2026-10-07",
+          "changes": [
+            "Primera versión: catálogo oficial de 233 episodios de Easy Catalan.",
+            "Audio directo sin pasar por YouTube, Spotify o Amazon.",
+            "Búsqueda, orden, X/✓, fichas oscurecidas al completar y contador de escuchados.",
+            "La posición de reproducción se conserva localmente para continuar más tarde."
+          ]
+        }
+      ]
     },
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.7-read-first",
-      "build": "sha256-7f7bbdee273a",
-      "releasedAt": "2026-10-07",
+      "version": "2.6.8-read-first",
+      "build": "sha256-67c4871c523c",
+      "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "7c6023d428a6adad69ed083e3abdf5bb25d0dc257c14d504f96c00717821ccc4"
+            "sha256": "f99bd8c6ec5ff71aa66dfeb5e65ed6101f6e11c6f98e362ad18ee9ed385f1667"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "4364a2bdd6d02aeb386219beca34c128796880946c33df0c591ddadb46f0e35d"
+            "sha256": "6c8c0105d90758594f7393bcf87aa3847c046f2ebc6f7eed7ede92d1b7b91afe"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "0c3df6df70cff61be761a1c7d5c0f385675c045501ff4ca770026c9a996547e2"
+            "sha256": "b170c047f2f4be75ef8af35c4f8e1757bfb73ac344f554fcddd1e953e5e20a99"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "860205fa632194a1c4bb6a7f16369a134badb6264b45c1028ccc3ef97f30a7c0"
+            "sha256": "d84a2910dc7383a0fc90b40df43f77050efcdb7b1bcac684817dc2dea045b0c5"
           }
         ]
       },
-      "sourceCommit": "b0216655ff74bf81714659c1322cff7cdf6a7424",
-      "cacheBuild": "de98c245fa281ed4",
+      "sourceCommit": "0c1e8fafc37a52d64fd17819198615315c48669b",
+      "cacheBuild": "d7c32a488a44f7b2",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
+      ],
+      "history": [
+        {
+          "version": "2.6.7-read-first",
+          "date": "2026-10-07",
+          "changes": [
+            "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
+          ]
+        }
       ]
     },
     {
       "id": "entrenamiento",
       "name": "Adaptive Gym",
-      "version": "1.0.0",
-      "build": "sha256-af2cb01055ef",
-      "releasedAt": "2026-10-06",
+      "version": "1.0.1",
+      "build": "sha256-1a5dc3098312",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
-        "Rutinas, series, temporizador y métricas integrados en el Hub."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
       ],
       "verify": {
         "files": [
@@ -620,21 +721,30 @@
           },
           {
             "url": "./apps/entrenamiento/styles.css",
-            "sha256": "723dd925edcbfa9074e54c7c66b722937189b8a652815eef648c4814c4cd72ed"
+            "sha256": "6a6f539a15ade42e0c1a26d41125deb3267829751a17d1284c22ccf786e6cfd7"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-06",
+          "changes": [
+            "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+            "Rutinas, series, temporizador y métricas integrados en el Hub."
+          ]
+        }
+      ]
     },
     {
       "id": "cambio",
       "name": "Cambio",
-      "version": "1.0.0",
-      "build": "sha256-4b191d1cc626",
-      "releasedAt": "2026-10-06",
+      "version": "1.0.1",
+      "build": "sha256-10fba2ae1344",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
-        "Entrenamiento para soltar una tarea y comenzar la siguiente."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
       ],
       "verify": {
         "files": [
@@ -648,21 +758,30 @@
           },
           {
             "url": "./apps/cambio/styles.css",
-            "sha256": "0c4d80e640c3019950533c1d1dd9cbbc4189558fc199f5f675e76ee43acd54fc"
+            "sha256": "caa4d100d3d4c34b3103d7eff2ab00b10c0abb572d478fd72aa61a2e8716ba53"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-06",
+          "changes": [
+            "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+            "Entrenamiento para soltar una tarea y comenzar la siguiente."
+          ]
+        }
+      ]
     },
     {
       "id": "dcinbox",
       "name": "DC Inbox",
-      "version": "1.0.0",
-      "build": "sha256-4eeb7e0d7d29",
-      "releasedAt": "2026-10-06",
+      "version": "1.0.1",
+      "build": "sha256-73b6804d7553",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Primera versión registrada en Version Center; funcionalidad previa preservada.",
-        "Compartir, clasificar y enrutar contenido desde el Hub."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
       ],
       "verify": {
         "files": [
@@ -676,10 +795,20 @@
           },
           {
             "url": "./apps/dc-inbox/styles.css",
-            "sha256": "0b77b520907b17d3f080d7d0c6b3933b73b7e04cdffed907906e070379171359"
+            "sha256": "6f4aa144f15b855925cc080aa01aeea79e1c4f5217e4a2e61aa179d1fd8535c2"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "1.0.0",
+          "date": "2026-10-06",
+          "changes": [
+            "Primera versión registrada en Version Center; funcionalidad previa preservada.",
+            "Compartir, clasificar y enrutar contenido desde el Hub."
+          ]
+        }
+      ]
     },
     {
       "id": "adri-type",
@@ -693,7 +822,8 @@
         "Corregidos el registro duplicado de F8 al reactivar y el margen al redimensionar.",
         "Implementación en adrian-typing-tracker; esta ficha requiere la extensión de Chrome.",
         "En móvil se muestra información; los controles locales solo aparecen si la extensión está disponible."
-      ]
+      ],
+      "history": []
     },
     {
       "id": "agents",
@@ -741,19 +871,18 @@
     {
       "id": "job-engine",
       "name": "Job Engine",
-      "version": "0.1",
-      "build": "sha256-c1611d94b653",
-      "releasedAt": "2026-10-04",
+      "version": "0.1.1",
+      "build": "sha256-6624df44d6d2",
+      "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Baseline inicial: ofertas, candidaturas, JSON IA y métricas.",
-        "Registrado ahora en Version Center del Hub 30."
+        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/job-engine/index.html",
-            "sha256": "8dcb1466e892d2968f21b8b7baf124d7796b54a8f0536c958e98e78271ab8e6e"
+            "sha256": "6f42ea580ca4ead6eee90e5e8135e509228cf791f6c4604fd326a680d942e5e2"
           },
           {
             "url": "./apps/job-engine/app.js",
@@ -761,10 +890,20 @@
           },
           {
             "url": "./apps/job-engine/styles.css",
-            "sha256": "a2e7dd931ed459833eb467079ede77130d8b9db1595104926516df281ece0975"
+            "sha256": "4848f214400325bf37a6c248731a7f2510ece9ccee430cb284ae9d110dc16c92"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "0.1",
+          "date": "2026-10-04",
+          "changes": [
+            "Baseline inicial: ofertas, candidaturas, JSON IA y métricas.",
+            "Registrado ahora en Version Center del Hub 30."
+          ]
+        }
+      ]
     }
   ]
 }

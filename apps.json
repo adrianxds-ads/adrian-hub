@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.4.8",
+  "hubVersion": "30.4.9",
   "apps": [
     {
       "id": "english",
@@ -25,7 +25,7 @@
     {
       "id": "pizarras",
       "name": "Pizarras",
-      "subtitle": "243 microquizzes · clase real · 15 s",
+      "subtitle": "Clases adaptativas · Sara B2 · quiz rápido",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-pizarras/",
@@ -35,7 +35,7 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "subtitle": "B2 · 3.000 ejercicios adaptativos · 15 s",
+      "subtitle": "1.610 tarjetas · B2 First Part 1 · 15 s",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/",

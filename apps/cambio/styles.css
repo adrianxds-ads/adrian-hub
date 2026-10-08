@@ -161,3 +161,12 @@ var(--ad-bg,#0d1518)}
   .time-face{width:60%;padding:12px 9px 14px}
   .time-face b{font-size:clamp(68px,21vw,96px)}
 }
+
+
+ /* Mobile review: touch targets and readable fields. */
+button,.back,a.mini{min-height:48px!important}
+button,input,select,textarea{font-size:16px}
+input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height:48px;min-width:0}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
+.back{display:inline-flex;align-items:center}
+@media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}
