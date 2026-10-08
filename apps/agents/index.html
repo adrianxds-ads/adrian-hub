@@ -33,7 +33,7 @@
   <div class="agent-head"><span class="agent-glyph triage-glyph">NX</span><div><small>NÚCLEO MATRIX · COORDINACIÓN</small><h2>Nexo</h2></div><span class="status ready" id="triageStatus">LISTO</span></div>
   <p>Nuestro asistente principal reúne conversación, coordinación, triaje y autodiagnóstico. El motor local prepara la ruta; la conversación continúa en ChatGPT con sus herramientas disponibles.</p>
   <div class="triage-flow" aria-label="Flujo"><span>PETICIÓN</span><i>→</i><span>CLASIFICA</span><i>→</i><span>DERIVA</span><i>→</i><span>CONTROLA COSTE</span></div>
-  <dl><div><dt>Objetivo</dt><dd>Evitar usar modelos caros para tareas que pueden resolverse gratis o con herramientas locales</dd></div><div><dt>Permisos</dt><dd>Enrutamiento y presupuesto · sin editar ni publicar</dd></div><div><dt>Coste</dt><dd>0 USD en la clasificación local actual</dd></div></dl>
+  <dl><div><dt>Objetivo</dt><dd>Evitar usar modelos caros para tareas que pueden resolverse gratis o con herramientas locales</dd></div><div><dt>Permisos</dt><dd>Clasifica, inicia y sigue auditorías · sin editar ni publicar</dd></div><div><dt>Coste</dt><dd>0 USD en la clasificación local actual</dd></div></dl>
   <label class="mission triage-mission"><span>¿QUÉ QUIERES HACER?</span><textarea id="triageRequest" maxlength="2000" rows="3" placeholder="Ej.: Arregla Keyboard Speak y comprueba que no rompa nada."></textarea></label>
   <div class="actions triage-actions">
     <button class="ad-button primary wide" id="triageBtn" type="button">PREPARAR RUTA · 0 USD</button>
@@ -46,6 +46,14 @@
     <div class="triage-budget"><span>TECHO ACTIVO</span><b id="triageBudget">$0.0000</b></div>
     <button class="ad-button" id="triageGo" type="button" hidden>IR AL ESPECIALISTA</button>
   </div>
+<section class="nexo-mission" aria-label="Seguimiento de Nexo">
+ <h3>Nuestra misión</h3>
+ <div class="actions"><button class="ad-button primary" id="nexoRun" type="button">AUDITAR DESDE NEXO · MÁX. $0,35</button><button class="ad-button" id="nexoRecover" type="button">RECUPERAR EJECUCIÓN</button></div>
+ <p id="nexoMissionState" role="status">SIN EJECUCIÓN</p>
+ <p id="nexoMissionRequest"></p><p id="nexoMissionMeta"></p><p id="nexoMissionNote"></p>
+ <details><summary>Informe recogido por Nexo</summary><pre id="nexoMissionReport"></pre></details>
+ <div class="actions"><button class="ad-button wide" id="nexoMissionRepair" type="button" disabled>PREPARAR REPARACIÓN DE KEYBOARD SPEAK</button></div>
+</section>
 <div class="nucleo-card" data-agent="nucleo"><h3>Autodiagnóstico de nuestro entorno</h3><span class="status checking" id="nucleoStatus">SIN COMPROBAR</span>  <div class="agent-live"><b id="nucleoHeadline">Todavía no he realizado la comprobación.</b><small id="nucleoMeta">Las opciones privadas de tu cuenta se marcarán como no verificables.</small></div>
   <div class="nucleo-checks" id="nucleoChecks" aria-live="polite"></div>
   <div class="actions"><button class="ad-button primary wide" id="nucleoRefresh" type="button">AUTODIAGNÓSTICO · 0 USD</button></div>
@@ -122,7 +130,7 @@
   <p>Nexo integra el triaje y coordina; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.0.2</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.1.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">

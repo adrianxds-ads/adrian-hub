@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.18",
-    "build": "hub-30.4.18-20261008",
+    "version": "30.4.19",
+    "build": "hub-30.4.19-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Nexo: auditoría primero, derivación activa y acceso del Auditor a Keyboard Speak.",
-      "Auditor cierra con el presupuesto restante y señala informes parciales."
+      "Nexo inicia auditorías, retoma el seguimiento y recoge el informe de la misma ejecución.",
+      "Informes parciales detienen la ruta; reparación de Keyboard Speak preparada solo desde un informe completo revisable."
     ],
     "history": [
+      {
+        "version": "30.4.18",
+        "build": "hub-30.4.18-20261008",
+        "changes": [
+          "Nexo: auditoría primero, derivación activa y acceso del Auditor a Keyboard Speak.",
+          "Auditor cierra con el presupuesto restante y señala informes parciales."
+        ],
+        "date": "2026-10-08"
+      },
       {
         "version": "30.4.17",
         "build": "hub-30.4.17-20261008",
@@ -302,7 +311,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "acbf0196101a21c5c58d742e6f8c555e39e840b351dab0065b0ec513da1b3a2a"
+          "sha256": "7720aa28527a11a089642d3c2454368e31c34448cac80684a92f95af5e8b3197"
         },
         {
           "url": "version-verifier.js",
@@ -310,7 +319,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "32b22edfaa9c12f54f23d31f34cbe9c9a02f386acd212e3e42dc3767ff17e50a"
+          "sha256": "60b8fbc3e77f2bf10cfb0b2c866e52104daad1b3c9ca56bb7d5cc7ea88648b35"
         },
         {
           "url": "styles.css",
@@ -318,15 +327,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "65866e8f9f1f9cfb312bea486e263d9a01a524762a18b1a3fa64c0be473599c4"
+          "sha256": "a70882739f14c6bdf76c2b4c5f388a8a2c4678c4999b0d4526e101104d125f7d"
         },
         {
           "url": "build-assets.js",
-          "sha256": "586769f2e6620c8bf4010aae4e1802e98cabba7c5c82e104df462a1547a9e359"
+          "sha256": "ca138b15e6db1842ce6d3955c46d504e701b744c4e1b8ea4a4f23bbe9cf759df"
         }
       ]
     },
-    "cacheBuild": "2b9149bb5d071302"
+    "cacheBuild": "a4125223f19adfd4"
   },
   "apps": [
     {
@@ -1168,27 +1177,27 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "1.0.2",
-      "build": "sha256-0fae3fc55a4a",
+      "version": "1.1.0",
+      "build": "sha256-739752ad4996",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Nexo: auditoría primero, derivación activa y acceso del Auditor a Keyboard Speak.",
-        "Auditor cierra con el presupuesto restante y señala informes parciales."
+        "Nexo inicia auditorías, retoma el seguimiento y recoge el informe de la misma ejecución.",
+        "Informes parciales detienen la ruta; reparación de Keyboard Speak preparada solo desde un informe completo revisable."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "620489d084c4b5d9b57866793bbbdcd2deaffe3b4e719bdb33daf2ac415d1b84"
+            "sha256": "bb91a20271c2ee5cbb2c63d7d5af3954245622d7266ceb0be7dcad524d651870"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "16f42aa4f5303b9f7528aeb57f19595363c0735347c49c88f8601e8e652577e4"
+            "sha256": "f53790a7640c8ce7ba37b050c329d7d1d45e67d1c07956604086890759b654c2"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "c5b3b1ee40e4496b1cce373d9d6cb79a62f37390f5b8f4aff9fa34c49f320dce"
+            "sha256": "c3fe4b016b827508f313b406fc237597d6df6146d40f5e3aa58b18cd944b3e65"
           }
         ]
       },

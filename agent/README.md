@@ -77,3 +77,6 @@ The separate design_repair_agent.py supports the eight external study apps and B
 Example: python agent/design_repair_agent.py --root C:/Users/adria/agent-workbench/design-repair-adaptive-english --test-script C:/Users/adria/adrian-hub/agent/test_design_ui.py --mission-file C:/Users/adria/agent-workbench/design-mission-adaptive-english.txt --max-usd 0.65 --max-turns 5
 
 Reports never publish changes. Review diffs, increment app versions, rebuild cache fingerprints and verify deployed bytes separately. Chrome headless viewports do not verify a physical Pixel keyboard, microphone or audio.
+
+## Nexo 1.1.0 · mission tracking
+The main Nexo card starts read-only audits and resumes observation by run ID. It persists the mission locally, collects matching reports, and stops on partial/failed/superseded runs. Complete Keyboard Speak reports can be handed to the existing repair editor for review; no repair is started automatically. Browser regression: test_nexo_mission.py; read-only real report check: verify_nexo_mission_live.py.

@@ -223,3 +223,85 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
  }
  location.assign('https://adrianxds-ads.github.io/adrian-hub/chatgpt.html');
 });
+
+/* Nexo mission tracking: resumes observation, never automatically repeats a paid run. */
+(()=>{
+ const KEY='nexo-mission-v1';let mission=null,timer=0,starting=false,polling=false;
+ try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.schema===1&&typeof v.runId==='string'&&typeof v.request==='string'&&['running','complete','partial','preflight','failed','superseded'].includes(v.phase))mission=v;}catch{}
+ const q=s=>document.querySelector(s);
+ function persist(){try{localStorage.setItem(KEY,JSON.stringify(mission));}catch{q('#nexoMissionNote').textContent='No se pudo guardar el seguimiento en este navegador.';}}
+ function canRepair(){return mission?.phase==='complete'&&!!mission?.report&&/keyboard speak|adaptive-keyword-speaking/i.test(mission.request);}
+ function paint(){
+  q('#nexoRun').disabled=starting||mission?.phase==='running';
+  q('#nexoRecover').disabled=starting||polling;
+  q('#nexoMissionRequest').textContent=mission?.request||'Todavía no hay una ejecución vinculada.';
+  q('#nexoMissionState').textContent=({running:'AUDITOR TRABAJANDO',complete:'INFORME PARA REVISAR',partial:'INFORME PARCIAL · RUTA DETENIDA',preflight:'COMPROBACIÓN SIN GASTO',failed:'EJECUCIÓN FALLIDA',superseded:'OTRA EJECUCIÓN EN EL SERVICIO'})[mission?.phase]||'SIN EJECUCIÓN';
+  q('#nexoMissionMeta').textContent=mission?'Auditor · '+mission.runId+' · coste '+(Number.isFinite(mission.cost)?money(mission.cost):'pendiente'):'';
+  q('#nexoMissionReport').textContent=mission?.report||'El resultado aparecerá aquí al terminar.';
+  q('#nexoMissionRepair').disabled=!canRepair();
+  q('#nexoMissionNote').textContent=mission?.note||'El Auditor continúa en el PC al cerrar el panel. El seguimiento se recupera en este navegador; la reparación se prepara para revisar.';
+ }
+ function schedule(){clearTimeout(timer);if(mission?.phase==='running')timer=setTimeout(poll,2500);}
+ async function collect(state){
+  if(!mission||state.run_id!==mission.runId){if(mission){mission.phase='superseded';mission.note='La misión se conserva. El servicio tiene otra ejecución; no vinculamos su resultado.';persist();paint();}return;}
+  const result=state.result||{};mission.cost=Number.isFinite(result.cost_usd)?result.cost_usd:state.dry_run?0:null;
+  if(state.running){mission.phase='running';persist();paint();schedule();return;}
+  if(state.status!=='completed'||state.returncode>0){mission.phase='failed';mission.note=state.error||'El Auditor no terminó; no se inicia el Reparador.';persist();paint();return;}
+  if(state.dry_run){mission.phase='preflight';mission.note='Preparación comprobada. No se ha ejecutado una auditoría ni generado un informe.';persist();paint();return;}
+  if(!state.report_available){mission.phase='failed';mission.note='La ejecución terminó sin informe vinculado; no se recupera un informe anterior.';persist();paint();return;}
+  const report=await request('/report');
+  const fresh=(await request('/status')).agent;
+  if(fresh.run_id!==mission.runId){mission.phase='superseded';mission.note='Cambió la ejecución mientras recogíamos el informe. Conservamos la misión sin asociar ese resultado.';}
+  else if(!report.available||!report.content){mission.phase='failed';mission.note='No hay contenido de informe verificable para esta misión.';}
+  else{
+   mission.report=report.content;
+   const partial=!!result.partial||report.content.includes('INFORME PARCIAL');
+   mission.phase=partial?'partial':'complete';
+   mission.note=partial?'El diagnóstico está incompleto. Nexo detiene la ruta; debemos completar la evidencia antes de reparar.':'Revisa los hallazgos y reproduce el fallo antes de preparar la reparación. Preparar no ejecuta ni publica cambios.';
+  }
+  persist();paint();
+ }
+ async function poll(){
+  if(polling||!mission)return;polling=true;
+  try{await collect((await request('/status')).agent);}
+  catch(e){q('#nexoMissionNote').textContent='Seguimiento sin conexión: '+e.message+'. No se repite la ejecución.';schedule();}
+  finally{polling=false;q('#nexoRecover').disabled=false;}
+ }
+ q('#nexoRun').addEventListener('click',async()=>{
+  if(starting||mission?.phase==='running')return;
+  const text=q('#triageRequest').value.trim();
+  if(text.length<10||text.length>1200){showToast('Describe una misión de entre 10 y 1200 caracteres.');return;}
+  starting=true;paint();
+  try{
+   const route=(await request('/triage',{method:'POST',body:JSON.stringify({request:text})})).triage;renderTriage(route);
+   if(route.primary?.id!=='auditor'||!route.primary.active){showToast('Este recorrido empieza por el Auditor. Usa la derivación para los demás especialistas.');return;}
+   const active=(await request('/status')).agent;
+   if(active?.running){showToast('El Auditor ya está ocupado. Recupera su ejecución para seguirla.');return;}
+   if(!confirm('Iniciar la auditoría desde Nexo?\n\nSolo lectura. Límite: 0,35 USD. La reparación se prepara después de revisar un informe completo.'))return;
+   const d=await request('/audit',{method:'POST',body:JSON.stringify({model:'opus',mission:text,dry_run:false,confirm_cost:true})});
+   mission={schema:1,runId:d.agent.run_id,request:text,phase:'running',cost:null,report:'',note:''};
+   q('#auditMission').value=text;persist();paint();schedule();
+  }catch(e){showToast(e.message);}
+  finally{starting=false;paint();}
+ });
+ q('#nexoRecover').addEventListener('click',async()=>{
+  if(starting||polling)return;polling=true;paint();
+  try{
+   const state=(await request('/status')).agent;
+   if(!state?.run_id){showToast('No hay una ejecución del Auditor para recuperar.');return;}
+   if(mission&&mission.runId!==state.run_id&&!confirm('El servicio tiene otra ejecución. ¿Vincularla al seguimiento de Nexo?'))return;
+   mission={schema:1,runId:state.run_id,request:state.mission||'Misión sin descripción',phase:'running',cost:null,report:'',note:''};
+   await collect(state);
+  }catch(e){showToast(e.message);}
+  finally{polling=false;paint();}
+ });
+ q('#nexoMissionRepair').addEventListener('click',()=>{
+  if(!canRepair())return;
+  const pack='Keyboard Speak: revisa este diagnóstico y repara únicamente fallos reproducidos. Conserva progreso y ejecuta la regresión.\nPetición: '+mission.request+'\nExtracto del Auditor:\n'+mission.report;
+  if(!confirm('Preparar una misión de reparación a partir del informe completo?\n\nRevisa el extracto y describe el fallo reproducido antes de pulsar Reparar. No se ejecuta ninguna reparación ahora.'))return;
+  q('#repairMission').value=pack.slice(0,1600);
+  q('[data-agent="repair"]').scrollIntoView({behavior:'smooth',block:'start'});
+  showToast('Misión preparada. Revisa el extracto y el fallo antes de ejecutar.');
+ });
+ paint();if(mission?.phase==='running')poll();
+})();
