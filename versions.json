@@ -613,23 +613,22 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.16",
-      "build": "sha256-d7c9ac44dafd",
+      "version": "1.2.17",
+      "build": "sha256-1132dcd9673b",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Quiz: 3 minutos por defecto, tiempo orientativo de examen y sin límite.",
-        "Tabla de las siete partes, preferencia persistente y 18 rondas verificadas en móvil y escritorio."
+        "Tabla con nombres ingleses y puntuación oficial: 70 puntos en total."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "29eedc17ab28000d3da701949ed19cc1fd458cca5a704bcf37a6ed1a970ef2ed"
+            "sha256": "910433c0e615ae8ed129dbf83f599f0ffaf5997053652e4eea2b615edc036cfd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "447c68f3e9586ff5d6f7a71543327e3804af3f1fe4bd8ef66d39bf9ae15417fa"
+            "sha256": "880c9355e95d112e381ab1dec4eb4a36e6deaa92fc561744aa1921346c45e8fd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -637,11 +636,11 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "01da6464587b65fad368580dafcb82b798828dfea5d388bc0586a4909b7de0f1"
+            "sha256": "a8ca5c49823692ed77669616dfd28cef15625884ee1b231e615519cc5727699c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.html",
-            "sha256": "72927976a135b9b0b2ed32f89422ee0b963f7654003ddf2d62196ecd3570946c"
+            "sha256": "8bcd523d9a7f8bb95353f136526aa88554048ad1d7ebabdae5d624b5b7876ce8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.js",
@@ -653,13 +652,21 @@
           }
         ]
       },
-      "sourceCommit": "014414fc6ce8d4a558090894367a9d31621488c8",
-      "cacheBuild": "983ef9f33b601577",
+      "sourceCommit": "266f041e05cdc6439c52e826f2500009a0428ee5",
+      "cacheBuild": "85c786e7bfe25234",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.16",
+          "date": "2026-10-08",
+          "changes": [
+            "Quiz: 3 minutos por defecto, tiempo orientativo de examen y sin límite.",
+            "Tabla de las siete partes, preferencia persistente y 18 rondas verificadas en móvil y escritorio."
+          ]
+        },
         {
           "version": "1.2.15",
           "date": "2026-10-08",
