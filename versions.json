@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.10",
-    "build": "hub-30.4.10-20261008",
+    "version": "30.4.11",
+    "build": "hub-30.4.11-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-      "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+      "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+      "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+      "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
     ],
     "history": [
+      {
+        "version": "30.4.10",
+        "date": "2026-10-08",
+        "changes": [
+          "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+          "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        ]
+      },
       {
         "version": "30.4.9",
         "date": "2026-10-08",
@@ -231,7 +240,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "fcfff2171ed8055e457856bb3562bb725d7507c4bc7d0bf9ce03b9a2597635bd"
+          "sha256": "0fa82753b22bb6cbfba0b3286854f3c3f1a0c97ee1c21fccffb3165b741598ad"
         },
         {
           "url": "version-verifier.js",
@@ -239,7 +248,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "c754c34ef26719de472600d69e180d5c6942d52a4cc825a5be0a49eae8b94cfa"
+          "sha256": "14ac27e046eca82962537e7b683141a028b856a0e29f47e89a73c0dedef50fc9"
         },
         {
           "url": "styles.css",
@@ -247,37 +256,38 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "8dd2e4df868291da146559e5d5ff8a3555eac37eff9a70c2ff8266847c161036"
+          "sha256": "95b99f3bac4dbec440427a336ea3ddcf0d174ffb7eb8401302d0300034af7b07"
         },
         {
           "url": "build-assets.js",
-          "sha256": "b55c44acbfdbe1d2e409a3786412973e85e862bb425f9490639616ba88e2ce68"
+          "sha256": "e694826e365d5dc1a45b5236acfb995ae576b3aa62a467c379613f8f29037962"
         }
       ]
     },
-    "cacheBuild": "d93fc1dd0c958e59"
+    "cacheBuild": "83697526a16a00f0"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.6",
-      "build": "sha256-294392fed680",
+      "version": "3.34.7",
+      "build": "sha256-c5e46baccc98",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "eb5ee6ca746b21b8ef798c5e428fd8c06f2f1d8008bbce0f23c56cdec344553b"
+            "sha256": "315c2a2a5f472f601d2fb346e3f92f40c5b914d870edf1b1dd785e3e5978c67d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "f36bc113d79bb5b7d9aee09919c132aa6bd1ba4bd9641b438f5032fe0351bb98"
+            "sha256": "b0274104f1c24582331f41d93ef058167e43e428b0d09c74c9dcab8939182d7d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -285,17 +295,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "04ccf840f4772b2324d0e02da2534c31abc35cadaefb67d34cf2344ae7b23dfe"
+            "sha256": "66335f4840ef7ec7adaf9c7fd79dc0a64a4b70d91fc3f78c1ea4d011b2ab75d9"
           }
         ]
       },
-      "sourceCommit": "01f92af4f29ce0e090bb63cdc454af546439e906",
-      "cacheBuild": "a8f57977b8b40821",
+      "sourceCommit": "63a7f840d73141832c0eb60b40a2a977baa3edeb",
+      "cacheBuild": "6bb9039f39129817",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.34.6",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "3.34.5",
           "date": "2026-10-08",
@@ -317,23 +335,24 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.6",
-      "build": "sha256-aa421316043c",
+      "version": "0.12.7",
+      "build": "sha256-a3308876f465",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "caf90997affca300de1fc5221c6404e8accf96bb313d4e593e0808b101324bd5"
+            "sha256": "514160ac9da133a09c04ee51a97baeaa16d2a6d1ac0e9a588b477490c372e727"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "55f3981883c8c7a283d79714af025c7e57b1aa98ecd606dc13b289ff2e811869"
+            "sha256": "49c742ea8bc39fe3c066f23479b9a700d075ec887bbcdb1cf37e457e92444e31"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -341,17 +360,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "28fcad6d63aa5507e3d4d1504857fbd524fd201c144b41c4eb92c960f9cf86f6"
+            "sha256": "1847694d1ad3ec5a6d1cd1df4da842c75ee1933dd7c08fb1ed5b6a265bac7c17"
           }
         ]
       },
-      "sourceCommit": "3c582b824674b64fbc4dba25a00aeedf07412721",
-      "cacheBuild": "a7e3038ebc9bf967",
+      "sourceCommit": "a630264764d5b336d3686cc2f46e15436be8f724",
+      "cacheBuild": "8e5de89f1c397e53",
       "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.12.6",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "0.12.5",
           "date": "2026-10-08",
@@ -373,23 +400,24 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.10",
-      "build": "sha256-a149b765d77c",
+      "version": "2.1.11",
+      "build": "sha256-b2837fab548a",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "088082709966d4428cb0ac8939c9a2af6e39726b8b1983cb08de0eec592a26e3"
+            "sha256": "b4f7f76c3e66d726f33d07429eb7675217b27a4a8b4569cfe4b88a61f4aa0ef1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "d555a92490832505f8768b5853383ec701d7175b214f94463f65530c4fab9144"
+            "sha256": "3609441b9615103cc2bd7d18d931786375af22a594de671f7830312e67caaa32"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -397,17 +425,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "8ae3a55116ce1f6e34e79ee513ef00d7844cc9ccaf7075513e96ba7268bea3b8"
+            "sha256": "7b6f94ca397a313689b2b286e62480e06a9287fd5340e1924600321c7049530b"
           }
         ]
       },
-      "sourceCommit": "2547ba3bb28a9e5524425361883a829adeb34a3c",
-      "cacheBuild": "ad5db3659250c23c",
+      "sourceCommit": "79eee9c0560f0673343ab7f163527c0ca042cd7b",
+      "cacheBuild": "c9d763920d7d8c56",
       "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.1.10",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "2.1.9",
           "date": "2026-10-08",
@@ -428,23 +464,24 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.10",
-      "build": "sha256-81ce04930bb6",
+      "version": "1.10.11",
+      "build": "sha256-9a00a09fa996",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "6dcf354fe6ce6cdb0cf9a639719745a2225f27c751c5a4225915d76b733fb4c3"
+            "sha256": "df630466d56aa42df1aac6c8299c7144bceecdf76cdcb7f78314bd450b371c71"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "c14e872e1da1cc5e6e95f46e40520cb8d124822971c6f5035818379e042e672b"
+            "sha256": "af018febb4e61fb18bf899974c60f47cc99fdba1fb14c113da8e7c275d145d7e"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -452,17 +489,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "a1df3cd238d2706705ae9d5a98a02e339e73873b4b39bc2c522f4a4c4d33155f"
+            "sha256": "70bd3e1c774b278915ac67c247c98af20c058f11181db58ef4ca5fd276400fe7"
           }
         ]
       },
-      "sourceCommit": "751d6a999677399495db1c046e332a982a3bb1cb",
-      "cacheBuild": "98bd163611c9cd1a",
+      "sourceCommit": "449021b163eebb8158948e02c39e9bf3a293f86b",
+      "cacheBuild": "e29838798ee95a5c",
       "sourceDirty": true,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.10.10",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "1.10.9",
           "date": "2026-10-08",
@@ -484,23 +529,24 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.13",
-      "build": "sha256-bec1a8efa786",
+      "version": "1.2.14",
+      "build": "sha256-beb0de664eb7",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "f15b6b713349d6a003900c8a14606ceb4166541ce9fa50bfd698503eb6f2aa00"
+            "sha256": "4a44068e319c141788af03e236af15cca9922a7dedd99a371049dece425616ff"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "a0a068404a423b8d8f63b04bb88c00345025a8b985c698f4dea9217ad9c5308e"
+            "sha256": "e9e551864c47188158edf6a482678383f9f85669e9eb00cccdf376dcea61b261"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -508,17 +554,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "627e285b13c9b88209ff11646bb9ff342a2fdd27cf688b54042340e61d509d99"
+            "sha256": "6d2c4866ac5afddbeb7e0524e11d03007eea8b36880d627d4299685160b6a445"
           }
         ]
       },
-      "sourceCommit": "767c2d8f51baeb8e71449c30ae4a567332fe5d90",
-      "cacheBuild": "d4c31e865a2a5b43",
+      "sourceCommit": "33948d8bb68f69484b125f2bfb30cbcddd2ae4bb",
+      "cacheBuild": "77296bf02d6918f8",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.13",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "1.2.12",
           "date": "2026-10-08",
@@ -539,23 +593,24 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.6",
-      "build": "sha256-e05612734299",
+      "version": "1.0.7",
+      "build": "sha256-1d7e5b57360d",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "9800ae4616e37fb50c1cc95aed344b489744e2c8112d9e273f4ad6c1f98dd463"
+            "sha256": "5f01c97bc92d3c6f71dd7c4739e46617f4685392e675a9bfe3d65f66746760c5"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "9c39ccc14a9cf56dbab8825591f972a6afb40cab25a1573e89d9ea0d832d61ee"
+            "sha256": "6d128066b2113cf67d4a3b352f0a41a9b79ee993e840c051407309c8b7519fc4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -563,17 +618,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "73da41cd5fc7f9df9de64cdd2551be1b6c1cecb0032d290102be8f3366a0f90e"
+            "sha256": "8d443f65c2845c6e7c8ce6886b7542fcff818565a082e9b56445b9826491659a"
           }
         ]
       },
-      "sourceCommit": "8e4ac2d6fe3ae0296989e466621c870c44c21584",
-      "cacheBuild": "58d6084ebbcf8fd9",
+      "sourceCommit": "66fc6cf70e693d19379e0dc1b9c82dfa5909ff59",
+      "cacheBuild": "02267516b66fa4e5",
       "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.6",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "1.0.5",
           "date": "2026-10-08",
@@ -624,23 +687,24 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.10",
-      "build": "sha256-8bd5081417bd",
+      "version": "0.9.11",
+      "build": "sha256-5e4e333e5dc8",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "063a3e14b34479dd953faf197536e3e8af66d7a3ad51bbeab9fdd0e59fea87f3"
+            "sha256": "c8511aeb3e2fbdd061b7579c01ce3bcb838d3b36f4c91e3b743a073f3c3517e8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "a24806048cc2fd5a43da9ac4f0217bb31894b43b7ba2c1e9803d4bc8dac90fe4"
+            "sha256": "2f6af40abfe4e70b73e42b8cae90ca369106ecb09ddbf03e1cb14b918e8478d4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -648,17 +712,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "23c5d1edac7a74332a76f400b0e8579e8f2c33b7fcd05eaaf4b64b1d8ac8f57b"
+            "sha256": "e7e7ccce9b6d9003734cd174ac635b0e1bc4f7ccc94549c0586bfff740773e4f"
           }
         ]
       },
-      "sourceCommit": "7383ab21c31e68681b97d166a5365871622eecac",
-      "cacheBuild": "fed4025f7ad9b816",
+      "sourceCommit": "315f5bd4b512f04e04a45bc69b7ebd67e04f1af7",
+      "cacheBuild": "f2c88ad3af9394d8",
       "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.9.10",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "0.9.9",
           "date": "2026-10-08",
@@ -719,23 +791,24 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.9-read-first",
-      "build": "sha256-f2e1d2be930b",
+      "version": "2.6.10-read-first",
+      "build": "sha256-e93195533dc2",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
-        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+        "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+        "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+        "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "2c1fc03379075d543fd0b76c2aca78b4eb65c4f08c992d5bcb28e58bb7bbe19f"
+            "sha256": "0be05dcd7b38a2dca33c09436e6cdc3133c654429995de0182d3c8ee764e3e90"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "3deb4d6eae0797d0f47352dda441281d4ac7906b0b9e75d9798e65be552fc86c"
+            "sha256": "367ec494f931f60f3897f457c6b2a826918827c0f58f2089a6deaa052c02fdaf"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -743,17 +816,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "5bad48deaea677e82df7b3a44915a8010783117f2035dd85e85cc097fb19fa5c"
+            "sha256": "5f142988e3f403945761ce08b1bf398f91605deb1a660c53dba22201d97b618a"
           }
         ]
       },
-      "sourceCommit": "0c1e8fafc37a52d64fd17819198615315c48669b",
-      "cacheBuild": "eab287cdd54d8cb9",
+      "sourceCommit": "968f08ad50dc2b93b6e69e23ae4a6628efd54918",
+      "cacheBuild": "cdc0bd54c68d5ac4",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.6.9-read-first",
+          "date": "2026-10-08",
+          "changes": [
+            "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+            "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
+          ]
+        },
         {
           "version": "2.6.8-read-first",
           "date": "2026-10-08",
