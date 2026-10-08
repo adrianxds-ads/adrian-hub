@@ -16,7 +16,7 @@ function render(){
   let rows=data.episodes.filter(e=>!q||norm(e.number+' '+e.title+' '+e.summary).includes(q));
   if(order==='desc')rows=[...rows].reverse();
   els.heard.textContent=done.size;els.total.textContent=data.episodes.length;els.shown.textContent=rows.length===data.episodes.length?'':rows.length+' resultats';
-  els.empty.hidden=!!rows.length;
+  els.empty.hidden=window.ModeTarea?.selectedTab==='task'||!!rows.length;
   els.list.innerHTML=rows.map(e=>{
     const isDone=done.has(e.number),playing=current===e.number&&!els.audio.paused;
     return '<article class="episode '+(isDone?'done':'')+'" data-episode="'+e.number+'">'+
@@ -35,7 +35,7 @@ function toggleDone(n,force){
   next?s.add(n):s.delete(n);saveHeard(s);render();
 }
 async function toggleEpisode(n){
-  const e=episode(n);if(!e||!e.audio)return;
+  const e=episode(n);if(!e||!e.audio||window.ModeTarea?.playing)return;
   if(current===n){if(els.audio.paused)await els.audio.play();else els.audio.pause();render();return}
   persistPosition();current=n;els.audio.src=e.audio;els.player.hidden=false;els.playerTitle.textContent='#'+e.number+' · '+e.title;
   els.audio.onloadedmetadata=()=>{const p=positions()[n]||0;if(p>3&&p<els.audio.duration-10)els.audio.currentTime=p;updateTimeline()};
@@ -43,7 +43,7 @@ async function toggleEpisode(n){
   render();
 }
 function persistPosition(){
-  if(!current||!Number.isFinite(els.audio.currentTime))return;
+  if(window.ModeTarea?.playing||!current||!Number.isFinite(els.audio.currentTime))return;
   const p=positions();p[current]=Math.floor(els.audio.currentTime);savePositions(p);lastSaved=Date.now();
 }
 function updateTimeline(){
@@ -59,6 +59,7 @@ els.seek.oninput=()=>{if(Number.isFinite(els.audio.duration))els.audio.currentTi
 els.audio.addEventListener('play',()=>{updateTimeline();render()});
 els.audio.addEventListener('pause',()=>{persistPosition();updateTimeline();render()});
 els.audio.addEventListener('timeupdate',()=>{updateTimeline();if(Date.now()-lastSaved>5000)persistPosition()});
-els.audio.addEventListener('ended',()=>{if(current){toggleDone(current,true);const p=positions();delete p[current];savePositions(p)}});
+els.audio.addEventListener('ended',()=>{if(window.ModeTarea?.playing)return;if(current){toggleDone(current,true);const p=positions();delete p[current];savePositions(p)}});
 window.addEventListener('pagehide',persistPosition);
-fetch('./easy-catalan.json').then(r=>{if(!r.ok)throw Error('Catàleg no disponible');return r.json()}).then(x=>{data=x;els.art.src=x.artwork;render()}).catch(err=>{els.empty.hidden=false;els.empty.textContent='No s’ha pogut carregar el catàleg.';console.error(err)});
+window.LibraryOriginalStop=()=>{persistPosition();els.audio.pause();current=null;els.audio.onloadedmetadata=null;els.player.hidden=true;render()};
+fetch('./easy-catalan.json').then(r=>{if(!r.ok)throw Error('Catàleg no disponible');return r.json()}).then(x=>{data=x;els.art.src=x.artwork;render();window.ModeTarea?.catalogReady(x)}).catch(err=>{els.empty.hidden=false;els.empty.textContent='No s’ha pogut carregar el catàleg.';console.error(err)});

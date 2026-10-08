@@ -4,8 +4,8 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.21",
-    "build": "hub-30.4.21-20261008",
+    "version": "30.4.22",
+    "build": "hub-30.4.22-20261009",
     "releasedAt": "2026-10-08",
     "changes": [
       "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
@@ -328,7 +328,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "84ce11b39128588bc46af17101d8ead09639bd658147bc2e3f89d41b65e23bdc"
+          "sha256": "490cda7c7977efc26bf70dacf8c76a5e10764f607f3db95bb9ea0b319c298fc0"
         },
         {
           "url": "version-verifier.js",
@@ -336,7 +336,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "05f0cf9bf49ea0367ec8057bccfd69f9524109b8487f7c4546e4842f002c90c2"
+          "sha256": "266a060139cc64915c015eebe326d35b8f38733df3bfc1b2bde3b68c5dc6a37c"
         },
         {
           "url": "styles.css",
@@ -344,15 +344,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "089f2f1ea65a58dfc48982499f79b4a7184da74c120dadacf306a3b09ef195e1"
+          "sha256": "c546d0abddf5b9ce0f9c7e11032015d58bd62c586f12de65519674229b3a9f34"
         },
         {
           "url": "build-assets.js",
-          "sha256": "c684d3f76e460b52cbc8e533e1f5af8c1e8cea155aa8cfe533698ba154abe4ad"
+          "sha256": "c05b5a7f71889b34daf07016da6c0a6d008b79b6c4e028cf4a7c627a7ef13e4c"
         }
       ]
     },
-    "cacheBuild": "ae3ec7b48ae675db"
+    "cacheBuild": "011a055ff19192ec"
   },
   "apps": [
     {
@@ -987,27 +987,28 @@
     {
       "id": "biblioteca",
       "name": "Biblioteca · Easy Catalan",
-      "version": "0.1.2",
-      "build": "sha256-1c17a86a5f4f",
-      "releasedAt": "2026-10-08",
+      "version": "0.2.0",
+      "build": "sha256-53dd96f8548a",
+      "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Etiquetas de controles en catalán y estado pendiente con símbolo neutro.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Modo Tarea: episodios Easy Catalan como bloques cerrados de trabajo, velocidad 1× y recorrido horizontal.",
+        "Descanso fijo de 10 minutos, tareas encadenadas e historial independiente por sesión.",
+        "Estadísticas completas por día sin alterar la escucha normal."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "82883f78b16fb10309720a7dab5aed9391799895dc455d1ab18254261e4c4945"
+            "sha256": "0df36575ab6b528b66c93636ff2577c545f7932b6fcbb6b185fa6b9e317cfe2a"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "fe6e3cc526898723f8d25f19a25e9f93b27b093e282b6c07f370a302f4090c14"
+            "sha256": "685642beaf4bba696a52854318522292fa0b6435250f6f4aa1921f3968b7725e"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "a31013301fd630ca227a6fb1be59cfe34ef46db6db11cd9fcc01c6da24a67811"
+            "sha256": "929f56f5dcfcd423e161757df8f330b66798b8aa0138a1a230566b0252a0c302"
           }
         ]
       },

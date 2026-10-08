@@ -24,12 +24,40 @@
   </div>
 </header>
 
+<nav class="library-tabs" aria-label="Modalitat">
+  <button id="tabPodcasts" class="library-tab" type="button" aria-selected="true">🎧 Podcasts</button>
+  <button id="tabTasks" class="library-tab" type="button" aria-selected="false">🦖 Modo Tarea</button>
+</nav>
+
 <section class="tools" aria-label="Cercar i ordenar">
   <label class="searchbox"><span>CERCAR</span><input id="search" type="search" placeholder="Número, títol o tema…" autocomplete="off"></label>
   <button id="sortBtn" class="sort-btn" type="button" aria-label="Canviar l'ordre"><span>ORDRE</span><b id="sortLabel">1 → 233</b></button>
 </section>
 
-<div class="legend"><span><i class="pending-dot" aria-hidden="true">•</i>Pendent</span><span><i class="done-dot" aria-hidden="true">✓</i>Escoltat</span><small id="shownCount"></small></div>
+<div id="libraryLegend" class="legend"><span><i class="pending-dot" aria-hidden="true">•</i>Pendent</span><span><i class="done-dot" aria-hidden="true">✓</i>Escoltat</span><small id="shownCount"></small></div>
+
+<section id="taskPanel" class="task-panel" hidden>
+  <div class="task-mode-intro"><b>Un podcast. Una tarea. Hasta la meta.</b><span>El audio decide el tiempo: sin adelantar, sin pausas manuales y a velocidad 1×.</span></div>
+  <div id="taskBreak" class="task-break" hidden aria-live="polite">
+    <strong>☕ Descanso · <span id="taskBreakClock">10:00</span></strong>
+    <p id="taskBreakText">Descanso fijo de 10 minutos.</p>
+  </div>
+  <div class="task-stats-mini">
+    <div><strong id="taskToday">0</strong><span>Hoy</span></div>
+    <div><strong id="taskTotal">0</strong><span>Bloques completos</span></div>
+    <div><strong id="taskMinutes">0 h 0 min</strong><span>Tiempo acumulado</span></div>
+  </div>
+  <button id="taskStatsToggle" class="task-stats-toggle" type="button" aria-expanded="false">📈 Ver estadísticas e historial</button>
+  <div id="taskStatsDetails" class="task-stats-details" hidden>
+    <div class="task-chart-heading"><b>Histórico completo · bloques por día</b><button id="taskChartOpen" type="button">Ampliar ↗</button></div>
+    <div id="taskChart" class="task-chart" aria-label="Gráfica completa de bloques por día"></div>
+    <p id="taskDayInfo" class="task-day-info"></p>
+    <details><summary>Ver todas las sesiones</summary><div id="taskHistory" class="task-history"></div></details>
+  </div>
+  <p class="task-list-caption">Elige cualquier episodio de Easy Catalan para crear un bloque de trabajo.</p>
+  <section id="taskEpisodes" class="episodes" aria-label="Episodios para tareas"></section>
+  <p id="taskEmpty" class="empty" hidden>No se han encontrado episodios.</p>
+</section>
 
 <section id="episodes" class="episodes" aria-live="polite"></section>
 <div id="empty" class="empty" hidden>No he trobat cap episodi.</div>
@@ -41,8 +69,36 @@
   <button id="playerDone" class="player-done" type="button" aria-label="Marca com a escoltat">✓</button>
 </section>
 
+<div id="taskSetup" class="task-modal" hidden role="dialog" aria-modal="true" aria-labelledby="taskSetupHeading">
+  <div class="task-modal-card">
+    <p class="eyebrow">MODO TAREA · EPISODIO ELEGIDO</p>
+    <h2 id="taskSetupHeading">¿Qué vamos a hacer?</h2>
+    <p id="taskSetupTitle"></p>
+    <label for="taskText">Tarea de este bloque</label>
+    <input id="taskText" maxlength="130" placeholder="Ej.: ordenar el escritorio" autocomplete="off">
+    <div class="task-modal-actions"><button id="taskSetupCancel" type="button">Volver</button><button id="taskSetupButton" type="button">Iniciar recorrido</button></div>
+  </div>
+</div>
+<section id="taskStage" class="task-stage" hidden aria-label="Recorrido del bloque de trabajo">
+  <header class="task-stage-head"><span>🦖 MODO TAREA · EASY CATALAN</span><button id="taskExit" type="button" aria-label="Salida de emergencia">Salir del bloque</button></header>
+  <div class="task-stage-copy"><p id="taskStageTitle"></p><h2 id="taskStageTask"></h2><strong id="taskClock">— restantes</strong></div>
+  <div id="taskJourney" class="task-journey" role="progressbar" aria-label="Progreso del episodio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="task-sky"><span>☀️</span><span>☁️</span><span>☁️</span></div>
+    <div class="task-hills"><i></i><i></i><i></i></div>
+    <div class="task-ground"><div id="taskProgress" class="task-progress"></div><span class="task-goal" aria-hidden="true">🏁</span><span id="taskDino" class="task-dino" aria-hidden="true">🦖</span></div>
+  </div>
+  <p class="task-stage-prompt">El personaje avanza con el podcast. La meta es el final real del episodio.</p>
+  <button id="taskResume" class="task-resume" type="button" hidden>▶ Reanudar audio</button>
+</section>
+<dialog id="taskChartDialog" class="task-chart-dialog">
+  <div class="task-chart-heading"><h2>Histórico completo</h2><button id="taskChartClose" type="button">Cerrar ✕</button></div>
+  <p>Bloques completados por día, desde la primera sesión. Desliza para explorar.</p>
+  <div id="taskChartFull" class="task-chart task-chart-large"></div>
+  <p id="taskDayInfoFull" class="task-day-info"></p>
+</dialog>
 <audio id="audio" preload="metadata"></audio>
 <script src="./app.js"></script>
+<script src="./mode-tarea.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10"></script>
 </body>
 </html>
