@@ -39,3 +39,7 @@ Live speech recognition/dictation and audible playback on the Pixel remain pendi
 Harnesses are in tests/study-acceptance-20261008. They expect a Git-tracked snapshot of the repositories served at http://127.0.0.1:18766/<repository>/, installed Chrome and Playwright. They use isolated profiles and mute audio. The desktop fixture and detailed JSON/screenshots are under C:/Users/adria/agent-workbench/pixel-acceptance-20261008. These harnesses use test-internal answers to exercise real controls; they never import the user's progress.
 
 Separate published-version and fingerprint verification is required before treating this report as proof of deployment.
+
+## Publication verification
+
+Hub 30.4.15 commit e8c6ee6 passed its Pages deployment. Public canonical hashes initially matched 54/56 verified files; only Phrasal app.js and build-assets.js still served 0.12.8. Its first deployment failed with a GitHub Pages HTTP 500 (run 37798830724); the failed job was rerun. This temporary deployment failure is distinct from the passing local 0.12.9 session. Final deployment verification follows below when available.

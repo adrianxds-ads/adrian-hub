@@ -1,0 +1,119 @@
+{
+  "full-session-results-final.json": [
+    {
+      "app": "adaptive-english",
+      "before": 0,
+      "after": 1,
+      "score": "15/15 · 100%",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "before": 0,
+      "after": 1,
+      "score": "15/15",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "adaptive-pizarras",
+      "before": 0,
+      "after": 1,
+      "score": "15/15",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "before": 0,
+      "after": 1,
+      "score": "15/15 · 100%",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "before": 0,
+      "after": 1,
+      "score": "15/15 · 100%",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "before": 0,
+      "after": 1,
+      "score": "30/30",
+      "errors": [],
+      "status": "PASS"
+    }
+  ],
+  "extra-session-results.json": [
+    {
+      "app": "adaptive-hoti0108",
+      "score": "15 de 15 correctas",
+      "status": "PASS"
+    },
+    {
+      "app": "adaptive-exam",
+      "scores": [
+        "8 / 8\n100% de acierto",
+        "8 / 8\n100% de acierto",
+        "8 / 8\n100% de acierto",
+        "6 / 6\n100% de acierto"
+      ],
+      "bank_exercises": 120,
+      "status": "PASS"
+    }
+  ],
+  "library-results.json": {
+    "app": "biblioteca",
+    "status": "PASS",
+    "episodes": 233,
+    "tests": [
+      "search",
+      "sort",
+      "mark listened",
+      "reload persistence"
+    ],
+    "audio": "not tested"
+  },
+  "pizarras-expiry-results.json": {
+    "status": "PASS",
+    "app": "adaptive-pizarras",
+    "case": "timed study expiry after 8 real answers; simulated expiry clock",
+    "sessions": 1,
+    "activeSession": null
+  },
+  "keyboard-result.json": {
+    "value": "test",
+    "active": "answer",
+    "viewport": {
+      "height": 409.5238037109375,
+      "offsetTop": 288,
+      "width": 411.4285583496094
+    },
+    "answer": {
+      "top": 441.3095397949219,
+      "bottom": 544.3095397949219,
+      "visible": true
+    },
+    "context": {
+      "top": 325.1547546386719,
+      "bottom": 427.3095169067383,
+      "visible": true
+    },
+    "check": {
+      "top": 601.3095092773438,
+      "bottom": 655.3095092773438,
+      "visible": true
+    },
+    "micAvailable": true,
+    "imeReportedShown": true
+  },
+  "limitations": [
+    "Real speech dictation and audible playback pending",
+    "Actual user cross-device sync not exercised"
+  ]
+}
