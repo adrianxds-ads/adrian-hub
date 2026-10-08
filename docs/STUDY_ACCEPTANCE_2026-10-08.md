@@ -63,3 +63,10 @@ The Pixel origin held about 5,239,565 characters and a 10 KB diagnostic write ra
 The physical phone locked during follow-up; no unlock bypass was attempted. Remaining work is to inspect the app conflict acknowledgements and reconcile preserved progress, then verify identical histories/counters and final marker cleanup on an unlocked Pixel. The report records the failure rather than declaring complete synchronization. No OpenRouter/model calls or infrastructure upgrade were required.
 
 Evidence is appended to tests/study-acceptance-20261008/results.json. Recovery payloads remain private and are not included in the public repository.
+
+
+## Cambridge Quiz 1.2.16 · tiempos · 2026-10-08
+
+Incorporados tres tiempos: 180 segundos como valor inicial, media orientativa de examen (53/53/45 segundos) y sin límite. Tabla completa con 75 minutos, revisión, asterisco que identifica la propuesta de la IA y enlace a Cambridge. Preferencia persistente y modalidad registrada con cada respuesta.
+
+Verificación: 18 rondas completas en Chrome a 412 y 1280 px; caducidad única, ausencia de caducidad sin límite, duración real, preferencia tras recarga y tabla sin desbordamiento. Captura móvil inspeccionada. Publicación 014414f verificada: siete archivos públicos coinciden con los hashes locales; UI pública móvil sirve 180/45 segundos, instala la nueva caché y elimina la anterior. GitHub Pages completado con éxito. Pruebas con perfiles aislados y sincronización bloqueada, sin utilizar el progreso real ni ocupar el Pixel. Registro del Hub: 01544e4.
