@@ -113,8 +113,9 @@
     "imeReportedShown": true
   },
   "limitations": [
-    "Real speech dictation and audible playback pending",
-    "Actual user cross-device sync not exercised"
+    "Full app-progress reconciliation not approved: six pending states",
+    "Final Pixel tombstone pull awaits next unlock",
+    "Human audible-output judgement and a fully scored English round by live voice were not established"
   ],
   "published_phrasal": {
     "status": "PASS",
@@ -127,5 +128,71 @@
     "total": 56,
     "matches": 56,
     "mismatch": []
+  },
+  "followup_audio": {
+    "audioStarted": true,
+    "audioTime": 2.172146,
+    "audioReady": 4,
+    "voiceStarted": true,
+    "voiceEnded": true,
+    "audioTimeNow": 2.172526,
+    "voices": 92,
+    "audioPlayerEvidence": 10
+  },
+  "followup_microphone_recognition": {
+    "events": [
+      "start",
+      "audiostart",
+      "soundstart",
+      "speechstart",
+      "speechend",
+      "audioend",
+      "end"
+    ],
+    "microphoneTrack": "live",
+    "microphoneRms": 0.015117853254326028,
+    "audioTrackSupplied": true,
+    "voiceStarted": true,
+    "confidence": 0.5524090528488159,
+    "voiceEnded": true,
+    "audioTimeNow": 0,
+    "voices": 92,
+    "audioPlayerEvidence": 27,
+    "recognized_nonempty": true
+  },
+  "sync-transport-final.json": {
+    "initialPixelFlush": false,
+    "pixelPullDiagnostics": {
+      "http": 200,
+      "version": "1.0.8"
+    },
+    "phone_version": "1.0.8",
+    "desktop_to_pixel": true,
+    "status": "PASS_TRANSPORT_PENDING_APP_CONFLICTS",
+    "error": "",
+    "pixel_to_desktop": true,
+    "temporary_markers_removed_on_server_and_desktop": true,
+    "phone_cleanup": "tombstones awaiting next pull after unlock",
+    "pending_apps": [
+      "pizarras_state_v1",
+      "adaptive_b2_cloze_campaign1_v1",
+      "adaptive_english_campaign1_v1",
+      "adaptive_phrasal_verbs_v1",
+      "adaptive_b2_cloze_global_level_v1",
+      "adaptive_english_global_level_v1"
+    ]
+  },
+  "recovery-compaction-result.json": {
+    "compressed": 9,
+    "savedChars": 163799,
+    "status": "PASS",
+    "recoveryCopies": 39,
+    "backupVerified": true,
+    "roundtripIdentical": true
+  },
+  "full-sentence-parser-result.json": {
+    "questions": 120,
+    "passed": 120,
+    "failed": []
   }
 }

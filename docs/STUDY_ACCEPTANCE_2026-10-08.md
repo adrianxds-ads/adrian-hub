@@ -45,3 +45,21 @@ Separate published-version and fingerprint verification is required before treat
 Hub 30.4.15 commit e8c6ee6 passed its Pages deployment. Public canonical hashes initially matched 54/56 verified files; only Phrasal app.js and build-assets.js still served 0.12.8. Its first deployment failed with a GitHub Pages HTTP 500 (run 37798830724); the failed job was rerun. This temporary deployment failure is distinct from the passing local 0.12.9 session. Final deployment verification follows below when available.
 
 Final publication: a fresh complete Pages build (run 37800462613) succeeded. The public Phrasal 0.12.9 app.js matches SHA-256 69f2eecf1f3e2911b52f6e36cc1ce43c81632718153381d487b6f001a60b69fb. A clean public Chrome session started, answered all 15 questions, displayed 15/15, saved exactly one session and retained it after reload with no page errors. All 56 public verification fingerprints now match, including Hub 30.4.15 and Phrasal 0.12.9. The deployment block is resolved; the live-voice, audible-playback and real-user cross-device limitations above remain.
+
+## Follow-up: remaining tests — 2026-10-08
+
+This section supersedes the earlier untested voice/audio/transport status. It does not certify full progress reconciliation.
+
+- Pixel playback: the real Easy Catalan catalog audio loaded, HTMLAudioElement.play resolved, readyState reached 4 and currentTime advanced to approximately 2.17 seconds on the physical Pixel. The previous app was restored. This is device playback/decoder evidence; no independent human listening verdict was supplied.
+- Pixel microphone: getUserMedia returned a live audio track and measured nonzero input (maximum RMS approximately 0.0151). Actual SpeechRecognition events included audio, sound and speech detection, followed by a nonempty final transcript with confidence approximately 0.55. Raw recordings were not saved and the recognized utterance is excluded from public evidence. The synthesized target sentence was not matched, so this does not claim a complete scored English round by voice.
+- Key Word full-sentence extraction: all 120 bank questions generated a valid full sentence from their expected gap; parseFullSentence extracted the answer and scoreTransformation returned 2/2 in every case. This checks the parser against its own bank, separately from microphone recognition.
+- Real PC ↔ Pixel transport: a unique temporary marker written in the desktop browser reached the real Pixel profile. The Pixel changed it and the desktop subsequently read that change from the production endpoint. Markers were tombstoned on the server and removed from the desktop. The phone's final tombstone pull awaits its next unlocked session.
+- Full app synchronization remains NOT APPROVED: Pixel flush reported incomplete and six existing pending keys were observed (Pizarras, Cloze, English, Phrasal, and the Cloze/English global-level keys). A successful marker round trip must not be presented as proof that these app histories have reconciled.
+
+### Storage finding and bounded recovery
+
+The Pixel origin held about 5,239,565 characters and a 10 KB diagnostic write raised QuotaExceededError. There were 39 recovery copies plus approximately 1.22 million characters of sync metadata. All recovery copies were archived under the existing private sync-server backups directory and the written backup reread and verified. Nine uncompressed copies were converted to the existing ADRIAN:GZIP:1 format, saving 163,799 characters. Every one of the 39 recovery copies still decoded to the exact original content. No quiz session, medal or garden field was deliberately edited. This relieved storage pressure but did not resolve the six pending progress states.
+
+The physical phone locked during follow-up; no unlock bypass was attempted. Remaining work is to inspect the app conflict acknowledgements and reconcile preserved progress, then verify identical histories/counters and final marker cleanup on an unlocked Pixel. The report records the failure rather than declaring complete synchronization. No OpenRouter/model calls or infrastructure upgrade were required.
+
+Evidence is appended to tests/study-acceptance-20261008/results.json. Recovery payloads remain private and are not included in the public repository.
