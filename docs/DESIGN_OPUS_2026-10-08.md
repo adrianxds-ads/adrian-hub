@@ -18,3 +18,7 @@ Validation: three headless Chrome viewports (360, 390, 1280 px) per app; no hori
 Agent run total: 1.8855 USD, excluding the prior audit. Account key ceiling remains 15 USD. Cache manifests and Version Center regenerated using canonical LF hashes.
 
 Pixel screenshots in the prior audit remained white; physical visual review remains pending.
+
+## Published verification
+
+Published Hub 30.4.14 and all nine app releases. Verified all 41 public file fingerprints against the release catalog. Clean headless Chrome at 390 px loaded and reloaded every public app, kept the expected APP_VERSION, had no uncaught page errors or horizontal page overflow, and exercised statistics navigation where present; Biblioteca search and order toggling passed. Earlier isolated tests covered 360/390/1280 px. OpenRouter key usage after these repairs: 10.882750 USD, remaining key allowance 4.117250 USD, ceiling unchanged at 15 USD. This is the API-key allowance, not the account credit balance. Physical Pixel visual, microphone and keyboard checks remain pending.
