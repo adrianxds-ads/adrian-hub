@@ -111,7 +111,7 @@ function renderAudit(state){
   if(state.status==='failed'){badge.textContent='ERROR';badge.className='status failed';head.textContent='La última ejecución falló';meta.textContent=state.error||'Consulta el estado del agente.';return;}
   badge.textContent='LISTO';badge.className='status ready';
   if(state.status==='completed'&&state.dry_run){head.textContent='Prueba sin gasto superada';meta.textContent='Opus disponible · tope '+money(result.budget_usd)+' · primera llamada estimada '+money(result.estimated_first_call_ceiling_usd)+'.';}
-  else if(state.status==='completed'){head.textContent='Auditoría terminada';meta.textContent=[result.cost_usd!=null?'Coste '+money(result.cost_usd):'',state.report_available?'· informe disponible':''].join(' ').trim()||'Resultado disponible.';}
+  else if(state.status==='completed'){head.textContent=result.partial?'Informe parcial disponible':'Auditoría terminada';meta.textContent=[result.cost_usd!=null?'Coste '+money(result.cost_usd):'',result.partial?'· revisión incompleta':'',state.report_available?'· informe disponible':''].join(' ').trim()||'Resultado disponible.';}
   else{head.textContent='El Auditor está preparado';meta.textContent='Solo lectura · ninguna llamada a IA en curso.';}
 }
 async function refreshAudit(){clearTimeout(auditPoll);try{const d=await request('/status');renderAudit(d.agent);}catch{renderAudit(null);}}

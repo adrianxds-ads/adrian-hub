@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.17",
-    "build": "hub-30.4.17-20261008",
+    "version": "30.4.18",
+    "build": "hub-30.4.18-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Nexo respeta auditoría antes de reparación cuando se pide ese orden.",
-      "Especialistas en formación sin botones de derivación inactivos."
+      "Nexo: auditoría primero, derivación activa y acceso del Auditor a Keyboard Speak.",
+      "Auditor cierra con el presupuesto restante y señala informes parciales."
     ],
     "history": [
+      {
+        "version": "30.4.17",
+        "build": "hub-30.4.17-20261008",
+        "changes": [
+          "Nexo respeta auditoría antes de reparación cuando se pide ese orden.",
+          "Especialistas en formación sin botones de derivación inactivos."
+        ],
+        "date": "2026-10-08"
+      },
       {
         "version": "30.4.16",
         "build": "hub-30.4.16-20261008",
@@ -293,7 +302,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "8b2b2acf3a1dbebc6cb01c6135c2f6a5cbece917adf4fc67a231e3b2ece47810"
+          "sha256": "acbf0196101a21c5c58d742e6f8c555e39e840b351dab0065b0ec513da1b3a2a"
         },
         {
           "url": "version-verifier.js",
@@ -301,7 +310,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "54fc787561acd5a875aa6f8f5756252d4073f37f2346dad9a73723dd0c8375f9"
+          "sha256": "32b22edfaa9c12f54f23d31f34cbe9c9a02f386acd212e3e42dc3767ff17e50a"
         },
         {
           "url": "styles.css",
@@ -309,15 +318,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "74e797560645f0c2d0d79eb58a2f301da611a0257823b3dabcf7a3acfcc093ac"
+          "sha256": "65866e8f9f1f9cfb312bea486e263d9a01a524762a18b1a3fa64c0be473599c4"
         },
         {
           "url": "build-assets.js",
-          "sha256": "1c21eff9fa9e91a22becac9c12551f54effb67bff32ce48133ede7402ae6d514"
+          "sha256": "586769f2e6620c8bf4010aae4e1802e98cabba7c5c82e104df462a1547a9e359"
         }
       ]
     },
-    "cacheBuild": "dba16ce682f443ab"
+    "cacheBuild": "2b9149bb5d071302"
   },
   "apps": [
     {
@@ -1150,23 +1159,23 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "1.0.1",
-      "build": "sha256-b5467f2a48bf",
+      "version": "1.0.2",
+      "build": "sha256-0fae3fc55a4a",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Nexo respeta auditoría antes de reparación cuando se pide ese orden.",
-        "Especialistas en formación sin botones de derivación inactivos."
+        "Nexo: auditoría primero, derivación activa y acceso del Auditor a Keyboard Speak.",
+        "Auditor cierra con el presupuesto restante y señala informes parciales."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "84a76a56ef1cf4d96bf9d454befd77c2cb1ee2e1d2819c850c42c65837cb3f71"
+            "sha256": "620489d084c4b5d9b57866793bbbdcd2deaffe3b4e719bdb33daf2ac415d1b84"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "f719fb99c2b4c7ea9f317b54b203344ac8aa04f18efd4731352e32dcbab3609a"
+            "sha256": "16f42aa4f5303b9f7528aeb57f19595363c0735347c49c88f8601e8e652577e4"
           },
           {
             "url": "./apps/agents/styles.css",

@@ -23,7 +23,7 @@ try:
     html = urllib.request.urlopen(base + "/ui/", timeout=5).read().decode("utf-8")
     assert html.count('id="nucleoRefresh"') == 1
     assert html.count('<h2>Nexo</h2>') == 1 and '<h2>Núcleo</h2>' not in html and '<h2>El Triaje</h2>' not in html
-    assert 'id="nexoChat"' in html and 'Agent Center · 1.0.1' in html
+    assert 'id="nexoChat"' in html and 'Agent Center · 1.0.2' in html
     print("PASS Interfaz API: tarjeta y versión Núcleo accesibles")
 finally:
     srv.shutdown()
