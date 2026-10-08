@@ -56,7 +56,7 @@ def main():
         try:
             act=base.parse_action(text);kind=act.get("action")
             if kind=="report":
-                if last_test is None:raise ValueError("Run test before reporting")
+                if last_test is None or last_test["exit_code"] != 0:raise ValueError("Run passing tests after the last edit before reporting")
                 report=runs/(stamp+"-repair-report.md")
                 report.write_text("# Claude repair report\n\n"+str(act.get("content",""))+"\n",encoding="utf-8")
                 print(json.dumps({"ok":True,"report":str(report),"cost_usd":spent,"last_test":last_test}),flush=True);return 0
@@ -73,9 +73,11 @@ def main():
                     old=change["old"]
                     if not old or original.count(old)!=1:raise ValueError("Patch substring must match exactly once: "+fn)
                     prepared[f]=original.replace(old,change["new"],1)
+                last_test=None
                 for f,body in prepared.items():f.write_text(body,encoding="utf-8")
                 result="Batch applied: "+str(len(act.get("changes",[])))+" changes"
             elif kind=="test":
+                last_test=None
                 r=subprocess.run(["python",str(test),"--root",str(root)],capture_output=True,text=True,encoding="utf-8",errors="replace",timeout=180)
                 last_test={"exit_code":r.returncode,"output":(r.stdout+r.stderr)[-16000:]}
                 result=json.dumps(last_test,ensure_ascii=False)
@@ -91,8 +93,10 @@ def main():
                 elif kind=="replace":
                     original=f.read_text(encoding="utf-8");old=act["old"];new=act["new"]
                     if not old or original.count(old)!=1:raise ValueError("old substring must match exactly once")
+                    last_test=None
                     f.write_text(original.replace(old,new,1),encoding="utf-8");result="Replacement applied."
                 elif kind=="write":
+                    last_test=None
                     f.write_text(act["content"],encoding="utf-8");result="Written."
                 else:raise ValueError("Unknown action")
         except Exception as e:result="TOOL ERROR: "+str(e)

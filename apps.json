@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.4.20",
+  "hubVersion": "30.4.21",
   "apps": [
     {
       "id": "english",
@@ -135,7 +135,8 @@
       "group": "Sistema",
       "kind": "hub-module",
       "url": "https://adrin.tail8fd071.ts.net/dc-inbox/agents/ui/",
-      "glyph": "AI"
+      "glyph": "AI",
+      "version": "1.2.0"
     },
     {
       "id": "limpieza",

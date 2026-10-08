@@ -4,15 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.20",
-    "build": "hub-30.4.20-20261008",
+    "version": "30.4.21",
+    "build": "hub-30.4.21-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "El Hub suma estrellas ya ganadas por cada aplicación; cada cinco oros dentro de la misma app.",
-      "Indicador superior discreto y estrellas reflejadas en el jardín.",
-      "Corrección del inventario de oros Cambridge: rondas completas y duplicados de Key Word."
+      "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
+      "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
     ],
     "history": [
+      {
+        "version": "30.4.20",
+        "date": "2026-10-08",
+        "changes": [
+          "El Hub suma estrellas ya ganadas por cada aplicación; cada cinco oros dentro de la misma app.",
+          "Indicador superior discreto y estrellas reflejadas en el jardín.",
+          "Corrección del inventario de oros Cambridge: rondas completas y duplicados de Key Word."
+        ]
+      },
       {
         "version": "30.4.19",
         "date": "2026-10-08",
@@ -320,7 +328,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "6a8d620837898666af245246a31d8e835320cce3629f4fd9bc19017b5693c878"
+          "sha256": "84ce11b39128588bc46af17101d8ead09639bd658147bc2e3f89d41b65e23bdc"
         },
         {
           "url": "version-verifier.js",
@@ -328,7 +336,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "edf48f9ac4530be503bca8178d20f7d3d87da020874c0b09e3479478027ed7b6"
+          "sha256": "05f0cf9bf49ea0367ec8057bccfd69f9524109b8487f7c4546e4842f002c90c2"
         },
         {
           "url": "styles.css",
@@ -336,15 +344,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "8083e7f1cd8ffa1a9b224a862cd8dc34d59b9be5b6732138437c00f2dbc1de3c"
+          "sha256": "089f2f1ea65a58dfc48982499f79b4a7184da74c120dadacf306a3b09ef195e1"
         },
         {
           "url": "build-assets.js",
-          "sha256": "fd146ff3fe55f4fcee342461bce8464fc20cec4d413777a1509ad330dc06236b"
+          "sha256": "c684d3f76e460b52cbc8e533e1f5af8c1e8cea155aa8cfe533698ba154abe4ad"
         }
       ]
     },
-    "cacheBuild": "cd49dcf28537a3d1"
+    "cacheBuild": "ae3ec7b48ae675db"
   },
   "apps": [
     {
@@ -1231,23 +1239,23 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "1.1.0",
-      "build": "sha256-739752ad4996",
+      "version": "1.2.0",
+      "build": "sha256-1552178f21e0",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Nexo inicia auditorías, retoma el seguimiento y recoge el informe de la misma ejecución.",
-        "Informes parciales detienen la ruta; reparación de Keyboard Speak preparada solo desde un informe completo revisable."
+        "Reparación automática opcional tras el Auditor; ejecución y seguimiento sin duplicados.",
+        "Parche aislado, pruebas finales obligatorias y publicación pendiente de revisión."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "bb91a20271c2ee5cbb2c63d7d5af3954245622d7266ceb0be7dcad524d651870"
+            "sha256": "e42eae5ea57db49c2e87f3384691cd98eb0bf57fc115a25d454f0a3b069b4c9f"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "f53790a7640c8ce7ba37b050c329d7d1d45e67d1c07956604086890759b654c2"
+            "sha256": "d89722101616bfb849c440856fa124c19a166dfc369e4fdd1de7cf69a5d8351c"
           },
           {
             "url": "./apps/agents/styles.css",

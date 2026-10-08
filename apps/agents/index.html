@@ -49,10 +49,11 @@
 <section class="nexo-mission" aria-label="Seguimiento de Nexo">
  <h3>Nuestra misión</h3>
  <div class="actions"><button class="ad-button primary" id="nexoRun" type="button">AUDITAR DESDE NEXO · MÁX. $0,35</button><button class="ad-button" id="nexoRecover" type="button">RECUPERAR EJECUCIÓN</button></div>
+ <label><input id="nexoAutoRepair" type="checkbox"> Reparar automáticamente Keyboard Speak tras un diagnóstico completo · máximo total $2,00</label>
  <p id="nexoMissionState" role="status">SIN EJECUCIÓN</p>
  <p id="nexoMissionRequest"></p><p id="nexoMissionMeta"></p><p id="nexoMissionNote"></p>
  <details><summary>Informe recogido por Nexo</summary><pre id="nexoMissionReport"></pre></details>
- <div class="actions"><button class="ad-button wide" id="nexoMissionRepair" type="button" disabled>PREPARAR REPARACIÓN DE KEYBOARD SPEAK</button></div>
+ <div class="actions"><button class="ad-button wide" id="nexoMissionRepair" type="button" disabled>REPARAR Y VERIFICAR KEYBOARD SPEAK</button></div>
 </section>
 <div class="nucleo-card" data-agent="nucleo"><h3>Autodiagnóstico de nuestro entorno</h3><span class="status checking" id="nucleoStatus">SIN COMPROBAR</span>  <div class="agent-live"><b id="nucleoHeadline">Todavía no he realizado la comprobación.</b><small id="nucleoMeta">Las opciones privadas de tu cuenta se marcarán como no verificables.</small></div>
   <div class="nucleo-checks" id="nucleoChecks" aria-live="polite"></div>
@@ -130,7 +131,7 @@
   <p>Nexo integra el triaje y coordina; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.1.0</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.2.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">
