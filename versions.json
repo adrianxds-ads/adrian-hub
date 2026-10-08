@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.22",
-    "build": "hub-30.4.22-20261009",
-    "releasedAt": "2026-10-08",
+    "version": "30.4.23",
+    "build": "hub-30.4.23-20261009",
+    "releasedAt": "2026-10-09",
     "changes": [
-      "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
-      "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
+      "El Hub instalado mantiene las apps públicas de GitHub Pages dentro de la misma ventana, sin cabecera del navegador.",
+      "Se amplía el alcance de la PWA y se conserva su identidad instalada; enlaces externos siguen siendo externos.",
+      "Iconos PNG de 192 y 512 píxeles como alternativa fiable para instalar el Hub en Android."
     ],
     "history": [
+      {
+        "version": "30.4.22",
+        "date": "2026-10-09",
+        "changes": [
+          "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
+          "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
+        ]
+      },
       {
         "version": "30.4.20",
         "date": "2026-10-08",
@@ -328,7 +337,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "490cda7c7977efc26bf70dacf8c76a5e10764f607f3db95bb9ea0b319c298fc0"
+          "sha256": "464ab06fc1b602ae40319a1aa80aa512a27fa3cf365f78f525de36305e3cd732"
         },
         {
           "url": "version-verifier.js",
@@ -336,7 +345,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "266a060139cc64915c015eebe326d35b8f38733df3bfc1b2bde3b68c5dc6a37c"
+          "sha256": "776afee2979f9aa0541461c711da4f2d2093c3216d3cf294028d7cec6481dd86"
         },
         {
           "url": "styles.css",
@@ -344,15 +353,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "c546d0abddf5b9ce0f9c7e11032015d58bd62c586f12de65519674229b3a9f34"
+          "sha256": "28bc8e3271ea2d5d482cd5e4062efb6be19de5413265de036e5a3a579d52f817"
         },
         {
           "url": "build-assets.js",
-          "sha256": "c05b5a7f71889b34daf07016da6c0a6d008b79b6c4e028cf4a7c627a7ef13e4c"
+          "sha256": "c2b496b008126a6e517b682d2976ed0979e3c9ce1069dadb03850faf931d186a"
         }
       ]
     },
-    "cacheBuild": "011a055ff19192ec"
+    "cacheBuild": "9df900692537fb85"
   },
   "apps": [
     {
