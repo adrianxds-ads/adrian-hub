@@ -1,17 +1,25 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-08T14:27:28.337527+00:00",
+  "generatedAt": "2026-10-08T15:11:26.604911+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.14",
-    "build": "hub-30.4.14-20261008",
+    "version": "30.4.15",
+    "build": "hub-30.4.15-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Reparador visual de Claude Opus ampliado a las nueve apps de estudio con copias aisladas y pruebas obligatorias.",
-      "Mejoras de presentación, controles y versiones; historial, música y premios conservados."
+      "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
+      "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
     ],
     "history": [
+      {
+        "version": "30.4.14",
+        "date": "2026-10-08",
+        "changes": [
+          "Reparador visual de Claude Opus ampliado a las nueve apps de estudio con copias aisladas y pruebas obligatorias.",
+          "Mejoras de presentación, controles y versiones; historial, música y premios conservados."
+        ]
+      },
       {
         "version": "30.4.13",
         "date": "2026-10-08",
@@ -266,7 +274,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "4561b5467ef924b948a6e8eb7d7dcdcb7a090b77924261d2cd70f5853dce2c7c"
+          "sha256": "be0bd909bd2c2b3adfb36dffbadc9271708c072372a83853ff0801ebed06c23d"
         },
         {
           "url": "version-verifier.js",
@@ -274,7 +282,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "570e795b64cb7143f60123b28b3b1e1abaf9a3da8a82a59751b046d6afeca3d9"
+          "sha256": "dba8e6e78fd9fc001c5704081f46d6be0ce6bdff9acdee461d0019a229cbcf87"
         },
         {
           "url": "styles.css",
@@ -282,15 +290,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e7093decb3db5beb210949181d41f2f524d3ac7e4e7664f478412ad607dfc202"
+          "sha256": "a2e645a731073677a510155c434e5e5dc40c47f169bf54521df94dace160a7dc"
         },
         {
           "url": "build-assets.js",
-          "sha256": "177dd0c1a6079d691dc5b19b5ba0e622613ea6a73ec10b7c6efad6b9e9550938"
+          "sha256": "2ddadd95380cfb71f5d9816cb2cb94b54e8a3007c0b72656670a7d6367b9964e"
         }
       ]
     },
-    "cacheBuild": "5f8a1adfe963742a"
+    "cacheBuild": "48bd24b0c8901bd6"
   },
   "apps": [
     {
@@ -369,19 +377,19 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.8",
-      "build": "sha256-30b1fa1f822f",
+      "version": "0.12.9",
+      "build": "sha256-a2518fc0d533",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Métricas de ritmo desplegables y versión visible coherente.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
+        "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "451d9b082c5a6efe8dab242a83a701d9fab485089e7f743b941dc91cb837ab3d"
+            "sha256": "69f2eecf1f3e2911b52f6e36cc1ce43c81632718153381d487b6f001a60b69fb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
@@ -393,17 +401,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "a230a67fa8bac73ce8b09c57030f3691a75f878763daa4cb14cc2d94b9ab3e3f"
+            "sha256": "5069037ac8f30e74e2189d7f19236cee4e072b3da5cdc91c3d070aed128a3478"
           }
         ]
       },
-      "sourceCommit": "ba8ea1141fac1b3966103b39a20867d8ecc6ba52",
-      "cacheBuild": "971cf718724fd508",
+      "sourceCommit": "8b02937d3b424e731549a97920f8cd558c9882ca",
+      "cacheBuild": "754c33efe9fe39fd",
       "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.12.8",
+          "date": "2026-10-08",
+          "changes": [
+            "Métricas de ritmo desplegables y versión visible coherente.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "0.12.7",
           "date": "2026-10-08",
