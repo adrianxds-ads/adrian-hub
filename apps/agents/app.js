@@ -74,6 +74,7 @@ function renderTriage(t){
   $('#triageReason').textContent=t.reason||'';
   $('#triagePipeline').innerHTML=(t.pipeline||[]).map((x,i)=>'<span class="triage-chip '+(x.active?'active':'training')+'">'+(i?'<i>→</i> ':'')+x.name+(x.active?'':' · EN FORMACIÓN')+'</span>').join('');
   $('#triageBudget').textContent=money(t.active_ceiling_usd||0);
+  if(!primary.active){status.textContent='EN FORMACIÓN';status.className='status guarded';}
   const target=TRIAGE_TARGETS[primary.id];
   if(target&&primary.active){
     go.hidden=false;go.dataset.target=target;go.textContent='IR A '+primary.name.toUpperCase();

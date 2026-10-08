@@ -4,15 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.16",
-    "build": "hub-30.4.16-20261008",
+    "version": "30.4.17",
+    "build": "hub-30.4.17-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Centro de Agentes 1.0.0 reúne Núcleo y Triaje bajo Nexo en una única tarjeta.",
-      "Mantiene autodiagnóstico, clasificación local, permisos y evaluaciones sin gasto de IA.",
-      "Transferencia de misión a ChatGPT mediante copia manual y acceso existente; sin memoria ni ejecución compartida automática."
+      "Nexo respeta auditoría antes de reparación cuando se pide ese orden.",
+      "Especialistas en formación sin botones de derivación inactivos."
     ],
     "history": [
+      {
+        "version": "30.4.16",
+        "build": "hub-30.4.16-20261008",
+        "changes": [
+          "Centro de Agentes 1.0.0 reúne Núcleo y Triaje bajo Nexo en una única tarjeta.",
+          "Mantiene autodiagnóstico, clasificación local, permisos y evaluaciones sin gasto de IA.",
+          "Transferencia de misión a ChatGPT mediante copia manual y acceso existente; sin memoria ni ejecución compartida automática."
+        ],
+        "date": "2026-10-08"
+      },
       {
         "version": "30.4.15",
         "build": "hub-30.4.15-20261008",
@@ -284,7 +293,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "df6da041b16477af358273cab71d9c30305f3f0e4433e6a2128cbcfba4060fe1"
+          "sha256": "8b2b2acf3a1dbebc6cb01c6135c2f6a5cbece917adf4fc67a231e3b2ece47810"
         },
         {
           "url": "version-verifier.js",
@@ -292,7 +301,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "734ce1f2b99b9ef3c4e9338a0d1dcb921091b9d1e7bb6cae740909113ea488b0"
+          "sha256": "54fc787561acd5a875aa6f8f5756252d4073f37f2346dad9a73723dd0c8375f9"
         },
         {
           "url": "styles.css",
@@ -300,15 +309,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "db6610daf4a469627838b5a4c4032fad2b6a3c580d71d4651b5bece25a5d6158"
+          "sha256": "74e797560645f0c2d0d79eb58a2f301da611a0257823b3dabcf7a3acfcc093ac"
         },
         {
           "url": "build-assets.js",
-          "sha256": "4d9e1fcadc50451669ea690eadf369ce4e050f32fadc69e2415901ae3fbd3ff5"
+          "sha256": "1c21eff9fa9e91a22becac9c12551f54effb67bff32ce48133ede7402ae6d514"
         }
       ]
     },
-    "cacheBuild": "44c46c626ffec11b"
+    "cacheBuild": "dba16ce682f443ab"
   },
   "apps": [
     {
@@ -1141,28 +1150,27 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "1.0.0",
-      "build": "sha256-6016254d8a97",
+      "version": "1.0.1",
+      "build": "sha256-b5467f2a48bf",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Centro de Agentes 1.0.0 reúne Núcleo y Triaje bajo Nexo en una única tarjeta.",
-        "Mantiene autodiagnóstico, clasificación local, permisos y evaluaciones sin gasto de IA.",
-        "Transferencia de misión a ChatGPT mediante copia manual y acceso existente; sin memoria ni ejecución compartida automática."
+        "Nexo respeta auditoría antes de reparación cuando se pide ese orden.",
+        "Especialistas en formación sin botones de derivación inactivos."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "d7988ba8d60cb0bdf0a0a9cc9a581d94c9366cbdec99f7c11b6006fa21286d5c"
+            "sha256": "84a76a56ef1cf4d96bf9d454befd77c2cb1ee2e1d2819c850c42c65837cb3f71"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "e74d860e2886f24ccb3b39520f5676416db43a183924ce57e0bbc1e50a003074"
+            "sha256": "f719fb99c2b4c7ea9f317b54b203344ac8aa04f18efd4731352e32dcbab3609a"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "b8291e83f3ef3de3df5cb1548733fd8bcdf290d63dd8432ded7d3901cb62d360"
+            "sha256": "c5b3b1ee40e4496b1cce373d9d6cb79a62f37390f5b8f4aff9fa34c49f320dce"
           }
         ]
       },

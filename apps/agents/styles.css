@@ -30,3 +30,6 @@ body{min-height:100vh;background:radial-gradient(circle at 18% 0%,rgba(187,158,2
 .nucleo-check[data-state="review"] b{color:#f1da9e}
 .nucleo-check p{font-size:12px;line-height:1.5;color:#aabdc1;margin:5px 0 0}
 .nucleo-check small{font-size:11px;line-height:1.5;display:block;color:#c6b6e7;margin-top:5px}
+
+/* Hidden workflow actions stay hidden despite button display styles. */
+[hidden]{display:none!important}

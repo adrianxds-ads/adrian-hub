@@ -26,9 +26,12 @@ cases=[
 for text,expected in cases:
     r=triage.route(text,rules);got=(r.get("primary") or {}).get("id")
     if got!=expected: failed.append({"text":text,"expected":expected,"got":got,"result":r})
+ordered = triage.route("Comprueba Keyboard Speak: teclado que tapa la respuesta, tipografía y micrófono. Audita primero y repara solo errores reproducibles; verifica móvil y escritorio y conserva progreso.", rules)
+assert [x["id"] for x in ordered["pipeline"]] == ["auditor", "reparador", "tester"], ordered
+assert triage.route("Revisa primero y corrige los fallos de la app", rules)["primary"]["id"] == "auditor"
 amb=triage.route("Tengo una idea rara y no sé qué hacer con ella",rules)
 if amb.get("status")!="ambiguous" or not amb.get("needs_model"):
     failed.append({"text":"ambiguous","result":amb})
 if failed:
     print(json.dumps(failed,ensure_ascii=False,indent=2));raise SystemExit(1)
-print("PASS",len(rules["training_examples"])+len(cases)+1,"triage cases")
+print("PASS",len(rules["training_examples"])+len(cases)+3,"triage cases")

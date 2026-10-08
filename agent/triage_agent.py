@@ -28,6 +28,12 @@ def route(text, rules=None):
     if not n:
         return {"ok":False,"error":"petición vacía"}
 
+    # Explicit workflow order takes precedence over keyword frequency.
+    audit_first = re.search(r"\b(?:audita|auditar|revisa|revisar|diagnostica|diagnosticar) primero\b", n)
+    repair_requested = any(phrase_hit(n, x) for x in ("repara", "reparar", "arregla", "arreglar", "corrige", "corregir"))
+    if audit_first and repair_requested:
+        return build_result(raw, n, ["auditor", "reparador", "tester"], rules, "explicit-order", 0.98)
+
     # Strong learned overrides: all listed signals must be present.
     for rule in rules.get("overrides",[]):
         signals=rule.get("contains",[])

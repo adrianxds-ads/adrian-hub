@@ -19,3 +19,7 @@ This file is an audit queue, not proof that every item is still reproducible. Ea
 
 ## Rule
 When an issue is verified fixed, move it to the release notes/version history rather than silently deleting the evidence.
+## Nexo real mission acceptance · 2026-10-08 19:40 Europe/Madrid
+Tested active Agent Center 1.0.0 / Hub 30.4.16 through private service, Chrome headless 390x844. Mission: "Comprueba Keyboard Speak: teclado que tapa la respuesta, tipografía y micrófono. Audita primero y repara solo errores reproducibles; verifica móvil y escritorio y conserva progreso."
+Observed: route selects inactive Tester (97%) followed by Reparador. Clicking #triageGo transfers to neither auditMission nor repairMission (both empty). End-to-end coordination FAIL; no autonomous pipeline or automatic result collection verified. Repair mission manually supplied by test: preflight PASS, issues=[], run 20261008-193940-repair-dry, AI cost 0 USD; no repair/report/diff generated.
+Independent trusted regression: agent/test_keyboard_ui.py on keyboard-speak-production-opus-20261007 PASS at 360,390,412,1280: composition/Enter, reduced viewport, bank, 15 transitions, persistence, console. Simulations do not verify physical Pixel microphone or keyboard. No product code/version/deployment changed. Next: correct workflow priority for audit-first mixed requests and represent inactive routes without dead transfer controls; then repeat this same mission and verify report handoff.

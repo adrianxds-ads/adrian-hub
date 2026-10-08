@@ -18,7 +18,8 @@
     "adaptive-exam",
     "adaptive-verbs-catala",
     "adaptive-hoti0108",
-    "adrian-sync-server"
+    "adrian-sync-server",
+    "adaptive-keyword-speaking"
   ],
   "models": {
     "claude-sonnet-5-5": {
