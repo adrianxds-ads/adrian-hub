@@ -115,5 +115,17 @@
   "limitations": [
     "Real speech dictation and audible playback pending",
     "Actual user cross-device sync not exercised"
-  ]
+  ],
+  "published_phrasal": {
+    "status": "PASS",
+    "version": "0.12.9",
+    "score": "15/15",
+    "published_app_sha256": "69f2eecf1f3e2911b52f6e36cc1ce43c81632718153381d487b6f001a60b69fb",
+    "persisted_sessions": 1
+  },
+  "public_fingerprints": {
+    "total": 56,
+    "matches": 56,
+    "mismatch": []
+  }
 }

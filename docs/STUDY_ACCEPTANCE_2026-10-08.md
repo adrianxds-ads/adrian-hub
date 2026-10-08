@@ -43,3 +43,5 @@ Separate published-version and fingerprint verification is required before treat
 ## Publication verification
 
 Hub 30.4.15 commit e8c6ee6 passed its Pages deployment. Public canonical hashes initially matched 54/56 verified files; only Phrasal app.js and build-assets.js still served 0.12.8. Its first deployment failed with a GitHub Pages HTTP 500 (run 37798830724); the failed job was rerun. This temporary deployment failure is distinct from the passing local 0.12.9 session. Final deployment verification follows below when available.
+
+Final publication: a fresh complete Pages build (run 37800462613) succeeded. The public Phrasal 0.12.9 app.js matches SHA-256 69f2eecf1f3e2911b52f6e36cc1ce43c81632718153381d487b6f001a60b69fb. A clean public Chrome session started, answered all 15 questions, displayed 15/15, saved exactly one session and retained it after reload with no page errors. All 56 public verification fingerprints now match, including Hub 30.4.15 and Phrasal 0.12.9. The deployment block is resolved; the live-voice, audible-playback and real-user cross-device limitations above remain.
