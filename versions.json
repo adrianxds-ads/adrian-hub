@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.19",
-    "build": "hub-30.4.19-20261008",
+    "version": "30.4.20",
+    "build": "hub-30.4.20-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Nexo inicia auditorías, retoma el seguimiento y recoge el informe de la misma ejecución.",
-      "Informes parciales detienen la ruta; reparación de Keyboard Speak preparada solo desde un informe completo revisable."
+      "El Hub suma estrellas ya ganadas por cada aplicación; cada cinco oros dentro de la misma app.",
+      "Indicador superior discreto y estrellas reflejadas en el jardín.",
+      "Corrección del inventario de oros Cambridge: rondas completas y duplicados de Key Word."
     ],
     "history": [
+      {
+        "version": "30.4.19",
+        "date": "2026-10-08",
+        "changes": [
+          "Nexo inicia auditorías, retoma el seguimiento y recoge el informe de la misma ejecución.",
+          "Informes parciales detienen la ruta; reparación de Keyboard Speak preparada solo desde un informe completo revisable."
+        ]
+      },
       {
         "version": "30.4.18",
         "build": "hub-30.4.18-20261008",
@@ -311,7 +320,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "7720aa28527a11a089642d3c2454368e31c34448cac80684a92f95af5e8b3197"
+          "sha256": "6a8d620837898666af245246a31d8e835320cce3629f4fd9bc19017b5693c878"
         },
         {
           "url": "version-verifier.js",
@@ -319,45 +328,44 @@
         },
         {
           "url": "index.html",
-          "sha256": "60b8fbc3e77f2bf10cfb0b2c866e52104daad1b3c9ca56bb7d5cc7ea88648b35"
+          "sha256": "edf48f9ac4530be503bca8178d20f7d3d87da020874c0b09e3479478027ed7b6"
         },
         {
           "url": "styles.css",
-          "sha256": "ad21ebd9bb01e3ae295390f37f24cd7777f6eb3bbe1cd4536b922b6d5349c6cb"
+          "sha256": "bf33e9308cf9b1423dda024e9112c8101e13eef60f7555ff7d7adb9067231c58"
         },
         {
           "url": "service-worker.js",
-          "sha256": "a70882739f14c6bdf76c2b4c5f388a8a2c4678c4999b0d4526e101104d125f7d"
+          "sha256": "8083e7f1cd8ffa1a9b224a862cd8dc34d59b9be5b6732138437c00f2dbc1de3c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "ca138b15e6db1842ce6d3955c46d504e701b744c4e1b8ea4a4f23bbe9cf759df"
+          "sha256": "fd146ff3fe55f4fcee342461bce8464fc20cec4d413777a1509ad330dc06236b"
         }
       ]
     },
-    "cacheBuild": "a4125223f19adfd4"
+    "cacheBuild": "cd49dcf28537a3d1"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.8",
-      "build": "sha256-c5688579054a",
+      "version": "3.34.9",
+      "build": "sha256-28c74dcab468",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Resultados más claros: acciones secundarias e IA agrupadas; histórico visible.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "000cb7c868c415a05a900425c2055ad928ec2cbca24f2424abc33d7ff06ac47e"
+            "sha256": "29ec2dec3d45a3721323db501bcce383f896a3027577b73631c812d0f5037a48"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "677c0761745f8f3db6cb0a3aafe6e1b43f3d89ee67b3ff07268b63018f2509ad"
+            "sha256": "de323a9a82b2efdb811b129577d014b83e8ba3304f3fdc12428b3f664e0cd67e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -365,17 +373,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "3b9ca161f7c2fb798d9897cec78fe4ada6453484ae158872e2a728b90d2f8158"
+            "sha256": "87e405fad4f46fc851a3715f30601cbb40a14676072e3d8078e0040a7d3057bf"
           }
         ]
       },
-      "sourceCommit": "7f36966e3d6547a534086559b94e32809bdc4d81",
-      "cacheBuild": "1d6ca7e158aa290e",
+      "sourceCommit": "395d38c3a80ee7db2d724edd85bd99dcf61c4117",
+      "cacheBuild": "36d3475b2c0b9a47",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.34.8",
+          "date": "2026-10-08",
+          "changes": [
+            "Resultados más claros: acciones secundarias e IA agrupadas; histórico visible.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "3.34.7",
           "date": "2026-10-08",
@@ -414,23 +430,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.9",
-      "build": "sha256-a2518fc0d533",
+      "version": "0.12.10",
+      "build": "sha256-21ca9b0d4961",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
-        "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "69f2eecf1f3e2911b52f6e36cc1ce43c81632718153381d487b6f001a60b69fb"
+            "sha256": "2db4dbe18c1695aaf1c22554d1cb1ab46daca2135bc3b73bf6911498b624b7ae"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "47ad6784cbccb61c92b7c996b0f4f2c137664013f9ce9ea296574714ff28af5f"
+            "sha256": "a85cb0d225d0aef9da61d273a74ec40f4e154785fce837153baaa8013f485c7c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -438,17 +453,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "5069037ac8f30e74e2189d7f19236cee4e072b3da5cdc91c3d070aed128a3478"
+            "sha256": "f5fdb39d0c57e75f723599e792abf8e095fe601c11567b6aaf92c875e99a35b9"
           }
         ]
       },
-      "sourceCommit": "8b02937d3b424e731549a97920f8cd558c9882ca",
-      "cacheBuild": "754c33efe9fe39fd",
+      "sourceCommit": "2da62cf8f5ae304b61ac096aaa471ae38f63361c",
+      "cacheBuild": "1973fa951a85cc32",
       "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.12.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
+            "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
+          ]
+        },
         {
           "version": "0.12.8",
           "date": "2026-10-08",
@@ -495,23 +518,22 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.12",
-      "build": "sha256-0ccd45844af9",
+      "version": "2.1.13",
+      "build": "sha256-0c1a34b14c08",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Eliminado un estilo de botones redundante en la portada.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "f9cb7a4437b3adfff35dd874b3d24adcdd4210a413d3e8962fa6361d6785dbd2"
+            "sha256": "443af53614a4649018ed65d4784df980b8fed9aa3e5293d1f85e679e9f6634fc"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "c425bc1ee1b45a5120dcdd9cc98160abc22d04f43c00ebee3805667f4b0f3d6b"
+            "sha256": "7491d3cca20011dcab14df0892fff32c58e67502668ee0a26e63ec9bcdadcd3e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -519,17 +541,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "b2c656d573c67e4b39ab0b3c09a17fd166a4b0d76f76a8eeaca2a817ce499699"
+            "sha256": "9b1e961b51b0678ef69134f112c5901bc729eb1f58439d31cd6dafac010fd3ca"
           }
         ]
       },
-      "sourceCommit": "5e301441a0019f5c0c0ac328e14dd28d84106227",
-      "cacheBuild": "dd966715e9990066",
+      "sourceCommit": "0fc0b3d944597889b43b4a97a89290a209ce33ed",
+      "cacheBuild": "cee74c38ad47a5dc",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.1.12",
+          "date": "2026-10-08",
+          "changes": [
+            "Eliminado un estilo de botones redundante en la portada.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "2.1.11",
           "date": "2026-10-08",
@@ -567,23 +597,22 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.12",
-      "build": "sha256-01965f7d5e5e",
+      "version": "1.10.13",
+      "build": "sha256-b6f9f3f6350f",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Acciones repetidas agrupadas al final de la sesión.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "4f7d36615a7d04b6813100e9793f1148cbbdcb1df0258203f9d995b80058e23d"
+            "sha256": "44e6625d1a061d963323838ea57b92ebb0406efe2c50adc1035323c1ea425343"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "0cc8ecbb06981dabea6d6c737269c08e550472d17bcb926a0f0900747dc11bd8"
+            "sha256": "cf0d2bb6a743514802a07f6e7350db3f5815a918ca57967185ec617818c91fc8"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -591,17 +620,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "d76b5f644bb27c8604968c0961a8b977857f95df80e9bd3b465700a1775e9020"
+            "sha256": "34d70db6f1837f37fd1d954657978b4abac99086912e678238aef69c63fbc557"
           }
         ]
       },
-      "sourceCommit": "b22e2acb63f1fb0895a4259ffdfcae2af2035836",
-      "cacheBuild": "e78489eba87c8c96",
+      "sourceCommit": "408be1364be2b4653263971310259edd887e8796",
+      "cacheBuild": "4355fb7b6938078b",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.10.12",
+          "date": "2026-10-08",
+          "changes": [
+            "Acciones repetidas agrupadas al final de la sesión.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "1.10.11",
           "date": "2026-10-08",
@@ -640,24 +677,23 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.19",
-      "build": "sha256-8b02ba8d9770",
+      "version": "1.2.20",
+      "build": "sha256-3a70ee274c34",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Tabla de Exam 01–30 por parte: completado, veces, últimos fallos, mejores puntos y jugar/repetir.",
-        "Resultado: repetir, siguiente examen y elegir desde la lista.",
-        "Gráfica ampliable del histórico completo de Quiz por examen."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación.",
+        "Cambridge cuenta medallas por rondas completas, no por respuestas individuales."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "f3059cbb5ed9b9d3ed77cee4028b014782936539cd14e2ad836110883f7900b8"
+            "sha256": "008a970f37497fa6ce41f863b7fc79f0ec1f3bccf6f992ecc290e341bcebed8d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "7c0b7624da3a337821e51490e505e7c955107b3e6246719fe0923e5b8c726209"
+            "sha256": "9788b9eeb4b51382c32e3d3855d73476cd595e1ca962a879bd918439dce68faa"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -665,29 +701,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "ab906e31e913a66c62717476091a78037d104ff7a2d65459bbcb8cf3681d8070"
-          },
-          {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.html",
-            "sha256": "73ffc79ac99033fbdd292a7f5e058c3ee4318cd641261dc28b4e9488a6db85b2"
-          },
-          {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.js",
-            "sha256": "30391749eb95e4f2be40347f19d5bb4fdcaf20231219615cd1cb614a67b96760"
-          },
-          {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.css",
-            "sha256": "4a318b99cd49405e57c7665314d72df99674b9813aa1331f83af98e93fd337c0"
+            "sha256": "fdee59e9268d5eab279939a874d51f586f96e76c8f2c028805399abd1072aa65"
           }
         ]
       },
-      "sourceCommit": "23cf5dc3d8023fda36cf9a4e362a42f85c23bedd",
-      "cacheBuild": "5d76bb0bebbb0428",
-      "sourceDirty": false,
+      "sourceCommit": "3d071a91ca72ab4331d0a42cd5a1c94aa28286b7",
+      "cacheBuild": "bc98ca99f4ea06a7",
+      "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.19",
+          "date": "2026-10-08",
+          "changes": [
+            "Tabla de Exam 01–30 por parte: completado, veces, últimos fallos, mejores puntos y jugar/repetir.",
+            "Resultado: repetir, siguiente examen y elegir desde la lista.",
+            "Gráfica ampliable del histórico completo de Quiz por examen."
+          ]
+        },
         {
           "version": "1.2.18",
           "date": "2026-10-08",
@@ -757,23 +790,22 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.8",
-      "build": "sha256-691bcc329017",
+      "version": "1.0.9",
+      "build": "sha256-ce4d8650941a",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Superficies de estadísticas y versión visible simplificadas.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "466779cb70bd9a7c995d3282bd35ae53eecef3661336d1552343e32fdd5870b3"
+            "sha256": "ec396c7d9a38bc3a77622f1a64131f2f23eb38c9dc41f83ee41b62dc38dfa125"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "428aecdc54ca09f4f77e36300b12bd2119c14d75eb70c9172eb3f363a50927ac"
+            "sha256": "fff5ea210fe585c294009c50a38a3fa2947ba8d30609513f8fd6a1c37897a1b3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -781,17 +813,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "597147eab96be8e367cb7b52e496c6371afb3099ccb37186b7b7afeec599ebe0"
+            "sha256": "46bdbee4f9edc5ff81e37cd06d9176e989f4e61d2706949c11684a2fc409d972"
           }
         ]
       },
-      "sourceCommit": "7f051f1e8f81b4d24dc4bdfa8469ddc67f607042",
-      "cacheBuild": "b2820b3fa5580a5c",
+      "sourceCommit": "4a168bf01f7657bd68101cccc874da9d63abdfb6",
+      "cacheBuild": "12eda59f0b42db98",
       "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.8",
+          "date": "2026-10-08",
+          "changes": [
+            "Superficies de estadísticas y versión visible simplificadas.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "1.0.7",
           "date": "2026-10-08",
@@ -859,23 +899,22 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.12",
-      "build": "sha256-c2fbb7399b42",
+      "version": "0.9.13",
+      "build": "sha256-3db0464d0e14",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Información de IA opcional y ligas diferenciadas para facilitar la lectura.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "c70d3ca40e550086eb7f94bc22a7ab72b5c2f3423275db16fe6b64f7f38ee325"
+            "sha256": "7c7ea27c534b82c36d44b6cea631ef030894ec546ef370702c8f939259beaa9b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "bf07942c120397186477643217e507bf780e9f10f3187e29c66806e91c7f49b8"
+            "sha256": "44e17431bfbdd948bd1ff262e7de0a6f71382fc2069b0175625863963dcaebf3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -883,17 +922,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "8c1fbb308a52ae5af1e482c637c4de03daba97e537b76780da0cd7b643ca4166"
+            "sha256": "aba594ccb23648e87097fe1a450b9749c9096086cf2bd826ed7ebe51724678e1"
           }
         ]
       },
-      "sourceCommit": "05805dec072c87b1f5892d8b7bd6ae423912176e",
-      "cacheBuild": "903e7b7dd906d04c",
+      "sourceCommit": "1a7bdbb41ebc00f10edd4fb1d4a123bf03c93020",
+      "cacheBuild": "d28393d10923399b",
       "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.9.12",
+          "date": "2026-10-08",
+          "changes": [
+            "Información de IA opcional y ligas diferenciadas para facilitar la lectura.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "0.9.11",
           "date": "2026-10-08",
@@ -979,23 +1026,22 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.11-read-first",
-      "build": "sha256-a867031b0714",
+      "version": "2.6.12-read-first",
+      "build": "sha256-a8adfa9c35f0",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Cuadrícula de estadísticas ajustada y foco de teclado unificado.",
-        "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "bb3ca7578d2088748a49552e7303fab0ee1ce5543d551fae063c5545cacf7b5d"
+            "sha256": "6a84a5e1e41a37f7ed5cce784b0bf94c92faa7973a0bd2b48d1173be0e5323a3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "b93bad34cb0f554f13de2ee6873d6ac0bff4e9a0bfa9455fca0155d25ef0619a"
+            "sha256": "0790f89fa0002f0ea402dbdbda353086bf242738df6c90c58ad6324b25ea96e6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -1003,17 +1049,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "ede7380e84c047d598b3ccbc4fba502f160fac850beb2b00708c8a880505f635"
+            "sha256": "aff545dbc3638ae80687dc9ef733f424224e64613ca7d9d0808d93fbe0bb5b98"
           }
         ]
       },
-      "sourceCommit": "e5bd3ac4cb801593f473c5e43c4bde3bca7abc0e",
-      "cacheBuild": "13ab454b64fcc181",
+      "sourceCommit": "95a94944b1aafff9812b317f41925f7bcc4bcdad",
+      "cacheBuild": "7510080677173aba",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.6.11-read-first",
+          "date": "2026-10-08",
+          "changes": [
+            "Cuadrícula de estadísticas ajustada y foco de teclado unificado.",
+            "Revisión de Claude Opus; lógica, preguntas, temporizadores y progreso conservados."
+          ]
+        },
         {
           "version": "2.6.10-read-first",
           "date": "2026-10-08",

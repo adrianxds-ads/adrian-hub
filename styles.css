@@ -22,3 +22,8 @@ footer{display:flex;justify-content:space-between;border-top:1px solid var(--ad-
 .app[data-id="agents"]{--app-color:#BB9EF0}
 
 .app-copy strong{line-height:1.25}.app-copy small{font-size:14px;line-height:1.45}.app-version-chip{font-size:12px}.search input{font-size:16px}.group h2{font-size:18px}.update-actions .ad-button{font-size:14px;min-height:56px}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
+
+/* Compact earned-star trophy; the garden carries the visual celebration. */
+.hub-stars{min-width:0;padding:6px 9px;gap:6px;border-radius:10px;background:rgba(231,191,87,.04);box-shadow:none;align-self:flex-start}
+.hub-stars>span{font-size:18px}.hub-stars b{font-size:15px}.hub-stars.earned>span{text-shadow:none}
+@media(max-width:560px){.hub-stars{min-width:0;grid-column:2;justify-self:end;margin-top:0}}

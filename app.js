@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.19';
-const HUB_BUILD='hub-30.4.19-20261008';
+const HUB_VERSION='30.4.20';
+const HUB_BUILD='hub-30.4.20-20261008';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -50,17 +50,18 @@ function parseStore(key){try{return JSON.parse(localStorage.getItem(key)||'{}')|
 function perfectCount(rows=[]){return(rows||[]).filter(r=>{const c=Number(r?.correct??r?.score),t=Number(r?.total??15);return Number.isFinite(c)&&Number.isFinite(t)&&t>0&&c/t>=1-1e-9;}).length;}
 function goldInventory(){
   const english=parseStore('adaptive_english_campaign1_v1'),cloze=parseStore('adaptive_b2_cloze_campaign1_v1'),catala=parseStore('adaptive_verbs_catala_campaign1_v1'),phrasal=parseStore('adaptive_phrasal_verbs_v1'),hoti=parseStore('adaptive_hoti0108_v1'),pizarras=parseStore('pizarras_state_v1'),cambridge=parseStore('cambridgeB2ExerciseStatsV3'),keyword=parseStore('keywordSpeakingStatsV1');
-  return{english:perfectCount((english.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'b2-cloze':perfectCount((cloze.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),catala:perfectCount((catala.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'phrasal-verbs':perfectCount(phrasal.history||[]),hoti0108:perfectCount((hoti.studyGame?.roundHistory||[]).filter(x=>Number(x.total)===15)),pizarras:perfectCount((pizarras.history||[]).filter(x=>x?.type==='quick'&&Number(x.questions)===15).map(x=>({correct:x.correct,total:15}))),cambridge:perfectCount(cambridge.attempts||[]),'keyword-speaking':perfectCount(keyword.sessions||[])};
+  return{english:perfectCount((english.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'b2-cloze':perfectCount((cloze.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),catala:perfectCount((catala.sessionHistory||[]).filter(x=>!x.mode||x.mode==='training')),'phrasal-verbs':perfectCount(phrasal.history||[]),hoti0108:perfectCount((hoti.studyGame?.roundHistory||[]).filter(x=>Number(x.total)===15)),pizarras:perfectCount((pizarras.history||[]).filter(x=>x?.type==='quick'&&Number(x.questions)===15).map(x=>({correct:x.correct,total:15}))),cambridge:window.AdrianAchievements?.cambridgeMedalCounts?.()?.gold??0,'keyword-speaking':perfectCount(keyword.sessions||[])};
 }
 function readHubStars(){
-  const old=parseStore(HUB_STAR_KEY),apps={...(old.apps||{})},actual=goldInventory();
-  for(const [id,n] of Object.entries(actual))apps[id]=Math.max(Math.max(0,Math.floor(Number(apps[id])||0)),n);
-  const totalGold=Object.values(apps).reduce((sum,n)=>sum+Math.max(0,Math.floor(Number(n)||0)),0),stars=Math.floor(totalGold/HUB_STAR_STEP),progress=totalGold%HUB_STAR_STEP;
-  const next={version:2,apps,stars,totalGold,progress,step:HUB_STAR_STEP,updatedAt:Date.now()};
+  const old=parseStore(HUB_STAR_KEY),apps=window.AdrianAchievements.normalizeStarApps(old.apps),actual=goldInventory();
+  for(const [id,n] of Object.entries(actual))apps[id]=id==="cambridge"&&window.AdrianAchievements.cambridgeMedalCounts()!==null?n:Math.max(Math.max(0,Math.floor(Number(apps[id])||0)),n);
+  try{const raw=localStorage.getItem(HUB_STAR_KEY);if(raw&&Number(old.version)<3&&!localStorage.getItem(HUB_STAR_KEY+"_before_rule_v3"))localStorage.setItem(HUB_STAR_KEY+"_before_rule_v3",raw);}catch(_){}
+  const totalGold=Object.values(apps).reduce((sum,n)=>sum+Math.max(0,Math.floor(Number(n)||0)),0),stars=Object.values(apps).reduce((sum,n)=>sum+Math.floor(Math.max(0,Number(n)||0)/HUB_STAR_STEP),0);
+  const next={version:3,apps,stars,totalGold,step:HUB_STAR_STEP,updatedAt:Date.now()};
   if(JSON.stringify({apps:old.apps||{},stars:Number(old.stars)||0,totalGold:Number(old.totalGold)||0})!==JSON.stringify({apps,stars,totalGold}))try{localStorage.setItem(HUB_STAR_KEY,JSON.stringify(next));}catch{}
   return next;
 }
-function renderHubStars(){const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount'),progress=document.querySelector('#hubStarProgress');if(!host||!count||!progress)return;count.textContent=String(s.stars);progress.textContent=`${s.progress}/${s.step} · ${s.totalGold} OROS`;host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',`${s.stars} estrellas globales. ${s.totalGold} medallas de oro acumuladas entre todos los Adaptive.`);}
+function renderHubStars(){const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');if(!host||!count)return;count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas ganadas en las aplicaciones');}
 renderHubStars();
 window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();});
 window.addEventListener('hub:star-progress',renderHubStars);

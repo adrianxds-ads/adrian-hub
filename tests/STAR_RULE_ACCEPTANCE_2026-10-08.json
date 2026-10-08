@@ -1,0 +1,72 @@
+[
+  {
+    "app": "adaptive-english",
+    "thresholds": [
+      0,
+      4,
+      5,
+      9,
+      10
+    ],
+    "perAppStars": true,
+    "noMixedGold": true,
+    "keywordAlias": true
+  },
+  {
+    "app": "adaptive-phrasal-verbs",
+    "thresholds": [
+      0,
+      4,
+      5,
+      9,
+      10
+    ],
+    "perAppStars": true,
+    "noMixedGold": true,
+    "keywordAlias": true
+  },
+  {
+    "app": "adaptive-keyword-speaking",
+    "thresholds": [
+      0,
+      4,
+      5,
+      9,
+      10
+    ],
+    "perAppStars": true,
+    "noMixedGold": true,
+    "keywordAlias": true
+  },
+  {
+    "app": "adaptive-exam",
+    "thresholds": [
+      0,
+      4,
+      5,
+      9,
+      10
+    ],
+    "perAppStars": true,
+    "noMixedGold": true,
+    "keywordAlias": true
+  },
+  {
+    "width": 412,
+    "hubStars": 1,
+    "cambridgeGold": 5,
+    "partialExcluded": true,
+    "duplicatesExcluded": true,
+    "oldLedgerBackedUp": true,
+    "gardenMatches": true
+  },
+  {
+    "width": 1280,
+    "hubStars": 1,
+    "cambridgeGold": 5,
+    "partialExcluded": true,
+    "duplicatesExcluded": true,
+    "oldLedgerBackedUp": true,
+    "gardenMatches": true
+  }
+]
