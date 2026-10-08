@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "date": "2026-10-08",
   "common": [
     "Recupera la fuente maestra y el estado actual antes de crear; evita duplicados.",
@@ -18,7 +18,102 @@
       "role": "Clasifica y deriva; conserva secuencia, permisos y presupuesto.",
       "exercise": "Arregla el teclado y verifica móvil.",
       "acceptance": "Reparador → Tester; clasificación sin ejecución.",
-      "status": "Programa preparado · práctica pendiente"
+      "status": "Práctica local aprobada",
+      "assessment": {
+        "date": "2026-10-08",
+        "level": "Práctica local",
+        "passed": true,
+        "passed_cases": 8,
+        "total_cases": 8,
+        "cases": [
+          {
+            "request": "Arregla el fallo del teclado y verifica móvil",
+            "expected": [
+              "reparador",
+              "tester"
+            ],
+            "observed": [
+              "reparador",
+              "tester"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Audita la app sin tocar nada",
+            "expected": [
+              "auditor",
+              "tester"
+            ],
+            "observed": [
+              "auditor",
+              "tester"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Crea una app nueva para vocabulario",
+            "expected": [
+              "constructor",
+              "tester",
+              "guardian"
+            ],
+            "observed": [
+              "constructor",
+              "tester",
+              "guardian"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Corrige este texto con mi voz",
+            "expected": [
+              "editor"
+            ],
+            "observed": [
+              "editor"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Busca el archivo maestro de HOTI",
+            "expected": [
+              "bibliotecario"
+            ],
+            "observed": [
+              "bibliotecario"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Vigila mis correos de empleo",
+            "expected": [
+              "consejero"
+            ],
+            "observed": [
+              "consejero"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Publica la nueva versión si todas las pruebas pasan",
+            "expected": [
+              "tester",
+              "guardian",
+              "operador"
+            ],
+            "observed": [
+              "tester",
+              "guardian",
+              "operador"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Petición sin señales",
+            "pass": true
+          }
+        ]
+      }
     },
     {
       "id": "auditor",
@@ -26,7 +121,24 @@
       "role": "Audita solo lectura; inspecciona código/HEAD y reproduce antes de recomendar. Prioriza evidencia, gravedad y alcance.",
       "exercise": "La gráfica histórica ha desaparecido.",
       "acceptance": "Identifica fuente y periodo real, demuestra pérdida o filtro, propone corrección y declara lo no verificado.",
-      "status": "Programa preparado · práctica pendiente"
+      "status": "Preparación comprobada · práctica real pendiente",
+      "assessment": {
+        "date": "2026-10-08",
+        "level": "Comprobación de preparación y límites; auditoría real pendiente",
+        "passed": true,
+        "passed_cases": 2,
+        "total_cases": 2,
+        "cases": [
+          {
+            "request": "Bloqueo de ruta fuera del workbench",
+            "pass": true
+          },
+          {
+            "request": "Carga de formación",
+            "pass": true
+          }
+        ]
+      }
     },
     {
       "id": "reparador",
@@ -34,7 +146,24 @@
       "role": "Corrige un fallo confirmado en copia aislada con diff mínimo y regresión. Respeta archivos y herramientas permitidos.",
       "exercise": "El teclado oculta la frase de Keyboard Speak.",
       "acceptance": "Conserva dictado natural y puntuación; verifica controles, 360/390/412 px y persistencia; declara pendiente Pixel físico.",
-      "status": "Programa preparado · práctica pendiente"
+      "status": "Preparación comprobada · práctica real pendiente",
+      "assessment": {
+        "date": "2026-10-08",
+        "level": "Comprobación de preparación; reparación real pendiente",
+        "passed": true,
+        "passed_cases": 2,
+        "total_cases": 2,
+        "cases": [
+          {
+            "request": "Carga de formación",
+            "pass": true
+          },
+          {
+            "request": "No puede editar su formación",
+            "pass": true
+          }
+        ]
+      }
     },
     {
       "id": "operador",
@@ -114,7 +243,40 @@
       "role": "Observa fuentes realmente conectadas y propone prioridades de empleo/agenda/Plaud; deduplica señales y reduce ruido. No envía ni borra.",
       "exercise": "Detecta un correo de entrevista.",
       "acceptance": "Señal trazable y propuesta Calendar/Tasks; conexión real comprobada; sin afirmar monitorización de fuente pendiente.",
-      "status": "Programa preparado · práctica pendiente"
+      "status": "Práctica local aprobada",
+      "assessment": {
+        "date": "2026-10-08",
+        "level": "Práctica local con datos ficticios y base temporal",
+        "passed": true,
+        "passed_cases": 6,
+        "total_cases": 6,
+        "cases": [
+          {
+            "request": "Detectar entrevista y candidato de agenda",
+            "pass": true
+          },
+          {
+            "request": "Repetición del mismo correo",
+            "pass": true
+          },
+          {
+            "request": "Fuente pendiente permanece desconectada",
+            "pass": true
+          },
+          {
+            "request": "Fechas imposibles",
+            "pass": true
+          },
+          {
+            "request": "Fecha incompleta requiere revisión",
+            "pass": true
+          },
+          {
+            "request": "El candidato no crea citas por su cuenta",
+            "pass": true
+          }
+        ]
+      }
     }
   ]
 }

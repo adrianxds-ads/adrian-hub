@@ -4,15 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.12",
-    "build": "hub-30.4.12-20261008",
+    "version": "30.4.13",
+    "build": "hub-30.4.13-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
-      "Información muestra el programa real y las prácticas pendientes.",
-      "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
+      "Formación 1.1.0 registra pruebas reales: 8 casos del Triaje y 6 del Consejero superados.",
+      "Auditor y Reparador: preparación y límites comprobados; práctica real pendiente.",
+      "Información muestra resultados por caso sin activar especialistas pendientes."
     ],
     "history": [
+      {
+        "version": "30.4.12",
+        "date": "2026-10-08",
+        "changes": [
+          "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
+          "Información muestra el programa real y las prácticas pendientes.",
+          "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
+        ]
+      },
       {
         "version": "30.4.11",
         "changes": [
@@ -249,7 +258,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "685ec5a0dde40499d425c9de57518a3db10c412da660afd73c5b3b1080b6e9ef"
+          "sha256": "d99f15477cc2f042e0510373b076989bbdf9853cd0d13e0edb73b256118185e3"
         },
         {
           "url": "version-verifier.js",
@@ -257,7 +266,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "74cfe307f059ab9a8557b8f8fd48ecf9de2b3b911bea81b07da7c8190c6c720d"
+          "sha256": "f37d37395c940e08932a02556583e91477c3affbad91b4ae202174a085f6660f"
         },
         {
           "url": "styles.css",
@@ -265,15 +274,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "3325917c01b6193f9be52eadc3a070328d520f1e130d1ea0b8fe8e51e7185c2e"
+          "sha256": "0fc31583af6314370f1640cb6db16c4d376027ca32891759dac4f969e0cc8078"
         },
         {
           "url": "build-assets.js",
-          "sha256": "997bdc250825cb01e0b6b27f3351ff63aeba3dcda1b26e3d7db4299fef2d0257"
+          "sha256": "12bc286383cd54db597c41cd7550dd0d951c86482c694b8a24e73904c8c1d40e"
         }
       ]
     },
-    "cacheBuild": "217f483e354a6076"
+    "cacheBuild": "26d1e714dbf9f9ae"
   },
   "apps": [
     {
@@ -990,24 +999,24 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.8.0",
-      "build": "sha256-ed6ed63e4bd3",
+      "version": "0.8.1",
+      "build": "sha256-4ef6a15d9698",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
-        "Información muestra el programa real y las prácticas pendientes.",
-        "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
+        "Formación 1.1.0 registra pruebas reales: 8 casos del Triaje y 6 del Consejero superados.",
+        "Auditor y Reparador: preparación y límites comprobados; práctica real pendiente.",
+        "Información muestra resultados por caso sin activar especialistas pendientes."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "d960835300fd69592c725fb7ad2ef0c3ce8ec6aa3bc6920665526b6334a0c3bd"
+            "sha256": "f81a6e487f1af8c5ded6e84e69578f4f959f8a465c1942ad689e68bb2815808b"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "5ce07e85d9603f6cf6398e6f392b4a3fb8c55db81f06eb8304ac8334acb0884b"
+            "sha256": "7cb0030b6c7118af15a2eabcb7dde35b80fc7f5d8116fa06eccf3225b8e88880"
           },
           {
             "url": "./apps/agents/styles.css",
@@ -1016,6 +1025,15 @@
         ]
       },
       "history": [
+        {
+          "version": "0.8.0",
+          "date": "2026-10-08",
+          "changes": [
+            "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
+            "Información muestra el programa real y las prácticas pendientes.",
+            "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
+          ]
+        },
         {
           "version": "0.7.0",
           "date": "2026-10-08",
