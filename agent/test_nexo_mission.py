@@ -70,6 +70,7 @@ with sync_playwright() as pw:
   page.wait_for_function("document.querySelector('#nexoMissionState').textContent==='INFORME PARA REVISAR'")
   assert page.locator('#nexoMissionRepair').is_disabled()
   route_data['primary']={'id':'tester','name':'El Tester','active':False}
+  page.locator('#triageRequest').fill('Prueba Keyboard Speak')
   page.locator('#nexoRun').click()
   page.wait_for_function("document.querySelector('#triageStatus').textContent==='EN FORMACIÓN'")
   assert counts['audit']==1 and counts['repair']==0
