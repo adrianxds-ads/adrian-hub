@@ -1,4 +1,4 @@
-﻿from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright
 url='http://127.0.0.1:19543/apps/biblioteca/'
 with sync_playwright() as p:
   browser=p.chromium.launch(channel="msedge",headless=True)
@@ -51,4 +51,3 @@ with sync_playwright() as p:
     print('PASS',label,'catalog=233, task/session/10min-break/queue/chart/reload/original mode')
     page.close()
   browser.close()
-
