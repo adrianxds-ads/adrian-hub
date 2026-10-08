@@ -1,6 +1,6 @@
 # Local Audit Agent
 
-This is the first local agent for the Adrián Hub ecosystem.
+This is the first local agent for the AdriÃ¡n Hub ecosystem.
 
 ## Current safety mode
 - Read-only over the isolated `C:\Users\adria\agent-workbench` worktree.
@@ -59,3 +59,12 @@ python repair_agent.py --root C:\Users\adria\agent-workbench\keyboard-speak-audi
 After the run, independently review Git diff and rerun tests. Commit only the requested
 changes and verify the published build separately. Simulated viewports do not establish
 that a physical Android keyboard or microphone has passed testing.
+
+
+## Design repair agent (nine study apps)
+
+The separate design_repair_agent.py supports the eight external study apps and Biblioteca in allowlisted direct agent-workbench checkouts named design-repair-<repository>. Only index.html, styles.css and README.md are writable. Storage, scoring, data, inline scripts, music, rewards and cache code remain protected by test_design_ui.py. Every edit invalidates the last passing test; a report requires a successful trusted test. The original Keyboard Speak repair agent remains available.
+
+Example: python agent/design_repair_agent.py --root C:/Users/adria/agent-workbench/design-repair-adaptive-english --test-script C:/Users/adria/adrian-hub/agent/test_design_ui.py --mission-file C:/Users/adria/agent-workbench/design-mission-adaptive-english.txt --max-usd 0.65 --max-turns 5
+
+Reports never publish changes. Review diffs, increment app versions, rebuild cache fingerprints and verify deployed bytes separately. Chrome headless viewports do not verify a physical Pixel keyboard, microphone or audio.

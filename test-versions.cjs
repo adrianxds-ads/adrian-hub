@@ -15,7 +15,7 @@ const ctx={window:{},crypto:crypto.webcrypto,Uint8Array,URL,Date,location:{href:
  assert.equal(catalog.hub.version,registry.hubVersion);assert.equal(new Set(catalog.apps.map(x=>x.id)).size,catalog.apps.length);assert.deepEqual(registry.apps.map(x=>x.id).sort(),catalog.apps.map(x=>x.id).sort());
  for(const e of [catalog.hub,...catalog.apps])for(const f of e.verify?.files||[]){
   const p=f.url.startsWith('https:')?path.join(__dirname,'..',new URL(f.url).pathname):path.join(__dirname,f.url);
-  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),f.sha256,'registry fingerprint '+f.url);
+  assert.equal(crypto.createHash('sha256').update(Buffer.from(fs.readFileSync(p).toString('utf8').replace(/\r\n/g,'\n'),'utf8')).digest('hex'),f.sha256,'registry fingerprint '+f.url);
  }
  assert(!JSON.stringify(catalog).includes('s?mbolos'));
  console.log('PASS Version Center: real runtime, build fingerprints, bundle evidence, extension presence, registry coherence');

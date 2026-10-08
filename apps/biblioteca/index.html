@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="ca">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -24,21 +24,21 @@
   </div>
 </header>
 
-<section class="tools" aria-label="Buscar y ordenar">
-  <label class="searchbox"><span>BUSCAR</span><input id="search" type="search" placeholder="Número, títol o tema…" autocomplete="off"></label>
-  <button id="sortBtn" class="sort-btn" type="button" aria-label="Cambiar orden"><span>ORDRE</span><b id="sortLabel">1 → 233</b></button>
+<section class="tools" aria-label="Cercar i ordenar">
+  <label class="searchbox"><span>CERCAR</span><input id="search" type="search" placeholder="Número, títol o tema…" autocomplete="off"></label>
+  <button id="sortBtn" class="sort-btn" type="button" aria-label="Canviar l'ordre"><span>ORDRE</span><b id="sortLabel">1 → 233</b></button>
 </section>
 
-<div class="legend"><span><i class="pending-dot">×</i>Pendent</span><span><i class="done-dot">✓</i>Escoltat</span><small id="shownCount"></small></div>
+<div class="legend"><span><i class="pending-dot" aria-hidden="true">•</i>Pendent</span><span><i class="done-dot" aria-hidden="true">✓</i>Escoltat</span><small id="shownCount"></small></div>
 
 <section id="episodes" class="episodes" aria-live="polite"></section>
 <div id="empty" class="empty" hidden>No he trobat cap episodi.</div>
 </main>
 
 <section id="player" class="player" hidden aria-label="Reproductor">
-  <button id="playerToggle" class="player-toggle" type="button" aria-label="Reproducir o pausar">▶</button>
-  <div class="player-copy"><b id="playerTitle">—</b><div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Posición"><span id="remaining">0:00</span></div></div>
-  <button id="playerDone" class="player-done" type="button" aria-label="Marcar como escuchado">✓</button>
+  <button id="playerToggle" class="player-toggle" type="button" aria-label="Reprodueix o pausa">▶</button>
+  <div class="player-copy"><b id="playerTitle">—</b><div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="1000" value="0" aria-label="Posició"><span id="remaining">0:00</span></div></div>
+  <button id="playerDone" class="player-done" type="button" aria-label="Marca com a escoltat">✓</button>
 </section>
 
 <audio id="audio" preload="metadata"></audio>

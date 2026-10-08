@@ -43,3 +43,5 @@ input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
 .back{display:inline-flex;align-items:center}
 @media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}
+/* Neutral pending marker in legend only. */
+.legend .pending-dot{background:#26363b;color:#a9b9bd}
