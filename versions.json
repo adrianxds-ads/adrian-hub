@@ -4,16 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.9",
-    "build": "hub-30.4.9-20261008",
+    "version": "30.4.10",
+    "build": "hub-30.4.10-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Revisión visual del Hub y sus 14 apps públicas: lectura, controles táctiles y prioridad de la acción principal.",
-      "English, Phrasal, Cloze y Català muestran la sesión antes de las métricas; Pizarras y Cambridge priorizan el comienzo del estudio.",
-      "Key Word conserva dictado y corrección; herramientas del Hub amplían controles y campos.",
-      "Las tarjetas muestran la versión; las huellas técnicas siguen disponibles en Actualizaciones."
+      "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+      "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
     ],
     "history": [
+      {
+        "version": "30.4.9",
+        "date": "2026-10-08",
+        "changes": [
+          "Revisión visual del Hub y sus 14 apps públicas: lectura, controles táctiles y prioridad de la acción principal.",
+          "English, Phrasal, Cloze y Català muestran la sesión antes de las métricas; Pizarras y Cambridge priorizan el comienzo del estudio.",
+          "Key Word conserva dictado y corrección; herramientas del Hub amplían controles y campos.",
+          "Las tarjetas muestran la versión; las huellas técnicas siguen disponibles en Actualizaciones."
+        ]
+      },
       {
         "version": "30.4.8",
         "date": "2026-10-08",
@@ -223,7 +231,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "894e036d10dc0cbb19c4681c21202e447f5f6404776a0af7f848f49a5ed7351c"
+          "sha256": "fcfff2171ed8055e457856bb3562bb725d7507c4bc7d0bf9ce03b9a2597635bd"
         },
         {
           "url": "version-verifier.js",
@@ -231,7 +239,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "8420a41fc320979c22fa5ad047acc6d3d7fb2a8ef2c5f0e5c2afe0a8052e0a0f"
+          "sha256": "c754c34ef26719de472600d69e180d5c6942d52a4cc825a5be0a49eae8b94cfa"
         },
         {
           "url": "styles.css",
@@ -239,38 +247,37 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "49566027838881edb6e1fbd2644f1bd22cb444c4ad48502c131c97f2f82ac09a"
+          "sha256": "8dd2e4df868291da146559e5d5ff8a3555eac37eff9a70c2ff8266847c161036"
         },
         {
           "url": "build-assets.js",
-          "sha256": "dae42fb2c1ec5cef3ef0ed603f2c9e3d7a13611e2beeea0021c87a5fe1168b02"
+          "sha256": "b55c44acbfdbe1d2e409a3786412973e85e862bb425f9490639616ba88e2ce68"
         }
       ]
     },
-    "cacheBuild": "7bdc5143e5851689"
+    "cacheBuild": "d93fc1dd0c958e59"
   },
   "apps": [
     {
       "id": "english",
       "name": "Adaptive English",
-      "version": "3.34.5",
-      "build": "sha256-cc2dafecde31",
+      "version": "3.34.6",
+      "build": "sha256-294392fed680",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "39272d13a3ffe3a31913ecba68bb40453f732bd3bde1482885b6b4e9ecaa6fba"
+            "sha256": "eb5ee6ca746b21b8ef798c5e428fd8c06f2f1d8008bbce0f23c56cdec344553b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "e211411985c4eef2e82875a92d686768051117ccb6d3f416d605ff96f7151b7e"
+            "sha256": "f36bc113d79bb5b7d9aee09919c132aa6bd1ba4bd9641b438f5032fe0351bb98"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -278,17 +285,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "1a8112cae06b364cfda348fbfe1215c368a22d0a23e8da199b6d31e175c0be87"
+            "sha256": "04ccf840f4772b2324d0e02da2534c31abc35cadaefb67d34cf2344ae7b23dfe"
           }
         ]
       },
       "sourceCommit": "01f92af4f29ce0e090bb63cdc454af546439e906",
-      "cacheBuild": "1826bd7f495e86d3",
-      "sourceDirty": false,
+      "cacheBuild": "a8f57977b8b40821",
+      "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.34.5",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "3.34.4",
           "date": "2026-10-07",
@@ -301,24 +317,23 @@
     {
       "id": "phrasal-verbs",
       "name": "Adaptive Phrasal Verbs",
-      "version": "0.12.5",
-      "build": "sha256-be8eda1b5314",
+      "version": "0.12.6",
+      "build": "sha256-aa421316043c",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "abf6214208047275c1a5f4fa28ec603aa7a3343312db5a20642146e8db9f5c7b"
+            "sha256": "caf90997affca300de1fc5221c6404e8accf96bb313d4e593e0808b101324bd5"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "057e15a267cd940c522a419cd3014994fbcb7aa5f3813ad65dd555c1bdcdc714"
+            "sha256": "55f3981883c8c7a283d79714af025c7e57b1aa98ecd606dc13b289ff2e811869"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -326,17 +341,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "333422b50689a281a82b90e1994df62017118ea41e23d00c6461585679b93d4d"
+            "sha256": "28fcad6d63aa5507e3d4d1504857fbd524fd201c144b41c4eb92c960f9cf86f6"
           }
         ]
       },
       "sourceCommit": "3c582b824674b64fbc4dba25a00aeedf07412721",
-      "cacheBuild": "171616c4f15335ea",
-      "sourceDirty": false,
+      "cacheBuild": "a7e3038ebc9bf967",
+      "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.12.5",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "0.12.4",
           "date": "2026-10-07",
@@ -349,23 +373,23 @@
     {
       "id": "pizarras",
       "name": "Pizarras 2.0",
-      "version": "2.1.9",
-      "build": "sha256-e148697369f8",
+      "version": "2.1.10",
+      "build": "sha256-a149b765d77c",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "5450112d02a1acddc3dfdc445f368b3d164ea6d6eb477c0b71e323dcf45485ff"
+            "sha256": "088082709966d4428cb0ac8939c9a2af6e39726b8b1983cb08de0eec592a26e3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "92f63ce18e89d681192913843f2219cf19f9e0cfdecc018f8f7fc400db306cd1"
+            "sha256": "d555a92490832505f8768b5853383ec701d7175b214f94463f65530c4fab9144"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -373,17 +397,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "b236972a933f0d097ab6978d9af66ccce9e439cb6c7b7ed9606c5fd98e756361"
+            "sha256": "8ae3a55116ce1f6e34e79ee513ef00d7844cc9ccaf7075513e96ba7268bea3b8"
           }
         ]
       },
       "sourceCommit": "2547ba3bb28a9e5524425361883a829adeb34a3c",
-      "cacheBuild": "19f5e97e9f4cf3fc",
-      "sourceDirty": false,
+      "cacheBuild": "ad5db3659250c23c",
+      "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.1.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "2.1.8",
           "date": "2026-10-07",
@@ -396,24 +428,23 @@
     {
       "id": "b2-cloze",
       "name": "B2 Multiple-Choice Cloze",
-      "version": "1.10.9",
-      "build": "sha256-73b559a2f850",
+      "version": "1.10.10",
+      "build": "sha256-81ce04930bb6",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "a36b3212fd473a18eb6ac89cde6896adf6d50bbd707ea6acc43f3851187675d6"
+            "sha256": "6dcf354fe6ce6cdb0cf9a639719745a2225f27c751c5a4225915d76b733fb4c3"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "bca6a7dacece5e0cb589fa0cbc326807e7c46f2d75c240268add5a5cd7670f46"
+            "sha256": "c14e872e1da1cc5e6e95f46e40520cb8d124822971c6f5035818379e042e672b"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -421,17 +452,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "d005d482f80b9eb3482b0edc9e064545c6a1a3df07481bb9014023f13cddc36d"
+            "sha256": "a1df3cd238d2706705ae9d5a98a02e339e73873b4b39bc2c522f4a4c4d33155f"
           }
         ]
       },
       "sourceCommit": "751d6a999677399495db1c046e332a982a3bb1cb",
-      "cacheBuild": "7cec4d781ba8c8e4",
-      "sourceDirty": false,
+      "cacheBuild": "98bd163611c9cd1a",
+      "sourceDirty": true,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.10.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "1.10.8",
           "date": "2026-10-07",
@@ -444,23 +484,23 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.12",
-      "build": "sha256-b43be5a832c8",
+      "version": "1.2.13",
+      "build": "sha256-bec1a8efa786",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "b83b3ce19563c7335b96fba3f90403a6304761a56c28c647b7d6a871659cf5f2"
+            "sha256": "f15b6b713349d6a003900c8a14606ceb4166541ce9fa50bfd698503eb6f2aa00"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "feb70a0c44da6f5ca1203a4957b54a5cc477966b10a6f000cc5e3aae07c4cef1"
+            "sha256": "a0a068404a423b8d8f63b04bb88c00345025a8b985c698f4dea9217ad9c5308e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -468,17 +508,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "b07646a6677401591b89d2fe41037019d75eaf9178060599cd6b530b40c23ae1"
+            "sha256": "627e285b13c9b88209ff11646bb9ff342a2fdd27cf688b54042340e61d509d99"
           }
         ]
       },
       "sourceCommit": "767c2d8f51baeb8e71449c30ae4a567332fe5d90",
-      "cacheBuild": "fc2300e8a3d83523",
-      "sourceDirty": false,
+      "cacheBuild": "d4c31e865a2a5b43",
+      "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.12",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "1.2.11",
           "date": "2026-10-07",
@@ -491,23 +539,23 @@
     {
       "id": "keyword-speaking",
       "name": "Key Word Speaking",
-      "version": "1.0.5",
-      "build": "sha256-f4a494836344",
+      "version": "1.0.6",
+      "build": "sha256-e05612734299",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "81428aab44c8f5b5435bebf62055e245aba896fc69721a5e93711e81100c57b1"
+            "sha256": "9800ae4616e37fb50c1cc95aed344b489744e2c8112d9e273f4ad6c1f98dd463"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "25d061cbe30620413a494308886fa23f996345c8fa611289553e0c285e8f9f7a"
+            "sha256": "9c39ccc14a9cf56dbab8825591f972a6afb40cab25a1573e89d9ea0d832d61ee"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -515,17 +563,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "f1e3a71368e0c1e8f43005da51f30635b734f70fe436257d33b7ae7bbdfb04c0"
+            "sha256": "73da41cd5fc7f9df9de64cdd2551be1b6c1cecb0032d290102be8f3366a0f90e"
           }
         ]
       },
       "sourceCommit": "8e4ac2d6fe3ae0296989e466621c870c44c21584",
-      "cacheBuild": "f04af2d909852761",
-      "sourceDirty": false,
+      "cacheBuild": "58d6084ebbcf8fd9",
+      "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.5",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "1.0.4",
           "date": "2026-10-07",
@@ -568,24 +624,23 @@
     {
       "id": "catala",
       "name": "Català · Verbs",
-      "version": "0.9.9",
-      "build": "sha256-881a559d4b31",
+      "version": "0.9.10",
+      "build": "sha256-8bd5081417bd",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "0982ad294de2ceb8f4fe2456b4cd9373a49fc99c77cf259b2035c70dc95e0aa5"
+            "sha256": "063a3e14b34479dd953faf197536e3e8af66d7a3ad51bbeab9fdd0e59fea87f3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "0304a9854d12d147ce065e386e568b272ef0c2646b857e222897700eface68e9"
+            "sha256": "a24806048cc2fd5a43da9ac4f0217bb31894b43b7ba2c1e9803d4bc8dac90fe4"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -593,17 +648,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "a4858aead09bf51fe513b0b211cf03887f52e82188222bf4c7b35d6d5acceefd"
+            "sha256": "23c5d1edac7a74332a76f400b0e8579e8f2c33b7fcd05eaaf4b64b1d8ac8f57b"
           }
         ]
       },
       "sourceCommit": "7383ab21c31e68681b97d166a5365871622eecac",
-      "cacheBuild": "d97cf9b6e7b5bc1e",
-      "sourceDirty": false,
+      "cacheBuild": "fed4025f7ad9b816",
+      "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.9.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Sesión antes de métricas; detalle de progreso y valoración desplegable, con IDs y datos conservados.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "0.9.8",
           "date": "2026-10-07",
@@ -655,23 +719,23 @@
     {
       "id": "hoti0108",
       "name": "HOTI0108",
-      "version": "2.6.8-read-first",
-      "build": "sha256-67c4871c523c",
+      "version": "2.6.9-read-first",
+      "build": "sha256-f2e1d2be930b",
       "releasedAt": "2026-10-08",
       "kind": "public",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
-        "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+        "Gráfica de automatismo: aciertos rápidos y evolución de los tiempos de respuesta.",
+        "Gráficas comunes del Hub: dimensiones, tipografía, gama AVS y escalas coherentes."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "f99bd8c6ec5ff71aa66dfeb5e65ed6101f6e11c6f98e362ad18ee9ed385f1667"
+            "sha256": "2c1fc03379075d543fd0b76c2aca78b4eb65c4f08c992d5bcb28e58bb7bbe19f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "6c8c0105d90758594f7393bcf87aa3847c046f2ebc6f7eed7ede92d1b7b91afe"
+            "sha256": "3deb4d6eae0797d0f47352dda441281d4ac7906b0b9e75d9798e65be552fc86c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -679,17 +743,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "d84a2910dc7383a0fc90b40df43f77050efcdb7b1bcac684817dc2dea045b0c5"
+            "sha256": "5bad48deaea677e82df7b3a44915a8010783117f2035dd85e85cc097fb19fa5c"
           }
         ]
       },
       "sourceCommit": "0c1e8fafc37a52d64fd17819198615315c48669b",
-      "cacheBuild": "d7c32a488a44f7b2",
-      "sourceDirty": false,
+      "cacheBuild": "eab287cdd54d8cb9",
+      "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.6.8-read-first",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible.",
+            "Retirada de la carga de la Oca; progreso, medallas y jardín conservados."
+          ]
+        },
         {
           "version": "2.6.7-read-first",
           "date": "2026-10-07",
