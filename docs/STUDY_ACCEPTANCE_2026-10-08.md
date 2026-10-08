@@ -77,3 +77,10 @@ Verificación: 18 rondas completas en Chrome a 412 y 1280 px; caducidad única, 
 Añadido Quiz por examen para los 30 exámenes, partes 1–3: ocho preguntas originales en orden, mismo contexto, corrección y tres tiempos. Quiz mezclado conserva quince preguntas. Exam points y Game points separados en ronda y resultado. Historial y medallas reconocen rondas de ocho y conservan las antiguas de quince.
 
 Pruebas: 36 rondas completas a 412 y 1280 px, ambas rutas y los tres tiempos; respuestas del banco, puntos correctos, orden, repetición, caducidad, historial y recarga. Comprobadas las 90 partes del banco, con ocho preguntas únicas cada una. Capturas móviles de selector y marcadores revisadas. Publicación f9b8342: siete hashes públicos coinciden; Exam 01 completado con sus ocho preguntas en orden; ronda persiste y caché nueva elimina la anterior. Perfiles de prueba aislados, sincronización bloqueada y sin ocupar el Pixel. Registro: 9600eee.
+
+
+## Cambridge 1.2.19 · tabla de exámenes · 2026-10-08
+
+Lista vertical Exam 01–30 por parte: completado, veces, últimos fallos, mejores Exam points y Game points, jugar/repetir. Datos derivados de las rondas existentes, sin migración ni duplicación de progreso; excluye rondas parciales y Quiz mezclado. Gráfica ampliable de todo el histórico del modo por examen. Resultado con identidad Exam NN y parte; repetir, siguiente (misma parte y tiempo) y elegir desde la lista. El Exam 30 cierra la secuencia.
+
+Verificado en 360/412/1280 px: lista de treinta filas, estados pendientes/completados, repeticiones, último error frente a mejor puntuación, independencia por parte, exclusión de siete respuestas parciales, recarga, navegación y límite Exam 30; gráfica con 39 registros conserva todo el historial. Captura móvil inspeccionada. Las 36 rondas de regresión siguen pasando. Publicación 23cf5dc: siete hashes coinciden; lista, Exam 01, paso a Exam 02, persistencia, apertura de gráfica ampliada y nueva caché con limpieza de la anterior verificados en origen público. Registro del Hub: b9a3f51. Perfiles aislados, sincronización bloqueada, sin ocupar el Pixel ni usar progreso real.
