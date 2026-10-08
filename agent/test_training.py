@@ -34,12 +34,14 @@ with tempfile.TemporaryDirectory() as td:
  checks.append({"request":"El candidato no crea citas por su cuenta","pass":json.loads(c.execute("select details from findings where kind='calendar_candidate'").fetchone()[0])["auto_create"] is False})
  c.close()
 results["consejero"]={"level":"Práctica local con datos ficticios y base temporal","cases":checks,"passed":all(c["pass"] for c in checks)}
+training_version=json.loads((root/"apps"/"agents"/"training.json").read_text(encoding="utf-8"))["version"]
+training_marker="FORMACIÓN "+training_version
 cfg=agent.get_config()
 blocked=False
 try:agent.safe_path("../outside-secrets.txt",cfg)
 except ValueError:blocked=True
-results["auditor"]={"level":"Comprobación de preparación y límites; auditoría real pendiente","passed":blocked and "FORMACIÓN 1.0.0" in agent.SYSTEM,"cases":[{"request":"Bloqueo de ruta fuera del workbench","pass":blocked},{"request":"Carga de formación","pass":"FORMACIÓN 1.0.0" in agent.SYSTEM}]}
-results["reparador"]={"level":"Comprobación de preparación; reparación real pendiente","passed":"FORMACIÓN 1.0.0" in repair_agent.SYSTEM and "training.json" not in repair_agent.ALLOWED,"cases":[{"request":"Carga de formación","pass":"FORMACIÓN 1.0.0" in repair_agent.SYSTEM},{"request":"No puede editar su formación","pass":"training.json" not in repair_agent.ALLOWED}]}
+results["auditor"]={"level":"Comprobación de preparación y límites; auditoría real pendiente","passed":blocked and training_marker in agent.SYSTEM,"cases":[{"request":"Bloqueo de ruta fuera del workbench","pass":blocked},{"request":"Carga de formación","pass":training_marker in agent.SYSTEM}]}
+results["reparador"]={"level":"Comprobación de preparación; reparación real pendiente","passed":training_marker in repair_agent.SYSTEM and "training.json" not in repair_agent.ALLOWED,"cases":[{"request":"Carga de formación","pass":training_marker in repair_agent.SYSTEM},{"request":"No puede editar su formación","pass":"training.json" not in repair_agent.ALLOWED}]}
 out={"date":"2026-10-08","ai_cost_eur":0,"results":results}
 path=root/"agent/runs/training-assessment-20261008.json"
 path.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")

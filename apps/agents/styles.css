@@ -19,3 +19,14 @@ body{min-height:100vh;background:radial-gradient(circle at 18% 0%,rgba(187,158,2
 .advisor-card{border-color:rgba(50,164,143,.18);background:linear-gradient(135deg,rgba(50,164,143,.07),rgba(74,167,200,.035)),var(--ad-surface)}.advisor-glyph{background:rgba(50,164,143,.13);border-color:rgba(50,164,143,.31);color:#a9eadc}.advisor-sources{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}.advisor-sources>div{display:grid;gap:4px;padding:10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(0,0,0,.12)}.advisor-sources b{font-size:12px}.advisor-sources span{font-size:8px;font-weight:950;letter-spacing:.06em}.source-ready{color:#9fe0d0}.source-pending{color:#f1da9e}.advisor-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.advisor-kpis>div{padding:10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(0,0,0,.12)}.advisor-kpis small{display:block;color:#82979b;font-size:8px;font-weight:950;letter-spacing:.07em}.advisor-kpis b{display:block;margin-top:3px;font-size:17px}.advisor-recent{display:grid;gap:6px;margin-top:10px}.advisor-recent>small{padding:11px;border:1px dashed rgba(255,255,255,.10);border-radius:11px;color:#8fa2a6;font-size:11px}.advisor-recent>div{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(0,0,0,.11)}.advisor-recent>div>span{font-size:8px;font-weight:950;color:#9fe0d0;letter-spacing:.06em}.advisor-recent>div>b{font-size:11px}.advisor-recent>div>small{color:#7f9296;font-size:9px;white-space:nowrap}@media(max-width:560px){.advisor-sources{grid-template-columns:1fr}.advisor-kpis{grid-template-columns:repeat(3,1fr)}.advisor-recent>div{grid-template-columns:1fr}.advisor-recent>div>small{white-space:normal}}
 
 #trainingProfiles details{border-top:1px solid #ffffff25;padding:12px 0}#trainingProfiles summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:700}#trainingProfiles p,#trainingProfiles li{font-size:16px;line-height:1.55}#trainingProfiles ul{padding-left:22px}
+
+/* Núcleo · inspector de ChatGPT */
+.nucleo-card{border-color:rgba(187,158,240,.3);background:linear-gradient(140deg,rgba(187,158,240,.10),rgba(74,167,200,.035)),var(--ad-surface)}
+.nucleo-glyph{background:rgba(187,158,240,.17);border-color:rgba(187,158,240,.35);color:#ecdeff}
+.nucleo-checks{display:grid;gap:7px;margin-top:12px}
+.nucleo-check{padding:12px 13px;border-radius:12px;background:rgba(0,0,0,.12);border:1px solid rgba(255,255,255,.08)}
+.nucleo-check b{font-size:12px;color:#dce4e7}
+.nucleo-check[data-state="ok"] b{color:#a1dfcd}
+.nucleo-check[data-state="review"] b{color:#f1da9e}
+.nucleo-check p{font-size:12px;line-height:1.5;color:#aabdc1;margin:5px 0 0}
+.nucleo-check small{font-size:11px;line-height:1.5;display:block;color:#c6b6e7;margin-top:5px}

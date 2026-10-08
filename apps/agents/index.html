@@ -29,15 +29,16 @@
   <div class="spend-foot"><span>Auditor: máx. $0,35/run ordinario</span><span>Reparador: máx. $1,65/run</span></div>
 </section>
 
-<section class="triage-card ad-card" aria-label="El Triaje" data-agent="triage">
-  <div class="agent-head"><span class="agent-glyph triage-glyph">TR</span><div><small>ROUTER AGENT</small><h2>El Triaje</h2></div><span class="status ready" id="triageStatus">LISTO</span></div>
-  <p>Recibe la petición antes que nadie. Decide qué especialista necesita, qué secuencia conviene y cuánto presupuesto máximo tiene sentido reservar.</p>
+<section class="triage-card ad-card" aria-label="Nexo · coordinador" data-agent="triage">
+  <div class="agent-head"><span class="agent-glyph triage-glyph">NX</span><div><small>NÚCLEO MATRIX · COORDINACIÓN</small><h2>Nexo</h2></div><span class="status ready" id="triageStatus">LISTO</span></div>
+  <p>Nuestro asistente principal reúne conversación, coordinación, triaje y autodiagnóstico. El motor local prepara la ruta; la conversación continúa en ChatGPT con sus herramientas disponibles.</p>
   <div class="triage-flow" aria-label="Flujo"><span>PETICIÓN</span><i>→</i><span>CLASIFICA</span><i>→</i><span>DERIVA</span><i>→</i><span>CONTROLA COSTE</span></div>
   <dl><div><dt>Objetivo</dt><dd>Evitar usar modelos caros para tareas que pueden resolverse gratis o con herramientas locales</dd></div><div><dt>Permisos</dt><dd>Enrutamiento y presupuesto · sin editar ni publicar</dd></div><div><dt>Coste</dt><dd>0 USD en la clasificación local actual</dd></div></dl>
   <label class="mission triage-mission"><span>¿QUÉ QUIERES HACER?</span><textarea id="triageRequest" maxlength="2000" rows="3" placeholder="Ej.: Arregla Keyboard Speak y comprueba que no rompa nada."></textarea></label>
   <div class="actions triage-actions">
-    <button class="ad-button primary wide" id="triageBtn" type="button">HACER TRIAJE · 0 USD</button>
-  </div>
+    <button class="ad-button primary wide" id="triageBtn" type="button">PREPARAR RUTA · 0 USD</button>
+  <button class="ad-button wide" id="nexoChat" type="button">CONTINUAR CON NEXO EN CHATGPT</button></div>
+  <p id="nexoHandoff" role="status">La misión se copia para pegarla en ChatGPT; este panel no recibe respuestas ni comparte memoria automáticamente.</p>
   <div class="triage-result" id="triageResult" hidden>
     <div class="triage-result-head"><span id="triageConfidence">—</span><b id="triagePrimary">—</b></div>
     <p id="triageReason"></p>
@@ -45,9 +46,13 @@
     <div class="triage-budget"><span>TECHO ACTIVO</span><b id="triageBudget">$0.0000</b></div>
     <button class="ad-button" id="triageGo" type="button" hidden>IR AL ESPECIALISTA</button>
   </div>
+<div class="nucleo-card" data-agent="nucleo"><h3>Autodiagnóstico de nuestro entorno</h3><span class="status checking" id="nucleoStatus">SIN COMPROBAR</span>  <div class="agent-live"><b id="nucleoHeadline">Todavía no he realizado la comprobación.</b><small id="nucleoMeta">Las opciones privadas de tu cuenta se marcarán como no verificables.</small></div>
+  <div class="nucleo-checks" id="nucleoChecks" aria-live="polite"></div>
+  <div class="actions"><button class="ad-button primary wide" id="nucleoRefresh" type="button">AUTODIAGNÓSTICO · 0 USD</button></div>
+</div>
 </section>
 
-<div class="section-heading"><div><span>EN SERVICIO</span><h2>El equipo operativo</h2></div><b>4 activos + Triaje</b></div>
+<div class="section-heading"><div><span>EN SERVICIO</span><h2>El equipo operativo</h2></div><b>Nexo + 4 especialistas</b></div>
 <section class="agent-grid" aria-label="Agentes en servicio">
 <article class="agent-card ad-card" data-agent="audit">
   <div class="agent-head"><span class="agent-glyph">AU</span><div><small>AUDIT AGENT</small><h2>El Auditor</h2></div><span class="status checking" id="auditStatus">CONECTANDO</span></div>
@@ -95,6 +100,8 @@
   <div class="advisor-recent" id="advisorRecent"><small>Aún no hay observaciones reales.</small></div>
   <div class="actions"><button class="ad-button primary" id="advisorRefresh" type="button">ACTUALIZAR ESTADO</button><button class="ad-button" id="advisorTick" type="button">PROCESAR AHORA · 0 USD</button></div>
 </article>
+
+
 </section>
 
 <div class="section-heading training-heading"><div><span>EN FORMACIÓN</span><h2>Los próximos especialistas</h2></div><b>8 oficios</b></div>
@@ -109,13 +116,13 @@
   <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph guardian-glyph">GU</span><div><small>GUARDIAN AGENT</small><h3>El Guardián</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Vigilará permisos, backups, presupuestos, ramas, credenciales y condiciones de publicación de los demás.</p><dl><div><dt>Primera misión</dt><dd>Políticas de seguridad y límites antes de ejecutar</dd></div><div><dt>Coste</dt><dd>Reglas deterministas primero; IA solo para excepciones</dd></div></dl></article>
 </section>
 
-<section class="rule ad-card" id="trainingPanel" aria-label="Formación de agentes"><span>FORMACIÓN · 1.1.0</span><h2>El cursillo de cada especialista</h2><p>Base común y ejercicios propios. Triaje y Consejero han superado la primera práctica local; Auditor y Reparador tienen la preparación comprobada y su práctica real pendiente. Auditor y Reparador reciben estas instrucciones al arrancar. Los demás conservan su estado operativo actual.</p><div id="trainingProfiles">Cargando formación…</div></section>
+<section class="rule ad-card" id="trainingPanel" aria-label="Formación de agentes"><span>FORMACIÓN · 1.2.0</span><h2>El cursillo de cada especialista</h2><p>Base común y ejercicios propios. El triaje de Nexo y Consejero han superado la primera práctica local; Auditor y Reparador tienen la preparación comprobada y su práctica real pendiente. Auditor y Reparador reciben estas instrucciones al arrancar. Los demás conservan su estado operativo actual.</p><div id="trainingProfiles">Cargando formación…</div></section>
 <section class="rule ad-card">
-  <span>REGLA DEL SISTEMA</span><h2>Especialistas, no un megaagente</h2>
-  <p>El Triaje derivará; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
+  <span>REGLA DEL SISTEMA</span><h2>Una coordinación · especialistas con oficio</h2>
+  <p>Nexo integra el triaje y coordina; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 0.8.1</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.0.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">

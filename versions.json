@@ -4,14 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.15",
-    "build": "hub-30.4.15-20261008",
+    "version": "30.4.16",
+    "build": "hub-30.4.16-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
-      "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
+      "Centro de Agentes 1.0.0 reúne Núcleo y Triaje bajo Nexo en una única tarjeta.",
+      "Mantiene autodiagnóstico, clasificación local, permisos y evaluaciones sin gasto de IA.",
+      "Transferencia de misión a ChatGPT mediante copia manual y acceso existente; sin memoria ni ejecución compartida automática."
     ],
     "history": [
+      {
+        "version": "30.4.15",
+        "build": "hub-30.4.15-20261008",
+        "changes": [
+          "Pruebas completas de las apps de estudio: cierre de partidas y persistencia al recargar.",
+          "Phrasal Verbs corrige START: inicializa la protección frente a inicios simultáneos."
+        ],
+        "date": "2026-10-08"
+      },
       {
         "version": "30.4.14",
         "date": "2026-10-08",
@@ -274,7 +284,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "be0bd909bd2c2b3adfb36dffbadc9271708c072372a83853ff0801ebed06c23d"
+          "sha256": "df6da041b16477af358273cab71d9c30305f3f0e4433e6a2128cbcfba4060fe1"
         },
         {
           "url": "version-verifier.js",
@@ -282,7 +292,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "dba8e6e78fd9fc001c5704081f46d6be0ce6bdff9acdee461d0019a229cbcf87"
+          "sha256": "734ce1f2b99b9ef3c4e9338a0d1dcb921091b9d1e7bb6cae740909113ea488b0"
         },
         {
           "url": "styles.css",
@@ -290,15 +300,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "a2e645a731073677a510155c434e5e5dc40c47f169bf54521df94dace160a7dc"
+          "sha256": "db6610daf4a469627838b5a4c4032fad2b6a3c580d71d4651b5bece25a5d6158"
         },
         {
           "url": "build-assets.js",
-          "sha256": "2ddadd95380cfb71f5d9816cb2cb94b54e8a3007c0b72656670a7d6367b9964e"
+          "sha256": "4d9e1fcadc50451669ea690eadf369ce4e050f32fadc69e2415901ae3fbd3ff5"
         }
       ]
     },
-    "cacheBuild": "48bd24b0c8901bd6"
+    "cacheBuild": "44c46c626ffec11b"
   },
   "apps": [
     {
@@ -1115,32 +1125,41 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.8.1",
-      "build": "sha256-4ef6a15d9698",
+      "version": "1.0.0",
+      "build": "sha256-6016254d8a97",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "Formación 1.1.0 registra pruebas reales: 8 casos del Triaje y 6 del Consejero superados.",
-        "Auditor y Reparador: preparación y límites comprobados; práctica real pendiente.",
-        "Información muestra resultados por caso sin activar especialistas pendientes."
+        "Centro de Agentes 1.0.0 reúne Núcleo y Triaje bajo Nexo en una única tarjeta.",
+        "Mantiene autodiagnóstico, clasificación local, permisos y evaluaciones sin gasto de IA.",
+        "Transferencia de misión a ChatGPT mediante copia manual y acceso existente; sin memoria ni ejecución compartida automática."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "f81a6e487f1af8c5ded6e84e69578f4f959f8a465c1942ad689e68bb2815808b"
+            "sha256": "d7988ba8d60cb0bdf0a0a9cc9a581d94c9366cbdec99f7c11b6006fa21286d5c"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "7cb0030b6c7118af15a2eabcb7dde35b80fc7f5d8116fa06eccf3225b8e88880"
+            "sha256": "e74d860e2886f24ccb3b39520f5676416db43a183924ce57e0bbc1e50a003074"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "c895f8f76e584c5e9caebb7f9530c5930fe1caeceb735368c33f740017d19558"
+            "sha256": "b8291e83f3ef3de3df5cb1548733fd8bcdf290d63dd8432ded7d3901cb62d360"
           }
         ]
       },
       "history": [
+        {
+          "version": "0.8.1",
+          "date": "2026-10-08",
+          "changes": [
+            "Formación 1.1.0 registra 8 casos del Triaje y 6 del Consejero superados.",
+            "Auditor y Reparador: preparación comprobada; práctica real pendiente.",
+            "Información muestra resultados por caso, sin activar especialistas pendientes."
+          ]
+        },
         {
           "version": "0.8.0",
           "date": "2026-10-08",

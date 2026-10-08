@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "date": "2026-10-08",
   "common": [
     "Recupera la fuente maestra y el estado actual antes de crear; evita duplicados.",
@@ -12,6 +12,146 @@
     "Responde en castellano con resultado, comprobación y bloqueo real. Nunca simules fuentes conectadas ni capacidades ausentes."
   ],
   "agents": [
+    {
+      "id": "nucleo",
+      "name": "Nexo",
+      "role": "Examinar la configuración accesible de ChatGPT/Codex, memoria, instrucciones, modelos y gastos. No atribuirse acceso interno al modelo. Coordina Núcleo Matrix e integra el triaje local conservando sus reglas, evaluaciones y presupuesto.",
+      "exercise": "Ejecuta un autodiagnóstico sin gasto, valida una instrucción local y declara desconocidos los estados privados.",
+      "acceptance": "Lectura local verificable, cero cambios, cero API de pago; estados no accesibles marcados como no verificables.",
+      "status": "Práctica local aprobada · conexión HTTP aislada verificada",
+      "assessment": {
+        "date": "2026-10-08",
+        "level": "Prácticas locales y servicio aislado",
+        "passed": true,
+        "passed_cases": 7,
+        "total_cases": 7,
+        "cases": [
+          {
+            "request": "Contrato del Hub y continuidad local",
+            "pass": true
+          },
+          {
+            "request": "Detección del perfil de Núcleo",
+            "pass": true
+          },
+          {
+            "request": "Privacidad: estados no accesibles desconocidos",
+            "pass": true
+          },
+          {
+            "request": "Cero gasto y cero escrituras",
+            "pass": true
+          },
+          {
+            "request": "Triaje preserva 31 casos",
+            "pass": true
+          },
+          {
+            "request": "Endpoint HTTP de autodiagnóstico",
+            "pass": true
+          },
+          {
+            "request": "Perfil e interfaz servidos correctamente",
+            "pass": true
+          }
+        ]
+      },
+      "routing_assessment": {
+        "date": "2026-10-08",
+        "level": "Práctica local",
+        "passed": true,
+        "passed_cases": 8,
+        "total_cases": 8,
+        "cases": [
+          {
+            "request": "Arregla el fallo del teclado y verifica móvil",
+            "expected": [
+              "reparador",
+              "tester"
+            ],
+            "observed": [
+              "reparador",
+              "tester"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Audita la app sin tocar nada",
+            "expected": [
+              "auditor",
+              "tester"
+            ],
+            "observed": [
+              "auditor",
+              "tester"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Crea una app nueva para vocabulario",
+            "expected": [
+              "constructor",
+              "tester",
+              "guardian"
+            ],
+            "observed": [
+              "constructor",
+              "tester",
+              "guardian"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Corrige este texto con mi voz",
+            "expected": [
+              "editor"
+            ],
+            "observed": [
+              "editor"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Busca el archivo maestro de HOTI",
+            "expected": [
+              "bibliotecario"
+            ],
+            "observed": [
+              "bibliotecario"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Vigila mis correos de empleo",
+            "expected": [
+              "consejero"
+            ],
+            "observed": [
+              "consejero"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Publica la nueva versión si todas las pruebas pasan",
+            "expected": [
+              "tester",
+              "guardian",
+              "operador"
+            ],
+            "observed": [
+              "tester",
+              "guardian",
+              "operador"
+            ],
+            "pass": true
+          },
+          {
+            "request": "Petición sin señales",
+            "pass": true
+          }
+        ]
+      }
+    },
     {
       "id": "triaje",
       "name": "El Triaje",

@@ -54,7 +54,7 @@ async function tickAdvisor(){
   finally{b.disabled=false;}
 }
 
-const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc',consejero:'advisor'};
+const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc',consejero:'advisor',nucleo:'nucleo'};
 function renderTriage(t){
   const box=$('#triageResult'),status=$('#triageStatus'),go=$('#triageGo');
   box.hidden=false;go.hidden=true;go.dataset.target='';
@@ -62,8 +62,8 @@ function renderTriage(t){
     status.textContent='AMBIGUO';status.className='status guarded';
     $('#triageConfidence').textContent='REGLAS · 0 USD';
     $('#triagePrimary').textContent='Necesita segunda mirada';
-    $('#triageReason').textContent='Las reglas locales no tienen señales suficientes. De momento El Triaje se detiene aquí en vez de gastar por su cuenta.';
-    $('#triagePipeline').innerHTML='<span class="triage-chip waiting">FALLBACK IA · AÚN NO ACTIVADO</span>';
+    $('#triageReason').textContent='Las reglas locales no tienen señales suficientes. Podemos continuar con Nexo en ChatGPT para aclarar la petición.';
+    $('#triagePipeline').innerHTML='<span class="triage-chip waiting">CONTINUAR EN CHATGPT</span>';
     $('#triageBudget').textContent='$0.0000';
     return;
   }
@@ -171,10 +171,54 @@ setInterval(refreshSpend,60000);setInterval(refreshAdvisor,60000);
 async function refreshTraining(){
   const box=document.querySelector('#trainingProfiles');
   try{
-    const r=await fetch('./training.json?v=1.1.0',{cache:'no-store'});
+    const r=await fetch('./training.json?v=1.2.0',{cache:'no-store'});
     if(!r.ok)throw new Error('HTTP '+r.status);
     const d=await r.json();
-    box.innerHTML='<details><summary>Información · base común</summary><ul>'+d.common.map(x=>'<li>'+escHtml(x)+'</li>').join('')+'</ul></details>'+d.agents.map(a=>'<details><summary>Información · '+escHtml(a.name)+'</summary><p>'+escHtml(a.role)+'</p><p><b>Ejercicio:</b> '+escHtml(a.exercise)+'</p><p><b>Para aprobar:</b> '+escHtml(a.acceptance)+'</p><small>'+escHtml(a.status)+'</small>'+(a.assessment?'<p><b>Evaluación:</b> '+a.assessment.passed_cases+'/'+a.assessment.total_cases+' comprobaciones · '+escHtml(a.assessment.date)+'</p><ul>'+a.assessment.cases.map(c=>'<li>'+escHtml(c.request)+' · '+(c.pass?'SUPERADA':'PENDIENTE')+'</li>').join('')+'</ul>':'')+'</details>').join('');
+    box.innerHTML='<details><summary>Información · base común</summary><ul>'+d.common.map(x=>'<li>'+escHtml(x)+'</li>').join('')+'</ul></details>'+d.agents.filter(a=>a.id!=='triaje').map(a=>'<details><summary>Información · '+escHtml(a.name)+'</summary><p>'+escHtml(a.role)+'</p><p><b>Ejercicio:</b> '+escHtml(a.exercise)+'</p><p><b>Para aprobar:</b> '+escHtml(a.acceptance)+'</p><small>'+escHtml(a.status)+'</small>'+(a.assessment?'<p><b>Evaluación:</b> '+a.assessment.passed_cases+'/'+a.assessment.total_cases+' comprobaciones · '+escHtml(a.assessment.date)+'</p><ul>'+a.assessment.cases.map(c=>'<li>'+escHtml(c.request)+' · '+(c.pass?'SUPERADA':'PENDIENTE')+'</li>').join('')+'</ul>':'')+'</details>').join('');
   }catch(e){box.textContent='Formación no disponible: '+e.message;}
 }
 refreshTraining();
+
+/* Núcleo: comprobación local y transparente, sin llamadas de pago. */
+function renderNucleo(data){
+  const badge=$('#nucleoStatus'),head=$('#nucleoHeadline'),meta=$('#nucleoMeta'),list=$('#nucleoChecks');
+  const s=data.summary||{},checks=data.checks||[];
+  badge.textContent=(s.unverifiable||0)?'PARCIAL':'COMPROBADO';
+  badge.className='status '+((s.to_review||0)?'guarded':'ready');
+  head.textContent='He comprobado '+(s.verified||0)+' apartados; '+(s.to_review||0)+' requieren revisión.';
+  meta.textContent=(s.unverifiable||0)+' aspectos pendientes de comprobar · 0 USD · sin cambios automáticos.';
+  list.replaceChildren();
+  for(const c of checks){
+    const item=document.createElement('div');item.className='nucleo-check';item.dataset.state=c.state;
+    const title=document.createElement('b');title.textContent=(c.state==='ok'?'COMPROBADO':c.state==='review'?'REVISAR':'SIN VERIFICAR')+' · '+c.name;
+    const text=document.createElement('p');text.textContent=c.evidence;
+    item.append(title,text);
+    if(c.next_step){const next=document.createElement('small');next.textContent='Siguiente paso: '+c.next_step;item.append(next);}
+    list.append(item);
+  }
+}
+async function refreshNucleo(){
+  const badge=$('#nucleoStatus'),button=$('#nucleoRefresh');
+  button.disabled=true;badge.textContent='COMPROBANDO';badge.className='status checking';
+  try{
+    const data=await request('/nucleo/status');
+    if(!data.ok)throw new Error('Respuesta de diagnóstico no válida');
+    renderNucleo(data);
+  }catch(e){
+    badge.textContent='SIN CONEXIÓN';badge.className='status offline';
+    $('#nucleoHeadline').textContent='No he podido consultar el diagnóstico local.';
+    $('#nucleoMeta').textContent='El PC o el servicio Núcleo no responde. '+e.message;
+  }finally{button.disabled=false;}
+}
+$('#nucleoRefresh').addEventListener('click',refreshNucleo);
+refreshNucleo();
+
+document.querySelector('#nexoChat').addEventListener('click',async()=>{
+ const mission=document.querySelector('#triageRequest').value.trim();
+ const note=document.querySelector('#nexoHandoff');
+ if(mission){
+  try{await navigator.clipboard.writeText(mission);note.textContent='Misión copiada. Pégala en nuestra conversación de ChatGPT.';}
+  catch{note.textContent='No se pudo copiar. Selecciona y copia la misión antes de continuar.';document.querySelector('#triageRequest').focus();document.querySelector('#triageRequest').select();return;}
+ }
+ location.assign('https://adrianxds-ads.github.io/adrian-hub/chatgpt.html');
+});

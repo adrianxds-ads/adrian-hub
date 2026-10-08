@@ -2,6 +2,15 @@
 
 This is the first local agent for the AdriÃ¡n Hub ecosystem.
 
+## Núcleo · autodiagnóstico ChatGPT/Codex (08/10/2026)
+- Motor: `agent/nucleo_agent.py`, solo lectura y sin uso de API de pago.
+- Nexo reúne el autodiagnóstico de Núcleo y el triaje en una sola tarjeta del Centro de Agentes 1.0.0. Los identificadores internos se conservan por compatibilidad. Conversación mediante el acceso existente a ChatGPT y copia manual de la misión.
+- Endpoint privado de DC Inbox: `GET /dc-inbox/agents/nucleo/status`; no existe operación POST.
+- Verifica archivos de instrucciones, contrato y formación; memoria, plan, modelos y gastos privados quedan **no verificables** hasta consultarlos en fuentes autorizadas.
+- Comprobación inicial: 3 aspectos confirmados, 4 desconocidos; coste 0 USD y ningún ajuste automático.
+- Pruebas: `python agent/test_nucleo_agent.py`, `python agent/test_nucleo_bridge.py`, `python agent/test_triage_agent.py`.
+- Siguiente fase: ampliar las fuentes verificables autorizadas y permitir solamente mejoras reversibles sujetas a aprobación cuando corresponda.
+
 ## Current safety mode
 - Read-only over the isolated `C:\Users\adria\agent-workbench` worktree.
 - No code-writing tool exists in this version.

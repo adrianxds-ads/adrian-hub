@@ -24,3 +24,7 @@ The Hub consumes shared Adrián Core assets. Cache/service-worker behaviour can 
 
 ## Agent model
 Agents are replaceable operators. Repository documentation and tests, not a vendor-specific chat history, define expected behaviour.
+## Nexo · 2026-10-08
+Single visible coordinator for Núcleo Matrix: conversation handoff to ChatGPT, internal triage and local read-only self-audit. Legacy API and training IDs remain compatible. One card and one visible training profile; internal routing assessment retained. ChatGPT mission handoff uses clipboard and the existing public bridge, without automatic memory or execution sharing.
+
+Acceptance 2026-10-08: active private service verified in fresh headless Chrome 390×844 and 1280×800; one Nexo card/profile, real local routing to repair, seven diagnostic checks, clipboard mission handoff to public ChatGPT bridge, no JS errors or horizontal overflow. 31 routing cases and seven self-audit checks passed; isolated bridge tests passed; 45 release assets passed fingerprints. Physical Pixel and shared ChatGPT memory are not claimed. Next step: use Nexo through the existing project URL.

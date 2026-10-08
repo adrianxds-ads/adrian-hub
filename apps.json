@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.4.15",
+  "hubVersion": "30.4.16",
   "apps": [
     {
       "id": "english",
@@ -131,7 +131,7 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "subtitle": "Triaje · Auditor · Reparador · Operador · Consejero local · 8 en formación",
+      "subtitle": "Nexo · coordinación, triaje y autodiagnóstico · especialistas",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "https://adrin.tail8fd071.ts.net/dc-inbox/agents/ui/",
