@@ -167,3 +167,14 @@ $('#reportClose').addEventListener('click',()=>$('#reportDialog').close());
 $('#reportDialog').addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
 refreshSpend();refreshAudit();refreshRepair();refreshAdvisor();
 setInterval(refreshSpend,60000);setInterval(refreshAdvisor,60000);
+
+async function refreshTraining(){
+  const box=document.querySelector('#trainingProfiles');
+  try{
+    const r=await fetch('./training.json?v=1.0.0',{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    box.innerHTML='<details><summary>Información · base común</summary><ul>'+d.common.map(x=>'<li>'+escHtml(x)+'</li>').join('')+'</ul></details>'+d.agents.map(a=>'<details><summary>Información · '+escHtml(a.name)+'</summary><p>'+escHtml(a.role)+'</p><p><b>Ejercicio:</b> '+escHtml(a.exercise)+'</p><p><b>Para aprobar:</b> '+escHtml(a.acceptance)+'</p><small>'+escHtml(a.status)+'</small></details>').join('');
+  }catch(e){box.textContent='Formación no disponible: '+e.message;}
+}
+refreshTraining();

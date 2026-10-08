@@ -4,15 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.11",
-    "build": "hub-30.4.11-20261008",
+    "version": "30.4.12",
+    "build": "hub-30.4.12-20261008",
     "releasedAt": "2026-10-08",
     "changes": [
-      "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
-      "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
-      "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
+      "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
+      "Información muestra el programa real y las prácticas pendientes.",
+      "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
     ],
     "history": [
+      {
+        "version": "30.4.11",
+        "changes": [
+          "Histórico completo de las sesiones disponibles, con las bandas de color del modelo anterior.",
+          "Gráficas ampliables: fechas, agrupación diaria, filtro de periodo y comparación de dos puntos.",
+          "Portadas y resultados recuperan color; medallas visibles y celebración del oro independiente de la Oca."
+        ],
+        "date": "2026-10-08"
+      },
       {
         "version": "30.4.10",
         "date": "2026-10-08",
@@ -240,7 +249,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "0fa82753b22bb6cbfba0b3286854f3c3f1a0c97ee1c21fccffb3165b741598ad"
+          "sha256": "685ec5a0dde40499d425c9de57518a3db10c412da660afd73c5b3b1080b6e9ef"
         },
         {
           "url": "version-verifier.js",
@@ -248,7 +257,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "14ac27e046eca82962537e7b683141a028b856a0e29f47e89a73c0dedef50fc9"
+          "sha256": "74cfe307f059ab9a8557b8f8fd48ecf9de2b3b911bea81b07da7c8190c6c720d"
         },
         {
           "url": "styles.css",
@@ -256,15 +265,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "95b99f3bac4dbec440427a336ea3ddcf0d174ffb7eb8401302d0300034af7b07"
+          "sha256": "3325917c01b6193f9be52eadc3a070328d520f1e130d1ea0b8fe8e51e7185c2e"
         },
         {
           "url": "build-assets.js",
-          "sha256": "e694826e365d5dc1a45b5236acfb995ae576b3aa62a467c379613f8f29037962"
+          "sha256": "997bdc250825cb01e0b6b27f3351ff63aeba3dcda1b26e3d7db4299fef2d0257"
         }
       ]
     },
-    "cacheBuild": "83697526a16a00f0"
+    "cacheBuild": "217f483e354a6076"
   },
   "apps": [
     {
@@ -981,33 +990,44 @@
     {
       "id": "agents",
       "name": "Centro de Agentes",
-      "version": "0.7.0",
-      "build": "sha256-afc4b44b0edf",
+      "version": "0.8.0",
+      "build": "sha256-ed6ed63e4bd3",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
-        "El Consejero v0.1 entra en servicio como observador local de coste cero.",
-        "Latido local cada 15 minutos; motor SQLite para empleo, candidatos de Calendar, Plaud y limpieza de remitentes repetitivos.",
-        "Gmail, Google Calendar y Plaud muestran estado real POR CONECTAR hasta disponer de autorización local; no se simulan accesos.",
-        "El Triaje 1.1.0 conoce El Consejero y suma 31 casos de entrenamiento.",
-        "Panel de eventos, señales, coste de IA y observaciones recientes dentro del Centro de Agentes."
+        "Formación 1.0.0: base común, 13 perfiles y ejercicios con criterios de aprobación.",
+        "Información muestra el programa real y las prácticas pendientes.",
+        "Auditor y Reparador cargan instrucciones versionadas al arrancar; permisos y presupuestos conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "b6ae88da8ab86a265b03a8ef0932e9bb082ab503b6f894c81050e95205e1137d"
+            "sha256": "d960835300fd69592c725fb7ad2ef0c3ce8ec6aa3bc6920665526b6334a0c3bd"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "56a6f79a95bf3ab13fc9165a01ddac39ba0a143f389624e13e14aba90e037673"
+            "sha256": "5ce07e85d9603f6cf6398e6f392b4a3fb8c55db81f06eb8304ac8334acb0884b"
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "7da3750064f5a3d9aa40a02692746124a68a45f0c97af916247563ef983263b6"
+            "sha256": "c895f8f76e584c5e9caebb7f9530c5930fe1caeceb735368c33f740017d19558"
           }
         ]
-      }
+      },
+      "history": [
+        {
+          "version": "0.7.0",
+          "date": "2026-10-08",
+          "changes": [
+            "El Consejero v0.1 entra en servicio como observador local de coste cero.",
+            "Latido local cada 15 minutos; motor SQLite para empleo, candidatos de Calendar, Plaud y limpieza de remitentes repetitivos.",
+            "Gmail, Google Calendar y Plaud muestran estado real POR CONECTAR hasta disponer de autorización local; no se simulan accesos.",
+            "El Triaje 1.1.0 conoce El Consejero y suma 31 casos de entrenamiento.",
+            "Panel de eventos, señales, coste de IA y observaciones recientes dentro del Centro de Agentes."
+          ]
+        }
+      ]
     },
     {
       "id": "limpieza",

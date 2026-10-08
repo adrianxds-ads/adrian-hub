@@ -164,6 +164,9 @@ Do not claim a bug is reproduced unless the evidence supports that claim.
 """
 
 
+from training import load_training
+SYSTEM += load_training("auditor")
+
 def parse_action(text: str) -> dict:
     cleaned = text.strip()
     if cleaned.startswith("```"):

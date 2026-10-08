@@ -21,6 +21,9 @@ Never claim actual Pixel keyboard verification: headless viewport tests are simu
 Do not inflate test claims. Do not change Cambridge 2-5-word rules or official answer data.
 Your report MUST be <=2000 characters. Tool actions can contain up to 10000 output tokens.
 """
+from training import load_training
+SYSTEM += load_training("reparador")
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--root",required=True);p.add_argument("--test-script",required=True)
