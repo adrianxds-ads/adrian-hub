@@ -70,3 +70,10 @@ Evidence is appended to tests/study-acceptance-20261008/results.json. Recovery p
 Incorporados tres tiempos: 180 segundos como valor inicial, media orientativa de examen (53/53/45 segundos) y sin límite. Tabla completa con 75 minutos, revisión, asterisco que identifica la propuesta de la IA y enlace a Cambridge. Preferencia persistente y modalidad registrada con cada respuesta.
 
 Verificación: 18 rondas completas en Chrome a 412 y 1280 px; caducidad única, ausencia de caducidad sin límite, duración real, preferencia tras recarga y tabla sin desbordamiento. Captura móvil inspeccionada. Publicación 014414f verificada: siete archivos públicos coinciden con los hashes locales; UI pública móvil sirve 180/45 segundos, instala la nueva caché y elimina la anterior. GitHub Pages completado con éxito. Pruebas con perfiles aislados y sincronización bloqueada, sin utilizar el progreso real ni ocupar el Pixel. Registro del Hub: 01544e4.
+
+
+## Cambridge 1.2.18 · Quiz por examen · 2026-10-08
+
+Añadido Quiz por examen para los 30 exámenes, partes 1–3: ocho preguntas originales en orden, mismo contexto, corrección y tres tiempos. Quiz mezclado conserva quince preguntas. Exam points y Game points separados en ronda y resultado. Historial y medallas reconocen rondas de ocho y conservan las antiguas de quince.
+
+Pruebas: 36 rondas completas a 412 y 1280 px, ambas rutas y los tres tiempos; respuestas del banco, puntos correctos, orden, repetición, caducidad, historial y recarga. Comprobadas las 90 partes del banco, con ocho preguntas únicas cada una. Capturas móviles de selector y marcadores revisadas. Publicación f9b8342: siete hashes públicos coinciden; Exam 01 completado con sus ocho preguntas en orden; ronda persiste y caché nueva elimina la anterior. Perfiles de prueba aislados, sincronización bloqueada y sin ocupar el Pixel. Registro: 9600eee.
