@@ -28,3 +28,5 @@ Agents are replaceable operators. Repository documentation and tests, not a vend
 Single visible coordinator for Núcleo Matrix: conversation handoff to ChatGPT, internal triage and local read-only self-audit. Legacy API and training IDs remain compatible. One card and one visible training profile; internal routing assessment retained. ChatGPT mission handoff uses clipboard and the existing public bridge, without automatic memory or execution sharing.
 
 Acceptance 2026-10-08: active private service verified in fresh headless Chrome 390×844 and 1280×800; one Nexo card/profile, real local routing to repair, seven diagnostic checks, clipboard mission handoff to public ChatGPT bridge, no JS errors or horizontal overflow. 31 routing cases and seven self-audit checks passed; isolated bridge tests passed; 45 release assets passed fingerprints. Physical Pixel and shared ChatGPT memory are not claimed. Next step: use Nexo through the existing project URL.
+
+Release confirmed: Hub 30.4.16 and Agent Center 1.0.0 publicly served; seven changed entry/cache/coordinator assets matched canonical local bytes. Private Nexo UI 1.0.0 also verified. Integration commit 640bfd1.
