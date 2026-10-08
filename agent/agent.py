@@ -397,6 +397,12 @@ def audit(args, cfg: dict) -> int:
         else:
             max_tokens = int(cfg["max_output_tokens_per_turn"])
         ceiling = estimated_call_ceiling(messages, SYSTEM, max_tokens, model_cfg)
+        if not finalizing and spent + ceiling > float(cfg["max_usd_per_run"]):
+            # Spend the remaining allowance on a compact result instead of another investigation.
+            finalizing = True
+            messages.append({"role": "user", "content": "BUDGET FINALIZATION: return action=report now, content <=2000 characters. State only observed evidence and remaining limitations. No further tools. Return complete JSON."})
+            max_tokens = min(1000, int(cfg.get("final_output_tokens", 2600)))
+            ceiling = estimated_call_ceiling(messages, SYSTEM, max_tokens, model_cfg)
         if spent + ceiling > float(cfg["max_usd_per_run"]):
             if last_partial_report:
                 path = save_partial_report(last_partial_report, {"model": model, "provider": provider, "turns": turn - 1, "cost": spent}, last_partial_reason or "budget guard")
