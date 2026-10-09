@@ -197,6 +197,8 @@ def call_anthropic(messages: list[dict], system: str, model: str, max_tokens: in
 
 
 def token_cost(usage: dict, model_cfg: dict) -> float:
+    if isinstance(usage.get("cost_usd"), (float, int)) and usage["cost_usd"] >= 0:
+        return float(usage["cost_usd"])
     return (
         usage.get("input_tokens", 0) * float(model_cfg["input_usd_per_million"]) / 1_000_000
         + usage.get("output_tokens", 0) * float(model_cfg["output_usd_per_million"]) / 1_000_000
@@ -260,17 +262,38 @@ def provider_api_key(provider: str) -> str | None:
     return None
 
 
+class ProviderResponseError(RuntimeError):
+    def __init__(self, details):
+        self.details = details
+        super().__init__("OpenRouter returned no final text: " + json.dumps(details, ensure_ascii=False))
+
+
 def call_openrouter(messages: list[dict], system: str, model: str, max_tokens: int):
     from openai import OpenAI
-    client = OpenAI(api_key=provider_api_key("openrouter"), base_url="https://openrouter.ai/api/v1")
+    client = OpenAI(api_key=provider_api_key("openrouter"),
+                    base_url="https://openrouter.ai/api/v1", max_retries=0, timeout=120)
     chat_messages = [{"role": "system", "content": system}, *messages]
-    response = client.chat.completions.create(model=model, messages=chat_messages, max_tokens=max_tokens)
-    text = response.choices[0].message.content or ""
+    options = {}
+    if model == "anthropic/claude-opus-5.5":
+        options["extra_body"] = {"reasoning": {"effort": "low"}}
+    response = client.chat.completions.create(
+        model=model, messages=chat_messages, max_tokens=max_tokens, **options)
+    choice = response.choices[0]
+    text = choice.message.content or ""
     usage_obj = getattr(response, "usage", None)
+    details = getattr(usage_obj, "completion_tokens_details", None)
     usage = {
         "input_tokens": int(getattr(usage_obj, "prompt_tokens", 0) or 0),
         "output_tokens": int(getattr(usage_obj, "completion_tokens", 0) or 0),
+        "reasoning_tokens": int(getattr(details, "reasoning_tokens", 0) or 0),
+        "finish_reason": getattr(choice, "finish_reason", None),
+        "generation_id": getattr(response, "id", None),
     }
+    provider_cost = getattr(usage_obj, "cost", None)
+    if isinstance(provider_cost, (float, int)) and provider_cost >= 0:
+        usage["cost_usd"] = float(provider_cost)
+    if not text.strip():
+        raise ProviderResponseError(usage)
     return text, usage
 
 
@@ -410,7 +433,16 @@ def audit(args, cfg: dict) -> int:
                 return 0
             print(f"Budget guard stopped before turn {turn}: ${spent:.6f} spent; next-call ceiling ${ceiling:.6f}. Transcript: {transcript_path}", file=sys.stderr)
             return 4
-        text, usage = call_model(messages, SYSTEM, model, max_tokens, model_cfg)
+        try:
+            text, usage = call_model(messages, SYSTEM, model, max_tokens, model_cfg)
+        except ProviderResponseError as exc:
+            spent += token_cost(exc.details, model_cfg)
+            log_event({"turn": turn, "type": "provider_empty_response",
+                       "usage": exc.details, "cost_total": spent})
+            print(json.dumps({"ok": False, "reason": "provider_empty_response",
+                              "details": exc.details, "cost_usd": spent,
+                              "transcript": str(transcript_path)}, ensure_ascii=False))
+            return 6
         spent += token_cost(usage, model_cfg)
         log_event({"turn": turn, "type": "model", "usage": usage, "cost_total": spent, "text": text})
         try:

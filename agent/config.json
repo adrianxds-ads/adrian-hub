@@ -57,5 +57,6 @@
   "max_report_chars": 9000,
   "recovery_report_chars": 5500,
   "final_output_tokens": 2600,
-  "recovery_output_tokens": 1800
+  "recovery_output_tokens": 1800,
+  "provider_adapter_version": "1.1.0"
 }
