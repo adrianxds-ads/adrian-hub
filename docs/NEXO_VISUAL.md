@@ -37,3 +37,10 @@
 - Ajustes de ChatGPT → Voz inspeccionados sin cambiar preferencias: modelo actual `Live`, «Conversaciones de fondo» activadas; la opción «Iniciar con Voz» no apareció en la pantalla de ajustes de esta versión/cuenta. Por ello el inicio automático de Voz **no se ha verificado ni configurado**.
 - La actividad interna `com.openai.voice.assistant.AssistantActivity` rechazó un intento externo (`SecurityException: not exported`); no se elevan permisos ni se sortean restricciones.
 - La activación de modo Avanzado, conversación por voz y captura de pantalla **no se han probado**; queda la intervención voluntaria del usuario para compartir pantalla mediante los controles oficiales. No se debe describir esta fase como completada.
+
+## AutoInput · preparación segura (2026-10-10)
+- Autorizado expresamente por el usuario instalar AutoInput y habilitar accesibilidad. Google Play confirmó instalada `com.joaomgcd.autoinput` v3.0.12; Android confirmó servicio `com.joaomgcd.autoinput/.service.ServiceAccessibilityV2` habilitado. Las tres entradas de accesibilidad existentes permanecen en la lista.
+- Tasker reconoce `AutoInput Action` y `Actions v2` en los complementos. Se clonó la tarea probada como `NexoVisualAuto` para experimentar sin editar `NexoVisual` ni el botón publicado del Hub.
+- AutoInput solicitó dos permisos nuevos durante el asistente: excluir de Doze (optimización de batería) y mostrarse sobre otras apps (superposición). Ambos fueron **rechazados/no concedidos** a falta de aprobación independiente. No hubo compra ni activación de periodo de prueba de pago.
+- El editor manual se exploró sin guardar un objetivo de interfaz validado. `NexoVisualAuto` NO debe considerarse apta para iniciar Voz avanzada o compartir pantalla. No se activó ni autorizó ninguna captura. Modo Live y botón oficial del asistente no se alteraron.
+- Siguiente paso: autorización específica para permitir superposición temporal, configurar acciones de AutoInput por etiquetas visibles con límites de tiempo y comprobar la ruta en un entorno de prueba. Exigir confirmación de Android para compartir pantalla; nunca automatizarla.
