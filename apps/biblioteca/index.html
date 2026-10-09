@@ -59,6 +59,11 @@
     <div><strong id="taskTotal">0</strong><span>Bloques completos</span></div>
     <div><strong id="taskMinutes">0 h 0 min</strong><span>Tiempo acumulado</span></div>
   </div>
+  <section class="task-medal-progress" aria-label="Recompensas de constancia">
+    <div class="task-medal-top"><span>🏅 <strong id="taskMedals">0</strong> medallas de constancia</span><span id="taskMedalFraction">0/15</span></div>
+    <progress id="taskMedalBar" max="15" value="0" aria-label="Bloques hacia la siguiente medalla"></progress>
+    <div class="task-medal-bottom"><span id="taskUniqueCount">0 episodios utilizados para tareas</span><small>Una medalla cada 15 bloques completos · sin mezclar oros de Adaptive</small></div>
+  </section>
   <button id="taskStatsToggle" class="task-stats-toggle" type="button" aria-expanded="false">📈 Ver estadísticas e historial</button>
   <div id="taskStatsDetails" class="task-stats-details" hidden>
     <div class="task-chart-heading"><b>Histórico completo · bloques por día</b><button id="taskChartOpen" type="button">Ampliar ↗</button></div>

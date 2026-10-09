@@ -4,16 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.24",
-    "build": "hub-30.4.24-20261009",
+    "version": "30.4.25",
+    "build": "hub-30.4.25-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
-      "Diez minutos de descanso solo entre tareas seleccionadas, sin descanso tras la última.",
-      "Pantalla activa cuando Android lo permite, paisaje nocturno y dinosaurio hacia la meta.",
-      "Avisos al inicio, mitad y final; sonido de oro del Hub y registros históricos conservados."
+      "Biblioteca Easy Catalan: escuchas normales y bloques de tareas contabilizados de forma independiente por episodio.",
+      "Los episodios hechos en Modo Tarea se reflejan en la Biblioteca; escuchar de forma normal no concede bloques.",
+      "Medalla de constancia por cada 15 bloques: progreso, repeticiones y episodios únicos.",
+      "El Hub y la cabecera del jardín muestran las medallas de tareas por separado de los oros y estrellas de Adaptive."
     ],
     "history": [
+      {
+        "version": "30.4.24",
+        "date": "2026-10-09",
+        "build": "hub-30.4.24-20261009",
+        "changes": [
+          "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
+          "Diez minutos de descanso solo entre tareas seleccionadas, sin descanso tras la última.",
+          "Pantalla activa cuando Android lo permite, paisaje nocturno y dinosaurio hacia la meta.",
+          "Avisos al inicio, mitad y final; sonido de oro del Hub y registros históricos conservados."
+        ]
+      },
       {
         "version": "30.4.23",
         "date": "2026-10-09",
@@ -348,7 +359,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "175e5f623a7aac8634717f2a0a9c4e9241f757c0662f3235acfdc61f10f5747c"
+          "sha256": "b4b57ec4ac67c33eae899969e6046463f8d669a49b84ba6387d7e0664e85d9b2"
         },
         {
           "url": "version-verifier.js",
@@ -356,23 +367,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "bdb1f268145b9ae206e751bd93b1c2085290dfddb65a522f5b5487aac906604c"
+          "sha256": "c98d2c19cf81ea1b78131ff6646628c24345f144effcef0c454f03e9c8d259a8"
         },
         {
           "url": "styles.css",
-          "sha256": "bf33e9308cf9b1423dda024e9112c8101e13eef60f7555ff7d7adb9067231c58"
+          "sha256": "593821ce58a7111447dbec6d13d20a39e013c6b4b41f5217446effe042bdd38d"
         },
         {
           "url": "service-worker.js",
-          "sha256": "334a7f426b53ef0c9049109150e5696251eeb5753e7cbcc752b023a9ed524601"
+          "sha256": "86c6f0882f9f6e74ac0ecb80f30a41505d99c00c14d52706c4bafec7e61b67ae"
         },
         {
           "url": "build-assets.js",
-          "sha256": "efa3c46042bc1ec47af1a86507ce075ee346030bce287fee232d9dc2349fd706"
+          "sha256": "f873795145f2169d57d319d5aed07092a4bc1a95c70266360b2ce88ac33e2088"
         }
       ]
     },
-    "cacheBuild": "435e0ec747d7aeb0"
+    "cacheBuild": "936644a9311f1f9d"
   },
   "apps": [
     {
@@ -1007,29 +1018,29 @@
     {
       "id": "biblioteca",
       "name": "Biblioteca · Easy Catalan",
-      "version": "0.3.0",
-      "build": "sha256-1956d263d8a4",
+      "version": "0.4.0",
+      "build": "sha256-1526db18a67d",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
-        "Diez minutos de descanso solo entre tareas seleccionadas, sin descanso tras la última.",
-        "Pantalla activa cuando Android lo permite, paisaje nocturno y dinosaurio hacia la meta.",
-        "Avisos al inicio, mitad y final; sonido de oro del Hub y registros históricos conservados."
+        "Biblioteca Easy Catalan: escuchas normales y bloques de tareas contabilizados de forma independiente por episodio.",
+        "Los episodios hechos en Modo Tarea se reflejan en la Biblioteca; escuchar de forma normal no concede bloques.",
+        "Medalla de constancia por cada 15 bloques: progreso, repeticiones y episodios únicos.",
+        "El Hub y la cabecera del jardín muestran las medallas de tareas por separado de los oros y estrellas de Adaptive."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "06fee10699ca5c303a12a5c2aabdc609f43631972d999e7e2078a131644d8fc4"
+            "sha256": "e37dfa59e0dd614d5f00dc1f3e7e0329eb98e6c9f20fefa5e2283f4d962cf1f6"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "cb7f311890e43764e8847becec8865aa244f5d42ec9cbc438bfdf75ef55f8579"
+            "sha256": "8b5c8a69f6f1c2eb4545ecefd0f3c25c50f70970810f7607673fa9aa3ca83d89"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "22443e5412e99a01a7f1b37db632017b61647c5032907bcfefa461876541283b"
+            "sha256": "24a81c4fe828520eaa61cff4b2fae3b6d7c974244d0d9bfc5fa6138978d56b31"
           }
         ]
       },

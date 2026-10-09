@@ -4,7 +4,7 @@
 const $=id=>document.getElementById(id);
 const KEY='adrianEasyCatalanTaskSessionsV1', LIVE='adrianEasyCatalanTaskLiveV1';
 const audio=$('audio'), panel=$('taskPanel'), list=$('taskEpisodes'), original=$('episodes');
-const els={normal:$('tabPodcasts'),task:$('tabTasks'),legend:$('libraryLegend'),empty:$('empty'),search:$('search'),sort:$('sortBtn'),sortLabel:$('sortLabel'),modal:$('taskSetup'),setupTitle:$('taskSetupTitle'),taskText:$('taskText'),setupButton:$('taskSetupButton'),setupCancel:$('taskSetupCancel'),stage:$('taskStage'),journey:$('taskJourney'),dino:$('taskDino'),progress:$('taskProgress'),clock:$('taskClock'),stageTitle:$('taskStageTitle'),stageTask:$('taskStageTask'),resume:$('taskResume'),exit:$('taskExit'),breakBox:$('taskBreak'),breakClock:$('taskBreakClock'),breakText:$('taskBreakText'),today:$('taskToday'),total:$('taskTotal'),minutes:$('taskMinutes'),chart:$('taskChart'),chartFull:$('taskChartFull'),chartOpen:$('taskChartOpen'),chartClose:$('taskChartClose'),chartDialog:$('taskChartDialog'),dayInfo:$('taskDayInfo'),dayInfoFull:$('taskDayInfoFull'),history:$('taskHistory'),openStats:$('taskStatsToggle'),stats:$('taskStatsDetails'),planner:$('taskPlanner'),slots:$('taskPlanSlots'),hint:$('taskPlanHint'),startPlan:$('taskPlanStart'),completed:$('taskCompleted'),setupPosition:$('taskSetupPosition'),stagePosition:$('taskStagePosition')};
+const els={normal:$('tabPodcasts'),task:$('tabTasks'),legend:$('libraryLegend'),empty:$('empty'),search:$('search'),sort:$('sortBtn'),sortLabel:$('sortLabel'),modal:$('taskSetup'),setupTitle:$('taskSetupTitle'),taskText:$('taskText'),setupButton:$('taskSetupButton'),setupCancel:$('taskSetupCancel'),stage:$('taskStage'),journey:$('taskJourney'),dino:$('taskDino'),progress:$('taskProgress'),clock:$('taskClock'),stageTitle:$('taskStageTitle'),stageTask:$('taskStageTask'),resume:$('taskResume'),exit:$('taskExit'),breakBox:$('taskBreak'),breakClock:$('taskBreakClock'),breakText:$('taskBreakText'),today:$('taskToday'),total:$('taskTotal'),minutes:$('taskMinutes'),chart:$('taskChart'),chartFull:$('taskChartFull'),chartOpen:$('taskChartOpen'),chartClose:$('taskChartClose'),chartDialog:$('taskChartDialog'),dayInfo:$('taskDayInfo'),dayInfoFull:$('taskDayInfoFull'),history:$('taskHistory'),openStats:$('taskStatsToggle'),stats:$('taskStatsDetails'),planner:$('taskPlanner'),slots:$('taskPlanSlots'),hint:$('taskPlanHint'),startPlan:$('taskPlanStart'),completed:$('taskCompleted'),setupPosition:$('taskSetupPosition'),stagePosition:$('taskStagePosition'),medals:$('taskMedals'),medalFraction:$('taskMedalFraction'),medalBar:$('taskMedalBar'),uniqueCount:$('taskUniqueCount')};
 let catalog=null,chosen=null,lastPersist=0,allowSeek=false,restoring=false,tick=null,taskDescending=true;
 let draft={count:1,steps:[null],slot:0},wake=null,wakePending=false,speechTimeout=null,speechCurrent=null;
 const parse=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')??fallback}catch{return fallback}};
@@ -101,7 +101,14 @@ function renderList(){
  const q=norm(els.search.value).trim();
  let rows=catalog.episodes.filter(e=>!q||norm(e.number+' '+e.title+' '+e.summary).includes(q));
  if(taskDescending)rows=rows.slice().reverse();
- list.innerHTML=rows.map(e=>'<article class="episode task-episode"><button type="button" class="play-btn" data-task-episode="'+e.number+'" aria-label="Elegir episodio '+e.number+'">▶</button><div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+safe(e.title)+'</h2></div><div class="meta">'+safe(e.duration||'')+' · Duración fija</div><p class="summary">'+safe(e.summary||'')+'</p></div><button type="button" class="task-select-btn" data-task-episode="'+e.number+'">ELEGIR</button></article>').join('');
+ const tasks=window.PodcastCounts?.taskCounts?.()||{},normal=window.PodcastCounts?.normalCounts?.()||{};
+ const flags=new Set((()=>{try{return JSON.parse(localStorage.getItem('adrianLibraryEasyCatalanV1')||'[]').map(Number)}catch{return []}})());
+ list.innerHTML=rows.map(e=>{
+  const work=tasks[e.number]||0,ordinary=Math.max(0,Number(normal[e.number])||0),listened=ordinary>0||flags.has(e.number);
+  const annotation=work?'<div class="task-tally">🏁 Completado '+work+' '+(work===1?'vez':'veces')+' en Modo Tarea</div>':
+     listened?'<div class="task-tally task-listened">🎧 Ya escuchado en la Biblioteca · todavía sin tarea</div>':'';
+  return '<article class="episode task-episode '+(work?'task-episode-done':'')+'"><button type="button" class="play-btn" data-task-episode="'+e.number+'" aria-label="Añadir episodio '+e.number+' a una tarea">▶</button><div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+safe(e.title)+'</h2></div><div class="meta">'+safe(e.duration||'')+' · Duración fija</div><p class="summary">'+safe(e.summary||'')+'</p>'+annotation+'</div><button type="button" class="task-select-btn '+(work?'task-select-done':'')+'" data-task-episode="'+e.number+'" aria-label="Elegir episodio '+e.number+' para trabajar">'+(work?'✓ '+work+' '+(work===1?'vez':'veces'):'＋')+'</button></article>';
+ }).join('');
  $('taskEmpty').hidden=!!rows.length;
  list.querySelectorAll('[data-task-episode]').forEach(b=>b.addEventListener('click',()=>choose(Number(b.dataset.taskEpisode))));
 }
@@ -199,7 +206,7 @@ function finished(){
  if(next){state.plan.index++;state.breakEnd=Date.now()+ms;state.chain=state.plan.chain}
  else{state.plan=null;state.breakEnd=null;state.queue=null;state.chain=null;draft={count:1,steps:[null],slot:0}}
  save();
- els.stage.hidden=true;renderStats();renderBreak();renderPlan();tabs('task');
+ els.stage.hidden=true;renderStats();renderList();renderBreak();renderPlan();tabs('task');
  els.completed.hidden=false;
  els.completed.textContent=next?'✓ Tarea '+a.position+' de '+a.total+' completada. Descanso de 10 minutos antes de la siguiente.':'🏁 ¡Tarea completada! '+(a.total>1?'Has terminado los '+a.total+' bloques.':'Un bloque más conseguido.');
  victory();say('¡Enhorabuena! Tarea completada.'+(next?' Ahora, diez minutos de descanso.':' Has llegado a la meta.'));
@@ -230,6 +237,13 @@ function renderStats(){
  const done=logs().filter(x=>x.status==='completado'),all=logs();
  els.today.textContent=done.filter(x=>day(x.endedAt)===day(Date.now())).length;
  els.total.textContent=done.length;
+ const dedup=new Set(),unique=new Set();
+ for(const row of done){if(row.id&&dedup.has(row.id))continue;if(row.id)dedup.add(row.id);unique.add(Number(row.episodeNumber))}
+ const completed=dedup.size+done.filter(x=>!x.id).length;
+ els.medals.textContent=String(Math.floor(completed/15));
+ els.medalFraction.textContent=(completed%15)+'/15';
+ els.medalBar.value=completed%15;
+ els.uniqueCount.textContent=unique.size+' '+(unique.size===1?'episodio utilizado':'episodios utilizados')+' para tareas';
  const secs=done.reduce((sum,x)=>sum+(Number(x.seconds)||0),0);
  els.minutes.textContent=Math.floor(secs/3600)+' h '+Math.floor((secs%3600)/60)+' min';
  const byDay={};done.forEach(x=>{const d=day(x.endedAt);byDay[d]=(byDay[d]||0)+1});

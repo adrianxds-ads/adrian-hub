@@ -27,3 +27,6 @@ footer{display:flex;justify-content:space-between;border-top:1px solid var(--ad-
 .hub-stars{min-width:0;padding:6px 9px;gap:6px;border-radius:10px;background:rgba(231,191,87,.04);box-shadow:none;align-self:flex-start}
 .hub-stars>span{font-size:18px}.hub-stars b{font-size:15px}.hub-stars.earned>span{text-shadow:none}
 @media(max-width:560px){.hub-stars{min-width:0;grid-column:2;justify-self:end;margin-top:0}}
+
+.app-task-chip{display:inline-flex;align-items:center;margin-top:6px;padding:5px 8px;border-radius:8px;border:1px solid rgba(216,183,97,.36);background:rgba(111,86,39,.16);color:#e4cc89;font-size:11px;font-weight:800}
+.garden-task-medals{display:inline-flex;width:fit-content;max-width:100%;margin-top:9px;padding:6px 10px;border-radius:11px;border:1px solid rgba(221,182,84,.4);background:rgba(122,95,43,.19);color:#e8d18b;font-size:12px;font-weight:900;line-height:1.3}

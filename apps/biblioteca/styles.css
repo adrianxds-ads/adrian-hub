@@ -156,3 +156,19 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .task-ground{z-index:2}
 @keyframes task-bob{to{transform:scaleX(-1) translateY(-6px) rotate(2deg)}}
 @media(max-width:520px){.task-planner{padding:11px}.task-plan-heading strong{font-size:14px}.task-slot{min-height:60px}}
+
+
+/* Separate listening history from Task-mode completion. */
+.listen-tally,.task-tally{margin-top:7px;color:#a2d5b7;font-size:12px;font-weight:850;line-height:1.3}
+.task-tally{color:#d9c379}.task-listened{color:#88acb9}
+.task-episode-done{border-color:#6f6540;background:linear-gradient(110deg,#222b27,#182629)}
+.task-select-btn{font-size:21px;font-weight:1000}
+.task-select-done{font-size:12px;background:#695d32;color:#fff3bd;padding:5px}
+.task-medal-progress{padding:13px 14px;margin:9px 0 12px;border:1px solid #806f42;border-radius:16px;background:linear-gradient(140deg,#2c2c20,#172a2a)}
+.task-medal-top,.task-medal-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.task-medal-top{font-size:14px;color:#f3df98;font-weight:900}
+.task-medal-top strong{font-size:23px;font-variant-numeric:tabular-nums}
+#taskMedalFraction{font-variant-numeric:tabular-nums;font-size:16px;color:#f0d97a}
+#taskMedalBar{display:block;width:100%;height:12px;margin:10px 0;accent-color:#e6be59}
+.task-medal-bottom{font-size:12px;color:#b2cbcb;font-weight:850}
+.task-medal-bottom small{font-size:11px;color:#b5aaa0;font-weight:600}

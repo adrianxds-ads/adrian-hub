@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.24';
-const HUB_BUILD='hub-30.4.24-20261009';
+const HUB_VERSION='30.4.25';
+const HUB_BUILD='hub-30.4.25-20261009';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -21,6 +21,7 @@ function render(query=''){
   countEl.textContent=`${visible.length} app${visible.length===1?'':'s'}`;
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
   groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<a class="app ad-card" data-id="${esc(a.id)}" href="${esc(launchUrl(a))}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
+  renderTaskMedals();
 }
 async function fetchHubJson(path){
   const url=new URL(path,location.href);url.searchParams.set('hubv',HUB_VERSION);url.searchParams.set('fresh',Date.now());
@@ -36,7 +37,7 @@ async function loadHubData(){
   try{
     versionCatalog=await fetchHubJson('./versions.json');
     versionMap=Object.fromEntries((versionCatalog.apps||[]).map(x=>[x.id,x]));
-    render();renderVersionCenter();setTimeout(verifyAllVersions,150);
+    render();renderTaskMedals();renderVersionCenter();setTimeout(verifyAllVersions,150);
   }catch(e){
     console.error('Version Center load failed',e);
     const host=document.querySelector('#versionList');if(host)host.innerHTML='<div class="empty">Version Center no disponible. Las apps siguen operativas.</div>';
@@ -61,13 +62,40 @@ function readHubStars(){
   if(JSON.stringify({apps:old.apps||{},stars:Number(old.stars)||0,totalGold:Number(old.totalGold)||0})!==JSON.stringify({apps,stars,totalGold}))try{localStorage.setItem(HUB_STAR_KEY,JSON.stringify(next));}catch{}
   return next;
 }
+const HUB_TASK_LOG_KEY='adrianEasyCatalanTaskSessionsV1';
+function taskProgress(){
+ let rows=[];
+ try{const x=JSON.parse(localStorage.getItem(HUB_TASK_LOG_KEY)||'[]');rows=Array.isArray(x)?x:[]}catch{}
+ const ids=new Set();let completed=0;
+ for(const row of rows){
+  if(row?.status!=='completado')continue;
+  if(row.id&&ids.has(row.id))continue;
+  if(row.id)ids.add(row.id);
+  completed++;
+ }
+ return{completed,medals:Math.floor(completed/15),progress:completed%15};
+}
+function renderTaskMedals(){
+ const x=taskProgress(),el=document.querySelector('#gardenTaskMedals');
+ if(el){
+  el.textContent='🦖 '+x.completed+' bloques · 🏅 '+x.medals+' · siguiente: '+x.progress+'/15';
+  el.setAttribute('aria-label',x.completed+' bloques completados, '+x.medals+' medallas de constancia, '+x.progress+' de 15 hacia la siguiente');
+ }
+ const card=document.querySelector('[data-id="biblioteca"] .app-copy');
+ if(card){
+  let chip=card.querySelector('.app-task-chip');
+  if(!chip){chip=document.createElement('span');chip.className='app-task-chip';card.appendChild(chip)}
+  chip.textContent='🦖 '+x.completed+' bloques · 🏅 '+x.medals;
+ }
+}
+
 function renderHubStars(){const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');if(!host||!count)return;count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas ganadas en las aplicaciones');}
-renderHubStars();
-window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();});
+renderHubStars();renderTaskMedals();
+window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();if(e.key===HUB_TASK_LOG_KEY)renderTaskMedals();});
 window.addEventListener('hub:star-progress',renderHubStars);
 window.addEventListener('adrian-sync-updated',()=>{renderHubStars();window.AdrianOca?.refresh?.();});
-window.addEventListener('pageshow',()=>{renderHubStars();window.AdrianOca?.refresh?.();});
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){renderHubStars();window.AdrianOca?.refresh?.();}});
+window.addEventListener('pageshow',()=>{renderHubStars();renderTaskMedals();window.AdrianOca?.refresh?.();});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){renderHubStars();renderTaskMedals();window.AdrianOca?.refresh?.();}});
 
 function orderedVersionEntries(){
   if(!versionCatalog)return[];
