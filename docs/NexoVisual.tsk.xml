@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TaskerData sr="" dvi="1" tv="6.5.21">
+  <Task sr="task999" ve="2">
+    <cdate>1791585600000</cdate>
+    <edate>1791585600000</edate>
+    <id>999</id>
+    <nme>NexoVisual</nme>
+    <pri>6</pri>
+    <Action sr="act0" ve="7">
+      <code>20</code>
+      <App sr="arg0">
+        <appClass>com.openai.chatgpt.MainActivity</appClass>
+        <appPkg>com.openai.chatgpt</appPkg>
+        <label>ChatGPT</label>
+      </App>
+      <Str sr="arg1" ve="3"/>
+      <Int sr="arg2" val="0"/>
+      <Int sr="arg3" val="0"/>
+    </Action>
+    <Img sr="icn" ve="2"><cls>com.openai.chatgpt.MainActivity</cls><pkg>com.openai.chatgpt</pkg></Img>
+  </Task>
+</TaskerData>
