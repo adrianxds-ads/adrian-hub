@@ -44,3 +44,9 @@
 - AutoInput solicitó dos permisos nuevos durante el asistente: excluir de Doze (optimización de batería) y mostrarse sobre otras apps (superposición). Ambos fueron **rechazados/no concedidos** a falta de aprobación independiente. No hubo compra ni activación de periodo de prueba de pago.
 - El editor manual se exploró sin guardar un objetivo de interfaz validado. `NexoVisualAuto` NO debe considerarse apta para iniciar Voz avanzada o compartir pantalla. No se activó ni autorizó ninguna captura. Modo Live y botón oficial del asistente no se alteraron.
 - Siguiente paso: autorización específica para permitir superposición temporal, configurar acciones de AutoInput por etiquetas visibles con límites de tiempo y comprobar la ruta en un entorno de prueba. Exigir confirmación de Android para compartir pantalla; nunca automatizarla.
+
+## AutoInput · superposición autorizada (2026-10-10)
+- El usuario autorizó expresamente continuar con la integración y habilitar el permiso de superposición de AutoInput. Android confirmó `SYSTEM_ALERT_WINDOW: allow`, así como `com.joaomgcd.autoinput/.service.ServiceAccessibilityV2` habilitado y los servicios de accesibilidad previos presentes.
+- La tarea estable `NexoVisual` no se cambió. `NexoVisualAuto` sigue siendo una copia **experimental**; el editor de AutoInput se exploró, pero no se ha validado una cadena completa de entrada en Voz avanzada y «Compartir pantalla».
+- La prueba de captura de pantalla de Android no fue iniciada ni consentida. **No afirmar que Tasker comparte la pantalla automáticamente.** La autorización de proyección de pantalla, cuando corresponda, se acepta únicamente desde la interfaz de Android por el usuario.
+- Próximo paso técnico: confirmar el UI específico de Voz avanzada, identificar controles estables de ChatGPT, probar una tarea con timeout y fallos seguros, antes de enlazarla desde el Hub. No tocar el lanzador estable ni el progreso de los juegos.
