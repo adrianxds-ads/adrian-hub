@@ -62,3 +62,12 @@ Estado verificado:
 - specialist_contracts.json define alcance, entradas, salidas y límites. Tester ejecuta regresión dentro del Reparador; Constructor y Editor están preparados pero sin ejecutor activo. Cambridge tiene auditoría; reparación automática pendiente de regresión específica.
 - Pixel físico: app pública 1.0.9 abierta y árbol de accesibilidad leído; Chrome informa soporte de micrófono. No se logró completar enfoque/teclado: retorno a ChatGPT y timeout de uiautomator tras 8 s. Teclado físico y dictado real siguen pendientes; no se puntuó una respuesta ni se completó sesión.
 Siguiente trabajo: prueba física breve de teclado/micrófono, ejecutores concretos de Constructor/Editor y regresión de Cambridge. Mantener las nuevas funciones compartidas y conservar la revisión previa a publicación.
+
+
+## Pixel: protección temporal de pantalla · 2026-10-09 · Agent Center 1.3.1
+- Estado original real: screen_off_timeout=60000, stay_on_while_plugged_in=0, lock_screen_lock_after_timeout=30000.
+- Android ofrece cmd power set-wakelock acquire/release SCREEN_BRIGHT_WAKE_LOCK. Nexo usa ese bloqueo temporal de suspensión; no modifica ajustes de pantalla, carga, PIN ni bloqueo seguro.
+- El helper adb del servicio renueva una concesión de 600 s antes de input, uiautomator, screencap, monkey y am start/start-activity/startservice. Lecturas de estado y procesos de PC no renuevan la concesión.
+- Guardian en el propio Pixel libera el wake lock al caducar la concesión incluso si desaparece el PC/ADB. Un reinicio de Android elimina el wake lock; se reconoce boot_id para limpiar el estado del guardián. Renovaciones no acumulan referencias.
+- Verificación física aprobada: adquisición, caducidad de 5 s comprobada tras 8 s sin heartbeat, renovación doble con refCount=1, liberación explícita y activación automática por screencap del bridge. Los tres ajustes originales permanecieron iguales. La prueba terminó con el wake lock liberado.
+- Alcance: operaciones de Nexo vía bridge/helper. Scripts que usen ADB directamente deben llamar pixel_work_session. No permite saltar un PIN ni evita un bloqueo manual solicitado por el usuario.

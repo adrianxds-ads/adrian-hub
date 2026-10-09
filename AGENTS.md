@@ -26,3 +26,5 @@ This repository is the control point for the Adrián Hub ecosystem.
 
 ## Completion report
 For each task state: files changed, version changed, tests run, observed result, and any remaining uncertainty.
+## Pixel UI sessions
+Use the private bridge adb helper for Pixel UI work: it renews the temporary screen lease automatically. Direct ADB scripts must renew through agent/pixel_work_session.py before UI operations and release when done. Never disable the secure lock or change the user's normal timeout to keep a session awake. Device-side expiry is the recovery path if a session disconnects.
