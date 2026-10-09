@@ -49,13 +49,14 @@ function render(){
   els.list.innerHTML=rows.map(e=>{
     const isDone=known.has(e.number),playing=current===e.number&&!els.audio.paused;
     const ordinary=Math.max(0,Number(normal[e.number])||0),work=tasks[e.number]||0;
-    const listeningInfo=(ordinary||work)?'<div class="listen-tally">'+(ordinary?'🎧 '+ordinary+' '+(ordinary===1?'escucha':'escuchas'):'')+(ordinary&&work?' · ':'')+(work?'🦖 '+work+' '+(work===1?'tarea':'tareas'):'')+'</div>':(isDone?'<div class="listen-tally">✓ Ya escuchado</div>':'');
+    const listeningInfo=(ordinary||work)?'<div class="listen-tally">'+(ordinary?'🎧 '+ordinary+' '+(ordinary===1?'escucha':'escuchas'):'')+(ordinary&&work?' · ':'')+(work?'🦖 '+work+' '+(work===1?'tarea':'tareas')+' completadas':'')+'</div>':(isDone?'<div class="listen-tally">✓ Marcado como escuchado</div>':'');
+    const logged=ordinary>0||work>0;
     return '<article class="episode '+(isDone?'done':'')+'" data-episode="'+e.number+'">'+
       '<button class="play-btn '+(playing?'playing':'')+'" data-play="'+e.number+'" aria-label="'+(playing?'Pausar':'Reproduir')+'">'+(playing?'Ⅱ':'▶')+'</button>'+
       '<div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+esc(e.title)+'</h2></div>'+
       '<div class="meta">'+esc(dateText(e.dateRaw))+(e.duration?' · '+esc(e.duration):'')+'</div>'+
       '<p class="summary">'+esc(e.summary||'')+'</p>'+listeningInfo+'</div>'+
-      '<button class="state-btn" data-state="'+e.number+'" aria-label="'+(isDone?'Marcar pendent':'Marcar escoltat')+'">'+(isDone?'✓':'×')+'</button></article>'
+      (logged?'<span class="state-btn state-logged" role="img" aria-label="Escucha o tarea registrada; historial conservado">✓</span>':'<button class="state-btn" data-state="'+e.number+'" aria-label="'+(isDone?'Quitar marca manual':'Marcar como escuchado')+'">'+(isDone?'✓':'×')+'</button>')+'</article>'
   }).join('');
   els.list.querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>toggleEpisode(Number(b.dataset.play)));
   els.list.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>toggleDone(Number(b.dataset.state)));
@@ -92,6 +93,11 @@ els.audio.addEventListener('pause',()=>{persistPosition();updateTimeline();rende
 els.audio.addEventListener('timeupdate',()=>{updateTimeline();if(Date.now()-lastSaved>5000)persistPosition()});
 els.audio.addEventListener('ended',()=>{if(window.ModeTarea?.playing)return;if(current){saveNormalListen(current);toggleDone(current,true);const p=positions();delete p[current];savePositions(p)}});
 window.addEventListener('pagehide',persistPosition);
+function refreshPodcastViews(){if(data)render();window.ModeTarea?.refresh?.()}
+window.addEventListener('pageshow',refreshPodcastViews);
+window.addEventListener('focus',refreshPodcastViews);
+window.addEventListener('adrian-sync-updated',refreshPodcastViews);
+window.addEventListener('storage',e=>{if([STORE,NORMAL_PLAYS,TASK_PLAYS].includes(e.key))refreshPodcastViews()});
 window.LibraryGetSort=()=>order;
 window.LibraryOriginalStop=()=>{persistPosition();els.audio.pause();current=null;els.audio.onloadedmetadata=null;els.player.hidden=true;render()};
 fetch('./easy-catalan.json').then(r=>{if(!r.ok)throw Error('Catàleg no disponible');return r.json()}).then(x=>{data=x;els.art.src=x.artwork;render();window.ModeTarea?.catalogReady(x)}).catch(err=>{els.empty.hidden=false;els.empty.textContent='No s’ha pogut carregar el catàleg.';console.error(err)});

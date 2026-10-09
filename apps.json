@@ -1,161 +1,253 @@
 {
   "version": 25,
-  "hubVersion": "30.4.25",
+  "hubVersion": "30.4.26",
   "apps": [
     {
       "id": "english",
-      "name": "Adaptive English",
-      "subtitle": "Inglés adaptativo",
+      "name": "Grammar Quest",
+      "subtitle": "Quiz adaptativo · 25 claves de gramática",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-english/",
       "repo": "https://github.com/adrianxds-ads/adaptive-english",
-      "glyph": "EN"
+      "glyph": "GQ",
+      "description": "Entrena gramática inglesa en rondas rápidas de 15 preguntas. La dificultad se adapta a tus errores, dominio y revisiones pendientes.",
+      "features": [
+        "Quiz de 15 preguntas",
+        "Repaso espaciado",
+        "Claves, ligas y evolución"
+      ]
     },
     {
       "id": "phrasal-verbs",
-      "name": "Phrasal Verbs",
-      "subtitle": "120 esenciales · 15 s · adaptativo",
+      "name": "Phrasal Sprint",
+      "subtitle": "120 phrasal verbs · Quiz rápido",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/",
       "repo": "https://github.com/adrianxds-ads/adaptive-phrasal-verbs",
-      "glyph": "PV"
+      "glyph": "PS",
+      "description": "Automatiza el reconocimiento y uso de 120 phrasal verbs frecuentes mediante preguntas breves y repasos adaptativos.",
+      "features": [
+        "Cinco tipos de ejercicio",
+        "Rondas de 15 preguntas",
+        "Repaso de los verbos que cuestan"
+      ]
     },
     {
       "id": "pizarras",
-      "name": "Pizarras",
-      "subtitle": "Clases adaptativas · Sara B2 · quiz rápido",
+      "name": "Classroom B2",
+      "subtitle": "Clases adaptativas · Sara B2",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-pizarras/",
       "repo": "https://github.com/adrianxds-ads/adaptive-pizarras",
-      "glyph": "PZ"
+      "glyph": "CB",
+      "description": "Convierte los materiales reales de clase en sesiones de aprendizaje adaptativo, con práctica hasta que termina el tiempo.",
+      "features": [
+        "Clases temporizadas",
+        "Repetición de errores",
+        "Quiz rápido de 15 preguntas"
+      ]
     },
     {
       "id": "b2-cloze",
-      "name": "B2 Multiple-Choice Cloze",
-      "subtitle": "1.610 tarjetas · B2 First Part 1 · 15 s",
+      "name": "Cloze Quiz",
+      "subtitle": "B2 First · Léxico y collocations",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/",
       "repo": "https://github.com/adrianxds-ads/b2-multiple-choice-cloze",
-      "glyph": "MC"
+      "glyph": "CQ",
+      "description": "Practica la elección de palabras para los huecos de Cambridge B2 First Part 1: vocabulario, expresiones y collocations.",
+      "features": [
+        "1600+ tarjetas",
+        "Rondas rápidas",
+        "Repetición espaciada"
+      ]
     },
     {
       "id": "cambridge",
-      "name": "Cambridge B2",
-      "subtitle": "Exámenes y práctica B2",
+      "name": "Cambridge Lab",
+      "subtitle": "B2 First · Exámenes y Quiz",
       "group": "Estudio",
       "kind": "pwa-exam",
       "url": "https://adrianxds-ads.github.io/adaptive-exam/",
       "repo": "https://github.com/adrianxds-ads/adaptive-exam",
-      "glyph": "B2"
+      "glyph": "CL",
+      "description": "Prepara Reading and Use of English B2 First con ejercicios al estilo Cambridge, textos completos y práctica en formato quiz.",
+      "features": [
+        "Partes 1–4 del examen",
+        "Cambridge Quiz",
+        "Corrección y estadísticas"
+      ]
     },
     {
       "id": "keyword-speaking",
-      "name": "Key Word Speaking",
-      "subtitle": "B2 Part 4 · transformaciones · voz + teclado",
+      "name": "B2 Transform",
+      "subtitle": "Transformaciones · Voz y teclado",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/",
       "repo": "https://github.com/adrianxds-ads/adaptive-keyword-speaking",
-      "glyph": "KW"
+      "glyph": "BT",
+      "description": "Resuelve Key Word Transformations del B2 First dictando la frase o escribiendo la respuesta y comprueba las transformaciones.",
+      "features": [
+        "Speaking y teclado",
+        "Cambridge Part 4",
+        "Corrección por ejercicio"
+      ]
     },
     {
       "id": "catala",
-      "name": "Català · Verbs",
-      "subtitle": "Verbos y automatización",
+      "name": "Conjuga CAT",
+      "subtitle": "Català · Verbs adaptatius",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/",
       "repo": "https://github.com/adrianxds-ads/adaptive-verbs-catala",
-      "glyph": "CA"
+      "glyph": "CA",
+      "description": "Entrena la conjugación catalana con formas verbales normativas, repasos adaptativos y seguimiento de automatización.",
+      "features": [
+        "120 verbos",
+        "Tiempos y modos",
+        "Repetición espaciada"
+      ]
     },
     {
       "id": "biblioteca",
-      "name": "Biblioteca",
-      "subtitle": "Easy Catalan · 233 episodis · àudio directe",
+      "name": "Català Podcasts",
+      "subtitle": "Easy Catalan · Escucha y tareas",
       "group": "Estudio",
       "kind": "hub-module",
       "url": "./apps/biblioteca/",
-      "glyph": "BI"
+      "glyph": "CP",
+      "description": "Escucha episodios de Easy Catalan o úsalos para acompañar tareas. Los dos modos comparten el historial por episodio sin confundir escuchas y tareas.",
+      "features": [
+        "Reproductor de podcasts",
+        "Modo Tarea con dinosaurio",
+        "Escuchas y tareas contadas por separado"
+      ]
     },
     {
       "id": "hoti0108",
-      "name": "HOTI0108",
-      "subtitle": "Estudio, flashcards y examen",
+      "name": "Turismo Lab",
+      "subtitle": "HOTI0108 · Estudio y exámenes",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/",
       "repo": "https://github.com/adrianxds-ads/adaptive-hoti0108",
-      "glyph": "HT"
+      "glyph": "TL",
+      "description": "Repasa contenidos del certificado HOTI0108 con preguntas, tarjetas y práctica de examen.",
+      "features": [
+        "Estudio guiado",
+        "Flashcards",
+        "Preparación de exámenes"
+      ]
     },
     {
       "id": "entrenamiento",
-      "name": "Adaptive Gym",
-      "subtitle": "Rutinas, series, temporizador y métricas",
+      "name": "Gym Tracker",
+      "subtitle": "Rutinas, series y métricas",
       "group": "Salud",
       "kind": "hub-module",
       "url": "./apps/entrenamiento/",
-      "glyph": "GY"
+      "glyph": "GY",
+      "description": "Organiza los entrenamientos y registra las series, los tiempos y la evolución de tus rutinas.",
+      "features": [
+        "Rutinas",
+        "Temporizadores",
+        "Histórico"
+      ]
     },
     {
       "id": "cambio",
       "name": "Cambio",
-      "subtitle": "Entrena soltar una tarea y empezar la siguiente",
+      "subtitle": "Cambiar de tarea y arrancar",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "./apps/cambio/",
-      "glyph": "↻"
+      "glyph": "↻",
+      "description": "Un ejercicio para entrenar el paso de una actividad a otra y vencer el tiempo perdido entre tareas.",
+      "features": [
+        "Transiciones breves",
+        "Entrenamiento ejecutivo"
+      ]
     },
     {
       "id": "dcinbox",
-      "name": "DC Inbox",
-      "subtitle": "Compartir, clasificar y enrutar",
+      "name": "Buzón DC",
+      "subtitle": "Compartir y clasificar",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "./apps/dc-inbox/",
-      "glyph": "DC"
+      "glyph": "DC",
+      "description": "Buzón para recibir elementos compartidos y clasificarlos dentro del ecosistema de Desktop Commander.",
+      "features": [
+        "Entrada compartida",
+        "Clasificación y envío"
+      ]
     },
     {
       "id": "adri-type",
-      "name": "HUB CONTROL",
-      "subtitle": "Extensión Chrome para PC · ficha informativa en móvil",
+      "name": "Control PC",
+      "subtitle": "Herramientas de escritorio",
       "group": "Sistema",
       "kind": "extension-companion",
       "url": "./apps/adri-type/",
-      "glyph": "HC",
-      "repo": "https://github.com/adrianxds-ads/adrian-typing-tracker"
+      "glyph": "PC",
+      "repo": "https://github.com/adrianxds-ads/adrian-typing-tracker",
+      "description": "Panel informativo y punto de acceso al control del ordenador y la extensión de Chrome.",
+      "features": [
+        "Extensión para PC",
+        "Acceso desde el Hub"
+      ]
     },
     {
       "id": "agents",
       "name": "Agentes",
-      "subtitle": "Nexo · coordinación, triaje y autodiagnóstico · especialistas",
+      "subtitle": "Nexo y especialistas",
       "group": "Sistema",
       "kind": "hub-module",
       "url": "https://adrin.tail8fd071.ts.net/dc-inbox/agents/ui/",
       "glyph": "AI",
-      "version": "1.2.0"
+      "version": "1.2.0",
+      "description": "Centro de coordinación de Nexo y los agentes de auditoría, reparación, construcción y consulta.",
+      "features": [
+        "Coordinación",
+        "Estado y formación de agentes"
+      ]
     },
     {
       "id": "limpieza",
-      "name": "Limpieza 2.2",
-      "subtitle": "Inspección y objetivos · requiere Tailscale",
+      "name": "Limpieza",
+      "subtitle": "Inspección y objetivos",
       "group": "Hogar",
       "kind": "private-pwa",
       "url": "https://adrin.tail8fd071.ts.net/limpieza/",
       "repo": "https://github.com/adrianxds-ads/limpieza-2.0",
-      "glyph": "LI"
+      "glyph": "LI",
+      "description": "Organiza las tareas de limpieza y comprueba su estado. Requiere acceso privado por Tailscale.",
+      "features": [
+        "Objetivos",
+        "Seguimiento",
+        "Acceso privado"
+      ]
     },
     {
       "id": "job-engine",
-      "name": "Job Engine",
-      "subtitle": "Ofertas · candidaturas · JSON IA · métricas",
+      "name": "Empleo Hub",
+      "subtitle": "Ofertas y candidaturas",
       "group": "Trabajo",
       "kind": "hub-module",
       "url": "./apps/job-engine/",
-      "glyph": "JB"
+      "glyph": "EH",
+      "description": "Organiza ofertas de empleo, candidaturas y materiales de búsqueda en un único lugar.",
+      "features": [
+        "Ofertas",
+        "Candidaturas",
+        "Métricas"
+      ]
     }
   ]
 }

@@ -30,3 +30,44 @@ footer{display:flex;justify-content:space-between;border-top:1px solid var(--ad-
 
 .app-task-chip{display:inline-flex;align-items:center;margin-top:6px;padding:5px 8px;border-radius:8px;border:1px solid rgba(216,183,97,.36);background:rgba(111,86,39,.16);color:#e4cc89;font-size:11px;font-weight:800}
 .garden-task-medals{display:inline-flex;width:fit-content;max-width:100%;margin-top:9px;padding:6px 10px;border-radius:11px;border:1px solid rgba(221,182,84,.4);background:rgba(122,95,43,.19);color:#e8d18b;font-size:12px;font-weight:900;line-height:1.3}
+
+/* 2026-10-09 · Nombres claros, fichas info y lectura cómoda (sin cambiar los quizzes). */
+.app{display:block;min-height:0;padding:0;overflow:hidden}
+.app-launch{display:grid;grid-template-columns:56px minmax(0,1fr) 22px;align-items:center;gap:14px;min-height:108px;padding:16px 73px 16px 16px;color:inherit;text-decoration:none}
+.app-launch:hover,.app-launch:focus-visible{background:rgba(255,255,255,.035)}
+.app-launch .glyph{width:56px;height:56px}
+.app-info{position:absolute;right:13px;top:50%;transform:translateY(-50%);width:49px;height:49px;min-height:49px;border:2px solid color-mix(in srgb,var(--app-color) 65%,white);border-radius:15px;background:#16272b;color:#f7fcfc;font:900 24px/1 system-ui;cursor:pointer}
+.app-info:hover,.app-info:focus-visible{background:color-mix(in srgb,var(--app-color) 32%,#16272b)}
+.app-copy strong{font-size:21px;line-height:1.22}.app-copy small{font-size:16px;line-height:1.4}
+.app-version-chip{font-size:13px!important;padding:5px 9px}
+.app-task-chip{font-size:14px;line-height:1.3}
+.garden-intro>span{font-size:14px}.garden-intro>small{font-size:15px}.garden-task-medals{font-size:15px}
+.version-center-head span,.version-dialog-title>span{font-size:13px}
+.version-center-head p,.version-dialog-title p{font-size:15px}
+.version-main b{font-size:16px}.version-main small,.version-build small{font-size:13px;color:#c4d1ce}
+.version-build strong{font-size:16px}
+.version-status{font-size:12px;line-height:1.3;white-space:normal}
+.version-center-foot,.update-progress small{font-size:14px}
+.version-dialog h3{font-size:16px}.version-change-list,.version-history ul{font-size:16px}
+.update-summary small{font-size:15px}
+.app-info-dialog{width:min(550px,calc(100vw - 24px));max-height:87dvh;padding:0;border-radius:22px;border:1px solid #66818a;background:#13242a;color:#f5fbfc;box-shadow:0 30px 90px #0009}
+.app-info-dialog::backdrop{background:rgba(3,10,14,.82);backdrop-filter:blur(5px)}
+.app-info-shell{position:relative;max-height:87dvh;overflow:auto;padding:27px 24px}
+.app-info-kicker{margin:0;color:#abdfe7;letter-spacing:.09em;font-size:14px;font-weight:950}
+.app-info-shell h2{font-size:clamp(29px,7vw,37px);line-height:1.08;margin:10px 56px 13px 0}
+.app-info-shell p:not(.app-info-kicker){font-size:18px;line-height:1.5;color:#deeced}
+.app-info-shell h3{font-size:19px;margin:22px 0 10px}
+.app-info-shell ul{margin:0 0 22px;padding-left:25px;font-size:17px;line-height:1.7}
+.app-info-close{position:absolute;top:14px;right:14px;min-width:52px;min-height:52px;border-radius:14px;border:1px solid #70939d;background:#1d3339;color:#fff;font-size:29px;cursor:pointer}
+.app-info-open{display:block;padding:17px 18px;min-height:56px;border-radius:13px;text-align:center;background:#e7bf57;color:#162126;font-size:18px;font-weight:950;text-decoration:none}
+@media(max-width:560px){
+ .app-launch{grid-template-columns:54px minmax(0,1fr) 14px;min-height:105px;padding:15px 66px 15px 12px;gap:10px}
+ .app-launch .glyph{width:54px;height:54px}
+ .app-info{right:10px;width:48px}
+ .app-copy strong{font-size:21px}.app-copy small{font-size:16px}
+ .version-build small{font-size:12px;max-width:126px}
+ .version-status{font-size:13px}
+ .app-info-shell{padding:25px 18px}
+}
+
+.app-info{font-size:24px!important}.app-version-chip{font-size:15px!important}.version-status{font-size:14px}

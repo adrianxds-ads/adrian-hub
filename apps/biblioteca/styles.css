@@ -172,3 +172,28 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 #taskMedalBar{display:block;width:100%;height:12px;margin:10px 0;accent-color:#e6be59}
 .task-medal-bottom{font-size:12px;color:#b2cbcb;font-weight:850}
 .task-medal-bottom small{font-size:11px;color:#b5aaa0;font-weight:600}
+
+/* Auditoría visual y estados compartidos por episodio · 2026-10-09 */
+.episode.done{opacity:1;background:#142b2a;border-color:#476c5d}
+.episode.done .episode-title{color:#f2faf5}.episode.done .summary{color:#c6d7d0}
+.episode-no{font-size:15px}.episode-title{font-size:18px;line-height:1.3}
+.meta{font-size:14px;color:#bbccd0}.summary{font-size:15px;line-height:1.42;-webkit-line-clamp:3}
+.listen-tally,.task-tally{font-size:15px;line-height:1.45}
+.eyebrow,.searchbox span,.sort-btn span{font-size:13px}
+.tagline,.legend,.task-mode-intro span,.task-list-caption{font-size:15px}
+.legend small{font-size:14px}.progress-line span{font-size:16px}
+.task-select-btn{font-size:19px}
+.task-stats-mini span{font-size:14px}
+.task-chart-heading b,.task-stats-details summary,.task-log b{font-size:17px}
+.task-day{flex-basis:30px;font-size:14px}.task-day small{font-size:12px}
+.task-day-bar{width:20px}.task-day-info,.task-log span,.task-log small{font-size:15px}
+.task-slot strong{font-size:17px}.task-slot span,.task-plan-hint,.task-muted{font-size:15px}
+.task-stage-head,.task-stage-head button{font-size:15px}
+.task-stage-copy p,.task-stage-prompt{font-size:16px}
+.task-modal-card p:not(.eyebrow),.task-modal-card label{font-size:16px}
+.task-modal-actions button{font-size:16px}
+.task-finish{min-height:58px;margin:4px auto;padding:12px 18px;border:2px solid #e5d17c;border-radius:14px;background:#dcbd68;color:#162321;font-size:18px;font-weight:950}
+.state-logged{display:grid;place-items:center;background:#21503c;color:#baf2c9;cursor:default}
+@media(max-width:560px){.summary{font-size:15px}.episode-main{padding:12px 10px}.episode{min-height:122px}.task-select-btn{font-size:16px}.task-stats-mini strong{font-size:clamp(21px,5vw,29px)}}
+
+.task-latest{padding:13px 14px;margin:10px 0;border:1px solid #47756b;border-radius:13px;background:#15312b;color:#d7f6df;font-size:16px;line-height:1.45;font-weight:850}

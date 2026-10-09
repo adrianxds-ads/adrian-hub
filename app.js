@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.25';
-const HUB_BUILD='hub-30.4.25-20261009';
+const HUB_VERSION='30.4.26';
+const HUB_BUILD='hub-30.4.26-20261009';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -17,10 +17,10 @@ function launchUrl(app){
 }
 function render(query=''){
   const q=query.trim().toLocaleLowerCase('es');
-  const visible=registry.filter(a=>!q||[a.name,a.subtitle,a.group].join(' ').toLocaleLowerCase('es').includes(q));
+  const visible=registry.filter(a=>!q||[a.name,a.subtitle,a.description,...(a.features||[]),a.group].join(' ').toLocaleLowerCase('es').includes(q));
   countEl.textContent=`${visible.length} app${visible.length===1?'':'s'}`;
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
-  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<a class="app ad-card" data-id="${esc(a.id)}" href="${esc(launchUrl(a))}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
+  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card" data-id="${esc(a.id)}"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
   renderTaskMedals();
 }
 async function fetchHubJson(path){
@@ -45,6 +45,20 @@ async function loadHubData(){
 }
 loadHubData().catch(e=>{console.error('Hub registry load failed',e);groupsEl.innerHTML='<div class="empty ad-card">No se pudo cargar el directorio.</div>';});
 searchEl.addEventListener('input',e=>render(e.target.value));
+function openAppInfo(id){
+ const a=registry.find(x=>x.id===id),dialog=document.querySelector('#appInfoDialog');
+ if(!a||!dialog)return;
+ const title=dialog.querySelector('#appInfoTitle'),intro=dialog.querySelector('#appInfoDescription'),features=dialog.querySelector('#appInfoFeatures'),open=dialog.querySelector('#appInfoOpen');
+ title.textContent=a.name;intro.textContent=a.description||a.subtitle||'';
+ features.replaceChildren();
+ for(const item of a.features||[]){const li=document.createElement('li');li.textContent=item;features.appendChild(li)}
+ open.href=launchUrl(a);open.setAttribute('aria-label','Abrir '+a.name);
+ dialog.showModal();
+}
+groupsEl.addEventListener('click',e=>{const b=e.target.closest('button[data-info]');if(b)openAppInfo(b.dataset.info)});
+document.querySelector('#appInfoClose')?.addEventListener('click',()=>document.querySelector('#appInfoDialog')?.close());
+document.querySelector('#appInfoDialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
+
 
 const HUB_STAR_KEY='adrian_hub_stars_v1',HUB_STAR_STEP=5;
 function parseStore(key){try{return JSON.parse(localStorage.getItem(key)||'{}')||{};}catch{return{};}}
@@ -93,7 +107,7 @@ function renderHubStars(){const s=readHubStars(),host=document.querySelector('#h
 renderHubStars();renderTaskMedals();
 window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();if(e.key===HUB_TASK_LOG_KEY)renderTaskMedals();});
 window.addEventListener('hub:star-progress',renderHubStars);
-window.addEventListener('adrian-sync-updated',()=>{renderHubStars();window.AdrianOca?.refresh?.();});
+window.addEventListener('adrian-sync-updated',()=>{renderHubStars();renderTaskMedals();window.AdrianOca?.refresh?.();});
 window.addEventListener('pageshow',()=>{renderHubStars();renderTaskMedals();window.AdrianOca?.refresh?.();});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){renderHubStars();renderTaskMedals();window.AdrianOca?.refresh?.();}});
 

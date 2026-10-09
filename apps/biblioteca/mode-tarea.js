@@ -4,15 +4,15 @@
 const $=id=>document.getElementById(id);
 const KEY='adrianEasyCatalanTaskSessionsV1', LIVE='adrianEasyCatalanTaskLiveV1';
 const audio=$('audio'), panel=$('taskPanel'), list=$('taskEpisodes'), original=$('episodes');
-const els={normal:$('tabPodcasts'),task:$('tabTasks'),legend:$('libraryLegend'),empty:$('empty'),search:$('search'),sort:$('sortBtn'),sortLabel:$('sortLabel'),modal:$('taskSetup'),setupTitle:$('taskSetupTitle'),taskText:$('taskText'),setupButton:$('taskSetupButton'),setupCancel:$('taskSetupCancel'),stage:$('taskStage'),journey:$('taskJourney'),dino:$('taskDino'),progress:$('taskProgress'),clock:$('taskClock'),stageTitle:$('taskStageTitle'),stageTask:$('taskStageTask'),resume:$('taskResume'),exit:$('taskExit'),breakBox:$('taskBreak'),breakClock:$('taskBreakClock'),breakText:$('taskBreakText'),today:$('taskToday'),total:$('taskTotal'),minutes:$('taskMinutes'),chart:$('taskChart'),chartFull:$('taskChartFull'),chartOpen:$('taskChartOpen'),chartClose:$('taskChartClose'),chartDialog:$('taskChartDialog'),dayInfo:$('taskDayInfo'),dayInfoFull:$('taskDayInfoFull'),history:$('taskHistory'),openStats:$('taskStatsToggle'),stats:$('taskStatsDetails'),planner:$('taskPlanner'),slots:$('taskPlanSlots'),hint:$('taskPlanHint'),startPlan:$('taskPlanStart'),completed:$('taskCompleted'),setupPosition:$('taskSetupPosition'),stagePosition:$('taskStagePosition'),medals:$('taskMedals'),medalFraction:$('taskMedalFraction'),medalBar:$('taskMedalBar'),uniqueCount:$('taskUniqueCount')};
+const els={normal:$('tabPodcasts'),task:$('tabTasks'),legend:$('libraryLegend'),empty:$('empty'),search:$('search'),sort:$('sortBtn'),sortLabel:$('sortLabel'),modal:$('taskSetup'),setupTitle:$('taskSetupTitle'),taskText:$('taskText'),setupButton:$('taskSetupButton'),setupCancel:$('taskSetupCancel'),stage:$('taskStage'),journey:$('taskJourney'),dino:$('taskDino'),progress:$('taskProgress'),clock:$('taskClock'),stageTitle:$('taskStageTitle'),stageTask:$('taskStageTask'),resume:$('taskResume'),finish:$('taskFinish'),exit:$('taskExit'),breakBox:$('taskBreak'),breakClock:$('taskBreakClock'),breakText:$('taskBreakText'),today:$('taskToday'),total:$('taskTotal'),minutes:$('taskMinutes'),chart:$('taskChart'),chartFull:$('taskChartFull'),chartOpen:$('taskChartOpen'),chartClose:$('taskChartClose'),chartDialog:$('taskChartDialog'),dayInfo:$('taskDayInfo'),dayInfoFull:$('taskDayInfoFull'),history:$('taskHistory'),openStats:$('taskStatsToggle'),stats:$('taskStatsDetails'),planner:$('taskPlanner'),slots:$('taskPlanSlots'),hint:$('taskPlanHint'),startPlan:$('taskPlanStart'),completed:$('taskCompleted'),setupPosition:$('taskSetupPosition'),stagePosition:$('taskStagePosition'),medals:$('taskMedals'),medalFraction:$('taskMedalFraction'),medalBar:$('taskMedalBar'),uniqueCount:$('taskUniqueCount')};
 let catalog=null,chosen=null,lastPersist=0,allowSeek=false,restoring=false,tick=null,taskDescending=true;
 let draft={count:1,steps:[null],slot:0},wake=null,wakePending=false,speechTimeout=null,speechCurrent=null;
 const parse=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key)||'null')??fallback}catch{return fallback}};
 let state=parse(LIVE,{active:null,breakEnd:null,chain:null,queue:null,plan:null});
 if(!state.plan&&!state.active&&state.breakEnd){state.breakEnd=null;state.queue=null;state.chain=null;try{localStorage.setItem(LIVE,JSON.stringify(state))}catch{}}
-const logs=()=>parse(KEY,[]);
+const logs=()=>{const rows=parse(KEY,[]);return Array.isArray(rows)?rows:[]};
 const save=()=>{try{localStorage.setItem(LIVE,JSON.stringify(state))}catch(e){console.error('Task live save',e)}};
-const saveLogs=arr=>{try{localStorage.setItem(KEY,JSON.stringify(arr))}catch(e){console.error('Task history save',e)}};
+const saveLogs=arr=>{try{localStorage.setItem(KEY,JSON.stringify(arr));return true}catch(e){console.error('Task history save',e);return false}};
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const fmt=s=>{s=Math.max(0,Math.floor(Number(s)||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
@@ -20,7 +20,7 @@ const seconds=s=>{const p=String(s||'').split(':').map(Number);return p.length==
 const day=t=>{const d=new Date(t);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
 const identifier=()=>('s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8));
 const ms=600000;
-window.ModeTarea={playing:false,selectedTab:'listen',catalogReady(data){catalog=data;renderList();renderStats();restore()}};
+window.ModeTarea={playing:false,selectedTab:'listen',catalogReady(data){catalog=data;renderList();renderStats();restore()},refresh(){if(catalog){renderList();renderStats()}}};
 function audioUnlock(){
  try{
   const AC=window.AudioContext||window.webkitAudioContext;
@@ -105,8 +105,7 @@ function renderList(){
  const flags=new Set((()=>{try{return JSON.parse(localStorage.getItem('adrianLibraryEasyCatalanV1')||'[]').map(Number)}catch{return []}})());
  list.innerHTML=rows.map(e=>{
   const work=tasks[e.number]||0,ordinary=Math.max(0,Number(normal[e.number])||0),listened=ordinary>0||flags.has(e.number);
-  const annotation=work?'<div class="task-tally">🏁 Completado '+work+' '+(work===1?'vez':'veces')+' en Modo Tarea</div>':
-     listened?'<div class="task-tally task-listened">🎧 Ya escuchado en la Biblioteca · todavía sin tarea</div>':'';
+  const annotation=(work||ordinary||listened)?'<div class="task-tally">'+(work?'🦖 '+work+' '+(work===1?'tarea completada':'tareas completadas'):'Sin tareas completadas')+(ordinary?' · 🎧 '+ordinary+' '+(ordinary===1?'escucha':'escuchas'):'')+(!ordinary&&listened&&!work?' · ✓ Marcado escuchado':'')+'</div>':'';
   return '<article class="episode task-episode '+(work?'task-episode-done':'')+'"><button type="button" class="play-btn" data-task-episode="'+e.number+'" aria-label="Añadir episodio '+e.number+' a una tarea">▶</button><div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+safe(e.title)+'</h2></div><div class="meta">'+safe(e.duration||'')+' · Duración fija</div><p class="summary">'+safe(e.summary||'')+'</p>'+annotation+'</div><button type="button" class="task-select-btn '+(work?'task-select-done':'')+'" data-task-episode="'+e.number+'" aria-label="Elegir episodio '+e.number+' para trabajar">'+(work?'✓ '+work+' '+(work===1?'vez':'veces'):'＋')+'</button></article>';
  }).join('');
  $('taskEmpty').hidden=!!rows.length;
@@ -183,8 +182,15 @@ function restore(){
  }
  renderPlan();
 }
+function canConfirmEnd(){
+ const a=state.active;if(!a)return false;
+ const total=Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:a.duration;
+ const done=Math.max(audio.currentTime||0,a.elapsed||0);
+ return total>45&&done/total>=.97&&total-done<=15;
+}
 function updateJourney(){
  if(!state.active)return;
+ if(els.finish)els.finish.hidden=!canConfirmEnd();
  const actual=Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:state.active.duration;
  const pct=actual?Math.min(100,Math.max(0,(audio.currentTime||0)/actual*100)):0;
  els.dino.style.left='calc('+(pct*.88+3)+'% - 16px)';
@@ -199,10 +205,10 @@ function updateJourney(){
 function finished(){
  const a=state.active;if(!a)return;
  const arr=logs();
- arr.push({id:a.id,episodeNumber:a.episodeNumber,title:a.title,task:a.task,startedAt:a.startedAt,endedAt:new Date().toISOString(),seconds:Math.round(Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:(a.duration||audio.currentTime||0)),status:'completado',chain:a.chain,position:a.position,total:a.total});
- saveLogs(arr);
+ if(!arr.some(x=>x.id===a.id))arr.push({id:a.id,episodeNumber:a.episodeNumber,title:a.title,task:a.task,startedAt:a.startedAt,endedAt:new Date().toISOString(),seconds:Math.round(Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:(a.duration||audio.currentTime||0)),status:'completado',chain:a.chain,position:a.position,total:a.total});
+ if(!saveLogs(arr)){els.completed.hidden=false;els.completed.textContent='No se pudo guardar la tarea. No cierres esta pantalla hasta liberar espacio y volver a confirmarla.';return;}
  const next=state.plan&&state.plan.index+1<state.plan.steps.length;
- state.active=null;window.ModeTarea.playing=false;releaseScreen();
+ state.active=null;window.ModeTarea.playing=false;releaseScreen();if(els.finish)els.finish.hidden=true;
  if(next){state.plan.index++;state.breakEnd=Date.now()+ms;state.chain=state.plan.chain}
  else{state.plan=null;state.breakEnd=null;state.queue=null;state.chain=null;draft={count:1,steps:[null],slot:0}}
  save();
@@ -234,12 +240,15 @@ function renderBreak(){
  els.breakText.textContent='Siguiente tarea: '+upcoming.task+' · episodio #'+upcoming.episodeNumber+'. Comenzará cuando termine el descanso.';
 }
 function renderStats(){
- const done=logs().filter(x=>x.status==='completado'),all=logs();
+ const all=logs(),seenIds=new Set();
+ const done=all.filter(x=>{if(x.status!=='completado')return false;if(x.id){if(seenIds.has(x.id))return false;seenIds.add(x.id)}return true});
+ const latest=done[done.length-1];
+ const latestEl=$('taskLatest');
+ if(latestEl)latestEl.textContent=latest?'Última tarea registrada: #'+latest.episodeNumber+' · '+latest.task+' · '+new Date(latest.endedAt).toLocaleString('es-ES'):'Todavía no hay ninguna tarea finalizada registrada.';
  els.today.textContent=done.filter(x=>day(x.endedAt)===day(Date.now())).length;
  els.total.textContent=done.length;
- const dedup=new Set(),unique=new Set();
- for(const row of done){if(row.id&&dedup.has(row.id))continue;if(row.id)dedup.add(row.id);unique.add(Number(row.episodeNumber))}
- const completed=dedup.size+done.filter(x=>!x.id).length;
+ const unique=new Set(done.map(x=>Number(x.episodeNumber)));
+ const completed=done.length;
  els.medals.textContent=String(Math.floor(completed/15));
  els.medalFraction.textContent=(completed%15)+'/15';
  els.medalBar.value=completed%15;
@@ -253,7 +262,8 @@ function renderStats(){
  const max=Math.max(1,...Object.values(byDay));
  const chart=days.map(k=>{const n=byDay[k]||0;return '<button type="button" class="task-day" data-day="'+k+'" title="'+k+': '+n+' bloques" aria-label="'+k+': '+n+' bloques"><span class="task-day-bar" style="height:'+(n?Math.max(5,Math.round(n/max*100)):2)+'%"></span><small>'+(k.slice(-2)==='01'?k.slice(5,7)+'/'+k.slice(2,4):k.slice(-2))+'</small></button>'}).join('');
  [els.chart,els.chartFull].forEach(node=>{node.innerHTML=chart;node.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>showDay(b.dataset.day))});
- const rows=all.slice().reverse().map(x=>'<div class="task-log '+(x.status==='completado'?'':'task-log-interrupted')+'"><span>'+safe(new Date(x.endedAt).toLocaleDateString('es-ES'))+' · '+safe(x.status==='completado'?'✓':'Interrumpido')+'</span><b>'+safe(x.task)+'</b><small>#'+x.episodeNumber+' · '+safe(x.title)+' · '+fmt(x.seconds)+'</small></div>').join('');
+ const seenRows=new Set();
+ const rows=all.slice().reverse().filter(x=>{if(!x.id)return true;if(seenRows.has(x.id))return false;seenRows.add(x.id);return true}).map(x=>'<div class="task-log '+(x.status==='completado'?'':'task-log-interrupted')+'"><span>'+safe(new Date(x.endedAt).toLocaleDateString('es-ES'))+' · '+safe(x.status==='completado'?'✓':'Interrumpido')+'</span><b>'+safe(x.task)+'</b><small>#'+x.episodeNumber+' · '+safe(x.title)+' · '+fmt(x.seconds)+'</small></div>').join('');
  els.history.innerHTML=rows||'<p class="task-muted">Aún no hay bloques registrados.</p>';
  showDay(day(Date.now()));
 }
@@ -286,6 +296,7 @@ els.taskText.addEventListener('input',()=>els.taskText.setCustomValidity(''));
 els.modal.addEventListener('click',e=>{if(e.target===els.modal)closeSetup()});
 els.exit.onclick=stop;
 els.resume.onclick=()=>{audioUnlock();keepScreenOn();audio.play().then(()=>{els.resume.hidden=true}).catch(()=>{els.resume.hidden=false})};
+if(els.finish)els.finish.onclick=()=>{if(!canConfirmEnd()||!confirm('¿Has terminado este podcast y la tarea? Se guardará una sesión completada.'))return;finished()};
 els.openStats.onclick=()=>{els.stats.hidden=!els.stats.hidden;els.openStats.setAttribute('aria-expanded',String(!els.stats.hidden));if(!els.stats.hidden)renderStats()};
 els.chartOpen.onclick=()=>{renderStats();els.chartDialog.showModal()};
 els.chartClose.onclick=()=>els.chartDialog.close();

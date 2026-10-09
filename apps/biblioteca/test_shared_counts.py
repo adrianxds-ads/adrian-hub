@@ -25,13 +25,13 @@ with sync_playwright() as p:
  }''',seed)
  page.reload(wait_until='domcontentloaded')
  page.locator('#episodes .episode').first.wait_for(timeout=20000)
- assert page.locator('#episodes [data-episode="233"] .listen-tally').inner_text()=='🦖 2 tareas'
- assert 'Ya escuchado' in page.locator('#episodes [data-episode="231"] .listen-tally').inner_text()
+ assert page.locator('#episodes [data-episode="233"] .listen-tally').inner_text()=='🦖 2 tareas completadas'
+ assert 'Marcado como escuchado' in page.locator('#episodes [data-episode="231"] .listen-tally').inner_text()
  assert '🎧 1 escucha' in page.locator('#episodes [data-episode="230"] .listen-tally').inner_text()
  assert page.locator('#heardCount').inner_text()=='3'
  # Manual listened toggles do NOT grant listens or tasks.
  page.locator('#episodes [data-episode="229"] [data-state]').click()
- assert page.locator('#episodes [data-episode="229"] .listen-tally').inner_text()=='✓ Ya escuchado'
+ assert page.locator('#episodes [data-episode="229"] .listen-tally').inner_text()=='✓ Marcado como escuchado'
  assert page.evaluate("window.PodcastCounts.normalCounts()['229']")==None
  # Normal completion should increase library plays, but never the task count.
  page.locator('#episodes [data-episode="232"] [data-play]').click()
@@ -40,7 +40,7 @@ with sync_playwright() as p:
  assert page.evaluate("window.PodcastCounts.taskCounts()['232']")==None
  page.locator('#tabTasks').click()
  assert page.locator('#taskEpisodes [data-task-episode="233"].task-select-done').inner_text()=='✓ 2 veces'
- assert 'todavía sin tarea' in page.locator('#taskEpisodes .episode:has([data-task-episode="232"]) .task-tally').inner_text()
+ assert 'Sin tareas completadas' in page.locator('#taskEpisodes .episode:has([data-task-episode="232"]) .task-tally').inner_text()
  assert page.locator('#taskMedals').inner_text()=='0'
  assert page.locator('#taskMedalFraction').inner_text()=='2/15'
  assert page.locator('#taskUniqueCount').inner_text().startswith('1 episodio')
@@ -53,7 +53,7 @@ with sync_playwright() as p:
  assert page.locator('#taskEpisodes [data-task-episode="233"].task-select-done').inner_text()=='✓ 3 veces'
  assert page.evaluate("window.PodcastCounts.normalCounts().get")==None # separate stores
  page.locator('#tabPodcasts').click()
- assert page.locator('#episodes [data-episode="233"] .listen-tally').inner_text()=='🦖 3 tareas'
+ assert page.locator('#episodes [data-episode="233"] .listen-tally').inner_text()=='🦖 3 tareas completadas'
  # Medal boundary at exactly 15 completed blocks.
  page.evaluate("""()=>{
  let a=JSON.parse(localStorage.getItem('adrianEasyCatalanTaskSessionsV1'));

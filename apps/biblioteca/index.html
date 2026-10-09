@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d1518">
-<title>Biblioteca · Easy Catalan</title>
+<title>Català Podcasts · Easy Catalan</title>
 <link rel="icon" href="../../icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
@@ -17,8 +17,8 @@
 <header class="podcast-head">
   <img id="artwork" class="artwork" alt="Easy Catalan">
   <div class="podcast-copy">
-    <p class="eyebrow">BIBLIOTECA · PODCASTS</p>
-    <h1>Easy Catalan</h1>
+    <p class="eyebrow">EASY CATALAN · BIBLIOTECA</p>
+    <h1>Català Podcasts</h1>
     <p class="tagline">Obrir, escoltar, marcar. Res més.</p>
     <div class="progress-line"><strong id="heardCount">0</strong><span> escoltats de <b id="totalCount">233</b></span></div>
   </div>
@@ -54,6 +54,7 @@
     <strong>☕ Descanso · <span id="taskBreakClock">10:00</span></strong>
     <p id="taskBreakText">Descanso fijo de 10 minutos.</p>
   </div>
+  <p id="taskLatest" class="task-latest" role="status">Comprobando última tarea registrada…</p>
   <div class="task-stats-mini">
     <div><strong id="taskToday">0</strong><span>Hoy</span></div>
     <div><strong id="taskTotal">0</strong><span>Bloques completos</span></div>
@@ -106,6 +107,7 @@
   </div>
   <p class="task-stage-prompt">El dinosaurio avanza mientras escuchas el podcast. La pantalla se mantiene encendida cuando Android lo permite.</p>
   <button id="taskResume" class="task-resume" type="button" hidden>▶ Reanudar audio</button>
+  <button id="taskFinish" class="task-finish" type="button" hidden>✓ Confirmar tarea terminada</button>
 </section>
 <dialog id="taskChartDialog" class="task-chart-dialog">
   <div class="task-chart-heading"><h2>Histórico completo</h2><button id="taskChartClose" type="button">Cerrar ✕</button></div>
