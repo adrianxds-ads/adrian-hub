@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-09T12:54:27.628764+00:00",
+  "generatedAt": "2026-10-09T18:02:17.507215+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -631,42 +631,51 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "2.2.0",
-      "build": "sha256-42eb1e6193cf",
+      "version": "2.2.1",
+      "build": "sha256-236825b9e8b2",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Pausa de corrección también en la última pregunta y al vencer la clase.",
-        "Quiz rápido utiliza fechas; producción escrita de palabras conocidas en modo clase.",
-        "Distractores de homework revisados; histórico de sesiones conservado."
+        "Menú JSON de aprendizaje en Plan / JSON: último error, última respuesta, sesión, progreso e histórico descargable.",
+        "Informes de sólo lectura y copia voluntaria a otras IAs, con tiempos reales si están registrados y sin alterar los resultados.",
+        "Compatibilidad con módulo compartido de Adrián Core 1.0.0; conservar planificación, estadísticas y acciones previas."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "6a0fc2f27a95c322f9836247dc69d04a79dfb52e6ccd25eb5d5deb8173f6a31f"
+            "sha256": "9e4abe4e2192d38c6e32044dec603b68690c5816518a1bedd48302b159d064b5"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "a2df47d6f30ce3de7763e0d98bb820235b12550be6d1b3d478bca4416e271d87"
+            "sha256": "b7378083145e84d54354167680ea836f4c6ca7cc97ff342a2ca9cd46811feb61"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "7a8f7e413baf7153daf78c9814093cc7676c8e6d5fabe3d71a109807b3a47fe7"
+            "sha256": "917af074f975603e4c8fe277f00f6a3ed532faef92793a2be5762002059a5809"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "6469f7dcadcde7dc2b5a6c974a76a63a58e7da3cc1af716580933d987f783931"
+            "sha256": "ec2ebc96ae0e3b00ace8dad8fb6be5945e0a646b78a695e1087701c9584460f7"
           }
         ]
       },
-      "sourceCommit": "8e97076283a226ef12a6de4d11c6e3434828e000",
-      "cacheBuild": "75305b070a5e0349",
+      "sourceCommit": "93225f82b431fcea446bc586f6b3be059f707d27",
+      "cacheBuild": "cb4c54243f3c9979",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.2.0",
+          "date": "2026-10-09",
+          "changes": [
+            "Pausa de corrección también en la última pregunta y al vencer la clase.",
+            "Quiz rápido utiliza fechas; producción escrita de palabras conocidas en modo clase.",
+            "Distractores de homework revisados; histórico de sesiones conservado."
+          ]
+        },
         {
           "version": "2.1.14",
           "date": "2026-10-08",
