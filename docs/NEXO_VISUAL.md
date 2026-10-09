@@ -30,3 +30,10 @@
 - Botón visible de altura 54 px; 16 apps del registro presentes; sin scroll horizontal; sin excepciones JS.
 - Android simulado: enlace `intent:` y sección Tasker visible. Escritorio: `https://chatgpt.com/` y Tasker oculto.
 - Registros y etiquetas indican Hub 30.4.38. El intento de interacción real con pantalla/voz continúa pendiente.
+
+## Prueba física desde la PWA · 2026-10-09
+- Pixel 10 con el Hub servido en v30.4.40: el panel «Tasker · tarea NexoVisual» aparece con la URL correcta.
+- Desde el propio Hub se pulsó «LANZAR NEXO VISUAL CON TASKER»; foco Android pasó por `ActivityAssistantActions` de Tasker y terminó en `com.openai.chatgpt.MainActivity`. PASS.
+- Ajustes de ChatGPT → Voz inspeccionados sin cambiar preferencias: modelo actual `Live`, «Conversaciones de fondo» activadas; la opción «Iniciar con Voz» no apareció en la pantalla de ajustes de esta versión/cuenta. Por ello el inicio automático de Voz **no se ha verificado ni configurado**.
+- La actividad interna `com.openai.voice.assistant.AssistantActivity` rechazó un intento externo (`SecurityException: not exported`); no se elevan permisos ni se sortean restricciones.
+- La activación de modo Avanzado, conversación por voz y captura de pantalla **no se han probado**; queda la intervención voluntaria del usuario para compartir pantalla mediante los controles oficiales. No se debe describir esta fase como completada.
