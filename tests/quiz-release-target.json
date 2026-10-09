@@ -1,0 +1,13 @@
+{
+  "hubVersion": "30.4.32",
+  "apps": {
+    "english": "adaptive-english",
+    "phrasal-verbs": "adaptive-phrasal-verbs",
+    "pizarras": "adaptive-pizarras",
+    "b2-cloze": "b2-multiple-choice-cloze",
+    "cambridge": "adaptive-exam",
+    "keyword-speaking": "adaptive-keyword-speaking",
+    "catala": "adaptive-verbs-catala",
+    "hoti0108": "adaptive-hoti0108"
+  }
+}

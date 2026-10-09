@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.31",
-    "build": "hub-30.4.31-20261009",
+    "version": "30.4.32",
+    "build": "hub-30.4.32-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Constructor y Editor disponibles vía ChatGPT con encargos completos, borradores locales y cero API adicional.",
-      "Derivación, recarga, copia y continuación verificadas en móvil y escritorio."
+      "Ocho quizzes: solución correcta en dorado durante 1,1 s y avance automático.",
+      "Mejoras de corrección, repetición, producción y preservación del histórico, sin nuevas llamadas a modelos.",
+      "Grammar consolidado y curso original de Cambridge protegidos."
     ],
     "history": [
+      {
+        "version": "30.4.31",
+        "date": "2026-10-09",
+        "changes": [
+          "Constructor y Editor disponibles vía ChatGPT con encargos completos, borradores locales y cero API adicional.",
+          "Derivación, recarga, copia y continuación verificadas en móvil y escritorio."
+        ]
+      },
       {
         "version": "30.4.28",
         "date": "2026-10-09",
@@ -398,7 +407,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e9b709ad8a7cffa359a90f88de97c4c535c56e56cc68f10d7cbdc56f17a41792"
+          "sha256": "f87f127697617b3fbbc78f690a084f95d7d1bccdc8fe9ee351cdc74515c65a8d"
         },
         {
           "url": "version-verifier.js",
@@ -406,7 +415,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "d248fc1b507a9639c8e9faa95870ac5980cca7a486a9ec07fc7e0642ca309b08"
+          "sha256": "069f2f4bec786bb365857793f60dde8650f7dfce0fc0b425e4d26b0b13058784"
         },
         {
           "url": "styles.css",
@@ -414,54 +423,63 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "f0bf9354823188dd5922f55024e15e74e27dbe55190253cafd193d3e381d1a32"
+          "sha256": "4e5215f82292caab82621e003e3bd28388d29203ed247c227deedb73ef2b7413"
         },
         {
           "url": "build-assets.js",
-          "sha256": "bd58b632ee3932a639d5e7d04b4ba0e287facfef9e25beaec5443140d53fb674"
+          "sha256": "a5875bf2ab322c4fbe9365ee3db01803c98f4533f154e6bc1596b5e5cb89acd4"
         }
       ]
     },
-    "cacheBuild": "ec386260726a5fb5"
+    "cacheBuild": "99e6a1eb9bcd5e20"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.34.9",
-      "build": "sha256-21f37bda874d",
-      "releasedAt": "2026-10-08",
+      "version": "3.35.0",
+      "build": "sha256-b20d5c84444d",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Corrección dorada visible durante 1,1 s tras aciertos y errores; avance automático.",
+        "Selector estable, prioridad de repasos vencidos y práctica adicional identificada; banco y campaña intactos.",
+        "Sesiones conservadas y archivo detallado local antes de recortar; métricas de recuerdo separadas."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "29ec2dec3d45a3721323db501bcce383f896a3027577b73631c812d0f5037a48"
+            "sha256": "efdb398763e5b854b7a8c2430d71e7fda7b99386c18c8923fc090ac38c2ff366"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "6899e677f1c9d9ba3a1562429250c0489a6f98472a04b0115330395e3dcd3e67"
+            "sha256": "253851bf8aac826c578357aa112611e999caddaa1086a4c4738e16a115adf176"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "f5d639cca0509b057f964cbb991670a7027deffe7a412d689369dce85732138d"
+            "sha256": "07df34fa882ca14781d5740a4f755aa80fc8deb71c1a83e41338a2cd3e0a8fbf"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "b330a01a403925d70558cb07f6e5143abc377441559f9588c5415411c453b5a2"
+            "sha256": "39543d57b3aab189813e37d85db7b9292e81ffcf430f2621ec9d490d38e89f93"
           }
         ]
       },
-      "sourceCommit": "395d38c3a80ee7db2d724edd85bd99dcf61c4117",
-      "cacheBuild": "40f53d0fc236100d",
+      "sourceCommit": "3ef3b9e776c66378abb4c292c3dbe62432fd0997",
+      "cacheBuild": "eb069250de0ff1ff",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.34.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "3.34.8",
           "date": "2026-10-08",
@@ -508,40 +526,49 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.12.10",
-      "build": "sha256-578384086b95",
-      "releasedAt": "2026-10-08",
+      "version": "0.13.0",
+      "build": "sha256-66f954031ca1",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Respuesta correcta visible y avance automático a los 1,1 s.",
+        "Repaso por fechas y errores, 16 contextos adicionales en ocho verbos; IDs y progresos conservados.",
+        "Historial de sesiones sin recorte y archivo detallado local."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "2db4dbe18c1695aaf1c22554d1cb1ab46daca2135bc3b73bf6911498b624b7ae"
+            "sha256": "4c392aaecbd494605380450b746b2519780af25fd75dcf7af1aee7405843dfb2"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "f7e5b314a66d3f780188c4cb33eb2df552d8f96495479fe495dc7090681c3e49"
+            "sha256": "d11085131629df014143c1e738041036ecc671199c2d08b791f2ce8cbf4b3bee"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "5c99a6d0c08c9703c5d8760bf9cbb3b689a08bc514c50443338b17e616bbeb11"
+            "sha256": "d17b29ecac8065c73fdd031c25e3bc1bf2bd2e514e5acd60e01ad58140d2c59a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "ad2ff044c00b85fcd731cdfd518e86f8beb019cdc3cc9c601e763bf32a2a093f"
+            "sha256": "2d34c549ff7c867ee834cdef7353cbb9cbd1c8abd1dd35fe8e1a9f886c27641a"
           }
         ]
       },
-      "sourceCommit": "2da62cf8f5ae304b61ac096aaa471ae38f63361c",
-      "cacheBuild": "7a7589c6b7d46596",
+      "sourceCommit": "2fe7ec94913d23cdb09791f82e818669572b9654",
+      "cacheBuild": "094361e486ade37e",
       "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.12.10",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "0.12.9",
           "date": "2026-10-08",
@@ -596,40 +623,49 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "2.1.14",
-      "build": "sha256-c75e91b3c2fe",
-      "releasedAt": "2026-10-08",
+      "version": "2.2.0",
+      "build": "sha256-42eb1e6193cf",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Pausa de corrección también en la última pregunta y al vencer la clase.",
+        "Quiz rápido utiliza fechas; producción escrita de palabras conocidas en modo clase.",
+        "Distractores de homework revisados; histórico de sesiones conservado."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "87a26cb83d4a31363852bef5979fba2a984b58548a826955a347c13a69752ca4"
+            "sha256": "6a0fc2f27a95c322f9836247dc69d04a79dfb52e6ccd25eb5d5deb8173f6a31f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "746bde0f61ef3910a3a6f3927ca771f5528520a39c1d5a860c58bade987be2e8"
+            "sha256": "a2df47d6f30ce3de7763e0d98bb820235b12550be6d1b3d478bca4416e271d87"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "7dbb02fb013ae0faca274355f1c6638e179b5d13d572ea5af66263279ddadcad"
+            "sha256": "7a8f7e413baf7153daf78c9814093cc7676c8e6d5fabe3d71a109807b3a47fe7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "e46939aaf424e9ef1b924f5de9c1d69ab77fcf2e4974713d0c87063dc60f00f4"
+            "sha256": "6469f7dcadcde7dc2b5a6c974a76a63a58e7da3cc1af716580933d987f783931"
           }
         ]
       },
-      "sourceCommit": "0fc0b3d944597889b43b4a97a89290a209ce33ed",
-      "cacheBuild": "2a90fb2a12b0e398",
-      "sourceDirty": true,
+      "sourceCommit": "8e97076283a226ef12a6de4d11c6e3434828e000",
+      "cacheBuild": "75305b070a5e0349",
+      "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.1.14",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "2.1.12",
           "date": "2026-10-08",
@@ -675,42 +711,51 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.10.15",
-      "build": "sha256-f495962248eb",
+      "version": "1.11.0",
+      "build": "sha256-2aef72fcd430",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Corregido contador de portada: ahora calcula 2.431 tarjetas desde el banco cargado, no un texto fijo de 1.610.",
-        "El contador de cobertura y el total del resultado usan el mismo tamaño real del banco.",
-        "Sin reiniciar el progreso. Banco Cambridge Parts 1, 2 y 3 intacto."
+        "Corrección visible y producción escrita ocasional de Parts 2–3 conocidas.",
+        "Cobertura y selección por objetivo lingüístico, evitando contar el mismo enunciado/respuesta como novedad.",
+        "Contextos ambiguos manage/estimate y distractores discover revisados sin cambiar IDs ni cantidad."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "022e1ca51896d1163569ad849ddcf8819a56d896b225ff36e829eb06e3b8d2f6"
+            "sha256": "f2ffad4068fa4df96b299d6c654d2883daa3fbbdec96d0db65cdbc23d31ba078"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "0e82811271a4bc59e492d4af169e31fa97d5cfed0e0346bd1be6a4ccbf3ddf6e"
+            "sha256": "7ccd66e123fef3514c462d87764d6d7cffe698eef85c18a4031adc36b003ee5a"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "b9b4933eeb06d9f7dd3768a1ac08971eedff311b93750b69c8b113f0e647eca1"
+            "sha256": "521083ea25fe911d46a32712870f8e4ed13920343adb62baeeca4cf1cd997a36"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "ceea325dc9a35046dbad555c5669b2916b96368f0db03fe4600cbc758b65a2a9"
+            "sha256": "0ae832dda40d4a5c9d016dab3cd6fc6cf1dc007d067ba4a609bf2b989ee72a92"
           }
         ]
       },
-      "sourceCommit": "056a8306f007613a4716fc7d359ecc954c74b545",
-      "cacheBuild": "585ff7d67c678304",
+      "sourceCommit": "de94f7e207080545b1253ddbda9dc602f91696ba",
+      "cacheBuild": "1f1befb3f50c718c",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.10.15",
+          "date": "2026-10-09",
+          "changes": [
+            "Corregido contador de portada: ahora calcula 2.431 tarjetas desde el banco cargado, no un texto fijo de 1.610.",
+            "El contador de cobertura y el total del resultado usan el mismo tamaño real del banco.",
+            "Sin reiniciar el progreso. Banco Cambridge Parts 1, 2 y 3 intacto."
+          ]
+        },
         {
           "version": "1.10.12",
           "date": "2026-10-08",
@@ -757,42 +802,51 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.2.22",
-      "build": "sha256-4d334c604e6b",
+      "version": "1.3.0",
+      "build": "sha256-626018c0f9db",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Cambridge Quiz muestra Quiz por examen primero y lo selecciona al abrir, manteniendo Quiz mezclado debajo.",
-        "Tras las ocho preguntas, Siguiente examen, Repetir examen y Elegir examen aparecen arriba, sin desplazarse hasta el final.",
-        "Las estadísticas, gráficas y soluciones permanecen debajo; mismos bancos, puntuación y claves de progreso."
+        "El quiz muestra la palabra correcta en el texto durante 1,1 s; guarda la respuesta original del alumno.",
+        "Quiz mixto utiliza fechas y rendimiento reciente; gráfica sin el recorte de 30 sesiones.",
+        "Curso, escaneos, bancos y claves originales conservados byte a byte."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "09656783eac95f2240b04e5a7f722b622e78eac19abe126085a57316fa68857c"
+            "sha256": "c426869c78c2529e178793f7450032f47467632bc1eac5f5042cd394ff84451c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "36f2acd96efd2e2163c7521fd16d2dae6e7a3bdc92b46506699533414b6cc797"
+            "sha256": "d481128dfe4355d1c659c0f40c1a46519dfdec6f1f4ef425e6bb647b464532b7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "4c928fc5710286f1fa7ba97cf0ddbc1aadae06c0ea8f8408d329fd89f0fcdaaf"
+            "sha256": "db68cf9e2de4fda1ae39ead208bd60ebfcce0246a00df72ae99edbbcc6e5e0bd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "3abc1b2bc8ace995f272e8027fa34491e28f3fb27770f00bc2100768a191a07e"
+            "sha256": "7f4fadb789692c92019fce4c73eed4d76d3a6fb78ad199208e26a097a289f51a"
           }
         ]
       },
-      "sourceCommit": "d48d389372811a2b56f3f9017e84aac52f21b741",
-      "cacheBuild": "de60364ffa94fd57",
+      "sourceCommit": "614b4cbc9338bd4eada9ea4d7d9519563d29daa0",
+      "cacheBuild": "53a4d43215e16c29",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.22",
+          "date": "2026-10-09",
+          "changes": [
+            "Cambridge Quiz muestra Quiz por examen primero y lo selecciona al abrir, manteniendo Quiz mezclado debajo.",
+            "Tras las ocho preguntas, Siguiente examen, Repetir examen y Elegir examen aparecen arriba, sin desplazarse hasta el final.",
+            "Las estadísticas, gráficas y soluciones permanecen debajo; mismos bancos, puntuación y claves de progreso."
+          ]
+        },
         {
           "version": "1.2.21",
           "date": "2026-10-09",
@@ -887,40 +941,49 @@
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.0.9",
-      "build": "sha256-c239f9baf43b",
-      "releasedAt": "2026-10-08",
+      "version": "1.1.0",
+      "build": "sha256-671f60a0b651",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Corrección exacta valida palabra clave y límite antes de puntuar; retirado parcial por parecido superficial.",
+        "Variante defectuosa corregida únicamente en copia de entrenamiento.",
+        "Solución dorada y avance automático; repasos por fecha, sin reescribir resultados antiguos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "ec396c7d9a38bc3a77622f1a64131f2f23eb38c9dc41f83ee41b62dc38dfa125"
+            "sha256": "9dc281b78b759ba328541f71e3735652eb4ffd9cf901aa373c544bce7ea93111"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "4ae29004338155a2793771e6d65286ba389d1fe857392a5643cc6e6e91e712e9"
+            "sha256": "0421308064a69dec48c7e8ea2473b66f06deae27ec7f97dccbb82b1c94501c14"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "c5796c361305e9b77d2f3d68de17cea4f9587da9e27685ca7b89bd13129928f9"
+            "sha256": "b7aef2104b5ce6b153421548de4482b2149c5852a1b9bfc846ee569cd7d80ed7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "9777d8517564be502b3e835a38324595adc75833d67c6faba023888f3e1c5a72"
+            "sha256": "55a0701e3bd062cb76f618fdebc3d762e4cc4488e60c7e1c2adb33ba67d8fb5f"
           }
         ]
       },
-      "sourceCommit": "4a168bf01f7657bd68101cccc874da9d63abdfb6",
-      "cacheBuild": "e548d43fd43d9608",
+      "sourceCommit": "7c1a068fb27dc24fb00af2c4176dbf228b1a2de1",
+      "cacheBuild": "2505098638c3978b",
       "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.0.9",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "1.0.8",
           "date": "2026-10-08",
@@ -996,40 +1059,49 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.9.13",
-      "build": "sha256-876ac1baf646",
-      "releasedAt": "2026-10-08",
+      "version": "0.10.0",
+      "build": "sha256-6bdf9c7c7b16",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Respuesta correcta dorada y producción escrita ocasional de formas conocidas.",
+        "Repasos vencidos prioritarios y puntuaciones estables; nuevas categorías exigen nivel y precisión.",
+        "Formas existentes y niveles obtenidos conservados; evidencia de respuesta escrita separada."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "7c7ea27c534b82c36d44b6cea631ef030894ec546ef370702c8f939259beaa9b"
+            "sha256": "01894add81a9c397df514df133a9d7f1a6217453d6c731b3fc54ad4f926cf35a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "f8747dd69f588832bfcb5a87c784830e36a87e182bbf563f73b1e76718b71c51"
+            "sha256": "625ee6c1d91114f8ab30431de6d45376bc7d4136804c303a723ffef85a453bbb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "2a5011427c5830eea519a230b3f1348fe18ddf738433192bcb0f7d6f178c3816"
+            "sha256": "ff0122cda5f1a521583d99374dd22c373ac685d308ccedcbd947f92f58c507fa"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "8808f1f3bb02669b1b1cbde7ab90b5f44f73f24ef19b3121730eba9162652ee2"
+            "sha256": "452b711b047b0ac808b1b5b6e988218f90491e5137fc780832c94a443794db0f"
           }
         ]
       },
-      "sourceCommit": "1a7bdbb41ebc00f10edd4fb1d4a123bf03c93020",
-      "cacheBuild": "4a7f05fdb8ba356f",
+      "sourceCommit": "b4e06fef2cb06897b9a85c2162448a77ba5dcfaa",
+      "cacheBuild": "b06b51ea02b654ab",
       "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.9.13",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "0.9.12",
           "date": "2026-10-08",
@@ -1124,40 +1196,49 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.6.12-read-first",
-      "build": "sha256-d1e784191adf",
-      "releasedAt": "2026-10-08",
+      "version": "2.7.0",
+      "build": "sha256-50babad4351f",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "Corrección de referencia visible durante 1,1 s y avance automático en práctica.",
+        "Selección ponderada por vencimientos y errores; conflictos siguen sin penalizar indebidamente.",
+        "Sesiones conservadas; simulacro de 20 preguntas y bancos intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "6a84a5e1e41a37f7ed5cce784b0bf94c92faa7973a0bd2b48d1173be0e5323a3"
+            "sha256": "23ba066195ee996e417ecd2b79470d879952ac648ab5baab46709c4ffda6c003"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "20381c9b6db85ad0bbb956302e70e3f97e86bcf884b2aa62a5b7cf0d9df5873d"
+            "sha256": "e16e9b865498f4ef422863b5e83aea1b46eef01b2e11203d642cedc2dd73dc57"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "b170c047f2f4be75ef8af35c4f8e1757bfb73ac344f554fcddd1e953e5e20a99"
+            "sha256": "9632d5490efe3aae1766580bac2091a73d0f1f4d4fe29cb5a4d792138907ccf0"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "fdb14afbf1100cfa2bbfc0dd0f72e82252bfcb2dd5853d70e879016ff2cf9703"
+            "sha256": "e70a8ec2245cd248d997f76b84898adf980a8be07b2894d7a491a7e812844b26"
           }
         ]
       },
-      "sourceCommit": "95a94944b1aafff9812b317f41925f7bcc4bcdad",
-      "cacheBuild": "567a90e2d9b400c7",
+      "sourceCommit": "3c8a592f9493b2fdd46b0696c1d01a33c6cb4876",
+      "cacheBuild": "cda8d78efad260ac",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.6.12-read-first",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+          ]
+        },
         {
           "version": "2.6.11-read-first",
           "date": "2026-10-08",

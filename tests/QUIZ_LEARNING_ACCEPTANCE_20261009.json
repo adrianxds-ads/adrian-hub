@@ -1,0 +1,76 @@
+{
+  "results": [
+    {
+      "app": "adaptive-english",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "width": 390,
+      "pass": true
+    },
+    {
+      "app": "adaptive-english",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "width": 1280,
+      "pass": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "width": 1280,
+      "pass": true
+    }
+  ],
+  "protected": "all hashes match",
+  "physicalPixel": false
+}
