@@ -1,0 +1,154 @@
+/* Núcleo Editorial · propuesta aislada sobre Hub Claro
+   Mantiene lectura accesible y la identidad cromática; elimina el borde de color lateral.
+   Scope estricto: solo carcasa del Hub, no juegos, logros ni jardín.
+*/
+.hub-daylight.hub-editorial{
+  background:
+    radial-gradient(ellipse at 88% 2%,rgba(180,199,221,.16),transparent 35%),
+    #EAF0F5;
+}
+.hub-editorial .shell{max-width:810px}
+.hub-editorial .hero{margin-bottom:28px}
+.hub-editorial .mark{
+  border-radius:18px;
+  background:#254F66;
+  box-shadow:0 5px 15px rgba(38,73,93,.13);
+}
+.hub-editorial h1{
+  color:#1D3441;
+  font-weight:850;
+  letter-spacing:-.044em;
+}
+.hub-editorial .intro{color:#455A68;max-width:36ch}
+.hub-editorial .eyebrow{font-size:15px!important;letter-spacing:.09em;color:#4A6778}
+.hub-editorial .group{margin-bottom:37px}
+.hub-editorial .group h2{
+  font-size:21px;letter-spacing:-.015em;text-transform:none;
+  font-weight:850;color:#263E4E;margin-bottom:14px;
+}
+.hub-editorial .apps{gap:14px}
+.hub-editorial .app{
+  border:1px solid color-mix(in srgb,var(--tile-ink) 27%,#D6DFE7);
+  border-left:1px solid color-mix(in srgb,var(--tile-ink) 27%,#D6DFE7);
+  border-radius:20px;
+  background:linear-gradient(
+    120deg,
+    color-mix(in srgb,var(--tile-tint) 76%,#FFFFFF),
+    color-mix(in srgb,var(--tile-tint) 55%,#FFFFFF) 61%,
+    #FFFFFF 120%
+  );
+  box-shadow:0 5px 16px rgba(39,64,83,.065),inset 0 1px rgba(255,255,255,.83);
+  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
+}
+.hub-editorial .app:hover{
+  filter:none;
+  border-color:color-mix(in srgb,var(--tile-ink) 38%,#D6DFE7);
+  box-shadow:0 7px 20px rgba(39,64,83,.10),inset 0 1px rgba(255,255,255,.9);
+}
+.hub-editorial .app:active{transform:scale(.994)}
+.hub-editorial .app-launch{
+  grid-template-columns:57px minmax(0,1fr);
+  gap:16px;
+  min-height:116px;
+  padding:20px 73px 20px 18px;
+}
+.hub-editorial .app-launch:hover,.hub-editorial .app-launch:focus-visible{
+  background:rgba(255,255,255,.13);
+}
+.hub-editorial .glyph,
+.hub-editorial .app-launch .glyph{
+  width:57px;height:57px;
+  border-radius:18px 9px 18px 9px;
+  background:color-mix(in srgb,var(--tile-tint) 49%,#FFFFFF);
+  border:1px solid color-mix(in srgb,var(--tile-ink) 24%,#E7ECF0);
+  color:var(--tile-ink);
+  box-shadow:none;
+  font-size:20px;font-weight:950;letter-spacing:-.04em;
+}
+.hub-editorial .app-copy strong{
+  font-size:22px;
+  font-weight:850;
+  line-height:1.22;
+  letter-spacing:-.025em;
+  color:#1B2E3C;
+}
+.hub-editorial .app-copy small{
+  color:#405462;
+  line-height:1.42;
+  font-size:16px;
+  margin-top:5px;
+  font-weight:500;
+}
+.hub-editorial .go{display:none}
+.hub-editorial .app-info{
+  top:50%;right:13px;
+  border-radius:50%;
+  width:52px;height:52px;
+  border:0;
+  background:transparent;
+  color:transparent;
+  font-size:0!important;
+  box-shadow:none;
+}
+.hub-editorial .app-info::before{
+  content:"i";
+  position:absolute;inset:10px;
+  display:grid;place-items:center;
+  border:1px solid color-mix(in srgb,var(--tile-ink) 35%,#C9D6DD);
+  background:rgba(255,255,255,.65);
+  color:var(--tile-ink);
+  border-radius:50%;
+  font:italic 700 17px/1 Georgia,serif;
+  transition:background .15s,color .15s;
+}
+.hub-editorial .app-info:hover,.hub-editorial .app-info:focus-visible{background:transparent}
+.hub-editorial .app-info:hover::before,.hub-editorial .app-info:focus-visible::before{
+  background:var(--tile-ink);color:#FFFFFF;
+}
+.hub-editorial .app-version-chip{
+  display:inline-block!important;
+  width:fit-content;
+  padding:0!important;
+  margin-top:8px!important;
+  background:transparent!important;
+  border:none!important;
+  border-radius:0;
+  color:#566A76!important;
+  font-size:16px!important;
+  line-height:1.35!important;
+  font-weight:650!important;
+  letter-spacing:0!important;
+}
+.hub-editorial .app-gold-chip{
+  font-size:16px;color:#815E1B;
+}
+.hub-editorial .app-task-chip{
+  border-radius:10px;
+  background:rgba(255,255,255,.45);
+  border:1px solid #A8BEA2;
+  color:#3D6448;
+}
+.hub-editorial .hub-chat-panel{
+  border-radius:19px;
+  background:#F9FCFD;
+  border:1px solid #C3D3DF;
+  box-shadow:0 4px 13px rgba(39,64,83,.04);
+}
+.hub-editorial .hub-secondary{border-top:1px solid #D1DEE7}
+.hub-editorial #search{
+  border-radius:17px;
+  border:1px solid #A9C0CF;
+  box-shadow:0 3px 10px rgba(39,64,83,.04);
+}
+.hub-editorial .version-center{
+  border-radius:21px;border-color:#CAD8E1;
+  background:#F9FCFD;
+  box-shadow:0 4px 14px rgba(39,64,83,.05);
+}
+@media(max-width:560px){
+  .hub-editorial .app-launch{gap:13px;padding:18px 74px 18px 15px;min-height:112px}
+  .hub-editorial .app-launch .glyph{width:54px;height:54px}
+  .hub-editorial .app-info{right:11px}
+  .hub-editorial .app-copy strong{font-size:22px}
+  .hub-editorial .group h2{font-size:21px}
+}
