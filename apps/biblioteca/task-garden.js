@@ -22,5 +22,5 @@ window.addEventListener('storage',e=>{
  if(!stage.hidden&&(!e.key||/garden|stars|progress/i.test(e.key)))refresh();
 });
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!stage.hidden)refresh();});
-window.addEventListener('adrian-sync-applied',()=>{if(!stage.hidden)refresh();});
+['adrian-sync-applied','adrian-sync-updated'].forEach(e=>window.addEventListener(e,()=>{if(!stage.hidden)refresh();}));
 })();

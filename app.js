@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.35';
-const HUB_BUILD='hub-30.4.35-20261009';
+const HUB_VERSION='30.4.36';
+const HUB_BUILD='hub-30.4.36-20261009';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -91,16 +91,13 @@ function taskProgress(){
  return{completed,medals:Math.floor(completed/15),progress:completed%15};
 }
 function renderTaskMedals(){
- const x=taskProgress(),el=document.querySelector('#gardenTaskMedals');
- if(el){
-  el.textContent='🦖 '+x.completed+' bloques · 🏅 '+x.medals+' · siguiente: '+x.progress+'/15';
-  el.setAttribute('aria-label',x.completed+' bloques completados, '+x.medals+' medallas de constancia, '+x.progress+' de 15 hacia la siguiente');
- }
+ const x=window.CottageGarden?.progress()||{completedBlocks:taskProgress().completed};
+ window.CottageGarden?.refresh();
  const card=document.querySelector('[data-id="biblioteca"] .app-copy');
  if(card){
   let chip=card.querySelector('.app-task-chip');
   if(!chip){chip=document.createElement('span');chip.className='app-task-chip';card.appendChild(chip)}
-  chip.textContent='🦖 '+x.completed+' bloques · 🏅 '+x.medals;
+  chip.textContent='🌱 '+x.completedBlocks+' bloques · jardín de la casita';
  }
 }
 

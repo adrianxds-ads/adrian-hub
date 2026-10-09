@@ -60,10 +60,10 @@
     <div><strong id="taskTotal">0</strong><span>Bloques completos</span></div>
     <div><strong id="taskMinutes">0 h 0 min</strong><span>Tiempo acumulado</span></div>
   </div>
-  <section class="task-medal-progress" aria-label="Recompensas de constancia">
-    <div class="task-medal-top"><span>🏅 <strong id="taskMedals">0</strong> medallas de constancia</span><span id="taskMedalFraction">0/15</span></div>
-    <progress id="taskMedalBar" max="15" value="0" aria-label="Bloques hacia la siguiente medalla"></progress>
-    <div class="task-medal-bottom"><span id="taskUniqueCount">0 episodios utilizados para tareas</span><small>Una medalla cada 15 bloques completos · sin mezclar oros de Adaptive</small></div>
+  <section class="task-medal-progress" aria-label="Jardín de la casita">
+    <div class="task-medal-top"><span>🏡 Jardín de la casita</span><span id="taskMedalFraction" data-cottage-progress>0 / 5.000 detalles</span></div>
+    <progress id="taskMedalBar" max="5000" value="0" aria-label="Crecimiento del jardín hacia 5.000 bloques"></progress>
+    <div class="task-medal-bottom"><span id="taskUniqueCount">0 episodios utilizados para tareas</span><small>Cada bloque terminado añade un brote, una hoja o una flor.</small></div>
   </section>
   <button id="taskStatsToggle" class="task-stats-toggle" type="button" aria-expanded="false">📈 Ver estadísticas e historial</button>
   <div id="taskStatsDetails" class="task-stats-details" hidden>
@@ -118,6 +118,7 @@
 <script src="./app.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.2.0"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/github-garden.js?v=7"></script>
+<script src="../../garden-cottage.js?v=1.0.0"></script>
 <script src="./task-garden.js"></script>
 <script src="./mode-tarea.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10"></script>

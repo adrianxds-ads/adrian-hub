@@ -4,15 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.35",
-    "build": "hub-30.4.35-20261009",
+    "version": "30.4.36",
+    "build": "hub-30.4.36-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Perfil Núcleo Visual: Roboto y escala de lectura accesible de Adrián Core, con texto base de 19 px.",
-      "Tarjetas, etiquetas y fichas informativas más legibles; fondo gris azulado aplicado a las fichas de lectura.",
-      "Plantilla compartida para migración progresiva de apps sin modificar juegos ni progreso."
+      "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
+      "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
     ],
     "history": [
+      {
+        "version": "30.4.35",
+        "date": "2026-10-09",
+        "changes": [
+          "Perfil Núcleo Visual: Roboto y escala de lectura accesible de Adrián Core, con texto base de 19 px.",
+          "Tarjetas, etiquetas y fichas informativas más legibles; fondo gris azulado aplicado a las fichas de lectura.",
+          "Plantilla compartida para migración progresiva de apps sin modificar juegos ni progreso."
+        ]
+      },
       {
         "version": "30.4.34",
         "date": "2026-10-09",
@@ -423,7 +431,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e25b774c8b282bc0bb575c2da8e6d0539e470de40c56ea98de04d92c3048ba4a"
+          "sha256": "9b254f99ce9fde008441571246f7e8e8c7a978aae65079f51768599748b1e59c"
         },
         {
           "url": "version-verifier.js",
@@ -431,7 +439,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "43c1f7fd78b7e5cc06a2805f73457af6a192640f02b798c23ea71671fd95891b"
+          "sha256": "23ad9b932ca6f005a26395afc90d8f197e91334b7c32dbb9dcbd2345af6a82ff"
         },
         {
           "url": "styles.css",
@@ -439,15 +447,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "87cc24759b9b184fa1ac02952fab01c862f34cc23667be6636e6d2110887db6a"
+          "sha256": "36d06459130193d8191a74245d9b98dd6f5653832902e75ada401fed519cf08f"
         },
         {
           "url": "build-assets.js",
-          "sha256": "6f61511f1bbaebd06c44bab5152d0ac1d3e19025e8f9679528d0c7033f3ac00e"
+          "sha256": "268e5162aff70f6a43dab28beab4f1b1b8e06cbc12c6e6543d365d164579dad4"
         }
       ]
     },
-    "cacheBuild": "50360070d5171b2e"
+    "cacheBuild": "c4392ab63a3c7923"
   },
   "apps": [
     {
@@ -1202,18 +1210,19 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.4.0",
-      "build": "sha256-34d4a82364b5",
+      "version": "0.5.0",
+      "build": "sha256-bab3714dc47f",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Rex recorre el jardín GitHub compartido, con árboles, estrellas y luz de la misma hora."
+        "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
+        "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "4ffef7c63134e188c2afb4fb7c8720c5460c567f149f0e90d50e622f8b37bf30"
+            "sha256": "0e9d82d37e9df4afc9deb944cc8a331e44fb44dce25ff484c69d4e81033393d1"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1226,6 +1235,13 @@
         ]
       },
       "history": [
+        {
+          "version": "0.4.0",
+          "date": "2026-10-09",
+          "changes": [
+            "Rex recorre el jardín GitHub compartido, con árboles, estrellas y luz de la misma hora."
+          ]
+        },
         {
           "version": "0.4.2",
           "date": "2026-10-09",

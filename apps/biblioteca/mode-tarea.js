@@ -12,7 +12,7 @@ let state=parse(LIVE,{active:null,breakEnd:null,chain:null,queue:null,plan:null}
 if(!state.plan&&!state.active&&state.breakEnd){state.breakEnd=null;state.queue=null;state.chain=null;try{localStorage.setItem(LIVE,JSON.stringify(state))}catch{}}
 const logs=()=>{const rows=parse(KEY,[]);return Array.isArray(rows)?rows:[]};
 const save=()=>{try{localStorage.setItem(LIVE,JSON.stringify(state))}catch(e){console.error('Task live save',e)}};
-const saveLogs=arr=>{try{localStorage.setItem(KEY,JSON.stringify(arr));return true}catch(e){console.error('Task history save',e);return false}};
+const saveLogs=arr=>{try{localStorage.setItem(KEY,JSON.stringify(arr));window.dispatchEvent(new Event('podcast-task-history-updated'));return true}catch(e){console.error('Task history save',e);return false}};
 // Explicit recovery requested after the two Oct-9 cleaning sessions. This must not invent
 // attempts for other podcasts, duplicate completed entries, or overwrite earlier notes.
 const RECOVERY_MARK='adrianEasyCatalan20261009ReconciliationV1';
@@ -300,9 +300,9 @@ function renderStats(){
  els.total.textContent=done.length;
  const unique=new Set(done.map(x=>Number(x.episodeNumber)));
  const completed=done.length;
- els.medals.textContent=String(Math.floor(completed/15));
- els.medalFraction.textContent=(completed%15)+'/15';
- els.medalBar.value=completed%15;
+ window.CottageGarden?.refresh();
+ els.medalFraction.textContent=completed+' bloques · '+Math.min(5000,completed)+' / 5.000 detalles';
+ els.medalBar.value=Math.min(5000,completed);
  els.uniqueCount.textContent=unique.size+' '+(unique.size===1?'episodio utilizado':'episodios utilizados')+' para tareas';
  const secs=done.reduce((sum,x)=>sum+(Number(x.seconds)||0),0);
  els.minutes.textContent=Math.floor(secs/3600)+' h '+Math.floor((secs%3600)/60)+' min';

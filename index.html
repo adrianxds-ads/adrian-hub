@@ -6,17 +6,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d1518">
-<meta name="hub-version" content="30.4.35">
-<title>Adrián Hub · v30.4.35</title>
+<meta name="hub-version" content="30.4.36">
+<title>Adrián Hub · v30.4.36</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-visual-profile.css?v=1">
-<link rel="stylesheet" href="./styles.css?v=30.4.35">
+<link rel="stylesheet" href="./styles.css?v=30.4.36">
 <style id="mobile-viewport-containment">html,body{overflow-x:clip}</style>
 <script id="hub-sw-bootstrap">
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js?v=30.4.35',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js?v=30.4.36',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
 </script>
 </head>
 <body class="nucleo-readable">
@@ -26,7 +26,7 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-wor
 <div id="groups"></div>
 <section class="hub-secondary" aria-label="Herramientas secundarias">
 <section class="hub-chat-panel ad-card"><div class="hub-chat-copy"><span>CHATGPT · PROYECTO HUB</span><b>Acceso y enlace del proyecto</b><small id="chatgptHubLinkStatus">Comprobando enlace…</small></div><div class="hub-chat-actions"><button id="openChatgptHubBtn" class="ad-button hub-chat-primary" type="button">ABRIR CHATGPT · HUB</button><button id="setChatgptHubUrlBtn" class="ad-button" type="button">VINCULAR PROYECTO</button><button id="copyHubTechBtn" class="ad-button" type="button">COPIAR JSON TÉCNICO</button></div></section>
-<section class="garden-shell"><div class="garden-intro"><span>JUEGO VISUAL</span><b>Jardín GitHub</b><small>Tu ecosistema va creciendo poco a poco.</small><span id="gardenTaskMedals" class="garden-task-medals" aria-live="polite">🦖 Bloques · 0/15 · 🏅 0</span></div><div id="githubGarden" data-adrian-garden data-mode="overview" data-navigate="true"></div></section>
+<section class="garden-shell"><div class="garden-intro"><span>JUEGO VISUAL</span><b>Jardín GitHub</b><small>Tu ecosistema va creciendo poco a poco.</small><span id="gardenTaskMedals" class="garden-task-medals cottage-progress" data-cottage-progress aria-live="polite">0 / 5.000 detalles</span></div><div id="githubGarden" data-adrian-garden data-mode="overview" data-navigate="true"></div></section>
 </section>
 <section class="version-center ad-card" id="versionCenter" aria-labelledby="versionCenterTitle">
   <div class="version-center-head"><div><span>VERSION CENTER · HUB 30</span><h2 id="versionCenterTitle">Actualizaciones</h2><p>Comprueba qué está publicado y qué copia tiene este dispositivo. Tu progreso no se borra al actualizar.</p></div></div>
@@ -34,9 +34,9 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-wor
   <div class="update-actions"><button id="verifyVersionsBtn" class="ad-button" type="button">BUSCAR ACTUALIZACIONES</button><button id="updateAllVersionsBtn" class="ad-button update-all" type="button">ACTUALIZAR TODO</button></div>
   <div class="update-progress"><progress id="updateProgressBar" max="7" value="0" hidden></progress><small id="updateProgressLabel"></small><small id="lastUpdateLabel">Todavía no has usado ACTUALIZAR TODO</small></div>
   <div id="versionList" class="version-list"></div>
-  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.4.35</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
+  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.4.36</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
 </section>
-<footer><span>Core</span><strong id="coreStatus">Hub v30.4.35 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
+<footer><span>Core</span><strong id="coreStatus">Hub v30.4.36 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
 </main>
 <dialog id="appInfoDialog" class="app-info-dialog" aria-labelledby="appInfoTitle"><div class="app-info-shell"><button id="appInfoClose" class="app-info-close" type="button" aria-label="Cerrar información">×</button><p class="app-info-kicker">CONOCE ESTA APLICACIÓN</p><h2 id="appInfoTitle"></h2><p id="appInfoDescription"></p><h3>Qué encontrarás</h3><ul id="appInfoFeatures"></ul><a id="appInfoOpen" class="app-info-open" href="#">Abrir aplicación ↗</a></div></dialog>
 <dialog id="versionDialog" class="version-dialog"><div class="version-dialog-shell"><button id="versionDialogClose" class="version-dialog-close" type="button" aria-label="Cerrar">×</button><div id="versionDialogBody"></div></div></dialog>
@@ -45,7 +45,8 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-wor
 <script src="https://adrianxds-ads.github.io/adrian-core/components/github-garden.js?v=7"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=stars3"></script>
 <script src="./version-verifier.js"></script>
-<script src="./app.js?v=30.4.35"></script>
+<script src="./garden-cottage.js?v=1.0.0"></script>
+<script src="./app.js?v=30.4.36"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
 
 </body>
