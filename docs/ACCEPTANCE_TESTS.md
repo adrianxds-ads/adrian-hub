@@ -46,3 +46,15 @@ Record: date, tested version/build, device/browser, test result, failure notes, 
 - Un informe de éxito requiere regresión aprobada después del último cambio; toda escritura invalida la prueba anterior. Nexo recoge informe y diff y vuelve a comprobar la identidad del run.
 - Tests sin gasto: test_nexo_repair.py (guardas, deduplicación, pruebas fallidas/obsoletas), test_nexo_bridge_repair.py (servicio automático) y test_nexo_mission.py (390/1280, recarga, ruta automática, informe parcial, fallo final, contenido escapado).
 - Limitación real: la última auditoría de Keyboard Speak sigue siendo parcial; este despliegue habilita la ruta, no demuestra una reparación de la app ni pruebas del teclado físico de Android.
+
+
+## Nexo: trabajo simultáneo y continuidad · 2026-10-09 · Agent Center 1.3.0
+Estado verificado:
+- Ciclo real Auditor → Reparador → regresión: audit 20261009-141652-opus-977500 ($0.189184), repair 20261009-141724-291500 ($0.309188), total $0.498372. Informe final y tests exit 0; no fallo reproducido, ningún archivo cambiado, sin publicación de Keyboard Speak.
+- Ese ciclo usó la antigua base 1.0.4. Al observar Pixel/publicación 1.0.9 se sincronizó el checkout del Auditor a 057c9f5 y se creó una nueva base limpia keyboard-speak-baseline-20261009-nexo. Regresión de la nueva base aprobada a 360/390/412/1280. Nunca se extrapola el diagnóstico de la base antigua a la versión actual.
+- /agents/nexo/mission y /agents/nexo/context componen la misión desde snapshots e informes existentes y recuperan el vínculo del ledger. Son consultas, sin llamadas al modelo. Dos navegadores nuevos 390/1280 recuperan mismo run, fase, costes e informes y persisten tras recargar.
+- Copiar resultado y Continuar en ChatGPT conservan la petición y el resultado asociado. El pegado en ChatGPT sigue siendo una acción del usuario; no hay memoria conversacional sincronizada ni inyección automática en un chat.
+- Los resultados con regresión aprobada y diff vacío aparecen como sin fallo reproducido/pruebas aprobadas, no como parche generado.
+- specialist_contracts.json define alcance, entradas, salidas y límites. Tester ejecuta regresión dentro del Reparador; Constructor y Editor están preparados pero sin ejecutor activo. Cambridge tiene auditoría; reparación automática pendiente de regresión específica.
+- Pixel físico: app pública 1.0.9 abierta y árbol de accesibilidad leído; Chrome informa soporte de micrófono. No se logró completar enfoque/teclado: retorno a ChatGPT y timeout de uiautomator tras 8 s. Teclado físico y dictado real siguen pendientes; no se puntuó una respuesta ni se completó sesión.
+Siguiente trabajo: prueba física breve de teclado/micrófono, ejecutores concretos de Constructor/Editor y regresión de Cambridge. Mantener las nuevas funciones compartidas y conservar la revisión previa a publicación.

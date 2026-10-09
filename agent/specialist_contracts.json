@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "roles": {
+    "constructor": {
+      "active": false,
+      "prepared": true,
+      "scope": "new isolated git checkout",
+      "requires": [
+        "explicit application brief",
+        "allowed file list",
+        "trusted acceptance script"
+      ],
+      "outputs": [
+        "reviewable diff",
+        "passing final tests",
+        "Spanish limitations report"
+      ],
+      "forbidden": [
+        "publish",
+        "credentials",
+        "modify another project",
+        "alter trusted tests"
+      ]
+    },
+    "editor": {
+      "active": false,
+      "prepared": true,
+      "scope": "copy of a user-selected document",
+      "requires": [
+        "source document",
+        "editing brief",
+        "style reference when applicable"
+      ],
+      "outputs": [
+        "reviewable changes",
+        "preserved document structure",
+        "final render verification"
+      ],
+      "forbidden": [
+        "send messages",
+        "overwrite original without instruction",
+        "invent facts"
+      ]
+    },
+    "tester": {
+      "active": true,
+      "independent": false,
+      "scope": "trusted regression in isolated repair",
+      "requires": [
+        "matching target",
+        "trusted external tests"
+      ],
+      "outputs": [
+        "test exit code",
+        "real test log",
+        "device limits"
+      ],
+      "forbidden": [
+        "rewrite tests to pass",
+        "claim physical-device results from headless"
+      ]
+    }
+  },
+  "targets": {
+    "adaptive-keyword-speaking": {
+      "audit": true,
+      "repair": true,
+      "test": "test_keyboard_ui.py",
+      "publish": false
+    },
+    "adaptive-exam": {
+      "audit": true,
+      "repair": false,
+      "reason": "Requires a trusted target-specific regression and isolated executor configuration"
+    }
+  },
+  "execution_policy": "Prepared roles cannot execute until their concrete required inputs and executor are configured"
+}

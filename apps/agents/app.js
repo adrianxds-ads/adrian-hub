@@ -217,8 +217,10 @@ refreshNucleo();
 document.querySelector('#nexoChat').addEventListener('click',async()=>{
  const mission=document.querySelector('#triageRequest').value.trim();
  const note=document.querySelector('#nexoHandoff');
- if(mission){
-  try{await navigator.clipboard.writeText(mission);note.textContent='Misión copiada. Pégala en nuestra conversación de ChatGPT.';}
+ let context=mission;
+ try{const shared=await request('/nexo/context');if(shared.mission&&shared.context&&(!mission||mission===shared.mission.request))context=shared.context;}catch{}
+ if(context){
+  try{await navigator.clipboard.writeText(context);note.textContent='Contexto copiado. Pégalo en nuestra conversación de ChatGPT.';}
   catch{note.textContent='No se pudo copiar. Selecciona y copia la misión antes de continuar.';document.querySelector('#triageRequest').focus();document.querySelector('#triageRequest').select();return;}
  }
  location.assign('https://adrianxds-ads.github.io/adrian-hub/chatgpt.html');
@@ -227,7 +229,7 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
 /* Nexo mission tracking: resumes observation, never automatically repeats a paid run. */
 (()=>{
  const KEY='nexo-mission-v1';let mission=null,timer=0,starting=false,polling=false;
- try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.schema===1&&typeof v.runId==='string'&&typeof v.request==='string'&&['running','complete','partial','preflight','failed','superseded','repairing','repaired','repair_failed'].includes(v.phase))mission=v;}catch{}
+ try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v?.schema===1&&typeof v.runId==='string'&&typeof v.request==='string'&&['running','complete','partial','preflight','failed','superseded','repairing','repaired','repair_failed','verified'].includes(v.phase))mission=v;}catch{}
  const q=s=>document.querySelector(s);
  function persist(){try{localStorage.setItem(KEY,JSON.stringify(mission));}catch{q('#nexoMissionNote').textContent='No se pudo guardar el seguimiento en este navegador.';}}
  function canRepair(){return mission?.phase==='complete'&&!!mission?.report&&/keyboard speak|adaptive-keyword-speaking/i.test(mission.request);}
@@ -235,11 +237,11 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
   q('#nexoRun').disabled=starting||['running','repairing'].includes(mission?.phase);
   q('#nexoRecover').disabled=starting||polling;
   q('#nexoMissionRequest').textContent=mission?.request||'Todavía no hay una ejecución vinculada.';
-  q('#nexoMissionState').textContent=({running:'AUDITOR TRABAJANDO',complete:'INFORME PARA REVISAR',partial:'INFORME PARCIAL · RUTA DETENIDA',preflight:'COMPROBACIÓN SIN GASTO',failed:'EJECUCIÓN FALLIDA',superseded:'OTRA EJECUCIÓN EN EL SERVICIO',repairing:'REPARADOR TRABAJANDO',repaired:'PARCHE VERIFICADO · PENDIENTE DE REVISIÓN',repair_failed:'REPARACIÓN DETENIDA'})[mission?.phase]||'SIN EJECUCIÓN';
+  q('#nexoMissionState').textContent=({running:'AUDITOR TRABAJANDO',complete:'INFORME PARA REVISAR',partial:'INFORME PARCIAL · RUTA DETENIDA',preflight:'COMPROBACIÓN SIN GASTO',failed:'EJECUCIÓN FALLIDA',superseded:'OTRA EJECUCIÓN EN EL SERVICIO',repairing:'REPARADOR TRABAJANDO',repaired:'PARCHE VERIFICADO · PENDIENTE DE REVISIÓN',repair_failed:'REPARACIÓN DETENIDA',verified:'SIN FALLO REPRODUCIDO · PRUEBAS APROBADAS'})[mission?.phase]||'SIN EJECUCIÓN';
   q('#nexoMissionMeta').textContent=mission?'Auditor · '+mission.runId+' · coste '+(Number.isFinite(mission.cost)?money(mission.cost):'pendiente')+(mission.repairRunId?' · Reparador '+mission.repairRunId+' · coste '+(Number.isFinite(mission.repairCost)?money(mission.repairCost):'pendiente'):''):'';
   q('#nexoMissionReport').textContent=mission?.repairReport||mission?.report||'El resultado aparecerá aquí al terminar.';
   q('#nexoMissionRepair').disabled=!canRepair();
-  q('#nexoMissionNote').textContent=mission?.note||'El Auditor continúa en el PC al cerrar el panel. El seguimiento se recupera en este navegador; el parche se verifica en una copia aislada.';
+  q('#nexoMissionNote').textContent=mission?.note||'El Auditor continúa en el PC al cerrar el panel. La misión se recupera desde el PC; el parche se verifica en una copia aislada.';
  }
  function schedule(){clearTimeout(timer);if(['running','repairing'].includes(mission?.phase))timer=setTimeout(poll,2500);}
  async function collect(state){
@@ -291,6 +293,7 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
  q('#nexoRecover').addEventListener('click',async()=>{
   if(starting||polling)return;polling=true;paint();
   try{
+   if(await recoverShared())return;
    if(mission?.repairRunId){mission.phase='repairing';await collectRepair();return;}
    const state=(await request('/status')).agent;
    if(!state?.run_id){showToast('No hay una ejecución del Auditor para recuperar.');return;}
@@ -324,11 +327,36 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
     const report=await request('/repair/report');
     const fresh=(await request('/repair/status')).repair;
     if(fresh.run_id!==mission.repairRunId||!report.available||!report.content){mission.phase='repair_failed';mission.note='No se pudo vincular el informe al parche.';}
-    else{mission.phase='repaired';mission.repairReport=report.content+'\n\nDIFF\n'+(report.diff_stat||'Sin cambios');mission.note='Pruebas aprobadas. Copia aislada: '+state.checkout+'. Revisamos el parche antes de publicarlo.';}
+    else{mission.phase=report.diff_stat?.trim()?'repaired':'verified';mission.repairReport=report.content+'\n\nDIFF\n'+(report.diff_stat||'Sin cambios');mission.note=(mission.phase==='verified'?'No se modificaron archivos; pruebas aprobadas. Copia aislada: ':'Pruebas aprobadas. Copia aislada: ')+state.checkout+'. Revisamos el parche antes de publicarlo.';}
    }
   }
   persist();paint();
  }
+ async function recoverShared(){
+  try{
+   const d=await request('/nexo/mission'),v=d.mission;
+   if(d.specialist_contracts){
+    const roles=d.specialist_contracts.roles||{},targets=d.specialist_contracts.targets||{};
+    q('#nexoCapabilities').textContent='Auditor: disponible. Reparador y regresión: Keyboard Speak. Constructor: '+(roles.constructor?.prepared?'contrato preparado; ejecutor pendiente':'pendiente')+'. Editor: '+(roles.editor?.prepared?'contrato preparado; ejecutor pendiente':'pendiente')+'. Cambridge: '+(targets['adaptive-exam']?.audit?'auditoría disponible; reparación pendiente de su regresión propia':'pendiente')+'.';
+   }
+   if(!v?.runId||v.schema!==1)return false;
+   if(mission&&mission.runId!==v.runId&&!confirm('El PC tiene otra misión. ¿Recuperarla en este navegador?'))return true;
+   mission=v;persist();paint();schedule();
+   q('#nexoSharedNote').textContent='Misión recuperada del PC. Mismo identificador y resultado en cada navegador; esta consulta no consume API.';
+   return true;
+  }catch{return false;}
+ }
+ q('#nexoMissionContext').addEventListener('click',async()=>{
+  const button=q('#nexoMissionContext');button.disabled=true;
+  try{
+   const d=await request('/nexo/context');
+   if(!d.mission||!d.context){showToast('No hay una misión compartida para transferir.');return;}
+   await navigator.clipboard.writeText(d.context);
+   q('#nexoHandoff').textContent='Petición, identificadores, costes e informes copiados. Pégalos en nuestra conversación; la memoria de ChatGPT no se sincroniza automáticamente.';
+   showToast('Resultado y continuidad copiados para nuestra conversación.');
+  }catch(e){showToast('No se pudo copiar el resultado: '+e.message);}
+  finally{button.disabled=false;}
+ });
  q('#nexoMissionRepair').addEventListener('click',()=>startRepair());
- paint();if(['running','repairing'].includes(mission?.phase))poll();
+ paint();if(!mission)recoverShared();else if(['running','repairing'].includes(mission?.phase))poll();
 })();

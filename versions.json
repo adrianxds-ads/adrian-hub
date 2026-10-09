@@ -1,18 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-08T15:11:26.604911+00:00",
+  "generatedAt": "2026-10-09T12:28:40.361259+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.27",
-    "build": "hub-30.4.27-20261009",
+    "version": "30.4.28",
+    "build": "hub-30.4.28-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
-      "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
-      "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
+      "Nexo recupera una misión compartida desde el PC en navegadores nuevos y conserva su resultado al pasar al chat.",
+      "Distingue una regresión aprobada sin cambios de un parche verificado; contratos de especialistas y límites de aplicación visibles."
     ],
     "history": [
+      {
+        "version": "30.4.27",
+        "date": "2026-10-09",
+        "changes": [
+          "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
+          "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
+          "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
+        ]
+      },
       {
         "version": "30.4.26",
         "date": "2026-10-09",
@@ -382,7 +390,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e39c3367c99edc7657ad036880514cb57e3a9f40bf196319450849477d2e959f"
+          "sha256": "170d7b60452bee6a0837d5ba8f4dea290fbc8ea815cd1722bd6a14a8c9ef2215"
         },
         {
           "url": "version-verifier.js",
@@ -390,7 +398,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "12c65b7bc2573f1a0a338c711b9fd701eff6dee0aa9f794253cb72358c309ff0"
+          "sha256": "13dbc9091afb603108e543e8d657ddec0ed1939467e2481d21a3a7942bff4a8d"
         },
         {
           "url": "styles.css",
@@ -398,15 +406,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "242aecd25333774de5486837c96f77644edebb95e032585d196f8aca8aa0e376"
+          "sha256": "1ded7cb4642a96991e59ce67c5aa27f6d90fdd752884db9e5311400bcf3d5e27"
         },
         {
           "url": "build-assets.js",
-          "sha256": "77e3b031e7204093e6c8ed8177e75f7133c0bee217f54df9d89ff2f97ccf2b94"
+          "sha256": "ad0376607075bea5cde7973245c6c12ccb8b6ed8f37b1351c6cba40cdd9339d0"
         }
       ]
     },
-    "cacheBuild": "2d33411c47843b97"
+    "cacheBuild": "0465635feaef904e"
   },
   "apps": [
     {
@@ -1313,23 +1321,23 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "version": "1.2.0",
-      "build": "sha256-1552178f21e0",
-      "releasedAt": "2026-10-08",
+      "version": "1.3.0",
+      "build": "sha256-b968349147fd",
+      "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Reparación automática opcional tras el Auditor; ejecución y seguimiento sin duplicados.",
-        "Parche aislado, pruebas finales obligatorias y publicación pendiente de revisión."
+        "Nexo recupera una misión compartida desde el PC en navegadores nuevos y conserva su resultado al pasar al chat.",
+        "Distingue una regresión aprobada sin cambios de un parche verificado; contratos de especialistas y límites de aplicación visibles."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "e42eae5ea57db49c2e87f3384691cd98eb0bf57fc115a25d454f0a3b069b4c9f"
+            "sha256": "55f4dc32d4b7fa5e4b955feb0a0d2b3fbedee21b4554f3194da6820fe66dc917"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "d89722101616bfb849c440856fa124c19a166dfc369e4fdd1de7cf69a5d8351c"
+            "sha256": "7013242fd6b90c43fbf5c210c54f5dbaa1636887f63a865d6fed3be7417f47fb"
           },
           {
             "url": "./apps/agents/styles.css",
