@@ -402,11 +402,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "13116f2c8921055ea3e88dd3a113eee95ddafee6510ee66df55ec2140572e5f6"
+          "sha256": "77e3b031e7204093e6c8ed8177e75f7133c0bee217f54df9d89ff2f97ccf2b94"
         }
       ]
     },
-    "cacheBuild": "4c571476aee7b283"
+    "cacheBuild": "2d33411c47843b97"
   },
   "apps": [
     {
@@ -659,22 +659,23 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.10.13",
-      "build": "sha256-bc4088213193",
-      "releasedAt": "2026-10-08",
+      "version": "1.10.14",
+      "build": "sha256-641596beec5d",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación."
+        "821 tarjetas nuevas basadas en 480 huecos reales de Cambridge Parts 2 y 3; banco ampliado a 2.431.",
+        "Rondas adaptativas con representación de Parts 1, 2 y 3; progresos anteriores preservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "44e6625d1a061d963323838ea57b92ebb0406efe2c50adc1035323c1ea425343"
+            "sha256": "5dfb962966481697dbfe876565294da0d8cafc56a407f8630313c9630f2ddb04"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "7389e13a130cbb90074907a1aaa7502c3f439850d1053aecdb64737d919fb9bb"
+            "sha256": "fbd915ff472f6e8a08c96b9ba699d9321619f255a168bbebaf531d6a0077427e"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -682,13 +683,13 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "e291a8320ae8295fdfd540c940ec3d07f6e22917ed44f0695fc61e787b64be94"
+            "sha256": "c0123d375933e77a095cf10bc34902397c64a04dfdfe3ad4227ad7d2149859e4"
           }
         ]
       },
-      "sourceCommit": "408be1364be2b4653263971310259edd887e8796",
-      "cacheBuild": "c379d5dec1f4d437",
-      "sourceDirty": true,
+      "sourceCommit": "d14168cf93884076941457fbcb58c2116643329f",
+      "cacheBuild": "595b6d993bee721f",
+      "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],

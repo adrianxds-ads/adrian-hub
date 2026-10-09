@@ -53,16 +53,16 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "subtitle": "B2 First · Léxico y collocations",
+      "subtitle": "B2 First · Cambridge Parts 1–3",
       "group": "Estudio",
       "kind": "pwa-study",
       "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/",
       "repo": "https://github.com/adrianxds-ads/b2-multiple-choice-cloze",
       "glyph": "CQ",
-      "description": "Practica la elección de palabras para los huecos de Cambridge B2 First Part 1: vocabulario, expresiones y collocations.",
+      "description": "Practica 2.431 tarjetas de Cambridge Parts 1, 2 y 3: vocabulario, open cloze y word formation, con distractores y repetición adaptativa.",
       "features": [
-        "1600+ tarjetas",
-        "Rondas rápidas",
+        "2.431 tarjetas",
+        "Cambridge Parts 1–3",
         "Repetición espaciada"
       ]
     },
