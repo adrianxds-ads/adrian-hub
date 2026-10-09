@@ -4,15 +4,22 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.33",
-    "build": "hub-30.4.33-20261009",
+    "version": "30.4.34",
+    "build": "hub-30.4.34-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Ocho quizzes: solución correcta en dorado durante 1,1 s y avance automático.",
-      "Mejoras de corrección, repetición, producción y preservación del histórico, sin nuevas llamadas a modelos.",
-      "Grammar consolidado y curso original de Cambridge protegidos."
+      "Modo Tarea: Rex recorre el jardín real del Hub con crecimiento y luz compartidos."
     ],
     "history": [
+      {
+        "version": "30.4.33",
+        "date": "2026-10-09",
+        "changes": [
+          "Ocho quizzes: solución correcta en dorado durante 1,1 s y avance automático.",
+          "Mejoras de corrección, repetición, producción y preservación del histórico, sin nuevas llamadas a modelos.",
+          "Grammar consolidado y curso original de Cambridge protegidos."
+        ]
+      },
       {
         "version": "30.4.31",
         "date": "2026-10-09",
@@ -407,7 +414,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "3d155ae5f43ff100d86b48172cf124b52dce996adfb3a5642664d327c3b26060"
+          "sha256": "49e0b73cf5c9e97cca716500d7c1e480833c855491512cb4fd9544a082382359"
         },
         {
           "url": "version-verifier.js",
@@ -415,7 +422,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "012c7042569a847943c5673933449805d9d580acbdbe3ef67963ec7ca0421539"
+          "sha256": "6a3db677b1df71f17343d1cdcfffa5a7e834de5e5d725267855b61e1f196edb8"
         },
         {
           "url": "styles.css",
@@ -423,15 +430,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e223f89efd9c9caa1828a26765d044773073ff0d8dbfa5c4e5a14a2632e1dc66"
+          "sha256": "f0f083db624c18fa5d6e30002b15b86cd9595cda202675b1ba44cb58c6fb9a41"
         },
         {
           "url": "build-assets.js",
-          "sha256": "faad7d8145e094438be92aa960358d9c10232b88dd075f97eaa54a3bc5202c09"
+          "sha256": "0dd1491c487b4491b49d4e4806f7bb9fa127b3185c093f13e8cd640649221915"
         }
       ]
     },
-    "cacheBuild": "679d2d3873a6f2aa"
+    "cacheBuild": "8dee040a9e7ab525"
   },
   "apps": [
     {
@@ -1186,20 +1193,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.4.2",
-      "build": "sha256-33eb6063d9bf",
+      "version": "0.4.0",
+      "build": "sha256-34d4a82364b5",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
-        "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
-        "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
+        "Rex recorre el jardín GitHub compartido, con árboles, estrellas y luz de la misma hora."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "061425582924528881e47bdfef2808012c6e40d225dfc6465295f59ba829db3f"
+            "sha256": "4ffef7c63134e188c2afb4fb7c8720c5460c567f149f0e90d50e622f8b37bf30"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1207,11 +1212,20 @@
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "13b5df60e96a298143fd4fcb82bea7acd8c8401752c036768039e4e3f1b0263b"
+            "sha256": "3caf599652140cf40898cc7e8bbb1e26c001d8782ff10b99d7f023268b65bccf"
           }
         ]
       },
       "history": [
+        {
+          "version": "0.4.2",
+          "date": "2026-10-09",
+          "changes": [
+            "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
+            "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
+            "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
+          ]
+        },
         {
           "version": "0.1.1",
           "date": "2026-10-08",
