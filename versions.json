@@ -716,19 +716,19 @@
     {
       "id": "cambridge",
       "name": "Cambridge B2",
-      "version": "1.2.20",
-      "build": "sha256-3a70ee274c34",
-      "releasedAt": "2026-10-08",
+      "version": "1.2.21",
+      "build": "sha256-ace7edec8463",
+      "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación.",
-        "Cambridge cuenta medallas por rondas completas, no por respuestas individuales."
+        "Cambridge Quiz avanza automáticamente tras cada respuesta y señala lo escrito en verde o rojo dentro del texto.",
+        "Pitido discreto al fallar, área de lectura más amplia y botón Mirar soluciones al terminar; ambos modos verificados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "008a970f37497fa6ce41f863b7fc79f0ec1f3bccf6f992ecc290e341bcebed8d"
+            "sha256": "3fbfcff0e915a88cefb2e40aa80e282ffa5981aac7f46be699b2016866334c31"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
@@ -740,17 +740,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "fdee59e9268d5eab279939a874d51f586f96e76c8f2c028805399abd1072aa65"
+            "sha256": "0977953be8487baf01ecddacc0b5969647dc426903e648a7d20b1148c45b54d8"
           }
         ]
       },
-      "sourceCommit": "3d071a91ca72ab4331d0a42cd5a1c94aa28286b7",
-      "cacheBuild": "bc98ca99f4ea06a7",
+      "sourceCommit": "c6a55361c55d68ff2ce0572d7ec694d5e285df53",
+      "cacheBuild": "b86225c9d5bbf7aa",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.20",
+          "date": "2026-10-08",
+          "changes": [
+            "Medallas y estrellas propias; una estrella por cada cinco oros en esta aplicación.",
+            "Cambridge cuenta medallas por rondas completas, no por respuestas individuales."
+          ]
+        },
         {
           "version": "1.2.19",
           "date": "2026-10-08",
