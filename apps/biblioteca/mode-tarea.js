@@ -13,6 +13,57 @@ if(!state.plan&&!state.active&&state.breakEnd){state.breakEnd=null;state.queue=n
 const logs=()=>{const rows=parse(KEY,[]);return Array.isArray(rows)?rows:[]};
 const save=()=>{try{localStorage.setItem(LIVE,JSON.stringify(state))}catch(e){console.error('Task live save',e)}};
 const saveLogs=arr=>{try{localStorage.setItem(KEY,JSON.stringify(arr));return true}catch(e){console.error('Task history save',e);return false}};
+// Explicit recovery requested after the two Oct-9 cleaning sessions. This must not invent
+// attempts for other podcasts, duplicate completed entries, or overwrite earlier notes.
+const RECOVERY_MARK='adrianEasyCatalan20261009ReconciliationV1';
+const RECOVERY_BACKUP='adrianEasyCatalanTaskSessions_before_recovery_20261009';
+const USER_CONFIRMED=[233,232];
+function reconcileUserConfirmedBlocks(){
+ if(!catalog)return;
+ const marker=parse(RECOVERY_MARK,null);
+ if(marker?.skipped==='no-preexisting-data')return;
+ const previous=logs();
+ // This repair applies only to an existing 2026-10-09 installation, not to new users
+ // or new test installations that begin from zero.
+ const hasPreviousEvidence=previous.length>0||!!localStorage.getItem('adrianLibraryEasyCatalanV1');
+ if(!hasPreviousEvidence){
+  try{localStorage.setItem(RECOVERY_MARK,JSON.stringify({skipped:'no-preexisting-data'}))}catch{}
+  return;
+ }
+ const missing=USER_CONFIRMED.filter(n=>!previous.some(x=>x.status==='completado'&&Number(x.episodeNumber)===n));
+ if(!missing.length)return;
+ const updated=previous.slice();
+ const recordedAt=new Date().toISOString();
+ for(const number of missing){
+  const e=catalog.episodes.find(x=>x.number===number);
+  if(!e)continue;
+  updated.push({
+   id:'confirmed-cleaning-20261009-'+number,
+   episodeNumber:number,title:e.title,task:'Limpieza',
+   status:'completado',seconds:seconds(e.duration),
+   completedOn:'2026-10-09',endedAt:recordedAt,startedAt:null,
+   source:'confirmed-by-user',durationSource:'full-episode-catalog',
+   recoveredAt:recordedAt,position:1,total:1
+  });
+ }
+ if(updated.length===previous.length)return;
+ try{
+  if(localStorage.getItem(RECOVERY_BACKUP)===null){
+   localStorage.setItem(RECOVERY_BACKUP,localStorage.getItem(KEY)||'[]');
+  }
+  if(!saveLogs(updated))throw Error('No se pudo guardar la recuperación');
+  const check=logs();
+  if(USER_CONFIRMED.some(n=>!check.some(x=>x.status==='completado'&&Number(x.episodeNumber)===n)))throw Error('Verificación incompleta');
+  localStorage.setItem(RECOVERY_MARK,JSON.stringify({confirmedOn:'2026-10-09',reconciledAt:recordedAt,recoveredEpisodes:missing}));
+  if(typeof render==='function')render();
+  console.info('Easy Catalan: recovered the user-confirmed completed tasks',missing);
+ }catch(err){
+  console.error('Easy Catalan task history reconciliation failed',err);
+  const latest=document.getElementById('taskLatest');
+  if(latest)latest.textContent='No se ha podido recuperar el segundo bloque. Comprueba el almacenamiento del dispositivo.';
+ }
+}
+
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const fmt=s=>{s=Math.max(0,Math.floor(Number(s)||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
@@ -20,7 +71,7 @@ const seconds=s=>{const p=String(s||'').split(':').map(Number);return p.length==
 const day=t=>{const d=new Date(t);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
 const identifier=()=>('s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8));
 const ms=600000;
-window.ModeTarea={playing:false,selectedTab:'listen',catalogReady(data){catalog=data;renderList();renderStats();restore()},refresh(){if(catalog){renderList();renderStats()}}};
+window.ModeTarea={playing:false,selectedTab:'listen',catalogReady(data){catalog=data;reconcileUserConfirmedBlocks();renderList();renderStats();restore()},refresh(){if(catalog){reconcileUserConfirmedBlocks();renderList();renderStats()}}};
 function audioUnlock(){
  try{
   const AC=window.AudioContext||window.webkitAudioContext;
@@ -244,8 +295,8 @@ function renderStats(){
  const done=all.filter(x=>{if(x.status!=='completado')return false;if(x.id){if(seenIds.has(x.id))return false;seenIds.add(x.id)}return true});
  const latest=done[done.length-1];
  const latestEl=$('taskLatest');
- if(latestEl)latestEl.textContent=latest?'Última tarea registrada: #'+latest.episodeNumber+' · '+latest.task+' · '+new Date(latest.endedAt).toLocaleString('es-ES'):'Todavía no hay ninguna tarea finalizada registrada.';
- els.today.textContent=done.filter(x=>day(x.endedAt)===day(Date.now())).length;
+ if(latestEl)latestEl.textContent=latest?'Última tarea registrada: #'+latest.episodeNumber+' · '+latest.task+' · '+(latest.completedOn?new Date(latest.completedOn+'T12:00:00').toLocaleDateString('es-ES')+' · recuperada':new Date(latest.endedAt).toLocaleString('es-ES')):'Todavía no hay ninguna tarea finalizada registrada.';
+ els.today.textContent=done.filter(x=>(x.completedOn||day(x.endedAt))===day(Date.now())).length;
  els.total.textContent=done.length;
  const unique=new Set(done.map(x=>Number(x.episodeNumber)));
  const completed=done.length;
@@ -255,7 +306,7 @@ function renderStats(){
  els.uniqueCount.textContent=unique.size+' '+(unique.size===1?'episodio utilizado':'episodios utilizados')+' para tareas';
  const secs=done.reduce((sum,x)=>sum+(Number(x.seconds)||0),0);
  els.minutes.textContent=Math.floor(secs/3600)+' h '+Math.floor((secs%3600)/60)+' min';
- const byDay={};done.forEach(x=>{const d=day(x.endedAt);byDay[d]=(byDay[d]||0)+1});
+ const byDay={};done.forEach(x=>{const d=x.completedOn||day(x.endedAt);byDay[d]=(byDay[d]||0)+1});
  const dates=Object.keys(byDay).sort(),end=day(Date.now()),start=dates[0]||end;
  const days=[],d=new Date(start+'T12:00:00'),last=new Date(end+'T12:00:00');
  for(let i=0;d<=last&&i<5000;i++,d.setDate(d.getDate()+1))days.push(day(d));
@@ -263,12 +314,12 @@ function renderStats(){
  const chart=days.map(k=>{const n=byDay[k]||0;return '<button type="button" class="task-day" data-day="'+k+'" title="'+k+': '+n+' bloques" aria-label="'+k+': '+n+' bloques"><span class="task-day-bar" style="height:'+(n?Math.max(5,Math.round(n/max*100)):2)+'%"></span><small>'+(k.slice(-2)==='01'?k.slice(5,7)+'/'+k.slice(2,4):k.slice(-2))+'</small></button>'}).join('');
  [els.chart,els.chartFull].forEach(node=>{node.innerHTML=chart;node.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>showDay(b.dataset.day))});
  const seenRows=new Set();
- const rows=all.slice().reverse().filter(x=>{if(!x.id)return true;if(seenRows.has(x.id))return false;seenRows.add(x.id);return true}).map(x=>'<div class="task-log '+(x.status==='completado'?'':'task-log-interrupted')+'"><span>'+safe(new Date(x.endedAt).toLocaleDateString('es-ES'))+' · '+safe(x.status==='completado'?'✓':'Interrumpido')+'</span><b>'+safe(x.task)+'</b><small>#'+x.episodeNumber+' · '+safe(x.title)+' · '+fmt(x.seconds)+'</small></div>').join('');
+ const rows=all.slice().reverse().filter(x=>{if(!x.id)return true;if(seenRows.has(x.id))return false;seenRows.add(x.id);return true}).map(x=>'<div class="task-log '+(x.status==='completado'?'':'task-log-interrupted')+'"><span>'+safe((x.completedOn?new Date(x.completedOn+'T12:00:00'):new Date(x.endedAt)).toLocaleDateString('es-ES'))+' · '+safe(x.status==='completado'?(x.source==='confirmed-by-user'?'✓ Recuperada':'✓'):'Interrumpido')+'</span><b>'+safe(x.task)+'</b><small>#'+x.episodeNumber+' · '+safe(x.title)+' · '+fmt(x.seconds)+'</small></div>').join('');
  els.history.innerHTML=rows||'<p class="task-muted">Aún no hay bloques registrados.</p>';
  showDay(day(Date.now()));
 }
 function showDay(k){
- const rows=logs().filter(x=>x.status==='completado'&&day(x.endedAt)===k);
+ const rows=logs().filter(x=>x.status==='completado'&&(x.completedOn||day(x.endedAt))===k);
  const label=k+' · '+rows.length+' '+(rows.length===1?'bloque':'bloques')+(rows.length?' · '+rows.map(x=>x.task).join(' / '):'');
  els.dayInfo.textContent=label;els.dayInfoFull.textContent=label;
 }

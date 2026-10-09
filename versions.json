@@ -4,18 +4,28 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.26",
-    "build": "hub-30.4.26-20261009",
+    "version": "30.4.27",
+    "build": "hub-30.4.27-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Identidad clara en 16 apps del Hub: Grammar Quest, Classroom B2, Phrasal Sprint, Cloze Quiz, Cambridge Lab y más.",
-      "Cada tarjeta tiene un botón Info independiente con descripción y funciones, sin abrir la aplicación.",
-      "Tipografía de tarjetas, versiones, estadísticas y Biblioteca ampliada para lectura móvil.",
-      "Català Podcasts sincroniza la presentación de escuchas y tareas por episodio, distingue los registros y muestra la última tarea guardada.",
-      "Modo Tarea permite confirmar una finalización tras llegar prácticamente al final del audio si no se registró el evento automático; no inventa sesiones.",
-      "Classroom B2 corrige dos etiquetas pequeñas de la próxima clase; preguntas, respuestas y progresos permanecen intactos."
+      "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
+      "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
+      "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
     ],
     "history": [
+      {
+        "version": "30.4.26",
+        "date": "2026-10-09",
+        "build": "hub-30.4.26-20261009",
+        "changes": [
+          "Identidad clara en 16 apps del Hub: Grammar Quest, Classroom B2, Phrasal Sprint, Cloze Quiz, Cambridge Lab y más.",
+          "Cada tarjeta tiene un botón Info independiente con descripción y funciones, sin abrir la aplicación.",
+          "Tipografía de tarjetas, versiones, estadísticas y Biblioteca ampliada para lectura móvil.",
+          "Català Podcasts sincroniza la presentación de escuchas y tareas por episodio, distingue los registros y muestra la última tarea guardada.",
+          "Modo Tarea permite confirmar una finalización tras llegar prácticamente al final del audio si no se registró el evento automático; no inventa sesiones.",
+          "Classroom B2 corrige dos etiquetas pequeñas de la próxima clase; preguntas, respuestas y progresos permanecen intactos."
+        ]
+      },
       {
         "version": "30.4.25",
         "build": "hub-30.4.25-20261009",
@@ -372,7 +382,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e1adf651bd4c54218aae1cdf5b61a327014064a8475d65ca61579dfd3fd065b6"
+          "sha256": "e39c3367c99edc7657ad036880514cb57e3a9f40bf196319450849477d2e959f"
         },
         {
           "url": "version-verifier.js",
@@ -380,7 +390,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "5f5d65deee423e88ec76964cbcafe7fb662dd861e30acac874fbd4d5b861f44a"
+          "sha256": "12c65b7bc2573f1a0a338c711b9fd701eff6dee0aa9f794253cb72358c309ff0"
         },
         {
           "url": "styles.css",
@@ -388,15 +398,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "79dc5f58524b0ea1e749cfcd13140d380f2cf79aff716cc36a6937bea1ca2a9b"
+          "sha256": "242aecd25333774de5486837c96f77644edebb95e032585d196f8aca8aa0e376"
         },
         {
           "url": "build-assets.js",
-          "sha256": "a4c63cebc23f4b1c855222b11b1af7436a76c038e6c6d36e2605e813ffb14903"
+          "sha256": "13116f2c8921055ea3e88dd3a113eee95ddafee6510ee66df55ec2140572e5f6"
         }
       ]
     },
-    "cacheBuild": "448ffe188dd4cd34"
+    "cacheBuild": "4c571476aee7b283"
   },
   "apps": [
     {
@@ -1039,15 +1049,14 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "build": "sha256-33eb6063d9bf",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Biblioteca Easy Catalan: escuchas normales y bloques de tareas contabilizados de forma independiente por episodio.",
-        "Los episodios hechos en Modo Tarea se reflejan en la Biblioteca; escuchar de forma normal no concede bloques.",
-        "Medalla de constancia por cada 15 bloques: progreso, repeticiones y episodios únicos.",
-        "El Hub y la cabecera del jardín muestran las medallas de tareas por separado de los oros y estrellas de Adaptive."
+        "Recuperación segura de las dos sesiones de limpieza confirmadas: episodios #233 y #232 de Easy Catalan.",
+        "La reconciliación conserva las sesiones previas, realiza una copia de seguridad y añade únicamente los bloques ausentes.",
+        "La duración de registros recuperados usa el catálogo de episodios y se etiqueta su procedencia, sin inventar una hora de realización."
       ],
       "verify": {
         "files": [
