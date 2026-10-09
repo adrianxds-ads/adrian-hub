@@ -818,37 +818,38 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.1",
-      "build": "sha256-e5997ec8de5d",
+      "version": "1.3.2",
+      "build": "sha256-b9040ce56385",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Word Formation: la palabra base amarilla se sitúa arriba del texto y sigue visible al abrir el teclado inglés.",
-        "Comprobado en cinco tamaños de móvil, incluso tras escribir en el hueco; entrada y botón Comprobar accesibles.",
-        "Se mantienen intactos los exámenes, las soluciones, el temporizador y el historial de progreso."
+        "Nuevo Keyword Quiz experimental para Part 4: 24 transformaciones de Exámenes 11–14 con distractores revisados.",
+        "Modo Normal (4 opciones, 15 s) y Tricky (6 opciones, 20 s); Leer primero, donut y avance automático.",
+        "Juego enlazado desde Cambridge Lab y Cambridge Quiz; progreso independiente de las pruebas escritas.",
+        "Banco original y estadísticas del Cambridge Quiz existente conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "4ba65e9c35f64eee031091d1f41653de24bda98bd9463995b3ad37892d44dadc"
+            "sha256": "a8ea31f719d17a39c6379bafd6eb2d93ed83e864db0b61694906daf4ef80a91f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "f047a909f6f3505dcb4577329d5d7521c94f14c58ad73e98bcfcb047f868c873"
+            "sha256": "686c7040e6bcb039709553b99013e569880a3332ae554e5ed82af32165bd6e15"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "db68cf9e2de4fda1ae39ead208bd60ebfcce0246a00df72ae99edbbcc6e5e0bd"
+            "sha256": "a30eb495fb9d5521804f0eada9cac9c2dabfef4a890105060b45ad93544b24f6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "a0ad2c3eaaa476c803da42f0025fb71b1fbaca42fc28b2f5fd70e47c0a9055a0"
+            "sha256": "166fc0900f60f86bc0d48fae97493ab91ad7fddea9e6b4cacb56210b43f38233"
           }
         ]
       },
-      "sourceCommit": "dd2c08422c899210debccbb3c56208e2acd97b10",
-      "cacheBuild": "a06198fcd2541be7",
+      "sourceCommit": "335c76ad8368f0a7bf17608d15d441752e479142",
+      "cacheBuild": "a0d6cf0b772f220a",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
