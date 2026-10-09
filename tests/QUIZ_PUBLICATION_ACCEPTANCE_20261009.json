@@ -1,0 +1,267 @@
+{
+  "checkedAt": "2026-10-09T14:52:29Z",
+  "hub": "30.4.32",
+  "assets": [
+    {
+      "app": "adaptive-english",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-english",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-english",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-english",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-english",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "territory-01.js",
+      "match": true
+    },
+    {
+      "app": "b2-multiple-choice-cloze",
+      "file": "territory-01.json",
+      "match": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-verbs-catala",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-phrasal-verbs",
+      "file": "phrasals.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-pizarras",
+      "file": "questions.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "cambridge-quiz.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-exam",
+      "file": "cambridge-quiz.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-keyword-speaking",
+      "file": "data/engexam-bank.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adaptive-hoti0108",
+      "file": "learning-feedback.js",
+      "match": true
+    },
+    {
+      "app": "adrian-hub",
+      "file": "app.js",
+      "match": true
+    },
+    {
+      "app": "adrian-hub",
+      "file": "index.html",
+      "match": true
+    },
+    {
+      "app": "adrian-hub",
+      "file": "service-worker.js",
+      "match": true
+    },
+    {
+      "app": "adrian-hub",
+      "file": "build-assets.js",
+      "match": true
+    },
+    {
+      "app": "adrian-hub",
+      "file": "versions.json",
+      "match": true
+    }
+  ],
+  "physicalPixel": false
+}
