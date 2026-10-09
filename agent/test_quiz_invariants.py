@@ -16,6 +16,7 @@ for(const name of ['adaptive-english','adaptive-verbs-catala']){
  const a=fs.readFileSync(r+name+'/app.js','utf8');vm.runInContext(a.slice(a.indexOf('function qScore('),a.indexOf('function buildFinalPlan(')),c);
  for(let i=0;i<10;i++){const plan=c.buildTrainingPlan();if(plan.length!==15||plan.some(q=>!!state.seen[q.fingerprint]))throw Error(name+' picked an early review while new items were available');}
  const original=c.qScore;let calls=0;c.qScore=(...args)=>{calls++;return original(...args);};c.chooseOne(BANK,[],{},{},'explore');const eligible=BANK.filter(q=>!state.seen[q.fingerprint]).length;if(calls!==eligible)throw Error(name+' score calls '+calls+' expected '+eligible);
+ if(name==='adaptive-english'){c.qScore=original;const i=a.indexOf('function buildFinalPlan('),j=a.indexOf('function shuffleOptions(',i);vm.runInContext(a.slice(i,j),c);for(const q of BANK)state.seen[q.fingerprint]={lastLevel:49,lastTs:Date.now(),nextDueTs:Date.now()+30*86400000,count:4,lastCorrect:true};if(c.buildFinalPlan().length!==30)throw Error('Consolidated Grammar assessment must remain 30 questions');console.log('PASS Grammar assessment: 30 questions with all items known/not due');}
  console.log('PASS planner',name,'10 rounds: 15 new / 0 early; score evaluated once per candidate');
 }
 const c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(r+'b2-multiple-choice-cloze/territory-01.js','utf8'),c);

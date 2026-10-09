@@ -437,24 +437,23 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.0",
-      "build": "sha256-b20d5c84444d",
+      "version": "3.35.1",
+      "build": "sha256-ae86a7670ac9",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Corrección dorada visible durante 1,1 s tras aciertos y errores; avance automático.",
-        "Selector estable, prioridad de repasos vencidos y práctica adicional identificada; banco y campaña intactos.",
-        "Sesiones conservadas y archivo detallado local antes de recortar; métricas de recuerdo separadas."
+        "El examen final conserva sus 30 preguntas aunque todo el banco esté conocido y aún no venza su repaso.",
+        "El filtro de repaso vencido se aplica al entrenamiento; campaña y banco consolidados intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "efdb398763e5b854b7a8c2430d71e7fda7b99386c18c8923fc090ac38c2ff366"
+            "sha256": "dfe7e243196351c046067eccad877b7583c5fe37a3c6c06b8ef8d2a1737747ee"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "253851bf8aac826c578357aa112611e999caddaa1086a4c4738e16a115adf176"
+            "sha256": "18b47beaac6b70157d1eb6ddab5caa0bbb8aaad8e106cc8b82b223bac48bc7d7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -462,17 +461,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "39543d57b3aab189813e37d85db7b9292e81ffcf430f2621ec9d490d38e89f93"
+            "sha256": "f2efd724ecea3f227e7e302c1f85c42c477307c5d98eb209db7777e44ec5f167"
           }
         ]
       },
-      "sourceCommit": "3ef3b9e776c66378abb4c292c3dbe62432fd0997",
-      "cacheBuild": "eb069250de0ff1ff",
+      "sourceCommit": "3f3d83e850ac115550f3e95e8a90f05fa0900faf",
+      "cacheBuild": "c514377850a32739",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.0",
+          "date": "2026-10-09",
+          "changes": [
+            "Corrección dorada visible durante 1,1 s tras aciertos y errores; avance automático.",
+            "Selector estable, prioridad de repasos vencidos y práctica adicional identificada; banco y campaña intactos.",
+            "Sesiones conservadas y archivo detallado local antes de recortar; métricas de recuerdo separadas."
+          ]
+        },
         {
           "version": "3.34.9",
           "date": "2026-10-08",
@@ -711,24 +719,23 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.0",
-      "build": "sha256-2aef72fcd430",
+      "version": "1.11.1",
+      "build": "sha256-1091b41f3b63",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Corrección visible y producción escrita ocasional de Parts 2–3 conocidas.",
-        "Cobertura y selección por objetivo lingüístico, evitando contar el mismo enunciado/respuesta como novedad.",
-        "Contextos ambiguos manage/estimate y distractores discover revisados sin cambiar IDs ni cantidad."
+        "Las respuestas escritas de Parts 2 y 3 aceptan variantes documentadas en sus claves.",
+        "Notación illness(es) expandida a illness/illnesses en la copia de entrenamiento; exámenes originales intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "f2ffad4068fa4df96b299d6c654d2883daa3fbbdec96d0db65cdbc23d31ba078"
+            "sha256": "f95094faa1916ec791be662cef32042d72a7779722ad1809df1dee846d99bd74"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "7ccd66e123fef3514c462d87764d6d7cffe698eef85c18a4031adc36b003ee5a"
+            "sha256": "7532130e171c307751d32ebbe0340fd38644527cca2e009082310ef2327897c0"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -736,17 +743,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "0ae832dda40d4a5c9d016dab3cd6fc6cf1dc007d067ba4a609bf2b989ee72a92"
+            "sha256": "f6cf8491940dd93b1b28a21d1d8a7e90244580f8753d8f42966a6f5d6b4e70d2"
           }
         ]
       },
-      "sourceCommit": "de94f7e207080545b1253ddbda9dc602f91696ba",
-      "cacheBuild": "1f1befb3f50c718c",
+      "sourceCommit": "580fd0b200f76162865a72edcfd5f299f6337183",
+      "cacheBuild": "0bde8bc5e73b2bc9",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.0",
+          "date": "2026-10-09",
+          "changes": [
+            "Corrección visible y producción escrita ocasional de Parts 2–3 conocidas.",
+            "Cobertura y selección por objetivo lingüístico, evitando contar el mismo enunciado/respuesta como novedad.",
+            "Contextos ambiguos manage/estimate y distractores discover revisados sin cambiar IDs ni cantidad."
+          ]
+        },
         {
           "version": "1.10.15",
           "date": "2026-10-09",

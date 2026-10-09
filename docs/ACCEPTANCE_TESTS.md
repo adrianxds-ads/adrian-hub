@@ -87,3 +87,7 @@ Servicio activo verificado tras despliegue (2026-10-09): commit 7773eac, Hub 30.
 
 ## Quiz learning acceptance · 2026-10-09 · Hub 30.4.32
 Fourteen app/viewport checks passed at 390 and 1280 px, plus Cambridge Parts 1–3 at both sizes. Verified: gold correct answer, hold, single advance, reload persistence, written retrieval, final Classroom completion; all protected Grammar/Cambridge hashes unchanged. Archive retained 1300 distinct attempts with repeated question ID across reload, active window 1200; unavailable archive keeps all detail. Planner simulations: ten rounds per Grammar/Català with unseen items, 15 new and zero early reviews, one score per candidate. Bank IDs/counts/options and Cloze JSON/JS mirror passed. No real-user sessions, API calls or physical Pixel tests. Publication and cache fingerprints verified separately. Old discarded detail and cross-device replication of the local archive remain outside this release.
+
+
+### Quiz patch verification — 2026-10-09
+Grammar assessment retains 30 questions even with all items known and not due. Cloze written alternatives tested against source-key variants: like, everybody and illnesses; original Cambridge sources remain byte-identical. Tests run in isolated browser contexts; no real learner sessions.

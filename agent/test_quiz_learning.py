@@ -43,6 +43,14 @@ with sync_playwright() as pw:
       page.wait_for_selector('.ql-production');correct=page.evaluate("current.a[current.c]");page.locator('.ql-production').fill(correct);page.locator('.ql-submit').click()
       rec=page.evaluate("session.records.at(-1)")
       assert rec['correct'] and rec['retrievalMode']=='PRODUCTION' and rec['userAnswer']==correct,rec
+     if n=='b2-multiple-choice-cloze':
+      for qid,variant in [(940120,'like'),(940126,'everybody'),(952036,'illnesses')]:
+       page.wait_for_function("!locked")
+       page.evaluate('qid=>{const q=BANK.find(q=>q.id===qid);state.seen[q.fingerprint]={count:3,lastTs:Date.now()-86400000,lastLevel:state.level-5};session.plan[session.index]=shuffleOptions(q);const random=Math.random;Math.random=()=>0;nextQuestion();Math.random=random;}',qid)
+       page.wait_for_selector('.ql-production');page.locator('.ql-production').fill(variant);page.locator('.ql-submit').click()
+       rec=page.evaluate("session.records.at(-1)")
+       assert rec['correct'] and rec['retrievalMode']=='PRODUCTION' and rec['userAnswer']==variant,rec
+      print('PASS Cloze accepted written alternatives: like / everybody / illnesses',flush=True)
      saved=page.evaluate("JSON.parse(localStorage.getItem(STORAGE_KEY)).totalAttempts")
      page.reload(wait_until='load');page.wait_for_function("typeof state!=='undefined'&&!!state")
      assert page.evaluate("state.totalAttempts")==saved
