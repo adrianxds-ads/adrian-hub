@@ -11,6 +11,7 @@ with sync_playwright() as pw:
  for width in [390,1280]:
   ctx=b.new_context(viewport={'width':width,'height':844},service_workers='block');p=ctx.new_page();errors=[];p.on('pageerror',lambda e:errors.append(str(e)));p.route('**/*',route)
   p.goto('https://adrianxds-ads.github.io/adaptive-exam/cambridge-quiz.html',wait_until='load')
+  assert p.locator('.ql-evidence').count()==1
   p.locator('[name=quizKind][value=mixed]').check()
   for part in [1,2,3]:
    p.locator('#quizModes [data-part="'+str(part)+'"]').click()
@@ -29,6 +30,7 @@ with sync_playwright() as pw:
    history=p.evaluate("JSON.parse(localStorage.getItem('cambridgeB2ExerciseStatsV3')).attempts")
    assert history[-1]['items'][0]['userAnswer']!=''+answer
    p.locator('#quitQuiz').click()
+   assert p.locator('.ql-evidence').count()==1
   assert not errors,errors;print('PASS Cambridge',width,'Parts 1/2/3: expected word in original text, hold, history',flush=True);ctx.close()
  # Local durable archive: repeated question IDs must retain distinct attempts; trimming only after archive commit.
  ctx=b.new_context(service_workers='block');p=ctx.new_page();p.route('**/*',route);p.goto('https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html')

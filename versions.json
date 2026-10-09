@@ -802,24 +802,25 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.0",
-      "build": "sha256-626018c0f9db",
+      "version": "1.3.1",
+      "build": "sha256-96f2d7cf9ae5",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
         "El quiz muestra la palabra correcta en el texto durante 1,1 s; guarda la respuesta original del alumno.",
         "Quiz mixto utiliza fechas y rendimiento reciente; gráfica sin el recorte de 30 sesiones.",
-        "Curso, escaneos, bancos y claves originales conservados byte a byte."
+        "Curso, escaneos, bancos y claves originales conservados byte a byte.",
+        "Panel de reconocimiento y respuesta escrita comprobado tras reconstruir la portada."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "c426869c78c2529e178793f7450032f47467632bc1eac5f5042cd394ff84451c"
+            "sha256": "4ba65e9c35f64eee031091d1f41653de24bda98bd9463995b3ad37892d44dadc"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "d481128dfe4355d1c659c0f40c1a46519dfdec6f1f4ef425e6bb647b464532b7"
+            "sha256": "f047a909f6f3505dcb4577329d5d7521c94f14c58ad73e98bcfcb047f868c873"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -827,17 +828,27 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "7f4fadb789692c92019fce4c73eed4d76d3a6fb78ad199208e26a097a289f51a"
+            "sha256": "16ed216b35c7e9ae76fee0504d1fad20eac34beb0685acd56fb1d8dc34ce14dc"
           }
         ]
       },
-      "sourceCommit": "614b4cbc9338bd4eada9ea4d7d9519563d29daa0",
-      "cacheBuild": "53a4d43215e16c29",
+      "sourceCommit": "a6a3ce92f45c153108d2a8f02ba70d80cf69b58c",
+      "cacheBuild": "2dd662c6d39daecc",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.0",
+          "date": "2026-10-09",
+          "changes": [
+            "El quiz muestra la palabra correcta en el texto durante 1,1 s; guarda la respuesta original del alumno.",
+            "Quiz mixto utiliza fechas y rendimiento reciente; gráfica sin el recorte de 30 sesiones.",
+            "Curso, escaneos, bancos y claves originales conservados byte a byte.",
+            "Panel de reconocimiento y respuesta escrita comprobado tras reconstruir la portada."
+          ]
+        },
         {
           "version": "1.2.22",
           "date": "2026-10-09",
