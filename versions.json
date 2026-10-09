@@ -659,23 +659,24 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.10.14",
-      "build": "sha256-641596beec5d",
+      "version": "1.10.15",
+      "build": "sha256-f495962248eb",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "821 tarjetas nuevas basadas en 480 huecos reales de Cambridge Parts 2 y 3; banco ampliado a 2.431.",
-        "Rondas adaptativas con representación de Parts 1, 2 y 3; progresos anteriores preservados."
+        "Corregido contador de portada: ahora calcula 2.431 tarjetas desde el banco cargado, no un texto fijo de 1.610.",
+        "El contador de cobertura y el total del resultado usan el mismo tamaño real del banco.",
+        "Sin reiniciar el progreso. Banco Cambridge Parts 1, 2 y 3 intacto."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "5dfb962966481697dbfe876565294da0d8cafc56a407f8630313c9630f2ddb04"
+            "sha256": "022e1ca51896d1163569ad849ddcf8819a56d896b225ff36e829eb06e3b8d2f6"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "fbd915ff472f6e8a08c96b9ba699d9321619f255a168bbebaf531d6a0077427e"
+            "sha256": "0e82811271a4bc59e492d4af169e31fa97d5cfed0e0346bd1be6a4ccbf3ddf6e"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -683,12 +684,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "c0123d375933e77a095cf10bc34902397c64a04dfdfe3ad4227ad7d2149859e4"
+            "sha256": "ceea325dc9a35046dbad555c5669b2916b96368f0db03fe4600cbc758b65a2a9"
           }
         ]
       },
-      "sourceCommit": "d14168cf93884076941457fbcb58c2116643329f",
-      "cacheBuild": "595b6d993bee721f",
+      "sourceCommit": "056a8306f007613a4716fc7d359ecc954c74b545",
+      "cacheBuild": "585ff7d67c678304",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
