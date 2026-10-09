@@ -58,3 +58,9 @@ Las reglas del juego, bancos de preguntas, algoritmos de revisión, corrección,
 - La publicación solo se da por completada tras comprobar las versiones efectivamente servidas por GitHub Pages.
 
 **Cierre:** la identidad Núcleo Editorial Luminous v1 queda estable. Los retoques futuros deben resolver necesidades observables de accesibilidad y usabilidad, no reiniciar el diseño completo.
+
+## Aplicación a juegos · release conjunta 30.4.41
+
+La plantilla canónica para juegos es `../adrian-core/design/nucleo-game-theme.css`, documentada en `../adrian-core/design/NUCLEO_GAME_THEME_V1.md`. Ocho repositorios externos han recibido copias locales idénticas y sincronizadas con la caché PWA: Grammar Quest, Phrasal Sprint, Classroom B2, Cloze Quiz, Cambridge Lab (incluidos Cambridge Quiz y Keyword Quiz), B2 Transform, Conjuga CAT y Turismo Lab. Versiones revisadas en `versions.json`.
+
+Pruebas sin intervención en datos reales: estilos/contraste de carcasas y ventanas a 360 × 780, 390 × 844, 412 × 915 y 1280 × 800, ausencia de errores JS y overflow, cuatro respuestas cromáticas en una pregunta de Grammar Quest, instalación de cachés en 9 repos y comprobación de integridad/versiones. No se considera demostrada una mejora de aciertos, ni la prueba física de los ocho juegos en Pixel, ni la sincronización real multidispositivo. Mantener intactos los algoritmos y colores de recompensa y corregir los errores observados tras sesiones del usuario con parches específicos.

@@ -47,3 +47,6 @@ Adrián has chosen to continue investigation and implementation through ChatGPT/
 
 ## Norma final Núcleo Editorial Luminous v1 (2026-10-09)
 La fuente canónica de estilo es `docs/NUCLEO_EDITORIAL_LUMINOUS_V1.md`, con `hub-daylight.css` + `hub-editorial.css` sobre los tokens de `../adrian-core/design/nucleo-visual-profile.css`. El Hub usa el tema luminoso como identidad predeterminada, con Roboto 19px, fondo #EAF0F5, 16 materias diferenciadas y halo suave solo en emblemas/acciones. La ficha informativa en Actualizaciones es de solo lectura. No replicar el tema en quizzes automáticamente: conservar arcoíris, medallas, respuestas y progreso. Cualquier mejora en juegos requiere piloto y pruebas independientes.
+
+## Núcleo Editorial Luminous v1 · ocho juegos (30.4.41)
+Los ocho quizzes usan la copia local de `adrian-core/design/nucleo-game-theme.css` y `body[data-nucleo-game]`. Para ajustes de accesibilidad y color, editar la hoja maestra, replicarla exactamente y probar cada juego. Conservar las preguntas, la corrección, las medallas, temporizadores, tonos de respuesta y persistencia. Ver `docs/NUCLEO_EDITORIAL_LUMINOUS_V1.md`.
