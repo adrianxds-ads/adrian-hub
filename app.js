@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.32';
-const HUB_BUILD='hub-30.4.32-20261009';
+const HUB_VERSION='30.4.33';
+const HUB_BUILD='hub-30.4.33-20261009';
 const groupsEl=document.querySelector('#groups');
 const searchEl=document.querySelector('#search');
 const countEl=document.querySelector('#count');
@@ -22,6 +22,7 @@ function render(query=''){
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
   groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card" data-id="${esc(a.id)}"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
   renderTaskMedals();
+  renderHubStars();
 }
 async function fetchHubJson(path){
   const url=new URL(path,location.href);url.searchParams.set('hubv',HUB_VERSION);url.searchParams.set('fresh',Date.now());
@@ -103,7 +104,19 @@ function renderTaskMedals(){
  }
 }
 
-function renderHubStars(){const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');if(!host||!count)return;count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas ganadas en las aplicaciones');}
+function renderHubStars(){
+ const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');
+ if(host&&count){count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas y '+s.totalGold+' oros acumulados en las aplicaciones');}
+ const gold=document.querySelector('#hubGoldCount');if(gold)gold.textContent=String(s.totalGold);
+ const grammar=document.querySelector('[data-id="english"] .app-copy');
+ if(grammar){
+  let chip=grammar.querySelector('.app-gold-chip');
+  if(!chip){chip=document.createElement('span');chip.className='app-gold-chip';grammar.appendChild(chip);}
+  const n=Math.max(0,Number(s.apps.english)||0);
+  chip.textContent='🥇 '+n+(n===1?' oro':' oros');
+  chip.setAttribute('aria-label',n+' medallas de oro acumuladas en Grammar Quest');
+ }
+}
 renderHubStars();renderTaskMedals();
 window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();if(e.key===HUB_TASK_LOG_KEY)renderTaskMedals();});
 window.addEventListener('hub:star-progress',renderHubStars);

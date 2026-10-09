@@ -4,8 +4,8 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.32",
-    "build": "hub-30.4.32-20261009",
+    "version": "30.4.33",
+    "build": "hub-30.4.33-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
       "Ocho quizzes: solución correcta en dorado durante 1,1 s y avance automático.",
@@ -407,7 +407,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "f87f127697617b3fbbc78f690a084f95d7d1bccdc8fe9ee351cdc74515c65a8d"
+          "sha256": "3d155ae5f43ff100d86b48172cf124b52dce996adfb3a5642664d327c3b26060"
         },
         {
           "url": "version-verifier.js",
@@ -415,23 +415,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "069f2f4bec786bb365857793f60dde8650f7dfce0fc0b425e4d26b0b13058784"
+          "sha256": "012c7042569a847943c5673933449805d9d580acbdbe3ef67963ec7ca0421539"
         },
         {
           "url": "styles.css",
-          "sha256": "c07b31795d1aa107d939218a993b08db1028b28e2e134cfcec8899870bf364f6"
+          "sha256": "7d635a44cac4bc69ad0a235ea6585cb9b93e49911eaaab6de552a13e0ec4122a"
         },
         {
           "url": "service-worker.js",
-          "sha256": "4e5215f82292caab82621e003e3bd28388d29203ed247c227deedb73ef2b7413"
+          "sha256": "e223f89efd9c9caa1828a26765d044773073ff0d8dbfa5c4e5a14a2632e1dc66"
         },
         {
           "url": "build-assets.js",
-          "sha256": "0d4605845bdc85605b2148fa3d08f014a1febbee21a348ab5b526224e6c296eb"
+          "sha256": "faad7d8145e094438be92aa960358d9c10232b88dd075f97eaa54a3bc5202c09"
         }
       ]
     },
-    "cacheBuild": "4219f6ef1374e06d"
+    "cacheBuild": "679d2d3873a6f2aa"
   },
   "apps": [
     {

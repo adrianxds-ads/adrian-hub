@@ -26,6 +26,7 @@ footer{display:flex;justify-content:space-between;border-top:1px solid var(--ad-
 /* Compact earned-star trophy; the garden carries the visual celebration. */
 .hub-stars{min-width:0;padding:6px 9px;gap:6px;border-radius:10px;background:rgba(231,191,87,.04);box-shadow:none;align-self:flex-start}
 .hub-stars>span{font-size:18px}.hub-stars b{font-size:15px}.hub-stars.earned>span{text-shadow:none}
+.hub-gold-count{display:inline-flex;align-items:center;gap:4px;margin-left:4px;padding-left:9px;border-left:1px solid rgba(231,191,87,.3);font-size:15px;font-weight:850;color:#F1DA9E;white-space:nowrap}.hub-stars .hub-gold-count b{font-size:16px;color:#F1DA9E}.app-gold-chip{display:block;margin-top:5px;color:#F1DA9E;font-size:13px;font-weight:800}
 @media(max-width:560px){.hub-stars{min-width:0;grid-column:2;justify-self:end;margin-top:0}}
 
 .app-task-chip{display:inline-flex;align-items:center;margin-top:6px;padding:5px 8px;border-radius:8px;border:1px solid rgba(216,183,97,.36);background:rgba(111,86,39,.16);color:#e4cc89;font-size:11px;font-weight:800}
