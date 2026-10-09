@@ -116,10 +116,36 @@
 
 </section>
 
-<div class="section-heading training-heading"><div><span>EN FORMACIÓN</span><h2>Los próximos especialistas</h2></div><b>8 oficios</b></div>
+<article class="agent-card ad-card" data-agent="constructor">
+ <div class="agent-head"><span class="agent-glyph">CO</span><div><small>CHATGPT · SIN API ADICIONAL</small><h2>El Constructor</h2></div><span class="status ready">VÍA CHATGPT</span></div>
+ <p>Preparamos una app o módulo nuevo y lo continuamos en ChatGPT. Cambios revisables y pruebas antes de entregar.</p>
+ <form id="constructorForm">
+ <label class="mission"><span>ENCARGO</span><textarea id="constructorBrief" required maxlength="12000" rows="3" placeholder="Describe el resultado que necesitamos."></textarea></label>
+ <label class="mission"><span>Alcance: proyecto y archivos permitidos</span><textarea id="constructorSource" required maxlength="40000" rows="4"></textarea></label>
+ <label class="mission"><span>Pruebas de aceptación: qué debe funcionar</span><textarea id="constructorCriteria" required maxlength="12000" rows="3"></textarea></label>
+ <div class="actions"><button class="ad-button primary wide" type="submit">PREPARAR ENCARGO · 0 USD</button></div>
+ </form>
+ <p id="constructorNote" aria-live="polite">Borrador guardado en este navegador. Preparar no inicia una ejecución.</p>
+ <label class="mission"><span>ENCARGO PARA CHATGPT</span><textarea id="constructorPacket" readonly rows="5" hidden></textarea></label>
+ <div class="actions"><button class="ad-button wide" id="constructorCopy" type="button" disabled>COPIAR ENCARGO</button><button class="ad-button wide" id="constructorContinue" type="button" disabled>COPIAR Y CONTINUAR EN CHATGPT</button></div>
+ </article>
+<article class="agent-card ad-card" data-agent="editor">
+ <div class="agent-head"><span class="agent-glyph">ED</span><div><small>CHATGPT · SIN API ADICIONAL</small><h2>El Editor</h2></div><span class="status ready">VÍA CHATGPT</span></div>
+ <p>Preparamos la edición de un texto o documento para continuar en ChatGPT, con la Voz de Adrián y el original conservado.</p>
+ <form id="editorForm">
+ <label class="mission"><span>ENCARGO</span><textarea id="editorBrief" required maxlength="12000" rows="3" placeholder="Describe el resultado que necesitamos."></textarea></label>
+ <label class="mission"><span>Texto original o ubicación exacta del documento</span><textarea id="editorSource" required maxlength="40000" rows="4"></textarea></label>
+ <label class="mission"><span>Estilo y conservación: estructura, hechos y cambios permitidos</span><textarea id="editorCriteria" required maxlength="12000" rows="3"></textarea></label>
+ <div class="actions"><button class="ad-button primary wide" type="submit">PREPARAR ENCARGO · 0 USD</button></div>
+ </form>
+ <p id="editorNote" aria-live="polite">Borrador guardado en este navegador. Preparar no inicia una ejecución.</p>
+ <label class="mission"><span>ENCARGO PARA CHATGPT</span><textarea id="editorPacket" readonly rows="5" hidden></textarea></label>
+ <div class="actions"><button class="ad-button wide" id="editorCopy" type="button" disabled>COPIAR ENCARGO</button><button class="ad-button wide" id="editorContinue" type="button" disabled>COPIAR Y CONTINUAR EN CHATGPT</button></div>
+ </article>
+<div class="section-heading training-heading"><div><span>EN FORMACIÓN</span><h2>Los próximos especialistas</h2></div><b>6 oficios</b></div>
 <section class="roster-grid" aria-label="Agentes en formación">
-  <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph editor-glyph">ED</span><div><small>EDITOR AGENT</small><h3>El Editor</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Textos, writings, documentos y voz de Adrián. Aplicará una única Voz de Adrián en todos los textos.</p><dl><div><dt>Primera misión</dt><dd>Corrección y edición con reglas de estilo persistentes</dd></div><div><dt>Coste</dt><dd>Modelo barato por defecto · premium solo para revisión final</dd></div></dl></article>
-  <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph builder-glyph">CO</span><div><small>BUILDER AGENT</small><h3>El Constructor</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Creará aplicaciones y módulos nuevos en sandbox, separado de las reparaciones del código existente.</p><dl><div><dt>Primera misión</dt><dd>Especificación → prototipo → tests → preview</dd></div><div><dt>Permisos</dt><dd>Sandbox propio · publicación separada</dd></div></dl></article>
+
+
   <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph tester-glyph">TS</span><div><small>TEST AGENT</small><h3>El Tester</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Buscará regresiones con Playwright, Pixel/DC, consola, responsive, PWA y sincronización.</p><dl><div><dt>Primera misión</dt><dd>Pruebas automáticas antes y después de cada cambio</dd></div><div><dt>Coste</dt><dd>Casi todo local; IA solo para interpretar fallos</dd></div></dl></article>
   <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph librarian-glyph">BI</span><div><small>LIBRARY AGENT</small><h3>El Bibliotecario</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Encontrará la pieza exacta entre Cambridge, HOTI, Docs, apps, apuntes e informes sin mandar archivos enteros al modelo.</p><dl><div><dt>Primera misión</dt><dd>Recuperación precisa y Context Packs compactos</dd></div><div><dt>Ahorro</dt><dd>Reducir contexto antes de llamar a IA premium</dd></div></dl></article>
   <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph research-glyph">IN</span><div><small>RESEARCH AGENT</small><h3>El Investigador</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Reunirá fuentes, contrastará información y preparará dossiers antes de pedir síntesis a un modelo avanzado.</p><dl><div><dt>Primera misión</dt><dd>Investigación web con fuentes y deduplicación</dd></div><div><dt>Coste</dt><dd>Buscar barato; pagar por razonar y sintetizar</dd></div></dl></article>
@@ -128,13 +154,13 @@
   <article class="roster-card ad-card"><div class="roster-top"><span class="agent-glyph guardian-glyph">GU</span><div><small>GUARDIAN AGENT</small><h3>El Guardián</h3></div><span class="status training">EN FORMACIÓN</span></div><p>Vigilará permisos, backups, presupuestos, ramas, credenciales y condiciones de publicación de los demás.</p><dl><div><dt>Primera misión</dt><dd>Políticas de seguridad y límites antes de ejecutar</dd></div><div><dt>Coste</dt><dd>Reglas deterministas primero; IA solo para excepciones</dd></div></dl></article>
 </section>
 
-<section class="rule ad-card" id="trainingPanel" aria-label="Formación de agentes"><span>FORMACIÓN · 1.3.2</span><h2>El cursillo de cada especialista</h2><p>Base común y ejercicios propios. El triaje de Nexo y Consejero han superado la primera práctica local; Auditor y Reparador tienen la preparación comprobada y su práctica real pendiente. Auditor y Reparador reciben estas instrucciones al arrancar. Los demás conservan su estado operativo actual.</p><div id="trainingProfiles">Cargando formación…</div></section>
+<section class="rule ad-card" id="trainingPanel" aria-label="Formación de agentes"><span>FORMACIÓN · 1.4.0</span><h2>El cursillo de cada especialista</h2><p>Base común y ejercicios propios. El triaje de Nexo y Consejero han superado la primera práctica local; Auditor y Reparador tienen la preparación comprobada y su práctica real pendiente. Auditor y Reparador reciben estas instrucciones al arrancar. Los demás conservan su estado operativo actual.</p><div id="trainingProfiles">Cargando formación…</div></section>
 <section class="rule ad-card">
   <span>REGLA DEL SISTEMA</span><h2>Una coordinación · especialistas con oficio</h2>
   <p>Nexo integra el triaje y coordina; cada especialista conservará su entrenamiento, permisos y presupuesto. El Guardián pondrá límites y El Operador seguirá siendo la frontera para las acciones locales sensibles.</p>
 </section>
 
-<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.3.2</span></footer>
+<footer><a href="https://adrianxds-ads.github.io/adrian-hub/">← Volver al Hub</a><span>Agent Center · 1.4.0</span></footer>
 </main>
 
 <dialog id="reportDialog" class="report-dialog">

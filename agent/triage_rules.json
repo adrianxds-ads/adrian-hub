@@ -1,5 +1,5 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "philosophy": [
     "Usar herramientas locales o deterministas antes que IA de pago.",
     "No ejecutar acciones: el triaje interno de Nexo clasifica, deriva y propone presupuesto.",
@@ -119,9 +119,9 @@
     },
     "editor": {
       "name": "El Editor",
-      "active": false,
-      "max_usd": 0.25,
-      "tier": "cheap-first",
+      "active": true,
+      "max_usd": 0,
+      "tier": "chatgpt-handoff",
       "verbs": [
         "edita",
         "editar",
@@ -152,9 +152,9 @@
     },
     "constructor": {
       "name": "El Constructor",
-      "active": false,
-      "max_usd": 1.5,
-      "tier": "premium-once",
+      "active": true,
+      "max_usd": 0,
+      "tier": "chatgpt-handoff",
       "verbs": [
         "crea",
         "crear",

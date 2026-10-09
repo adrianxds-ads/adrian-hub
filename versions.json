@@ -4,12 +4,12 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.30",
-    "build": "hub-30.4.30-20261009",
+    "version": "30.4.31",
+    "build": "hub-30.4.31-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "El lector del Pixel descarta capturas XML antiguas y exige un volcado nuevo antes de actuar.",
-      "Prueba física parcial de Keyboard Speak: Gboard abierto y texto visible; frase completa y dictado pendientes."
+      "Constructor y Editor disponibles vía ChatGPT con encargos completos, borradores locales y cero API adicional.",
+      "Derivación, recarga, copia y continuación verificadas en móvil y escritorio."
     ],
     "history": [
       {
@@ -398,7 +398,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "27e6d8b633668abd6a9d7969b78038c00a5d8ff387ea97aa94bd9950d39bdd71"
+          "sha256": "e9b709ad8a7cffa359a90f88de97c4c535c56e56cc68f10d7cbdc56f17a41792"
         },
         {
           "url": "version-verifier.js",
@@ -406,7 +406,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "6a510b8beb7cadd0955c1ef4472cbf16a5daa0963e1c61c7290100ff9f421e18"
+          "sha256": "d248fc1b507a9639c8e9faa95870ac5980cca7a486a9ec07fc7e0642ca309b08"
         },
         {
           "url": "styles.css",
@@ -414,15 +414,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "4e083c4267d5029bca9621e2b03749776666d23a74cbbf136996fa3cff53637f"
+          "sha256": "f0bf9354823188dd5922f55024e15e74e27dbe55190253cafd193d3e381d1a32"
         },
         {
           "url": "build-assets.js",
-          "sha256": "aafd89d9ae26851912169fbd6a8574ddccdc09b2befd71a7079247f65aab74cd"
+          "sha256": "bd58b632ee3932a639d5e7d04b4ba0e287facfef9e25beaec5443140d53fb674"
         }
       ]
     },
-    "cacheBuild": "61700d28278309cc"
+    "cacheBuild": "ec386260726a5fb5"
   },
   "apps": [
     {
@@ -1329,22 +1329,22 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "version": "1.3.2",
-      "build": "sha256-910f9e58b4f5",
+      "version": "1.4.0",
+      "build": "sha256-d75e868c9dd6",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "El lector del Pixel descarta XML antiguos y exige una captura nueva antes de actuar."
+        "Constructor y Editor preparan encargos completos para continuar en ChatGPT, sin API adicional."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "348dedad6fe8fdc6799a714c02db1edec9f3296add88d69491861c32ed4258e1"
+            "sha256": "376701ff0c24dcf611c117981950fdcda1f1d3fb6f10f028aea9431d79b998b9"
           },
           {
             "url": "./apps/agents/app.js",
-            "sha256": "7013242fd6b90c43fbf5c210c54f5dbaa1636887f63a865d6fed3be7417f47fb"
+            "sha256": "690386a14aa898686ca891c95c79d078d4fed95e040071085bab430196e136ce"
           },
           {
             "url": "./apps/agents/styles.css",

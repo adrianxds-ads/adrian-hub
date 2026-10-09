@@ -1,6 +1,6 @@
 {
-  "version": "1.2.0",
-  "date": "2026-10-08",
+  "version": "1.4.0",
+  "date": "2026-10-09",
   "common": [
     "Recupera la fuente maestra y el estado actual antes de crear; evita duplicados.",
     "Ejecuta tareas claras, reversibles y autorizadas; pide solo datos esenciales o autorización pendiente para acciones sensibles.",
@@ -318,16 +318,16 @@
       "name": "El Editor",
       "role": "Aplica una única Voz de Adrián transversal: adulta, culta, natural, precisa, ritmo variado, enfoque positivo; conserva bromas y hechos.",
       "exercise": "Corrige una actividad HOTI y un correo.",
-      "acceptance": "Una sola hoja de estilo, hechos intactos, sin inventar registros distintos por canal.",
-      "status": "Programa preparado · práctica pendiente"
+      "acceptance": "Entradas esenciales completas; encargo conservado al recargar; copia íntegra para ChatGPT; original y progreso preservados; cero llamadas de ejecución.",
+      "status": "Disponible vía ChatGPT · encargo validado y copiado · sin ejecución autónoma ni API adicional"
     },
     {
       "id": "constructor",
       "name": "El Constructor",
       "role": "Busca módulos existentes; especifica alcance y aceptación, crea prototipo aislado, integra Core y prueba móvil, caché y persistencia.",
       "exercise": "Construye práctica Cambridge con preguntas escaneadas.",
-      "acceptance": "Reutiliza banco maestro; trazabilidad de preguntas/soluciones; no inventa respuestas oficiales ni borra progreso.",
-      "status": "Programa preparado · práctica pendiente"
+      "acceptance": "Entradas esenciales completas; encargo conservado al recargar; copia íntegra para ChatGPT; original y progreso preservados; cero llamadas de ejecución.",
+      "status": "Disponible vía ChatGPT · encargo validado y copiado · sin ejecución autónoma ni API adicional"
     },
     {
       "id": "tester",

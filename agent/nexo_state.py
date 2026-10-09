@@ -7,8 +7,8 @@ CAPABILITIES = {
  "auditor":{"active":True,"mode":"read-only","max_usd":0.35},
  "reparador":{"active":True,"mode":"isolated-patch","max_usd":1.65,"targets":["adaptive-keyword-speaking"]},
  "tester":{"active":True,"mode":"trusted-regression-inside-repair","independent":False},
- "constructor":{"active":False,"mode":"planned","reason":"Needs scoped files, trusted tests and an isolated executor"},
- "editor":{"active":False,"mode":"planned","reason":"Needs document targets and a reviewable diff"},
+ "constructor":{"active":True,"mode":"chatgpt-handoff","autonomous":False,"max_usd":0},
+ "editor":{"active":True,"mode":"chatgpt-handoff","autonomous":False,"max_usd":0},
  "targets":{"adaptive-keyword-speaking":"audit-repair-test","adaptive-exam":"audit-only"},
 }
 

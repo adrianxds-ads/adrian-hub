@@ -24,6 +24,6 @@ class SharedStateTests(unittest.TestCase):
  def test_empty_and_prepared_roles(self):
   self.assertIsNone(mission_view({},{}))
   roles=specialist_contracts()["roles"]
-  self.assertFalse(roles["constructor"]["active"]);self.assertTrue(roles["constructor"]["prepared"])
-  self.assertFalse(roles["editor"]["active"])
+  self.assertTrue(roles["constructor"]["active"]);self.assertFalse(roles["constructor"]["autonomous"]);self.assertTrue(roles["constructor"]["prepared"])
+  self.assertTrue(roles["editor"]["active"]);self.assertFalse(roles["editor"]["autonomous"])
 if __name__=="__main__":unittest.main()

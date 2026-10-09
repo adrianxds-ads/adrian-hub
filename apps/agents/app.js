@@ -54,7 +54,7 @@ async function tickAdvisor(){
   finally{b.disabled=false;}
 }
 
-const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc',consejero:'advisor',nucleo:'nucleo'};
+const TRIAGE_TARGETS={auditor:'audit',reparador:'repair',operador:'pc',consejero:'advisor',nucleo:'nucleo',constructor:'constructor',editor:'editor'};
 function renderTriage(t){
   const box=$('#triageResult'),status=$('#triageStatus'),go=$('#triageGo');
   box.hidden=false;go.hidden=true;go.dataset.target='';
@@ -98,6 +98,7 @@ function goToTriageTarget(){
   const text=$('#triageRequest').value.trim();
   if(key==='audit'&&text)$('#auditMission').value=text;
   if(key==='repair'&&text)$('#repairMission').value=text;
+  if(['constructor','editor'].includes(key)&&text)window.nexoSpecialistRequest(key,text);
   target.scrollIntoView({behavior:'smooth',block:'start'});
   target.classList.add('triage-highlight');setTimeout(()=>target.classList.remove('triage-highlight'),1800);
 }
@@ -172,7 +173,7 @@ setInterval(refreshSpend,60000);setInterval(refreshAdvisor,60000);
 async function refreshTraining(){
   const box=document.querySelector('#trainingProfiles');
   try{
-    const r=await fetch('./training.json?v=1.2.0',{cache:'no-store'});
+    const r=await fetch('./training.json?v=1.4.0',{cache:'no-store'});
     if(!r.ok)throw new Error('HTTP '+r.status);
     const d=await r.json();
     box.innerHTML='<details><summary>Información · base común</summary><ul>'+d.common.map(x=>'<li>'+escHtml(x)+'</li>').join('')+'</ul></details>'+d.agents.filter(a=>a.id!=='triaje').map(a=>'<details><summary>Información · '+escHtml(a.name)+'</summary><p>'+escHtml(a.role)+'</p><p><b>Ejercicio:</b> '+escHtml(a.exercise)+'</p><p><b>Para aprobar:</b> '+escHtml(a.acceptance)+'</p><small>'+escHtml(a.status)+'</small>'+(a.assessment?'<p><b>Evaluación:</b> '+a.assessment.passed_cases+'/'+a.assessment.total_cases+' comprobaciones · '+escHtml(a.assessment.date)+'</p><ul>'+a.assessment.cases.map(c=>'<li>'+escHtml(c.request)+' · '+(c.pass?'SUPERADA':'PENDIENTE')+'</li>').join('')+'</ul>':'')+'</details>').join('');
@@ -337,7 +338,7 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
    const d=await request('/nexo/mission'),v=d.mission;
    if(d.specialist_contracts){
     const roles=d.specialist_contracts.roles||{},targets=d.specialist_contracts.targets||{};
-    q('#nexoCapabilities').textContent='Auditor: disponible. Reparador y regresión: Keyboard Speak. Constructor: '+(roles.constructor?.prepared?'contrato preparado; ejecutor pendiente':'pendiente')+'. Editor: '+(roles.editor?.prepared?'contrato preparado; ejecutor pendiente':'pendiente')+'. Cambridge: '+(targets['adaptive-exam']?.audit?'auditoría disponible; reparación pendiente de su regresión propia':'pendiente')+'.';
+    q('#nexoCapabilities').textContent='Auditor: disponible. Reparador y regresión: Keyboard Speak. Constructor: '+(roles.constructor?.active?'disponible vía ChatGPT; sin ejecución autónoma':'pendiente')+'. Editor: '+(roles.editor?.active?'disponible vía ChatGPT; sin ejecución autónoma':'pendiente')+'. Cambridge: '+(targets['adaptive-exam']?.audit?'auditoría disponible; reparación pendiente de su regresión propia':'pendiente')+'.';
    }
    if(!v?.runId||v.schema!==1)return false;
    if(mission&&mission.runId!==v.runId&&!confirm('El PC tiene otra misión. ¿Recuperarla en este navegador?'))return true;
@@ -359,4 +360,49 @@ document.querySelector('#nexoChat').addEventListener('click',async()=>{
  });
  q('#nexoMissionRepair').addEventListener('click',()=>startRepair());
  paint();if(!mission)recoverShared();else if(['running','repairing'].includes(mission?.phase))poll();
+})();
+
+/* Zero-cost specialist briefs; manual ChatGPT continuation, no execution endpoint. */
+(()=>{
+ const roles=['constructor','editor'],key=r=>'nexo-specialist-'+r+'-v1';
+ const fields=r=>['Brief','Source','Criteria'].map(x=>document.getElementById(r+x));
+ function packet(r){
+  const [brief,source,criteria]=fields(r).map(x=>x.value.trim());
+  if(!brief||!source||!criteria)return '';
+  const instructions=r==='constructor'
+   ?'Trabajamos como Constructor. Inspecciona la fuente actual, conserva trabajo existente y crea una copia o rama aislada cuando proceda. Implementa solo el alcance indicado, verifica las pruebas de aceptación y entrega cambios revisables. Conserva progresos y datos. No publiques sin una instrucción que autorice la publicación.'
+   :'Trabajamos como Editor. Recupera el original indicado antes de editar. Aplica la Voz de Adrián a textos en su nombre, respetando las instrucciones concretas. Conserva hechos, estructura y original; entrega una copia revisable. Si es un documento con maquetación, verifica el render final. No envíes mensajes ni inventes datos.';
+  return ['NEXO · '+r.toUpperCase()+' · CONTINUACIÓN MANUAL EN CHATGPT',
+   'Encargo: '+brief,'Fuente y alcance: '+source,'Criterios: '+criteria,instructions,
+   'Sin nuevas llamadas a modelos de pago. Este paquete no prueba que el trabajo esté ejecutado. Si falta acceso o información esencial, decláralo; continúa con el trabajo independiente autorizado.'].join('\n\n');
+ }
+ function save(r){
+  const fs=fields(r),note=document.getElementById(r+'Note');
+  document.getElementById(r+'Packet').hidden=true;
+  for(const action of ['Copy','Continue'])document.getElementById(r+action).disabled=true;
+  try{localStorage.setItem(key(r),JSON.stringify({schema:1,values:fs.map(x=>x.value)}));note.textContent='Borrador guardado en este navegador. Prepara el encargo después de los cambios.';}
+  catch{note.textContent='No se pudo guardar el borrador. Conserva una copia antes de salir.';}
+ }
+ window.nexoSpecialistRequest=(r,text)=>{
+  if(!roles.includes(r))return;
+  fields(r)[0].value=text;save(r);
+ };
+ for(const r of roles){
+  const fs=fields(r),out=document.getElementById(r+'Packet'),note=document.getElementById(r+'Note');
+  try{const v=JSON.parse(localStorage.getItem(key(r))||'null');if(v?.schema===1&&Array.isArray(v.values)&&v.values.length===3)fs.forEach((x,i)=>{if(typeof v.values[i]==='string')x.value=v.values[i].slice(0,x.maxLength);});}catch{}
+  fs.forEach(x=>x.addEventListener('input',()=>save(r)));
+  document.getElementById(r+'Form').addEventListener('submit',e=>{
+   e.preventDefault();const text=packet(r);if(!text){note.textContent='Completa el encargo, la fuente y los criterios antes de preparar.';return;}
+   out.value=text;out.hidden=false;
+   for(const action of ['Copy','Continue'])document.getElementById(r+action).disabled=false;
+   note.textContent='Encargo preparado. Cópialo y pégalo en nuestra conversación para ejecutarlo. Sin gasto de API adicional.';
+  });
+  async function copy(continueChat){
+   try{await navigator.clipboard.writeText(out.value);note.textContent='Encargo copiado. Pégalo en nuestra conversación de ChatGPT.';
+    if(continueChat)location.assign('https://adrianxds-ads.github.io/adrian-hub/chatgpt.html');
+   }catch{out.hidden=false;out.focus();out.select();note.textContent='Copia automática no disponible. Selecciona y copia el encargo; después pégalo en ChatGPT.';}
+  }
+  document.getElementById(r+'Copy').addEventListener('click',()=>copy(false));
+  document.getElementById(r+'Continue').addEventListener('click',()=>copy(true));
+ }
 })();
