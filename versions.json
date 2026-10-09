@@ -4,12 +4,12 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.29",
-    "build": "hub-30.4.29-20261009",
+    "version": "30.4.30",
+    "build": "hub-30.4.30-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "El Pixel mantiene la pantalla despierta durante operaciones de Nexo mediante una protección temporal renovable.",
-      "El guardián del propio teléfono libera la protección al cesar el trabajo; conserva los ajustes habituales de bloqueo."
+      "El lector del Pixel descarta capturas XML antiguas y exige un volcado nuevo antes de actuar.",
+      "Prueba física parcial de Keyboard Speak: Gboard abierto y texto visible; frase completa y dictado pendientes."
     ],
     "history": [
       {
@@ -398,7 +398,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "d1c91daa707bee611f6f0d8932b39b4969599e1fd77330cca9378e313e6c3ae6"
+          "sha256": "27e6d8b633668abd6a9d7969b78038c00a5d8ff387ea97aa94bd9950d39bdd71"
         },
         {
           "url": "version-verifier.js",
@@ -406,7 +406,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "fdb2b9cf44ce14fd5a6f549d629d10efbd12cb6ee7737930ccf7147931cf534d"
+          "sha256": "6a510b8beb7cadd0955c1ef4472cbf16a5daa0963e1c61c7290100ff9f421e18"
         },
         {
           "url": "styles.css",
@@ -414,15 +414,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "61765f3b84ebd003f71231cec84a9a7f2659f0f3754a9f99cf5106b40c08620b"
+          "sha256": "4e083c4267d5029bca9621e2b03749776666d23a74cbbf136996fa3cff53637f"
         },
         {
           "url": "build-assets.js",
-          "sha256": "bf5a09fc0f3cc9c94873d1217634eb3a94300b01f1d018f63ab1939dd2a59f51"
+          "sha256": "aafd89d9ae26851912169fbd6a8574ddccdc09b2befd71a7079247f65aab74cd"
         }
       ]
     },
-    "cacheBuild": "58a8df7bf2756ad1"
+    "cacheBuild": "61700d28278309cc"
   },
   "apps": [
     {
@@ -1329,19 +1329,18 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "version": "1.3.1",
-      "build": "sha256-fa09e2df00b8",
+      "version": "1.3.2",
+      "build": "sha256-910f9e58b4f5",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "El Pixel mantiene la pantalla despierta durante operaciones de Nexo mediante una protección temporal renovable.",
-        "El guardián del propio teléfono libera la protección al cesar el trabajo; conserva los ajustes habituales de bloqueo."
+        "El lector del Pixel descarta XML antiguos y exige una captura nueva antes de actuar."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "40a085819299cce9b78ae7ee18b22de24040094bd36fc16ad9edbf7a9f8371ec"
+            "sha256": "348dedad6fe8fdc6799a714c02db1edec9f3296add88d69491861c32ed4258e1"
           },
           {
             "url": "./apps/agents/app.js",

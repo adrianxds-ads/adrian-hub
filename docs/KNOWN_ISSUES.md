@@ -60,3 +60,10 @@ Siguiente trabajo: prueba física breve de teclado/micrófono, ejecutores concre
 - Guardian en el propio Pixel libera el wake lock al caducar la concesión incluso si desaparece el PC/ADB. Un reinicio de Android elimina el wake lock; se reconoce boot_id para limpiar el estado del guardián. Renovaciones no acumulan referencias.
 - Verificación física aprobada: adquisición, caducidad de 5 s comprobada tras 8 s sin heartbeat, renovación doble con refCount=1, liberación explícita y activación automática por screencap del bridge. Los tres ajustes originales permanecieron iguales. La prueba terminó con el wake lock liberado.
 - Alcance: operaciones de Nexo vía bridge/helper. Scripts que usen ADB directamente deben llamar pixel_work_session. No permite saltar un PIN ni evita un bloqueo manual solicitado por el usuario.
+
+
+### Pixel: lectura fresca y prueba parcial (2026-10-09)
+
+Keyboard Speak 1.0.9 abre Gboard y muestra texto escrito en una captura física. La frase completa y el dictado quedan pendientes: hubo cambios de aplicación entre operaciones. No se completó ninguna sesión ni se generó un parche de la app. La orientación se restauró y la protección temporal se liberó. Sin llamadas adicionales a modelos.
+
+El puente privado elimina el XML anterior antes de uiautomator, permite 25 segundos para el volcado y exige un archivo nuevo no vacío. Rechaza mensajes ERROR incluso con código de salida cero. El test test_pixel_ui_freshness.py --bridge comprueba orden, error con salida cero y ausencia de XML nuevo: tres casos aprobados sin tocar el teléfono.
