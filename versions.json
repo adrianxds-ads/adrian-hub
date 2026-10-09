@@ -4,14 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.22",
-    "build": "hub-30.4.22-20261009",
-    "releasedAt": "2026-10-08",
+    "version": "30.4.23",
+    "build": "hub-30.4.23-20261009",
+    "releasedAt": "2026-10-09",
     "changes": [
-      "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
-      "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
+      "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
+      "Descanso fijo de 10 minutos solo entre tareas; sin descanso después de la última.",
+      "Pantalla mantenida encendida durante el recorrido cuando Android lo permite, dinosaurio hacia la meta y visual nocturna.",
+      "Avisos de voz al inicio, mitad y final; sonido de oro del Hub al completar. Historial anterior conservado."
     ],
     "history": [
+      {
+        "version": "30.4.22",
+        "date": "2026-10-08",
+        "build": "hub-30.4.22-20261009",
+        "changes": [
+          "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
+          "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
+        ]
+      },
       {
         "version": "30.4.20",
         "date": "2026-10-08",
@@ -328,7 +339,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "490cda7c7977efc26bf70dacf8c76a5e10764f607f3db95bb9ea0b319c298fc0"
+          "sha256": "464ab06fc1b602ae40319a1aa80aa512a27fa3cf365f78f525de36305e3cd732"
         },
         {
           "url": "version-verifier.js",
@@ -336,7 +347,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "266a060139cc64915c015eebe326d35b8f38733df3bfc1b2bde3b68c5dc6a37c"
+          "sha256": "776afee2979f9aa0541461c711da4f2d2093c3216d3cf294028d7cec6481dd86"
         },
         {
           "url": "styles.css",
@@ -344,15 +355,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "c546d0abddf5b9ce0f9c7e11032015d58bd62c586f12de65519674229b3a9f34"
+          "sha256": "e4ac96c3404311184aa02767c73846097af8f9bb2d5c28d15bbcc20fec5e172c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "c05b5a7f71889b34daf07016da6c0a6d008b79b6c4e028cf4a7c627a7ef13e4c"
+          "sha256": "60ff52c6b1555f96c276c1884196c85fdebcecee518b40b38078d2b242049624"
         }
       ]
     },
-    "cacheBuild": "011a055ff19192ec"
+    "cacheBuild": "2b2cc0c71b8a30ea"
   },
   "apps": [
     {
@@ -987,28 +998,29 @@
     {
       "id": "biblioteca",
       "name": "Biblioteca · Easy Catalan",
-      "version": "0.2.0",
-      "build": "sha256-53dd96f8548a",
+      "version": "0.3.0",
+      "build": "sha256-1956d263d8a4",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Modo Tarea: episodios Easy Catalan como bloques cerrados de trabajo, velocidad 1× y recorrido horizontal.",
-        "Descanso fijo de 10 minutos, tareas encadenadas e historial independiente por sesión.",
-        "Estadísticas completas por día sin alterar la escucha normal."
+        "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
+        "Descanso fijo de 10 minutos solo entre tareas; sin descanso después de la última.",
+        "Pantalla mantenida encendida durante el recorrido cuando Android lo permite, dinosaurio hacia la meta y visual nocturna.",
+        "Avisos de voz al inicio, mitad y final; sonido de oro del Hub al completar. Historial anterior conservado."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "0df36575ab6b528b66c93636ff2577c545f7932b6fcbb6b185fa6b9e317cfe2a"
+            "sha256": "06fee10699ca5c303a12a5c2aabdc609f43631972d999e7e2078a131644d8fc4"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "685642beaf4bba696a52854318522292fa0b6435250f6f4aa1921f3968b7725e"
+            "sha256": "cb7f311890e43764e8847becec8865aa244f5d42ec9cbc438bfdf75ef55f8579"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "929f56f5dcfcd423e161757df8f330b66798b8aa0138a1a230566b0252a0c302"
+            "sha256": "22443e5412e99a01a7f1b37db632017b61647c5032907bcfefa461876541283b"
           }
         ]
       },

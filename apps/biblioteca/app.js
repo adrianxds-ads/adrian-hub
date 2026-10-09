@@ -61,5 +61,6 @@ els.audio.addEventListener('pause',()=>{persistPosition();updateTimeline();rende
 els.audio.addEventListener('timeupdate',()=>{updateTimeline();if(Date.now()-lastSaved>5000)persistPosition()});
 els.audio.addEventListener('ended',()=>{if(window.ModeTarea?.playing)return;if(current){toggleDone(current,true);const p=positions();delete p[current];savePositions(p)}});
 window.addEventListener('pagehide',persistPosition);
+window.LibraryGetSort=()=>order;
 window.LibraryOriginalStop=()=>{persistPosition();els.audio.pause();current=null;els.audio.onloadedmetadata=null;els.player.hidden=true;render()};
 fetch('./easy-catalan.json').then(r=>{if(!r.ok)throw Error('Catàleg no disponible');return r.json()}).then(x=>{data=x;els.art.src=x.artwork;render();window.ModeTarea?.catalogReady(x)}).catch(err=>{els.empty.hidden=false;els.empty.textContent='No s’ha pogut carregar el catàleg.';console.error(err)});

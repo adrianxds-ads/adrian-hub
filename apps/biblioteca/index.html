@@ -37,7 +37,19 @@
 <div id="libraryLegend" class="legend"><span><i class="pending-dot" aria-hidden="true">•</i>Pendent</span><span><i class="done-dot" aria-hidden="true">✓</i>Escoltat</span><small id="shownCount"></small></div>
 
 <section id="taskPanel" class="task-panel" hidden>
-  <div class="task-mode-intro"><b>Un podcast. Una tarea. Hasta la meta.</b><span>El audio decide el tiempo: sin adelantar, sin pausas manuales y a velocidad 1×.</span></div>
+  <div class="task-mode-intro"><b>Un podcast. Una tarea. Hasta la meta.</b><span>Elige de 1 a 3 tareas antes de empezar. Diez minutos de descanso solamente entre ellas.</span></div>
+  <section id="taskPlanner" class="task-planner" aria-label="Plan de tareas">
+    <div class="task-plan-heading"><strong>¿Cuántas tareas vas a hacer?</strong><span>Máximo 3 · 1 por defecto</span></div>
+    <div class="task-counts" role="group" aria-label="Número de tareas">
+      <button type="button" data-task-count="1" aria-pressed="true">1</button>
+      <button type="button" data-task-count="2" aria-pressed="false">2</button>
+      <button type="button" data-task-count="3" aria-pressed="false">3</button>
+    </div>
+    <div id="taskPlanSlots" class="task-plan-slots" aria-live="polite"></div>
+    <p id="taskPlanHint" class="task-plan-hint">Elige el episodio para tu primera tarea.</p>
+    <button id="taskPlanStart" class="task-plan-start" type="button" hidden>▶ Empezar recorrido</button>
+  </section>
+  <div id="taskCompleted" class="task-completed" hidden role="status"></div>
   <div id="taskBreak" class="task-break" hidden aria-live="polite">
     <strong>☕ Descanso · <span id="taskBreakClock">10:00</span></strong>
     <p id="taskBreakText">Descanso fijo de 10 minutos.</p>
@@ -71,7 +83,7 @@
 
 <div id="taskSetup" class="task-modal" hidden role="dialog" aria-modal="true" aria-labelledby="taskSetupHeading">
   <div class="task-modal-card">
-    <p class="eyebrow">MODO TAREA · EPISODIO ELEGIDO</p>
+    <p id="taskSetupPosition" class="eyebrow">MODO TAREA · EPISODIO ELEGIDO</p>
     <h2 id="taskSetupHeading">¿Qué vamos a hacer?</h2>
     <p id="taskSetupTitle"></p>
     <label for="taskText">Tarea de este bloque</label>
@@ -80,14 +92,14 @@
   </div>
 </div>
 <section id="taskStage" class="task-stage" hidden aria-label="Recorrido del bloque de trabajo">
-  <header class="task-stage-head"><span>🦖 MODO TAREA · EASY CATALAN</span><button id="taskExit" type="button" aria-label="Salida de emergencia">Salir del bloque</button></header>
+  <header class="task-stage-head"><span>🦖 MODO TAREA · <span id="taskStagePosition">1/1</span></span><button id="taskExit" type="button" aria-label="Salida de emergencia">Salir del bloque</button></header>
   <div class="task-stage-copy"><p id="taskStageTitle"></p><h2 id="taskStageTask"></h2><strong id="taskClock">— restantes</strong></div>
   <div id="taskJourney" class="task-journey" role="progressbar" aria-label="Progreso del episodio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
     <div class="task-sky"><span>☀️</span><span>☁️</span><span>☁️</span></div>
     <div class="task-hills"><i></i><i></i><i></i></div>
     <div class="task-ground"><div id="taskProgress" class="task-progress"></div><span class="task-goal" aria-hidden="true">🏁</span><span id="taskDino" class="task-dino" aria-hidden="true">🦖</span></div>
   </div>
-  <p class="task-stage-prompt">El personaje avanza con el podcast. La meta es el final real del episodio.</p>
+  <p class="task-stage-prompt">El dinosaurio avanza mientras escuchas el podcast. La pantalla se mantiene encendida cuando Android lo permite.</p>
   <button id="taskResume" class="task-resume" type="button" hidden>▶ Reanudar audio</button>
 </section>
 <dialog id="taskChartDialog" class="task-chart-dialog">
@@ -98,6 +110,7 @@
 </dialog>
 <audio id="audio" preload="metadata"></audio>
 <script src="./app.js"></script>
+<script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=1.2.0"></script>
 <script src="./mode-tarea.js"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10"></script>
 </body>
