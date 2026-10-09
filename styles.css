@@ -72,3 +72,52 @@ footer{display:flex;justify-content:space-between;border-top:1px solid var(--ad-
 }
 
 .app-info{font-size:24px!important}.app-version-chip{font-size:15px!important}.version-status{font-size:14px}
+
+/* NÚCLEO VISUAL · Lectura accesible v1, basado en A/B nocturno + interior iluminado.
+   Usa tokens de adrian-core; se limita al Hub y no modifica quizzes/progreso. */
+:root{
+  --ad-font:var(--nucleo-font,Roboto,"Segoe UI",Arial,sans-serif);
+  --ad-font-base:var(--nucleo-reading-size,19px);
+  --ad-font-small:var(--nucleo-small-size,16px);
+  --ad-font-large:var(--nucleo-heading-size,24px);
+  --ad-control-height:var(--nucleo-touch-min,52px);
+}
+body.nucleo-readable{font-family:var(--nucleo-font,Roboto,Arial,sans-serif);font-size:var(--nucleo-reading-size,19px);line-height:var(--nucleo-reading-line,1.35)}
+.nucleo-readable .app-copy strong{font-size:22px;line-height:1.28}
+.nucleo-readable .app-copy small,
+.nucleo-readable .app-version-chip,
+.nucleo-readable .app-task-chip,
+.nucleo-readable .app-gold-chip,
+.nucleo-readable .garden-intro>small,
+.nucleo-readable .garden-intro>span,
+.nucleo-readable .garden-task-medals,
+.nucleo-readable .version-center-head p,
+.nucleo-readable .version-main small,
+.nucleo-readable .version-build small,
+.nucleo-readable .version-status,
+.nucleo-readable .version-center-foot,
+.nucleo-readable .update-progress small,
+.nucleo-readable .update-summary small{font-size:var(--nucleo-small-size,16px)!important;line-height:1.4}
+.nucleo-readable .intro,.nucleo-readable .hub-chat-copy small,
+.nucleo-readable .app-info-shell p:not(.app-info-kicker),
+.nucleo-readable .app-info-shell li{font-size:var(--nucleo-reading-size,19px);line-height:var(--nucleo-reading-line,1.35)}
+.nucleo-readable .hub-chat-actions .ad-button,
+.nucleo-readable .update-actions .ad-button,
+.nucleo-readable .app-info-open,
+.nucleo-readable #search{font-size:var(--nucleo-ui-size,18px);min-height:var(--nucleo-touch-min,52px)}
+.nucleo-readable .app-info-shell h3{font-size:var(--nucleo-heading-size,24px);line-height:1.25}
+.nucleo-readable .app-info-dialog{background:var(--nucleo-light-bg,#EAF0F5);color:var(--nucleo-light-text,#25282C);border-color:#9AAEBB}
+.nucleo-readable .app-info-shell p:not(.app-info-kicker){color:#25282C}
+.nucleo-readable .app-info-kicker{color:#354E63}
+.nucleo-readable .app-info-close{background:#253846;color:#fff}
+.nucleo-readable .app-info-shell ul{color:#25282C}
+.nucleo-readable .version-row{min-height:var(--nucleo-touch-min,52px)}
+.nucleo-readable .version-main b,.nucleo-readable .version-build strong{font-size:var(--nucleo-ui-size,18px)}
+.nucleo-readable .app-info{min-width:var(--nucleo-touch-min,52px);min-height:var(--nucleo-touch-min,52px)}
+@media(max-width:560px){
+  .nucleo-readable .app-launch{padding-right:75px}
+  .nucleo-readable .hub-chat-actions{grid-template-columns:1fr}
+  .nucleo-readable .hub-chat-primary{grid-column:auto}
+  .nucleo-readable .version-row{grid-template-columns:minmax(0,1fr) auto;align-items:start}
+  .nucleo-readable .version-build small{white-space:normal;overflow-wrap:anywhere;max-width:140px}
+}

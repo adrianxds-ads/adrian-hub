@@ -4,13 +4,22 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.34",
-    "build": "hub-30.4.34-20261009",
+    "version": "30.4.35",
+    "build": "hub-30.4.35-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Modo Tarea: Rex recorre el jardín real del Hub con crecimiento y luz compartidos."
+      "Perfil Núcleo Visual: Roboto y escala de lectura accesible de Adrián Core, con texto base de 19 px.",
+      "Tarjetas, etiquetas y fichas informativas más legibles; fondo gris azulado aplicado a las fichas de lectura.",
+      "Plantilla compartida para migración progresiva de apps sin modificar juegos ni progreso."
     ],
     "history": [
+      {
+        "version": "30.4.34",
+        "date": "2026-10-09",
+        "changes": [
+          "Modo Tarea: Rex recorre el jardín real del Hub con crecimiento y luz compartidos."
+        ]
+      },
       {
         "version": "30.4.33",
         "date": "2026-10-09",
@@ -414,7 +423,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "49e0b73cf5c9e97cca716500d7c1e480833c855491512cb4fd9544a082382359"
+          "sha256": "e25b774c8b282bc0bb575c2da8e6d0539e470de40c56ea98de04d92c3048ba4a"
         },
         {
           "url": "version-verifier.js",
@@ -422,23 +431,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "6a3db677b1df71f17343d1cdcfffa5a7e834de5e5d725267855b61e1f196edb8"
+          "sha256": "43c1f7fd78b7e5cc06a2805f73457af6a192640f02b798c23ea71671fd95891b"
         },
         {
           "url": "styles.css",
-          "sha256": "7d635a44cac4bc69ad0a235ea6585cb9b93e49911eaaab6de552a13e0ec4122a"
+          "sha256": "570be53f1f14a1ef0d732a877e8a89b10caaefad06e9b6e7c4df87c42fc62018"
         },
         {
           "url": "service-worker.js",
-          "sha256": "f0f083db624c18fa5d6e30002b15b86cd9595cda202675b1ba44cb58c6fb9a41"
+          "sha256": "87cc24759b9b184fa1ac02952fab01c862f34cc23667be6636e6d2110887db6a"
         },
         {
           "url": "build-assets.js",
-          "sha256": "0dd1491c487b4491b49d4e4806f7bb9fa127b3185c093f13e8cd640649221915"
+          "sha256": "6f61511f1bbaebd06c44bab5152d0ac1d3e19025e8f9679528d0c7033f3ac00e"
         }
       ]
     },
-    "cacheBuild": "8dee040a9e7ab525"
+    "cacheBuild": "50360070d5171b2e"
   },
   "apps": [
     {

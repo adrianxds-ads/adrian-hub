@@ -31,3 +31,10 @@ Use the private bridge adb helper for Pixel UI work: it renews the temporary scr
 
 ## Current Nexo operating preference (2026-10-09)
 Adrián has chosen to continue investigation and implementation through ChatGPT/DC without additional paid model API runs. Historical spending caps are ceilings, not current authorization to spend. Do not launch new OpenRouter audit/repair jobs unless Adrián explicitly changes this preference. Local diagnostics, trusted regression and read-only recovery of existing results remain available. Keyboard Speak physical phrase/dictation testing is deferred by user choice and does not block Nexo configuration.
+
+## Núcleo Visual: norma de lectura (2026-10-09)
+- Plantilla maestra en `../adrian-core/design/nucleo-visual-profile.css` y explicación `NUCLEO_VISUAL_PROFILE.md`. No crear otra escala arbitraria de tipografías al construir apps nuevas.
+- Lectura: Roboto 19 px CSS / interlineado 1,35; secundarios 16 px; interfaz 18 px; títulos 24 px; superficies táctiles desde 52 px. Fondo claro candidato #EAF0F5 y texto #25282C.
+- Basado en dos autovaloraciones coincidentes (noche tenue e interior iluminado, no prueba clínica ni luz solar); permitir ajustes posteriores y mantener escalado del sistema Android.
+- Cada nueva pantalla de lectura debe adoptar los tokens compartidos y comprobar la visualización en Pixel. Importar la plantilla por sí sola no cambia elementos con tamaños locales fijados.
+- Migrar quizzes existentes progresivamente, nunca a ciegas: revisar CSS real, conservar puntuación/temporizadores/teclado/progreso, probar sin desbordamiento, versionar individualmente.
