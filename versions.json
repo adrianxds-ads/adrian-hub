@@ -437,25 +437,25 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.2",
-      "build": "sha256-b540ded04e52",
+      "version": "3.35.3",
+      "build": "sha256-18a4bb87da4c",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Evita fallos de cuota al guardar: comprime sin pérdida las respuestas históricas, sin modificar el progreso del juego.",
-        "Conserva completo el historial de niveles, oros y estrellas en formato legible para el Hub.",
-        "El cierre de un nivel ya no depende de generar el JSON opcional de IA; muestra resumen real y aviso de respaldo si falla el guardado.",
+        "El guardado utiliza únicamente la compresión GZIP compartida y confirma la escritura; compatible con historiales existentes.",
+        "Si el progreso no se puede leer, muestra recuperación segura sin sustituirlo por una campaña vacía.",
+        "Copias JSON mediante Compartir de Android o copia de texto, también en la pantalla de recuperación.",
         "Banco de 3.000 preguntas, temporizador de 15 s, algoritmo y nivel global sin cambios."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "643b0f7020a2f5d105081d9898d76473a6bbe10b618c98b08865b2f32a10f6ae"
+            "sha256": "3786f6daffa3573f551bf9e32d6d5870075d28f17bb6425db2a0ab9508f2a819"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "14fa8a89d6f1e021d154443880dc042a2aa574d2042965117b72c60ebde1fc72"
+            "sha256": "09c0d40748f99e398051c128a4d80e18eb6c4ba01c49633de3f324c0ac676e79"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -463,12 +463,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "3df84de2cf8a8757aabbc6bb0baff408764eed88581acf2411eb494cf2b3d82e"
+            "sha256": "5d0c243b559fd21fa48bfbdb91cec66fc6a6b126a58c5c06d7a3e3fa392b27d3"
           }
         ]
       },
-      "sourceCommit": "18b07037253cfb97fd436881b8bce96c44b45d74",
-      "cacheBuild": "7874920bb825bbf7",
+      "sourceCommit": "8cb4d3c8e3e9a5b1e82fc9183a50570b28ceb3d1",
+      "cacheBuild": "7560d4958783a49e",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
