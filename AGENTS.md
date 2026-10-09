@@ -38,3 +38,9 @@ Adrián has chosen to continue investigation and implementation through ChatGPT/
 - Basado en dos autovaloraciones coincidentes (noche tenue e interior iluminado, no prueba clínica ni luz solar); permitir ajustes posteriores y mantener escalado del sistema Android.
 - Cada nueva pantalla de lectura debe adoptar los tokens compartidos y comprobar la visualización en Pixel. Importar la plantilla por sí sola no cambia elementos con tamaños locales fijados.
 - Migrar quizzes existentes progresivamente, nunca a ciegas: revisar CSS real, conservar puntuación/temporizadores/teclado/progreso, probar sin desbordamiento, versionar individualmente.
+
+## Núcleo Visual · Hub claro y tarjetas didácticas (2026-10-09)
+- Norma visual confirmada por las dos pruebas: fondo gris azulado #EAF0F5, texto #25282C, Roboto y lectura 19px/1,35. El color del fondo es preferencia de lectura, no diagnóstico óptico.
+- La carcasa del Hub usa `hub-daylight.css`, importado después de `styles.css`; permite cambiar o revertir el tema sin tocar juegos. Mantener fichas de materias con tintes distintos, nombre y subtítulo de alto contraste, sin recurrir solo al color para identificarlas.
+- La identidad cromática de medallas/arcoíris, recompensas, respuestas, estrellas y jardín **no se modifica** con el tema del Hub. No trasladar un tema claro a los quizzes sin auditoría y pruebas independientes de CSS, respuestas, temporizador y progreso.
+- Verificar en 360/390/412/1280px, apertura de fichas, búsqueda, actualización y ausencia de scroll horizontal; si se añade CSS importado actualizar la caché y la integridad de release.

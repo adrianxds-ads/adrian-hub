@@ -1,0 +1,206 @@
+/* HUB DAYLIGHT · Núcleo Visual 1.1, 2026-10-09
+ * Contraste alto y tarjetas educativas diferenciadas.
+ * Únicamente la carcasa del Hub: no modifica UI interna, quizzes, jardín,
+ * medallas, sistema de recompensas, datos ni temporizadores.
+ * Paleta clara respaldada por las dos pruebas visuales del usuario.
+ */
+html{background:#EAF0F5;color:#25282C;color-scheme:light}
+body.hub-daylight{
+  --ad-bg:#EAF0F5;
+  --ad-bg-elevated:#FFFFFF;
+  --ad-surface:#FFFFFF;
+  --ad-surface-strong:#EDF3F8;
+  --ad-text:#25282C;
+  --ad-text-muted:#46596B;
+  --ad-border:#BECEDB;
+  --ad-accent:#246A86;
+  --ad-shadow:0 5px 22px rgba(44,65,85,.09);
+  color:#25282C;
+  background:
+   radial-gradient(circle at 8% -1%,rgba(116,175,216,.21),transparent 30%),
+   radial-gradient(circle at 100% 18%,rgba(189,170,229,.13),transparent 28%),
+   #EAF0F5;
+  color-scheme:light;
+}
+.hub-daylight .shell{max-width:820px}
+.hub-daylight .mark{
+  color:#FFFFFF;background:linear-gradient(145deg,#2477A6,#4365AA);
+  box-shadow:0 8px 20px rgba(38,103,154,.16)
+}
+.hub-daylight .eyebrow{color:#315B79}
+.hub-daylight h1{color:#1B3447;line-height:1.08}
+.hub-daylight .intro{color:#435667}
+.hub-daylight .hub-stars{
+  background:#FFF3D0;border:1px solid #DBB65B;
+  box-shadow:0 2px 8px rgba(120,91,27,.10)
+}
+.hub-daylight .hub-stars>span{color:#8D733D}
+.hub-daylight .hub-stars.earned>span{color:#A77B09;text-shadow:none}
+.hub-daylight .hub-stars b{color:#6B4B0D}
+.hub-daylight .hub-stars .hub-gold-count,
+.hub-daylight .hub-stars .hub-gold-count b{color:#76500B}
+.hub-daylight .hub-gold-count{border-left-color:#BE9A51}
+
+.hub-daylight #search{
+  border:2px solid #91ABBF;background:#FFFFFF;color:#1F3547;
+  box-shadow:0 3px 12px rgba(35,65,93,.07)
+}
+.hub-daylight #search::placeholder{color:#586B7A}
+.hub-daylight #count{color:#475D70;font-weight:700}
+.hub-daylight .group h2{
+  color:#334E62;letter-spacing:.045em;font-weight:900;
+  text-transform:uppercase;font-size:19px
+}
+.hub-daylight .apps{gap:13px}
+.hub-daylight .app{
+  --tile-tint:#E1F1FA;
+  --tile-ink:#286888;
+  --tile-edge:#96C9E5;
+  border:2px solid var(--tile-edge);
+  border-left:7px solid var(--tile-ink);
+  border-radius:19px;
+  background:linear-gradient(115deg,var(--tile-tint),color-mix(in srgb,var(--tile-tint) 53%,white));
+  box-shadow:0 3px 12px rgba(35,59,80,.07);
+  color:#172B3B;
+}
+.hub-daylight .app:hover{filter:none;border-color:var(--tile-ink);box-shadow:0 5px 18px rgba(35,59,80,.14)}
+.hub-daylight .app-launch{color:#172B3B}
+.hub-daylight .app-launch:hover,.hub-daylight .app-launch:focus-visible{background:rgba(255,255,255,.35)}
+.hub-daylight .glyph{
+  color:#FFFFFF;background:var(--tile-ink);
+  border:2px solid rgba(255,255,255,.75);
+  box-shadow:0 3px 9px rgba(15,38,59,.11);
+  font-size:20px
+}
+.hub-daylight .app-copy strong{color:#172B3B}
+.hub-daylight .app-copy small{color:#30485B}
+.hub-daylight .go{color:var(--tile-ink);font-weight:800}
+.hub-daylight .app-info{
+  border:2px solid var(--tile-ink);
+  background:#FFFFFF;
+  color:var(--tile-ink);
+  box-shadow:0 2px 8px rgba(38,65,85,.09)
+}
+.hub-daylight .app-info:hover,.hub-daylight .app-info:focus-visible{
+  background:var(--tile-ink);color:white
+}
+.hub-daylight .app-version-chip{
+  color:#273A49!important;border-color:var(--tile-edge);
+  background:rgba(255,255,255,.76);font-weight:800!important
+}
+.hub-daylight .app-gold-chip{color:#785008}
+.hub-daylight .app-task-chip{
+  color:#4D5B19;background:#F6F0CB;border:1px solid #B5B36C
+}
+/* Tintas propias de cada materia: distinguibles incluso sin memorizar colores */
+.hub-daylight .app[data-id="english"]{--tile-tint:#D6EFFF;--tile-ink:#24628E;--tile-edge:#8FC4E5}
+.hub-daylight .app[data-id="phrasal-verbs"]{--tile-tint:#DCF2DB;--tile-ink:#336B42;--tile-edge:#9DCB9E}
+.hub-daylight .app[data-id="pizarras"]{--tile-tint:#FFF1C8;--tile-ink:#856019;--tile-edge:#E2C67F}
+.hub-daylight .app[data-id="b2-cloze"]{--tile-tint:#EAE1FF;--tile-ink:#655099;--tile-edge:#B8A6E5}
+.hub-daylight .app[data-id="cambridge"]{--tile-tint:#DCE8FF;--tile-ink:#435FA3;--tile-edge:#A1B7E8}
+.hub-daylight .app[data-id="keyword-speaking"]{--tile-tint:#FFE3E0;--tile-ink:#955449;--tile-edge:#E4A79E}
+.hub-daylight .app[data-id="catala"]{--tile-tint:#FFE9CB;--tile-ink:#855623;--tile-edge:#E6B983}
+.hub-daylight .app[data-id="biblioteca"]{--tile-tint:#DAF2E9;--tile-ink:#286E61;--tile-edge:#93CBB7}
+.hub-daylight .app[data-id="hoti0108"]{--tile-tint:#D5F1EF;--tile-ink:#236D72;--tile-edge:#8EC9C9}
+.hub-daylight .app[data-id="entrenamiento"]{--tile-tint:#FFE2E8;--tile-ink:#924459;--tile-edge:#DBA0AE}
+.hub-daylight .app[data-id="cambio"]{--tile-tint:#E8E8FC;--tile-ink:#565C91;--tile-edge:#AFB4DB}
+.hub-daylight .app[data-id="dcinbox"]{--tile-tint:#FFF0DA;--tile-ink:#8B612A;--tile-edge:#DFBE91}
+.hub-daylight .app[data-id="adri-type"]{--tile-tint:#E0EAF6;--tile-ink:#466687;--tile-edge:#A6C0DA}
+.hub-daylight .app[data-id="agents"]{--tile-tint:#EFE5FB;--tile-ink:#73548F;--tile-edge:#C4A8DE}
+.hub-daylight .app[data-id="limpieza"]{--tile-tint:#E5F2D5;--tile-ink:#55752B;--tile-edge:#BCD6A0}
+.hub-daylight .app[data-id="job-engine"]{--tile-tint:#FFF0C8;--tile-ink:#835C1F;--tile-edge:#E3C37A}
+
+.hub-daylight .hub-secondary{border-top:2px solid #D3DDE7}
+.hub-daylight .hub-chat-panel{
+  background:linear-gradient(120deg,#FFFFFF,#E9F5FB);
+  border:1px solid #A9C7D9;color:#203B50
+}
+.hub-daylight .hub-chat-copy>span{color:#365E7C}
+.hub-daylight .hub-chat-copy>b{color:#243C4E}
+.hub-daylight .hub-chat-copy>small{color:#425C6D}
+.hub-daylight .ad-button{
+  background:#E5EEF5;border:1px solid #9BB2C6;color:#1C435E
+}
+.hub-daylight .ad-button:hover{filter:brightness(.97)}
+.hub-daylight .hub-chat-primary{
+  color:#FFFFFF!important;background:#246A86!important;border-color:#246A86!important
+}
+.hub-daylight .garden-intro>span{color:#456257}
+.hub-daylight .garden-intro>b{color:#254A3E}
+.hub-daylight .garden-intro>small{color:#3B5A52}
+.hub-daylight .garden-task-medals{
+  background:#FFF3CF;border:1px solid #CFB26B;color:#664C16
+}
+/* El dibujo del jardín conserva su propio ciclo solar y sus colores originales. */
+
+.hub-daylight .version-center{
+  background:#FFFFFF;border:1px solid #B6CBD8;
+  box-shadow:0 5px 20px rgba(35,59,80,.07)
+}
+.hub-daylight .version-center-head span{color:#315A75}
+.hub-daylight .version-center-head h2{color:#203B4F}
+.hub-daylight .version-center-head p{color:#4C6172}
+.hub-daylight .update-summary{
+  background:#F0F6FA;border:1px solid #C0D2DF
+}
+.hub-daylight .update-icon{background:#DDEBF3;color:#235C79}
+.hub-daylight .update-summary b{color:#213C4F}
+.hub-daylight .update-summary small{color:#425968}
+.hub-daylight .update-summary.ok .update-icon{color:#266A4B}
+.hub-daylight .update-summary.bad .update-icon{color:#8C3344}
+.hub-daylight .update-summary.pending .update-icon{color:#7A5917}
+.hub-daylight .update-summary.warn .update-icon,
+.hub-daylight .update-summary.checking .update-icon{color:#275D7E}
+.hub-daylight .version-row{
+  background:#F3F8FB;border:1px solid #C8D7E1;color:#213A4E
+}
+.hub-daylight .version-row:hover{background:#EAF2F8}
+.hub-daylight .version-main b{color:#213B4F}
+.hub-daylight .version-main small{color:#526779}
+.hub-daylight .version-build strong{color:#24435B}
+.hub-daylight .version-build small{color:#4B6171}
+.hub-daylight .version-status{
+  background:#E2ECF3;color:#33566E;border:1px solid #BAD0DF
+}
+.hub-daylight .version-status.ok{background:#D8F0E5;color:#225E42;border-color:#8AC9A9}
+.hub-daylight .version-status.bad{background:#FBE4E7;color:#843644;border-color:#E4A0AD}
+.hub-daylight .version-status.warn,.hub-daylight .version-status.pending{
+  background:#FFF1D4;color:#795619;border-color:#DDBB76
+}
+.hub-daylight .version-status.private{background:#EAE3F8;color:#604B89;border-color:#C0ADDF}
+.hub-daylight .version-center-foot{border-top-color:#D3DFE7;color:#40576A}
+.hub-daylight .version-center-foot b{color:#244458}
+.hub-daylight #lastUpdateLabel,.hub-daylight .update-progress small{color:#4F6577}
+.hub-daylight .update-actions .update-all{background:#286D87!important;color:#FFFFFF!important;border-color:#286D87!important}
+.hub-daylight .version-dialog{
+  background:#F8FBFD;color:#243B4E;border:1px solid #A9C3D4;
+  box-shadow:0 16px 60px #142C4360
+}
+.hub-daylight .version-dialog::backdrop,
+.hub-daylight .app-info-dialog::backdrop{background:#263A4BA3}
+.hub-daylight .version-dialog-close{
+  background:#E2EBF1;color:#1E4560;border:1px solid #A3BCCB;
+  min-height:52px;min-width:52px
+}
+.hub-daylight .version-dialog-title>span{color:#2F607E}
+.hub-daylight .version-dialog-title p{color:#4B6171}
+.hub-daylight .version-dialog h3{color:#2D5269}
+.hub-daylight .version-dialog code{background:#E7EEF5;color:#274B65}
+.hub-daylight .version-change-list,.hub-daylight .version-history ul{color:#2A4658}
+.hub-daylight .version-history{border-color:#D5E0E7}
+.hub-daylight .version-history small{color:#53697A}
+.hub-daylight .app-info-dialog{background:#EAF0F5;color:#25282C}
+.hub-daylight .app-info-shell h2{color:#20394B}
+.hub-daylight .app-info-shell h3{color:#31576E}
+.hub-daylight .app-info-open{background:#286B88;color:#FFFFFF}
+.hub-daylight .empty{color:#405A6E}
+.hub-daylight footer{border-color:#CFDBE6;color:#4A6172}
+.hub-daylight footer strong{color:#356652}
+.hub-daylight a:focus-visible,.hub-daylight button:focus-visible,
+.hub-daylight input:focus-visible{outline:3px solid #1D6387;outline-offset:3px}
+@media (max-width:560px){
+ .hub-daylight .shell{padding-top:24px}
+ .hub-daylight .app{border-radius:17px}
+ .hub-daylight .app-launch{padding-top:18px;padding-bottom:18px}
+ .hub-daylight .group h2{font-size:19px}
+}

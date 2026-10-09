@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.36",
-    "build": "hub-30.4.36-20261009",
+    "version": "30.4.37",
+    "build": "hub-30.4.37-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
-      "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
+      "Hub en modo claro: fondo gris azulado elegido en las pruebas Núcleo Visual, texto oscuro y controles grandes.",
+      "Tarjetas de estudio diferenciadas por tonos pastel, con nombre, subtítulo e insignias legibles.",
+      "Conserva el arcoíris de los juegos, medallas, oros, jardín y progreso sin modificar su lógica."
     ],
     "history": [
+      {
+        "version": "30.4.36",
+        "date": "2026-10-09",
+        "changes": [
+          "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
+          "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
+        ]
+      },
       {
         "version": "30.4.35",
         "date": "2026-10-09",
@@ -431,7 +440,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "9b254f99ce9fde008441571246f7e8e8c7a978aae65079f51768599748b1e59c"
+          "sha256": "3a13d897425590b0923b16b130e5c98bf8dee7b5be7e5c165d3116a680fac586"
         },
         {
           "url": "version-verifier.js",
@@ -439,7 +448,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "23ad9b932ca6f005a26395afc90d8f197e91334b7c32dbb9dcbd2345af6a82ff"
+          "sha256": "ca710f7b1f511abed48ea0ee67e7ed8e9392b96427feb666b3d7a69d385fb0d9"
         },
         {
           "url": "styles.css",
@@ -447,15 +456,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "36d06459130193d8191a74245d9b98dd6f5653832902e75ada401fed519cf08f"
+          "sha256": "9f53bb9c3f4f873f7bc7b71670cb41acd111f341b1a7a4fff8bb8c67357487d5"
         },
         {
           "url": "build-assets.js",
-          "sha256": "268e5162aff70f6a43dab28beab4f1b1b8e06cbc12c6e6543d365d164579dad4"
+          "sha256": "7175c0411dff863333c095981ebb84067c88e1654fda7e0432d40f7091e8f5f9"
         }
       ]
     },
-    "cacheBuild": "c4392ab63a3c7923"
+    "cacheBuild": "1c10f549d22e6135"
   },
   "apps": [
     {
