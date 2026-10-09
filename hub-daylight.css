@@ -204,3 +204,22 @@ body.hub-daylight{
  .hub-daylight .app-launch{padding-top:18px;padding-bottom:18px}
  .hub-daylight .group h2{font-size:19px}
 }
+
+/* Nexo Visual 1.0: launcher aislado, sin afectar fichas ni juegos */
+.hub-daylight .nexo-visual-launch{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px 18px;align-items:center;margin:-5px 0 24px;padding:17px 18px;background:linear-gradient(125deg,#FFFFFF,#E5F1F8);border:1px solid #AAC4D4;border-radius:19px;box-shadow:0 4px 18px rgba(34,66,90,.07);color:#25282C}
+.hub-daylight .nexo-visual-heading{display:flex;gap:13px;align-items:center;min-width:0}
+.hub-daylight .nexo-visual-icon{width:50px;height:50px;display:grid;place-items:center;border-radius:16px;background:#D7E9F5;font-size:27px;flex-shrink:0}
+.hub-daylight .nexo-visual-heading strong{display:block;font-size:21px;line-height:1.2;color:#203C50}
+.hub-daylight .nexo-visual-heading small{display:block;font-size:16px;line-height:1.35;color:#38586B;margin-top:3px}
+.hub-daylight .nexo-visual-primary{display:flex;align-items:center;justify-content:center;min-height:54px;padding:11px 18px;border-radius:13px;background:#246A86!important;border:1px solid #246A86!important;color:#FFFFFF!important;text-decoration:none;font-weight:850;font-size:16px;white-space:nowrap}
+.hub-daylight .nexo-visual-note{grid-column:1/-1;font-size:15px;line-height:1.45;color:#435E70;margin:4px 0 0}
+.hub-daylight .nexo-visual-tasker{grid-column:1/-1;min-width:0;margin-top:2px;border-top:1px solid #CFDEE8;color:#38576B}
+.hub-daylight .nexo-visual-tasker summary{display:flex;align-items:center;min-height:52px;cursor:pointer;font-size:15px;font-weight:750;list-style:none}
+.hub-daylight .nexo-visual-tasker summary::before{content:'▸';margin-right:9px}
+.hub-daylight .nexo-visual-tasker[open] summary::before{content:'▾'}
+.hub-daylight .nexo-visual-tasker summary::-webkit-details-marker{display:none}
+.hub-daylight .nexo-visual-tasker p{font-size:15px;line-height:1.55;margin:0 0 10px}
+.hub-daylight .nexo-visual-tasker code{background:#DBEAF2;padding:2px 4px;border-radius:4px}
+.hub-daylight .nexo-visual-tasker-link{display:inline-flex;align-items:center;min-height:52px;padding:9px 14px;border-radius:12px;background:#E0EAF3;border:1px solid #9DB8C9;color:#235A77;text-decoration:none;font-weight:750}
+.hub-daylight .nexo-visual-tasker>small{display:block;color:#516B79;font-size:14px;margin:8px 0 12px}
+@media(max-width:680px){.hub-daylight .nexo-visual-launch{grid-template-columns:1fr;padding:16px}.hub-daylight .nexo-visual-primary{width:100%;white-space:normal}.hub-daylight .nexo-visual-heading strong{font-size:21px}}

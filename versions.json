@@ -4,15 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.37",
-    "build": "hub-30.4.37-20261009",
+    "version": "30.4.38",
+    "build": "hub-30.4.38-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
-      "Hub en modo claro: fondo gris azulado elegido en las pruebas Núcleo Visual, texto oscuro y controles grandes.",
-      "Tarjetas de estudio diferenciadas por tonos pastel, con nombre, subtítulo e insignias legibles.",
-      "Conserva el arcoíris de los juegos, medallas, oros, jardín y progreso sin modificar su lógica."
+      "Nexo Visual 1.0: botón de acceso rápido a ChatGPT desde la cabecera del Hub, con enlace Android hacia la app instalada y alternativa web en escritorio.",
+      "Tasker Secondary disponible como vía experimental de automatización local; no se inicia ni se afirma una pantalla compartida automática.",
+      "Ayuda contextual para Voz avanzada, autorización de pantalla y conversaciones en segundo plano, sin alterar quizzes ni progreso."
     ],
     "history": [
+      {
+        "version": "30.4.37",
+        "date": "2026-10-09",
+        "changes": [
+          "Hub en modo claro: fondo gris azulado elegido en las pruebas Núcleo Visual, texto oscuro y controles grandes.",
+          "Tarjetas de estudio diferenciadas por tonos pastel, con nombre, subtítulo e insignias legibles.",
+          "Conserva el arcoíris de los juegos, medallas, oros, jardín y progreso sin modificar su lógica."
+        ]
+      },
       {
         "version": "30.4.36",
         "date": "2026-10-09",
@@ -440,7 +449,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "3a13d897425590b0923b16b130e5c98bf8dee7b5be7e5c165d3116a680fac586"
+          "sha256": "f51a2a4abfee396d35bccaa97e3bbaeb6c557bb10913958bf8693c0586fe6d5b"
         },
         {
           "url": "version-verifier.js",
@@ -448,7 +457,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "ca710f7b1f511abed48ea0ee67e7ed8e9392b96427feb666b3d7a69d385fb0d9"
+          "sha256": "b25e6e1d6c74201f4705d059e9e3413fbd242be261eb9caa0f85902bc4d42347"
         },
         {
           "url": "styles.css",
@@ -456,15 +465,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "9f53bb9c3f4f873f7bc7b71670cb41acd111f341b1a7a4fff8bb8c67357487d5"
+          "sha256": "48e25fc73c664a4276696381dc0a4fd0932c79ec8e00cd72ac5a8767d76a2bca"
         },
         {
           "url": "build-assets.js",
-          "sha256": "7175c0411dff863333c095981ebb84067c88e1654fda7e0432d40f7091e8f5f9"
+          "sha256": "6a31580c09e06834a27af67ebc93f9045ab2c357d78ff01c9fefd7a90c4cd5d9"
         }
       ]
     },
-    "cacheBuild": "1c10f549d22e6135"
+    "cacheBuild": "351aefad8dc1ba92"
   },
   "apps": [
     {

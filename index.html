@@ -6,24 +6,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#EAF0F5">
-<meta name="hub-version" content="30.4.37">
-<title>Adrián Hub · v30.4.37</title>
+<meta name="hub-version" content="30.4.38">
+<title>Adrián Hub · v30.4.38</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/tokens.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/components/base.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-visual-profile.css?v=1">
-<link rel="stylesheet" href="./styles.css?v=30.4.37">
-<link rel="stylesheet" href="./hub-daylight.css?v=30.4.37">
+<link rel="stylesheet" href="./styles.css?v=30.4.38">
+<link rel="stylesheet" href="./hub-daylight.css?v=30.4.38">
 <style id="mobile-viewport-containment">html,body{overflow-x:clip}</style>
 <script id="hub-sw-bootstrap">
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js?v=30.4.37',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js?v=30.4.38',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
 </script>
 </head>
 <body class="nucleo-readable hub-daylight">
 <main class="shell">
 <header class="hero"><div class="mark">A</div><div class="hero-copy"><p class="eyebrow">ADRIÁN · HUB</p><h1>Todas tus apps.</h1><p class="intro">Un solo punto de entrada. Identidad visual compartida por Adrián Core.</p></div><div class="hub-stars" id="hubStarCounter" title="Una estrella por cada cinco oros en la misma aplicación"><span aria-hidden="true">★</span><b id="hubStarCount">0</b><small class="hub-gold-count" title="Oros acumulados en todas las aplicaciones">🥇 <b id="hubGoldCount">0</b></small></div></header>
 <section class="toolbar"><input id="search" type="search" placeholder="Buscar app…" autocomplete="off" data-ad-keyboard="es"><span id="count"></span></section>
+<section class="nexo-visual-launch ad-card" aria-labelledby="nexoVisualTitle">
+  <div class="nexo-visual-heading"><span class="nexo-visual-icon" aria-hidden="true">🎙️</span><div><strong id="nexoVisualTitle">Nexo Visual</strong><small>Hablar mientras revisamos el Hub</small></div></div>
+  <a id="nexoVisualOpenBtn" class="ad-button nexo-visual-primary" href="intent://chatgpt.com/#Intent;scheme=https;package=com.openai.chatgpt;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;S.browser_fallback_url=https%3A%2F%2Fchatgpt.com%2F;end" aria-label="Abrir ChatGPT para hablar con Nexo">HABLAR CON NEXO ↗</a>
+  <p class="nexo-visual-note">Para que pueda ver la pantalla: Voz → Avanzado; después, en la llamada, ⋯ → Compartir pantalla y autoriza Android. Activa «Conversaciones en segundo plano» para volver al Hub.</p>
+  <details class="nexo-visual-tasker"><summary>Tasker · acceso experimental</summary><p>Si quieres usar la automatización local: activa «Secondary App» en Tasker y crea el perfil Evento → Tasker → Secondary App Opened, filtrando la variable <code>%nexo</code> por <code>visual</code>. En su tarea, selecciona «Iniciar aplicación → ChatGPT». Después prueba este enlace:</p><a href="tasker://secondary?nexo=visual" class="nexo-visual-tasker-link">PROBAR EN TASKER ↗</a><small>Esta opción requiere configurar primero el perfil. No inicia la captura ni elude la autorización de pantalla.</small></details>
+</section>
 <div id="groups"></div>
 <section class="hub-secondary" aria-label="Herramientas secundarias">
 <section class="hub-chat-panel ad-card"><div class="hub-chat-copy"><span>CHATGPT · PROYECTO HUB</span><b>Acceso y enlace del proyecto</b><small id="chatgptHubLinkStatus">Comprobando enlace…</small></div><div class="hub-chat-actions"><button id="openChatgptHubBtn" class="ad-button hub-chat-primary" type="button">ABRIR CHATGPT · HUB</button><button id="setChatgptHubUrlBtn" class="ad-button" type="button">VINCULAR PROYECTO</button><button id="copyHubTechBtn" class="ad-button" type="button">COPIAR JSON TÉCNICO</button></div></section>
@@ -35,9 +41,9 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-wor
   <div class="update-actions"><button id="verifyVersionsBtn" class="ad-button" type="button">BUSCAR ACTUALIZACIONES</button><button id="updateAllVersionsBtn" class="ad-button update-all" type="button">ACTUALIZAR TODO</button></div>
   <div class="update-progress"><progress id="updateProgressBar" max="7" value="0" hidden></progress><small id="updateProgressLabel"></small><small id="lastUpdateLabel">Todavía no has usado ACTUALIZAR TODO</small></div>
   <div id="versionList" class="version-list"></div>
-  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.4.37</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
+  <div class="version-center-foot"><b id="hubVersionLabel">Hub v30.4.38</b><small id="versionCheckedAt">Comprobación pendiente</small></div>
 </section>
-<footer><span>Core</span><strong id="coreStatus">Hub v30.4.37 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
+<footer><span>Core</span><strong id="coreStatus">Hub v30.4.38 · AVS 2.0 · Jardín GitHub 1.3</strong></footer>
 </main>
 <dialog id="appInfoDialog" class="app-info-dialog" aria-labelledby="appInfoTitle"><div class="app-info-shell"><button id="appInfoClose" class="app-info-close" type="button" aria-label="Cerrar información">×</button><p class="app-info-kicker">CONOCE ESTA APLICACIÓN</p><h2 id="appInfoTitle"></h2><p id="appInfoDescription"></p><h3>Qué encontrarás</h3><ul id="appInfoFeatures"></ul><a id="appInfoOpen" class="app-info-open" href="#">Abrir aplicación ↗</a></div></dialog>
 <dialog id="versionDialog" class="version-dialog"><div class="version-dialog-shell"><button id="versionDialogClose" class="version-dialog-close" type="button" aria-label="Cerrar">×</button><div id="versionDialogBody"></div></div></dialog>
@@ -47,7 +53,17 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-wor
 <script src="https://adrianxds-ads.github.io/adrian-core/components/adrian-achievements.js?v=stars3"></script>
 <script src="./version-verifier.js"></script>
 <script src="./garden-cottage.js?v=1.0.0"></script>
-<script src="./app.js?v=30.4.37"></script>
+<script id="nexo-visual-platform">
+(function(){
+  if(!/Android/i.test(navigator.userAgent)){
+    const launch=document.getElementById('nexoVisualOpenBtn');
+    if(launch){launch.href='https://chatgpt.com/';launch.target='_blank';launch.rel='noopener noreferrer';}
+    const tasker=document.querySelector('.nexo-visual-tasker');
+    if(tasker)tasker.hidden=true;
+  }
+})();
+</script>
+<script src="./app.js?v=30.4.38"></script>
 <script src="https://adrianxds-ads.github.io/adrian-core/components/hub-nav.js?v=10-0d4fa97"></script>
 
 </body>
