@@ -739,23 +739,24 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.2.21",
-      "build": "sha256-705ecc7c71d5",
+      "version": "1.2.22",
+      "build": "sha256-4d334c604e6b",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Cambridge Quiz avanza automáticamente tras cada respuesta y señala lo escrito en verde o rojo dentro del texto.",
-        "Pitido discreto al fallar, área de lectura más amplia y botón Mirar soluciones al terminar; ambos modos verificados."
+        "Cambridge Quiz muestra Quiz por examen primero y lo selecciona al abrir, manteniendo Quiz mezclado debajo.",
+        "Tras las ocho preguntas, Siguiente examen, Repetir examen y Elegir examen aparecen arriba, sin desplazarse hasta el final.",
+        "Las estadísticas, gráficas y soluciones permanecen debajo; mismos bancos, puntuación y claves de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "3fbfcff0e915a88cefb2e40aa80e282ffa5981aac7f46be699b2016866334c31"
+            "sha256": "09656783eac95f2240b04e5a7f722b622e78eac19abe126085a57316fa68857c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "6e0aa95c9a7f68abfa3acf314313c3376f87719fead1c171fba48d8a94028844"
+            "sha256": "36f2acd96efd2e2163c7521fd16d2dae6e7a3bdc92b46506699533414b6cc797"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -763,17 +764,25 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "e4b33a33ac5b3a75241869a4fe609931b04c403671ba94983c23bf1be1cb6ae3"
+            "sha256": "3abc1b2bc8ace995f272e8027fa34491e28f3fb27770f00bc2100768a191a07e"
           }
         ]
       },
-      "sourceCommit": "c6a55361c55d68ff2ce0572d7ec694d5e285df53",
-      "cacheBuild": "e720c0fd1237d2df",
+      "sourceCommit": "d48d389372811a2b56f3f9017e84aac52f21b741",
+      "cacheBuild": "de60364ffa94fd57",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.2.21",
+          "date": "2026-10-09",
+          "changes": [
+            "Cambridge Quiz avanza automáticamente tras cada respuesta y señala lo escrito en verde o rojo dentro del texto.",
+            "Pitido discreto al fallar, área de lectura más amplia y botón Mirar soluciones al terminar; ambos modos verificados."
+          ]
+        },
         {
           "version": "1.2.20",
           "date": "2026-10-08",
