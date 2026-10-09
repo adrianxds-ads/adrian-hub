@@ -827,25 +827,25 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.2",
-      "build": "sha256-b9040ce56385",
+      "version": "1.3.3",
+      "build": "sha256-709230be079d",
       "releasedAt": "2026-10-09",
       "kind": "public",
       "changes": [
-        "Nuevo Keyword Quiz experimental para Part 4: 24 transformaciones de Exámenes 11–14 con distractores revisados.",
-        "Modo Normal (4 opciones, 15 s) y Tricky (6 opciones, 20 s); Leer primero, donut y avance automático.",
-        "Juego enlazado desde Cambridge Lab y Cambridge Quiz; progreso independiente de las pruebas escritas.",
-        "Banco original y estadísticas del Cambridge Quiz existente conservados."
+        "Keyword Quiz simplificado a cuatro opciones con reloj de 15 segundos y Leer primero; modo Tricky retirado.",
+        "Revisados 21 distractores: varía la posición de la palabra obligatoria para evitar un patrón predecible.",
+        "24 transformaciones piloto de Exámenes 11–14; se conserva el hueco y la solución del banco de origen.",
+        "Se preservan los intentos y medallas anteriores, incluso los realizados en el antiguo modo Tricky."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "a8ea31f719d17a39c6379bafd6eb2d93ed83e864db0b61694906daf4ef80a91f"
+            "sha256": "0820a925e32a0c0005b0cbb4fe2abf8317f83452e6276f4a65374e255f70b9e6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "686c7040e6bcb039709553b99013e569880a3332ae554e5ed82af32165bd6e15"
+            "sha256": "4a97247a7d150fcfd5cbafbf47837d8403cdad1478dbc1da72f9a6f02e662016"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -853,12 +853,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "166fc0900f60f86bc0d48fae97493ab91ad7fddea9e6b4cacb56210b43f38233"
+            "sha256": "f2e07f27a436694cadf88d9d302772991053faaaca079e04bbcaa3ae32dcf0cd"
           }
         ]
       },
-      "sourceCommit": "25d4e3b3524889dfc8c6d00213f9dba9cd699063",
-      "cacheBuild": "a0d6cf0b772f220a",
+      "sourceCommit": "c9c9d44d28f9b08fe0f6bef05b081938a7eee895",
+      "cacheBuild": "0d925877424096a7",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
