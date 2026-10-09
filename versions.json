@@ -4,20 +4,29 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.23",
-    "build": "hub-30.4.23-20261009",
+    "version": "30.4.24",
+    "build": "hub-30.4.24-20261009",
     "releasedAt": "2026-10-09",
     "changes": [
       "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
-      "Descanso fijo de 10 minutos solo entre tareas; sin descanso después de la última.",
-      "Pantalla mantenida encendida durante el recorrido cuando Android lo permite, dinosaurio hacia la meta y visual nocturna.",
-      "Avisos de voz al inicio, mitad y final; sonido de oro del Hub al completar. Historial anterior conservado."
+      "Diez minutos de descanso solo entre tareas seleccionadas, sin descanso tras la última.",
+      "Pantalla activa cuando Android lo permite, paisaje nocturno y dinosaurio hacia la meta.",
+      "Avisos al inicio, mitad y final; sonido de oro del Hub y registros históricos conservados."
     ],
     "history": [
       {
+        "version": "30.4.23",
+        "date": "2026-10-09",
+        "build": "hub-30.4.23-20261009",
+        "changes": [
+          "El Hub instalado mantiene las apps públicas de GitHub Pages dentro de la misma ventana, sin cabecera del navegador.",
+          "Se amplía el alcance de la PWA y se conserva su identidad instalada; enlaces externos siguen siendo externos.",
+          "Iconos PNG de 192 y 512 píxeles como alternativa fiable para instalar el Hub en Android."
+        ]
+      },
+      {
         "version": "30.4.22",
-        "date": "2026-10-08",
-        "build": "hub-30.4.22-20261009",
+        "date": "2026-10-09",
         "changes": [
           "Nexo conecta Auditor, reparación aislada y verificación automática con un techo total de 2 USD.",
           "Informes parciales detienen la ruta; las pruebas deben aprobarse después del último cambio."
@@ -339,7 +348,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "464ab06fc1b602ae40319a1aa80aa512a27fa3cf365f78f525de36305e3cd732"
+          "sha256": "175e5f623a7aac8634717f2a0a9c4e9241f757c0662f3235acfdc61f10f5747c"
         },
         {
           "url": "version-verifier.js",
@@ -347,7 +356,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "776afee2979f9aa0541461c711da4f2d2093c3216d3cf294028d7cec6481dd86"
+          "sha256": "bdb1f268145b9ae206e751bd93b1c2085290dfddb65a522f5b5487aac906604c"
         },
         {
           "url": "styles.css",
@@ -355,15 +364,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e4ac96c3404311184aa02767c73846097af8f9bb2d5c28d15bbcc20fec5e172c"
+          "sha256": "334a7f426b53ef0c9049109150e5696251eeb5753e7cbcc752b023a9ed524601"
         },
         {
           "url": "build-assets.js",
-          "sha256": "60ff52c6b1555f96c276c1884196c85fdebcecee518b40b38078d2b242049624"
+          "sha256": "efa3c46042bc1ec47af1a86507ce075ee346030bce287fee232d9dc2349fd706"
         }
       ]
     },
-    "cacheBuild": "2b2cc0c71b8a30ea"
+    "cacheBuild": "435e0ec747d7aeb0"
   },
   "apps": [
     {
@@ -1004,9 +1013,9 @@
       "kind": "bundled",
       "changes": [
         "Biblioteca Easy Catalan · Modo Tarea: elegir 1, 2 o 3 podcasts y tareas antes del recorrido.",
-        "Descanso fijo de 10 minutos solo entre tareas; sin descanso después de la última.",
-        "Pantalla mantenida encendida durante el recorrido cuando Android lo permite, dinosaurio hacia la meta y visual nocturna.",
-        "Avisos de voz al inicio, mitad y final; sonido de oro del Hub al completar. Historial anterior conservado."
+        "Diez minutos de descanso solo entre tareas seleccionadas, sin descanso tras la última.",
+        "Pantalla activa cuando Android lo permite, paisaje nocturno y dinosaurio hacia la meta.",
+        "Avisos al inicio, mitad y final; sonido de oro del Hub y registros históricos conservados."
       ],
       "verify": {
         "files": [
