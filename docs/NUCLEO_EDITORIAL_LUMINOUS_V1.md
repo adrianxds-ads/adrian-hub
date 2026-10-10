@@ -80,3 +80,48 @@ La referencia de aceptación es la carcasa y los modales a 360/390/412/1280, má
 ## Contabilidad de premios · Hub 30.4.46
 
 Los oros ganados no se descuentan al llegar a un múltiplo de cinco. Se conserva el máximo ganado en el registro compartido para representar las medallas que el historial local aún no muestra. La recuperación de sesiones antiguas ausentes no se presume. El sonido del premio se refuerza con tres notas adicionales en la sesión perfecta que alcanza 5, 10, 15... oros, exclusivamente cuando el sonido de la app está habilitado. Estrella dorada y aviso de desbloqueo; todos los controles de aprendizaje, datos, jardín y Nexo intactos.
+
+## Portada Centro de control — contrato funcional Fase 1 (2026-10-11)
+
+Estado: ESPECIFICACIÓN; no es una modificación de la interfaz publicada. En la nueva portada este acuerdo sustituye el requisito histórico de mostrar buscador, Nexo Visual, panel ChatGPT y centro de versiones expandido. Se conservan sus servicios y datos, salvo que se indique lo contrario.
+
+### Orden de arriba abajo
+
+1. JARDÍN: mover la sección garden-shell antes de la lista de aplicaciones. Mantener una sola instancia githubGarden, misma altura aproximada actual (310 px móvil, 360 px escritorio), árboles, casita/cueva, dinosaurio, crecimiento, tareas, estrellas y sus actuales motores de datos; no duplicar ni reinicializar el progreso.
+2. CLIMA EN LA CABECERA DEL JARDÍN: una franja breve Barcelona · hora local · temperatura °C · estado meteorológico · velocidad del viento en km/h; en móvil admite dos líneas, con tipografía al menos 16 px. No mostrar letreros JARDÍN GITHUB / JUEGO VISUAL DEL ECOSISTEMA ni bloquear la interacción con el dinosaurio. Mantener el pequeño contador de crecimiento sin darle protagonismo.
+3. BANDA DE ACTIVIDAD: oro acumulado, estrellas y opcionalmente bloques completados según datos existentes; botón único ACTUALIZAR TODO realmente conectado al mecanismo de actualización de aplicaciones. Presentar aviso breve y accesible de progreso, fallo parcial, versión preparada o sin conexión.
+4. APPS DIRECTAMENTE: mantener lista, agrupación y orden del catálogo vigente apps.json, accesos, subtítulos, tintes propios e icono de información (i). La apertura inmersiva y regreso al Hub siguen operativos.
+5. PIE DISCRETO: número de versión y acceso secundario a detalles técnicos o historial si son necesarios. El Version Center no debe ocupar una sección completa de la portada.
+
+### Elementos que se retiran solo de la portada
+
+- Cabecera hero con Todas tus apps, emblema y frase de introducción. Recolocar los nodos hubStarCounter, hubStarCount y hubGoldCount en la nueva banda; conservar su lógica y claves.
+- Buscador search y contador count; refactorizar render para no depender de su existencia y retirar el listener de búsqueda evitando errores null. Seguir mostrando todas las apps y sus grupos.
+- Lanzador superior Nexo Visual y panel inferior ChatGPT del Hub. No borrar configuraciones, desactivar agentes, modificar enlaces de otras aplicaciones ni eliminar datos.
+- Panel expandido de versiones y controles redundantes. Conservar la lógica de verifyAllVersions, updateAllVersions, integridad, estado del SW y errores. Trasladar updateAllVersionsBtn a la banda. Diagnóstico accesible solo bajo detalles discretos; jamás simular un botón de actualización.
+
+### Contrato meteorológico
+
+- Fuente: Open-Meteo con latitud 41.3874, longitud 2.1686 y huso Europe/Madrid.
+- Solicitar datos actuales: temperature_2m, weather_code, cloud_cover, is_day, wind_speed_10m y wind_direction_10m; unidades de viento km/h. Dirección cardinal opcional si se conoce; no inventar valores cuando falte.
+- El tiempo visual procede exclusivamente del código WMO actual. No usar rain ni precipitation acumulados del período anterior para declarar que está lloviendo. Respetar la corrección meteorológica ya publicada y su prueba de regresión.
+- Hora de portada calculada mediante Intl.DateTimeFormat con timeZone Europe/Madrid, refrescada cada minuto, independientemente de la zona del dispositivo.
+- Lectura meteorológica actualizada aproximadamente cada 15 min cuando la portada esté visible; usar caché real durante un máximo de 30 min y avisar de datos antiguos. Si no hay dato válido, representar guiones, sin simular lluvia o viento. Incluir hora de la lectura en descripción accesible.
+- Contraste suficiente del texto sobre el cielo variable, sin tapar casita/dinosaurio, sin microtipografía y respetando prefers-reduced-motion.
+
+### Límites de esta fase
+
+FASE 2: mostrar por tarjeta tres medallas y estrella, ganadas o apagadas; actualizar una aplicación individualmente y mostrar estado pendiente solo cuando la auditoría confirme caché desactualizada. No confundir sin red/estado desconocido con pendiente. El oro permanece acumulado después de recibir estrellas.
+
+FASE 3: skyline de Barcelona, arte 2.5D, proporciones huevo-árbol-dinosaurio/cueva, iluminación y diálogos ampliados. No alterar los gráficos del jardín más allá de su encaje en la nueva portada durante Fase 1.
+
+### Pruebas y aceptación antes de publicar
+
+- Navegador a 360, 390, 412 y 1280 px: sin desbordamiento, jardín arriba, franja de Barcelona visible, actualizaciones accesibles, todas las aplicaciones y fichas i funcionales.
+- Sin errores JS después de retirar búsqueda, hero, Nexo y panel ChatGPT; navegación inmersiva y retorno conservados.
+- Actualizar todo conserva sesiones, almacenamiento, recompensas y cachés seguras; avisos de éxito/preparado, parcial y fallo honestos.
+- Datos meteorológicos simulados: despejado con lluvia residual NO representa lluvia; códigos WMO de lluvia, nieve y tormenta producen cada efecto. Viento, temperatura, fecha y hora correctos; estado sin conexión claro.
+- Sin duplicar progreso, estrellas, árbol o dinosaurio; jardín de tareas coherente con el Hub, sin tocar datos reales de sesiones.
+- Registrar versión y caché de release y verificar sitio público y Pixel real de forma independiente antes de declarar terminado.
+
+Siguiente paso: implementar de forma reversible sobre el último main verificado, dejando intactos los cambios locales no relacionados.
