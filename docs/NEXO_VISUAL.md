@@ -75,3 +75,11 @@
 - Verificado que los nueve pasos están en el editor y que la condición de orientación se visualiza correctamente. Tras guardar, Tasker dejó de mostrar «Guardar y aplicar».
 - Una ejecución durante un chat no vacío (respuesta de ChatGPT generándose) no pudo entrar en voz: el botón «Iniciar una conversación de voz» no estaba disponible. AutoInput agotó el tiempo de espera. No es una prueba positiva de automatización.
 - **Estado: PARCIAL Y SEGURO.** No se activó «Compartir pantalla», ni se inició la captura, ni se automatizó la autorización de Android. No enlazar `NexoVisualAutoSafe` al Hub hasta verificar la cadena completa desde un chat vacío, validar el control de Voz y, solo entonces, habilitar el último toque tras confirmar el menú real; conservar aprobación Android manual.
+
+
+## NexoVisualAutoSafeV2: primera prueba positiva (2026-10-10)
+- La tarea `NexoVisualAutoSafeV2` se ha importado en Tasker: editor verificado con diez acciones. Su cadena incluye abrir ChatGPT, esperar tres segundos, AutoInput `Navegar hacia arriba`, esperar un segundo, AutoInput `Iniciar una conversación de voz`, esperar dos segundos, UI Query `Finalizar`, AutoInput `Archivo adjunto`, esperar un segundo y toque por punto `431,2159` **deshabilitado**.
+- Prueba física desde el botón Play de Tasker: ChatGPT abrió Voz avanzada; jerarquía Android confirmó los controles `Desactivar micrófono` y `Finalizar`. PASS para entrada a interfaz de voz.
+- Posteriormente captura real de Pixel 10 mostró abierto el menú `+` de voz avanzada, con `Cámara`, `Fotos`, `Archivos`, `Vídeo en directo` y `Compartir pantalla`. PASS hasta menú de compartir pantalla.
+- Durante el arranque apareció brevemente el mensaje `Too many requests`: apertura de interfaz y menú verificada, pero no funcionamiento conversacional de audio ni conectividad de voz.
+- No hubo activación del último toque, cuadro de consentimiento ni proyección de pantalla. Conservado `NexoVisual` estable y enlace del Hub; ninguna captura autorizada. El siguiente paso es, únicamente si se desea, habilitar toque final tras guardias verificadas de voz, estado real del menú y orientación; aceptación de Android siempre manual.
