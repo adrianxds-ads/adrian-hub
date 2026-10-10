@@ -4,15 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.54",
-    "build": "hub-30.4.54-20261011",
+    "version": "30.4.55",
+    "build": "hub-30.4.55-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Cambio 1.0.2: botón vertical ARCHIVAR de 48 px, mayor contraste y acceso táctil cómodo sin cambiar tareas ni archivado.",
-      "Català Podcasts 0.5.2: número de tareas más legible y botón Salir del bloque con área táctil de al menos 48 px; motor de podcasts y datos intactos.",
-      "Turismo Lab y jardín excluidos de esta fase; Limpieza pendiente de acceso autenticado. Pruebas aisladas en cinco tamaños y sin errores JS."
+      "Centro de Agentes 1.4.1: legibilidad de estados, controles, etiquetas y resultados en móvil sin modificar permisos ni ejecutores.",
+      "Buzón DC 1.0.2: botón para volver al Hub más cómodo de pulsar, con tratamiento de capturas intacto.",
+      "Control PC: mejor legibilidad de etiquetas, avisos y métricas; no se modifica la extensión ni su versión 0.4.3.",
+      "Siete juegos de inglés y catalán: 112 pruebas de pantalla sin overflow ni fallos JavaScript; indicadores de Conjuga CAT inspeccionados y conservados por ser legibles en su fondo real.",
+      "Jardín, turismo, empleo, tareas y gimnasio quedan excluidos de esta fase."
     ],
     "history": [
+      {
+        "version": "30.4.54",
+        "build": "hub-30.4.54-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Cambio 1.0.2: botón vertical ARCHIVAR de 48 px, mayor contraste y acceso táctil cómodo sin cambiar tareas ni archivado.",
+          "Català Podcasts 0.5.2: número de tareas más legible y botón Salir del bloque con área táctil de al menos 48 px; motor de podcasts y datos intactos.",
+          "Turismo Lab y jardín excluidos de esta fase; Limpieza pendiente de acceso autenticado. Pruebas aisladas en cinco tamaños y sin errores JS."
+        ]
+      },
       {
         "version": "30.4.53",
         "build": "hub-30.4.53-20261010",
@@ -601,7 +613,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "c9d8ee21a302af2d25d03f6a6d2b867fbf6fe3fbdbc06e1cb7e7e3496730192e"
+          "sha256": "c33df29146d681c4719ae0d588e323d94a718f93dc129de6f291bb28579557a3"
         },
         {
           "url": "version-verifier.js",
@@ -609,7 +621,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "32ddc5484d2bb3c62ec7e9123d3ca765f8722d56cb122cbb8e55c58ea7c62c8e"
+          "sha256": "f5ec85b3ffa1f9a6cd0386fc3f78fdff7991a7a7e09166d3a077d92efef7bff5"
         },
         {
           "url": "styles.css",
@@ -617,15 +629,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e17d5bfdc0c3e5027e25fc42e0fdb2386a21df0c3b6eef228ac8f77a72010dcd"
+          "sha256": "f1d2db407086cdc9a6f5cdae784c22087bc2d352af9cf4dd345ecb7ea9d08b7e"
         },
         {
           "url": "build-assets.js",
-          "sha256": "208ec06cd6760d9a1c505207ebc3f076d05b9a63c4f105b7589b8ae4293e5108"
+          "sha256": "03bc85e311f747679cf8d534f37220538221f4e0fac85c25148e12d2246d3c48"
         }
       ]
     },
-    "cacheBuild": "2926a0480937a48c"
+    "cacheBuild": "c851c0206f011515"
   },
   "apps": [
     {
@@ -1740,12 +1752,12 @@
     {
       "id": "dcinbox",
       "name": "Buzón DC",
-      "version": "1.0.1",
-      "build": "sha256-73b6804d7553",
-      "releasedAt": "2026-10-08",
+      "version": "1.0.2",
+      "build": "sha256-ca50c449e066",
+      "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
+        "Legibilidad y accesibilidad táctil del Hub; funcionalidad, API, datos y permisos sin cambios."
       ],
       "verify": {
         "files": [
@@ -1759,11 +1771,19 @@
           },
           {
             "url": "./apps/dc-inbox/styles.css",
-            "sha256": "6f4aa144f15b855925cc080aa01aeea79e1c4f5217e4a2e61aa179d1fd8535c2"
+            "sha256": "eed51501c758562ffa50193827efaab0c62bebf5791c19dbd73ec360b8b8cabc"
           }
         ]
       },
       "history": [
+        {
+          "version": "1.0.1",
+          "build": "sha256-73b6804d7553",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
+          ]
+        },
         {
           "version": "1.0.0",
           "date": "2026-10-06",
@@ -1792,12 +1812,12 @@
     {
       "id": "agents",
       "name": "Agentes",
-      "version": "1.4.0",
-      "build": "sha256-d75e868c9dd6",
-      "releasedAt": "2026-10-09",
+      "version": "1.4.1",
+      "build": "sha256-c0cf1a3637c5",
+      "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Constructor y Editor preparan encargos completos para continuar en ChatGPT, sin API adicional."
+        "Legibilidad y accesibilidad táctil del Hub; funcionalidad, API, datos y permisos sin cambios."
       ],
       "verify": {
         "files": [
@@ -1811,11 +1831,19 @@
           },
           {
             "url": "./apps/agents/styles.css",
-            "sha256": "c3fe4b016b827508f313b406fc237597d6df6146d40f5e3aa58b18cd944b3e65"
+            "sha256": "b3019aab9a2237a3da7d2823d740659bd8122f068b51f39d9129bf035c6309c6"
           }
         ]
       },
       "history": [
+        {
+          "version": "1.4.0",
+          "build": "sha256-d75e868c9dd6",
+          "date": "2026-10-09",
+          "changes": [
+            "Constructor y Editor preparan encargos completos para continuar en ChatGPT, sin API adicional."
+          ]
+        },
         {
           "version": "0.8.1",
           "date": "2026-10-08",

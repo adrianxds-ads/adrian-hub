@@ -9,3 +9,9 @@ input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
 .back{display:inline-flex;align-items:center}
 @media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}
+/* Auditoría móvil · estado y métricas legibles; extensión sin tocar. */
+.eyebrow,.panel-copy span,.mobile-note>span{font-size:14px;line-height:1.4}
+.status{font-size:14px!important;line-height:1.45!important;color:#b8d0c1!important}
+.stats-preview span{font-size:14px;line-height:1.35;letter-spacing:.02em}
+.mobile-note p{font-size:15px;line-height:1.55}
+.back{font-size:14px}

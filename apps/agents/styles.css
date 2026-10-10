@@ -35,3 +35,12 @@ body{min-height:100vh;background:radial-gradient(circle at 18% 0%,rgba(187,158,2
 [hidden]{display:none!important}
 
 .nexo-mission{margin:18px 0;padding:16px;border:1px solid var(--ad-border);border-radius:14px}.nexo-mission h3{margin:0;font-size:1.25rem}.nexo-mission p{font-size:1rem;line-height:1.5;overflow-wrap:anywhere}.nexo-mission summary{cursor:pointer;min-height:44px;font-size:1rem;display:flex;align-items:center}.nexo-mission pre{font:inherit;font-size:1rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}.nexo-mission .actions .ad-button{font-size:.875rem}.nexo-mission #nexoMissionState{font-weight:750;color:#e6ca83}.nexo-mission #nexoMissionMeta{font-size:.875rem;color:#aabdc1}
+/* Auditoría móvil de Agentes · legibilidad localizada, sin cambiar lógica. */
+.agent-head small,.roster-top small,.section-heading span,.mission>span,.spend-kpis small,.spend-head p,.nucleo-check small,.agent-live small{font-size:13px;line-height:1.45}
+.status{font-size:12px;line-height:1.3;padding:7px 10px;max-width:100%;white-space:normal}
+.agent-card dt,.triage-card dt,.roster-card dt,.roster-card dd,.agent-card dd,.triage-card dd{font-size:14px;line-height:1.45}
+.nucleo-check p,.roster-card>p,.spend-foot,.triage-result>p,.advisor-recent>div>b{font-size:14px;line-height:1.45}
+.actions .ad-button,.triage-result>.ad-button{font-size:15px;min-height:48px;line-height:1.35;padding-block:9px}
+.mission textarea,.report-shell pre{font-size:16px;line-height:1.5}
+.spend-kpis b{overflow-wrap:anywhere}
+@media(max-width:560px){.spend-kpis>div{min-width:0}.agent-head{min-width:0}.agent-head>div{min-width:0}.agent-head small{overflow-wrap:anywhere}.section-heading{flex-wrap:wrap}}
