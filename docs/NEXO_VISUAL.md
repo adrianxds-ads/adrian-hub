@@ -90,3 +90,6 @@
 - Prueba física desde el Play de Tasker: apareció en Android el diálogo `¿Compartir tu pantalla con ChatGPT?`, con `Cancelar` y `Siguiente`. **PASS hasta petición de permiso.** Se pulsó **Cancelar**; no se compartió pantalla, ni se automatizó autorización.
 - Hub 30.4.42 añade un acceso Android visible a `tasker://assistantactions?task=NexoVisualAutoSafeV3`. Conserva el botón `HABLAR CON NEXO` y el enlace de la tarea estable `NexoVisual` como alternativas. El nuevo botón es específico del Pixel con Tasker instalado.
 - Pendiente de comprobar desde Hub publicado/PWA que el enlace entra en V3 y muestra permiso sin necesidad de abrir Tasker. El permiso final siempre se acepta manualmente por el usuario.
+
+- Prueba real del acceso publicado desde el Hub v30.4.42 en Pixel 10: el boton nuevo aparecio en Android y su pulsacion llevo al selector del sistema 'Elige la aplicacion que quieres compartir' (opciones como Hub, Chrome y Gmail). PASS de enlace Hub a UI de permiso Android. No se eligio ninguna aplicacion ni se autorizo la captura desde el agente.
+
