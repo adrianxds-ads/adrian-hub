@@ -33,6 +33,12 @@
 .github-garden[data-nl-weather=drizzle] .nl-particles i{height:9px;opacity:.43}
 .github-garden .nl-dino{position:absolute;z-index:12;left:14%;bottom:14%;width:clamp(64px,13%,102px);height:clamp(64px,13vw,103px);min-height:64px;min-width:64px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;touch-action:manipulation;filter:drop-shadow(0 7px 5px rgba(12,24,16,.25));animation:nl-wander 32s ease-in-out infinite alternate}
 .nl-dino svg{width:100%;height:100%;overflow:visible;animation:nl-bob .64s ease-in-out infinite alternate}
+.nl-dino[data-stage="0"]{animation:none!important;left:24%}
+.nl-dino[data-stage="0"] svg{animation:nl-egg-rock 5s ease-in-out infinite}
+.nl-dino[data-stage="1"]{scale:.65;transform-origin:50% 90%}
+.nl-dino[data-stage="2"]{scale:.78;transform-origin:50% 90%}
+.nl-dino[data-stage="3"]{scale:.9;transform-origin:50% 90%}
+@keyframes nl-egg-rock{0%,88%,100%{transform:rotate(0)}92%{transform:rotate(-4deg)}96%{transform:rotate(4deg)}}
 .nl-dino .nl-eye-sleep{display:none}
 .nl-dino[data-mood=sleepy]{left:53%;animation:none}
 .nl-dino[data-mood=sleepy] svg{animation:nl-breathe 2.8s ease-in-out infinite alternate}

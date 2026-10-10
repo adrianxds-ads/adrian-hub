@@ -35,6 +35,14 @@ function mood(now=new Date()){
  if(hours<72||!last)return 'curious';
  return 'mischief';
 }
+function dinoStage(){
+ const p=window.CottageGarden?.progress?.();
+ const completed=Number(p?.completedBlocks)||0;
+ return completed<5?0:completed<25?1:completed<100?2:completed<300?3:4;
+}
+function eggSvg(){
+ return `<svg viewBox="0 0 124 108" aria-hidden="true" focusable="false"><ellipse cx="62" cy="100" rx="36" ry="6" fill="#274b37" opacity=".24"/><path d="M62 9 C27 9 21 58 29 82 Q37 102 62 102 Q87 102 95 82 C103 58 97 9 62 9Z" fill="#d9e6bb" stroke="#608a71" stroke-width="3"/><g fill="#8cb59a"><ellipse cx="46" cy="42" rx="8" ry="12"/><ellipse cx="75" cy="65" rx="10" ry="7"/><ellipse cx="64" cy="26" rx="5" ry="6"/></g><path d="M45 78 l10 -9 8 8 9 -11 9 6" fill="none" stroke="#6a927a" stroke-width="2"/></svg>`;
+}
 function dinoSvg(){
  return `<svg viewBox="0 0 124 108" aria-hidden="true" focusable="false">
  <ellipse cx="63" cy="101" rx="41" ry="5" fill="#123e2f" opacity=".24"/>
@@ -56,14 +64,15 @@ function dinoSvg(){
 }
 const say={
  happy:['¡Una hoja nueva!','Hoy el jardín huele a victoria.','¡Rooar! Eso ha ido bien.'],
- curious:['¿Qué habrá detrás de la casita?','Estoy contando mariposas.','¿Damos una vuelta?'],
+ curious:['¿Qué habrá dentro de la cueva?','Estoy contando mariposas.','¿Damos una vuelta?'],
  mischief:['He escondido una piedra.','Hoy me toca explorar.','Estoy tramando una dinotravesura.'],
  sleepy:['Zzz… cinco minutos más.','He soñado con helechos gigantes.','Shhh… duerme el jurásico.']
 };
 function dinoClick(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
  const state=d.dataset.mood||'curious',n=(Number(d.dataset.taps)||0)+1;
- d.dataset.taps=String(n);const msg=say[state][(n-1)%say[state].length];
+ d.dataset.taps=String(n);
+ const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:say[state][(n-1)%say[state].length];
  const bubble=d.querySelector('.nl-dino-bubble');bubble.textContent=msg;
  d.classList.remove('nl-speaking');void d.offsetWidth;d.classList.add('nl-speaking');
  clearTimeout(d.__bubbleTimer);d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),3300);
@@ -71,8 +80,13 @@ function dinoClick(host){
 function updateDino(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
  const m=mood(),names={happy:'alegre',curious:'curioso',mischief:'travieso',sleepy:'dormido'};
+ const stage=dinoStage();
+ if(d.dataset.stage!==String(stage)){
+  d.dataset.stage=String(stage);
+  const picture=d.querySelector('svg');if(picture)picture.outerHTML=stage===0?eggSvg():dinoSvg();
+ }
  if(d.dataset.mood!==m){d.dataset.mood=m;}
- d.setAttribute('aria-label','Dinosaurio '+names[m]+'. Tócalo para saludarlo.');
+ d.setAttribute('aria-label',stage===0?'Huevo de dinosaurio. Tócalo para saludar.':'Dinosaurio '+names[m]+'. Tócalo para saludarlo.');
 }
 function weatherKind(c){
  if(!c||!Number.isFinite(+c.weather_code))return null;

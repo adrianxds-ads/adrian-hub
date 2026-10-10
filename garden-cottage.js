@@ -34,10 +34,10 @@ function plant(i,n){
  }
  return '<g data-cottage-plant="'+i+'" data-details="'+n+'">'+out.join('')+'</g>';
 }
-const house='<g class="cottage-house"><ellipse cx="850" cy="296" rx="77" ry="10" fill="#08150f" opacity=".35"/><path d="M 793 287 V 235 L 850 198 L 910 235 V 287 Z" fill="#cbbba0" stroke="#786751" stroke-width="2"/><path d="M 783 239 L 850 192 L 920 239 L 908 239 L 850 207 L 795 239 Z" fill="#876c60"/><path d="M 879 216 V 198 H 893 V 226" fill="#927e6b"/><rect x="838" y="252" width="23" height="35" rx="8" fill="#6d786a"/><circle cx="855" cy="272" r="1.5" fill="#ddbe7a"/><g fill="#e8cf95" stroke="#7e7866" stroke-width="2"><rect x="805" y="248" width="20" height="19" rx="2"/><rect x="874" y="248" width="20" height="19" rx="2"/></g><path d="M 815 248 V 267 M 805 257 H 825 M 884 248 V 267 M 874 257 H 894" stroke="#7e7866"/><path d="M 849 288 Q 852 316 900 337" stroke="#ab9a7b" stroke-width="13" fill="none" opacity=".65"/></g>';
+const house='<g class="jurassic-cave"><ellipse cx="850" cy="300" rx="91" ry="13" fill="#233b31" opacity=".3"/><path d="M 758 292 Q 762 225 811 204 Q 854 171 901 207 Q 941 237 941 292 Z" fill="#87958b" stroke="#52675e" stroke-width="4"/><path d="M 793 292 Q 800 236 851 223 Q 902 233 911 292 Z" fill="#263b37"/><path d="M 809 291 Q 816 253 850 245 Q 884 255 895 291" fill="none" stroke="#40594b" stroke-width="5"/><g fill="#658e70"><path d="M 773 291 q -18 -25 -8 -44 q 17 17 17 44 M 930 291 q 4 -36 22 -44 q 3 29 -11 44"/><path d="M 786 290 q -5 -37 13 -50 q 5 28 -2 50"/></g><ellipse cx="848" cy="302" rx="50" ry="5" fill="#9ba48a" opacity=".55"/></g>';
 function markup(n){
  let plants='';for(let i=0;i<Math.ceil(n/STEPS);i++)plants+=plant(i,Math.min(STEPS,n-i*STEPS));
- return '<svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Casita y jardín: '+n+' detalles de crecimiento">'+house+plants+'</svg>';
+ return '<svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Cueva jurásica y jardín: '+n+' detalles de crecimiento">'+house+plants+'</svg>';
 }
 function css(){
  if(document.getElementById('cottage-css'))return;
