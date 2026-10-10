@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-10",
+  "hubVersion": "30.4.42",
+  "screenStates": 136,
+  "viewports": [
+    360,
+    390,
+    412,
+    1280
+  ],
+  "source": "fresh local Chrome contexts; synchronization stubbed",
+  "solidContrastFailures": 0,
+  "overflowFailures": 0,
+  "jsErrors": [],
+  "physicalPixelTested": false,
+  "crossDeviceSyncTested": false
+}

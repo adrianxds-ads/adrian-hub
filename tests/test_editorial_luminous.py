@@ -5,7 +5,7 @@ Emplea fixtures locales y no utiliza la sesión real ni el almacenamiento person
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 from playwright.sync_api import sync_playwright
-import mimetypes
+import mimetypes,json
 
 workspace=Path(__file__).resolve().parents[2]
 def serve(route):
@@ -60,7 +60,7 @@ with sync_playwright() as p:
         assert values["cardCount"]==16 and values["cardTints"]>=12,values
         assert values["infoWidth"]>=52 and values["searchHeight"]>=52,values
         assert values["noOverflow"] and values["garden"] and values["achievements"] and values["nexo"] and values["profile"],values
-        assert values["version"]=="30.4.39",values
+        assert values["version"]==json.loads((workspace/"adrian-hub/versions.json").read_text(encoding="utf-8"))["hub"]["version"],values
         details=page.locator("#nucleoStyleDetails")
         details.locator("summary").click()
         assert details.evaluate("(el)=>el.open")

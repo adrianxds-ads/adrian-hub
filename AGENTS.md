@@ -50,3 +50,7 @@ La fuente canónica de estilo es `docs/NUCLEO_EDITORIAL_LUMINOUS_V1.md`, con `hu
 
 ## Núcleo Editorial Luminous v1 · ocho juegos (30.4.41)
 Los ocho quizzes usan la copia local de `adrian-core/design/nucleo-game-theme.css` y `body[data-nucleo-game]`. Para ajustes de accesibilidad y color, editar la hoja maestra, replicarla exactamente y probar cada juego. Conservar las preguntas, la corrección, las medallas, temporizadores, tonos de respuesta y persistencia. Ver `docs/NUCLEO_EDITORIAL_LUMINOUS_V1.md`.
+
+
+## Luminous 1.1 · lectura de contadores (30.4.42, 10/10/2026)
+La revisión autorizada incluye cifras, etiquetas, estadísticas compartidas, tarjetas de llaves y pantallas internas. La hoja canónica sigue en Core; mantener las copias idénticas. Probar la prioridad real frente a estilos de nivel y quiz-polish, no solo el body/panel. Medallas cero deben ser legibles; conservar datos y semántica cromática. El test tests/test_luminous_readability.py cubre pantallas/estados y comprueba layout, errores JS y contraste en superficies sólidas; los degradados requieren inspección visual aparte.

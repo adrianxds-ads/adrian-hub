@@ -244,3 +244,33 @@
 @media(prefers-reduced-motion:reduce){
   .hub-editorial .nucleo-style-chevron{transition:none}
 }
+"
+/* Luminous 1.1: numeric hierarchy, readable annotations and version states. */
+.hub-editorial :is(.eyebrow,#count,.nexo-visual-note,
+ .hub-chat-panel>span,.hub-chat-panel small){font-size:16px!important;line-height:1.4}
+.hub-editorial .hub-stars{gap:10px;padding:11px 14px;min-height:52px;flex-wrap:wrap}
+.hub-editorial .hub-stars>span,.hub-editorial .hub-stars.earned>span{color:#79530D}
+.hub-editorial .hub-stars b{font-size:24px!important;line-height:1.2;font-variant-numeric:tabular-nums}
+.hub-editorial .hub-stars .hub-gold-count{font-size:16px!important;line-height:1.4}
+.hub-editorial #versionCheckedAt{color:#46596B!important}
+.hub-editorial :is(.version-status,.verify-status,.version-row small){font-size:16px;line-height:1.4}
+.hub-editorial .app-task-chip{font-size:16px;line-height:1.4;white-space:normal}
+.hub-editorial .app-gold-chip{line-height:1.4;font-variant-numeric:tabular-nums}
+.hub-editorial .app-copy{min-width:0}
+.hub-editorial .app-copy small{font-weight:500}
+.hub-editorial #githubGarden :is(.gg-heading b,.gg-heading span,.gg-time){
+ font-size:16px!important;line-height:1.35!important;letter-spacing:0!important;
+ color:#F2F7F4!important;text-shadow:none!important;
+}
+.hub-editorial #githubGarden :is(.gg-heading,.gg-time){
+ background:#233E34!important;padding:8px 10px;border-radius:12px;
+}
+@media(max-width:560px){
+ .hub-editorial #githubGarden .gg-time{font-size:14px!important}
+}
+
+html body.hub-daylight.hub-editorial :is(.eyebrow,#count,.nexo-visual-note,
+ .hub-chat-panel>span,.version-eyebrow,.core-status,.app-info-kicker,#adrianSyncStatus){
+ font-size:16px!important;line-height:1.4!important;color:#46596B;
+}
+html body.hub-daylight.hub-editorial #adrianSyncStatus{max-width:calc(100vw - 24px);white-space:normal}
