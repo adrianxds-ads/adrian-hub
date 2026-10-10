@@ -64,3 +64,9 @@ Las reglas del juego, bancos de preguntas, algoritmos de revisión, corrección,
 La plantilla canónica para juegos es `../adrian-core/design/nucleo-game-theme.css`, documentada en `../adrian-core/design/NUCLEO_GAME_THEME_V1.md`. Ocho repositorios externos han recibido copias locales idénticas y sincronizadas con la caché PWA: Grammar Quest, Phrasal Sprint, Classroom B2, Cloze Quiz, Cambridge Lab (incluidos Cambridge Quiz y Keyword Quiz), B2 Transform, Conjuga CAT y Turismo Lab. Versiones revisadas en `versions.json`.
 
 Pruebas sin intervención en datos reales: estilos/contraste de carcasas y ventanas a 360 × 780, 390 × 844, 412 × 915 y 1280 × 800, ausencia de errores JS y overflow, cuatro respuestas cromáticas en una pregunta de Grammar Quest, instalación de cachés en 9 repos y comprobación de integridad/versiones. No se considera demostrada una mejora de aciertos, ni la prueba física de los ocho juegos en Pixel, ni la sincronización real multidispositivo. Mantener intactos los algoritmos y colores de recompensa y corregir los errores observados tras sesiones del usuario con parches específicos.
+
+## Revisión cromática · Editorial Balance v1.1 · 2026-10-10
+
+Tras comparar capturas de la portada a 390 px, se recupera profundidad visual de la identidad anterior sin volver al fondo oscuro: emblemas sólidos, pasteles más definidos, contornos ligeramente más presentes y subtítulos reforzados. Permanece #EAF0F5 y la escala de Núcleo Visual (Roboto, lectura 19 px; secundarios 16 px). Se modifica solo hub-editorial.css, sin alterar la paleta funcional de respuestas, jardín, puntuaciones ni almacenamiento.
+
+La referencia de aceptación es la carcasa y los modales a 360/390/412/1280, más verificación de publicación, caché e integridad. Cualquier ajuste de un quiz requiere diagnóstico separado.

@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-09T18:02:17.507215+00:00",
+  "generatedAt": "2026-10-10T00:53:36+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.41",
-    "build": "hub-30.4.41-20261010",
-    "releasedAt": "2026-10-09",
+    "version": "30.4.43",
+    "build": "hub-30.4.43-20261010",
+    "releasedAt": "2026-10-10",
     "changes": [
-      "Ocho aplicaciones de estudio adaptadas a Núcleo Editorial Luminous v1 con fondos claros y Roboto 19 px.",
-      "Páginas de Cambridge Quiz y Keyword Quiz incluidas; capas de nivel y recompensas preservadas.",
-      "Plantilla común en Adrián Core con versiones de cada aplicación y pruebas móviles aisladas."
+      "Equilibrio visual del Hub: colores más definidos, emblemas sólidos por materia, fondos claros y mayor contraste en subtítulos y etiquetas.",
+      "Se conserva Núcleo Visual (Roboto, 19/16 px, fondo gris azulado) y el estilo del jardín; juegos, medallas, algoritmos y progreso intactos.",
+      "Sincronización del registro visible de versiones y corrección de huellas de integridad de caché para los recursos del Hub."
     ],
     "history": [
+      {
+        "version": "30.4.41",
+        "build": "hub-30.4.41-20261010",
+        "date": "2026-10-09",
+        "changes": [
+          "Ocho aplicaciones de estudio adaptadas a Núcleo Editorial Luminous v1 con fondos claros y Roboto 19 px.",
+          "Páginas de Cambridge Quiz y Keyword Quiz incluidas; capas de nivel y recompensas preservadas.",
+          "Plantilla común en Adrián Core con versiones de cada aplicación y pruebas móviles aisladas."
+        ]
+      },
       {
         "version": "30.4.40",
         "date": "2026-10-09",
