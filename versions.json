@@ -5,7 +5,7 @@
     "id": "hub",
     "name": "Adrián Hub",
     "version": "30.4.44",
-    "build": "hub-30.4.42-20261010",
+    "build": "hub-30.4.44-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
       "Integra la profundidad cromática de Editorial Balance 30.4.43 con la revisión completa de lectura y contadores.",
@@ -505,7 +505,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "11bd8ee4c954ec869811081d6fa25ac5f52776e0e32d27fa74ee1db4461d647d"
+          "sha256": "f9d60bbc15cf99e34dd36faee0798fdaab67cec3acc7960f36f908c60b9e567a"
         },
         {
           "url": "version-verifier.js",
@@ -513,7 +513,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "506b866d32be174818f0103e4a1a26df71f3102b7a8241350b68110f96148ad1"
+          "sha256": "5f5c18a8d1e967febb35ea69f1979b11c3ec70071815b987c8f340b1b5e7efbd"
         },
         {
           "url": "styles.css",
@@ -521,15 +521,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "fce203b1ac347936a24eeda8d756f4d807d312025e65fccb6cce3a541c99510f"
+          "sha256": "d14fc2846832e0af8014fbdc787e133c24def05cf6d1cd380fdfddca630e7522"
         },
         {
           "url": "build-assets.js",
-          "sha256": "b195630bb1e4e0c2010b2efb2240ed4806f02d39734943f87838b48a700d7976"
+          "sha256": "86e940b15bf4d9411544dc592d04291c70d04d71d6940cba0fb9441025e9aa4e"
         }
       ]
     },
-    "cacheBuild": "185fb5755e7f64ff"
+    "cacheBuild": "29735449f08a84ca"
   },
   "apps": [
     {

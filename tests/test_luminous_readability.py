@@ -6,6 +6,7 @@ from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[2]
 sys.stdout.reconfigure(encoding="utf-8")
 repos=["adrian-hub","adaptive-english","adaptive-phrasal-verbs","adaptive-pizarras","b2-multiple-choice-cloze","adaptive-exam","adaptive-keyword-speaking","adaptive-verbs-catala","adaptive-hoti0108"]
+if "--hub-only" in sys.argv:repos=["adrian-hub"]
 audit=r"""() => {
  const rgb=s=>(s.match(/[\d.]+/g)||[]).map(Number);
  const lum=c=>c.slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
