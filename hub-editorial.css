@@ -98,7 +98,7 @@
   background:rgba(255,255,255,.65);
   color:var(--tile-ink);
   border-radius:50%;
-  font:italic 700 17px/1 Georgia,serif;
+  font:italic 700 19px/1 Georgia,serif;
   transition:background .15s,color .15s;
 }
 .hub-editorial .app-info:hover,.hub-editorial .app-info:focus-visible{background:transparent}
@@ -266,7 +266,7 @@
  background:#233E34!important;padding:8px 10px;border-radius:12px;
 }
 @media(max-width:560px){
- .hub-editorial #githubGarden .gg-time{font-size:14px!important}
+ .hub-editorial #githubGarden .gg-time{font-size:16px!important}
 }
 
 html body.hub-daylight.hub-editorial :is(.eyebrow,#count,.nexo-visual-note,
