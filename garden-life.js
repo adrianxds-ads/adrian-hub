@@ -6,7 +6,9 @@ if(window.NucleoGardenLife)return;
 const HISTORY_KEY='adrianEasyCatalanTaskSessionsV1';
 const WEATHER_KEY='nucleo_garden_weather_barcelona_v1';
 const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day&timezone=Europe%2FMadrid';
-const TTL=15*60*1000,MAX_STALE=90*60*1000;
+// The model's `rain`/`precipitation` values refer to a prior accumulation window,
+// not necessarily to rain falling at this instant. Use the instantaneous WMO code.
+const TTL=15*60*1000,MAX_STALE=30*60*1000;
 const mounted=new WeakSet();
 let weather=null,weatherAt=0,lastRequest=0,requesting=false;
 const weatherKinds={
@@ -89,16 +91,19 @@ function updateDino(host){
  d.setAttribute('aria-label',stage===0?'Huevo de dinosaurio. Tócalo para saludar.':'Dinosaurio '+names[m]+'. Tócalo para saludarlo.');
 }
 function weatherKind(c){
- if(!c||!Number.isFinite(+c.weather_code))return null;
- const w=+c.weather_code,cloud=Number(c.cloud_cover)||0;
- if(w>=95)return 'storm';
- if((w>=71&&w<=77)||w===85||w===86||Number(c.snowfall)>0)return 'snow';
- if((w>=61&&w<=67)||(w>=80&&w<=82)||Number(c.rain)>0||Number(c.precipitation)>0)return 'rain';
- if(w>=51&&w<=57)return 'drizzle';
+ if(!c||!Number.isFinite(Number(c.weather_code)))return null;
+ const w=Number(c.weather_code);
+ // WMO code describes the current sky; `rain` and `precipitation` are
+ // accumulated over the preceding hour and may remain positive under clear skies.
+ if(w===95||w===96||w===97||w===99)return 'storm';
+ if([71,73,75,77,85,86].includes(w))return 'snow';
+ if([61,63,65,66,67,80,81,82].includes(w))return 'rain';
+ if([51,53,55,56,57].includes(w))return 'drizzle';
  if(w===45||w===48)return 'fog';
- if(w===3||cloud>=78)return 'clouds';
- if(w===1||w===2||cloud>=28)return 'partly';
- return 'clear';
+ if(w===3)return 'clouds';
+ if(w===2)return 'partly';
+ if(w===0||w===1)return 'clear';
+ return null;
 }
 function flakes(kind){
  const n=kind==='snow'?18:kind==='storm'?17:kind==='rain'?17:kind==='drizzle'?11:0;
@@ -119,8 +124,10 @@ function applyWeather(host){
  const chip=layer.querySelector('.nl-weather-chip');
  const spec=weatherKinds[kind],temperature=Number(weather.temperature_2m);
  const t=Number.isFinite(temperature)?Math.round(temperature)+'°':'';
- chip.textContent=spec.icon+(t?' '+t:'');
- chip.title='Barcelona: '+spec.label+(t?', '+t:'')+'. Datos meteorológicos estimados: Open-Meteo.';
+ const icon=weather.is_day===0&&(kind==='clear'||kind==='partly')?'☾':spec.icon;
+ const measured=typeof weather.time==='string'&&/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}/.test(weather.time)?weather.time.slice(11,16):null;
+ chip.textContent=icon+(t?' '+t:'');
+ chip.title='Barcelona: '+spec.label+(t?', '+t:'')+(measured?', datos de las '+measured+' h (Barcelona)':'')+'. Estimación meteorológica de Open-Meteo.';
  chip.setAttribute('aria-label',chip.title);
  layer.querySelector('.nl-particles').innerHTML=flakes(kind);
 }

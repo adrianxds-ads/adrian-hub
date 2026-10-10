@@ -4,14 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.50",
-    "build": "hub-30.4.50-20261010",
+    "version": "30.4.51",
+    "build": "hub-30.4.51-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Auditor?a visual de Sonnet, fase piloto: indicador horario del jard?n aumentado a 16 px en m?viles y s?mbolo de informaci?n ampliado a 19 px.",
-      "Hub: comprobados contraste, disposici?n y navegaci?n a 360, 390, 412 y 1280 px; sin modificaciones en preguntas, puntuaciones, progreso ni medallas."
+      "Corrección del clima del jardín: el estado WMO instantáneo manda sobre la lluvia acumulada en la hora anterior; Barcelona despejada deja de mostrar lluvia ficticia.",
+      "La ficha meteorológica distingue el cielo nocturno y ofrece la hora del dato de Open-Meteo; caché máxima 30 min. Sin alterar árboles, dinosaurios, tareas ni recompensas.",
+      "Regresión de navegador: principalmente despejado con lluvia residual, nuboso, intervalos, lluvia real, nieve y tormenta."
     ],
     "history": [
+      {
+        "version": "30.4.50",
+        "build": "hub-30.4.50-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Auditor?a visual de Sonnet, fase piloto: indicador horario del jard?n aumentado a 16 px en m?viles y s?mbolo de informaci?n ampliado a 19 px.",
+          "Hub: comprobados contraste, disposici?n y navegaci?n a 360, 390, 412 y 1280 px; sin modificaciones en preguntas, puntuaciones, progreso ni medallas."
+        ]
+      },
       {
         "version": "30.4.49",
         "build": "hub-30.4.49-20261010",
@@ -561,7 +571,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "8fd3a7af4a9c7a74b530e2296fca8c53a7a5ec4525ff8a62629c6d4b8ce8533e"
+          "sha256": "ac0e92438293c491cb51d339cf22449a2526d6e2ef24401832acd615bb31640c"
         },
         {
           "url": "version-verifier.js",
@@ -569,7 +579,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "674fb846e5a73c54cb92505f427168ca6fcc4df7935e3beac714aab7a5bee955"
+          "sha256": "b2e373d5343b045155b6c4ed548a2fa5a15e18d0292ceff7b1e375537eceefea"
         },
         {
           "url": "styles.css",
@@ -577,15 +587,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "c09a1f1c343cae494c944028ece4a65792273680aee59276ccf67897aec1b73e"
+          "sha256": "ec557b50b41730b4fb636e6062456a777bc2be82777ba1ac53c9f378273c0f62"
         },
         {
           "url": "build-assets.js",
-          "sha256": "38df6b8f4ea9778a3f2c6677b206402e96ec89aad9aeee82251c9f68cc0acdd6"
+          "sha256": "aa0c9158eeb84f1f541fd5edcba641406fcad54c292dc54bbf6a9f5c991d191b"
         }
       ]
     },
-    "cacheBuild": "c355e6c5e0ec8f37"
+    "cacheBuild": "73adf07cd2182097"
   },
   "apps": [
     {
@@ -1423,19 +1433,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.0",
-      "build": "sha256-01d280d58b37",
+      "version": "0.5.1",
+      "build": "sha256-125d5a7c3f6a",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
-        "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
-        "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
+        "Modo tarea: misma corrección meteorológica que el jardín del Hub. No cambia la reproducción, las tareas ni el progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "5c01ee5592265a7e5677a6a67c900d4f9d60f81dabe42edb482121b8f994ea8b"
+            "sha256": "b6b98d86e5a18d3ce68d24cff46f3c5d03e81ea88eb11ca365fa56092a7b4f68"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1448,6 +1457,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.0",
+          "date": "2026-10-10",
+          "changes": [
+            "Casita en el jardín compartido: crecimiento determinista de plantas y enredaderas durante 5.000 bloques de tareas con podcast.",
+            "Sin medallas de tareas; historial conservado y sesiones completadas deduplicadas."
+          ]
+        },
         {
           "version": "0.4.0",
           "date": "2026-10-09",
