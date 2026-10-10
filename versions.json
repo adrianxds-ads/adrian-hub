@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.51",
-    "build": "hub-30.4.51-20261010",
+    "version": "30.4.52",
+    "build": "hub-30.4.52-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Corrección del clima del jardín: el estado WMO instantáneo manda sobre la lluvia acumulada en la hora anterior; Barcelona despejada deja de mostrar lluvia ficticia.",
-      "La ficha meteorológica distingue el cielo nocturno y ofrece la hora del dato de Open-Meteo; caché máxima 30 min. Sin alterar árboles, dinosaurios, tareas ni recompensas.",
-      "Regresión de navegador: principalmente despejado con lluvia residual, nuboso, intervalos, lluvia real, nieve y tormenta."
+      "Cambridge Lab 1.3.7: cabecera de examen condensada en móvil; fuente resumida RUOE · Practice Test 01 con datos originales conservados en Detalles del ejercicio.",
+      "Legibilidad: etiqueta secundaria de 16 px y cabecera de 69 px en 320–412 px; sin cambios en preguntas, corrección ni progreso.",
+      "Versiones y caché Cambridge actualizadas y comprobadas contra el código publicado. Se conserva la corrección meteorológica del jardín de la versión anterior."
     ],
     "history": [
+      {
+        "version": "30.4.51",
+        "build": "hub-30.4.51-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Corrección del clima del jardín: el estado WMO instantáneo manda sobre la lluvia acumulada en la hora anterior; Barcelona despejada deja de mostrar lluvia ficticia.",
+          "La ficha meteorológica distingue el cielo nocturno y ofrece la hora del dato de Open-Meteo; caché máxima 30 min. Sin alterar árboles, dinosaurios, tareas ni recompensas.",
+          "Regresión de navegador: principalmente despejado con lluvia residual, nuboso, intervalos, lluvia real, nieve y tormenta."
+        ]
+      },
       {
         "version": "30.4.50",
         "build": "hub-30.4.50-20261010",
@@ -571,7 +581,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "ac0e92438293c491cb51d339cf22449a2526d6e2ef24401832acd615bb31640c"
+          "sha256": "32da6979546228eda6467d93e63f9b50b2cd2ba85f7613c3028a264d2fe2009b"
         },
         {
           "url": "version-verifier.js",
@@ -579,7 +589,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "b2e373d5343b045155b6c4ed548a2fa5a15e18d0292ceff7b1e375537eceefea"
+          "sha256": "234d1377effd6a71ab3fa530475155da6e671dd05e825567c689a27a2df8bc39"
         },
         {
           "url": "styles.css",
@@ -587,15 +597,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "ec557b50b41730b4fb636e6062456a777bc2be82777ba1ac53c9f378273c0f62"
+          "sha256": "79b7959da2772b06f04333ee871c3bc359f04afc946e51502b43551466456005"
         },
         {
           "url": "build-assets.js",
-          "sha256": "aa0c9158eeb84f1f541fd5edcba641406fcad54c292dc54bbf6a9f5c991d191b"
+          "sha256": "b97d381df2c73d0ec582d251146ad920acc52331ba9de12b0d340df95a6ed506"
         }
       ]
     },
-    "cacheBuild": "73adf07cd2182097"
+    "cacheBuild": "848fe70a8d83fb80"
   },
   "apps": [
     {
@@ -1039,24 +1049,23 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.6",
-      "build": "sha256-6f79b4c39467",
+      "version": "1.3.7",
+      "build": "sha256-6eff3ace200c",
       "releasedAt": "2026-10-10",
       "kind": "public",
       "changes": [
-        "Keyword Quiz deja de usar texto blanco sobre tarjetas claras y muestra las respuestas en una sola columna legible en móvil.",
-        "Modo Estudio y Cambridge Quiz mejoran cabeceras, metadatos, selectores y contraste; todas las preguntas y registros permanecen intactos.",
-        "Nuevo CSS precargado y verificado también sin conexión, con caché regenerada."
+        "Cabeceras de Modo Estudio más compactas y legibles en móvil: texto secundario de 16 px y procedencia completa conservada.",
+        "Revisión de pruebas de pantalla, integridad de caché y publicación; bancos y progreso intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "6dd0d0c7733a55ec5b574b536fe99bbdf2a4d69d93aad90d99d1318d7cdec281"
+            "sha256": "7c666d6648f358bbb4826c333b8797ced0914594a75a7cc8b6897a3e84f83955"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "165cc2b676eb416275176a634080036d7fe4e13f3def9096f9ec061b795a19ff"
+            "sha256": "de77b77408b94186d3bfbce672f41428209f0d78ad3c519dcace1b47a7278686"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -1064,17 +1073,27 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "deebd0af13e0b162fef255e8f65d83e2d2c673811f718099d881c860bd141498"
+            "sha256": "2bbf8fcca66c9eb7bd476666cc1eb7fb69ceb34022e8cb2400ceff01e8e0b6c6"
           }
         ]
       },
-      "sourceCommit": "f2e2e100f57b0499b1e3c4c19aea24f777eabae2",
-      "cacheBuild": "e9d3251a8d691a93",
+      "sourceCommit": "d1ba45f9970b8b078b84d1c3d6ddb73af1b08cca",
+      "cacheBuild": "86d8e97bd68424e8",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.6",
+          "build": "sha256-6f79b4c39467",
+          "date": "2026-10-10",
+          "changes": [
+            "Keyword Quiz deja de usar texto blanco sobre tarjetas claras y muestra las respuestas en una sola columna legible en móvil.",
+            "Modo Estudio y Cambridge Quiz mejoran cabeceras, metadatos, selectores y contraste; todas las preguntas y registros permanecen intactos.",
+            "Nuevo CSS precargado y verificado también sin conexión, con caché regenerada."
+          ]
+        },
         {
           "version": "1.3.5",
           "build": "sha256-6570282077a4",
