@@ -83,3 +83,10 @@
 - Posteriormente captura real de Pixel 10 mostró abierto el menú `+` de voz avanzada, con `Cámara`, `Fotos`, `Archivos`, `Vídeo en directo` y `Compartir pantalla`. PASS hasta menú de compartir pantalla.
 - Durante el arranque apareció brevemente el mensaje `Too many requests`: apertura de interfaz y menú verificada, pero no funcionamiento conversacional de audio ni conectividad de voz.
 - No hubo activación del último toque, cuadro de consentimiento ni proyección de pantalla. Conservado `NexoVisual` estable y enlace del Hub; ninguna captura autorizada. El siguiente paso es, únicamente si se desea, habilitar toque final tras guardias verificadas de voz, estado real del menú y orientación; aceptación de Android siempre manual.
+
+
+## V3 · automatización del menú y acceso Hub (2026-10-10)
+- Se importó `NexoVisualAutoSafeV3` de forma independiente. Conserva lanzamiento, apertura de Voz avanzada y apertura de menú, con guardia `%aitext() ~ *Finalizar*` antes de activar adjuntos y guardias `%nexo_orient ~ portrait` y `%aitext() ~ *Finalizar*` antes del punto `431,2159`.
+- Prueba física desde el Play de Tasker: apareció en Android el diálogo `¿Compartir tu pantalla con ChatGPT?`, con `Cancelar` y `Siguiente`. **PASS hasta petición de permiso.** Se pulsó **Cancelar**; no se compartió pantalla, ni se automatizó autorización.
+- Hub 30.4.42 añade un acceso Android visible a `tasker://assistantactions?task=NexoVisualAutoSafeV3`. Conserva el botón `HABLAR CON NEXO` y el enlace de la tarea estable `NexoVisual` como alternativas. El nuevo botón es específico del Pixel con Tasker instalado.
+- Pendiente de comprobar desde Hub publicado/PWA que el enlace entra en V3 y muestra permiso sin necesidad de abrir Tasker. El permiso final siempre se acepta manualmente por el usuario.

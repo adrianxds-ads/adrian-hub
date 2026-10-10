@@ -223,3 +223,7 @@ body.hub-daylight{
 .hub-daylight .nexo-visual-tasker-link{display:inline-flex;align-items:center;min-height:52px;padding:9px 14px;border-radius:12px;background:#E0EAF3;border:1px solid #9DB8C9;color:#235A77;text-decoration:none;font-weight:750}
 .hub-daylight .nexo-visual-tasker>small{display:block;color:#516B79;font-size:14px;margin:8px 0 12px}
 @media(max-width:680px){.hub-daylight .nexo-visual-launch{grid-template-columns:1fr;padding:16px}.hub-daylight .nexo-visual-primary{width:100%;white-space:normal}.hub-daylight .nexo-visual-heading strong{font-size:21px}}
+
+/* Pixel 10: acceso directo a voz avanzada + permiso de pantalla; botón tradicional intacto. */
+.hub-daylight .nexo-visual-auto{grid-column:1/-1;display:flex;align-items:center;justify-content:center;min-height:54px;padding:10px 16px;border-radius:13px;background:#DFEEFA;border:1px solid #7DB0CD;color:#1E5674;text-decoration:none;font-weight:800;font-size:16px;text-align:center}
+.hub-daylight .nexo-visual-auto[hidden]{display:none!important}
