@@ -37,7 +37,7 @@ function plant(i,n){
 const house='<g class="jurassic-cave"><ellipse cx="850" cy="300" rx="91" ry="13" fill="#233b31" opacity=".3"/><path d="M 758 292 Q 762 225 811 204 Q 854 171 901 207 Q 941 237 941 292 Z" fill="#87958b" stroke="#52675e" stroke-width="4"/><path d="M 793 292 Q 800 236 851 223 Q 902 233 911 292 Z" fill="#263b37"/><path d="M 809 291 Q 816 253 850 245 Q 884 255 895 291" fill="none" stroke="#40594b" stroke-width="5"/><g fill="#658e70"><path d="M 773 291 q -18 -25 -8 -44 q 17 17 17 44 M 930 291 q 4 -36 22 -44 q 3 29 -11 44"/><path d="M 786 290 q -5 -37 13 -50 q 5 28 -2 50"/></g><ellipse cx="848" cy="302" rx="50" ry="5" fill="#9ba48a" opacity=".55"/></g>';
 function markup(n){
  let plants='';for(let i=0;i<Math.ceil(n/STEPS);i++)plants+=plant(i,Math.min(STEPS,n-i*STEPS));
- return '<svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Cueva jurásica y jardín: '+n+' detalles de crecimiento">'+house+plants+'</svg>';
+ return '<svg viewBox="0 0 1000 400" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Cueva del dragoncillo y jardín: '+n+' detalles de crecimiento">'+house+plants+'</svg>';
 }
 function css(){
  if(document.getElementById('cottage-css'))return;

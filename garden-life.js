@@ -1,10 +1,26 @@
-/* Núcleo Garden Life 1.0 — decorative and read-only; shared by Hub and Task Garden.
+/* Núcleo Garden Life 1.1 — decorative and read-only; shared by Hub and Task Garden.
    Barcelona weather is estimated by Open-Meteo. No rewards/progress are written. */
 (function(){
 'use strict';
 if(window.NucleoGardenLife)return;
 const HISTORY_KEY='adrianEasyCatalanTaskSessionsV1';
 const WEATHER_KEY='nucleo_garden_weather_barcelona_v1';
+// The SVG is presentation-only and cannot change cottage tasks or plant growth.
+const DRAGON_URL=new URL('./garden-dragon.svg?v=1.0.0',document.currentScript?.src||location.href);
+let dragonArtwork=null;
+function petArt(stage){return stage===0?eggSvg():(dragonArtwork||dinoSvg());}
+async function loadDragonArtwork(){
+ try{
+  const res=await fetch(DRAGON_URL,{cache:'no-cache'});if(!res.ok)throw Error('dragon '+res.status);
+  const content=await res.text();
+  if(!content.startsWith('<svg')||!content.includes('class="dragon-art"')||!content.includes('</svg>'))throw Error('invalid dragon art');
+  dragonArtwork=content;
+  document.querySelectorAll('.nl-dino:not([data-stage="0"])').forEach(d=>{
+   const old=d.querySelector('svg');if(old)old.outerHTML=dragonArtwork;
+  });
+ }catch(e){/* Keep the original mascot artwork if the SVG is unavailable offline. */}
+}
+
 const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day&timezone=Europe%2FMadrid';
 // The model's `rain`/`precipitation` values refer to a prior accumulation window,
 // not necessarily to rain falling at this instant. Use the instantaneous WMO code.
@@ -65,10 +81,10 @@ function dinoSvg(){
  </svg>`;
 }
 const say={
- happy:['¡Una hoja nueva!','Hoy el jardín huele a victoria.','¡Rooar! Eso ha ido bien.'],
+ happy:['¡Una hoja nueva!','Hoy el jardín huele a victoria.','¡Mis alitas están de fiesta!'],
  curious:['¿Qué habrá dentro de la cueva?','Estoy contando mariposas.','¿Damos una vuelta?'],
- mischief:['He escondido una piedra.','Hoy me toca explorar.','Estoy tramando una dinotravesura.'],
- sleepy:['Zzz… cinco minutos más.','He soñado con helechos gigantes.','Shhh… duerme el jurásico.']
+ mischief:['He escondido una piedra.','Hoy me toca explorar.','Estoy tramando una pequeña dragontravesura.'],
+ sleepy:['Zzz… cinco minutos más.','He soñado que volaba sobre Barcelona.','Shhh… duerme el bosque.']
 };
 function dinoClick(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
@@ -76,6 +92,15 @@ function dinoClick(host){
  d.dataset.taps=String(n);
  const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:say[state][(n-1)%say[state].length];
  const bubble=d.querySelector('.nl-dino-bubble');bubble.textContent=msg;
+ // A small wing celebration; occasional hover is unlocked only at stages 3–4.
+ if(d.dataset.stage!=='0'){
+  d.classList.remove('nl-dragon-flap','nl-dragon-flight');
+  void d.offsetWidth;
+  const stage=Number(d.dataset.stage);
+  d.classList.add(stage>=3&&n%3===0?'nl-dragon-flight':'nl-dragon-flap');
+  clearTimeout(d.__motionTimer);
+  d.__motionTimer=setTimeout(()=>d.classList.remove('nl-dragon-flap','nl-dragon-flight'),2600);
+ }
  d.classList.remove('nl-speaking');void d.offsetWidth;d.classList.add('nl-speaking');
  clearTimeout(d.__bubbleTimer);d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),3300);
 }
@@ -85,10 +110,10 @@ function updateDino(host){
  const stage=dinoStage();
  if(d.dataset.stage!==String(stage)){
   d.dataset.stage=String(stage);
-  const picture=d.querySelector('svg');if(picture)picture.outerHTML=stage===0?eggSvg():dinoSvg();
+  const picture=d.querySelector('svg');if(picture)picture.outerHTML=petArt(stage);
  }
  if(d.dataset.mood!==m){d.dataset.mood=m;}
- d.setAttribute('aria-label',stage===0?'Huevo de dinosaurio. Tócalo para saludar.':'Dinosaurio '+names[m]+'. Tócalo para saludarlo.');
+ d.setAttribute('aria-label',stage===0?'Huevo de dragoncillo. Tócalo para saludar.':'Dragoncillo '+names[m]+'. Tócalo para saludarlo.');
 }
 function weatherKind(c){
  if(!c||!Number.isFinite(Number(c.weather_code)))return null;
@@ -160,8 +185,8 @@ function mount(host){
   layer.querySelector('.nl-weather-chip').addEventListener('pointerdown',event=>event.stopPropagation());
  }
  if(!host.querySelector('.nl-dino')){
-  const d=document.createElement('button');d.type='button';d.className='nl-dino';
-  d.innerHTML=dinoSvg()+'<span class="nl-dino-bubble" aria-live="polite"></span>';
+  const d=document.createElement('button');d.type='button';d.className='nl-dino nl-dragon';
+  d.innerHTML=petArt(dinoStage())+'<span class="nl-dino-bubble" aria-live="polite"></span>';
   host.appendChild(d);
   d.addEventListener('pointerdown',event=>event.stopPropagation());
   d.addEventListener('click',()=>dinoClick(host));
@@ -195,6 +220,7 @@ loadWeatherCache();
 window.addEventListener('storage',e=>{if(!e.key||e.key===HISTORY_KEY||e.key===WEATHER_KEY){if(e.key===WEATHER_KEY)loadWeatherCache();schedule();}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastRequest=0;schedule();}});
 setInterval(()=>{if(!document.hidden){refresh();refreshWeather();}},60000);
-window.NucleoGardenLife=Object.freeze({version:'1.0.0',refresh,weatherKind,mood});
+window.NucleoGardenLife=Object.freeze({version:'1.1.0',refresh,weatherKind,mood});
+loadDragonArtwork();
 schedule();
 })();

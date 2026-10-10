@@ -9,7 +9,7 @@ async function refresh(){
  if(!previous)return;
  const host=document.createElement('div');
  host.id='taskGarden';
- host.setAttribute('aria-label','Nuestro jardín GitHub');
+ host.setAttribute('aria-label','Nuestro jardín compartido y su dragoncillo');
  if(previous.__gardenClock)clearInterval(previous.__gardenClock);
  previous.replaceWith(host);
  const ticket=++sequence;

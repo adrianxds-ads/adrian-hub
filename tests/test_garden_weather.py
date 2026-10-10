@@ -40,11 +40,11 @@ try:
             weather={'current':{'time':'2026-10-10T22:00','temperature_2m':20.2,'cloud_cover':cloud,
                 'weather_code':code,'precipitation':0 if code==1 else rain,
                 'rain':rain,'snowfall':0,'is_day':0}}
-            page.route('**/api.open-meteo.com/**',lambda route:route.fulfill(
+            page.route('https://api.open-meteo.com/**',lambda route:route.fulfill(
                 status=200,content_type='application/json',body=json.dumps(weather),
                 headers={'access-control-allow-origin':'*'}))
             page.goto(base,wait_until='domcontentloaded',timeout=25000)
-            page.wait_for_function("""state => document.querySelector('#githubGarden')?.dataset.nlWeather === state""",arg=expected,timeout=22000)
+            page.wait_for_function("""state => document.querySelector('#githubGarden')?.dataset.nlWeather === state && document.querySelector('#githubGarden .nl-weather-chip')?.title.includes('22:00')""",arg=expected,timeout=22000)
             state=page.evaluate("""() => ({
                 kind:document.querySelector('#githubGarden').dataset.nlWeather,
                 drops:document.querySelectorAll('#githubGarden .nl-particles i').length,

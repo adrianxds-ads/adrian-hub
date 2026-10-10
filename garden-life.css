@@ -1,4 +1,4 @@
-/* Núcleo Garden Life 1.0 — ambient, accessible, minimal garden chrome. */
+/* Núcleo Garden Life 1.1 — ambient, accessible, minimal garden chrome. */
 .github-garden .gg-heading,.github-garden .gg-time{display:none!important}
 .garden-shell .garden-intro>span:first-child,.garden-shell .garden-intro>b,
 .garden-shell .garden-intro>small{display:none!important}
@@ -72,4 +72,53 @@
  .nl-clouds i,.nl-particles i{animation:none!important;transition:none!important}
  .github-garden .nl-dino{left:45%!important}
  #taskJourney .nl-dino{left:var(--nl-task-left,45%)!important}
+}
+
+
+
+/* Dragoncillo: the existing nl-dino element remains the task-garden tracking layer.
+   Only visual artwork and transforms change. Shared trees and progress are untouched. */
+.github-garden .nl-dino.nl-dragon[data-stage="0"]{scale:.55;transform-origin:50% 95%}
+.github-garden .nl-dino.nl-dragon[data-stage="1"]{scale:.78}
+.github-garden .nl-dino.nl-dragon[data-stage="2"]{scale:.88}
+.github-garden .nl-dino.nl-dragon[data-stage="3"]{scale:1}
+.github-garden .nl-dino.nl-dragon[data-stage="4"]{scale:1.1}
+.github-garden .nl-dino.nl-dragon svg.dragon-art{
+ animation:nl-dragon-breathe 3.8s ease-in-out infinite;transform-origin:50% 83%;
+ filter:drop-shadow(0 2px 3px rgba(12,42,31,.18));
+}
+.nl-dino .dragon-art .eyes-closed,.nl-dino .dragon-art .mouth-open{display:none}
+.nl-dino[data-mood=sleepy] .dragon-art .eyes-open{display:none}
+.nl-dino[data-mood=sleepy] .dragon-art .eyes-closed{display:inline}
+.nl-dino[data-mood=sleepy] .dragon-art{animation:nl-dragon-sleep 5s ease-in-out infinite!important}
+.nl-dino[data-mood=happy] .dragon-art .mouth-open,.nl-dino.nl-speaking .dragon-art .mouth-open{display:inline}
+.nl-dino[data-mood=happy] .dragon-art .smile,.nl-dino.nl-speaking .dragon-art .smile{display:none}
+.nl-dino .dragon-art .tail,.nl-dino .dragon-art .wing,.nl-dino .dragon-art .leg,.nl-dino .dragon-art .arm{transform-box:fill-box}
+.nl-dino .dragon-art .tail{transform-origin:85% 85%;animation:nl-dragon-tail 4s ease-in-out infinite alternate}
+.nl-dino .dragon-art .wing-front,.nl-dino .dragon-art .wing-back{transform-origin:95% 75%;animation:nl-dragon-idle-wings 5s ease-in-out infinite alternate}
+.nl-dino .dragon-art .wing-back{animation-delay:-1.3s}
+.nl-dino.nl-dragon-flap .dragon-art .wing-front,.nl-dino.nl-dragon-flap .dragon-art .wing-back,
+.nl-dino.nl-dragon-flight .dragon-art .wing-front,.nl-dino.nl-dragon-flight .dragon-art .wing-back{
+ animation:nl-dragon-flap .23s ease-in-out infinite alternate;
+}
+.nl-dino.nl-dragon-flight svg.dragon-art{animation:nl-dragon-hop 2.4s ease-in-out 1!important}
+.nl-dino[data-mood=happy] .dragon-art .leg-front,.nl-dino[data-mood=happy] .dragon-art .leg-back{
+ transform-origin:50% 10%;animation:nl-dragon-paws .55s ease-in-out infinite alternate;
+}
+.nl-dino[data-mood=happy] .dragon-art .leg-back{animation-delay:-.28s}
+/* Task-mode ID selector in the older garden must not override dragon motion. */
+#taskJourney .nl-dino.nl-dragon svg.dragon-art{animation:nl-dragon-breathe 3.8s ease-in-out infinite}
+#taskJourney .nl-dino.nl-dragon.nl-dragon-flight svg.dragon-art{animation:nl-dragon-hop 2.4s ease-in-out 1}
+#taskJourney .nl-dino.nl-dragon[data-mood=sleepy] svg.dragon-art{animation:nl-dragon-sleep 5s ease-in-out infinite}
+@keyframes nl-dragon-breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.985)}}
+@keyframes nl-dragon-sleep{0%,100%{transform:rotate(6deg) scale(.97)}50%{transform:rotate(6deg) scale(1)}}
+@keyframes nl-dragon-tail{0%{transform:rotate(-5deg)}100%{transform:rotate(8deg)}}
+@keyframes nl-dragon-idle-wings{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
+@keyframes nl-dragon-flap{from{transform:rotate(-20deg)}to{transform:rotate(18deg)}}
+@keyframes nl-dragon-hop{0%,100%{transform:translateY(0) rotate(0deg)}28%{transform:translateY(-15px) rotate(-4deg)}53%{transform:translateY(-28px) rotate(4deg)}76%{transform:translateY(-15px) rotate(-2deg)}}
+@keyframes nl-dragon-paws{from{transform:rotate(-6deg)}to{transform:rotate(7deg)}}
+@media(prefers-reduced-motion:reduce){
+ .github-garden .nl-dino.nl-dragon svg.dragon-art,
+ .nl-dino .dragon-art .tail,.nl-dino .dragon-art .wing,
+ .nl-dino .dragon-art .leg,.nl-dino .dragon-art .arm{animation:none!important;transition:none!important}
 }

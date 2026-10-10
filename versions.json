@@ -4,17 +4,28 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.55",
-    "build": "hub-30.4.55-20261011",
+    "version": "30.4.56",
+    "build": "hub-30.4.56-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Centro de Agentes 1.4.1: legibilidad de estados, controles, etiquetas y resultados en móvil sin modificar permisos ni ejecutores.",
-      "Buzón DC 1.0.2: botón para volver al Hub más cómodo de pulsar, con tratamiento de capturas intacto.",
-      "Control PC: mejor legibilidad de etiquetas, avisos y métricas; no se modifica la extensión ni su versión 0.4.3.",
-      "Siete juegos de inglés y catalán: 112 pruebas de pantalla sin overflow ni fallos JavaScript; indicadores de Conjuga CAT inspeccionados y conservados por ser legibles en su fondo real.",
-      "Jardín, turismo, empleo, tareas y gimnasio quedan excluidos de esta fase."
+      "Integración reversible del dragoncillo jade vectorial y animable en el jardín ya existente, compartido por Hub y Biblioteca. Conserva los 5 umbrales (0/5/25/100/300) y todos los árboles y registros.",
+      "Alitas, cola, respiración, ojos dormidos, diálogos y primeros planeos mediante toque desde la etapa 3; conserva la posición y seguimiento original del recorrido del podcast.",
+      "SVG externo preparado en caché offline; si falla la carga se muestra el personaje anterior. No se modifican premios, tareas, medallas, historia ni algoritmos de crecimiento.",
+      "Verificación con datos sintéticos: 20 combinaciones de etapa/pantalla, jardín de Biblioteca, meteorología y prototipo aislado. Sin prueba física del Pixel."
     ],
     "history": [
+      {
+        "version": "30.4.55",
+        "build": "hub-30.4.55-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Centro de Agentes 1.4.1: legibilidad de estados, controles, etiquetas y resultados en móvil sin modificar permisos ni ejecutores.",
+          "Buzón DC 1.0.2: botón para volver al Hub más cómodo de pulsar, con tratamiento de capturas intacto.",
+          "Control PC: mejor legibilidad de etiquetas, avisos y métricas; no se modifica la extensión ni su versión 0.4.3.",
+          "Siete juegos de inglés y catalán: 112 pruebas de pantalla sin overflow ni fallos JavaScript; indicadores de Conjuga CAT inspeccionados y conservados por ser legibles en su fondo real.",
+          "Jardín, turismo, empleo, tareas y gimnasio quedan excluidos de esta fase."
+        ]
+      },
       {
         "version": "30.4.54",
         "build": "hub-30.4.54-20261011",
@@ -613,7 +624,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "c33df29146d681c4719ae0d588e323d94a718f93dc129de6f291bb28579557a3"
+          "sha256": "990a66b7847bccafa7f85ceb1575531c07049ba810b43a877bf6c9c8332a94e1"
         },
         {
           "url": "version-verifier.js",
@@ -621,7 +632,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "f5ec85b3ffa1f9a6cd0386fc3f78fdff7991a7a7e09166d3a077d92efef7bff5"
+          "sha256": "9d392bc04d58748e175a196e6c95685e24d5113e6310cef9c36bdb5a89096325"
         },
         {
           "url": "styles.css",
@@ -629,15 +640,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "f1d2db407086cdc9a6f5cdae784c22087bc2d352af9cf4dd345ecb7ea9d08b7e"
+          "sha256": "5e4a31a78b2d5b27f62bd71093a2ba9ada6f705fd296ce1bb3c9043c36806fa7"
         },
         {
           "url": "build-assets.js",
-          "sha256": "03bc85e311f747679cf8d534f37220538221f4e0fac85c25148e12d2246d3c48"
+          "sha256": "218f10a492320f48e92863d18e3f7607291c0684d6dcff9f32ff9529b3f7b053"
         }
       ]
     },
-    "cacheBuild": "c851c0206f011515"
+    "cacheBuild": "27251e1e7455d79c"
   },
   "apps": [
     {
@@ -1484,19 +1495,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.2",
-      "build": "sha256-f008e2f916df",
+      "version": "0.5.3",
+      "build": "sha256-48b014b482e5",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Modo Tarea con subtítulo de 14 px y salida de bloque táctil de al menos 48 px.",
-        "Sin cambios de datos, lógica ni componentes del jardín."
+        "El jardín del modo tarea utiliza el dragoncillo compartido; textos accesibles actualizados. Sin cambios en tareas, audio, historial ni progresos."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "b6b98d86e5a18d3ce68d24cff46f3c5d03e81ea88eb11ca365fa56092a7b4f68"
+            "sha256": "7f1f17bbe302f83b7102bd3d8e974b1cf1ee968c62de5e31c2ca931aaa6214cc"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1509,6 +1519,15 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.2",
+          "build": "sha256-f008e2f916df",
+          "date": "2026-10-11",
+          "changes": [
+            "Modo Tarea con subtítulo de 14 px y salida de bloque táctil de al menos 48 px.",
+            "Sin cambios de datos, lógica ni componentes del jardín."
+          ]
+        },
         {
           "version": "0.5.1",
           "build": "sha256-125d5a7c3f6a",
