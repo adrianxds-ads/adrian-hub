@@ -1,0 +1,13 @@
+/* Hub Immersive v1 · hide browser chrome by keeping public study apps in Hub's installed PWA */
+.immersive-layer[hidden]{display:none!important}
+.immersive-layer{position:fixed;inset:0;z-index:2147482200;background:#eaf0f5;overflow:hidden;isolation:isolate}
+.immersive-frame{display:block;width:100%;height:100%;height:100dvh;border:0;background:#eaf0f5}
+body.immersive-active{overflow:hidden!important;overscroll-behavior:none}
+.immersive-return{position:absolute;bottom:calc(12px + env(safe-area-inset-bottom));right:12px;z-index:2;width:48px;height:48px;padding:0;border:1px solid rgba(42,72,91,.34);border-radius:16px;background:rgba(245,249,252,.92);color:#253c4d;font:800 25px/1.2 Roboto,Arial,sans-serif;box-shadow:0 5px 18px rgba(35,68,92,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);cursor:pointer;touch-action:manipulation}
+.immersive-return:focus-visible{outline:3px solid #345e85;outline-offset:3px}
+.immersive-return:not(:focus-visible){opacity:.76}
+.immersive-layer.keyboard-active .immersive-return{display:none}
+.immersive-error[hidden]{display:none!important}
+.immersive-error{position:absolute;left:12px;right:12px;bottom:calc(75px + env(safe-area-inset-bottom));z-index:4;padding:15px;border:1px solid #abc2d0;border-radius:16px;background:#f7fafc;color:#25282c;box-shadow:0 8px 20px rgba(38,69,93,.15);font:600 16px/1.4 Roboto,Arial,sans-serif}
+.immersive-error a{color:#245a80;text-decoration:underline;font-weight:800}
+@media(prefers-reduced-transparency:reduce){.immersive-return{background:#f2f7fa;backdrop-filter:none}}

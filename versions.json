@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.47",
-    "build": "hub-30.4.47-20261010",
+    "version": "30.4.48",
+    "build": "hub-30.4.48-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Tamagotchi jurásico en el jardín compartido: dinosaurio paseando, expresiones según actividades registradas, descanso nocturno e interacción al tocarlo.",
-      "Tiempo estimado de Barcelona con Open-Meteo: nubes, lluvia, nieve y temperatura; respuesta accesible, caché y degradación elegante sin conexión.",
-      "Jardín sin cabeceras decorativas, conexión al avance real del podcast y respeto a movimiento reducido; ninguna modificación del progreso o las recompensas."
+      "Pantalla inmersiva para las ocho aplicaciones públicas de estudio al abrirlas desde el Hub instalado, sin barra de navegador y manteniendo la URL y el almacenamiento originales.",
+      "Regreso al Hub mediante control discreto inferior o botón Atrás, con acceso alternativo al navegador si una aplicación no puede integrarse.",
+      "En Chrome no instalado se mantiene la navegación habitual; otras apps y servicios externos no se interceptan. Juegos, progreso, medallas y jardín sin cambios."
     ],
     "history": [
+      {
+        "version": "30.4.47",
+        "build": "hub-30.4.47-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Tamagotchi jurásico en el jardín compartido: dinosaurio paseando, expresiones según actividades registradas, descanso nocturno e interacción al tocarlo.",
+          "Tiempo estimado de Barcelona con Open-Meteo: nubes, lluvia, nieve y temperatura; respuesta accesible, caché y degradación elegante sin conexión.",
+          "Jardín sin cabeceras decorativas, conexión al avance real del podcast y respeto a movimiento reducido; ninguna modificación del progreso o las recompensas."
+        ]
+      },
       {
         "version": "30.4.46",
         "build": "hub-30.4.46-20261010",
@@ -532,7 +542,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "00cff8576c978d50dfd976d387efeffa2cbada56db9dc40acf9f4e0e16245898"
+          "sha256": "32e642dd788cf19cc6a3655b59a5ae69f35cdbdf519c7d911838978703f27695"
         },
         {
           "url": "version-verifier.js",
@@ -540,7 +550,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "0b0eafdf02d38905533b6bdeebf172c60229daf10c4c7a675b875be8abdf9a6a"
+          "sha256": "5e6b70a904eb7767c7d5c320d5728646e9fb02ab156290fb3bc64353638c7109"
         },
         {
           "url": "styles.css",
@@ -548,15 +558,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "b4c6e5d183abda8eef99d2c702a897a94bfb07bfb96249fc20de0a12176d775d"
+          "sha256": "ad3111f4552d4d9cb61156c677b070c58e8035f8473c2a532d01dc149d8529b2"
         },
         {
           "url": "build-assets.js",
-          "sha256": "98525de70c9087625870187ef9e6e8bfc6fd012340294c26cbb2f8ec030898b3"
+          "sha256": "7630d000586e3317f3f417b838d5d627c62076955b6a5d3104e50dee63a5d965"
         }
       ]
     },
-    "cacheBuild": "500742f38f0953ac"
+    "cacheBuild": "0997e3422e579860"
   },
   "apps": [
     {
