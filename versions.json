@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.46",
-    "build": "hub-30.4.46-20261010",
+    "version": "30.4.47",
+    "build": "hub-30.4.47-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Los oros ganados siguen acumulados al obtener estrellas, con reconciliación visual del registro conservado si el historial visible está incompleto.",
-      "Estrellas doradas y destacados de recompensa sobre la interfaz clara; remate de fanfarria y aviso especial al alcanzar 5, 10, 15 oros, respetando el audio activado.",
-      "Sin alterar el aprendizaje, los temporizadores, la puntuación, los datos existentes ni el acceso a Nexo Visual. Se actualizan las cachés compartidas de ocho juegos."
+      "Tamagotchi jurásico en el jardín compartido: dinosaurio paseando, expresiones según actividades registradas, descanso nocturno e interacción al tocarlo.",
+      "Tiempo estimado de Barcelona con Open-Meteo: nubes, lluvia, nieve y temperatura; respuesta accesible, caché y degradación elegante sin conexión.",
+      "Jardín sin cabeceras decorativas, conexión al avance real del podcast y respeto a movimiento reducido; ninguna modificación del progreso o las recompensas."
     ],
     "history": [
+      {
+        "version": "30.4.46",
+        "build": "hub-30.4.46-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Los oros ganados siguen acumulados al obtener estrellas, con reconciliación visual del registro conservado si el historial visible está incompleto.",
+          "Estrellas doradas y destacados de recompensa sobre la interfaz clara; remate de fanfarria y aviso especial al alcanzar 5, 10, 15 oros, respetando el audio activado.",
+          "Sin alterar el aprendizaje, los temporizadores, la puntuación, los datos existentes ni el acceso a Nexo Visual. Se actualizan las cachés compartidas de ocho juegos."
+        ]
+      },
       {
         "version": "30.4.45",
         "date": "2026-10-10",
@@ -522,7 +532,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "f9d60bbc15cf99e34dd36faee0798fdaab67cec3acc7960f36f908c60b9e567a"
+          "sha256": "00cff8576c978d50dfd976d387efeffa2cbada56db9dc40acf9f4e0e16245898"
         },
         {
           "url": "version-verifier.js",
@@ -530,7 +540,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "5f5c18a8d1e967febb35ea69f1979b11c3ec70071815b987c8f340b1b5e7efbd"
+          "sha256": "0b0eafdf02d38905533b6bdeebf172c60229daf10c4c7a675b875be8abdf9a6a"
         },
         {
           "url": "styles.css",
@@ -538,15 +548,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "d14fc2846832e0af8014fbdc787e133c24def05cf6d1cd380fdfddca630e7522"
+          "sha256": "b4c6e5d183abda8eef99d2c702a897a94bfb07bfb96249fc20de0a12176d775d"
         },
         {
           "url": "build-assets.js",
-          "sha256": "86e940b15bf4d9411544dc592d04291c70d04d71d6940cba0fb9441025e9aa4e"
+          "sha256": "98525de70c9087625870187ef9e6e8bfc6fd012340294c26cbb2f8ec030898b3"
         }
       ]
     },
-    "cacheBuild": "29735449f08a84ca"
+    "cacheBuild": "500742f38f0953ac"
   },
   "apps": [
     {
@@ -1365,7 +1375,7 @@
       "id": "biblioteca",
       "name": "Català Podcasts",
       "version": "0.5.0",
-      "build": "sha256-bab3714dc47f",
+      "build": "sha256-01d280d58b37",
       "releasedAt": "2026-10-09",
       "kind": "bundled",
       "changes": [
@@ -1376,7 +1386,7 @@
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "0e9d82d37e9df4afc9deb944cc8a331e44fb44dce25ff484c69d4e81033393d1"
+            "sha256": "5c01ee5592265a7e5677a6a67c900d4f9d60f81dabe42edb482121b8f994ea8b"
           },
           {
             "url": "./apps/biblioteca/app.js",

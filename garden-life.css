@@ -1,0 +1,69 @@
+/* Núcleo Garden Life 1.0 — ambient, accessible, minimal garden chrome. */
+.github-garden .gg-heading,.github-garden .gg-time{display:none!important}
+.garden-shell .garden-intro>span:first-child,.garden-shell .garden-intro>b,
+.garden-shell .garden-intro>small{display:none!important}
+.garden-shell .garden-intro{display:flex;align-items:center;justify-content:flex-end;margin:0 0 5px;min-height:0}
+.garden-shell #gardenTaskMedals{font-size:12px;line-height:1.3;opacity:.78;padding:0 4px;background:none;border:0}
+.github-garden .nl-weather{position:absolute;inset:0;z-index:7;pointer-events:none;overflow:hidden}
+.github-garden .nl-weather[hidden]{display:none!important}
+.nl-weather-chip{position:absolute;top:10px;right:10px;z-index:2;min-height:32px;padding:7px 10px;border-radius:999px;color:#fdf8e8;background:rgba(19,40,43,.6);box-shadow:0 2px 10px rgba(8,24,25,.25);backdrop-filter:blur(7px);font:700 14px/1.2 Roboto,system-ui,sans-serif;text-decoration:none;pointer-events:auto}
+.nl-weather-chip:focus-visible{outline:3px solid #f6d994;outline-offset:2px}
+.nl-clouds{position:absolute;inset:0 0 50% 0;opacity:0;transition:opacity 1.1s ease}
+.github-garden[data-nl-weather=partly] .nl-clouds{opacity:.65}
+.github-garden[data-nl-weather=clouds] .nl-clouds,
+.github-garden[data-nl-weather=fog] .nl-clouds,
+.github-garden[data-nl-weather=drizzle] .nl-clouds,
+.github-garden[data-nl-weather=rain] .nl-clouds,
+.github-garden[data-nl-weather=snow] .nl-clouds,
+.github-garden[data-nl-weather=storm] .nl-clouds{opacity:.94}
+.nl-clouds i{position:absolute;left:-14%;top:15%;width:105px;height:27px;border-radius:60px;background:#dae3df;opacity:.66;box-shadow:26px -10px 0 4px #e4ede8,50px 2px 0 -3px #c4d2cc;filter:drop-shadow(0 8px 9px rgba(9,27,31,.17));animation:nl-cloud-drift 37s ease-in-out infinite alternate}
+.nl-clouds i:nth-child(2){top:39%;left:49%;transform:scale(.74);animation-duration:47s;opacity:.65}
+.nl-clouds i:nth-child(3){top:8%;left:76%;transform:scale(.48);animation-duration:29s;opacity:.52}
+.github-garden[data-nl-weather=storm] .nl-clouds i{background:#7c9499;box-shadow:26px -10px 0 4px #84999f,50px 2px 0 -3px #677f85}
+.github-garden[data-nl-weather=partly] .gg-sun{opacity:.65!important}
+.github-garden[data-nl-weather=clouds] .gg-sun,
+.github-garden[data-nl-weather=fog] .gg-sun,
+.github-garden[data-nl-weather=drizzle] .gg-sun,
+.github-garden[data-nl-weather=rain] .gg-sun,
+.github-garden[data-nl-weather=snow] .gg-sun,
+.github-garden[data-nl-weather=storm] .gg-sun{opacity:.13!important}
+.nl-particles{position:absolute;inset:5% 0 8%;overflow:hidden}
+.nl-particles i{position:absolute;top:-10%;left:var(--nl-x);width:2px;height:17px;border-radius:8px;background:#bde3fb;opacity:.75;transform:rotate(14deg);animation:nl-rain var(--nl-duration) linear var(--nl-delay) infinite}
+.github-garden[data-nl-weather=snow] .nl-particles i{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 4px #d7f4ff;animation-name:nl-snow}
+.github-garden[data-nl-weather=drizzle] .nl-particles i{height:9px;opacity:.43}
+.github-garden .nl-dino{position:absolute;z-index:12;left:14%;bottom:14%;width:clamp(64px,13%,102px);height:clamp(64px,13vw,103px);min-height:64px;min-width:64px;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;touch-action:manipulation;filter:drop-shadow(0 7px 5px rgba(12,24,16,.25));animation:nl-wander 32s ease-in-out infinite alternate}
+.nl-dino svg{width:100%;height:100%;overflow:visible;animation:nl-bob .64s ease-in-out infinite alternate}
+.nl-dino .nl-eye-sleep{display:none}
+.nl-dino[data-mood=sleepy]{left:53%;animation:none}
+.nl-dino[data-mood=sleepy] svg{animation:nl-breathe 2.8s ease-in-out infinite alternate}
+.nl-dino[data-mood=sleepy] .nl-eye-sleep{display:block}
+.nl-dino[data-mood=sleepy] .nl-eye-white,.nl-dino[data-mood=sleepy] .nl-pupil{display:none}
+.nl-dino[data-mood=mischief] .nl-mouth{transform:translateY(1px)}
+.nl-dino[data-mood=happy] .nl-foot-a{animation:nl-step .52s ease-in-out infinite alternate;transform-origin:48px 86px}
+.nl-dino[data-mood=happy] .nl-foot-b{animation:nl-step .52s ease-in-out -.26s infinite alternate;transform-origin:84px 86px}
+.nl-dino:focus-visible{outline:3px solid #ffe7a0;outline-offset:3px}
+.nl-dino:active svg{transform:scale(1.07)}
+.nl-dino-bubble{position:absolute;bottom:95%;left:50%;transform:translate(-50%,5px) scale(.91);min-width:122px;max-width:190px;width:max-content;padding:8px 10px;border-radius:13px;background:#f4f6eb;color:#214639;box-shadow:0 5px 15px rgba(12,34,25,.22);font:700 13px/1.3 Roboto,system-ui,sans-serif;text-align:center;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+.nl-dino.nl-speaking .nl-dino-bubble{opacity:1;transform:translate(-50%,0) scale(1)}
+#taskJourney .nl-dino{animation:none;transition:left .7s linear;bottom:19%}
+#taskJourney .nl-dino svg{animation:nl-bob .64s ease-in-out infinite alternate}
+#taskJourney .task-dino{visibility:hidden}
+@keyframes nl-wander{0%,10%{left:11%}40%{left:45%}70%{left:69%}100%{left:26%}}
+@keyframes nl-bob{from{transform:translateY(0)}to{transform:translateY(-2px)}}
+@keyframes nl-breathe{from{transform:scale(.98)}to{transform:scale(1.025)}}
+@keyframes nl-step{from{transform:rotate(-9deg)}to{transform:rotate(11deg)}}
+@keyframes nl-cloud-drift{from{translate:-8px 0}to{translate:39px 0}}
+@keyframes nl-rain{from{transform:translate3d(-10px,0,0) rotate(14deg)}to{transform:translate3d(14px,370px,0) rotate(14deg)}}
+@keyframes nl-snow{from{transform:translate3d(-8px,0,0)}to{transform:translate3d(28px,380px,0)}}
+@media(max-width:560px){
+ .github-garden .nl-dino{bottom:15%;width:76px;height:76px}
+ #taskJourney .nl-dino{bottom:21%}
+ .nl-weather-chip{top:9px;right:9px;font-size:13px}
+ .nl-dino-bubble{font-size:12px;max-width:157px;min-width:105px}
+}
+@media(prefers-reduced-motion:reduce){
+ .github-garden .nl-dino,.nl-dino svg,.nl-dino .nl-foot-a,.nl-dino .nl-foot-b,
+ .nl-clouds i,.nl-particles i{animation:none!important;transition:none!important}
+ .github-garden .nl-dino{left:45%!important}
+ #taskJourney .nl-dino{left:var(--nl-task-left,45%)!important}
+}
