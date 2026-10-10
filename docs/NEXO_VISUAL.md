@@ -93,3 +93,9 @@
 
 - Prueba real del acceso publicado desde el Hub v30.4.42 en Pixel 10: el boton nuevo aparecio en Android y su pulsacion llevo al selector del sistema 'Elige la aplicacion que quieres compartir' (opciones como Hub, Chrome y Gmail). PASS de enlace Hub a UI de permiso Android. No se eligio ninguna aplicacion ni se autorizo la captura desde el agente.
 
+
+## Cierre de la automatización experimental · 2026-10-10
+- El usuario ha vuelto a configurar Gemini como asistente principal de Pixel. Se conserva ese ajuste: el Hub solo abre la aplicación ChatGPT.
+- Captura de Tasker: `NexoVisualAutoSafeV3` falló en su acción 3 (`AutoInput Action`) por timeout, error code 2. Una pasada previa hasta el diálogo de compartir pantalla no demuestra fiabilidad. Se ha retirado del Hub el acceso automático V3 y el panel Tasker; las tareas preexistentes del teléfono no se han borrado ni modificado.
+- Según la documentación de ChatGPT Voz, el vídeo en directo se inicia en modo Avanzado desde la propia aplicación. No hay un deeplink oficial documentado para abrir directamente la cámara desde el Hub. El botón estable «HABLAR CON NEXO» sigue abriendo ChatGPT; instrucciones: Voz avanzada → + → Vídeo en directo.
+- Estado: cierre funcional de alcance reducido. No se altera Gemini, no se activa cámara ni pantalla en segundo plano, ni se solicitan permisos adicionales.
