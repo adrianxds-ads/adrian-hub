@@ -207,3 +207,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 #taskGarden .gg-heading{display:none}
 #taskGarden .gg-plant{width:100px;height:110px;margin-left:-50px}
 #taskGarden .gg-label{display:none}
+
+/* Sonnet scoped accessibility tune, 2026-10-11 — no garden CSS touched */
+/* Podcasts: only #taskPlanner and #taskStage descendants */
+#taskPlanner .task-plan-heading span{font-size:14px;line-height:1.35;min-width:0;overflow-wrap:anywhere}
+#taskStage .task-stage-head button{min-height:48px!important;min-width:48px;box-sizing:border-box;touch-action:manipulation}
+@media (max-width:520px){#taskPlanner .task-plan-heading span{font-size:14px;line-height:1.35}#taskStage .task-stage-head button{min-height:48px!important}}

@@ -170,3 +170,9 @@ input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
 .back{display:inline-flex;align-items:center}
 @media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}
+
+/* Sonnet scoped accessibility tune, 2026-10-11 — no garden CSS touched */
+/* Cambio: larger, legible archive target; selection state untouched */
+.task-card .task-archive{box-sizing:border-box;width:48px;min-width:48px;padding:4px 2px;min-height:96px;font-size:12px;font-weight:700;line-height:1;letter-spacing:.08em;white-space:nowrap;text-align:center;color:#d3e0e3;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.task-card .task-archive:focus-visible{outline:2px solid #e6f0f2;outline-offset:-3px}
+@media (max-width:520px){.task-card .task-archive{width:48px;min-width:48px;font-size:12px}}

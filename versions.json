@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.53",
-    "build": "hub-30.4.53-20261010",
-    "releasedAt": "2026-10-10",
+    "version": "30.4.54",
+    "build": "hub-30.4.54-20261011",
+    "releasedAt": "2026-10-11",
     "changes": [
-      "Gym Tracker 1.0.2: botón SALTAR legible de una línea y selector COACH VOZ completo en móvil.",
-      "Controles numéricos adaptados también a 320 px, sin alterar cargas, series, temporizadores ni historial.",
-      "Regresión Gym de seis anchuras, interacción de selección y ajuste de kilos, con pruebas en navegador aislado."
+      "Cambio 1.0.2: botón vertical ARCHIVAR de 48 px, mayor contraste y acceso táctil cómodo sin cambiar tareas ni archivado.",
+      "Català Podcasts 0.5.2: número de tareas más legible y botón Salir del bloque con área táctil de al menos 48 px; motor de podcasts y datos intactos.",
+      "Turismo Lab y jardín excluidos de esta fase; Limpieza pendiente de acceso autenticado. Pruebas aisladas en cinco tamaños y sin errores JS."
     ],
     "history": [
+      {
+        "version": "30.4.53",
+        "build": "hub-30.4.53-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Gym Tracker 1.0.2: botón SALTAR legible de una línea y selector COACH VOZ completo en móvil.",
+          "Controles numéricos adaptados también a 320 px, sin alterar cargas, series, temporizadores ni historial.",
+          "Regresión Gym de seis anchuras, interacción de selección y ajuste de kilos, con pruebas en navegador aislado."
+        ]
+      },
       {
         "version": "30.4.52",
         "build": "hub-30.4.52-20261010",
@@ -591,7 +601,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "fa80b1f00f90d1932b58163dc3b15eff6e52c443981b914bffcfb3858de37f7a"
+          "sha256": "c9d8ee21a302af2d25d03f6a6d2b867fbf6fe3fbdbc06e1cb7e7e3496730192e"
         },
         {
           "url": "version-verifier.js",
@@ -599,7 +609,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "04dfcffcb747bcfbfb7755cf3b2caae5b0c2554513cf81a59cb81cd2062147b2"
+          "sha256": "32ddc5484d2bb3c62ec7e9123d3ca765f8722d56cb122cbb8e55c58ea7c62c8e"
         },
         {
           "url": "styles.css",
@@ -607,15 +617,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "c190ba8f8c79a30566674834b545739da593b24f8fe7890b38450b5c02dc1625"
+          "sha256": "e17d5bfdc0c3e5027e25fc42e0fdb2386a21df0c3b6eef228ac8f77a72010dcd"
         },
         {
           "url": "build-assets.js",
-          "sha256": "793e4526b1b7588f05a9e59f5efa94f2286a10ea8ef8fb351a4b4485387ea52e"
+          "sha256": "208ec06cd6760d9a1c505207ebc3f076d05b9a63c4f105b7589b8ae4293e5108"
         }
       ]
     },
-    "cacheBuild": "68ff027d05236551"
+    "cacheBuild": "2926a0480937a48c"
   },
   "apps": [
     {
@@ -1462,12 +1472,13 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.1",
-      "build": "sha256-125d5a7c3f6a",
-      "releasedAt": "2026-10-09",
+      "version": "0.5.2",
+      "build": "sha256-f008e2f916df",
+      "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Modo tarea: misma corrección meteorológica que el jardín del Hub. No cambia la reproducción, las tareas ni el progreso."
+        "Modo Tarea con subtítulo de 14 px y salida de bloque táctil de al menos 48 px.",
+        "Sin cambios de datos, lógica ni componentes del jardín."
       ],
       "verify": {
         "files": [
@@ -1481,11 +1492,19 @@
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "3caf599652140cf40898cc7e8bbb1e26c001d8782ff10b99d7f023268b65bccf"
+            "sha256": "a6b863871d793850255b6c7ab33e00877ea61cc68b47f2690817f1ec84d02a40"
           }
         ]
       },
       "history": [
+        {
+          "version": "0.5.1",
+          "build": "sha256-125d5a7c3f6a",
+          "date": "2026-10-09",
+          "changes": [
+            "Modo tarea: misma corrección meteorológica que el jardín del Hub. No cambia la reproducción, las tareas ni el progreso."
+          ]
+        },
         {
           "version": "0.5.0",
           "date": "2026-10-10",
@@ -1675,12 +1694,13 @@
     {
       "id": "cambio",
       "name": "Cambio",
-      "version": "1.0.1",
-      "build": "sha256-10fba2ae1344",
-      "releasedAt": "2026-10-08",
+      "version": "1.0.2",
+      "build": "sha256-2a63a90cd278",
+      "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
+        "Botón ARCHIVAR con objetivo táctil de 48 px y texto más contrastado.",
+        "Sin cambios de datos, lógica ni componentes del jardín."
       ],
       "verify": {
         "files": [
@@ -1694,11 +1714,19 @@
           },
           {
             "url": "./apps/cambio/styles.css",
-            "sha256": "caa4d100d3d4c34b3103d7eff2ab00b10c0abb572d478fd72aa61a2e8716ba53"
+            "sha256": "ff087e51fda1ae222b0c4710c4f9155a95cfc438b05fa5a48ffe1966c5fce565"
           }
         ]
       },
       "history": [
+        {
+          "version": "1.0.1",
+          "build": "sha256-10fba2ae1344",
+          "date": "2026-10-08",
+          "changes": [
+            "Revisión visual: acciones principales accesibles, controles táctiles amplios y texto legible."
+          ]
+        },
         {
           "version": "1.0.0",
           "date": "2026-10-06",
