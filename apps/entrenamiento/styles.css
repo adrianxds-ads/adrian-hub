@@ -61,3 +61,24 @@ input:not([type=range]):not([type=checkbox]):not([type=radio]),select{min-height
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #e7bf57;outline-offset:3px}
 .back{display:inline-flex;align-items:center}
 @media(max-width:520px){.shell,.app{min-width:0}button{overflow-wrap:anywhere}.section-head,.sectiontitle{flex-wrap:wrap;gap:12px}}
+
+/* Gym 2.0 · Sonnet visual audit: skip and coach mobile readability · 2026-10-10 */
+@media (max-width:520px){
+  .run-top{align-items:center;gap:12px;}
+  .run-top > :first-child{flex:1 1 0;min-width:0;overflow-wrap:anywhere;}
+  #skipExercise.mini.danger{flex:0 0 auto;min-width:96px;min-height:62px;padding-inline:14px;white-space:nowrap;overflow-wrap:normal;word-break:keep-all;text-align:center;}
+
+  .coach-row{grid-template-columns:minmax(0,1fr);gap:8px;}
+  .coach-row label{min-width:0;}
+  .coach-row select#coachMode{width:100%;min-width:0;max-width:100%;box-sizing:border-box;min-height:62px;}
+  .coach-row .tempo-info{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0;text-align:left;}
+  .coach-row .tempo-info span{flex:0 0 auto;}
+  .coach-row .tempo-info b{flex:1 1 auto;min-width:0;font-size:14px;line-height:1.25;text-align:right;overflow-wrap:break-word;}
+}
+
+/* Narrow-phone safety: keep 56px steppers and numeric values inside the card. */
+@media(max-width:360px){
+  .number-box{grid-template-columns:42px minmax(0,1fr)!important;padding-inline:8px!important}
+  .stepper{grid-template-columns:56px minmax(64px,1fr) 56px!important;gap:4px!important}
+  .stepper input{font-size:44px!important}
+}
