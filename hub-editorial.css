@@ -348,3 +348,9 @@ html body.hub-daylight.hub-editorial #adrianSyncStatus{max-width:calc(100vw - 24
   .hub-editorial .app{transition:none}
   .hub-editorial .app-launch .glyph{transition:none}
 }
+
+/* Estrellas recuperadas · juego legible v30.4.46 */
+.hub-daylight.hub-editorial .hub-stars.earned{background:linear-gradient(135deg,#FFF8D9,#FFEAB1);border-color:#CDA743;box-shadow:0 5px 16px rgba(151,107,16,.16)}
+.hub-editorial .hub-stars.earned>span{color:#BA7900!important;text-shadow:0 1px 0 #FFFCED,0 0 9px rgba(239,180,31,.48)!important;font-size:27px}
+.hub-editorial .hub-stars .hub-gold-count{color:#77500B}
+.hub-editorial .hub-stars.earned b{color:#76500B}

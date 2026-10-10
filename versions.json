@@ -1,19 +1,36 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-10T11:28:16.826162+00:00",
+  "generatedAt": "2026-10-10T13:44:54+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.44",
-    "build": "hub-30.4.44-20261010",
+    "version": "30.4.46",
+    "build": "hub-30.4.46-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Integra la profundidad cromática de Editorial Balance 30.4.43 con la revisión completa de lectura y contadores.",
-      "Núcleo Luminous 1.1: lectura revisada en Hub y ocho aplicaciones, con comprobación de estadísticas y pantallas internas.",
-      "Contadores claros, medallas legibles incluso con cero, tipografías y ayudas consistentes.",
-      "Versión y cachés renovadas; conserva progreso, preguntas, jardín y algoritmos."
+      "Los oros ganados siguen acumulados al obtener estrellas, con reconciliación visual del registro conservado si el historial visible está incompleto.",
+      "Estrellas doradas y destacados de recompensa sobre la interfaz clara; remate de fanfarria y aviso especial al alcanzar 5, 10, 15 oros, respetando el audio activado.",
+      "Sin alterar el aprendizaje, los temporizadores, la puntuación, los datos existentes ni el acceso a Nexo Visual. Se actualizan las cachés compartidas de ocho juegos."
     ],
     "history": [
+      {
+        "version": "30.4.45",
+        "date": "2026-10-10",
+        "changes": [
+          "Simplificado el acceso a Nexo Visual tras comprobar el límite de automatización de AutoInput, conservando el acceso principal a ChatGPT."
+        ]
+      },
+      {
+        "version": "30.4.44",
+        "build": "hub-30.4.44-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Integra la profundidad cromática de Editorial Balance 30.4.43 con la revisión completa de lectura y contadores.",
+          "Núcleo Luminous 1.1: lectura revisada en Hub y ocho aplicaciones, con comprobación de estadísticas y pantallas internas.",
+          "Contadores claros, medallas legibles incluso con cero, tipografías y ayudas consistentes.",
+          "Versión y cachés renovadas; conserva progreso, preguntas, jardín y algoritmos."
+        ]
+      },
       {
         "version": "30.4.43",
         "date": "2026-10-10",

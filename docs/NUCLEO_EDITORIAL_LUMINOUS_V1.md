@@ -76,3 +76,7 @@ La hoja local debe coincidir byte a byte con Core. Pruebas de portada, informaci
 Tras comparar capturas de la portada a 390 px, se recupera profundidad visual de la identidad anterior sin volver al fondo oscuro: emblemas sólidos, pasteles más definidos, contornos ligeramente más presentes y subtítulos reforzados. Permanece #EAF0F5 y la escala de Núcleo Visual (Roboto, lectura 19 px; secundarios 16 px). Se modifica solo hub-editorial.css, sin alterar la paleta funcional de respuestas, jardín, puntuaciones ni almacenamiento.
 
 La referencia de aceptación es la carcasa y los modales a 360/390/412/1280, más verificación de publicación, caché e integridad. Cualquier ajuste de un quiz requiere diagnóstico separado.
+
+## Contabilidad de premios · Hub 30.4.46
+
+Los oros ganados no se descuentan al llegar a un múltiplo de cinco. Se conserva el máximo ganado en el registro compartido para representar las medallas que el historial local aún no muestra. La recuperación de sesiones antiguas ausentes no se presume. El sonido del premio se refuerza con tres notas adicionales en la sesión perfecta que alcanza 5, 10, 15... oros, exclusivamente cuando el sonido de la app está habilitado. Estrella dorada y aviso de desbloqueo; todos los controles de aprendizaje, datos, jardín y Nexo intactos.
