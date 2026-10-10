@@ -125,3 +125,56 @@ FASE 3: skyline de Barcelona, arte 2.5D, proporciones huevo-árbol-dinosaurio/cu
 - Registrar versión y caché de release y verificar sitio público y Pixel real de forma independiente antes de declarar terminado.
 
 Siguiente paso: implementar de forma reversible sobre el último main verificado, dejando intactos los cambios locales no relacionados.
+
+## Brief maestro de arte — Dragoncillo del jardín v1 (2026-10-11)
+
+Estado: diseño del personaje y entrega artística ESPECIFICADOS; no genera imágenes ni cambia la mascota publicada. El personaje futuro es un dragoncillo, no un dinosaurio. El bosque existente, sus árboles, casita/cueva, progreso y recompensas siguen siendo canónicos.
+
+### Concepto y silueta
+
+Pequeño dragón guardián del bosque urbano de Barcelona. Criatura original, amable, curiosa y un poco traviesa. Estética 2.5D de videojuego ilustrado, mate y con iluminación suave; bordes bien definidos, ojos expresivos y anatomía consistente. No copiar ninguna mascota comercial. Cabeza grande pero equilibrada (aprox. 38 % de la altura del personaje), hocico corto de punta redondeada, cuello corto, tronco compacto, cuatro patas cortas, cola curva de largo medio y dos alitas plegables naciendo de los omóplatos. Dos cuernitos cortos color miel y una cresta dorsal blanda. Sugerir textura muy fina, sin escamas fotorealistas. Alas claramente dracónicas desde la primera fase, sin parecer un dinosaurio con alas añadidas.
+
+### Colores guía (HEX)
+
+- Piel jade #5FAF8C; luces #7BC6A0; sombras #3E7F67.
+- Vientre crema #E9DFC6; pliegues #D7C9A9.
+- Membrana de alas #9FD7BF, sombra #77B396.
+- Cuernos y pequeñas crestas #C8AE72, sombra #B59057.
+- Pupilas #25312D; mejillas discretas #D89A93.
+- Evitar saturación fluorescente, contornos negros gruesos y brillos duros. Contraste suficiente en jardín diurno y nocturno.
+
+### Escala y poses
+
+Usar una sola silueta coherente en todas las vistas: 3/4 frontal a la derecha (principal), lateral izquierdo y trasera (para caminar, entrar a la cueva o girar). Hoja de expresiones: curioso, contento, travieso, orgulloso, sorprendido y dormido, conservando proporciones. Hoja de poses: erguido, sentado, tumbado, acurrucado y aleteando. No entregar poses con anatomía distinta ni cambiar colores entre fotogramas.
+
+Escala visual objetivo en el jardín: huevo de máximo 55 % de la altura del dragón recién nacido, salvo sombra o espacio transparente; árboles adultos visualmente más altos que el dragón (ideal 2,5x a 3x o más), cueva habitable y dragoncillo sin tapar las etiquetas ni controles. Los tamaños finales se ajustan contra el SVG real del bosque, no mediante porcentajes arbitrarios de PNG.
+
+### Etapas vinculadas al código actual (no cambiar datos)
+
+El componente actual ya reconoce dinoStage con umbrales de BLOQUES DE TAREA COMPLETADOS: etapa 0 (<5), etapa 1 (5–24), etapa 2 (25–99), etapa 3 (100–299), etapa 4 (300 o más). Estos son disparadores PRESENTES, no se deben reinterpretar como medallas generales ni inventar sesiones históricas. Las escenas nuevas deben derivarse de ese dato de solo lectura y conservar el bosque y crecimiento existentes.
+
+- 0: huevo pequeño color crema jade; balanceo o grieta discreta.
+- 1: recién nacido de cabeza grande, alas casi plegadas, camina/parpadea/duerme.
+- 2: explorador de cola expresiva, alas visibles, recorre rutas cortas.
+- 3: aprendiz de vuelo, saltos, aleteo y planeos muy breves.
+- 4: guardián joven, vuelo ocasional y retorno a la cueva.
+
+Una fase desbloqueada nunca desaparece por un día sin actividad. El humor es cosmético, jamás penalización, recompensa nueva o deuda de tareas.
+
+### Entregables gráficos del primer pase
+
+1. Lámina de personaje sin jardín, fondo neutro: vista frontal tres cuartos, lateral y trasera (mismos rasgos y proporciones), más muestras HEX.
+2. Hoja de expresiones (6) y posturas (5); las alas y la cola deben poder leerse a tamaño pequeño.
+3. Hoja de evolución con huevo y etapas 1–4 en escala relativa. No dibujar edificios de Barcelona en el sprite.
+4. Arte por capas editable: cuerpo/cabeza, ojos/párpados, hocico/boca, cuernos, cola, patas delanteras/traseras y alas izquierda/derecha con pivotes explícitos. Ideal para SVG y animación CSS/JS. PNG con transparencia solo como referencia o respaldo; no sustituye al archivo fuente por capas.
+5. Prueba de integración en el jardín real a 360 px y 390 px, y en escritorio. Sin alterar árbol, casita, crecimiento ni paisaje antes de la aprobación visual.
+
+### Prompt de concepto artístico
+
+Crear una hoja de diseño de personaje original para una pequeña mascota de jardín digital: un dragoncillo jade, tierno, curioso y travieso, ilustración 2.5D de videojuego indie pulido con volumen ligero. Cabeza proporcionalmente grande, hocico corto y amable, ojos expresivos, dos cuernos de miel, patas redondeadas, cola flexible, vientre crema y alas pequeñas con membrana verde pálida claramente dracónicas. Colores base #5FAF8C, luces #7BC6A0, sombras #3E7F67, vientre #E9DFC6 y alas #9FD7BF. Mostrar la misma criatura en vista tres cuartos, perfil y espalda, además de poses sentada, dormida y aleteando, todas coherentes. Formas nítidas para lectura pequeña en móvil, iluminación mate suave, fondo neutro sin paisaje, sin letras, sin marcas, sin personajes reconocibles de franquicias. Mantener encanto juguetón sin exceso infantil.
+
+### Integración y pruebas futuras
+
+Conservar dinoStage, CottageGarden.progress y claves de sesiones y árboles. El cambio de aspecto no debe escribir ni borrar almacenamiento. Las referencias artísticas NO equivalen a SVG animable: reconstruir por capas y comprobar pivotes, silueta, tamaño y accesibilidad antes de publicar. Preferir animaciones transform/opacity discretas, reducirlas bajo prefers-reduced-motion. Contrastar sobre cielo oscuro y claro, sin tapar chips de clima o controles. Verificar visualmente en Pixel físico, y tratar su aceptación por separado de las pruebas de Chrome.
+
+Siguiente paso tras este brief: generar y seleccionar la primera lámina visual; luego producir arte SVG por capas en rama reversible. No implementar vuelos ni cambios en producción sin esa validación.
