@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-10T13:44:54+00:00",
+  "generatedAt": "2026-10-10T17:58:45+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.48",
-    "build": "hub-30.4.48-20261010",
+    "version": "30.4.49",
+    "build": "hub-30.4.49-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
-      "Pantalla inmersiva para las ocho aplicaciones públicas de estudio al abrirlas desde el Hub instalado, sin barra de navegador y manteniendo la URL y el almacenamiento originales.",
-      "Regreso al Hub mediante control discreto inferior o botón Atrás, con acceso alternativo al navegador si una aplicación no puede integrarse.",
-      "En Chrome no instalado se mantiene la navegación habitual; otras apps y servicios externos no se interceptan. Juegos, progreso, medallas y jardín sin cambios."
+      "Cambridge Lab 1.3.6: Keyword Quiz reparado en lectura original, reglas y respuestas; Modo Estudio con cabeceras compactas y selectores más legibles.",
+      "Classroom B2 2.2.4: cifras del temporizador contrastadas, etiquetas de juego legibles y caché coherente.",
+      "Auditoría de ocho juegos públicos en pantallas interiores; sin cambios en preguntas, corrección, progreso, medallas ni jardín."
     ],
     "history": [
+      {
+        "version": "30.4.48",
+        "build": "hub-30.4.48-20261010",
+        "date": "2026-10-10",
+        "changes": [
+          "Pantalla inmersiva para las ocho aplicaciones públicas de estudio al abrirlas desde el Hub instalado, sin barra de navegador y manteniendo la URL y el almacenamiento originales.",
+          "Regreso al Hub mediante control discreto inferior o botón Atrás, con acceso alternativo al navegador si una aplicación no puede integrarse.",
+          "En Chrome no instalado se mantiene la navegación habitual; otras apps y servicios externos no se interceptan. Juegos, progreso, medallas y jardín sin cambios."
+        ]
+      },
       {
         "version": "30.4.47",
         "build": "hub-30.4.47-20261010",
@@ -542,7 +552,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "32e642dd788cf19cc6a3655b59a5ae69f35cdbdf519c7d911838978703f27695"
+          "sha256": "1fd09924360fa75076b052dd70ab514108f86315bfcf48521e5d3886e9540082"
         },
         {
           "url": "version-verifier.js",
@@ -550,7 +560,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "5e6b70a904eb7767c7d5c320d5728646e9fb02ab156290fb3bc64353638c7109"
+          "sha256": "9402e5e991183ab1a7d13d047420060198fad398c67fced876a4eb20bc5925cf"
         },
         {
           "url": "styles.css",
@@ -558,15 +568,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "ad3111f4552d4d9cb61156c677b070c58e8035f8473c2a532d01dc149d8529b2"
+          "sha256": "12510ebe1d758c045cb2116c9c3bc80672d96ed31a8177101e9fea75538d4a11"
         },
         {
           "url": "build-assets.js",
-          "sha256": "7630d000586e3317f3f417b838d5d627c62076955b6a5d3104e50dee63a5d965"
+          "sha256": "56df09f635aae15a8c38eb72dc723a31167b1e4dbcb54021ab351e30c478b489"
         }
       ]
     },
-    "cacheBuild": "0997e3422e579860"
+    "cacheBuild": "261c091cb45faedd"
   },
   "apps": [
     {
@@ -786,42 +796,52 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "2.2.3",
-      "build": "sha256-74be2cec89f3",
+      "version": "2.2.4",
+      "build": "sha256-3b91ade1c831",
       "releasedAt": "2026-10-10",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
-        "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
-        "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+        "Temporizador: números azul oscuro sobre superficie clara; cabecera y etiquetas internas más legibles.",
+        "La caché precarga las versiones correctas de CSS y JavaScript, incluso sin conexión.",
+        "Sesiones y temporizadores intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "d56ff32e84b71f863e8502172ca9b50035be889fd1327907edf623e0e49b6e5b"
+            "sha256": "bd0037f2884d1346bd1b4c05fe224ed5f23f1a87e73d0d4cd0036812b75dad1f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "5ba138fb42e5333444f2e9fee278f5123bd78b1014d82e2b7d32820f25981afe"
+            "sha256": "775722fa0ba48ba24ede06d2ca28e1e5f7891282b307cf0683cb6a45cb6eebad"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "8515a5b8025b4dcf9eaa97f7e0793cd1a7a49002d2b9b118582a3e62e1ef107e"
+            "sha256": "ed2eaa5df6cd5c8b05d6353c51825263798f5e21412211a603424b69ab896fec"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "c6385d0d9e1f2e141d1d8bba7b71c904b549d583eafb85b0b8332b031b496d10"
+            "sha256": "c75681b25772447c8ad5591b973221e54a793254d82f6fc90dc27913a568c1fd"
           }
         ]
       },
-      "sourceCommit": "4da7a45c6b17ed2f23d02bd0cabaf6d52350c16f",
-      "cacheBuild": "910268648215c01f",
-      "sourceDirty": true,
+      "sourceCommit": "0076b88b5b6276cdc898304df13d33484c4ae664",
+      "cacheBuild": "4370018547659bbd",
+      "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.2.3",
+          "build": "sha256-74be2cec89f3",
+          "date": "2026-10-10",
+          "changes": [
+            "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
+            "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
+            "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+          ]
+        },
         {
           "version": "2.2.2",
           "date": "2026-10-09",
@@ -1000,42 +1020,52 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.5",
-      "build": "sha256-6570282077a4",
+      "version": "1.3.6",
+      "build": "sha256-6f79b4c39467",
       "releasedAt": "2026-10-10",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
-        "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
-        "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+        "Keyword Quiz deja de usar texto blanco sobre tarjetas claras y muestra las respuestas en una sola columna legible en móvil.",
+        "Modo Estudio y Cambridge Quiz mejoran cabeceras, metadatos, selectores y contraste; todas las preguntas y registros permanecen intactos.",
+        "Nuevo CSS precargado y verificado también sin conexión, con caché regenerada."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "5b45bc82773817ddfba9c8938892d53e189aecc4eb88d2f7b84c6fbdf032cddc"
+            "sha256": "6dd0d0c7733a55ec5b574b536fe99bbdf2a4d69d93aad90d99d1318d7cdec281"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "1ac1be7484b01c75c415c4d1cdb889a38c71c05dc1a051c74b4265d2388d1aa3"
+            "sha256": "165cc2b676eb416275176a634080036d7fe4e13f3def9096f9ec061b795a19ff"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "e3a11d151d0c3fb79a0a0034e3661b4cd922625302977df41bad42399252fd99"
+            "sha256": "bcdf260f26abcec403a03b80ed069101b1f1443552026e68a680d4263322c88f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "2a6bcfdfa635e7c0dec5531dac6f5f53d2991bd22b821674bd46e286cd79a1ab"
+            "sha256": "deebd0af13e0b162fef255e8f65d83e2d2c673811f718099d881c860bd141498"
           }
         ]
       },
-      "sourceCommit": "ade8a62e4c23109b6ec3bca479b347d76b76bd4b",
-      "cacheBuild": "bd74ac5f71121129",
-      "sourceDirty": true,
+      "sourceCommit": "f2e2e100f57b0499b1e3c4c19aea24f777eabae2",
+      "cacheBuild": "e9d3251a8d691a93",
+      "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.5",
+          "build": "sha256-6570282077a4",
+          "date": "2026-10-10",
+          "changes": [
+            "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
+            "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
+            "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+          ]
+        },
         {
           "version": "1.3.4",
           "date": "2026-10-09",
