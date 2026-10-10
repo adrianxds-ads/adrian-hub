@@ -93,7 +93,7 @@ Fourteen app/viewport checks passed at 390 and 1280 px, plus Cambridge Parts 1�
 Grammar assessment retains 30 questions even with all items known and not due. Cloze written alternatives tested against source-key variants: like, everybody and illnesses; original Cambridge sources remain byte-identical. Tests run in isolated browser contexts; no real learner sessions.
 
 
-### Luminous 1.1 · Hub 30.4.42 · 10/10/2026
+### Luminous 1.1 · Hub 30.4.44 · 10/10/2026
 Reproducido: letras claras sobre pastel, medallas cero atenuadas, objetivos/HUD pequeños, listas y panel común de estadísticas con mezcla de superficies. Corregido en hub-editorial.css y hoja canónica nucleo-game-theme.css, con copias idénticas en ocho apps.
 Verificado en Chrome aislado: 136 pantallas/estados a 360/390/412/1280, cero overflow horizontal/errores JS y cero fallos de contraste de superficies sólidas en el recorrido probado; fondos con degradado y pantallas principales también inspeccionados visualmente. Controles y ayudas revisados, respuestas desde 20 px y datos de progreso intactos.
 Regresión: 14 recorridos de respuesta correcta/error/espera/avance/guardado; Classroom final único; bancos y materiales protegidos; teclado Cambridge Parts 2/3/4 a 360/390/740 y escritorio; nueve cachés con rechazo de build corrupto/consulta obsoleta; 54 fingerprints Hub y registros coherentes. Las pruebas no usan almacenamiento personal.

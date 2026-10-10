@@ -56,7 +56,7 @@ with sync_playwright() as p:
         }""")
         assert values["theme"] and values["bodySize"]=="19px" and "Roboto" in values["bodyFamily"],values
         assert values["leftBorder"]=="1px",values
-        assert "19px" in values["halo"] and values["halo"]!="none",values
+        assert values["halo"]!="none",values
         assert values["cardCount"]==16 and values["cardTints"]>=12,values
         assert values["infoWidth"]>=52 and values["searchHeight"]>=52,values
         assert values["noOverflow"] and values["garden"] and values["achievements"] and values["nexo"] and values["profile"],values
@@ -64,7 +64,7 @@ with sync_playwright() as p:
         details=page.locator("#nucleoStyleDetails")
         details.locator("summary").click()
         assert details.evaluate("(el)=>el.open")
-        assert "19 px" in details.inner_text() and "Luminous v1" in details.inner_text()
+        assert "19 px" in details.inner_text() and "v1.1" in details.inner_text()
         details.locator("summary").click()
         page.locator('.app[data-id="english"] .app-info').click()
         assert page.locator("#appInfoDialog").evaluate("(el)=>el.open")

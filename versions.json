@@ -4,15 +4,34 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.42",
+    "version": "30.4.44",
     "build": "hub-30.4.42-20261010",
     "releasedAt": "2026-10-10",
     "changes": [
+      "Integra la profundidad cromática de Editorial Balance 30.4.43 con la revisión completa de lectura y contadores.",
       "Núcleo Luminous 1.1: lectura revisada en Hub y ocho aplicaciones, con comprobación de estadísticas y pantallas internas.",
       "Contadores claros, medallas legibles incluso con cero, tipografías y ayudas consistentes.",
       "Versión y cachés renovadas; conserva progreso, preguntas, jardín y algoritmos."
     ],
     "history": [
+      {
+        "version": "30.4.43",
+        "date": "2026-10-10",
+        "changes": [
+          "Equilibrio visual del Hub: colores más definidos, emblemas sólidos por materia, fondos claros y mayor contraste en subtítulos y etiquetas.",
+          "Se conserva Núcleo Visual (Roboto, 19/16 px, fondo gris azulado) y el estilo del jardín; juegos, medallas, algoritmos y progreso intactos.",
+          "Sincronización del registro visible de versiones y corrección de huellas de integridad de caché para los recursos del Hub."
+        ]
+      },
+      {
+        "version": "30.4.42",
+        "date": "2026-10-10",
+        "changes": [
+          "Núcleo Luminous 1.1: lectura revisada en Hub y ocho aplicaciones, con comprobación de estadísticas y pantallas internas.",
+          "Contadores claros, medallas legibles incluso con cero, tipografías y ayudas consistentes.",
+          "Versión y cachés renovadas; conserva progreso, preguntas, jardín y algoritmos."
+        ]
+      },
       {
         "version": "30.4.41",
         "date": "2026-10-09",
