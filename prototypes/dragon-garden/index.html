@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#EAF0F5">
+<title>Dragoncillo · Prototipo animado · Adrián Hub</title>
+<link rel="stylesheet" href="./styles.css?v=0.1.0"><script defer src="./app.js?v=0.1.0"></script></head>
+<body><main class="shell">
+<header class="head"><div><span class="eyebrow">ADRIÁN HUB · LABORATORIO DEL JARDÍN</span><h1>Nuestro dragoncillo <span aria-hidden="true">🐉</span></h1><p>Primera prueba animada, independiente de nuestro bosque.</p></div><a href="../../" class="back">Volver al Hub ↗</a></header>
+<section class="scene-frame" aria-label="Escenario interactivo con dragoncillo">
+  <div class="scene" id="scene" data-weather="day" data-stage="1">
+    <div class="sun" aria-hidden="true"></div><div class="moon" aria-hidden="true"></div>
+    <div class="cloud cloud-a" aria-hidden="true"></div><div class="cloud cloud-b" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true">✦　　 ✧　　·　　✦　　✧</div>
+    <img src="./background.svg" class="scenery" alt="" aria-hidden="true">
+    <div class="rain" aria-hidden="true"></div>
+    <div class="scene-label"><span class="dot"></span><span id="weatherLabel">Escena ilustrada · Día tranquilo</span></div>
+    <div class="pet-anchor" id="petAnchor"><button type="button" id="dragon" class="dragon" aria-label="Tocar al dragoncillo para conversar"></button>
+      <div id="egg" class="egg" hidden aria-hidden="true"><svg viewBox="0 0 125 155"><ellipse cx="62" cy="146" rx="48" ry="7" fill="#34553c" opacity=".23"/><path d="M62 14C26 12 10 80 23 117Q32 142 62 142Q101 141 106 110Q117 70 89 28Q77 13 62 14Z" fill="#eae6be" stroke="#9aac86" stroke-width="4"/><ellipse cx="48" cy="63" rx="13" ry="19" fill="#95b99b"/><ellipse cx="84" cy="99" rx="15" ry="12" fill="#9fc19c"/><circle cx="71" cy="42" r="8" fill="#b4c8a4"/><path d="M48 114l15-13 10 12 12-11" stroke="#88a98b" stroke-width="4" fill="none"/></svg></div>
+    </div>
+    <div id="bubble" class="bubble" role="status" aria-live="polite" hidden></div>
+    <small class="scene-caption">Barcelona ilustrada · Escenarios de prueba</small>
+  </div>
+</section>
+<section class="controls">
+  <div class="control-block"><h2>Haz que cobre vida</h2><p>Tócalo o elige una animación.</p>
+    <div class="actions" id="actions">
+      <button type="button" data-action="greet">💬 Hablar</button><button type="button" data-action="walk">🐾 Pasear</button>
+      <button type="button" data-action="sleep">🌙 Dormir</button><button type="button" data-action="wing">🪽 Aletear</button>
+      <button type="button" data-action="fly">✨ Primer vuelo</button>
+    </div>
+  </div>
+  <div class="options">
+    <div class="control-block"><h2>Etapa de crecimiento</h2><p>Vista previa, sin alterar la evolución real.</p>
+      <label class="sr-only" for="stageSelect">Etapa del dragoncillo</label>
+      <select id="stageSelect"><option value="0">0 · Huevo</option><option value="1" selected>1 · Recién nacido</option><option value="2">2 · Explorador</option><option value="3">3 · Aprendiz de vuelo</option><option value="4">4 · Guardián del bosque</option></select>
+    </div>
+    <div class="control-block"><h2>Ambiente</h2><p>Simulación visual, no es el clima real.</p>
+      <div class="weather" id="weatherOptions" role="group" aria-label="Clima simulado">
+        <button data-weather="day" type="button" aria-pressed="true">☀ Día</button><button data-weather="night" type="button" aria-pressed="false">☾ Noche</button><button data-weather="rain" type="button" aria-pressed="false">☂ Lluvia</button><button data-weather="wind" type="button" aria-pressed="false">〰 Viento</button>
+      </div>
+    </div>
+  </div>
+  <div class="notice">🔒 Este laboratorio no escribe ni borra sesiones, progreso, medallas, estrellas o árboles. Todo es visual y temporal.</div>
+</section>
+<footer>Dragoncillo del jardín · Prototipo independiente v0.1.0 · <a href="../../">Hub principal</a></footer>
+</main></body></html>
