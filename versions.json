@@ -4,17 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.70",
-    "build": "hub-30.4.70-20261011",
+    "version": "30.4.71",
+    "build": "hub-30.4.71-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Dragon Garden: panorama ilustrado de Barcelona con Montjuïc, Torre Glòries, Sagrada Família y Tibidabo detrás del bosque real, sin ser una reproducción geográfica exacta.",
-      "Cuatro ambientes de amanecer, día, atardecer y noche usando hora Europe/Madrid y, cuando están disponibles y recientes, valores de sunrise/sunset suministrados por Open-Meteo para la fecha local.",
-      "Capa visual independiente, no interactiva: mantiene árboles, cueva, etapas, mascota, meteorología, medallas, historial y progreso. La Biblioteca no muestra el nuevo fondo en el modo tareas.",
-      "Conserva por completo las novedades de Coach (30.4.67), estabilidad arcade (30.4.68) y correcciones de juego inmersivo (30.4.69).",
-      "Regresiones Playwright: 4 fases x 4 anchuras; datos astronómicos simulados, clima ausente, movimiento reducido, SVG ausente, Biblioteca y Hub. Pixel físico pendiente."
+      "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+      "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+      "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
     ],
     "history": [
+      {
+        "version": "30.4.70",
+        "build": "hub-30.4.70-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Dragon Garden: panorama ilustrado de Barcelona con Montjuïc, Torre Glòries, Sagrada Família y Tibidabo detrás del bosque real, sin ser una reproducción geográfica exacta.",
+          "Cuatro ambientes de amanecer, día, atardecer y noche usando hora Europe/Madrid y, cuando están disponibles y recientes, valores de sunrise/sunset suministrados por Open-Meteo para la fecha local.",
+          "Capa visual independiente, no interactiva: mantiene árboles, cueva, etapas, mascota, meteorología, medallas, historial y progreso. La Biblioteca no muestra el nuevo fondo en el modo tareas.",
+          "Conserva por completo las novedades de Coach (30.4.67), estabilidad arcade (30.4.68) y correcciones de juego inmersivo (30.4.69).",
+          "Regresiones Playwright: 4 fases x 4 anchuras; datos astronómicos simulados, clima ausente, movimiento reducido, SVG ausente, Biblioteca y Hub. Pixel físico pendiente."
+        ]
+      },
       {
         "version": "30.4.69",
         "build": "hub-30.4.69-20261011",
@@ -783,7 +793,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "d71cf9bf4a7ed76cdbe94e42f790c9c148da671e3c43f28e1f48d18ea0170dcf"
+          "sha256": "a0058dc3a836a8fef00b2ab4f1d67e7332302c32f303baa7bedf4bd46e40409f"
         },
         {
           "url": "version-verifier.js",
@@ -791,7 +801,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "64ba56975875336a90870c355ab31e638c5c591cfd39c139893573578c8a4fef"
+          "sha256": "c2918b1732340b35417e078db808904d944a1aad6e613e8c4b715859c4a87928"
         },
         {
           "url": "styles.css",
@@ -799,37 +809,38 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "f2382e4e91f90abeb88a558cfdaf268213cc204e72d2cbe24ebba2f9cc9066f7"
+          "sha256": "b6b0f6e3c51e8cfa06bd70216d65dd163ccaf564b7e7144a223031c711ddd27c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "6356862ffc92d907abaadc8ec9a1a74b80ca5da0dabc66dd0be104aa0fbe8c49"
+          "sha256": "a19a214688126ae2dfb4b1a24a17121387b20804a2e915e629e4837024b6222a"
         }
       ]
     },
-    "cacheBuild": "cb1339291af6b11d"
+    "cacheBuild": "9559609ac6adb6fd"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.13",
-      "build": "sha256-78d267cd5349",
+      "version": "3.35.14",
+      "build": "sha256-9dd6136477da",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "add64965b52f6c981d0bd0e777a5605f9cf1f028b0129503f0d1df21bb9ca86b"
+            "sha256": "29192da1aa1cb9a23d5210d52a7a806efa13fbcadeca3622563c8755f59ad960"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "6b0329e4b36c811d4410be67a2cd30e692edbcbef0364dcb3ffb61fa7cada05c"
+            "sha256": "e44dd01c330e6d7dc0a76589a5b79fb4ce5e04db1789699380057d15ce7f4776"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -837,17 +848,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "6397465acdcc4faadce9f2ba4818a327ca768086f1fb0c634b440fb53759aff1"
+            "sha256": "12c5c71f435735479b60aeeadf23d88d525eac6702430bc5f48ff84670039a4c"
           }
         ]
       },
-      "sourceCommit": "7b4132281c294b80c7fe700baa09961a29f57462",
-      "cacheBuild": "6b8aa64b17d3fe49",
+      "sourceCommit": "528efc76b30359f06cd3b1be48a00373448f67d3",
+      "cacheBuild": "7273edf8f1129225",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.13",
+          "build": "sha256-78d267cd5349",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "3.35.11",
           "build": "sha256-938292e3377b",
@@ -939,23 +959,24 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.8",
-      "build": "sha256-13188938d7d7",
+      "version": "0.13.9",
+      "build": "sha256-42a972e1c75d",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "8bbdb3982dfacae7acdc109403163278e706bfa55f83e9e934aead385c91ba54"
+            "sha256": "2ddd6649d16a020ccd2de80956c7c549e81353ca1d801873428320ef4ae6b5a6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "b31e7fd57e8790174883b99be281ac9aa3f6e0217d36ebd1ccba71c21816c3b3"
+            "sha256": "612405dbf93cfc3a2b598311d3f04e02af18a09232ad14dd082eacd0e7fd03a6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -963,17 +984,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "285f0cfef39d45a3d1f9d7e26fd7a0639efd9f1fba275e60ae3d83bae51fdcf7"
+            "sha256": "7e09abe5ee5b57ebb62da4b7d6f2bbb03840723dceb273a7224aa6de76ef805a"
           }
         ]
       },
-      "sourceCommit": "40cb5ab9bf03b76bdb2d8b2eedb2faf285b99834",
-      "cacheBuild": "3b5d2b6521e0bccb",
+      "sourceCommit": "3aedebf15bd72ec9069667ae846dc57aca15afe8",
+      "cacheBuild": "f6d1b72a3f30dd33",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.8",
+          "build": "sha256-13188938d7d7",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "0.13.7",
           "build": "sha256-d85d1ef4e0b1",
@@ -1063,23 +1093,24 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.3",
-      "build": "sha256-3b7a5bbca18f",
+      "version": "3.0.4",
+      "build": "sha256-0b2eaf52507e",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "8c1a83357ccefa54caf5d2040cbde2fd185170ad10a182d8232b97efe8c75390"
+            "sha256": "79450fd1c34d27d77147fceaaeccdd2004d1c364fdf66566390cc7b81dbe2406"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "23c8a30c07e59ff195693eb71edece11f656ec1de632fe85d3fb4a1019de1331"
+            "sha256": "6551a2521ce6f9fc183e0661b98136e251b643bb6bcd9a1cc17fad4df2a99cb5"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -1087,17 +1118,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "d14db695b07aac6b889ae27177b080aeb77686a7490c00ef4c6f29c6cd4004f8"
+            "sha256": "8e78cad8f10e30c1d48bdb862e6612936c10dab3491df0be685222180a5eec57"
           }
         ]
       },
-      "sourceCommit": "471a9943340eaca40a1732097bbb634f1a0c1c3f",
-      "cacheBuild": "b6a0a572591d682b",
+      "sourceCommit": "5d41184453644643e5addfcbbf474e92aab15be3",
+      "cacheBuild": "47f8ba8abe6a6e51",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.3",
+          "build": "sha256-3b7a5bbca18f",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "3.0.2",
           "build": "sha256-75f37d8ae67f",
@@ -1197,23 +1237,24 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.10",
-      "build": "sha256-5063aa22d7a3",
+      "version": "1.11.11",
+      "build": "sha256-3953970ea5ff",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "cb3f585dce591686536dfadb039baa9233c6dd977fb3b24d32062fb751e45bd4"
+            "sha256": "fb0b67a2da35d8492aad5ea05dced161aa225d89077f8ef0efd47459acdc0aee"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "6d462946f0bad00fda0c4a82892931adc4d1b2e7e8e9a7ef1e13aff083238294"
+            "sha256": "ecd0148c5647dadd6a8867d17716a6a6885509774c2f9830082a339a9ff18645"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -1221,17 +1262,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "1388ac6130f40a3d1a8e414a8f5193332039522a81b99bf0f587763af1fa4a21"
+            "sha256": "8fc100bf98c41362f73b07994ab6aa02099775928c33d18eb42a1a30df68d5dc"
           }
         ]
       },
-      "sourceCommit": "f645c4435ec67272ce660e66455f72e36925d41a",
-      "cacheBuild": "6ebc750cd67687ec",
+      "sourceCommit": "0831105028c9fe78c72990c5d81bbed049acf236",
+      "cacheBuild": "4fff97b6805b7626",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.10",
+          "build": "sha256-5063aa22d7a3",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "1.11.9",
           "build": "sha256-c1951b7e9a29",
@@ -1323,23 +1373,24 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.10",
-      "build": "sha256-74dc77d78037",
+      "version": "1.3.11",
+      "build": "sha256-540ba06d1361",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "faae4b5e020101cea5d47454a450d7f5f0d3475063cf08522df8697f6eac0829"
+            "sha256": "d1dacdcfe98a72f0721fe1b4cde80f158d5c3831ce28d7452870bf4c0b25c49a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "18ed48643b3f9e424ec9df5766f391d4c63ab7055ccdd47202f39cc8357a5456"
+            "sha256": "f0a36189287462fa136aadc95035b301c86b43cd688478b77df15e601b154384"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -1347,17 +1398,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "d874a73613351fe104d768160d371c5f6a5583337f46ae1dc4d7a4f9027220b8"
+            "sha256": "1e275e2781f3d7c59cc6f1f0619076f51c66d149263fe1941eb2557e75917e8d"
           }
         ]
       },
-      "sourceCommit": "4429d491f1b9f07364bf2cfebcc351c0266475c5",
-      "cacheBuild": "f052ef779a38c864",
+      "sourceCommit": "6c9049c09e3b298ebc4d666ccecfa9db3a78e824",
+      "cacheBuild": "188b96816a489908",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.10",
+          "build": "sha256-74dc77d78037",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "1.3.9",
           "build": "sha256-e978d350f39a",
@@ -1511,23 +1571,24 @@
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.1.4",
-      "build": "sha256-b2e12c7df09f",
+      "version": "1.1.5",
+      "build": "sha256-c0db16a7ee23",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "c8ed1df9284ec9da4a2770c0c439d1068b32462b91da831f96f956d21870d800"
+            "sha256": "fe622af2dcf008c5e4f329ca15dc811fb725a6614fc403806e2edcee10c1f9fb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "74e1f2b4b45800848161f577b9b4ad66b48138de70855daaf5359fd95d98f98c"
+            "sha256": "417f82b1d9a33cf082fd1ac9df30b92ef6bc97f418badb628d267dbf1d311702"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -1535,17 +1596,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "17dca212036b54bf9dfec11c378df6f01d7b53dab00d0922daa34740cd6be979"
+            "sha256": "f75abc41306f574bff0e2b9751f6e12a607ffe3fbfa2b2cb956256cd47d64111"
           }
         ]
       },
-      "sourceCommit": "9832e4d2577157411b3c782bf5dcdfb230b642f3",
-      "cacheBuild": "827c431482411e57",
+      "sourceCommit": "554a309dc051b613c87e9e324800da910f773289",
+      "cacheBuild": "93dd0db942a7af0e",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.1.4",
+          "build": "sha256-b2e12c7df09f",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "1.1.3",
           "build": "sha256-a416763544e8",
@@ -1648,23 +1718,25 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.6",
-      "build": "sha256-d099a130d497",
+      "version": "0.10.7",
+      "build": "sha256-00c291280b20",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Actualización Luminous 1.2 de legibilidad para Coach y textos de error, sin modificar la lógica.",
-        "La aplicación permanece retirada del catálogo activo del Hub."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso.",
+        "Conjuga CAT permanece fuera del catálogo activo del Hub."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "d5083da47c8e0ea50b6b51735586f9b31c8498f9968932092079c0d176d0b364"
+            "sha256": "30994ec6b65bdd493b0f5e3d1e1b662556cbde977d8f71d6be01555a212222ee"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "2d45779a0d8769633b3df1b9357dda45a3b572c2e45fd13dda75daed8b5e6ec8"
+            "sha256": "794f57122cec7042f777416f62203cd4d9d13ab45dccf998c06471879a142e86"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -1672,17 +1744,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "f5ac639c399ac44d1e93f12e4ce5a856e27ea1bcf69e6ed461b2411f95b4219d"
+            "sha256": "cff088ad1a7c68c60999070ea9cc7fe786b42629784dc247ff970a1f54ed3db0"
           }
         ]
       },
-      "sourceCommit": "c1c019d541400717a30a59b75752443b8319dc92",
-      "cacheBuild": "258061bbaf3d1c39",
+      "sourceCommit": "b1a6d566f4f779960ad23fd76c58a9479dfe32bb",
+      "cacheBuild": "5ed136e2206db209",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.6",
+          "build": "sha256-d099a130d497",
+          "date": "2026-10-11",
+          "changes": [
+            "Actualización Luminous 1.2 de legibilidad para Coach y textos de error, sin modificar la lógica.",
+            "La aplicación permanece retirada del catálogo activo del Hub."
+          ]
+        },
         {
           "version": "0.10.2",
           "build": "sha256-b4b98f11f817",
@@ -1882,23 +1963,24 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.7.6",
-      "build": "sha256-5e5e153e0900",
+      "version": "2.7.7",
+      "build": "sha256-8772c406b92b",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-        "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "868dd396604ce24ad4daa7306eae4059f618c5e0878b381a27f8464bff87038f"
+            "sha256": "26b8672403577749d1715c747cce604c0af8b132d6b3e9455db57cadeb191447"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "3ae3b72b391e7932d45819c8cfba781f8f88f4ccbcbd1660dd31a576dd746cef"
+            "sha256": "3fc522491adfcba7ee9e2364f0c013fa7c823b954ddbb577df821fba657c60c1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -1906,17 +1988,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "c031f687062d2239f131871c6afdb37c997c20ab62251e9f392914b376341d5b"
+            "sha256": "cd4f9e3f1bec9e08b3997db4fcda28ce1facfdfda9e19c2e7dae96af1b52a81d"
           }
         ]
       },
-      "sourceCommit": "ed046212d25b612a10deca59bc990afc16edd8a7",
-      "cacheBuild": "5656dd766d9311b0",
+      "sourceCommit": "db72bcc085ed390e75c8e0955f9001fb532e4196",
+      "cacheBuild": "455a0970b331e122",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.7.6",
+          "build": "sha256-5e5e153e0900",
+          "date": "2026-10-11",
+          "changes": [
+            "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+            "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso."
+          ]
+        },
         {
           "version": "2.7.2",
           "build": "sha256-5948b845a429",

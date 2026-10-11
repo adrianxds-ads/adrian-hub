@@ -214,3 +214,6 @@ Se unifica el contraste de los informes del Coach, los patrones de error, los ej
 
 ## Barcelona · Skyline + ciclo solar (11/10/2026, Hub 30.4.70)
 Panorámica SVG de Barcelona tras los árboles, cielo de cuatro ambientes Europe/Madrid, sunrise/sunset de Open-Meteo cuando hay datos; modo tarea de Biblioteca sin skyline. Sin tocar progreso, medallas, histórico ni comportamiento de los juegos. tests/test_garden_barcelona.py con dieciséis combinaciones, accesibilidad, degradación y modo tarea. Pixel físico pendiente.
+
+## Luminous 1.3 · lectura real de My Coach (2026-10-11)
+La inspección de estilos computados detectó un bloque de estimación que escapó a Luminous 1.2: degradado transparente, gris claro y tamaños de 12 a 14 px. Luminous 1.3 da superficie sólida al plan, tinta oscura a etiquetas, cifras y párrafos, y eleva texto principal a 19 px y secundario a 16 px. Pruebas de Coach 360/390/412/1280 sin desbordamiento; cuatro tamaños y ocho juegos en regresión visual. Cambios solo CSS, preservando lógica y avances arcade/jardín.
