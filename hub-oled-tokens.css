@@ -1,8 +1,8 @@
 /* Hub-only OLED adapter. Shared Core and quizzes remain independent. */
 html:root {
---ad-bg:#000000; --ad-bg-elevated:#0b0b0b; --ad-surface:#101010; --ad-surface-strong:#202020;
+--ad-bg:#000000; --ad-bg-elevated:#0b0b0b; --ad-surface:#1B2228; --ad-surface-strong:#253039;
 --ad-text:#EAF0F5; --ad-text-muted:#AEB8C1; --ad-text-disabled:#8B949E;
---ad-border:#353A40; --ad-accent:#4AA7C8; --ad-on-accent:#071014;
+--ad-border:#414B54; --ad-accent:#4AA7C8; --ad-on-accent:#071014;
 --ad-success:#8FCA93; --ad-warning:#E7BF57; --ad-danger:#F3A1A6;
 --ad-font:var(--nucleo-font,Roboto,"Segoe UI",Arial,sans-serif);
 --ad-font-base:var(--nucleo-reading-size,19px); --ad-font-small:var(--nucleo-small-size,16px);

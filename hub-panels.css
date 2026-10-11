@@ -7,7 +7,6 @@ body[data-hub-root]{padding-bottom:calc(var(--ad-bottom-nav-height) + var(--ad-s
 .hub-settings-shell{padding:var(--ad-space-3)}
 #hubSettingsOpen,#hubSettingsClose{min-width:52px;min-height:52px;background:transparent;color:var(--ad-text-muted);border:1px solid var(--ad-border);border-radius:var(--ad-radius-sm)}
 #hubSettingsClose{float:right}
-.hub-medal.locked{opacity:1}
 
 /* Legible, finger-sized bottom tabs (compact labels may wrap). */
 .hub-bottom-nav a{font-size:16px;line-height:1.22;text-align:center;

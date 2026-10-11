@@ -1,19 +1,29 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T22:43:10.680178+02:00",
+  "generatedAt": "2026-10-11T23:49:37.743931+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.7",
-    "build": "hub-30.5.7-20261011",
+    "version": "30.5.8",
+    "build": "hub-30.5.8-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Medallas circulares numeradas y uniformes: Hub, My Coach y paneles de nivel de los ocho módulos.",
-      "Skill League: porcentaje blanco legible, sin solaparse con las barras de progreso.",
-      "Cloze Quiz y Cambridge Lab: tarjetas, enunciados y controles con fondo OLED y contraste compartido.",
-      "Solo presentación: sin cambios en bancos, puntuaciones, cronómetros, progreso, históricos ni JSON."
+      "Consolidacion de medallas y leyenda en una sola hoja activa; retirada de capas antiguas.",
+      "Tokens visuales unificados en Adrian Core y proteccion del contraste de Coach y Study File.",
+      "Invalidacion de cache CSS y Service Worker en Hub y ocho aplicaciones, sin cambiar el progreso."
     ],
     "history": [
+      {
+        "version": "30.5.7",
+        "build": "hub-30.5.7-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Medallas circulares numeradas y uniformes: Hub, My Coach y paneles de nivel de los ocho módulos.",
+          "Skill League: porcentaje blanco legible, sin solaparse con las barras de progreso.",
+          "Cloze Quiz y Cambridge Lab: tarjetas, enunciados y controles con fondo OLED y contraste compartido.",
+          "Solo presentación: sin cambios en bancos, puntuaciones, cronómetros, progreso, históricos ni JSON."
+        ]
+      },
       {
         "version": "30.5.6",
         "build": "hub-30.5.6-20261011",
@@ -902,7 +912,7 @@
         }
       ]
     },
-    "cacheBuild": "7af66fe990065a43"
+    "cacheBuild": "96ba7ce8a99c4060"
   },
   "apps": [
     {
@@ -924,20 +934,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "fb21097c74b5eeec3aef1073a89278f82081ff642e619a62321b1166960236ac"
+            "sha256": "0d113b432b46521be46623c73eb3fa6d481a020bf4bc346f8dfda648a5b6edf9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "8584078e5df788148fc55bbdc6c192496ae8aa5560a8c205af1ee6d72e3bc16c"
+            "sha256": "153a88579053b3d79ac121c041afde83be4a4f0f7d4e3d12a48188fd4744570e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "9e222b9768f92433aa50c075b57b626a2ce214e1bf8e54c3142dabb4e36585b4"
+            "sha256": "e0a4ef209aa13f5b49a65b60b442e3bc7c3bb0857890c09cefb6aaf295a0c91f"
           }
         ]
       },
-      "sourceCommit": "f1a3c89cfbee926ef08f82842a79df6197279309",
-      "cacheBuild": "d9fb93265b123e94",
+      "sourceCommit": "a53e4aa4171092c2e447438b02a733b0db0375a3",
+      "cacheBuild": "116cf92c6a2e6f90",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -1100,20 +1110,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "2145980724f43df6165943afc6661636b2bc3b86fa761d263f776bca8e3c3331"
+            "sha256": "6f24b7ecda8e1d77c7bd9fc5ce77cb7b7f3559edaf9aa466acf929876dc57a26"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "28dc7d066e0e48cb76d11bd79eb50b969fa9f4958c3c953e0cda7544ce682de9"
+            "sha256": "d025728a56c8cfd3b940fd35daac54525d6c900296200617bb91635e6ccd1a09"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "74d89dcfbf1e6f793daed61982de8a2bd7f60cbfc6816f51760d44787d0eb9bb"
+            "sha256": "34a427c70fd15ab14b09787ec6d9f8a13257df283f9884efa6fb05b8ac6c676f"
           }
         ]
       },
-      "sourceCommit": "e61b6ffd472e10c2509e9c824ffbee1c5475deb9",
-      "cacheBuild": "a43a65dfb4a548f5",
+      "sourceCommit": "b5be79e4efbf67b60b3de29dd7f147caff9b1a6b",
+      "cacheBuild": "89291ca20c737e72",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -1243,20 +1253,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "f6db937a44c6b6ff810816a51b270ab4e8cf9e747ba1d85f7db3bdc4d6b1322c"
+            "sha256": "3ba1aacd19c4a0b6972bbc4f4f91059f516e07d91eefa7be29be80c14c2348bb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "9a0f93fb42ac49a3a693bcac4aee466e59135aa16322f3f6453ec772a23cb109"
+            "sha256": "1ee9661b1d0b6d6e061a4f47e1c6cd0ce17933a61960b9a63ef86628e6764e7d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "d30d0cdba5338247a006df7304cbdbf15decbcec3033449cc87228e376c7d41b"
+            "sha256": "7c226edb8e9109c311ccb50664e20e13fe5a54ffa3eebd9c6aeb4d709e632ee8"
           }
         ]
       },
-      "sourceCommit": "5e1d73c973b426f09666852ca050ce664ea44cd7",
-      "cacheBuild": "8fd3a6f2c7c203c2",
+      "sourceCommit": "69fbaa9b090ea1a9f6dc406756f8da50775a2ef8",
+      "cacheBuild": "94ccba54d18fb05b",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -1396,20 +1406,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "8536d001311d79564b7db1eba4f89c76f64fb0917403c55823b00b8c68bf75ee"
+            "sha256": "2125710fba53d19e182cda86a31bce07fb63dd4c87e3d273675cc136785f4901"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "1512fc7949001e2a493d55a8f23a9d1d559fc4087efe702c01762e672c170930"
+            "sha256": "4c89cd68be038d7e8cf43e089a203cb3cd0c51db17ed439290c484e242c04ffe"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "c944cc3a67aaf5501f9e39ecf403af292c5ef7d3170ade0cd99069b800935e5f"
+            "sha256": "5dae9260cf2582b567dd1f0166e2e3401bedac59a129a7146c49057e6bf82b64"
           }
         ]
       },
-      "sourceCommit": "66acb9eb0d55e5852015470902937758a1bcc79e",
-      "cacheBuild": "54f89f4b7508b07d",
+      "sourceCommit": "f30ce207de8f296fd900b441f94defad1daa7f8e",
+      "cacheBuild": "43cc58dd20f8dcc5",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -1541,20 +1551,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "aa1e9b3f3cc211db3f48a8f98a2a1b477b6b2561b678d726adefc9d4b50c7c43"
+            "sha256": "57c160249e19d4fcb93ea4b07725b24f9fb16732982afb00c877dd06bafbe810"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "1bc93ed90f9e06b72a5338a4f19250a6d26b5775ee71e8e6a50775d5bdb0f972"
+            "sha256": "6c57f9dba44355ac17a5c728b08653834d0ee9dda87c8dd0b1327b88aa005301"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "1c5dc1af1a38caaed8ccb3eab3e5141891efdf81b353ef08c7a7310b6814eac0"
+            "sha256": "4d5d6d1efe6711b16569bb932d2b2241c810e30c012cd0944a8465d9a4cb1472"
           }
         ]
       },
-      "sourceCommit": "00c5c7c9b281a767b05e549d8e56f3340f83c5cf",
-      "cacheBuild": "b3df4170c8e7171e",
+      "sourceCommit": "b86aaa42a763aa7145e2770e68a2c2d9a1fe66d3",
+      "cacheBuild": "5b7c96f43812d803",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -1748,20 +1758,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "cfdb27bb8a007f799dc0d68c656b498cd7137b20135d8706478af615b8051b03"
+            "sha256": "82118c34c69ee05e18858a52be4acfe0d824e642d27ebb00f1696c34646928bf"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "f93b77fdfe4fb0a602d73bfbf45e6e2f5d69c6407e45959e1c0e3e7c337ce79c"
+            "sha256": "bbcf773a76fd1f68577c93ec975699b7c0eadfa3c7e0952354a69d84ef967817"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "2bea24ee835df2ba5e9b8d86251f119060d7edaab6be6530bcf76679caa4cc24"
+            "sha256": "49ccdc32271625fde801d95ff9ade0fc06a8eac4d80a20b493ff88a36a923d75"
           }
         ]
       },
-      "sourceCommit": "54f11fc4f2b8fd886793573190f6b62368d07c84",
-      "cacheBuild": "8047f933f5fa7260",
+      "sourceCommit": "e1d8d25b8979ea740d6ffa8c91862dfee2e8d461",
+      "cacheBuild": "cb1793b1d7ec8543",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
@@ -1904,20 +1914,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "7bbf9b1ac7f55c468e47b574f913a2fdab58646eee3a6c2f0cfd2cd935020216"
+            "sha256": "9e0cf5fd20e60ba592463cab4866ffd3752c71e5f7eedac4ee0d0723b4f57cd7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "b48eb904ad2f43b9db0140906cfcca77d63cc1131816fbe31442a617a6803cf8"
+            "sha256": "f2c53ab7714599fd698060c0d96ab51f70a8946f84abed1f56bacf824e5b1e2e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "bbbf07ee63416a18df9806adc7d6f776015d49f45cfb11a8dac8c3ed4ead1b17"
+            "sha256": "3e35a1cc0771d6160690816357beffe25671aca33af4b95abd72e7db6b629353"
           }
         ]
       },
-      "sourceCommit": "a95207b5902489b6c679258a607dc460bb650294",
-      "cacheBuild": "a7b7bd89acd5764f",
+      "sourceCommit": "040c752f03298cf42ba24aa87a172bb645d6bb34",
+      "cacheBuild": "e2ff0a9853a9f823",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -2158,20 +2168,20 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "335fb1ad5a774c2b6d9722471a2467beca623a1a6b19e2d907a86249b632ac5f"
+            "sha256": "99b9bc21971dc787c846b811bd0c8fcfc26adf782aa35e4666770a73935cc7fb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "009ab97524f5a79d39cba1988e5f40b12a0b72aead50f9d153d370ed05a9c111"
+            "sha256": "1012ac2ad43ec234648fafd1ca47d8b647c69599acfe1b8302ec5ec6a833cf59"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "5630a1d38b9732b43442a8879015da3461b7a5982c84c74a888dd912db81b3f4"
+            "sha256": "7df0562797234593956c039c679d29aef8c57c07c5ed02cb8f015a3bd01e4e63"
           }
         ]
       },
-      "sourceCommit": "1ba1c615cc9c9e8f44469e661a3f5f9c8fb03c51",
-      "cacheBuild": "bce2027ecfafad58",
+      "sourceCommit": "cc460221c3e867f67996c52188d8d3eda5399007",
+      "cacheBuild": "0aa2bd376fabfec0",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"

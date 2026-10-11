@@ -367,44 +367,6 @@ summary {
   padding: 0 var(--ad-space-3) var(--ad-space-2);
 }
 
-.hub-card-medals {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--ad-space-2);
-  min-width: 0;
-}
-
-.hub-medal {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: transparent;
-  color: var(--ad-text-muted);
-  border: 0;
-  border-radius: 0;
-  font-size: var(--ad-font-small);
-  line-height: 1.4;
-}
-
-.hub-medal-emblem,
-.hub-medal-count {
-  background: transparent;
-  border: 0;
-}
-
-.hub-medal-emblem {
-  font-weight: var(--ad-font-weight-medium);
-}
-
-.hub-medal.locked {
-  color: var(--ad-text-disabled);
-}
-
-.hub-medal.earned {
-  color: var(--ad-text);
-}
-
 /* Conserva etiqueta accesible y acción; muestra solo icono e indicador. */
 
 .nucleo-readable .hub-card-update {
