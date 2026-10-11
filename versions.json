@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T04:39:05.889736+00:00",
+  "generatedAt": "2026-10-11T05:06:24.954055+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -823,42 +823,56 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.14",
-      "build": "sha256-9dd6136477da",
+      "version": "3.35.15",
+      "build": "sha256-1c9ee7eb038f",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Grammar Quest en Pixel 10: encabezado compacto, tarjeta de pregunta contrastada y cuatro respuestas de tamano constante en cuadricula 2x2.",
+        "El boton central de Leer primero permanece operativo; la disposicion ya no se estira hasta llenar toda la pantalla en cada pregunta.",
+        "Sin modificaciones de los bancos de ejercicios, algoritmos, temporizador, puntuacion ni progreso; pruebas aisladas Chrome movil a 360/390/412 px."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "29192da1aa1cb9a23d5210d52a7a806efa13fbcadeca3622563c8755f59ad960"
+            "sha256": "cae68037b6d5898c8560ff95be875ccdb810cfd6b57cf3f66c0cd8a8935f6ffb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "e44dd01c330e6d7dc0a76589a5b79fb4ce5e04db1789699380057d15ce7f4776"
+            "sha256": "1c9ee7eb038f5b102613ab86e2dba27dbdac019d5b692a9cc64195fd9ada888e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "a6ffef55cfec66cb423acb7657c3b6c3f65ae567383e8d619d4fd83f0b724a6a"
+            "sha256": "85fac23c1e58dde9ae854d219a1501bb8268c559974af388b785a14e7e31aed8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "12c5c71f435735479b60aeeadf23d88d525eac6702430bc5f48ff84670039a4c"
+            "sha256": "39e217f4044f266e27d5b862bea0ded233429e28e93f93d5afdfcdc65799ef96"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/pixel-quiz-layout.css",
+            "sha256": "6f2e76918a519ae23ed7ff09065e48f62ac2f8db3b40ebc28052fb46315bb7e9"
           }
         ]
       },
-      "sourceCommit": "528efc76b30359f06cd3b1be48a00373448f67d3",
-      "cacheBuild": "7273edf8f1129225",
+      "sourceCommit": "ef7567caa9a7ad0ac9b37f3bb39a2af62d1e020b",
+      "cacheBuild": "eccbb9f101559fb3",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.14",
+          "build": "sha256-9dd6136477da",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ],
+          "date": "2026-10-11"
+        },
         {
           "version": "3.35.13",
           "build": "sha256-78d267cd5349",
