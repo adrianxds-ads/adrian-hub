@@ -1,0 +1,122 @@
+/* Dragon Garden · small ecological details. Decorative SVG/CSS only; no data writes.
+   Show only when supported by a recent estimated Barcelona weather reading.
+   Never claim butterflies/fireflies are actually present in the city. */
+.github-garden>.nl-ecosystem{
+ position:absolute;inset:0;overflow:hidden;z-index:11;
+ pointer-events:none;isolation:isolate;
+}
+.nl-ecosystem .nl-eco-butterflies,.nl-ecosystem .nl-eco-fireflies,
+.nl-ecosystem .nl-eco-leaves{
+ position:absolute;inset:0;display:none;pointer-events:none;
+}
+.nl-ecosystem[data-eco-mode="butterfly"] .nl-eco-butterflies{display:block}
+.nl-ecosystem[data-eco-mode="fireflies"] .nl-eco-fireflies{display:block}
+.nl-ecosystem[data-eco-mode="leaves"] .nl-eco-leaves{display:block}
+.nl-ecosystem .nl-butterfly{
+ position:absolute;left:-12%;top:37%;width:28px;height:22px;
+ will-change:transform;filter:drop-shadow(0 1px 2px rgba(26,52,39,.35));
+ animation:nl-fauna-route 27s linear -9s infinite;
+}
+.nl-ecosystem .nl-butterfly svg{
+ display:block;width:100%;height:100%;
+ transform-origin:50% 50%;
+ animation:nl-wing-flutter .72s ease-in-out infinite alternate;
+}
+.nl-ecosystem .nl-butterfly-1{
+ top:57%;width:22px;height:17px;
+ animation-duration:34s;animation-delay:-19s;
+ filter:drop-shadow(0 1px 1px rgba(23,64,49,.22));
+}
+.nl-ecosystem .nl-butterfly-1 svg{animation-duration:.58s;animation-delay:-.2s}
+@keyframes nl-fauna-route{
+ 0%{transform:translate(0,0) rotate(-6deg);opacity:0}
+ 8%{opacity:.9}
+ 25%{transform:translate(30vw,-8px) rotate(4deg)}
+ 51%{transform:translate(48vw,5px) rotate(-7deg)}
+ 73%{transform:translate(64vw,-10px) rotate(4deg)}
+ 92%{opacity:.9}
+ 100%{transform:translate(95vw,4px) rotate(4deg);opacity:0}
+}
+@keyframes nl-wing-flutter{
+ 0%{transform:scaleX(.47) rotate(-5deg)}
+ 100%{transform:scaleX(1) rotate(4deg)}
+}
+.nl-ecosystem .nl-firefly{
+ position:absolute;bottom:20%;left:25%;width:5px;height:5px;
+ border-radius:50%;background:#fbedb4;opacity:0;will-change:transform,opacity;
+ box-shadow:0 0 7px 3px #d7e58d88,0 0 16px 5px #f6e3a044;
+ animation:nl-firefly-dance 11s ease-in-out infinite;
+}
+.nl-ecosystem .nl-firefly-0{left:14%;bottom:30%;animation-delay:-1.5s}
+.nl-ecosystem .nl-firefly-1{left:32%;bottom:18%;animation-delay:-4s;animation-duration:13s}
+.nl-ecosystem .nl-firefly-2{left:53%;bottom:34%;animation-delay:-6.2s;animation-duration:9.5s}
+.nl-ecosystem .nl-firefly-3{left:70%;bottom:23%;animation-delay:-.6s;animation-duration:12s}
+.nl-ecosystem .nl-firefly-4{left:84%;bottom:32%;animation-delay:-7.7s;animation-duration:14s}
+@keyframes nl-firefly-dance{
+ 0%,100%{transform:translate(0,6px);opacity:0}
+ 15%{opacity:.33}
+ 33%{transform:translate(9px,-8px);opacity:.84}
+ 53%{transform:translate(16px,3px);opacity:.17}
+ 74%{transform:translate(-7px,-18px);opacity:.9}
+ 92%{opacity:.28}
+}
+.nl-ecosystem .nl-leaf{
+ position:absolute;left:10%;top:-20px;width:11px;height:17px;
+ background:linear-gradient(145deg,#d7b776,#987446);
+ border-radius:0 100% 0 100%;opacity:0;will-change:transform;
+ box-shadow:inset 2px -1px 2px #6e583855;
+ animation:nl-leaf-blow 10s linear infinite;
+}
+.nl-ecosystem .nl-leaf-0{left:9%;animation-delay:-1s;animation-duration:10s}
+.nl-ecosystem .nl-leaf-1{left:28%;animation-delay:-7.5s;animation-duration:14s;background:linear-gradient(145deg,#d6b46c,#8e6643)}
+.nl-ecosystem .nl-leaf-2{left:47%;animation-delay:-4s;animation-duration:12s;background:linear-gradient(145deg,#b3a96b,#6d7954)}
+.nl-ecosystem .nl-leaf-3{left:68%;animation-delay:-10s;animation-duration:16s;background:linear-gradient(145deg,#d5ad78,#ad7962)}
+.nl-ecosystem .nl-leaf-4{left:82%;animation-delay:-2s;animation-duration:13s}
+@keyframes nl-leaf-blow{
+ 0%{transform:translate(-20px,-10px) rotate(0);opacity:0}
+ 11%{opacity:.72}
+ 30%{transform:translate(45px,45px) rotate(130deg)}
+ 59%{transform:translate(5px,120px) rotate(270deg)}
+ 84%{opacity:.76}
+ 100%{transform:translate(75px,240px) rotate(450deg);opacity:0}
+}
+/* Only the existing head turns a little. The pet still obeys the same
+   journeys and stage positions. */
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-watching:not([data-mood="sleepy"]) .dragon-art .face{
+ transform-origin:50% 76%;
+ transform-box:fill-box;
+ animation:nl-dragon-look 5.4s ease-in-out infinite;
+}
+@keyframes nl-dragon-look{
+ 0%,23%,76%,100%{transform:rotate(0deg)}
+ 38%,57%{transform:rotate(-5deg)}
+}
+/* Speech bubbles always open toward the middle of the garden. This fixes
+   the clipped bubble when the mascot visits plants on the left or the cave.
+   Alignment is instantaneous: the old 150ms transform transition otherwise
+   briefly displayed the bubble outside the garden after repeated quick taps. */
+.github-garden .nl-dino[data-bubble-align] .nl-dino-bubble{
+ transition:opacity .15s!important;
+}
+.github-garden .nl-dino[data-bubble-align="left"] .nl-dino-bubble{
+ left:0!important;right:auto!important;transform:translate(0,5px) scale(.91)!important;
+}
+.github-garden .nl-dino[data-bubble-align="left"].nl-speaking .nl-dino-bubble{
+ transform:translate(0,0) scale(1)!important;
+}
+.github-garden:not(#taskGarden) .nl-dino[data-bubble-align="right"] .nl-dino-bubble,
+.github-garden .nl-dino[data-bubble-align="right"] .nl-dino-bubble{
+ left:auto!important;right:0!important;transform:translate(0,5px) scale(.91)!important;
+}
+.github-garden:not(#taskGarden) .nl-dino[data-bubble-align="right"].nl-speaking .nl-dino-bubble,
+.github-garden .nl-dino[data-bubble-align="right"].nl-speaking .nl-dino-bubble{
+ transform:translate(0,0) scale(1)!important;
+}
+@media(max-width:560px){
+ .nl-ecosystem .nl-butterfly{width:24px;height:19px}
+ .nl-ecosystem .nl-butterfly-1{width:19px;height:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ .github-garden>.nl-ecosystem{display:none!important}
+ .github-garden .nl-dino.nl-dragon.nl-dragon-watching .dragon-art .face{animation:none!important}
+}

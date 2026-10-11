@@ -4,16 +4,28 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.65",
-    "build": "hub-30.4.65-20261011",
+    "version": "30.4.66",
+    "build": "hub-30.4.66-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Correccion del alcance del modo Leer primero: se restauran exactamente los tiempos previos de Grammar Quest (3–4,8 s), Cloze Quiz (3–4,8 s), Phrasal Sprint (4 s) y Classroom B2 (3–6,5 s segun el tipo de pregunta). No se amplian a un minuto.",
-      "Solo Keyword Quiz de Cambridge Part 4, transformaciones de 2 a 5 palabras, conserva 60 segundos para pensar antes de mostrar opciones. El boton puede adelantar la fase sin responder por accidente.",
-      "Las barras amarillas segmentadas de lectura se adaptan a la duracion real del juego (3, 4, 5, 6 o 7 segmentos); se conservan los 15 segmentos del tiempo de respuesta. Navegacion Atrás, Panel y Hub intacta.",
-      "Se actualizan versiones de app, URL de recursos y caches PWA; se respetan el curriculum v3 de Classroom y todas las mejoras del dragoncito. Pruebas Chrome 393px en progreso; el Pixel fisico sigue pendiente."
+      "El jardín del dragoncillo incorpora un microecosistema ilustrado: mariposas con sol y poco viento, luciérnagas nocturnas, y hojas al viento en otoño. Son detalles artísticos asociados a las estimaciones meteorológicas recientes de Open-Meteo, no observaciones de fauna real.",
+      "En lluvia, niebla, tormenta y ausencia de datos recientes desaparecen los efectos. Se desactivan con movimiento reducido y no se añaden a la vista de tareas de Biblioteca.",
+      "El dragón inclina suavemente la cabeza hacia el entorno y añade comentarios ocasionales al tocarlo. Bocadillos reposicionados dinámicamente para evitar recortes en extremos del jardín, sin transiciones que dejen texto fuera.",
+      "Sin persistencia nueva, premios nuevos ni alteración de árboles, tareas, historial, clima, estrellas, aplicaciones o sincronización. El cambio se puede revertir retirando la hoja de estilo y la capa de presentación.",
+      "Pruebas Chrome: siete climas en 360/390/412/1280, viento otoñal, día/noche, modo reducido, red ausente, bocadillos, biblioteca, personalidad y regresiones del bosque. Pixel físico pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.65",
+        "build": "hub-30.4.65-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Correccion del alcance del modo Leer primero: se restauran exactamente los tiempos previos de Grammar Quest (3–4,8 s), Cloze Quiz (3–4,8 s), Phrasal Sprint (4 s) y Classroom B2 (3–6,5 s segun el tipo de pregunta). No se amplian a un minuto.",
+          "Solo Keyword Quiz de Cambridge Part 4, transformaciones de 2 a 5 palabras, conserva 60 segundos para pensar antes de mostrar opciones. El boton puede adelantar la fase sin responder por accidente.",
+          "Las barras amarillas segmentadas de lectura se adaptan a la duracion real del juego (3, 4, 5, 6 o 7 segmentos); se conservan los 15 segmentos del tiempo de respuesta. Navegacion Atrás, Panel y Hub intacta.",
+          "Se actualizan versiones de app, URL de recursos y caches PWA; se respetan el curriculum v3 de Classroom y todas las mejoras del dragoncito. Pruebas Chrome 393px en progreso; el Pixel fisico sigue pendiente."
+        ]
+      },
       {
         "version": "30.4.64",
         "build": "hub-30.4.64-20261011",
@@ -725,7 +737,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "452b168b6e08da798533689ba57e5f5afd44a73ca16bdfd9e78171b8365b9027"
+          "sha256": "2cbf5d6aae916e4afdec65d699390bfb82e94b1d09632ee685184c78930a3772"
         },
         {
           "url": "version-verifier.js",
@@ -733,7 +745,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "8cc7d378970a5e485827678c1126817054221079f7d7cf8ae2438f251bc4cf51"
+          "sha256": "c403fee2cd268e36e99a02b28cefd63b818ac87307c98d109fb395527f9ebf57"
         },
         {
           "url": "styles.css",
@@ -741,15 +753,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "82ea8df0a0095895b9f048e9059e20d94aebd68d787a5bd08ec0e7f86d23f11f"
+          "sha256": "3968fb9c83b169db07badfdab6e4c8db3776dd8c0aa11789397a742ab1073eb6"
         },
         {
           "url": "build-assets.js",
-          "sha256": "7af73637c149b15f0e26b29883925b15b9bb1cace09086a6c2340142209a77ca"
+          "sha256": "d323ab56fbf4c57739d3a61122568c339cf5801facbd4f6e94b18ef5df4efe10"
         }
       ]
     },
-    "cacheBuild": "acb82408a4ea1397"
+    "cacheBuild": "58acaa95ee4a93f6"
   },
   "apps": [
     {
@@ -1634,18 +1646,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.6",
-      "build": "sha256-bed148c163a1",
+      "version": "0.5.7",
+      "build": "sha256-b6dcee5ff1c9",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "El jardín de tareas comparte diálogos ampliados bajo toque, sin charlas automáticas, celebraciones de oros ni cambios en la posición vinculada al podcast."
+        "Hoja de estilos compartida del microecosistema añadida al jardín; los efectos ambientales quedan deliberadamente desactivados en el modo tareas. Sin cambios en podcast ni historial."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "2af4469550fbb8608143d10911901f03233403f5b7c7a5607f186f469c0a39c3"
+            "sha256": "3335636de7c69f3519129b867e6338e92b09d7e566a23192e2edda130ff156c4"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1658,6 +1670,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.6",
+          "build": "sha256-bed148c163a1",
+          "date": "2026-10-11",
+          "changes": [
+            "El jardín de tareas comparte diálogos ampliados bajo toque, sin charlas automáticas, celebraciones de oros ni cambios en la posición vinculada al podcast."
+          ]
+        },
         {
           "version": "0.5.5",
           "build": "sha256-db6211886914",

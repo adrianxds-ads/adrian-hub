@@ -113,6 +113,7 @@ function visit(host,place,fly=false){
  const dx=Math.abs((parseFloat(d.style.left)||host.clientWidth*.14)-coords.left);
  const duration=actualFlight?4400:Math.round(clamp(dx*25,2500,5700));
  d.dataset.journey=actualFlight?'flying':place;
+ updateEcosystem(host);
  d.classList.toggle('nl-dragon-travel-flight',actualFlight);
  d.classList.toggle('nl-dragon-travel-walk',!actualFlight&&place!=='cave');
  d.style.transitionDuration=duration+'ms';
@@ -289,6 +290,12 @@ function nextLine(host,key){
  st.lines.set(key,index+1);st.lastLine=line;
  return line;
 }
+function orientBubble(host){
+ const d=host?.querySelector('.nl-dino');if(!d)return;
+ const rect=d.getBoundingClientRect(),garden=host.getBoundingClientRect();
+ const center=rect.left-garden.left+rect.width/2;
+ d.dataset.bubbleAlign=center<(host.clientWidth/2)?'left':'right';
+}
 function speak(host,line,{automatic=false,celebrate=false}={}){
  const d=host?.querySelector('.nl-dino');if(!d||!d.isConnected)return false;
  const bubble=d.querySelector('.nl-dino-bubble');if(!bubble)return false;
@@ -298,6 +305,7 @@ function speak(host,line,{automatic=false,celebrate=false}={}){
   if(Date.now()-lastUserActivity<AUTO_DIALOGUE_GRACE||Date.now()-st.lastTap<AUTO_DIALOGUE_GRACE||Date.now()-st.lastSpeech<AUTO_DIALOGUE_GRACE)return false;
   if(d.classList.contains('nl-speaking'))return false;
  }
+ orientBubble(host);
  bubble.textContent=line;
  st.lastSpeech=Date.now();
  if(automatic)st.lastAuto=Date.now();
@@ -355,8 +363,12 @@ function dinoClick(host){
   else visit(host,n%2===0?'tree':'plant',Number(d.dataset.stage)>=3&&n%4===0);
  }
  const st=petState(host);st.lastTap=Date.now();
+ const eco=host.dataset.ecosystem;
+ const ecoMessage=n%6===0&&eco==='butterfly'?'¡Una mariposa! Voy a seguirla con los ojos.':
+  n%6===0&&eco==='fireflies'?'¡Mira las lucecitas del bosque!':
+  n%6===0&&eco==='leaves'?'Con el viento, hasta las hojas salen de paseo.':null;
  const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:
-  nextLine(host,((n%3===0||state==='sleepy')?state:phraseContext(host)));
+  (ecoMessage||nextLine(host,((n%3===0||state==='sleepy')?state:phraseContext(host))));
  // A small wing celebration; occasional hover is unlocked only at stages 3–4.
  if(d.dataset.stage!=='0'){
   d.classList.remove('nl-dragon-flap','nl-dragon-flight');
@@ -426,8 +438,62 @@ function updateBarcelonaBar(){
  const hour=kind&&typeof weather.time==='string'?weather.time.slice(11,16):null;
  strip.title=kind?'Datos estimados de Open-Meteo para Barcelona'+(hour?', lectura de las '+hour+' h':'')+(age>TTL?'. Última lectura guardada.':'.'):'Datos meteorológicos no disponibles o antiguos.';
 }
+
+// Dragon's tiny decorative ecosystem. Uses a recent *estimated* Barcelona weather
+// reading only to decide whether the fantasy particles should be shown.
+// Creatures are illustrations, not claims of actual Barcelona wildlife.
+const ECOSYSTEM_MAX_WIND_BUTTERFLY=22;
+const ECOSYSTEM_MIN_WIND_LEAVES=14;
+function ecosystemMode(){
+ if(travelDisabled()||!weather||!weatherAt||Date.now()-weatherAt>MAX_STALE)return 'quiet';
+ const kind=weatherKind(weather);
+ if(!kind||['rain','drizzle','snow','storm','fog'].includes(kind))return 'quiet';
+ const wind=weather.wind_speed_10m==null?NaN:Number(weather.wind_speed_10m);
+ const month=Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',month:'numeric'}).format(new Date()));
+ if(Number.isFinite(wind)&&wind>=ECOSYSTEM_MIN_WIND_LEAVES&&[9,10,11].includes(month))return 'leaves';
+ if(weather.is_day===1&&['clear','partly'].includes(kind)&&(!Number.isFinite(wind)||wind<ECOSYSTEM_MAX_WIND_BUTTERFLY))return 'butterfly';
+ if(weather.is_day===0&&['clear','partly'].includes(kind)&&(!Number.isFinite(wind)||wind<ECOSYSTEM_MAX_WIND_BUTTERFLY))return 'fireflies';
+ return 'quiet';
+}
+function ecosystemMarkup(){
+ // Fixed, inexpensive decorative children; never track clicks, points or progress.
+ return '<span class="nl-eco-butterflies" aria-hidden="true">'+
+  [0,1].map(i=>'<span class="nl-butterfly nl-butterfly-'+i+'">'+
+  '<svg viewBox="0 0 54 38" aria-hidden="true" focusable="false">'+
+  '<path d="M27 19Q6 -4 2 12Q-1 27 26 22Z" fill="#f3d29d" stroke="#8d785e" stroke-width="1.5"/>'+
+  '<path d="M27 19Q46 -4 52 12Q55 27 28 22Z" fill="#d6bfe8" stroke="#877c96" stroke-width="1.5"/>'+
+  '<path d="M25 22Q6 23 12 33Q20 40 27 25Z" fill="#ebb0a5" stroke="#a57875" stroke-width="1"/>'+
+  '<path d="M29 22Q48 23 42 33Q34 40 27 25Z" fill="#bbdebc" stroke="#78937e" stroke-width="1"/>'+
+  '<path d="M27 13V29M27 15l-4-5m4 5 4-5" stroke="#5a6a5a" stroke-width="2" stroke-linecap="round" fill="none"/>'+
+  '</svg></span>').join('')+'</span>'+
+  '<span class="nl-eco-fireflies" aria-hidden="true">'+Array.from({length:5},(_,i)=>'<i class="nl-firefly nl-firefly-'+i+'"></i>').join('')+'</span>'+
+  '<span class="nl-eco-leaves" aria-hidden="true">'+Array.from({length:5},(_,i)=>'<i class="nl-leaf nl-leaf-'+i+'"></i>').join('')+'</span>';
+}
+function updateEcosystem(host){
+ if(!host||isTaskGarden(host))return;
+ let layer=host.querySelector(':scope > .nl-ecosystem');
+ if(!layer){
+  layer=document.createElement('div');layer.className='nl-ecosystem';
+  layer.setAttribute('aria-hidden','true');
+  layer.innerHTML=ecosystemMarkup();
+  host.appendChild(layer);
+ }
+ const mode=ecosystemMode();
+ if(layer.dataset.ecoMode!==mode){
+  layer.dataset.ecoMode=mode;
+  host.dataset.ecosystem=mode;
+ }
+ const d=host.querySelector('.nl-dino');
+ if(d){
+  const curious=Number(d.dataset.stage)>0&&mode!=='quiet'&&
+   (d.dataset.journey==='plant'||d.dataset.journey==='clearing'||d.dataset.journey==='tree');
+  d.classList.toggle('nl-dragon-watching',curious);
+ }
+}
+
 function applyWeather(host){
  updateBarcelonaBar();
+ updateEcosystem(host);
  const layer=host.querySelector('.nl-weather');if(!layer)return;
  if(!weather||Date.now()-weatherAt>MAX_STALE){
   host.removeAttribute('data-nl-weather');layer.hidden=true;return;
@@ -515,7 +581,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastReque
 setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
 setInterval(journeyLoop,JOURNEY_INTERVAL);
 setInterval(personalityLoop,45000);
-window.NucleoGardenLife=Object.freeze({version:'1.4.0',refresh,weatherKind,mood});
+window.NucleoGardenLife=Object.freeze({version:'1.5.0',refresh,weatherKind,mood});
 loadDragonArtwork();
 updateBarcelonaBar();
 schedule();
