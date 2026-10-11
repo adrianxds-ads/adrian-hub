@@ -4,16 +4,26 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.56",
-    "build": "hub-30.4.56-20261011",
+    "version": "30.4.57",
+    "build": "hub-30.4.57-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Integración reversible del dragoncillo jade vectorial y animable en el jardín ya existente, compartido por Hub y Biblioteca. Conserva los 5 umbrales (0/5/25/100/300) y todos los árboles y registros.",
-      "Alitas, cola, respiración, ojos dormidos, diálogos y primeros planeos mediante toque desde la etapa 3; conserva la posición y seguimiento original del recorrido del podcast.",
-      "SVG externo preparado en caché offline; si falla la carga se muestra el personaje anterior. No se modifican premios, tareas, medallas, historia ni algoritmos de crecimiento.",
-      "Verificación con datos sintéticos: 20 combinaciones de etapa/pantalla, jardín de Biblioteca, meteorología y prototipo aislado. Sin prueba física del Pixel."
+      "Se retira Conjuga CAT del catálogo activo y del centro de actualizaciones para priorizar el uso inmediato de las aplicaciones de inglés.",
+      "La aplicación catalana se conserva archivada en su repositorio independiente, con su código e histórico de versión intactos; no se desinstala del móvil ni se borra almacenamiento o progreso.",
+      "Se mantienen las seis aplicaciones de inglés, Català Podcasts y las demás aplicaciones del Hub, sin tocar el jardín, dragón ni sus tareas."
     ],
     "history": [
+      {
+        "version": "30.4.56",
+        "build": "hub-30.4.56-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Integración reversible del dragoncillo jade vectorial y animable en el jardín ya existente, compartido por Hub y Biblioteca. Conserva los 5 umbrales (0/5/25/100/300) y todos los árboles y registros.",
+          "Alitas, cola, respiración, ojos dormidos, diálogos y primeros planeos mediante toque desde la etapa 3; conserva la posición y seguimiento original del recorrido del podcast.",
+          "SVG externo preparado en caché offline; si falla la carga se muestra el personaje anterior. No se modifican premios, tareas, medallas, historia ni algoritmos de crecimiento.",
+          "Verificación con datos sintéticos: 20 combinaciones de etapa/pantalla, jardín de Biblioteca, meteorología y prototipo aislado. Sin prueba física del Pixel."
+        ]
+      },
       {
         "version": "30.4.55",
         "build": "hub-30.4.55-20261011",
@@ -624,7 +634,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "990a66b7847bccafa7f85ceb1575531c07049ba810b43a877bf6c9c8332a94e1"
+          "sha256": "c80f418763baeb7ee4c071484eb5742edb3bff9b66f3ff01a8f722b5d00253e3"
         },
         {
           "url": "version-verifier.js",
@@ -632,7 +642,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "9d392bc04d58748e175a196e6c95685e24d5113e6310cef9c36bdb5a89096325"
+          "sha256": "a3b30701ea16c9ece73428e6e9b2238e914e0220c4349add04395c683b6d800c"
         },
         {
           "url": "styles.css",
@@ -640,15 +650,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "5e4a31a78b2d5b27f62bd71093a2ba9ada6f705fd296ce1bb3c9043c36806fa7"
+          "sha256": "4044e8f1c57425e42a5b09cc77a76afbcb9af37b902306d5eabc5804b4361a43"
         },
         {
           "url": "build-assets.js",
-          "sha256": "218f10a492320f48e92863d18e3f7607291c0684d6dcff9f32ff9529b3f7b053"
+          "sha256": "1b44e6d7d3f4cdf070adf821b342d944c123380ca706f4400b3a043c1f8a3a0b"
         }
       ]
     },
-    "cacheBuild": "27251e1e7455d79c"
+    "cacheBuild": "c426fdb0cb18304f"
   },
   "apps": [
     {

@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.4.56",
+  "hubVersion": "30.4.57",
   "apps": [
     {
       "id": "english",
@@ -96,22 +96,6 @@
         "Speaking y teclado",
         "Cambridge Part 4",
         "Corrección por ejercicio"
-      ]
-    },
-    {
-      "id": "catala",
-      "name": "Conjuga CAT",
-      "subtitle": "Català · Verbs adaptatius",
-      "group": "Estudio",
-      "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/",
-      "repo": "https://github.com/adrianxds-ads/adaptive-verbs-catala",
-      "glyph": "CA",
-      "description": "Entrena la conjugación catalana con formas verbales normativas, repasos adaptativos y seguimiento de automatización.",
-      "features": [
-        "120 verbos",
-        "Tiempos y modos",
-        "Repetición espaciada"
       ]
     },
     {
