@@ -6,12 +6,13 @@
 #groups .hub-medal-star{--medal:#E7BF57}
 html body #groups .hub-card-medals{
   display:flex;align-items:center;flex-wrap:nowrap;gap:7px;min-width:0;
+  margin-top:8px;
 }
 html body #groups .hub-medal{
   box-sizing:border-box;position:relative;
   display:grid;place-items:center;flex:0 0 34px;
   width:34px;height:34px;min-width:34px;max-width:34px;min-height:34px;
-  margin:0;padding:0;background:var(--ad-surface,#1B2228);
+  margin:0;padding:0;background:#121619;
   border:1.5px solid var(--medal,#414B54);border-radius:50%;
   opacity:1;filter:none;box-shadow:none;
 }
@@ -63,16 +64,48 @@ html body #groups .app-gold-chip{display:none}
 .reward-violet{color:#BF9CF7}
 .reward-gold{color:#EAC365}
 .reward-star{color:#EAC365;font-size:23px}
-/* Shared update action and reward-card footer: presentation only. */
-.hub-editorial #groups .hub-card-foot{
-  background:#121619;border-top:1px solid var(--ad-border,#414B54);
+/* Compact card footer: medals left, refresh glyph in the right-side action rail. */
+html body #groups .hub-card-foot{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 52px;
+  gap:8px;
+  align-items:center;
+  padding:0 8px 10px 14px;
+  margin:0;
+  border:0;
+  background:transparent;
 }
-.hub-editorial #groups .hub-card-update{
-  background:#1B2228;border-color:#53636E;color:#EAF0F5;
+.nucleo-readable #groups .hub-card-update{
+  display:grid;
+  place-items:center;
+  position:relative;
+  justify-self:end;
+  width:52px;min-width:52px;height:52px;min-height:52px;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:10px;
+  color:#EAF0F5;
+  cursor:pointer;
 }
-.hub-editorial #groups .hub-card-update[data-state="pending"]{
-  border-color:#DDAE60;color:#F1D3A0;
+.nucleo-readable #groups .hub-card-update:hover,
+.nucleo-readable #groups .hub-card-update:focus-visible{
+  background:#253039;
 }
-.hub-editorial #groups .hub-card-update[data-state="prepared"]{
-  border-color:#7AD0A8;color:#B5EBD4;
+.nucleo-readable #groups .hub-card-update:focus-visible{
+  outline:2px solid #89AEF1;
+  outline-offset:-2px;
+}
+.nucleo-readable #groups .hub-card-update:disabled{
+  opacity:.7;
+  cursor:wait;
+}
+.nucleo-readable #groups .hub-card-update[data-state="pending"]{
+  color:#F1D3A0;
+}
+.nucleo-readable #groups .hub-card-update[data-state="prepared"]{
+  color:#B5EBD4;
+}
+@media(max-width:360px){
+  html body #groups .hub-card-foot{grid-template-columns:minmax(0,1fr) 52px;gap:4px}
 }

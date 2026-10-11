@@ -197,7 +197,8 @@ summary {
 .apps {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--ad-space-2);
+  gap: 0;
+  padding-inline: 12px;
 }
 
 /* También admite categorías colapsables en el futuro renderizado. */
@@ -227,44 +228,79 @@ summary {
 
 /* Tarjetas */
 
-.nucleo-readable .app.ad-card {
+.nucleo-readable #groups .app.ad-card {
   position: relative;
   display: block;
   min-width: 0;
   min-height: 0;
-  margin: 0;
+  margin: 0 0 12px;
   padding: 0;
+  background: #1B2228;
+  color: var(--ad-text);
+  border: 1px solid #414B54;
+  border-radius: 12px;
+  box-shadow: none;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.nucleo-readable #groups .app-launch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px minmax(0,1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 84px;
+  padding: 12px 112px 8px 14px;
   background: transparent;
   color: var(--ad-text);
-  border: 1px solid var(--ad-border);
-  border-radius: var(--ad-radius-sm);
-  box-shadow: none;
+  border: 0;
+  border-radius: 12px;
   text-decoration: none;
 }
-
-.nucleo-readable .app-launch {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 16px;
-  align-items: center;
-  gap: var(--ad-space-2);
-  min-height: 80px;
-  padding:
-    var(--ad-space-2)
-    calc(var(--ad-touch-target-min) + var(--ad-space-3))
-    var(--ad-space-2)
-    var(--ad-space-3);
-  background: transparent;
-  color: var(--ad-text) !important;
-  border-radius: var(--ad-radius-sm);
-  text-decoration: none;
+.nucleo-readable #groups .app-launch:active {
+  background: #253039;
 }
-
-.nucleo-readable .app-launch:active {
-  background: var(--ad-surface);
-}
-
-.nucleo-readable .app-launch:focus-visible {
+.nucleo-readable #groups .app-launch:focus-visible {
   outline-offset: -3px;
+}
+.nucleo-readable #groups .app-launch .go {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  text-align: center;
+  color: var(--ad-text-muted);
+}
+.nucleo-readable #groups .app-info {
+  position: absolute;
+  top: 14px;
+  right: 60px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  min-width: 40px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  color: var(--ad-text-muted);
+  border: 0;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.nucleo-readable #groups .app-info:focus-visible {
+  outline: 2px solid #89AEF1;
+  outline-offset: -3px;
+}
+@media(max-width:360px) {
+  .nucleo-readable #groups .app-launch {
+    grid-template-columns: minmax(0,1fr);
+    padding-left: 14px;
+    padding-right: 112px;
+  }
 }
 
 .nucleo-readable .glyph {
@@ -308,33 +344,6 @@ summary {
   line-height: 1;
 }
 
-/* Información: icono discreto con área táctil completa */
-
-.nucleo-readable .app-info {
-  position: absolute;
-  top: var(--ad-space-3);
-  right: var(--ad-space-2);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--ad-touch-target-min);
-  min-width: var(--ad-touch-target-min);
-  height: var(--ad-touch-target-min);
-  min-height: var(--ad-touch-target-min);
-  padding: 0;
-  background: transparent;
-  color: var(--ad-text-muted);
-  border: 1px solid transparent;
-  border-radius: var(--ad-radius-sm);
-  font-size: var(--ad-font-base);
-  font-weight: var(--ad-font-weight-medium);
-  cursor: pointer;
-}
-
-.nucleo-readable .app-info:active {
-  border-color: var(--ad-border);
-}
-
 /* Metadatos secundarios generados por los scripts actuales */
 
 .nucleo-readable :is(
@@ -356,35 +365,7 @@ summary {
   letter-spacing: normal;
 }
 
-/* Recompensas y actualización individual: fila pequeña */
-
-.hub-card-foot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--ad-space-2);
-  padding: 0 var(--ad-space-3) var(--ad-space-2);
-}
-
 /* Conserva etiqueta accesible y acción; muestra solo icono e indicador. */
-
-.nucleo-readable .hub-card-update {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  min-width: var(--ad-touch-target-min);
-  min-height: var(--ad-touch-target-min);
-  padding: var(--ad-space-2);
-  background: transparent;
-  color: var(--ad-text-muted);
-  border: 1px solid var(--ad-border);
-  border-radius: var(--ad-radius-sm);
-  font-size: var(--ad-font-base);
-  cursor: pointer;
-}
 
 .hub-card-update-label {
   position: absolute;
@@ -897,10 +878,6 @@ button:disabled {
 /* Conserva espacio táctil cuando la pantalla es muy estrecha. */
 
 @media (max-width: 360px) {
-  .nucleo-readable .app-launch {
-    grid-template-columns: minmax(0, 1fr) 16px;
-  }
-
   .app-launch .glyph {
     display: none;
   }
