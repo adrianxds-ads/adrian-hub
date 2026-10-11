@@ -1,17 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T18:07:14.608868+02:00",
+  "generatedAt": "2026-10-11T18:43:42.566459+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.2",
-    "build": "hub-30.5.2-20261011",
+    "version": "30.5.3",
+    "build": "hub-30.5.3-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Cierre de consistencia: Grammar Quest sincroniza título HTML, metadatos, versión JavaScript y caché PWA con la nueva entrega 3.36.2.",
-      "Se conserva la unificación visual y funcional OLED de la versión 30.5.1 y la integridad del histórico de aprendizaje."
+      "Restauraci?n de las cuatro alternativas en cuadr?cula 2?2, con bordes crom?ticos y controles t?ctiles estables en Grammar Quest, Classroom, Phrasal, Cloze, Turismo y Cambridge cuando proceda.",
+      "Superficies de lectura gris oscuro sobre lienzo OLED negro y texto accesible en preguntas, opciones y estados de correcci?n.",
+      "Leyenda desplegable real de medallas azul 13/15, violeta 14/15, oro 15/15 y una estrella por cinco oros, sin alterar su c?mputo.",
+      "CSS compartido y comprobaciones de regresi?n, historial, progreso, cach?s y recursos publicados."
     ],
     "history": [
+      {
+        "version": "30.5.2",
+        "build": "hub-30.5.2-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Cierre de consistencia: Grammar Quest sincroniza título HTML, metadatos, versión JavaScript y caché PWA con la nueva entrega 3.36.2.",
+          "Se conserva la unificación visual y funcional OLED de la versión 30.5.1 y la integridad del histórico de aprendizaje."
+        ]
+      },
       {
         "version": "30.5.1",
         "build": "hub-30.5.1-20261011",
@@ -822,7 +833,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "4bbce19df355330ee6c8139724778ded470be34854b7ab1f418fc9dcca2473d7"
+          "sha256": "f06d285837dfa284f2c856edf34c457dc487fb362959bc3f11289725b033c406"
         },
         {
           "url": "version-verifier.js",
@@ -830,7 +841,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "12f568743015ec613b1b4737416d2b8d181e05e31d1c653a15d6e31962afabce"
+          "sha256": "0a4da3fa88c3157e746bef1a188646a1b1669f28640b93bd5ea7a776217fa219"
         },
         {
           "url": "styles.css",
@@ -838,22 +849,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "905c525be3dc0cc6c7c27602ad0a4a87d0f7b96b36ef2f876c56fe02d54e1c2c"
+          "sha256": "685e44eb46fcd70cdf98fba18b256b18ba66f92bc8851572c2c5e22233a4ef37"
         },
         {
           "url": "build-assets.js",
-          "sha256": "56bf746a7029954190164b2fecd815638fe9600c6d3de380c60998b62dd90e83"
+          "sha256": "eb3166841a562e1f24495cceaf79b12e87db8d0f4c7021f59be59559a22da1d7"
         }
       ]
     },
-    "cacheBuild": "e52601fbbb36c6c3"
+    "cacheBuild": "27530950ee65ea15"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.2",
-      "build": "sha256-4db146421b9a",
+      "version": "3.36.3",
+      "build": "sha256-e2e4d302ce1a",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -865,24 +876,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "23d5a1120ea9d73acbf0808871b93caf442fca877e3904b238891aaa76efdbce"
+            "sha256": "e5486ac62fce86e078d4cf8eac2f3e1e98dd324b08050080d2bbecf5c17c0f9a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "b43f3e860ef6aa4a4aeace2a1937a215a183aa1e4cfa992b1d5f00eab4c60451"
+            "sha256": "46f5a7f2749fea77adb0403c782c1af1d3e99abfbddaecb03bffd171a9f55cc0"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "8433b68c0c1f6aeecba3356079a4d55eab2e7b695dbc588bca3124a481320e01"
+            "sha256": "f34b42223671256a55794cd768abf6f4f2cfd9a96762a182435739509ae5dc89"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "1867cc82e39b0ea09ac00fc680f1266ab462ab0993f67f599d20016f0ccdc065"
+            "sha256": "646e288eaa7106105baff69671979f1e94c226f21a9f11dcfff1ad990642b5b1"
           }
         ]
       },
-      "sourceCommit": "b2811e8531d150a01557b7044aed58987db18aa8",
-      "cacheBuild": "eb1c85e9abedcf34",
+      "sourceCommit": "2b94b6b7b09e66d6a642734199bc1cd4866414a6",
+      "cacheBuild": "f88a93acf25e2f29",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -1019,8 +1030,8 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.10",
-      "build": "sha256-7cc454375ae7",
+      "version": "0.13.11",
+      "build": "sha256-0bc45fa19780",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1032,24 +1043,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "4b5b266f5dfde5f431df7b191ee5293ea66eeb02bdee08107d1257fca5de05b7"
+            "sha256": "8aced174926237860b8eb9f09b4e958cd0da1716bbf1bcc3b0fa4a705edc34b9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "5f9f9f3b774d04e2f31c235b14a132826dd0739899dc29dadc2c7ee29bfc8321"
+            "sha256": "08c950cb24e75c3ed0f169ca75b33922c95058df70bd6947676ba146cd66288c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "bb732f5a53d0727674df9d30c754cc6d596f6fd831e03af522b228cd6df6f6d6"
+            "sha256": "8a82d20131d7e4abc36a239a70ed18324fd83ab56c8d6722efdd4cccf3353e4e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "9a233c52150305952c7d3b4ec8321405d6395ab929e6565703d99c6be0dbf888"
+            "sha256": "7103f5b252a42791f00367b6975caa637443ab369d53c5761305148a96ad6221"
           }
         ]
       },
-      "sourceCommit": "cd1a72ad86c8b7c0dd0dd02ff6dad4d6531010cc",
-      "cacheBuild": "ffcf3415997d812a",
+      "sourceCommit": "0734ea196b54dc8e999f347b643b1334ac7ff342",
+      "cacheBuild": "f541f234a5f60f95",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -1153,8 +1164,8 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.5",
-      "build": "sha256-5e630a35131d",
+      "version": "3.0.6",
+      "build": "sha256-64cf644d826f",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1166,24 +1177,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "883e0163490c3aaca849b1f3a834d8401d46971146c95ef76a86dfa0c62e5dc6"
+            "sha256": "012828ea9155a5a2f910428e210eaa77f0bd1de075668bb02e17c84fb0d03386"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "906c99975ddaa0368d32ccda3b58a83b1d136b52e0b9e91a3d06d7a0942939b1"
+            "sha256": "356df707d795be1035b78dcb4ac9216c2405790854846f161dcbb1c3fb12200e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "cf4403520576a1a48f168fafcee1c0423470aaf097c9e7b264ad0b56bf5e04fe"
+            "sha256": "3c23b169f830c73914d316b77ee9222f01cf38d93a936098511876a65537c8d9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "565a5c9c107dd3c05243fe19a348b2605e6d987cd9429c8b21c71b7b4f1bc4fc"
+            "sha256": "c0d1121144486c690875877e1f9f6c8d818cacffd4a33ef67f61a4c937c05914"
           }
         ]
       },
-      "sourceCommit": "33801d4187e220d3e2bf4f35cdcf951f50e9fc8c",
-      "cacheBuild": "edd6fb07f8df6473",
+      "sourceCommit": "b9b617de7beac396ee9b3f47843fc925756e8182",
+      "cacheBuild": "a1a5d248658c90a9",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -1297,8 +1308,8 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.12",
-      "build": "sha256-78911d714a4c",
+      "version": "1.11.13",
+      "build": "sha256-62c7201cb6c2",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1310,24 +1321,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "25d22de480ff4b91c76cc14c5f4bca554950d79c45bf7ff79dd7f1dfe32c016a"
+            "sha256": "0616fd69b8e28f14f2d0a2bad4c2359e5385ee0b2283b5760bfe50720b0d91e0"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "1ee2d2dd6baac219779f1ea43ec1be332c5818c709ea2c84c855eed24ef145cc"
+            "sha256": "496ed494e82b26f8cae9de4c1a8f836b52c660aba5655184c99ea7f9d78cc3bc"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "0519dae98b24552f32f36a2ffda988dcc35c91b996eff76ae75acb75ee78e1e8"
+            "sha256": "f8499ca93c05c6df89d643b8e7f1f7f91c61bdeb1f025fd3f79a986dfd51859b"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "a19b89e69f875aa5d4c34d2822029eb275207acf5eca565d673b9fb1ee36c205"
+            "sha256": "c05f7ca6bf08ee0452dd3161e58ad162e7a8fb081340bfe880e78a5b4b95cf4a"
           }
         ]
       },
-      "sourceCommit": "8a610651ba3d261254d00b2cbfbb8683229b7a32",
-      "cacheBuild": "0c85bcc262e07709",
+      "sourceCommit": "8e823168a3ed2f1530a752109eb53d2815b63633",
+      "cacheBuild": "a3b1a054db372f1d",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -1433,8 +1444,8 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.12",
-      "build": "sha256-d3c2f7fa91cc",
+      "version": "1.3.13",
+      "build": "sha256-f6cd01246e19",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1446,24 +1457,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "828eee29a6cf53f18639218627a0ab81a1e4b1436d263bc621d8e4e7fbe5178f"
+            "sha256": "30c1b1fac3d96a38364b4f75caccba0c0230c721c1dfb6fb33c9cba509d95ef2"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "ce71356c763235d7244577ad851a8e2e2da2f6257eae3a9a1b71e6782f1dbc21"
+            "sha256": "a30e2fc3afabd10946c8f62efe4aeffbe067e5acff0dc90a49644213b2ca580b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "ce37f3c8cf1e46c0fe1cdefa5332bc53655f4ad7bac66c9c28ff844c7166d78c"
+            "sha256": "05b718cd29ecfaa3fa067ef82434b174bdcefe9f6c9ad31b3516951e2363df2e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "a73290e3c2852cb9d0cdf49e9ff34a74c3ff014c5a9a4500668af8b33ac139de"
+            "sha256": "c78b8c7e402e2b93291fbb73edd619d9ba6c568613ebe78ef0b506ac9a1750a9"
           }
         ]
       },
-      "sourceCommit": "0374be8b9beb3cd7e187a662789f1b1f94add84e",
-      "cacheBuild": "80c395542539d491",
+      "sourceCommit": "9af8fbf78c02d6a2dcc7c7db01e009a3698eef6f",
+      "cacheBuild": "41bac4dbdabce277",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -1778,8 +1789,8 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.8",
-      "build": "sha256-015022b235a9",
+      "version": "0.10.9",
+      "build": "sha256-55184f2b0d29",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1792,24 +1803,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "520912777fe3d17a8acf6fb250201141ffa6e6c02f9f143f1a4da27c61d94208"
+            "sha256": "4b398a3225531998f502a43a4d7e35a0bf84bbdc044366a003e4cdee0d6541cb"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "13d6b38d7f6aa08881d0b06d1dd485557836dc52a69b856819f1213bf89844e6"
+            "sha256": "e54772e4e221fe5cfa826f54395424e4e7ae3edb753af43734ca7fe95fee00fe"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "f2ce2553e57344b9269b768bcbbfe0382718aad55f4595aa35ae71ab4bc75a77"
+            "sha256": "5a7a19d531acbc3a4b32cb4c29319e413f7546648d4164584507c7f9ea476c3c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "323ab674afdb9aaf611e1c5b27418fd839748a4ed80fb4237d8b64fbfdc5ba69"
+            "sha256": "a7cbbfd61150e2645f69841565458005e1800c8b53a4e8118347258515c9f729"
           }
         ]
       },
-      "sourceCommit": "48ed48f745d63e66d5e23a9111154bf1818c6b58",
-      "cacheBuild": "a6b6b0af691edccf",
+      "sourceCommit": "036d569222c30b5e477e99a93fcd1b9cdf9973a9",
+      "cacheBuild": "f97941017f7d4f26",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -2023,8 +2034,8 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.7.8",
-      "build": "sha256-a90a101c0fe5",
+      "version": "2.7.9",
+      "build": "sha256-ad1eabc6c059",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -2036,24 +2047,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "38424d1125bf6b2fc0e1771ffd62e6f0425fa804e65b200bd8735ef04e3aff1e"
+            "sha256": "d44a379bbaefdff8dc351282a145b761457aa8422bf58e7cf6e8d8973207637d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "a3fd48731843394f452294075eba4f39cccb3be5d9538b4cda95352e41b9fd34"
+            "sha256": "59a00a8a2c2732ed1aa9f41c46bcc9759de7c045ebf55403e403676a3bff006f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "cd56094ef2ef7afb78a4c6372205ba49add9b34cffe01681e348f3cd0b7d7862"
+            "sha256": "eb3eb68fe538545c0859d6fe3fcd1ba923094745c9dae21e46de52860408c3db"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "9a49d207f616406da15693d35679eb0adaa8dd2c7fe77c874fa5bdcf97fcd78d"
+            "sha256": "17988edddac4842f76042395fac459b378e94c7c760090705c442f336c80c3fb"
           }
         ]
       },
-      "sourceCommit": "49a64666fda9c420437f102ba45d4b61b2ac7ffb",
-      "cacheBuild": "1d0c2cbf175c8347",
+      "sourceCommit": "2571b6bcfe24769d2bc84b831ae06812c1330c63",
+      "cacheBuild": "42237a704cf7a810",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"

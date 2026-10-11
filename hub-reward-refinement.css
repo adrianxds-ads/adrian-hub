@@ -1,0 +1,19 @@
+/* Refinamiento 4.1: color de recompensa sobre OLED, sin fondos pastel. */
+.hub-medal-legend{margin:4px 0 15px;border:1px solid #414B54;border-radius:12px;background:#121619;color:#EAF0F5}
+.hub-medal-legend summary{cursor:pointer;padding:13px 15px;min-height:52px;font:700 16px/1.35 Roboto,system-ui,sans-serif;color:#C9D5DF}
+.hub-medal-explanations{padding:0 14px 13px}
+.hub-medal-explanations p{display:flex;align-items:center;gap:12px;margin:10px 0;font:500 16px/1.4 Roboto,system-ui,sans-serif;color:#EAF0F5}
+.hub-medal-explanations p span:last-child{min-width:0}
+.hub-medal-explanations .reward-legend-help{color:#B9C5CF;font-size:15px}
+.reward-key{min-width:37px;min-height:35px;display:inline-grid;place-items:center;border:1px solid currentColor;border-radius:9px;font-weight:850}
+.reward-blue{color:#89AEF1}.reward-violet{color:#BF9CF7}.reward-gold{color:#EAC365}.reward-star{color:#EAC365;font-size:23px}
+.hub-editorial #groups .hub-card-foot{background:#121619!important;border-top:1px solid #414B54!important}
+.hub-editorial #groups .hub-medal{background:#1B2228!important;border-color:color-mix(in srgb,var(--medal) 58%,#414B54)!important;color:#D2DEE7!important;filter:none!important;opacity:1!important}
+.hub-editorial #groups .hub-medal .hub-medal-emblem{background:#202932!important;border-color:var(--medal)!important;color:#EAF0F5!important}
+.hub-editorial #groups .hub-medal.earned{background:color-mix(in srgb,var(--medal) 17%,#1B2228)!important;border-color:var(--medal)!important}
+.hub-editorial #groups .hub-medal.earned .hub-medal-emblem{background:var(--medal)!important;color:#081016!important;border-color:var(--medal)!important}
+.hub-editorial #groups .hub-medal.earned.hub-medal-gold .hub-medal-emblem,
+.hub-editorial #groups .hub-medal.earned.hub-medal-star .hub-medal-emblem{color:#20170B!important}
+.hub-editorial #groups .hub-card-update{background:#1B2228!important;border-color:#53636E!important;color:#EAF0F5!important}
+.hub-editorial #groups .hub-card-update[data-state="pending"]{border-color:#DDAE60!important;color:#F1D3A0!important}
+.hub-editorial #groups .hub-card-update[data-state="prepared"]{border-color:#7AD0A8!important;color:#B5EBD4!important}
