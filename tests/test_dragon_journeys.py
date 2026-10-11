@@ -89,7 +89,7 @@ try:
     window.CottageGarden.refresh();window.NucleoGardenLife.refresh();
   }""",history(26))
   pg.wait_for_function("""()=>document.querySelector('#githubGarden .nl-dino')?.dataset.journey==='plant'""")
-  assert pg.locator('#githubGarden .nl-dino-bubble').text_content().startswith('¡Ha crecido')
+  assert pg.locator('#githubGarden .nl-dino-bubble').text_content().startswith('¡Una hoja más!')
   assert pg.evaluate("window.CottageGarden.progress().completedBlocks")==26
   print('PASS new growth invokes only a cosmetic visit, original progress unchanged',flush=True)
   ctx.close()

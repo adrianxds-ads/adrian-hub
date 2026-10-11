@@ -212,3 +212,30 @@
   animation:none!important;
  }
 }
+
+
+/* A quiet glimmer for verified study milestones; no new score UI, and no sound. */
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-celebrate::after{
+ content:'✦  ✧  ✦';position:absolute;z-index:3;
+ left:50%;bottom:92%;white-space:nowrap;pointer-events:none;
+ font:900 20px/1 Roboto,system-ui,sans-serif;
+ letter-spacing:6px;color:#f9d377;
+ text-shadow:0 1px 5px #24492b,0 0 7px #fce6a1;
+ animation:nl-dragon-celebrate 2.4s ease-out 1 both;
+}
+@keyframes nl-dragon-celebrate{
+ 0%{transform:translate(-50%,7px) scale(.72);opacity:0}
+ 18%,67%{opacity:.95}
+ 100%{transform:translate(-50%,-20px) scale(1.18);opacity:0}
+}
+/* Speech near the distant cave opens to the left of the pet instead of
+   clipping on the right edge of the garden. */
+.github-garden:not(#taskGarden) .nl-dino[data-journey="cave"] .nl-dino-bubble{
+ left:auto;right:0;transform:translate(4px,5px) scale(.91);
+}
+.github-garden:not(#taskGarden) .nl-dino[data-journey="cave"].nl-speaking .nl-dino-bubble{
+ transform:translate(4px,0) scale(1);
+}
+@media(prefers-reduced-motion:reduce){
+ .github-garden .nl-dino.nl-dragon.nl-dragon-celebrate::after{animation:none;display:none}
+}

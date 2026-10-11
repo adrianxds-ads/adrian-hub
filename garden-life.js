@@ -28,6 +28,26 @@ const TTL=15*60*1000,MAX_STALE=30*60*1000;
 const mounted=new WeakSet();
 // Decorative journey state only; the task garden remains exclusively progress-driven.
 const journeys=new WeakMap();
+const personalities=new WeakMap();
+// Mood, phrases and reward reactions are transient, do not write score/history.
+let rewardBaseline=null;
+let lastRewardReaction=0;
+let lastUserActivity=Date.now();
+['pointerdown','keydown'].forEach(type=>document.addEventListener(type,()=>{lastUserActivity=Date.now();},{passive:true,capture:true}));
+const REWARD_COOLDOWN=30000;
+const AUTO_DIALOGUE_INTERVAL=165000;
+const AUTO_DIALOGUE_GRACE=90000;
+function gardenInView(host){
+ const rect=host?.getBoundingClientRect();
+ return !!rect&&rect.width>0&&rect.height>0&&rect.bottom>0&&rect.top<window.innerHeight&&
+  !document.querySelector('#immersiveLayer:not([hidden])');
+}
+function petState(host){
+ let data=personalities.get(host);
+ if(!data){data={lastTap:Date.now(),lastSpeech:0,lastAuto:Date.now(),lastLine:'',lines:new Map()};personalities.set(host,data);}
+ return data;
+}
+
 const JOURNEY_INTERVAL=16000;
 const travelDisabled=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function isTaskGarden(host){return host.id==='taskGarden'||!!host.closest('#taskJourney');}
@@ -139,8 +159,7 @@ function journeyTick(host,immediate=false){
  if(growing){
   if(visit(host,'plant')){
    const bubble=d.querySelector('.nl-dino-bubble');
-   if(bubble){bubble.textContent='¡Ha crecido otra hojita en nuestro jardín!';d.classList.add('nl-speaking');
-    clearTimeout(d.__bubbleTimer);d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),3100);}
+   if(bubble)speak(host,'¡Una hoja más! El bosque se acuerda de cada avance.',{celebrate:true});
   }
   return;
  }
@@ -158,6 +177,17 @@ function journeyTick(host,immediate=false){
 function journeyLoop(){
  if(document.hidden)return;
  document.querySelectorAll('.github-garden').forEach(host=>journeyTick(host));
+}
+function personalityLoop(){
+ if(document.hidden||travelDisabled())return;
+ for(const host of document.querySelectorAll('.github-garden')){
+  if(isTaskGarden(host)||!host.isConnected||!gardenInView(host))continue;
+  const d=host.querySelector('.nl-dino'),st=petState(host);
+  if(!d||Number(d.dataset.stage)===0)continue;
+  if(Date.now()-st.lastAuto<AUTO_DIALOGUE_INTERVAL||Date.now()-lastUserActivity<AUTO_DIALOGUE_GRACE||Date.now()-st.lastSpeech<AUTO_DIALOGUE_GRACE)continue;
+  // Rare spontaneous lines (not every 16-second journey tick).
+  speak(host,nextLine(host,phraseContext(host)),{automatic:true});
+ }
 }
 
 let weather=null,weatherAt=0,lastRequest=0,requesting=false;
@@ -215,11 +245,106 @@ function dinoSvg(){
  </svg>`;
 }
 const say={
- happy:['¡Una hoja nueva!','Hoy el jardín huele a victoria.','¡Mis alitas están de fiesta!'],
- curious:['¿Qué habrá dentro de la cueva?','Estoy contando mariposas.','¿Damos una vuelta?'],
- mischief:['He escondido una piedra.','Hoy me toca explorar.','Estoy tramando una pequeña dragontravesura.'],
- sleepy:['Zzz… cinco minutos más.','He soñado que volaba sobre Barcelona.','Shhh… duerme el bosque.']
+ happy:['¡Hoy tengo las alas especialmente contentas!','Este bosque crece con buenas ideas.','Acabo de aprender una palabra: ¡excelente!','¿Has visto qué bien están los árboles?','Hoy estoy para dar un saltito.'],
+ curious:['¿Ese árbol siempre fue tan alto?','Me pregunto qué hay detrás de la cueva.','Voy a contar las hojas. Otra vez.','¿Dónde habré dejado mi piedra favorita?','Tengo una teoría sobre las mariposas.'],
+ mischief:['Estoy tramando una pequeña dragontravesura.','He cambiado una piedra de sitio. Nadie lo notará.','Si ves una hoja al revés… no he sido yo.','He escondido una piña. A plena vista.','¿Los dragones necesitamos licencia para volar?'],
+ sleepy:['Shhh… duerme el bosque.','He soñado que volaba sobre Barcelona.','Mi cueva tiene cinco estrellas. Imaginarias.','Zzz… estoy vigilando con los ojos cerrados.','Mañana sigo explorando.'],
+ cave:['Mi cueva tiene una acústica estupenda. ¡Eco!','En casa se está de maravilla.','Aquí guardo mis tesoros: tres piedras y una hoja.','Mis alitas también necesitan descansar.'],
+ tree:['Este árbol sabe guardar secretos.','¿Cuántas primaveras tendrá?','Los árboles grandes también empezaron pequeños.','Me gusta ver cómo crecen sin prisa.'],
+ plant:['¡Hola, hojita!','Esta planta crece con cada pequeño avance.','Las raíces hacen su trabajo en silencio.','Creo que esta planta me está mirando.'],
+ clearing:['Aquí puedo estirar bien las alas.','Un rincón perfecto para pensar.','¿Dónde plantaremos la próxima semilla?','Me gusta este pedacito de bosque.'],
+ rain:['Está lloviendo en Barcelona: mejor bajo techo.','Las nubes están regando el jardín.','Hoy prefiero escuchar la lluvia desde la cueva.'],
+ wind:['Con este viento, mejor los pies en la tierra.','Mis alas hacen de veleta.','Viento a favor… de quedarme un rato aquí.'],
+ morning:['Buenos días, bosque.','El sol ya está despertando las hojas.','Voy a comprobar si ha crecido algo.'],
+ afternoon:['Una vuelta corta y regreso.','Esta tarde huele a aventuras pequeñas.'],
+ evening:['El bosque está bajando el ritmo.','Un paseo más antes de dormir.'],
+ special:['¡Otra estrella en nuestro cielo!','¡Una estrella más! La guardaré junto a la cueva.']
 };
+function bcnHour(){
+ try{return Number(new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Madrid',hour:'2-digit',hourCycle:'h23'}).format(new Date()));}
+ catch{return new Date().getHours();}
+}
+function phraseContext(host){
+ const d=host.querySelector('.nl-dino');
+ if(!d)return 'curious';
+ const place=d.dataset.journey;
+ if(weatherShelter())return 'rain';
+ const w=weather&&Date.now()-weatherAt<MAX_STALE?Number(weather.wind_speed_10m):NaN;
+ if(Number.isFinite(w)&&w>=30)return 'wind';
+ if(place==='cave')return 'cave';
+ if(place==='tree'||place==='plant'||place==='clearing')return place;
+ const hr=bcnHour();
+ if(hr>=7&&hr<11)return 'morning';
+ if(hr>=11&&hr<19)return 'afternoon';
+ if(hr>=19&&hr<23)return 'evening';
+ return d.dataset.mood||'curious';
+}
+function nextLine(host,key){
+ const st=petState(host),list=say[key]||say.curious;
+ // Rotate through every line in a context before repeating; avoid
+ // repeating the last line when switching between contexts.
+ let index=st.lines.get(key)||0;
+ let line=list[index%list.length];
+ if(line===st.lastLine&&list.length>1){index++;line=list[index%list.length];}
+ st.lines.set(key,index+1);st.lastLine=line;
+ return line;
+}
+function speak(host,line,{automatic=false,celebrate=false}={}){
+ const d=host?.querySelector('.nl-dino');if(!d||!d.isConnected)return false;
+ const bubble=d.querySelector('.nl-dino-bubble');if(!bubble)return false;
+ const st=petState(host);
+ if(automatic){
+  if(document.hidden||isTaskGarden(host)||travelDisabled()||Number(d.dataset.stage)===0||!gardenInView(host))return false;
+  if(Date.now()-lastUserActivity<AUTO_DIALOGUE_GRACE||Date.now()-st.lastTap<AUTO_DIALOGUE_GRACE||Date.now()-st.lastSpeech<AUTO_DIALOGUE_GRACE)return false;
+  if(d.classList.contains('nl-speaking'))return false;
+ }
+ bubble.textContent=line;
+ st.lastSpeech=Date.now();
+ if(automatic)st.lastAuto=Date.now();
+ d.classList.remove('nl-speaking');void d.offsetWidth;d.classList.add('nl-speaking');
+ clearTimeout(d.__bubbleTimer);
+ d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),celebrate?4400:3300);
+ if(celebrate){
+  d.classList.remove('nl-dragon-celebrate');void d.offsetWidth;d.classList.add('nl-dragon-celebrate');
+  clearTimeout(d.__celebrateTimer);
+  d.__celebrateTimer=setTimeout(()=>d.classList.remove('nl-dragon-celebrate'),2400);
+ }
+ return true;
+}
+function rewardInventory(detail){
+ const apps=detail?.apps;
+ if(!apps||typeof apps!=='object'||Array.isArray(apps))return null;
+ const normalized={};
+ for(const [id,value] of Object.entries(apps)){
+  const n=Number(value);
+  if(Number.isFinite(n)&&n>=0)normalized[id]=Math.floor(n);
+ }
+ return normalized;
+}
+function onRewardUpdate(event){
+ const next=rewardInventory(event.detail);
+ if(!next)return;
+ if(!rewardBaseline){rewardBaseline=next;return;} // do not celebrate already earned rewards on load
+ const gains=[];
+ for(const [id,n] of Object.entries(next)){
+  const prev=rewardBaseline[id];
+  // Never infer a new prize for an app that was not in the initial snapshot.
+  if(Number.isFinite(prev)&&n>prev){
+   const addedStars=Math.floor(n/5)-Math.floor(prev/5);
+   gains.push({id,gold:n-prev,stars:addedStars});
+  }
+ }
+ rewardBaseline=next; // read-only live observation; no new score or persistence
+ if(!gains.length||Date.now()-lastRewardReaction<REWARD_COOLDOWN||document.hidden)return;
+ const host=document.querySelector('#githubGarden');
+ const d=host?.querySelector('.nl-dino');
+ if(!host||!d||Number(d.dataset.stage)===0||travelDisabled()||!gardenInView(host))return;
+ const totalGold=gains.reduce((sum,a)=>sum+a.gold,0),star=gains.some(a=>a.stars>0);
+ const line=star?nextLine(host,'special'):(totalGold===1?'¡Un oro más conseguido! ¡Muy bien!':'¡'+totalGold+' oros nuevos! ¡Menuda cosecha!');
+ lastRewardReaction=Date.now();
+ speak(host,line,{celebrate:true});
+}
+window.addEventListener('hub:reward-summary-updated',onRewardUpdate);
 function dinoClick(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
  const state=d.dataset.mood||'curious',n=(Number(d.dataset.taps)||0)+1;
@@ -229,8 +354,9 @@ function dinoClick(host){
   else if(n%3===0)visit(host,'cave');
   else visit(host,n%2===0?'tree':'plant',Number(d.dataset.stage)>=3&&n%4===0);
  }
- const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:say[state][(n-1)%say[state].length];
- const bubble=d.querySelector('.nl-dino-bubble');bubble.textContent=msg;
+ const st=petState(host);st.lastTap=Date.now();
+ const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:
+  nextLine(host,((n%3===0||state==='sleepy')?state:phraseContext(host)));
  // A small wing celebration; occasional hover is unlocked only at stages 3–4.
  if(d.dataset.stage!=='0'){
   d.classList.remove('nl-dragon-flap','nl-dragon-flight');
@@ -240,8 +366,7 @@ function dinoClick(host){
   clearTimeout(d.__motionTimer);
   d.__motionTimer=setTimeout(()=>d.classList.remove('nl-dragon-flap','nl-dragon-flight'),2600);
  }
- d.classList.remove('nl-speaking');void d.offsetWidth;d.classList.add('nl-speaking');
- clearTimeout(d.__bubbleTimer);d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),3300);
+ speak(host,msg);
 }
 function updateDino(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
@@ -389,7 +514,8 @@ window.addEventListener('storage',e=>{if(!e.key||e.key===HISTORY_KEY||e.key===WE
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastRequest=0;schedule();}});
 setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
 setInterval(journeyLoop,JOURNEY_INTERVAL);
-window.NucleoGardenLife=Object.freeze({version:'1.3.0',refresh,weatherKind,mood});
+setInterval(personalityLoop,45000);
+window.NucleoGardenLife=Object.freeze({version:'1.4.0',refresh,weatherKind,mood});
 loadDragonArtwork();
 updateBarcelonaBar();
 schedule();

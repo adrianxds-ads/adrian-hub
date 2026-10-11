@@ -4,17 +4,29 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.63",
-    "build": "hub-30.4.63-20261011",
+    "version": "30.4.64",
+    "build": "hub-30.4.64-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Dragoncillo con recorridos vivos: pasea hacia árboles grandes existentes, descubre plantas concretas del progreso y visita la verdadera cueva del jardín, en lugar de oscilar entre posiciones arbitrarias.",
-      "Perspectiva animada hacia la cueva, descanso nocturno y refugio ante lluvia, llovizna, nieve o tormenta. Minivuelos ocasionales solo desde etapa 3 con viento estimado inferior a 30 km/h.",
-      "Nuevo crecimiento del jardín provoca visita y comentario breves sin crear o modificar recompensas. Etiquetas grandes de los árboles más discretas con puntero, conservando selección y foco.",
-      "El modo tareas de Biblioteca conserva el recorrido vinculado al avance real del podcast. Huevos, cinco umbrales de evolución, árboles, medallas e históricos sin cambios.",
-      "Pruebas Playwright 360/390/412/1280, cinco etapas, cueva/árbol/planta, lluvia/viento, crecimiento, reduced-motion y tarea de Biblioteca; Pixel físico pendiente."
+      "Dragoncillo con personalidad: diálogos contextualizados por árbol, planta, cueva, clima y franja horaria de Barcelona; rotación de frases sin repetición inmediata y pequeñas ocurrencias propias.",
+      "Conversaciones espontáneas poco frecuentes, solo tras inactividad y si el jardín está realmente visible; silencio durante interacción activa, juegos inmersivos, pestaña oculta o movimiento reducido.",
+      "Celebraciones visuales de cambios observados en los oros reales y estrellas (cada 5 oros por app) usando el libro y los eventos existentes. El primer estado leído es solo referencia: nunca se vuelven a premiar logros históricos al cargar.",
+      "Sin nuevos contadores ni datos guardados por la mascota; el libro de recompensas, el bosque, las apps y el recorrido de tareas de Biblioteca se mantienen intactos.",
+      "Pruebas Chrome con 360/390/412/1280, oro/estrella, diálogo, silencio activo, crecimiento, cinco etapas, clima y preservación del historial; prueba física de Pixel pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.63",
+        "build": "hub-30.4.63-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Dragoncillo con recorridos vivos: pasea hacia árboles grandes existentes, descubre plantas concretas del progreso y visita la verdadera cueva del jardín, en lugar de oscilar entre posiciones arbitrarias.",
+          "Perspectiva animada hacia la cueva, descanso nocturno y refugio ante lluvia, llovizna, nieve o tormenta. Minivuelos ocasionales solo desde etapa 3 con viento estimado inferior a 30 km/h.",
+          "Nuevo crecimiento del jardín provoca visita y comentario breves sin crear o modificar recompensas. Etiquetas grandes de los árboles más discretas con puntero, conservando selección y foco.",
+          "El modo tareas de Biblioteca conserva el recorrido vinculado al avance real del podcast. Huevos, cinco umbrales de evolución, árboles, medallas e históricos sin cambios.",
+          "Pruebas Playwright 360/390/412/1280, cinco etapas, cueva/árbol/planta, lluvia/viento, crecimiento, reduced-motion y tarea de Biblioteca; Pixel físico pendiente."
+        ]
+      },
       {
         "version": "30.4.62",
         "build": "hub-30.4.62-20261011",
@@ -702,7 +714,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "41bcacd360a07647c2c5709324456bfccdce535f8c6fe0ef342303b8be6eb2ae"
+          "sha256": "8cce34f9d0f222d032e25d81eab665b0bb29b9db828c5f0d1f53856c327c6009"
         },
         {
           "url": "version-verifier.js",
@@ -710,7 +722,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "159a9eb674642ac7afdda3421bf1cbbd87f4fb013aff36fa4f4eff76228ac656"
+          "sha256": "ddd7cb1d200785dcba0180133d0ebdcf1c17b514a7dfe8990442e80c7f55f8a6"
         },
         {
           "url": "styles.css",
@@ -718,15 +730,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "05a57eb5050472416670bd8158021748ed92a731651520e1acddeb390843142c"
+          "sha256": "f69ee77666e299b562ff5135776191a774543783dec90bfcd4535f81ec59d50c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "fffcdf0d478af96a9780be7fad8a42992864eec63983b61a84bc270980156d4a"
+          "sha256": "73624279e01a5f8e38085eacfec2e043275a8ae2c5bf5d1a2c67d98525885a2d"
         }
       ]
     },
-    "cacheBuild": "33462cedacfcbb70"
+    "cacheBuild": "0386ca5b0c88c8f5"
   },
   "apps": [
     {
@@ -1611,18 +1623,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.5",
-      "build": "sha256-db6211886914",
+      "version": "0.5.6",
+      "build": "sha256-bed148c163a1",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Jardín compartido con rutas libres solo en la portada. El modo tarea mantiene exclusivamente su recorrido de podcast y las sesiones guardadas."
+        "El jardín de tareas comparte diálogos ampliados bajo toque, sin charlas automáticas, celebraciones de oros ni cambios en la posición vinculada al podcast."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "8620196683bc64126cb8771c77af613bb49c535b547ead27590344abea93abb1"
+            "sha256": "2af4469550fbb8608143d10911901f03233403f5b7c7a5607f186f469c0a39c3"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1635,6 +1647,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.5",
+          "build": "sha256-db6211886914",
+          "date": "2026-10-11",
+          "changes": [
+            "Jardín compartido con rutas libres solo en la portada. El modo tarea mantiene exclusivamente su recorrido de podcast y las sesiones guardadas."
+          ]
+        },
         {
           "version": "0.5.4",
           "build": "sha256-baf595459f7a",

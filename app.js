@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.63';
-const HUB_BUILD='hub-30.4.63-20261011';
+const HUB_VERSION='30.4.64';
+const HUB_BUILD='hub-30.4.64-20261011';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -100,7 +100,7 @@ function renderHubStars(){
  const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');
  if(host&&count){count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas y '+s.totalGold+' oros acumulados en las aplicaciones');}
  const gold=document.querySelector('#hubGoldCount');if(gold)gold.textContent=String(s.totalGold);
- window.dispatchEvent(new Event('hub:reward-summary-updated'));
+ window.dispatchEvent(new CustomEvent('hub:reward-summary-updated',{detail:{apps:{...s.apps},stars:s.stars,totalGold:s.totalGold}}));
  const grammar=document.querySelector('[data-id="english"] .app-copy');
  if(grammar){
   let chip=grammar.querySelector('.app-gold-chip');
