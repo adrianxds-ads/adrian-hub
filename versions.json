@@ -1,20 +1,32 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T04:36:58.910397+00:00",
+  "generatedAt": "2026-10-11T04:39:05.889736+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.68",
-    "build": "hub-30.4.68-20261011",
+    "version": "30.4.69",
+    "build": "hub-30.4.69-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Grammar Quest Arcade v3.35.12: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
+      "Grammar Quest Arcade v3.35.13: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
       "Zona de preguntas, respuestas y barra amarilla bloqueada dentro del alto real del telefono: sin rebote ni scroll accidental en partida, manteniendo la pantalla de portada y el Coach desplazables.",
       "Aciertos con secuencia musical ascendente; errores con sonido descendente y vibracion muy breve (12 ms), sin vibracion en aciertos. Menos avisos repetidos del temporizador: solo senales en los ultimos 2 segundos.",
       "Boton Panel superior conectado a la salida segura y al rollback de la ronda actual. Conservados historiales, puntos, medallas, JSON, los ajustes de lectura previos y el tema accesible Luminous 1.2.",
       "Revisado con Playwright Chrome en 393x852, 360x740 y 393x660: scroll horizontal y vertical nulos, puntos vivos, salida Panel comprobada, sin errores JS."
     ],
     "history": [
+      {
+        "version": "30.4.68",
+        "build": "hub-30.4.68-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Grammar Quest Arcade v3.35.12: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
+          "Zona de preguntas, respuestas y barra amarilla bloqueada dentro del alto real del telefono: sin rebote ni scroll accidental en partida, manteniendo la pantalla de portada y el Coach desplazables.",
+          "Aciertos con secuencia musical ascendente; errores con sonido descendente y vibracion muy breve (12 ms), sin vibracion en aciertos. Menos avisos repetidos del temporizador: solo senales en los ultimos 2 segundos.",
+          "Boton Panel superior conectado a la salida segura y al rollback de la ronda actual. Conservados historiales, puntos, medallas, JSON, los ajustes de lectura previos y el tema accesible Luminous 1.2.",
+          "Revisado con Playwright Chrome en 393x852, 360x740 y 393x660: scroll horizontal y vertical nulos, puntos vivos, salida Panel comprobada, sin errores JS."
+        ]
+      },
       {
         "version": "30.4.67",
         "build": "hub-30.4.67-20261011",
@@ -759,7 +771,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "f382a0b55923c16ee4791ecf8773f84bb9ad7ff4fab9de7ead4c89014e57027a"
+          "sha256": "e93614fea585d73b9184ae2faa2d982e0df7f50c6d1bc0751b1b30abf3cf4dd9"
         },
         {
           "url": "version-verifier.js",
@@ -767,7 +779,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "e6176892f1cce8bca1e72ddcc2115d9981ce1819bfbbc9d84e0c929cb001ffb6"
+          "sha256": "44809a8ddb8269387ee4b21afdb06c75b28179a1790451e900a4ffb6f53a3f8f"
         },
         {
           "url": "styles.css",
@@ -775,22 +787,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "181d8baaa3f0152996fc54a0ffe0653939e6775c232899a9f5bfccd502dc9e80"
+          "sha256": "780ba3543e0191a769e2e870402f337d1610a1a9e02092c4c1581f268d054469"
         },
         {
           "url": "build-assets.js",
-          "sha256": "c8ed79e62fd15f10efbfd9bf550c809f9b3227dbe8ec5dd48f55c87b99209479"
+          "sha256": "955b7b6213435f5e116e785ba6c5b1a56924d441a94cdd1927d7cde4b6178eda"
         }
       ]
     },
-    "cacheBuild": "bb495816558f13ea"
+    "cacheBuild": "365766a6b1ba0424"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.12",
-      "build": "sha256-ff13b58f34a0",
+      "version": "3.35.13",
+      "build": "sha256-78d267cd5349",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -801,11 +813,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "df7ac97340c14e23b5b187a5f7ec282b94a8a91233587aad3f7fd893eda101c8"
+            "sha256": "add64965b52f6c981d0bd0e777a5605f9cf1f028b0129503f0d1df21bb9ca86b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "12dd28238678158eaa13e90df74b5fa2c690e7dd5c04b8bc01efee9497f9bdb3"
+            "sha256": "6b0329e4b36c811d4410be67a2cd30e692edbcbef0364dcb3ffb61fa7cada05c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -813,12 +825,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "79890d918c0c14b31578df3983c4735aa0eee0e7873610fec0dd9dcfbfd6196d"
+            "sha256": "6397465acdcc4faadce9f2ba4818a327ca768086f1fb0c634b440fb53759aff1"
           }
         ]
       },
-      "sourceCommit": "1f88c120eb6a7ea76447d469a7c57a7af66e62b4",
-      "cacheBuild": "3e3be7a370b0b7df",
+      "sourceCommit": "7b4132281c294b80c7fe700baa09961a29f57462",
+      "cacheBuild": "6b8aa64b17d3fe49",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
