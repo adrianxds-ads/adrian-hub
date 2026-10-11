@@ -1,18 +1,27 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T18:00:54.399988+02:00",
+  "generatedAt": "2026-10-11T18:07:14.608868+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.1",
-    "build": "hub-30.5.1-20261011",
+    "version": "30.5.2",
+    "build": "hub-30.5.2-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Núcleo OLED: entorno oscuro unificado para ocho apps educativas; superficies de lectura claras y contrastadas conservadas para preguntas y Coach.",
-      "Legibilidad de navegación y botones; indicador de sincronización separado de la barra inferior y textos diminutos corregidos en seis módulos.",
-      "Versiones, cachés y huellas regeneradas sin cambiar bancos de preguntas, algoritmos, históricos, JSON ni reglas de premios."
+      "Cierre de consistencia: Grammar Quest sincroniza título HTML, metadatos, versión JavaScript y caché PWA con la nueva entrega 3.36.2.",
+      "Se conserva la unificación visual y funcional OLED de la versión 30.5.1 y la integridad del histórico de aprendizaje."
     ],
     "history": [
+      {
+        "version": "30.5.1",
+        "build": "hub-30.5.1-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Núcleo OLED: entorno oscuro unificado para ocho apps educativas; superficies de lectura claras y contrastadas conservadas para preguntas y Coach.",
+          "Legibilidad de navegación y botones; indicador de sincronización separado de la barra inferior y textos diminutos corregidos en seis módulos.",
+          "Versiones, cachés y huellas regeneradas sin cambiar bancos de preguntas, algoritmos, históricos, JSON ni reglas de premios."
+        ]
+      },
       {
         "version": "30.5.0",
         "build": "hub-30.5.0-20261011",
@@ -813,7 +822,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "2c13f14a314250b9db39541db706810ff12c935e26bf363b15b8bdc4499a2615"
+          "sha256": "4bbce19df355330ee6c8139724778ded470be34854b7ab1f418fc9dcca2473d7"
         },
         {
           "url": "version-verifier.js",
@@ -821,7 +830,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "9a69fc679f9b9de275de28d6527ecb8da47f73fb8a77449f0ee600b9195c65ce"
+          "sha256": "12f568743015ec613b1b4737416d2b8d181e05e31d1c653a15d6e31962afabce"
         },
         {
           "url": "styles.css",
@@ -829,22 +838,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "9e2567b8d2a41f6948ed8c7dd92214b3e918e09c3a9486f9b58f091ed80674b5"
+          "sha256": "905c525be3dc0cc6c7c27602ad0a4a87d0f7b96b36ef2f876c56fe02d54e1c2c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "360b09e437b99a900c8f2d0823db3d0915e53711a426f0d580e63fd682c1b342"
+          "sha256": "56bf746a7029954190164b2fecd815638fe9600c6d3de380c60998b62dd90e83"
         }
       ]
     },
-    "cacheBuild": "34f2756cd00f30db"
+    "cacheBuild": "e52601fbbb36c6c3"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.1",
-      "build": "sha256-d5d240a97ffe",
+      "version": "3.36.2",
+      "build": "sha256-4db146421b9a",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -856,24 +865,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "f89ce846543cf1f2ebf86b671d67cdbfc2a632ceecc729b978aa00a2a5a6b5ec"
+            "sha256": "23d5a1120ea9d73acbf0808871b93caf442fca877e3904b238891aaa76efdbce"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "2e229ea05ac1149413d9f0137975a735e9c9b8a7ca5442151643c0f32707c9be"
+            "sha256": "b43f3e860ef6aa4a4aeace2a1937a215a183aa1e4cfa992b1d5f00eab4c60451"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "d49cc17c6ac386d6613238ffe6494b3c3cf9527204b4252173938ab98d8dc06a"
+            "sha256": "8433b68c0c1f6aeecba3356079a4d55eab2e7b695dbc588bca3124a481320e01"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "76c5c90d3494b4ee2142cc90ef5b962e7da41376f274e91bb16abcef4041f0ed"
+            "sha256": "1867cc82e39b0ea09ac00fc680f1266ab462ab0993f67f599d20016f0ccdc065"
           }
         ]
       },
-      "sourceCommit": "3d7f8f5b9a1572886f5db4c739084843c6eefe3e",
-      "cacheBuild": "7419034e55bf5a64",
+      "sourceCommit": "b2811e8531d150a01557b7044aed58987db18aa8",
+      "cacheBuild": "eb1c85e9abedcf34",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
