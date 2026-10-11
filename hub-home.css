@@ -1,0 +1,99 @@
+/* Hub Centro de Control v1 · 2026-10-11.
+   Layout-only upgrade; do not change garden progress, app launch, quiz visuals or rewards.
+   Imported LAST to override legacy home page selectors without rewriting base styles. */
+.hub-editorial .shell:has(.hub-top){padding-top:12px}
+.hub-top{display:grid;gap:10px;margin:0 0 25px}
+.hub-top .garden-shell{margin:0}
+.hub-top #githubGarden{width:100%;margin:0;max-width:100%}
+.hub-top .garden-shell .garden-intro{display:none!important}
+.hub-editorial .barcelona-weather{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:7px 16px;
+  padding:13px 17px;border-radius:17px;border:1px solid #b7d0ca;
+  background:linear-gradient(110deg,#fffef7,#e0eee7);
+  box-shadow:0 4px 14px #41675412;color:#254237;
+  font:700 16px/1.4 Roboto,"Segoe UI",Arial,sans-serif
+}
+.barcelona-weather>*{display:inline-flex;align-items:center;white-space:nowrap;min-height:24px}
+.barcelona-weather .bw-location{color:#245d4b;font-weight:900}
+.barcelona-weather .bw-hour{font-size:19px;color:#2b4a46;font-weight:900;font-variant-numeric:tabular-nums}
+.barcelona-weather .bw-weather{color:#436054}
+.barcelona-weather .bw-weather::first-letter{text-transform:uppercase}
+.barcelona-weather .bw-temp{font-size:20px;font-variant-numeric:tabular-nums;color:#1f4d3e;font-weight:900}
+.barcelona-weather .bw-wind{color:#2b5970;font-weight:850}
+.barcelona-weather[data-weather-state="unknown"]{background:#eff1ee;border-color:#c4cecc}
+.barcelona-weather[data-weather-state="unknown"] .bw-weather{color:#8a4651}
+.barcelona-weather[data-weather-state="cached"]{border-style:dashed}
+.hub-activity{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hub-activity-rewards{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0}
+.hub-top .hub-stars{
+ margin:0;min-height:52px;align-items:center;border-radius:14px;padding:9px 13px;
+ background:#fff6d9;border:1px solid #ddc796;
+}
+.hub-top .hub-stars>span{font-size:25px}
+.hub-top .hub-stars b{font-size:23px!important;font-variant-numeric:tabular-nums}
+.hub-top .hub-stars .hub-gold-count{font-size:16px!important}
+.hub-top .garden-task-medals{
+ margin:0;padding:10px 12px;font:800 16px/1.3 Roboto,Arial,sans-serif!important;
+ background:#e8f0e6;border:1px solid #b6cdb7;border-radius:12px;
+ color:#39634b;
+}
+.hub-top .hub-update-all{
+ margin:0;min-height:54px;min-width:186px;padding:12px 17px;border-radius:15px;
+ background:#315e50!important;border:1px solid #315e50!important;
+ color:#fff!important;box-shadow:0 4px 13px #285c4530;
+ font:850 17px/1.2 Roboto,Arial,sans-serif;cursor:pointer
+}
+.hub-top .hub-update-all:disabled{opacity:.65;cursor:wait}
+.hub-top .hub-update-all:focus-visible{outline:3px solid #bb8d25;outline-offset:3px}
+.hub-editorial .hub-top #updateSummary{
+ display:grid;grid-template-columns:26px minmax(0,1fr);gap:9px;align-items:center;
+ padding:8px 12px;margin:0;border-radius:12px;background:#e4edf0;
+ border:1px solid #d0dce0;box-shadow:none;min-height:40px;
+}
+.hub-top #updateSummary .update-icon{width:25px;height:25px;font-size:17px;border-radius:50%;background:none!important}
+.hub-top #updateSummary b{font-size:15px;font-weight:850;line-height:1.35}
+.hub-top #updateSummary small{font-size:14px!important;line-height:1.35}
+.hub-top #updateSummary.ok{background:#e7f1e9;border-color:#bfd9c6}
+.hub-top #updateSummary.warn,.hub-top #updateSummary.pending{background:#fff5e3;border-color:#e2cf9f}
+.hub-top #updateSummary.bad{background:#f9e9ec;border-color:#dfb7c0}
+.hub-version-details{
+ margin:32px 0 19px!important;padding:0!important;background:#fbfcfa!important;
+ border:1px solid #ccdadf!important;overflow:hidden
+}
+.hub-version-details>summary{
+ cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;
+ gap:12px;padding:16px 18px;color:#365867;font:850 17px/1.35 Roboto,Arial,sans-serif;
+ min-height:54px;
+}
+.hub-version-details>summary::-webkit-details-marker{display:none}
+.hub-version-details>summary:focus-visible{outline:3px solid #c59e4a;outline-offset:-4px}
+.hub-version-details>summary span{font-size:18px;transition:transform .18s}
+.hub-version-details[open]>summary span{transform:rotate(180deg)}
+.hub-version-details>.version-center-head,.hub-version-details>.update-actions,
+.hub-version-details>.update-progress,.hub-version-details>.version-list,
+.hub-version-details>.version-center-foot,.hub-version-details>.nucleo-style-details{margin-left:15px;margin-right:15px}
+.hub-version-details>.version-center-head{padding-top:10px}
+.hub-version-details>.nucleo-style-details{margin-bottom:15px}
+.hub-version-details>.version-list{margin-top:13px}
+.hub-version-details .update-actions{display:flex;justify-content:flex-start;max-width:350px;margin-top:13px}
+.hub-version-details #verifyVersionsBtn{min-height:52px;padding:10px 17px;width:100%}
+.hub-editorial #groups{margin-top:0}
+.hub-editorial #groups .app-version-chip{display:none!important}
+.hub-editorial #groups .group:first-child{margin-top:0}
+@media(max-width:560px){
+ .hub-editorial .shell:has(.hub-top){padding:7px 10px 70px}
+ .hub-top{gap:8px;margin-bottom:21px}
+ .hub-editorial .barcelona-weather{padding:10px 12px;gap:5px 12px;border-radius:13px}
+ .barcelona-weather .bw-hour{font-size:19px}
+ .barcelona-weather .bw-temp{font-size:20px}
+ .hub-activity{display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
+ .hub-activity-rewards{display:flex;flex-wrap:wrap;gap:8px}
+ .hub-top .hub-stars{min-height:48px}
+ .hub-top .garden-task-medals{font-size:14px!important;padding:8px}
+ .hub-top .hub-update-all{width:100%;min-height:52px}
+ .hub-top #updateSummary small{font-size:13px!important}
+ .hub-version-details>.version-center-head,.hub-version-details>.update-actions,
+ .hub-version-details>.update-progress,.hub-version-details>.version-list,
+ .hub-version-details>.version-center-foot,.hub-version-details>.nucleo-style-details{margin-left:10px;margin-right:10px}
+}
+@media(prefers-reduced-motion:reduce){.hub-version-details>summary span{transition:none}}

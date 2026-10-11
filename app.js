@@ -1,8 +1,6 @@
-const HUB_VERSION='30.4.57';
-const HUB_BUILD='hub-30.4.57-20261011';
+const HUB_VERSION='30.4.58';
+const HUB_BUILD='hub-30.4.58-20261011';
 const groupsEl=document.querySelector('#groups');
-const searchEl=document.querySelector('#search');
-const countEl=document.querySelector('#count');
 let registry=[];
 let versionCatalog=null;
 let versionMap={};
@@ -15,10 +13,8 @@ function launchUrl(app){
   if(v?.build)u.searchParams.set('build',v.build);
   return u.href;
 }
-function render(query=''){
-  const q=query.trim().toLocaleLowerCase('es');
-  const visible=registry.filter(a=>!q||[a.name,a.subtitle,a.description,...(a.features||[]),a.group].join(' ').toLocaleLowerCase('es').includes(q));
-  countEl.textContent=`${visible.length} app${visible.length===1?'':'s'}`;
+function render(){
+  const visible=registry;
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
   groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card" data-id="${esc(a.id)}"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
   renderTaskMedals();
@@ -45,7 +41,6 @@ async function loadHubData(){
   }
 }
 loadHubData().catch(e=>{console.error('Hub registry load failed',e);groupsEl.innerHTML='<div class="empty ad-card">No se pudo cargar el directorio.</div>';});
-searchEl.addEventListener('input',e=>render(e.target.value));
 function openAppInfo(id){
  const a=registry.find(x=>x.id===id),dialog=document.querySelector('#appInfoDialog');
  if(!a||!dialog)return;

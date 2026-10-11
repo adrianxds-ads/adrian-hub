@@ -21,7 +21,7 @@ async function loadDragonArtwork(){
  }catch(e){/* Keep the original mascot artwork if the SVG is unavailable offline. */}
 }
 
-const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day&timezone=Europe%2FMadrid';
+const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day,wind_speed_10m,wind_direction_10m&wind_speed_unit=kmh&timezone=Europe%2FMadrid';
 // The model's `rain`/`precipitation` values refer to a prior accumulation window,
 // not necessarily to rain falling at this instant. Use the instantaneous WMO code.
 const TTL=15*60*1000,MAX_STALE=30*60*1000;
@@ -138,7 +138,32 @@ function flakes(kind){
  }
  return s;
 }
+const BCN_CLOCK=new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'});
+function updateBarcelonaClock(){
+ const t=document.getElementById('barcelonaClock');
+ if(t){t.textContent=BCN_CLOCK.format(new Date());t.dateTime=new Date().toISOString();}
+}
+function updateBarcelonaBar(){
+ const strip=document.getElementById('barcelonaWeather');if(!strip)return;
+ updateBarcelonaClock();
+ const sky=document.getElementById('barcelonaCondition'),temp=document.getElementById('barcelonaTemperature'),wind=document.getElementById('barcelonaWind');
+ const valid=weather&&Date.now()-weatherAt<MAX_STALE;
+ const kind=valid?weatherKind(weather):null;
+ const age=valid?Date.now()-weatherAt:Infinity;
+ strip.dataset.weatherState=kind?(age>TTL?'cached':'live'):'unknown';
+ sky.textContent=kind?weatherKinds[kind].label:'Tiempo no disponible';
+ const c=kind&&weather.temperature_2m!=null?Number(weather.temperature_2m):NaN;
+ temp.textContent=Number.isFinite(c)?Math.round(c)+' °C':'— °C';
+ const speed=kind&&weather.wind_speed_10m!=null?Number(weather.wind_speed_10m):NaN;
+ const direction=kind&&Number.isFinite(Number(weather.wind_direction_10m))&&weather.wind_direction_10m!=null?Number(weather.wind_direction_10m):NaN;
+ const sectors=['N','NE','E','SE','S','SO','O','NO'];
+ const dir=Number.isFinite(direction)?' '+sectors[Math.round(((direction%360)+360)%360/45)%8]:'';
+ wind.textContent='〰 Viento '+(Number.isFinite(speed)?Math.round(speed)+' km/h'+dir:'— km/h');
+ const hour=kind&&typeof weather.time==='string'?weather.time.slice(11,16):null;
+ strip.title=kind?'Datos estimados de Open-Meteo para Barcelona'+(hour?', lectura de las '+hour+' h':'')+(age>TTL?'. Última lectura guardada.':'.'):'Datos meteorológicos no disponibles o antiguos.';
+}
 function applyWeather(host){
+ updateBarcelonaBar();
  const layer=host.querySelector('.nl-weather');if(!layer)return;
  if(!weather||Date.now()-weatherAt>MAX_STALE){
   host.removeAttribute('data-nl-weather');layer.hidden=true;return;
@@ -219,8 +244,9 @@ loadWeatherCache();
 ['pageshow','podcast-task-history-updated','adrian-sync-applied','adrian-sync-updated'].forEach(type=>window.addEventListener(type,schedule));
 window.addEventListener('storage',e=>{if(!e.key||e.key===HISTORY_KEY||e.key===WEATHER_KEY){if(e.key===WEATHER_KEY)loadWeatherCache();schedule();}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastRequest=0;schedule();}});
-setInterval(()=>{if(!document.hidden){refresh();refreshWeather();}},60000);
+setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
 window.NucleoGardenLife=Object.freeze({version:'1.1.0',refresh,weatherKind,mood});
 loadDragonArtwork();
+updateBarcelonaBar();
 schedule();
 })();

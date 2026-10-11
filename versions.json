@@ -4,15 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.57",
-    "build": "hub-30.4.57-20261011",
+    "version": "30.4.58",
+    "build": "hub-30.4.58-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Se retira Conjuga CAT del catálogo activo y del centro de actualizaciones para priorizar el uso inmediato de las aplicaciones de inglés.",
-      "La aplicación catalana se conserva archivada en su repositorio independiente, con su código e histórico de versión intactos; no se desinstala del móvil ni se borra almacenamiento o progreso.",
-      "Se mantienen las seis aplicaciones de inglés, Català Podcasts y las demás aplicaciones del Hub, sin tocar el jardín, dragón ni sus tareas."
+      "Centro de control del Hub: jardín y dragoncillo arriba, franja compacta con Barcelona, hora local, temperatura, estado del cielo y viento real en km/h con dirección cardinal disponible.",
+      "Fuera de portada: cabecera Todas tus apps, buscador, Nexo Visual y panel ChatGPT; las 15 apps del catálogo vigente se muestran directamente debajo, sin versiones redundantes en tarjetas.",
+      "Contadores reales de oros/estrellas y progreso del jardín conservados. ACTUALIZAR TODO sigue conectado al servicio de actualización, con mensajes visibles y diagnóstico completo en sección plegada.",
+      "Weather Open-Meteo amplía lectura de viento; hora Europe/Madrid y degradación honesta si no hay datos recientes. Sin cambios en sesiones, árboles, recompensas, aplicaciones ni sistemas de agentes.",
+      "Ensayos navegador 360/390/412/1280, actualización aislada, seis escenarios meteorológicos y veinte combinaciones de etapas del bosque. Pixel físico sin verificar."
     ],
     "history": [
+      {
+        "version": "30.4.57",
+        "build": "hub-30.4.57-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Se retira Conjuga CAT del catálogo activo y del centro de actualizaciones para priorizar el uso inmediato de las aplicaciones de inglés.",
+          "La aplicación catalana se conserva archivada en su repositorio independiente, con su código e histórico de versión intactos; no se desinstala del móvil ni se borra almacenamiento o progreso.",
+          "Se mantienen las seis aplicaciones de inglés, Català Podcasts y las demás aplicaciones del Hub, sin tocar el jardín, dragón ni sus tareas."
+        ]
+      },
       {
         "version": "30.4.56",
         "build": "hub-30.4.56-20261011",
@@ -634,7 +646,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "c80f418763baeb7ee4c071484eb5742edb3bff9b66f3ff01a8f722b5d00253e3"
+          "sha256": "78bdbc7099860b48272ef72b051e90dd56bca057ca549046ca1a514d21e7f8f6"
         },
         {
           "url": "version-verifier.js",
@@ -642,7 +654,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "a3b30701ea16c9ece73428e6e9b2238e914e0220c4349add04395c683b6d800c"
+          "sha256": "baff662741225c18a329b6bd900d336493d3a2e14ab0aba9eab5ee7686d976da"
         },
         {
           "url": "styles.css",
@@ -650,15 +662,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "4044e8f1c57425e42a5b09cc77a76afbcb9af37b902306d5eabc5804b4361a43"
+          "sha256": "640ef4a133f664a36c38e55857bd61ecbbc98d9468f659dafc8ef575179d05c3"
         },
         {
           "url": "build-assets.js",
-          "sha256": "1b44e6d7d3f4cdf070adf821b342d944c123380ca706f4400b3a043c1f8a3a0b"
+          "sha256": "604cae0b3212b908f925d2b974efcdbb464e6fceb0fca355aedc930f3181138d"
         }
       ]
     },
-    "cacheBuild": "c426fdb0cb18304f"
+    "cacheBuild": "96efc4ae6dbc84d7"
   },
   "apps": [
     {
