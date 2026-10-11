@@ -53,7 +53,7 @@ registry=json.loads((hub/'apps.json').read_text(encoding='utf-8'));registry['hub
 for a in [x['hub']]+x['apps']:
  if a['id']=='hub':files=[('app.js',hub/'app.js'),('version-verifier.js',hub/'version-verifier.js'),('index.html',hub/'index.html'),('styles.css',hub/'styles.css'),('service-worker.js',hub/'service-worker.js'),('build-assets.js',hub/'build-assets.js')]
  elif a['kind']=='public':
-  if args.hub_only:continue
+  if args.hub_only or a['id'] not in byid:continue
   base=byid[a['id']]['url'];repo=w/base.rstrip('/').split('/')[-1];s=(repo/'app.js').read_text(encoding='utf-8-sig');a['version']=re.search(r"const APP_VERSION\s*=\s*['\"]([^'\"]+)",s).group(1);files=[(base+f,repo/f) for f in ['app.js','index.html','service-worker.js','build-assets.js']]
   a['cacheBuild']=builds[repo.name];a['sourceCommit']=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip();a['sourceDirty']=bool(subprocess.check_output(['git','-C',str(repo),'status','--porcelain'],text=True).strip())
  elif a['kind']=='bundled':
