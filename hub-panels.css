@@ -1,0 +1,10 @@
+body[data-hub-root]{padding-bottom:calc(var(--ad-bottom-nav-height) + var(--ad-safe-area-bottom))}
+.hub-bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;min-height:var(--ad-bottom-nav-height);padding:0 max(4px,var(--ad-safe-area-right)) var(--ad-safe-area-bottom) max(4px,var(--ad-safe-area-left));background:var(--ad-bg);border-top:1px solid var(--ad-border)}
+.hub-bottom-nav a{display:flex;align-items:center;justify-content:center;min-height:64px;color:var(--ad-text-muted);font-size:14px;text-decoration:none;border-top:2px solid transparent}
+.hub-bottom-nav a[aria-current=page]{color:var(--ad-text);border-top-color:var(--ad-accent)}
+#hubSettings{width:min(560px,calc(100% - 32px));max-height:85dvh;background:var(--ad-surface);color:var(--ad-text);border:1px solid var(--ad-border);border-radius:var(--ad-radius-sm);padding:0}
+#hubSettings::backdrop{background:rgba(0,0,0,.75)}
+.hub-settings-shell{padding:var(--ad-space-3)}
+#hubSettingsOpen,#hubSettingsClose{min-width:52px;min-height:52px;background:transparent;color:var(--ad-text-muted);border:1px solid var(--ad-border);border-radius:var(--ad-radius-sm)}
+#hubSettingsClose{float:right}
+.hub-medal.locked{opacity:1}

@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T07:47:41.498247+00:00",
+  "generatedAt": "2026-10-11T10:31:50.385591+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.71",
-    "build": "hub-30.4.71-20261011",
+    "version": "30.5.0",
+    "build": "hub-30.5.0-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-      "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-      "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+      "Hub OLED terminado: Inicio, Módulos, Estadísticas y Coach, con navegación inferior y Ajustes en modal.",
+      "Tarjetas transparentes y accesos a las funciones existentes de Coach, estudio y flashcards; conserva recompensas, jardín y catálogo.",
+      "Grammar Quest 3.36.0 publicada y validada por Adrián en Pixel. La actualización conserva el progreso."
     ],
     "history": [
+      {
+        "version": "30.4.71",
+        "build": "hub-30.4.71-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+          "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+          "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        ]
+      },
       {
         "version": "30.4.70",
         "build": "hub-30.4.70-20261011",
@@ -793,7 +803,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "a0058dc3a836a8fef00b2ab4f1d67e7332302c32f303baa7bedf4bd46e40409f"
+          "sha256": "76555dcf33335dcbba409dfe51022dd56fa47019c58d59313eaf736e069e3d8a"
         },
         {
           "url": "version-verifier.js",
@@ -801,23 +811,39 @@
         },
         {
           "url": "index.html",
-          "sha256": "c2918b1732340b35417e078db808904d944a1aad6e613e8c4b715859c4a87928"
+          "sha256": "d6d106cbd0466b0d10b8ebb8641acb836bf95faa6e46113082fa937feae1528f"
         },
         {
           "url": "styles.css",
-          "sha256": "570be53f1f14a1ef0d732a877e8a89b10caaefad06e9b6e7c4df87c42fc62018"
+          "sha256": "1d9a0ff8c153f893d7989cddd7cf6f99d314917462c0e9ede6ac359c36feb468"
+        },
+        {
+          "url": "hub-panels.js",
+          "sha256": "d2a6cc3ab98489263b53f1f3a8fab258ad52d16e0212a3b48a18e12b67db0607"
+        },
+        {
+          "url": "hub-panels.css",
+          "sha256": "3f1148ffb41cb077d30a41a5fc12c364c6059cb3b269bebef0849ac569022ac3"
+        },
+        {
+          "url": "hub-oled-tokens.css",
+          "sha256": "d614da1317464b973f85daa443f4308e4f7388b4427623a92f2666175ca600d9"
+        },
+        {
+          "url": "manifest.webmanifest",
+          "sha256": "adb92e8526b9d6265c252bb568ba943124ed57638243d8296a1468dc676031c8"
         },
         {
           "url": "service-worker.js",
-          "sha256": "b6b0f6e3c51e8cfa06bd70216d65dd163ccaf564b7e7144a223031c711ddd27c"
+          "sha256": "8f907368935b020e071b0714500688311ec67089c24b5d78630e54e3d40e9ec1"
         },
         {
           "url": "build-assets.js",
-          "sha256": "a19a214688126ae2dfb4b1a24a17121387b20804a2e915e629e4837024b6222a"
+          "sha256": "bc964baab07ecedbe3ce856842bc7c09d903abb400e757b106d32313a23d4e0c"
         }
       ]
     },
-    "cacheBuild": "9559609ac6adb6fd"
+    "cacheBuild": "6733fcf4e17dd744"
   },
   "apps": [
     {
