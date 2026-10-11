@@ -1,0 +1,60 @@
+/* Dragon Garden · Barcelona skyline. Independent decorative layer;
+   no changes to original trees, CottageGarden coordinates, weather API or scores. */
+.github-garden:not(#taskGarden) > .nl-barcelona-landscape{
+ position:absolute;inset:auto 0 37% 0;height:clamp(72px,27%,112px);
+ overflow:hidden;z-index:3;pointer-events:none;
+ opacity:.68;isolation:isolate;
+}
+.nl-barcelona-landscape img{
+ display:block;width:100%;height:100%;
+ object-fit:fill;pointer-events:none;user-select:none;
+ filter:saturate(.75) brightness(.78);
+}
+.github-garden[data-bcn-phase="dawn"]{
+ background:linear-gradient(180deg,#253749 0%,#42576a 26%,#ad8b85 50%,#394e48 60%,#153025 100%)!important;
+}
+.github-garden[data-bcn-phase="day"]{
+ background:linear-gradient(180deg,#b4d1de 0%,#d3e1dd 35%,#e7dcc2 55%,#5a7568 59%,#244435 100%)!important;
+}
+.github-garden[data-bcn-phase="dusk"]{
+ background:linear-gradient(180deg,#25384c 0%,#58627d 24%,#bf8988 45%,#cba38a 54%,#3b5147 59%,#153025 100%)!important;
+}
+/* The existing dark original garden sky is the untouched nighttime fallback. */
+.github-garden[data-bcn-phase="night"]{
+ background:linear-gradient(180deg,#09141d 0%,#0e2232 39%,#1e3339 57%,#172f29 59%,#102018 100%)!important;
+}
+.github-garden[data-bcn-phase="dawn"] > .nl-barcelona-landscape{
+ opacity:.77;
+}
+.github-garden[data-bcn-phase="day"] > .nl-barcelona-landscape{
+ opacity:.61;
+}
+.github-garden[data-bcn-phase="day"] > .nl-barcelona-landscape img{
+ filter:saturate(.68) brightness(1.23);
+}
+.github-garden[data-bcn-phase="dusk"] > .nl-barcelona-landscape{
+ opacity:.87;
+}
+.github-garden[data-bcn-phase="dusk"] > .nl-barcelona-landscape img{
+ filter:saturate(.8) brightness(.96);
+}
+.github-garden[data-bcn-phase="night"] > .nl-barcelona-landscape{
+ opacity:.78;
+}
+.github-garden[data-bcn-phase="night"] > .nl-barcelona-landscape img{
+ filter:saturate(.64) brightness(.81);
+}
+.github-garden > .nl-barcelona-landscape[hidden]{display:none!important}
+/* Preserve earned stars (real rewards) but keep them subtle on bright skies. */
+.github-garden[data-bcn-phase="day"] .gg-earned-stars{
+ filter:drop-shadow(0 1px 1px #4d666670);
+}
+@media(max-width:560px){
+ .github-garden:not(#taskGarden) > .nl-barcelona-landscape{
+  bottom:37%;height:81px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .github-garden > .nl-barcelona-landscape,
+ .github-garden > .nl-barcelona-landscape img{transition:none!important;animation:none!important}
+}

@@ -7,6 +7,14 @@ const HISTORY_KEY='adrianEasyCatalanTaskSessionsV1';
 const WEATHER_KEY='nucleo_garden_weather_barcelona_v1';
 // The SVG is presentation-only and cannot change cottage tasks or plant growth.
 const DRAGON_URL=new URL('./garden-dragon.svg?v=1.1.0',document.currentScript?.src||location.href);
+// Purely decorative illustration; never substitutes or covers the progress trees.
+const BCN_LANDSCAPE_URL=new URL('./garden-barcelona.svg?v=1.0.0',document.currentScript?.src||location.href);
+const BCN_SKY_CLOCK=new Intl.DateTimeFormat('en-GB',{
+ timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit',hourCycle:'h23'
+});
+const BCN_SKY_DATE=new Intl.DateTimeFormat('en-CA',{
+ timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'
+});
 let dragonArtwork=null;
 function petArt(stage){return stage===0?eggSvg():(dragonArtwork||dinoSvg());}
 async function loadDragonArtwork(){
@@ -21,7 +29,7 @@ async function loadDragonArtwork(){
  }catch(e){/* Keep the original mascot artwork if the SVG is unavailable offline. */}
 }
 
-const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day,wind_speed_10m,wind_direction_10m&wind_speed_unit=kmh&timezone=Europe%2FMadrid';
+const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longitude=2.1686&current=temperature_2m,cloud_cover,weather_code,precipitation,rain,snowfall,is_day,wind_speed_10m,wind_direction_10m&wind_speed_unit=kmh&daily=sunrise,sunset&forecast_days=1&timezone=Europe%2FMadrid';
 // The model's `rain`/`precipitation` values refer to a prior accumulation window,
 // not necessarily to rain falling at this instant. Use the instantaneous WMO code.
 const TTL=15*60*1000,MAX_STALE=30*60*1000;
@@ -491,8 +499,71 @@ function updateEcosystem(host){
  }
 }
 
+// Barcelona is a miniaturised illustration, NOT a geographical map.
+// Use today's estimated sunrise and sunset when available; the soft
+// transitions start 40 minutes before and finish 35 minutes after.
+// If the estimate cannot be checked, choose a modest local-clock fallback,
+// without inventing an exact astronomical event.
+function bcnMinutes(){
+ const parts=BCN_SKY_CLOCK.formatToParts(new Date());
+ const hour=Number(parts.find(x=>x.type==='hour')?.value);
+ const minute=Number(parts.find(x=>x.type==='minute')?.value);
+ return Number.isFinite(hour)&&Number.isFinite(minute)?hour*60+minute:NaN;
+}
+function bcnLocalDate(){
+ const parts=BCN_SKY_DATE.formatToParts(new Date());
+ const m=Object.fromEntries(parts.filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
+ return [m.year,m.month,m.day].join('-');
+}
+function bcnSunMinutes(value,today){
+ if(typeof value!=='string'||!value.startsWith(today+'T'))return null;
+ const match=/T(\d{2}):(\d{2})/.exec(value);
+ if(!match)return null;
+ const h=Number(match[1]),m=Number(match[2]);
+ return h<24&&m<60?h*60+m:null;
+}
+function barcelonaPhase(){
+ const minute=bcnMinutes();
+ if(!Number.isFinite(minute))return 'night';
+ const recent=weather&&weatherAt&&Date.now()-weatherAt<MAX_STALE;
+ if(recent){
+  const date=bcnLocalDate();
+  const sunrise=bcnSunMinutes(weather.sunrise_local,date);
+  const sunset=bcnSunMinutes(weather.sunset_local,date);
+  if(sunrise!==null&&sunset!==null&&sunrise<sunset){
+   if(minute>=sunrise-40&&minute<sunrise+25)return 'dawn';
+   if(minute>=sunset-40&&minute<sunset+35)return 'dusk';
+   return minute<sunrise-40||minute>=sunset+35?'night':'day';
+  }
+  if(weather.is_day===0||weather.is_day===1)
+   return weather.is_day===1?'day':'night';
+ }
+ return minute>=7*60&&minute<9*60+30?'dawn':
+        minute>=18*60&&minute<20*60?'dusk':
+        minute>=9*60+30&&minute<18*60?'day':'night';
+}
+function updateBarcelonaLandscape(host){
+ if(!host||isTaskGarden(host))return;
+ let layer=host.querySelector(':scope > .nl-barcelona-landscape');
+ if(!layer){
+  layer=document.createElement('div');
+  layer.className='nl-barcelona-landscape';
+  layer.setAttribute('aria-hidden','true');
+  const artwork=document.createElement('img');
+  artwork.src=BCN_LANDSCAPE_URL.href;
+  artwork.alt='';
+  artwork.decoding='async';
+  artwork.draggable=false;
+  artwork.addEventListener('error',()=>{layer.hidden=true;});
+  layer.appendChild(artwork);
+  host.appendChild(layer);
+ }
+ const phase=barcelonaPhase();
+ if(host.dataset.bcnPhase!==phase)host.dataset.bcnPhase=phase;
+}
 function applyWeather(host){
  updateBarcelonaBar();
+ updateBarcelonaLandscape(host);
  updateEcosystem(host);
  const layer=host.querySelector('.nl-weather');if(!layer)return;
  if(!weather||Date.now()-weatherAt>MAX_STALE){
@@ -526,7 +597,14 @@ async function refreshWeather(){
   if(!res.ok)throw new Error('weather '+res.status);
   const data=await res.json();
   if(!data.current||!Number.isFinite(Number(data.current.weather_code)))throw Error('weather data');
-  weather=data.current;weatherAt=Date.now();
+  weather={...data.current};
+  if(Array.isArray(data.daily?.sunrise)&&Array.isArray(data.daily?.sunset)){
+   const sunrise=data.daily.sunrise[0],sunset=data.daily.sunset[0];
+   if(typeof sunrise==='string'&&typeof sunset==='string'){
+    weather.sunrise_local=sunrise;weather.sunset_local=sunset;
+   }
+  }
+  weatherAt=Date.now();
   try{localStorage.setItem(WEATHER_KEY,JSON.stringify({at:weatherAt,current:weather}));}catch{}
  }catch(e){/* Retain a recent real reading or show no current weather; never invent it. */}
  finally{requesting=false;document.querySelectorAll('.github-garden').forEach(host=>{applyWeather(host);journeyTick(host,true);});}
@@ -581,7 +659,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastReque
 setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
 setInterval(journeyLoop,JOURNEY_INTERVAL);
 setInterval(personalityLoop,45000);
-window.NucleoGardenLife=Object.freeze({version:'1.5.0',refresh,weatherKind,mood});
+window.NucleoGardenLife=Object.freeze({version:'1.6.0',refresh,weatherKind,mood});
 loadDragonArtwork();
 updateBarcelonaBar();
 schedule();

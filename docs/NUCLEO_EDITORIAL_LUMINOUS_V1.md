@@ -211,3 +211,6 @@ Burbujas de diálogo orientadas por la posición visible actual, sin desbordamie
 
 ## Luminous 1.2 · escritos y Coach (2026-10-11)
 Se unifica el contraste de los informes del Coach, los patrones de error, los ejemplos y los campos JSON en las ocho copias de la hoja canónica. Fondos claros opacos, tinta #25282C, texto de lectura 19 px y apoyo 16 px. Se mantienen sin cambios preguntas, tiempos, puntuaciones, progreso, rachas históricas y colores semánticos.
+
+## Barcelona · Skyline + ciclo solar (11/10/2026, Hub 30.4.70)
+Panorámica SVG de Barcelona tras los árboles, cielo de cuatro ambientes Europe/Madrid, sunrise/sunset de Open-Meteo cuando hay datos; modo tarea de Biblioteca sin skyline. Sin tocar progreso, medallas, histórico ni comportamiento de los juegos. tests/test_garden_barcelona.py con dieciséis combinaciones, accesibilidad, degradación y modo tarea. Pixel físico pendiente.

@@ -4,17 +4,29 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.69",
-    "build": "hub-30.4.69-20261011",
+    "version": "30.4.70",
+    "build": "hub-30.4.70-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Grammar Quest Arcade v3.35.13: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
-      "Zona de preguntas, respuestas y barra amarilla bloqueada dentro del alto real del telefono: sin rebote ni scroll accidental en partida, manteniendo la pantalla de portada y el Coach desplazables.",
-      "Aciertos con secuencia musical ascendente; errores con sonido descendente y vibracion muy breve (12 ms), sin vibracion en aciertos. Menos avisos repetidos del temporizador: solo senales en los ultimos 2 segundos.",
-      "Boton Panel superior conectado a la salida segura y al rollback de la ronda actual. Conservados historiales, puntos, medallas, JSON, los ajustes de lectura previos y el tema accesible Luminous 1.2.",
-      "Revisado con Playwright Chrome en 393x852, 360x740 y 393x660: scroll horizontal y vertical nulos, puntos vivos, salida Panel comprobada, sin errores JS."
+      "Dragon Garden: panorama ilustrado de Barcelona con Montjuïc, Torre Glòries, Sagrada Família y Tibidabo detrás del bosque real, sin ser una reproducción geográfica exacta.",
+      "Cuatro ambientes de amanecer, día, atardecer y noche usando hora Europe/Madrid y, cuando están disponibles y recientes, valores de sunrise/sunset suministrados por Open-Meteo para la fecha local.",
+      "Capa visual independiente, no interactiva: mantiene árboles, cueva, etapas, mascota, meteorología, medallas, historial y progreso. La Biblioteca no muestra el nuevo fondo en el modo tareas.",
+      "Conserva por completo las novedades de Coach (30.4.67), estabilidad arcade (30.4.68) y correcciones de juego inmersivo (30.4.69).",
+      "Regresiones Playwright: 4 fases x 4 anchuras; datos astronómicos simulados, clima ausente, movimiento reducido, SVG ausente, Biblioteca y Hub. Pixel físico pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.69",
+        "build": "hub-30.4.69-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Grammar Quest Arcade v3.35.13: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
+          "Zona de preguntas, respuestas y barra amarilla bloqueada dentro del alto real del telefono: sin rebote ni scroll accidental en partida, manteniendo la pantalla de portada y el Coach desplazables.",
+          "Aciertos con secuencia musical ascendente; errores con sonido descendente y vibracion muy breve (12 ms), sin vibracion en aciertos. Menos avisos repetidos del temporizador: solo senales en los ultimos 2 segundos.",
+          "Boton Panel superior conectado a la salida segura y al rollback de la ronda actual. Conservados historiales, puntos, medallas, JSON, los ajustes de lectura previos y el tema accesible Luminous 1.2.",
+          "Revisado con Playwright Chrome en 393x852, 360x740 y 393x660: scroll horizontal y vertical nulos, puntos vivos, salida Panel comprobada, sin errores JS."
+        ]
+      },
       {
         "version": "30.4.68",
         "build": "hub-30.4.68-20261011",
@@ -771,7 +783,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "e93614fea585d73b9184ae2faa2d982e0df7f50c6d1bc0751b1b30abf3cf4dd9"
+          "sha256": "d71cf9bf4a7ed76cdbe94e42f790c9c148da671e3c43f28e1f48d18ea0170dcf"
         },
         {
           "url": "version-verifier.js",
@@ -779,7 +791,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "44809a8ddb8269387ee4b21afdb06c75b28179a1790451e900a4ffb6f53a3f8f"
+          "sha256": "64ba56975875336a90870c355ab31e638c5c591cfd39c139893573578c8a4fef"
         },
         {
           "url": "styles.css",
@@ -787,15 +799,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "780ba3543e0191a769e2e870402f337d1610a1a9e02092c4c1581f268d054469"
+          "sha256": "f2382e4e91f90abeb88a558cfdaf268213cc204e72d2cbe24ebba2f9cc9066f7"
         },
         {
           "url": "build-assets.js",
-          "sha256": "955b7b6213435f5e116e785ba6c5b1a56924d441a94cdd1927d7cde4b6178eda"
+          "sha256": "6356862ffc92d907abaadc8ec9a1a74b80ca5da0dabc66dd0be104aa0fbe8c49"
         }
       ]
     },
-    "cacheBuild": "365766a6b1ba0424"
+    "cacheBuild": "cb1339291af6b11d"
   },
   "apps": [
     {
@@ -1743,18 +1755,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.7",
-      "build": "sha256-b6dcee5ff1c9",
+      "version": "0.5.8",
+      "build": "sha256-a12853861764",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Hoja de estilos compartida del microecosistema añadida al jardín; los efectos ambientales quedan deliberadamente desactivados en el modo tareas. Sin cambios en podcast ni historial."
+        "Capa de estilo compartida sin skyline en tarea; datos y recorrido de podcast intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "3335636de7c69f3519129b867e6338e92b09d7e566a23192e2edda130ff156c4"
+            "sha256": "f1c4bcafcacc9cc4bbad544a5617b0251051fd6dc1ef0ee8f7ea70c06d829f49"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1767,6 +1779,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.7",
+          "build": "sha256-b6dcee5ff1c9",
+          "date": "2026-10-11",
+          "changes": [
+            "Hoja de estilos compartida del microecosistema añadida al jardín; los efectos ambientales quedan deliberadamente desactivados en el modo tareas. Sin cambios en podcast ni historial."
+          ]
+        },
         {
           "version": "0.5.6",
           "build": "sha256-bed148c163a1",
