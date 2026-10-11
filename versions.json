@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T06:12:20.213693+00:00",
+  "generatedAt": "2026-10-11T07:47:41.498247+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -823,47 +823,65 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.16",
-      "build": "sha256-b142db72ba66",
+      "version": "3.36.0",
+      "build": "sha256-058dde77967e",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Grammar Quest Focus OLED para Pixel 10: fondo oscuro, cabecera mínima con barra de avance, puntos y pausa; respuestas verticales grandes con contorno cromático.",
-        "Velocidad muestra pregunta y opciones en el mismo render; Recuerdo activo solo revela opciones al tocar la pantalla, sin temporizador ni cuadrado de colores.",
-        "Cronómetro fantasma de milisegundos sin límite de 15 s; respuesta correcta resaltada en verde y avance automático. La pausa excluye su duración de las métricas.",
-        "Se conservan banco de 3.000 ejercicios, calificación por exactitud, adaptación, historial, JSON y guardado; pruebas Chrome móvil 360/390/393 y ronda completa de 15."
+        "Fondo OLED negro puro y cuatro opciones verticales centradas; controles táctiles amplios y sin temporizador visual.",
+        "Recuerdo activo conserva el espacio de las respuestas: cero desplazamiento al revelarlas; pausa de corrección con opciones bloqueadas.",
+        "Instalación validada de recursos antes de activar la nueva caché; actualización local comprobada conservando progreso e historial."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "1cd6806b6c5b3c825b0660c688ae7d7984a09a04c400383eb774e8bb23a279bf"
+            "sha256": "859080c986655c550209126c9f7e6f08bd2267a42a954e8471199a391ddbdf58"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "b142db72ba66e89ce762a1dd37f22b93cffe89d5413570dc218736f4b221d622"
+            "sha256": "058dde77967ead066fc38752f2845b7d5f022e8f9c5c81b06f004880e39b11aa"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/pixel-quiz-layout.css",
             "sha256": "acef8b12897b8d001afbd1b01b975d5fb715f84bd66968c032372162294a191d"
           },
           {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/grammar-focus.css",
+            "sha256": "dc9c4ed74e93955b97da2075c5ddba24c53aaec2098e78d46b65ea219ba1aeff"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/grammar-focus.js",
+            "sha256": "64ca3369d1ca489f7d7f233bf272ecd009d83ef8a0267b6104603776e65b0af3"
+          },
+          {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "e0c33aceb298aff60ac0bdaec52437b22c2d19f69cee5201a445a455aa8b3b0d"
+            "sha256": "4f0519a22ce32196d4885ef2464a62f1a7f4395359ef255a621ca6e541759601"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "85fac23c1e58dde9ae854d219a1501bb8268c559974af388b785a14e7e31aed8"
+            "sha256": "cd320d60e2965ede3c3baa5828d987a2ca993b4a323e3937a1c56ff723e92896"
           }
         ]
       },
-      "sourceCommit": "202531c42ef26227c25248821795a1b5f3e7eb4f",
-      "cacheBuild": "d313a25a68119869",
+      "sourceCommit": "fc78fd3773cfd0dab23f3f93c948b17feb569449",
+      "cacheBuild": "3f3de46b56a833c1",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.16",
+          "build": "sha256-b142db72ba66",
+          "date": "2026-10-11",
+          "changes": [
+            "Grammar Quest Focus OLED para Pixel 10: fondo oscuro, cabecera mínima con barra de avance, puntos y pausa; respuestas verticales grandes con contorno cromático.",
+            "Velocidad muestra pregunta y opciones en el mismo render; Recuerdo activo solo revela opciones al tocar la pantalla, sin temporizador ni cuadrado de colores.",
+            "Cronómetro fantasma de milisegundos sin límite de 15 s; respuesta correcta resaltada en verde y avance automático. La pausa excluye su duración de las métricas.",
+            "Se conservan banco de 3.000 ejercicios, calificación por exactitud, adaptación, historial, JSON y guardado; pruebas Chrome móvil 360/390/393 y ronda completa de 15."
+          ]
+        },
         {
           "version": "3.35.15",
           "build": "sha256-1c9ee7eb038f",
