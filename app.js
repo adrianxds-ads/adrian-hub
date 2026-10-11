@@ -1,5 +1,5 @@
-const HUB_VERSION='30.4.58';
-const HUB_BUILD='hub-30.4.58-20261011';
+const HUB_VERSION='30.4.59';
+const HUB_BUILD='hub-30.4.59-20261011';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -100,6 +100,7 @@ function renderHubStars(){
  const s=readHubStars(),host=document.querySelector('#hubStarCounter'),count=document.querySelector('#hubStarCount');
  if(host&&count){count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas y '+s.totalGold+' oros acumulados en las aplicaciones');}
  const gold=document.querySelector('#hubGoldCount');if(gold)gold.textContent=String(s.totalGold);
+ window.dispatchEvent(new Event('hub:reward-summary-updated'));
  const grammar=document.querySelector('[data-id="english"] .app-copy');
  if(grammar){
   let chip=grammar.querySelector('.app-gold-chip');
@@ -177,6 +178,7 @@ async function verifyEntry(entry){
  const type=entry.kind==='private'?'private':entry.kind==='extension'?'extension':!evidence.ok?'unverified':pending?'cache':'current';
  versionAudit[entry.id]={ok:evidence.ok,pending,type,installed:installed.state,prepared:installed.prepared};
  setVersionStatus(entry.id,pending?'CACHÉ ANTERIOR · PUBLICACIÓN VERIFICADA':evidence.text,pending?'pending':evidence.kind);
+ window.dispatchEvent(new CustomEvent('hub:version-audit',{detail:{id:entry.id}}));
  return versionAudit[entry.id];
 }
 function renderAuditSummary(){
@@ -214,7 +216,9 @@ async function refreshHubWorker(stamp){
   const reg=await navigator.serviceWorker.register(sw.href,{scope:new URL('./',location.href).href,updateViaCache:'none'});try{await reg.update();}catch{}
 }
 async function updateAllVersions(){
-  if(!versionCatalog)return;const checkBtn=document.querySelector('#verifyVersionsBtn'),btn=document.querySelector('#updateAllVersionsBtn'),bar=document.querySelector('#updateProgressBar'),label=document.querySelector('#updateProgressLabel');
+  if(!versionCatalog)return;
+  window.dispatchEvent(new Event('hub:bulk-update-start'));
+  const checkBtn=document.querySelector('#verifyVersionsBtn'),btn=document.querySelector('#updateAllVersionsBtn'),bar=document.querySelector('#updateProgressBar'),label=document.querySelector('#updateProgressLabel');
   if(checkBtn)checkBtn.disabled=true;if(btn){btn.disabled=true;btn.textContent='ACTUALIZANDO…';}const stamp=String(Date.now());
   try{
     await refreshVersionCatalog(true);const publicApps=orderedVersionEntries().filter(x=>x.kind==='public');let done=0;if(bar){bar.hidden=false;bar.max=publicApps.length;bar.value=0;}if(label)label.textContent=`0 / ${publicApps.length}`;updateSummary('checking','Actualizando todo el Hub','Preparando las aplicaciones sin tocar tu progreso…','↓');
@@ -226,7 +230,7 @@ async function updateAllVersions(){
     const failed=blocked.length+results.filter(x=>x.status==='rejected').length;if(failed)updateSummary('warn','Actualización parcial',`${publicApps.length-failed} apps preparadas · ${failed} requieren nueva comprobación.`,'!');
     else updateSummary('ok','Actualización preparada','Termina las sesiones y cierra sus pestañas para activar las nuevas versiones. Se conserva el progreso y la caché anterior hasta entonces.','✓');
   }catch(e){console.error('Update all failed',e);updateSummary('bad','No se pudo completar la actualización','No se han borrado datos de progreso. Vuelve a intentarlo.','!');}
-  finally{if(bar)bar.hidden=true;if(label)label.textContent='';if(btn){btn.disabled=false;btn.textContent='ACTUALIZAR TODO';}if(checkBtn)checkBtn.disabled=false;}
+  finally{if(bar)bar.hidden=true;if(label)label.textContent='';if(btn){btn.disabled=false;btn.textContent='ACTUALIZAR TODO';}if(checkBtn)checkBtn.disabled=false;window.dispatchEvent(new Event('hub:bulk-update-finish'));}
 }
 function openVersionDialog(id){
   const entry=id==='hub'?versionCatalog?.hub:versionFor(id),dialog=document.querySelector('#versionDialog'),body=document.querySelector('#versionDialogBody');if(!entry||!dialog||!body)return;

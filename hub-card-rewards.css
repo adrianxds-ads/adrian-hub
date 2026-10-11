@@ -1,0 +1,91 @@
+/* Phase 2 · compact, attainable quiz medals and verified per-PWA update control.
+   Keeps established Hub colors and card layout. */
+.hub-editorial #groups .app{position:relative;overflow:hidden}
+.hub-editorial #groups .app:has(.hub-card-foot) .app-launch{
+  padding-bottom:10px;min-height:96px
+}
+.hub-editorial #groups .app:has(.hub-card-foot) .app-info{
+  top:18px;transform:none;right:11px;z-index:2
+}
+.hub-card-foot{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+  gap:5px 8px;padding:8px 11px 10px;margin:0;border-top:1px solid #bdcfd755;
+  background:linear-gradient(100deg,#eff6f68c,#ffffff71);
+  min-height:61px;
+}
+.hub-card-medals{
+  display:flex;align-items:center;flex-wrap:nowrap;gap:7px;min-width:0;
+}
+.hub-medal{
+  --medal:#64788b;display:flex;align-items:center;gap:2px;
+  min-width:38px;max-width:58px;border-radius:9px;padding:4px 4px;
+  background:#e8ebed;border:1px solid #c2cbd0;
+  color:#515c63;filter:grayscale(.72);opacity:.75;
+  font:900 13px/1.1 Roboto,"Segoe UI",sans-serif;
+}
+.hub-medal-emblem{
+  width:24px;height:24px;flex:0 0 24px;border-radius:50%;display:grid;
+  place-items:center;border:2px solid #87969a;
+  background:#d1d8d7;color:#57636a;font:900 11px/1 Roboto,sans-serif;
+}
+.hub-medal-number{
+  min-width:11px;text-align:center;font-variant-numeric:tabular-nums;
+  font-size:12px
+}
+.hub-medal-blue{--medal:#5376c0}
+.hub-medal-violet{--medal:#8360bd}
+.hub-medal-gold{--medal:#bd901f}
+.hub-medal-star{--medal:#b1830d}
+.hub-medal-star .hub-medal-emblem{font-size:17px}
+.hub-medal.earned{
+  filter:none;opacity:1;background:color-mix(in srgb,var(--medal) 14%,white);
+  border-color:color-mix(in srgb,var(--medal) 60%,white);
+  color:#293d4b
+}
+.hub-medal.earned .hub-medal-emblem{
+  color:white;background:var(--medal);border-color:color-mix(in srgb,var(--medal) 65%,white);
+  box-shadow:0 1px 4px #345c5740
+}
+.hub-medal-gold.earned .hub-medal-emblem,.hub-medal-star.earned .hub-medal-emblem{
+  color:#302306;background:#f0c653;border-color:#b88920
+}
+.hub-card-update{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  min-width:102px;min-height:52px;padding:8px 10px;
+  background:#fffdf7;border:1px solid #9ebdb3;border-radius:12px;
+  color:#235644;cursor:pointer;font:850 14px/1.25 Roboto,"Segoe UI",sans-serif;
+  text-align:center;white-space:normal
+}
+.hub-card-update-icon{font-size:21px;line-height:1}
+.hub-card-update:hover{background:#e8f4eb;border-color:#538b70}
+.hub-card-update:focus-visible{outline:3px solid #aa7a16;outline-offset:2px}
+.hub-card-update:disabled{opacity:.7;cursor:wait}
+.hub-card-update[data-state="pending"]{background:#fff0ce;border:2px solid #bc8933;color:#70451d}
+.hub-card-update[data-state="prepared"]{background:#e6f0e7;border-color:#549078;color:#27543d}
+.hub-card-update[data-state="current"]{background:#eaf1ee;border-color:#accaba;color:#537368}
+.hub-card-update[data-state="error"]{background:#fbecee;border-color:#d7aeb4;color:#883c4b}
+.hub-card-update[data-state="checking"] .hub-card-update-icon{animation:hub-card-spin 1.1s linear infinite}
+@keyframes hub-card-spin{to{transform:rotate(360deg)}}
+@media(max-width:560px){
+ .hub-card-foot{padding:8px 11px 11px;gap:5px}
+ .hub-card-medals{gap:6px}
+ .hub-medal{min-width:39px;padding:4px;gap:3px}
+ .hub-card-update{min-height:52px;min-width:103px;font-size:14px}
+ .hub-editorial #groups .app:has(.hub-card-foot) .app-launch{min-height:93px}
+}
+@media(max-width:340px){
+ .hub-card-foot{gap:5px}
+ .hub-medal{min-width:34px;gap:1px;padding:3px}
+ .hub-medal-emblem{width:21px;height:21px;flex-basis:21px}
+ .hub-card-update{min-width:88px;padding:7px 5px}
+}
+/* Keep the common state tiny. Show a text label only when action needs attention. */
+.hub-card-update{min-width:52px;width:52px;padding:8px;flex:0 0 auto}
+.hub-card-update-label{display:none}
+.hub-card-update[data-state="pending"],.hub-card-update[data-state="prepared"],
+.hub-card-update[data-state="error"],.hub-card-update[data-state="checking"]{width:auto;min-width:108px}
+.hub-card-update[data-state="pending"] .hub-card-update-label,
+.hub-card-update[data-state="prepared"] .hub-card-update-label,
+.hub-card-update[data-state="error"] .hub-card-update-label,
+.hub-card-update[data-state="checking"] .hub-card-update-label{display:inline}
+@media(prefers-reduced-motion:reduce){.hub-card-update[data-state="checking"] .hub-card-update-icon{animation:none}}

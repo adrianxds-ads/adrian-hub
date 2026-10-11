@@ -4,17 +4,29 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.58",
-    "build": "hub-30.4.58-20261011",
+    "version": "30.4.59",
+    "build": "hub-30.4.59-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Centro de control del Hub: jardín y dragoncillo arriba, franja compacta con Barcelona, hora local, temperatura, estado del cielo y viento real en km/h con dirección cardinal disponible.",
-      "Fuera de portada: cabecera Todas tus apps, buscador, Nexo Visual y panel ChatGPT; las 15 apps del catálogo vigente se muestran directamente debajo, sin versiones redundantes en tarjetas.",
-      "Contadores reales de oros/estrellas y progreso del jardín conservados. ACTUALIZAR TODO sigue conectado al servicio de actualización, con mensajes visibles y diagnóstico completo en sección plegada.",
-      "Weather Open-Meteo amplía lectura de viento; hora Europe/Madrid y degradación honesta si no hay datos recientes. Sin cambios en sesiones, árboles, recompensas, aplicaciones ni sistemas de agentes.",
-      "Ensayos navegador 360/390/412/1280, actualización aislada, seis escenarios meteorológicos y veinte combinaciones de etapas del bosque. Pixel físico sin verificar."
+      "Fase 2: siete tarjetas de estudio incorporan medallas compactas azul (13/15), violeta (14/15), oro (15/15) y estrella (una por cada cinco oros de esa misma aplicación). Los premios no conseguidos quedan atenuados.",
+      "Reutiliza exclusivamente historial y libro de oros existentes. Si no hay historial legible muestra — para azul/violeta, en vez de presentar una ausencia no comprobada como cero. No toca datos personales ni inventa méritos.",
+      "Cada aplicación pública del catálogo tiene botón individual para comprobar y preparar su PWA, con avisos Pendiente solo ante evidencia positiva de caché antigua, Sin comprobar si falla la verificación y Preparada tras instalación; no confunde preparada con activada.",
+      "Actualización general y actualización individual no se ejecutan a la vez. Las apps integradas o privadas no muestran controles de actualización individual ficticios.",
+      "Pruebas Playwright 360/390/412/1280, 13/14/15, una estrella por cinco oros, historial desconocido, cache pendiente simulada, SW individual aislado, actualización general y regresión de portada. Prueba Pixel físico pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.58",
+        "build": "hub-30.4.58-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Centro de control del Hub: jardín y dragoncillo arriba, franja compacta con Barcelona, hora local, temperatura, estado del cielo y viento real en km/h con dirección cardinal disponible.",
+          "Fuera de portada: cabecera Todas tus apps, buscador, Nexo Visual y panel ChatGPT; las 15 apps del catálogo vigente se muestran directamente debajo, sin versiones redundantes en tarjetas.",
+          "Contadores reales de oros/estrellas y progreso del jardín conservados. ACTUALIZAR TODO sigue conectado al servicio de actualización, con mensajes visibles y diagnóstico completo en sección plegada.",
+          "Weather Open-Meteo amplía lectura de viento; hora Europe/Madrid y degradación honesta si no hay datos recientes. Sin cambios en sesiones, árboles, recompensas, aplicaciones ni sistemas de agentes.",
+          "Ensayos navegador 360/390/412/1280, actualización aislada, seis escenarios meteorológicos y veinte combinaciones de etapas del bosque. Pixel físico sin verificar."
+        ]
+      },
       {
         "version": "30.4.57",
         "build": "hub-30.4.57-20261011",
@@ -646,7 +658,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "78bdbc7099860b48272ef72b051e90dd56bca057ca549046ca1a514d21e7f8f6"
+          "sha256": "a74df8f9305e668a2071a052dd71019c7b70a4e49044083d65b5ef5faab93d6b"
         },
         {
           "url": "version-verifier.js",
@@ -654,7 +666,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "baff662741225c18a329b6bd900d336493d3a2e14ab0aba9eab5ee7686d976da"
+          "sha256": "e46fd146f20d9aab77bb639b3411616cee19e82b400197246280b5afc8b5c0f2"
         },
         {
           "url": "styles.css",
@@ -662,15 +674,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "640ef4a133f664a36c38e55857bd61ecbbc98d9468f659dafc8ef575179d05c3"
+          "sha256": "b7f1fd03693fba6a3067688cbd9b84b9f4eb6290a2e03c97513b850abcd99919"
         },
         {
           "url": "build-assets.js",
-          "sha256": "604cae0b3212b908f925d2b974efcdbb464e6fceb0fca355aedc930f3181138d"
+          "sha256": "72bb76634551efd7db60dfaec6c50e0d65d9a843e2ca42c3d9b6488159904000"
         }
       ]
     },
-    "cacheBuild": "96efc4ae6dbc84d7"
+    "cacheBuild": "32a1adee438cdd1e"
   },
   "apps": [
     {
