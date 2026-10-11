@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T05:06:24.954055+00:00",
+  "generatedAt": "2026-10-11T06:12:20.213693+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -823,46 +823,57 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.15",
-      "build": "sha256-1c9ee7eb038f",
+      "version": "3.35.16",
+      "build": "sha256-b142db72ba66",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Grammar Quest en Pixel 10: encabezado compacto, tarjeta de pregunta contrastada y cuatro respuestas de tamano constante en cuadricula 2x2.",
-        "El boton central de Leer primero permanece operativo; la disposicion ya no se estira hasta llenar toda la pantalla en cada pregunta.",
-        "Sin modificaciones de los bancos de ejercicios, algoritmos, temporizador, puntuacion ni progreso; pruebas aisladas Chrome movil a 360/390/412 px."
+        "Grammar Quest Focus OLED para Pixel 10: fondo oscuro, cabecera mínima con barra de avance, puntos y pausa; respuestas verticales grandes con contorno cromático.",
+        "Velocidad muestra pregunta y opciones en el mismo render; Recuerdo activo solo revela opciones al tocar la pantalla, sin temporizador ni cuadrado de colores.",
+        "Cronómetro fantasma de milisegundos sin límite de 15 s; respuesta correcta resaltada en verde y avance automático. La pausa excluye su duración de las métricas.",
+        "Se conservan banco de 3.000 ejercicios, calificación por exactitud, adaptación, historial, JSON y guardado; pruebas Chrome móvil 360/390/393 y ronda completa de 15."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "cae68037b6d5898c8560ff95be875ccdb810cfd6b57cf3f66c0cd8a8935f6ffb"
+            "sha256": "1cd6806b6c5b3c825b0660c688ae7d7984a09a04c400383eb774e8bb23a279bf"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "1c9ee7eb038f5b102613ab86e2dba27dbdac019d5b692a9cc64195fd9ada888e"
+            "sha256": "b142db72ba66e89ce762a1dd37f22b93cffe89d5413570dc218736f4b221d622"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/pixel-quiz-layout.css",
+            "sha256": "acef8b12897b8d001afbd1b01b975d5fb715f84bd66968c032372162294a191d"
+          },
+          {
+            "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
+            "sha256": "e0c33aceb298aff60ac0bdaec52437b22c2d19f69cee5201a445a455aa8b3b0d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
             "sha256": "85fac23c1e58dde9ae854d219a1501bb8268c559974af388b785a14e7e31aed8"
-          },
-          {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "39e217f4044f266e27d5b862bea0ded233429e28e93f93d5afdfcdc65799ef96"
-          },
-          {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/pixel-quiz-layout.css",
-            "sha256": "6f2e76918a519ae23ed7ff09065e48f62ac2f8db3b40ebc28052fb46315bb7e9"
           }
         ]
       },
-      "sourceCommit": "ef7567caa9a7ad0ac9b37f3bb39a2af62d1e020b",
-      "cacheBuild": "eccbb9f101559fb3",
+      "sourceCommit": "202531c42ef26227c25248821795a1b5f3e7eb4f",
+      "cacheBuild": "d313a25a68119869",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.15",
+          "build": "sha256-1c9ee7eb038f",
+          "date": "2026-10-11",
+          "changes": [
+            "Grammar Quest en Pixel 10: encabezado compacto, tarjeta de pregunta contrastada y cuatro respuestas de tamano constante en cuadricula 2x2.",
+            "El boton central de Leer primero permanece operativo; la disposicion ya no se estira hasta llenar toda la pantalla en cada pregunta.",
+            "Sin modificaciones de los bancos de ejercicios, algoritmos, temporizador, puntuacion ni progreso; pruebas aisladas Chrome movil a 360/390/412 px."
+          ]
+        },
         {
           "version": "3.35.14",
           "build": "sha256-9dd6136477da",
