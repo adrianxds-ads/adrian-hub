@@ -76,13 +76,13 @@
 
 
 
-/* Dragoncillo: the existing nl-dino element remains the task-garden tracking layer.
+/* Dragoncillo 2.5D v1.1: the existing nl-dino element remains the task-garden tracking layer.
    Only visual artwork and transforms change. Shared trees and progress are untouched. */
 .github-garden .nl-dino.nl-dragon[data-stage="0"]{scale:.55;transform-origin:50% 95%}
-.github-garden .nl-dino.nl-dragon[data-stage="1"]{scale:.78}
-.github-garden .nl-dino.nl-dragon[data-stage="2"]{scale:.88}
-.github-garden .nl-dino.nl-dragon[data-stage="3"]{scale:1}
-.github-garden .nl-dino.nl-dragon[data-stage="4"]{scale:1.1}
+.github-garden .nl-dino.nl-dragon[data-stage="1"]{scale:.86}
+.github-garden .nl-dino.nl-dragon[data-stage="2"]{scale:1}
+.github-garden .nl-dino.nl-dragon[data-stage="3"]{scale:1.1}
+.github-garden .nl-dino.nl-dragon[data-stage="4"]{scale:1.18}
 .github-garden .nl-dino.nl-dragon svg.dragon-art{
  animation:nl-dragon-breathe 3.8s ease-in-out infinite;transform-origin:50% 83%;
  filter:drop-shadow(0 2px 3px rgba(12,42,31,.18));
@@ -121,4 +121,26 @@
  .github-garden .nl-dino.nl-dragon svg.dragon-art,
  .nl-dino .dragon-art .tail,.nl-dino .dragon-art .wing,
  .nl-dino .dragon-art .leg,.nl-dino .dragon-art .arm{animation:none!important;transition:none!important}
+}
+
+
+/* More legible artwork on Pixel at 360–412 px, without enlarging the forest. */
+.github-garden .nl-dino.nl-dragon:not([data-stage="0"]){
+ width:clamp(84px,15%,114px);
+ height:clamp(84px,15vw,114px);
+ min-width:84px;
+ min-height:84px;
+}
+.github-garden .nl-dino.nl-dragon svg.dragon-art{
+ filter:drop-shadow(0 2px 2px rgba(14,53,41,.18)) drop-shadow(0 0 1px rgba(242,243,201,.21));
+}
+@media(max-width:560px){
+ .github-garden .nl-dino.nl-dragon:not([data-stage="0"]){
+  width:92px;height:92px;
+ }
+}
+@media(max-width:375px){
+ .github-garden .nl-dino.nl-dragon:not([data-stage="0"]){
+  width:86px;height:86px;
+ }
 }

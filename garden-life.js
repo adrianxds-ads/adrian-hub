@@ -6,7 +6,7 @@ if(window.NucleoGardenLife)return;
 const HISTORY_KEY='adrianEasyCatalanTaskSessionsV1';
 const WEATHER_KEY='nucleo_garden_weather_barcelona_v1';
 // The SVG is presentation-only and cannot change cottage tasks or plant growth.
-const DRAGON_URL=new URL('./garden-dragon.svg?v=1.0.0',document.currentScript?.src||location.href);
+const DRAGON_URL=new URL('./garden-dragon.svg?v=1.1.0',document.currentScript?.src||location.href);
 let dragonArtwork=null;
 function petArt(stage){return stage===0?eggSvg():(dragonArtwork||dinoSvg());}
 async function loadDragonArtwork(){
@@ -245,7 +245,7 @@ loadWeatherCache();
 window.addEventListener('storage',e=>{if(!e.key||e.key===HISTORY_KEY||e.key===WEATHER_KEY){if(e.key===WEATHER_KEY)loadWeatherCache();schedule();}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastRequest=0;schedule();}});
 setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
-window.NucleoGardenLife=Object.freeze({version:'1.1.0',refresh,weatherKind,mood});
+window.NucleoGardenLife=Object.freeze({version:'1.2.0',refresh,weatherKind,mood});
 loadDragonArtwork();
 updateBarcelonaBar();
 schedule();

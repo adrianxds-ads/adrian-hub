@@ -4,15 +4,26 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.60",
-    "build": "hub-30.4.60-20261011",
+    "version": "30.4.61",
+    "build": "hub-30.4.61-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Version Center sincronizado con las seis aplicaciones públicas de inglés y sus archivos vigentes: Grammar Quest, Phrasal Sprint, Classroom B2, Cloze Quiz, Cambridge Lab y B2 Transform.",
-      "Cloze Quiz 1.11.7: alternativa de persistencia segura cuando IndexedDB/localStorage alcanzan límites; el Hub solo actualiza su ficha de versión, sin tocar datos.",
-      "Se mantienen los quince accesos activos del Hub; Conjuga CAT sigue archivada fuera del menú. Jardín y dragón intactos."
+      "El dragoncillo compartido incorpora una segunda pasada de ilustración SVG 2.5D: luces suaves de volumen, matices jade y crema, sombreado de barriga, alas con nervaduras, pequeños cuernos miel, iris, mejillas y detalles faciales.",
+      "Dragoncillo algo más grande y nítido en Pixel, con escala coherente según etapa; el huevo, la cueva, los árboles y sus datos de crecimiento quedan intactos. Las animaciones usan las mismas capas/pivotes y conservan modo reducido.",
+      "Recursos de arte versionados y precargados para caché PWA, tanto en Hub como en Biblioteca. Sin cambios en recompensas, tareas, históricos, meteorología ni sincronización.",
+      "Pruebas con historiales ficticios: cinco etapas y cuatro anchuras, jardín Biblioteca, tap, SVG por capas y reduced-motion. La calidad de la lámina ilustrada aprobada sigue siendo referencia de posteriores mejoras, no réplica 3D exacta."
     ],
     "history": [
+      {
+        "version": "30.4.60",
+        "build": "hub-30.4.60-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Version Center sincronizado con las seis aplicaciones públicas de inglés y sus archivos vigentes: Grammar Quest, Phrasal Sprint, Classroom B2, Cloze Quiz, Cambridge Lab y B2 Transform.",
+          "Cloze Quiz 1.11.7: alternativa de persistencia segura cuando IndexedDB/localStorage alcanzan límites; el Hub solo actualiza su ficha de versión, sin tocar datos.",
+          "Se mantienen los quince accesos activos del Hub; Conjuga CAT sigue archivada fuera del menú. Jardín y dragón intactos."
+        ]
+      },
       {
         "version": "30.4.59",
         "build": "hub-30.4.59-20261011",
@@ -668,7 +679,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "97af7491ad31f1331bafdbff7ef2f6965a38041b92f68dad20d9987a85338c55"
+          "sha256": "6d89994b6ff783ac7b4c715dde7ed9f096c27f761523f1b4edbfa7208c5bf9ef"
         },
         {
           "url": "version-verifier.js",
@@ -676,7 +687,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "ce39b986339418cc301438a6c139c09fe6a58c6df23d2e9101350a3deda10649"
+          "sha256": "455a86dbfbedcf9c6b4a6c7908d7c767c7ff69b4f547c733d2239611bdbdc791"
         },
         {
           "url": "styles.css",
@@ -684,15 +695,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "0b746903f7cd450dd33e75faa94fff58cd11392126fe3f2419f70dab0c4dc1db"
+          "sha256": "4f440fe2e3d8642eba60f9842f4619cb5db2e50ef5dc3584aa65b11957bdfaf9"
         },
         {
           "url": "build-assets.js",
-          "sha256": "510ce7ae22337cf79314d0324121828b836ed72972a780b7919806be14e61dfc"
+          "sha256": "ac18be825a63ea33b1c3cabd8f721f4b2c36cc88e8118e6dace5983d60b4aed2"
         }
       ]
     },
-    "cacheBuild": "442b55201d10f535"
+    "cacheBuild": "967ebc93751888be"
   },
   "apps": [
     {
@@ -1577,18 +1588,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.3",
-      "build": "sha256-48b014b482e5",
+      "version": "0.5.4",
+      "build": "sha256-baf595459f7a",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "El jardín del modo tarea utiliza el dragoncillo compartido; textos accesibles actualizados. Sin cambios en tareas, audio, historial ni progresos."
+        "Mismo jardín de tareas con el dragoncillo SVG 2.5D más detallado y legible, con todos los progresos y recorridos de tareas intactos."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "7f1f17bbe302f83b7102bd3d8e974b1cf1ee968c62de5e31c2ca931aaa6214cc"
+            "sha256": "2710a58f8967c900b26460e1742c355272ba91a72af980a62d4ce66535205f91"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1601,6 +1612,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.3",
+          "build": "sha256-48b014b482e5",
+          "date": "2026-10-11",
+          "changes": [
+            "El jardín del modo tarea utiliza el dragoncillo compartido; textos accesibles actualizados. Sin cambios en tareas, audio, historial ni progresos."
+          ]
+        },
         {
           "version": "0.5.2",
           "build": "sha256-f008e2f916df",
