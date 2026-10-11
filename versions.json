@@ -1,18 +1,30 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T04:08:08.659045+00:00",
+  "generatedAt": "2026-10-11T04:36:58.910397+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.67",
-    "build": "hub-30.4.67-20261011",
+    "version": "30.4.68",
+    "build": "hub-30.4.68-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
-      "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso.",
-      "Se conserva el catálogo actual; Conjuga CAT sigue fuera de la portada."
+      "Grammar Quest Arcade v3.35.12: una sola cabecera, puntos de partida arriba, sin barra inferior duplicada ni EXIT flotante.",
+      "Zona de preguntas, respuestas y barra amarilla bloqueada dentro del alto real del telefono: sin rebote ni scroll accidental en partida, manteniendo la pantalla de portada y el Coach desplazables.",
+      "Aciertos con secuencia musical ascendente; errores con sonido descendente y vibracion muy breve (12 ms), sin vibracion en aciertos. Menos avisos repetidos del temporizador: solo senales en los ultimos 2 segundos.",
+      "Boton Panel superior conectado a la salida segura y al rollback de la ronda actual. Conservados historiales, puntos, medallas, JSON, los ajustes de lectura previos y el tema accesible Luminous 1.2.",
+      "Revisado con Playwright Chrome en 393x852, 360x740 y 393x660: scroll horizontal y vertical nulos, puntos vivos, salida Panel comprobada, sin errores JS."
     ],
     "history": [
+      {
+        "version": "30.4.67",
+        "build": "hub-30.4.67-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Luminous 1.2: los informes del Coach, textos explicativos, tarjetas de errores y campos de exportación JSON se leen en fondo claro con tinta oscura y letra ampliada.",
+          "Actualización visual y de caché; sin alterar preguntas, algoritmos, cronómetros, aciertos, premios ni progreso.",
+          "Se conserva el catálogo actual; Conjuga CAT sigue fuera de la portada."
+        ]
+      },
       {
         "version": "30.4.66",
         "build": "hub-30.4.66-20261011",
@@ -747,7 +759,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "88262d7a09a304d8e1d555d6029e7a151c0f6b7bc869b726613fadd042bdb0d6"
+          "sha256": "f382a0b55923c16ee4791ecf8773f84bb9ad7ff4fab9de7ead4c89014e57027a"
         },
         {
           "url": "version-verifier.js",
@@ -755,7 +767,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "df8a29baa52c3b76c9c57a513d61897c5d9628534a3eb35a108a37173ba6a8a5"
+          "sha256": "e6176892f1cce8bca1e72ddcc2115d9981ce1819bfbbc9d84e0c929cb001ffb6"
         },
         {
           "url": "styles.css",
@@ -763,22 +775,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "25221fa3e7973016897e73ad957ebda672dbe07d9dadfad5ed52a5128d03c7c3"
+          "sha256": "181d8baaa3f0152996fc54a0ffe0653939e6775c232899a9f5bfccd502dc9e80"
         },
         {
           "url": "build-assets.js",
-          "sha256": "713c4aedd80d7637f1fc3e23b05195be07ea3f84c2dd51d425463a0e38e3ca47"
+          "sha256": "c8ed79e62fd15f10efbfd9bf550c809f9b3227dbe8ec5dd48f55c87b99209479"
         }
       ]
     },
-    "cacheBuild": "da2d16cdb51c5880"
+    "cacheBuild": "bb495816558f13ea"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
       "version": "3.35.12",
-      "build": "sha256-34516b9f61c5",
+      "build": "sha256-ff13b58f34a0",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -789,11 +801,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "920f24844a4e74f7b82fc7fb7c5f59ddcacd2af33f62122fd2f73ee2fc4af436"
+            "sha256": "df7ac97340c14e23b5b187a5f7ec282b94a8a91233587aad3f7fd893eda101c8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "1b949203eef9edb345380712f9a46a60511c4e5b325cedff1ab550908cc2050e"
+            "sha256": "12dd28238678158eaa13e90df74b5fa2c690e7dd5c04b8bc01efee9497f9bdb3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -801,12 +813,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "3cdeaf24bc8d0bd3eade5e4c41564942f6c5294226e3c6074e8062636b128632"
+            "sha256": "79890d918c0c14b31578df3983c4735aa0eee0e7873610fec0dd9dcfbfd6196d"
           }
         ]
       },
-      "sourceCommit": "ef27f9f022b040584295bfba5adc0078bf1084d8",
-      "cacheBuild": "41e3b2e055976ced",
+      "sourceCommit": "1f88c120eb6a7ea76447d469a7c57a7af66e62b4",
+      "cacheBuild": "3e3be7a370b0b7df",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
