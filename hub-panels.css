@@ -8,3 +8,15 @@ body[data-hub-root]{padding-bottom:calc(var(--ad-bottom-nav-height) + var(--ad-s
 #hubSettingsOpen,#hubSettingsClose{min-width:52px;min-height:52px;background:transparent;color:var(--ad-text-muted);border:1px solid var(--ad-border);border-radius:var(--ad-radius-sm)}
 #hubSettingsClose{float:right}
 .hub-medal.locked{opacity:1}
+
+/* Legible, finger-sized bottom tabs (compact labels may wrap). */
+.hub-bottom-nav a{font-size:16px;line-height:1.22;text-align:center;
+ padding:6px 4px;white-space:normal;overflow-wrap:break-word;}
+/* Synchronisation status previously overlaid the navigation at 9px. */
+body[data-hub-root] #adrianSyncStatus {
+ bottom:calc(var(--ad-bottom-nav-height) + var(--ad-safe-area-bottom) + 12px)!important;
+ font:600 16px/1.35 Roboto,"Segoe UI",Arial,sans-serif!important;
+ padding:8px 12px!important;max-width:calc(100vw - 24px);
+ color:var(--ad-text)!important;background:#151B20!important;
+ border:1px solid var(--ad-border)!important;
+}

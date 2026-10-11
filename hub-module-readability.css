@@ -1,0 +1,62 @@
+/* Hub modules: one readable typographic floor, no behavioural changes. */
+:root { --hub-readable-small:16px; --hub-readable-body:19px; }
+body {
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+body :is(small,.mini,.hint,.step,.daily-empty,.archive-empty,
+ .eyebrow,.kicker,.meta,.microcopy,.caption,.tagline,.footnote){
+  font-size:var(--hub-readable-small)!important;
+  line-height:1.4!important;
+  letter-spacing:normal;
+  opacity:1;
+}
+body :is(label,summary,.status,.stat-label){line-height:1.35;}
+body :is(input,textarea,select){font-size:18px;line-height:1.35;}
+body :is(button,a,summary,input,textarea,select):focus-visible{
+  outline:3px solid #80CBE6;outline-offset:3px;
+}
+body :is(.mini,.step,.hint,.daily-empty,.archive-empty){
+  overflow-wrap:anywhere;
+}
+@media(max-width:420px){
+  body :is(.mini,.step,.hint,.daily-empty,.archive-empty){
+    max-width:100%;
+  }
+}
+
+/* Specific microtype discovered on production: no global font override. */
+body :is(.back,#sourceBadge,#statusText,.searchbox>span,.sort-btn>span,
+.task-main>span,.task-main>em,.library-panel summary :is(span,strong),
+.kpi>span,.targets-grid>label,.class-head>em,.duration-label){
+ font-size:16px!important;line-height:1.35!important;letter-spacing:normal;
+}
+body .task-main>span {color:#C7D1D7!important;}
+body .ad-button.primary {color:#071014!important;}
+@media(max-width:420px){
+ body .kpis{grid-template-columns:repeat(2,minmax(0,1fr));}
+ body .targets-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* All bundled pages use the same black outer canvas as the Hub.
+   Cards retain subtle dark surfaces instead of losing their text contrast. */
+html,body{background-color:#000!important;}
+
+/* Evidence-based final microtype pass across bundled screens. */
+body :is(.legend span,.legend i,.episode-no,.episode-main .summary,
+.custom-box label,.archive-panel summary,.archive-panel summary span,
+.duration-box span,.panel-copy span,.mobile-note span,.mobile-note p,
+#status,#dailyCount,#historyLabel){
+ font-size:16px!important;line-height:1.4!important;
+}
+body:has(#dailyCount) header p {font-size:16px!important;line-height:1.4!important;}
+body:has(#dailyCount) :is(.brand span,.brand b){font-size:16px!important;}
+body:has(#openHistory) .panel span:not([class]){font-size:16px!important;}
+body:has(#classBadge) .brand :is(span,b){font-size:16px!important;}
+body:has(#classBadge) .card span:not([class]){font-size:16px!important;}
+
+/* Last five labels, scoped to their own cards. */
+body .progress.ad-card span:not([class]),
+body .stats-preview.ad-card span:not([class]){
+ font-size:16px!important;line-height:1.4!important;
+}
