@@ -1,0 +1,48 @@
+/* v4.4 · Solid, legible category-tinted medal markers. No numeric clutter. */
+#groups .hub-medal-blue{--medal:#779BE2!important}
+#groups .hub-medal-violet{--medal:#B892F0!important}
+#groups .hub-medal-gold{--medal:#E7BF57!important}
+#groups .hub-medal-star{--medal:#E7BF57!important}
+html body #groups .hub-card-medals{
+  gap:7px!important;display:flex!important;flex-wrap:nowrap!important;
+}
+html body #groups .hub-medal{
+  box-sizing:border-box!important;
+  display:grid!important;place-items:center!important;
+  padding:3px!important;min-width:34px!important;width:34px!important;
+  height:34px!important;max-width:34px!important;border-radius:50%!important;
+  background:#202A32!important;
+  border:1px solid color-mix(in srgb,var(--medal) 70%,#617181)!important;
+  opacity:1!important;filter:none!important;
+}
+html body #groups .hub-medal .hub-medal-emblem{
+  box-sizing:border-box!important;display:grid!important;place-items:center!important;
+  width:24px!important;height:24px!important;
+  min-width:24px!important;border-radius:50%!important;
+  font-size:0!important;line-height:0!important;overflow:hidden!important;
+  background:color-mix(in srgb,var(--medal) 50%,#1B2228)!important;
+  border:2px solid var(--medal)!important;color:transparent!important;
+  opacity:1!important;box-shadow:none!important;
+}
+html body #groups .hub-medal.earned{
+  border-color:var(--medal)!important;
+  background:color-mix(in srgb,var(--medal) 20%,#1B2228)!important;
+}
+html body #groups .hub-medal.earned .hub-medal-emblem{
+  background:var(--medal)!important;border-color:var(--medal)!important;
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--medal) 23%,transparent)!important;
+}
+html body #groups .hub-medal-star .hub-medal-emblem::after{
+  content:"★";font:900 18px/1 system-ui!important;color:#F1CB71!important;
+}
+html body #groups .hub-medal-star.earned .hub-medal-emblem::after{
+  color:#271C08!important;
+}
+.hub-medal-legend{
+  margin:23px 0 max(25px,env(safe-area-inset-bottom))!important;
+}
+@media(max-width:360px){
+ html body #groups .hub-card-medals{gap:5px!important}
+ html body #groups .hub-medal{width:30px!important;height:30px!important;min-width:30px!important}
+ html body #groups .hub-medal .hub-medal-emblem{width:21px!important;height:21px!important;min-width:21px!important}
+}
