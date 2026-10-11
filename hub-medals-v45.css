@@ -1,0 +1,39 @@
+/* Adrián Hub v4.5: same count-only circle as shared educational game badges. */
+html body #groups .hub-card-medals{
+  display:flex!important;align-items:center!important;flex-wrap:nowrap!important;
+  gap:7px!important;
+}
+html body #groups .hub-medal{
+  box-sizing:border-box!important;position:relative!important;
+  display:grid!important;place-items:center!important;
+  width:34px!important;height:34px!important;min-width:34px!important;
+  max-width:34px!important;min-height:34px!important;
+  flex:0 0 34px!important;margin:0!important;padding:0!important;
+  background:#1B2228!important;background-image:none!important;
+  border:1.5px solid var(--medal,#414B54)!important;border-radius:50%!important;
+  opacity:1!important;filter:none!important;box-shadow:none!important;
+}
+html body #groups .hub-medal .hub-medal-emblem{display:none!important}
+html body #groups .hub-medal .hub-medal-count{
+  box-sizing:border-box!important;display:grid!important;place-items:center!important;
+  width:100%!important;height:100%!important;min-width:0!important;
+  margin:0!important;padding:0!important;background:none!important;
+  border:0!important;border-radius:50%!important;
+  font:650 14px/1 Roboto,system-ui,sans-serif!important;
+  font-variant-numeric:tabular-nums!important;letter-spacing:normal!important;
+  color:#EAF0F5!important;opacity:1!important;text-shadow:none!important;
+}
+html body #groups .hub-medal-star::after{
+  content:"★";position:absolute;right:-3px;top:-6px;
+  font:850 10px/1 system-ui,sans-serif;color:#E7BF57;
+  text-shadow:0 1px 2px #000;pointer-events:none;
+}
+@media(max-width:360px){
+  html body #groups .hub-card-medals{gap:5px!important}
+  html body #groups .hub-medal{
+    width:30px!important;height:30px!important;min-width:30px!important;
+    max-width:30px!important;min-height:30px!important;flex-basis:30px!important;
+  }
+}
+/* Replace the redundant Grammar Quest text chip with the global medal row. */
+html body #groups .app-gold-chip{display:none!important}

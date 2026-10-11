@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.6';
-const HUB_BUILD='hub-30.5.6-20261011';
+const HUB_VERSION='30.5.7';
+const HUB_BUILD='hub-30.5.7-20261011';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -101,14 +101,8 @@ function renderHubStars(){
  if(host&&count){count.textContent=String(s.stars);host.classList.toggle('earned',s.stars>0);host.setAttribute('aria-label',s.stars+' estrellas y '+s.totalGold+' oros acumulados en las aplicaciones');}
  const gold=document.querySelector('#hubGoldCount');if(gold)gold.textContent=String(s.totalGold);
  window.dispatchEvent(new CustomEvent('hub:reward-summary-updated',{detail:{apps:{...s.apps},stars:s.stars,totalGold:s.totalGold}}));
- const grammar=document.querySelector('[data-id="english"] .app-copy');
- if(grammar){
-  let chip=grammar.querySelector('.app-gold-chip');
-  if(!chip){chip=document.createElement('span');chip.className='app-gold-chip';grammar.appendChild(chip);}
-  const n=Math.max(0,Number(s.apps.english)||0);
-  chip.textContent='🥇 '+n+(n===1?' oro':' oros');
-  chip.setAttribute('aria-label',n+' medallas de oro acumuladas en Grammar Quest');
- }
+ // Medal totals are rendered once in the shared badge row (hub-card-rewards.js).
+ document.querySelector('[data-id="english"] .app-gold-chip')?.remove();
 }
 renderHubStars();renderTaskMedals();
 window.addEventListener('storage',e=>{if(e.key===HUB_STAR_KEY||e.key==='adrian_hub_oca_v1')renderHubStars();if(e.key===HUB_TASK_LOG_KEY)renderTaskMedals();});

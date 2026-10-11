@@ -1,19 +1,30 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T22:12:36.406846+02:00",
+  "generatedAt": "2026-10-11T22:43:10.680178+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.6",
-    "build": "hub-30.5.6-20261011",
+    "version": "30.5.7",
+    "build": "hub-30.5.7-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Corrección visual auditada contra capturas reales: ocultar la barra superior antigua Atrás/Panel/Hub/A-/JSON solo durante partidas; conservar sus herramientas en las pantallas de inicio y estudio.",
-      "Recuperación del espacio útil del móvil: preguntas y respuestas inmediatamente debajo de la cabecera en los quizzes y eliminación efectiva de las tiras de guiones de progreso.",
-      "Temporizadores con cifras visibles; puntuación sobre tarjetas oscuras y botones de salida operativos; cuadrícula 2x2 intacta.",
-      "Revisión y distribución de la hoja compartida v4.4.1 en los ocho motores educativos, con cachés y versiones PWA actualizadas."
+      "Medallas circulares numeradas y uniformes: Hub, My Coach y paneles de nivel de los ocho módulos.",
+      "Skill League: porcentaje blanco legible, sin solaparse con las barras de progreso.",
+      "Cloze Quiz y Cambridge Lab: tarjetas, enunciados y controles con fondo OLED y contraste compartido.",
+      "Solo presentación: sin cambios en bancos, puntuaciones, cronómetros, progreso, históricos ni JSON."
     ],
     "history": [
+      {
+        "version": "30.5.6",
+        "build": "hub-30.5.6-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Corrección visual auditada contra capturas reales: ocultar la barra superior antigua Atrás/Panel/Hub/A-/JSON solo durante partidas; conservar sus herramientas en las pantallas de inicio y estudio.",
+          "Recuperación del espacio útil del móvil: preguntas y respuestas inmediatamente debajo de la cabecera en los quizzes y eliminación efectiva de las tiras de guiones de progreso.",
+          "Temporizadores con cifras visibles; puntuación sobre tarjetas oscuras y botones de salida operativos; cuadrícula 2x2 intacta.",
+          "Revisión y distribución de la hoja compartida v4.4.1 en los ocho motores educativos, con cachés y versiones PWA actualizadas."
+        ]
+      },
       {
         "version": "30.5.5",
         "build": "hub-30.5.5-20261011",
@@ -891,48 +902,57 @@
         }
       ]
     },
-    "cacheBuild": "af02a2a7843950d6"
+    "cacheBuild": "7af66fe990065a43"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.6",
-      "build": "sha256-4af4547cc3fe",
+      "version": "3.36.7",
+      "build": "sha256-016c1e5e8d17",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Fondo OLED negro puro y cuatro opciones verticales centradas; controles táctiles amplios y sin temporizador visual.",
-        "Recuerdo activo conserva el espacio de las respuestas: cero desplazamiento al revelarlas; pausa de corrección con opciones bloqueadas.",
-        "Instalación validada de recursos antes de activar la nueva caché; actualización local comprobada conservando progreso e historial."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "46fa4e6b8f5cf3428dcddc8c623f81491c64e727080d194cb3d8998967fa8e8b"
+            "sha256": "016c1e5e8d17cd335bbf9083a2b6e0471e1b4a0545fc0be12148618acc35f0f2"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "0b94f14620450ff96e0616d2693c0d6a17abc3db08df84df1db8d07b366cee28"
+            "sha256": "fb21097c74b5eeec3aef1073a89278f82081ff642e619a62321b1166960236ac"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "6fa4c6ad294548923ef04af39fa0160e076b8290d1995c2dee442b7cad8c696d"
+            "sha256": "8584078e5df788148fc55bbdc6c192496ae8aa5560a8c205af1ee6d72e3bc16c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "7a70bc4db249f40d7a333f0cabc1a561a99420b900ce3b1cf9cdadb218203432"
+            "sha256": "9e222b9768f92433aa50c075b57b626a2ce214e1bf8e54c3142dabb4e36585b4"
           }
         ]
       },
-      "sourceCommit": "0cca4a08b5b8d8f2778189b41604ab6de5bfce0c",
-      "cacheBuild": "9ea81a8512a6faa5",
+      "sourceCommit": "f1a3c89cfbee926ef08f82842a79df6197279309",
+      "cacheBuild": "d9fb93265b123e94",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.6",
+          "build": "sha256-4af4547cc3fe",
+          "date": "2026-10-11",
+          "changes": [
+            "Fondo OLED negro puro y cuatro opciones verticales centradas; controles táctiles amplios y sin temporizador visual.",
+            "Recuerdo activo conserva el espacio de las respuestas: cero desplazamiento al revelarlas; pausa de corrección con opciones bloqueadas.",
+            "Instalación validada de recursos antes de activar la nueva caché; actualización local comprobada conservando progreso e historial."
+          ]
+        },
         {
           "version": "3.35.16",
           "build": "sha256-b142db72ba66",
@@ -1064,42 +1084,51 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.13",
-      "build": "sha256-3f960555abfd",
+      "version": "0.13.14",
+      "build": "sha256-e4d72403007a",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "eafb4230c76889a8f6e825394f12a2b81068385eba6c1ffbfce5bcfffe165cdc"
+            "sha256": "e4d72403007ab2d32bd8fa2f6e1b7b892b28d4861d14732d397eaa3bb02c6e0e"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "8e709d2683de9b78dda92be030d1b658d6f32ba03c55784d9b419784859b1219"
+            "sha256": "2145980724f43df6165943afc6661636b2bc3b86fa761d263f776bca8e3c3331"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "bc88c07f6fb6170608fb0db5515068c731087011305a8c05f71ac0a74b9f9c93"
+            "sha256": "28dc7d066e0e48cb76d11bd79eb50b969fa9f4958c3c953e0cda7544ce682de9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "5afd6ee2636e89d3acf5bde11e7152038409c8dcb726d23e6c977ea23ddd762d"
+            "sha256": "74d89dcfbf1e6f793daed61982de8a2bd7f60cbfc6816f51760d44787d0eb9bb"
           }
         ]
       },
-      "sourceCommit": "9d5e2f68585bcd4784ab0e81a1015b731c3690a3",
-      "cacheBuild": "57b85fad03ce2a95",
+      "sourceCommit": "e61b6ffd472e10c2509e9c824ffbee1c5475deb9",
+      "cacheBuild": "a43a65dfb4a548f5",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.13",
+          "build": "sha256-3f960555abfd",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "0.13.8",
           "build": "sha256-13188938d7d7",
@@ -1198,42 +1227,51 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.8",
-      "build": "sha256-7b9aecc77846",
+      "version": "3.0.9",
+      "build": "sha256-2c00150ccb73",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "a51f9694aac0ecf06a592a46aee8613f65b75993367bc8d56b50129b2e3173b6"
+            "sha256": "2c00150ccb73284f799c41e20499228d92aa31cc737b87fc01be069f60202b7b"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "0e78c833a50ba0eb249660bdfeed312e666333ad8aa795ad66ddd16b200fa737"
+            "sha256": "f6db937a44c6b6ff810816a51b270ab4e8cf9e747ba1d85f7db3bdc4d6b1322c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "cd9ae970d270980cf733dd7349db9beb924be291bf622e168451d517070833a5"
+            "sha256": "9a0f93fb42ac49a3a693bcac4aee466e59135aa16322f3f6453ec772a23cb109"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "d0fbe8832cf935c8f25f036e51ffd5d3dfe7ce2804f292da36c01e9a61344c0f"
+            "sha256": "d30d0cdba5338247a006df7304cbdbf15decbcec3033449cc87228e376c7d41b"
           }
         ]
       },
-      "sourceCommit": "0cd42ae408ca2d5ac7282bf63c417988551fde03",
-      "cacheBuild": "fd07abf2c15fbb5f",
+      "sourceCommit": "5e1d73c973b426f09666852ca050ce664ea44cd7",
+      "cacheBuild": "8fd3a6f2c7c203c2",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.8",
+          "build": "sha256-7b9aecc77846",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "3.0.3",
           "build": "sha256-3b7a5bbca18f",
@@ -1342,42 +1380,51 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.15",
-      "build": "sha256-7cec13578918",
+      "version": "1.11.16",
+      "build": "sha256-196bc522b190",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "b5079c70cf8bfaa361916a6820b65dea0ad783dffc1a8368799d30474b93d41b"
+            "sha256": "196bc522b19013abd66de4ec25d3df9143c6c03b5b3882207beb2a15c17a2f2c"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "583536f3768330525194f99f3b33d8126df2cfe534bd8daa1860737a73fc34ba"
+            "sha256": "8536d001311d79564b7db1eba4f89c76f64fb0917403c55823b00b8c68bf75ee"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "ad433478a2020a2544f41823f789b9b5a0f00d5ea5e3a84995999f47366447ad"
+            "sha256": "1512fc7949001e2a493d55a8f23a9d1d559fc4087efe702c01762e672c170930"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "fce2364a8d55c684c5ca8dcfd1d63c4a4ef468cd58b78db9d715ee7b4914041e"
+            "sha256": "c944cc3a67aaf5501f9e39ecf403af292c5ef7d3170ade0cd99069b800935e5f"
           }
         ]
       },
-      "sourceCommit": "aaab0e5738d91980fe13a9d295001759306c911a",
-      "cacheBuild": "36728c20a2db9c1a",
+      "sourceCommit": "66acb9eb0d55e5852015470902937758a1bcc79e",
+      "cacheBuild": "54f89f4b7508b07d",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.15",
+          "build": "sha256-7cec13578918",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "1.11.10",
           "build": "sha256-5063aa22d7a3",
@@ -1478,42 +1525,51 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.16",
-      "build": "sha256-89237485b2e0",
+      "version": "1.3.17",
+      "build": "sha256-a737a32753c4",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "c48e103724df5ef70ae26fc05c7e141ca4d4652a7ace1a3ea7eb111c6acba6d2"
+            "sha256": "a737a32753c4193316e6a43a13dd0e43c644d3523ed7fe7f8ebb6637528159de"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "cf12804fc48a0f04fb5637db8af1c0a8ae21b64bf39e0e47dc2185f35558afe2"
+            "sha256": "aa1e9b3f3cc211db3f48a8f98a2a1b477b6b2561b678d726adefc9d4b50c7c43"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "ab82f523616279448c69c7daf1b390759aa203bf5b6f19b7e1924c190f74529c"
+            "sha256": "1bc93ed90f9e06b72a5338a4f19250a6d26b5775ee71e8e6a50775d5bdb0f972"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "e942918df9f78c53595b891600b0eb6b04c0ca12a7f632b38b28a77bfb8dbedd"
+            "sha256": "1c5dc1af1a38caaed8ccb3eab3e5141891efdf81b353ef08c7a7310b6814eac0"
           }
         ]
       },
-      "sourceCommit": "1831e03397bc00fd257fafb2a3f5206b5be7249e",
-      "cacheBuild": "960391e3111d63ce",
+      "sourceCommit": "00c5c7c9b281a767b05e549d8e56f3340f83c5cf",
+      "cacheBuild": "b3df4170c8e7171e",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.16",
+          "build": "sha256-89237485b2e0",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "1.3.10",
           "build": "sha256-74dc77d78037",
@@ -1676,42 +1732,51 @@
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.1.8",
-      "build": "sha256-120459698045",
+      "version": "1.1.9",
+      "build": "sha256-76f445fb0a42",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "f85a2242e0e4cf92aff4788dbda1ddbb0123dc90a4c7da9403cf92b690411e17"
+            "sha256": "76f445fb0a4238d9bb3ae431ddffcce3e0a1a0cb2173c11649d730cf59390e15"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "e31d85fc8dfae86eb8be83660ea981fa2291bc19f232ecacab702f3feae453d5"
+            "sha256": "cfdb27bb8a007f799dc0d68c656b498cd7137b20135d8706478af615b8051b03"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "ed6587f2461075ea5ac8758f28d4d145bdc97881e9cc8ac8fd1866fc8f7a73a6"
+            "sha256": "f93b77fdfe4fb0a602d73bfbf45e6e2f5d69c6407e45959e1c0e3e7c337ce79c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "e115516485cb71c2bc9c7de19494f47b978ff33c24b3d7c88083c31a1a41d6be"
+            "sha256": "2bea24ee835df2ba5e9b8d86251f119060d7edaab6be6530bcf76679caa4cc24"
           }
         ]
       },
-      "sourceCommit": "1867621fbd03a82238fcea98e9031a6b4619285d",
-      "cacheBuild": "fadc78309d13c0d0",
+      "sourceCommit": "54f11fc4f2b8fd886793573190f6b62368d07c84",
+      "cacheBuild": "8047f933f5fa7260",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.1.8",
+          "build": "sha256-120459698045",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "1.1.4",
           "build": "sha256-b2e12c7df09f",
@@ -1823,43 +1888,52 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.11",
-      "build": "sha256-7a2e6be429b4",
+      "version": "0.10.12",
+      "build": "sha256-0c3563042fa2",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso.",
-        "Conjuga CAT permanece fuera del catálogo activo del Hub."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "985b5ba5edb64fa6c12fd894ab553d3a5eae1e739436ca41f7729733589e579b"
+            "sha256": "0c3563042fa24c69fe605eb23716bf6e78510797aaced980342a57e3cc7a2930"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "f2ed653d0a889a903d697625bbd1a2fdd2e8762045e5c83425085727721e559f"
+            "sha256": "7bbf9b1ac7f55c468e47b574f913a2fdab58646eee3a6c2f0cfd2cd935020216"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "c0bcee166c9d79148ac76cf1fcc16acd40e484ad86524c4aea454c7eba62a084"
+            "sha256": "b48eb904ad2f43b9db0140906cfcca77d63cc1131816fbe31442a617a6803cf8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "9a6408a5e8e0ec235c9ffb74b74a0934c50078035cb3647f22a2b354d3e9228a"
+            "sha256": "bbbf07ee63416a18df9806adc7d6f776015d49f45cfb11a8dac8c3ed4ead1b17"
           }
         ]
       },
-      "sourceCommit": "1451f9d6f8ed8504baf58b1aa5ddcd25bd8f712a",
-      "cacheBuild": "a83d7392dbd9acb0",
+      "sourceCommit": "a95207b5902489b6c679258a607dc460bb650294",
+      "cacheBuild": "a7b7bd89acd5764f",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.11",
+          "build": "sha256-7a2e6be429b4",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso.",
+            "Conjuga CAT permanece fuera del catálogo activo del Hub."
+          ]
+        },
         {
           "version": "0.10.6",
           "build": "sha256-d099a130d497",
@@ -2068,42 +2142,51 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.7.11",
-      "build": "sha256-71dc60800172",
+      "version": "2.7.12",
+      "build": "sha256-9a86c9e87237",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
-        "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
-        "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "3961e9bf11daa4114e498e8d77a98e13f153a6eb474f5a7948c9eed3501882e9"
+            "sha256": "9a86c9e872371378d6e4ace4e4f686bcf60bf4557b8c3029cd9c7e291c517fb7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "0fe3030d86790d8a64f2e87b44499c856e60d209e76a329d12eeecf0f32b2812"
+            "sha256": "335fb1ad5a774c2b6d9722471a2467beca623a1a6b19e2d907a86249b632ac5f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "cde80c33392c040e8212e94d45b00d2f05a1092fa00ccbdbb6422aa98ba25093"
+            "sha256": "009ab97524f5a79d39cba1988e5f40b12a0b72aead50f9d153d370ed05a9c111"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "cb576785755963fbb36da1684524db0fe102df2a9523c2468cd428be4b4b8ed9"
+            "sha256": "5630a1d38b9732b43442a8879015da3461b7a5982c84c74a888dd912db81b3f4"
           }
         ]
       },
-      "sourceCommit": "0cb2b45a925c12a5fe2d313efb88dac2aef007fb",
-      "cacheBuild": "e91d4cf1b7a6afc6",
+      "sourceCommit": "1ba1c615cc9c9e8f44469e661a3f5f9c8fb03c51",
+      "cacheBuild": "bce2027ecfafad58",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.7.11",
+          "build": "sha256-71dc60800172",
+          "date": "2026-10-11",
+          "changes": [
+            "Núcleo Luminous 1.3: Coach y estimaciones con fondos sólidos y tipografía oscura de alto contraste; texto de lectura 19px y etiquetas mínimas 16px.",
+            "Se revisaron tarjetas de explicaciones, subtítulos, escenarios, resumen, medidores de progreso y su visualización móvil.",
+            "Cambios exclusivamente visuales: se conservan las mejoras arcade existentes, bancos, niveles, cronómetros, medallas y progreso."
+          ]
+        },
         {
           "version": "2.7.6",
           "build": "sha256-5e5e153e0900",
