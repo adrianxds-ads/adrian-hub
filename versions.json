@@ -4,17 +4,27 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.59",
-    "build": "hub-30.4.59-20261011",
+    "version": "30.4.60",
+    "build": "hub-30.4.60-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Fase 2: siete tarjetas de estudio incorporan medallas compactas azul (13/15), violeta (14/15), oro (15/15) y estrella (una por cada cinco oros de esa misma aplicación). Los premios no conseguidos quedan atenuados.",
-      "Reutiliza exclusivamente historial y libro de oros existentes. Si no hay historial legible muestra — para azul/violeta, en vez de presentar una ausencia no comprobada como cero. No toca datos personales ni inventa méritos.",
-      "Cada aplicación pública del catálogo tiene botón individual para comprobar y preparar su PWA, con avisos Pendiente solo ante evidencia positiva de caché antigua, Sin comprobar si falla la verificación y Preparada tras instalación; no confunde preparada con activada.",
-      "Actualización general y actualización individual no se ejecutan a la vez. Las apps integradas o privadas no muestran controles de actualización individual ficticios.",
-      "Pruebas Playwright 360/390/412/1280, 13/14/15, una estrella por cinco oros, historial desconocido, cache pendiente simulada, SW individual aislado, actualización general y regresión de portada. Prueba Pixel físico pendiente."
+      "Version Center sincronizado con las seis aplicaciones públicas de inglés y sus archivos vigentes: Grammar Quest, Phrasal Sprint, Classroom B2, Cloze Quiz, Cambridge Lab y B2 Transform.",
+      "Cloze Quiz 1.11.7: alternativa de persistencia segura cuando IndexedDB/localStorage alcanzan límites; el Hub solo actualiza su ficha de versión, sin tocar datos.",
+      "Se mantienen los quince accesos activos del Hub; Conjuga CAT sigue archivada fuera del menú. Jardín y dragón intactos."
     ],
     "history": [
+      {
+        "version": "30.4.59",
+        "build": "hub-30.4.59-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Fase 2: siete tarjetas de estudio incorporan medallas compactas azul (13/15), violeta (14/15), oro (15/15) y estrella (una por cada cinco oros de esa misma aplicación). Los premios no conseguidos quedan atenuados.",
+          "Reutiliza exclusivamente historial y libro de oros existentes. Si no hay historial legible muestra — para azul/violeta, en vez de presentar una ausencia no comprobada como cero. No toca datos personales ni inventa méritos.",
+          "Cada aplicación pública del catálogo tiene botón individual para comprobar y preparar su PWA, con avisos Pendiente solo ante evidencia positiva de caché antigua, Sin comprobar si falla la verificación y Preparada tras instalación; no confunde preparada con activada.",
+          "Actualización general y actualización individual no se ejecutan a la vez. Las apps integradas o privadas no muestran controles de actualización individual ficticios.",
+          "Pruebas Playwright 360/390/412/1280, 13/14/15, una estrella por cinco oros, historial desconocido, cache pendiente simulada, SW individual aislado, actualización general y regresión de portada. Prueba Pixel físico pendiente."
+        ]
+      },
       {
         "version": "30.4.58",
         "build": "hub-30.4.58-20261011",
@@ -658,7 +668,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "a74df8f9305e668a2071a052dd71019c7b70a4e49044083d65b5ef5faab93d6b"
+          "sha256": "97af7491ad31f1331bafdbff7ef2f6965a38041b92f68dad20d9987a85338c55"
         },
         {
           "url": "version-verifier.js",
@@ -666,7 +676,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "e46fd146f20d9aab77bb639b3411616cee19e82b400197246280b5afc8b5c0f2"
+          "sha256": "ce39b986339418cc301438a6c139c09fe6a58c6df23d2e9101350a3deda10649"
         },
         {
           "url": "styles.css",
@@ -674,46 +684,45 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "b7f1fd03693fba6a3067688cbd9b84b9f4eb6290a2e03c97513b850abcd99919"
+          "sha256": "0b746903f7cd450dd33e75faa94fff58cd11392126fe3f2419f70dab0c4dc1db"
         },
         {
           "url": "build-assets.js",
-          "sha256": "72bb76634551efd7db60dfaec6c50e0d65d9a843e2ca42c3d9b6488159904000"
+          "sha256": "510ce7ae22337cf79314d0324121828b836ed72972a780b7919806be14e61dfc"
         }
       ]
     },
-    "cacheBuild": "32a1adee438cdd1e"
+    "cacheBuild": "442b55201d10f535"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.5",
-      "build": "sha256-a28c41a26037",
-      "releasedAt": "2026-10-10",
+      "version": "3.35.9",
+      "build": "sha256-d6e1c701de2c",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
-        "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
-        "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+        "Se sincroniza el centro de actualizaciones con la versión pública real; el progreso y los ejercicios siguen en su aplicación original.",
+        "Conserva las correcciones recientes de carga, caché y almacenamiento sin modificar las reglas del juego."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "7efc045793a1cd31c5367e4dfdd481a335f08129876d48fd3011c60ccf8adfe4"
+            "sha256": "d979be4f03ed39dfe86a1236cd75b6874615b505a9fdd5dfaf9a7413726a1a72"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "33b596297cc5da53c673fc0163aaeef2ad39d95cf4957d661fde611044aa6b4a"
+            "sha256": "dbb3ce1f942a74ef0fc302ea57d9e6b491f540731863f340fae670f621a8b915"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "f332430cf03f85cee8ff8ab2e74a321f6c1b901da7d55ed035d9175ed19904b3"
+            "sha256": "a6ffef55cfec66cb423acb7657c3b6c3f65ae567383e8d619d4fd83f0b724a6a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "49faddc514eec67cf802874f4b43b90ed7aa9c05b9143b53dd784ef7d06c1a60"
+            "sha256": "296e2e770c25d2e03e77457f8435beb167730620608d43a5a4e54d4c95888f88"
           }
         ]
       },
@@ -724,6 +733,16 @@
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.35.5",
+          "build": "sha256-a28c41a26037",
+          "date": "2026-10-10",
+          "changes": [
+            "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
+            "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
+            "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+          ]
+        },
         {
           "version": "3.35.4",
           "date": "2026-10-09",
@@ -796,32 +815,31 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.2",
-      "build": "sha256-c7c46a1b5c6d",
-      "releasedAt": "2026-10-10",
+      "version": "0.13.5",
+      "build": "sha256-5c66dbfbf920",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
-        "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
-        "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+        "Se sincroniza el centro de actualizaciones con la versión pública real; el progreso y los ejercicios siguen en su aplicación original.",
+        "Conserva las correcciones recientes de carga, caché y almacenamiento sin modificar las reglas del juego."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "f670f2f16659179145daecebc2c52c91032ba342e2cb0fbae96f37bb20d40d24"
+            "sha256": "e8f8bdd0bb32010beb78a53f2ce5beaae6d2021eebbb18f04d55b40e0d6962b3"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "0b992a0c9c8edd1c087111e047813d38e711152763d25c777aab96a9edc47bf6"
+            "sha256": "2d7ea2319d02a8b15ae819c603eaf3a9e72994aa73b2da9339964199a693b6ca"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "202288c646c76b415d9a760b9fff771413cbc83a7c787308ae42a9afd892d5ef"
+            "sha256": "9019103901030f9bdd8fcee2cbccc59aa83479bf5f7cdb50959eb301712de823"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "cdce74a52043ee1d4932e66e8e8a2a7d976a6d1372ca2d22e271eedac6340fc5"
+            "sha256": "b56ab503dc57288f56b1328b67dc31ec729cfa92608e006f8d3de118c992e30c"
           }
         ]
       },
@@ -832,6 +850,16 @@
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.2",
+          "build": "sha256-c7c46a1b5c6d",
+          "date": "2026-10-10",
+          "changes": [
+            "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
+            "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
+            "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+          ]
+        },
         {
           "version": "0.13.1",
           "date": "2026-10-09",
@@ -902,32 +930,31 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "2.2.4",
-      "build": "sha256-3b91ade1c831",
-      "releasedAt": "2026-10-10",
+      "version": "2.2.7",
+      "build": "sha256-aca8de643ebb",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Temporizador: números azul oscuro sobre superficie clara; cabecera y etiquetas internas más legibles.",
-        "La caché precarga las versiones correctas de CSS y JavaScript, incluso sin conexión.",
-        "Sesiones y temporizadores intactos."
+        "Se sincroniza el centro de actualizaciones con la versión pública real; el progreso y los ejercicios siguen en su aplicación original.",
+        "Conserva las correcciones recientes de carga, caché y almacenamiento sin modificar las reglas del juego."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "bd0037f2884d1346bd1b4c05fe224ed5f23f1a87e73d0d4cd0036812b75dad1f"
+            "sha256": "f46e55acb105386d95a973846844383f12beb2f010dd668b234fcdfb7698841f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "775722fa0ba48ba24ede06d2ca28e1e5f7891282b307cf0683cb6a45cb6eebad"
+            "sha256": "c07bae54f0d9aff86f857641feff30bff2a186d11866de928e465aab74410837"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "ed2eaa5df6cd5c8b05d6353c51825263798f5e21412211a603424b69ab896fec"
+            "sha256": "f691634787ae87206ccb13cbe444ac0e8295a7d3b5efdf06483da8e6a8727f3f"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "c75681b25772447c8ad5591b973221e54a793254d82f6fc90dc27913a568c1fd"
+            "sha256": "dede42940076ca1b7ee2ba0a5798a36b5228b7cdf20ae97c6f35617c6c5d18f7"
           }
         ]
       },
@@ -938,6 +965,16 @@
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "2.2.4",
+          "build": "sha256-3b91ade1c831",
+          "date": "2026-10-10",
+          "changes": [
+            "Temporizador: números azul oscuro sobre superficie clara; cabecera y etiquetas internas más legibles.",
+            "La caché precarga las versiones correctas de CSS y JavaScript, incluso sin conexión.",
+            "Sesiones y temporizadores intactos."
+          ]
+        },
         {
           "version": "2.2.3",
           "build": "sha256-74be2cec89f3",
@@ -1018,32 +1055,31 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.3",
-      "build": "sha256-76922cdf38d5",
-      "releasedAt": "2026-10-10",
+      "version": "1.11.7",
+      "build": "sha256-bc9bce6af541",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
-        "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
-        "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
-        "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+        "Se sincroniza el centro de actualizaciones con la versión pública real; el progreso y los ejercicios siguen en su aplicación original.",
+        "Conserva las correcciones recientes de carga, caché y almacenamiento sin modificar las reglas del juego."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "809ec10e2c7687dcbcdcb811e42739788fbfdf07578be8507c6a3ef2700e5182"
+            "sha256": "72bca7152c78e04387db72fad2dbf1bd5da4b578da8bc742b56221b2681903c1"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "e3c1b70bd3b3ce55294fec7788aaa30327aab3d663b7adf53272bca540b20c14"
+            "sha256": "b53349a9c85ebb22d3d14681cdef61ba3f5e72aacdecd12c52fead8d497bf393"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "5b60aa56058c54317cbce4139ce2fced4aebd4b6c4cd0a624e5c0017f7d4a151"
+            "sha256": "5cbafe6163c909184abc31fe802aefc22b24fcb3ece71f156c35a9c2f7281d63"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "d74506e88b78176a56ab03d28844fe774ec2e0253a521a809793b709382e7280"
+            "sha256": "3f5b7992651ba6ede3e84ac5635be9665d18f252fcb1fb100203269028bb478b"
           }
         ]
       },
@@ -1054,6 +1090,16 @@
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.3",
+          "build": "sha256-76922cdf38d5",
+          "date": "2026-10-10",
+          "changes": [
+            "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
+            "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
+            "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
+          ]
+        },
         {
           "version": "1.11.2",
           "date": "2026-10-09",
@@ -1127,10 +1173,11 @@
       "id": "cambridge",
       "name": "Cambridge Lab",
       "version": "1.3.7",
-      "build": "sha256-6eff3ace200c",
-      "releasedAt": "2026-10-10",
+      "build": "sha256-17fb55b61221",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
+        "Se actualiza la verificación de archivos y caché a la publicación vigente, sin alterar la versión del juego.",
         "Cabeceras de Modo Estudio más compactas y legibles en móvil: texto secundario de 16 px y procedencia completa conservada.",
         "Revisión de pruebas de pantalla, integridad de caché y publicación; bancos y progreso intactos."
       ],
@@ -1146,11 +1193,11 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "bcdf260f26abcec403a03b80ed069101b1f1443552026e68a680d4263322c88f"
+            "sha256": "4e78a39cf841732f6b127cb18565b9c133a0addb9effae193e152465ebbf7463"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "2bbf8fcca66c9eb7bd476666cc1eb7fb69ceb34022e8cb2400ceff01e8e0b6c6"
+            "sha256": "493004009d8e999d49078be702af1aa932b7f95c04c249a312b9eb3f942dbfe1"
           }
         ]
       },
@@ -1305,10 +1352,11 @@
       "id": "keyword-speaking",
       "name": "B2 Transform",
       "version": "1.1.2",
-      "build": "sha256-e5ed14cf44ff",
-      "releasedAt": "2026-10-10",
+      "build": "sha256-6b50ae7bbf3a",
+      "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
+        "Se actualiza la verificación de archivos y caché a la publicación vigente, sin alterar la versión del juego.",
         "Núcleo Luminous 1.1: contraste corregido en portada, estadísticas, ayudas y pantallas de juego.",
         "Contadores de puntos, medallas, niveles y progreso con cifras y etiquetas legibles.",
         "Tarjetas de lectura coherentes; colores funcionales y recompensas conservan su significado. Sin cambios en bancos, evaluación, temporizadores o guardado."
@@ -1321,15 +1369,15 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "a7a27abb085fc51fc3eccfa17ec1777c4d0e4ae4797d64a05721ffbd3055cba2"
+            "sha256": "9afb3e2e615b467d2e0cb769a5d0c29a42cc7f58cb21ee20ecf64f3faf66fe7d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "9a48ba7be1d59ba20ceb251b9fd9dc3d41873d6f50c17bf2df88c67dc6fbbcda"
+            "sha256": "68bf242335cde85ac0ae669ad11c86ed1145b8f2d212502a1bdd68e35e99c84a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "98c2d7536f3c123ae3a4a5308ce2d673142e0210a3d7350338357e441847f9c7"
+            "sha256": "b3c7e8ab8701c40896ead60d567215b5a263bab9b89b5210e43c28acb6d741e5"
           }
         ]
       },
