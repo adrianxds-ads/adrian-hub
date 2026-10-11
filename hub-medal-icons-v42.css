@@ -1,0 +1,38 @@
+/* Hub v4.2: visual-only reward markers. Counting data and accessible names remain intact. */
+#groups .hub-card-medals{gap:7px!important;flex-wrap:nowrap;align-items:center}
+#groups .hub-medal{
+  width:34px!important;height:34px!important;
+  min-width:34px!important;max-width:34px!important;
+  display:inline-grid!important;place-items:center!important;
+  padding:3px!important;border-radius:50%!important;
+  background:#1B2228!important;border:1px solid #414B54!important;
+  opacity:.68!important;filter:none!important;
+}
+#groups .hub-medal.earned{
+  opacity:1!important;border-color:var(--medal)!important;
+  background:color-mix(in srgb,var(--medal) 16%,#1B2228)!important;
+}
+#groups .hub-medal-count{display:none!important}
+#groups .hub-medal .hub-medal-emblem{
+  box-sizing:border-box!important;
+  display:grid!important;place-items:center!important;
+  width:24px!important;height:24px!important;flex:0 0 24px!important;
+  border-radius:50%!important;
+  padding:0!important;font-size:0!important;line-height:0!important;
+  background:color-mix(in srgb,var(--medal) 33%,#1B2228)!important;
+  border:2px solid var(--medal)!important;
+  color:transparent!important;box-shadow:none!important;
+}
+#groups .hub-medal.earned .hub-medal-emblem{
+  background:var(--medal)!important;border-color:var(--medal)!important;
+}
+#groups .hub-medal-star .hub-medal-emblem{border-radius:50%!important}
+#groups .hub-medal-star .hub-medal-emblem::after{
+  content:"★";font:850 18px/1 system-ui!important;color:#F2CA68!important;
+}
+#groups .hub-medal-star.earned .hub-medal-emblem::after{color:#241A07!important}
+@media(max-width:360px){
+ #groups .hub-card-medals{gap:5px!important}
+ #groups .hub-medal{width:30px!important;height:30px!important;min-width:30px!important;max-width:30px!important}
+ #groups .hub-medal .hub-medal-emblem{width:22px!important;height:22px!important;flex-basis:22px!important}
+}

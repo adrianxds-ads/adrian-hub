@@ -1,19 +1,30 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T18:43:42.566459+02:00",
+  "generatedAt": "2026-10-11T19:49:34.461206+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.3",
-    "build": "hub-30.5.3-20261011",
+    "version": "30.5.4",
+    "build": "hub-30.5.4-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Restauraci?n de las cuatro alternativas en cuadr?cula 2?2, con bordes crom?ticos y controles t?ctiles estables en Grammar Quest, Classroom, Phrasal, Cloze, Turismo y Cambridge cuando proceda.",
-      "Superficies de lectura gris oscuro sobre lienzo OLED negro y texto accesible en preguntas, opciones y estados de correcci?n.",
-      "Leyenda desplegable real de medallas azul 13/15, violeta 14/15, oro 15/15 y una estrella por cinco oros, sin alterar su c?mputo.",
-      "CSS compartido y comprobaciones de regresi?n, historial, progreso, cach?s y recursos publicados."
+      "Grammar Quest: ocultar altavoz bajo el enunciado, recuperar lectura visual del tiempo transcurrido sin cuenta atr?s ni alterar las medidas reales, y compactar las respuestas 2x2 sin perder las correcciones.",
+      "Coach, Key Diary y flashcards de Grammar Quest: paleta de superficie #1B2228, texto #EAF0F5 y bordes #414B54 para lectura nocturna.",
+      "Hub: recompensas convertidas en c?rculos/iconos sin cifras visibles; cantidades y umbrales siguen accesibles en la leyenda y los nombres accesibles.",
+      "Cambridge Lab y Keyword Quiz: colores y tarjetas OLED, botones de cuatro opciones en cuadr?cula 2x2 y estados de correcci?n legibles."
     ],
     "history": [
+      {
+        "version": "30.5.3",
+        "build": "hub-30.5.3-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Restauraci?n de las cuatro alternativas en cuadr?cula 2?2, con bordes crom?ticos y controles t?ctiles estables en Grammar Quest, Classroom, Phrasal, Cloze, Turismo y Cambridge cuando proceda.",
+          "Superficies de lectura gris oscuro sobre lienzo OLED negro y texto accesible en preguntas, opciones y estados de correcci?n.",
+          "Leyenda desplegable real de medallas azul 13/15, violeta 14/15, oro 15/15 y una estrella por cinco oros, sin alterar su c?mputo.",
+          "CSS compartido y comprobaciones de regresi?n, historial, progreso, cach?s y recursos publicados."
+        ]
+      },
       {
         "version": "30.5.2",
         "build": "hub-30.5.2-20261011",
@@ -833,7 +844,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "f06d285837dfa284f2c856edf34c457dc487fb362959bc3f11289725b033c406"
+          "sha256": "604d7043f4244ebcf656dcac71174c1c8a80ad56acd185e2cf378078dd008df8"
         },
         {
           "url": "version-verifier.js",
@@ -841,7 +852,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "0a4da3fa88c3157e746bef1a188646a1b1669f28640b93bd5ea7a776217fa219"
+          "sha256": "a9a52d3f7f7bbcdf05cf6fb7d58305c4edced2a3de96f0cfa0ccc9260b56f217"
         },
         {
           "url": "styles.css",
@@ -849,22 +860,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "685e44eb46fcd70cdf98fba18b256b18ba66f92bc8851572c2c5e22233a4ef37"
+          "sha256": "478c3b926155faa40baf07446ec6e09c68f126db278831a3e6bae6507926e92c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "eb3166841a562e1f24495cceaf79b12e87db8d0f4c7021f59be59559a22da1d7"
+          "sha256": "ea77542d0113e060e060bc6738962e37e3838179210118e69b9eeff5ebcc9a48"
         }
       ]
     },
-    "cacheBuild": "27530950ee65ea15"
+    "cacheBuild": "3d8893cd60337871"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.3",
-      "build": "sha256-e2e4d302ce1a",
+      "version": "3.36.4",
+      "build": "sha256-273283e6cd71",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -876,24 +887,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "e5486ac62fce86e078d4cf8eac2f3e1e98dd324b08050080d2bbecf5c17c0f9a"
+            "sha256": "e2221d11fe6bc0bf036d0fb507c99106be060050b1960f567694bbf4f0d6a7ac"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "46f5a7f2749fea77adb0403c782c1af1d3e99abfbddaecb03bffd171a9f55cc0"
+            "sha256": "d08e8d10e88bff36397e8947fa40df5d9c6a696d21e850dc74d95a9c55a2bf71"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "f34b42223671256a55794cd768abf6f4f2cfd9a96762a182435739509ae5dc89"
+            "sha256": "2f4c3ff6dcf8a5e7b7465e08cb542a73e8666a72e1f6a1acb858d37df8f6a0dc"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "646e288eaa7106105baff69671979f1e94c226f21a9f11dcfff1ad990642b5b1"
+            "sha256": "a89ea289657959a3bf8c14a85472de699d65dd1b572d541224b9af9b716bfbca"
           }
         ]
       },
-      "sourceCommit": "2b94b6b7b09e66d6a642734199bc1cd4866414a6",
-      "cacheBuild": "f88a93acf25e2f29",
+      "sourceCommit": "f52298954b0822de11700079a77d71fe930376f9",
+      "cacheBuild": "78f45731e6d6d391",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -1444,8 +1455,8 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.13",
-      "build": "sha256-f6cd01246e19",
+      "version": "1.3.14",
+      "build": "sha256-dca3a3bf3363",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1457,24 +1468,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "30c1b1fac3d96a38364b4f75caccba0c0230c721c1dfb6fb33c9cba509d95ef2"
+            "sha256": "1c66e3912df7ded5feeea74a3c1f9c4e576004bec4c5fb6480e8dfeaeeec2351"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "a30e2fc3afabd10946c8f62efe4aeffbe067e5acff0dc90a49644213b2ca580b"
+            "sha256": "a7f00c0ebd5ce1dd52eb6f0333d005da75ba1577de64674429d9368b39b8947a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "05b718cd29ecfaa3fa067ef82434b174bdcefe9f6c9ad31b3516951e2363df2e"
+            "sha256": "13e91112332c7dc890a5d91573bc4ae2f533941961f53980c7578f97d2c37263"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "c78b8c7e402e2b93291fbb73edd619d9ba6c568613ebe78ef0b506ac9a1750a9"
+            "sha256": "f304331e297513e34b3ae7d8b55953b0180462e3a18320c63eb53c6fe69f1d60"
           }
         ]
       },
-      "sourceCommit": "9af8fbf78c02d6a2dcc7c7db01e009a3698eef6f",
-      "cacheBuild": "41bac4dbdabce277",
+      "sourceCommit": "c250577c5f4c86a83c899f1a1cf73457b8f0a2c0",
+      "cacheBuild": "2cc678195842f177",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
