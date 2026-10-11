@@ -1,20 +1,31 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-11T03:33:05.032936+00:00",
+  "generatedAt": "2026-10-11T04:08:08.659045+00:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.64",
-    "build": "hub-30.4.64-20261011",
+    "version": "30.4.65",
+    "build": "hub-30.4.65-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Dragoncillo con personalidad: diálogos contextualizados por árbol, planta, cueva, clima y franja horaria de Barcelona; rotación de frases sin repetición inmediata y pequeñas ocurrencias propias.",
-      "Conversaciones espontáneas poco frecuentes, solo tras inactividad y si el jardín está realmente visible; silencio durante interacción activa, juegos inmersivos, pestaña oculta o movimiento reducido.",
-      "Celebraciones visuales de cambios observados en los oros reales y estrellas (cada 5 oros por app) usando el libro y los eventos existentes. El primer estado leído es solo referencia: nunca se vuelven a premiar logros históricos al cargar.",
-      "Sin nuevos contadores ni datos guardados por la mascota; el libro de recompensas, el bosque, las apps y el recorrido de tareas de Biblioteca se mantienen intactos.",
-      "Pruebas Chrome con 360/390/412/1280, oro/estrella, diálogo, silencio activo, crecimiento, cinco etapas, clima y preservación del historial; prueba física de Pixel pendiente."
+      "Correccion del alcance del modo Leer primero: se restauran exactamente los tiempos previos de Grammar Quest (3–4,8 s), Cloze Quiz (3–4,8 s), Phrasal Sprint (4 s) y Classroom B2 (3–6,5 s segun el tipo de pregunta). No se amplian a un minuto.",
+      "Solo Keyword Quiz de Cambridge Part 4, transformaciones de 2 a 5 palabras, conserva 60 segundos para pensar antes de mostrar opciones. El boton puede adelantar la fase sin responder por accidente.",
+      "Las barras amarillas segmentadas de lectura se adaptan a la duracion real del juego (3, 4, 5, 6 o 7 segmentos); se conservan los 15 segmentos del tiempo de respuesta. Navegacion Atrás, Panel y Hub intacta.",
+      "Se actualizan versiones de app, URL de recursos y caches PWA; se respetan el curriculum v3 de Classroom y todas las mejoras del dragoncito. Pruebas Chrome 393px en progreso; el Pixel fisico sigue pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.64",
+        "build": "hub-30.4.64-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Dragoncillo con personalidad: diálogos contextualizados por árbol, planta, cueva, clima y franja horaria de Barcelona; rotación de frases sin repetición inmediata y pequeñas ocurrencias propias.",
+          "Conversaciones espontáneas poco frecuentes, solo tras inactividad y si el jardín está realmente visible; silencio durante interacción activa, juegos inmersivos, pestaña oculta o movimiento reducido.",
+          "Celebraciones visuales de cambios observados en los oros reales y estrellas (cada 5 oros por app) usando el libro y los eventos existentes. El primer estado leído es solo referencia: nunca se vuelven a premiar logros históricos al cargar.",
+          "Sin nuevos contadores ni datos guardados por la mascota; el libro de recompensas, el bosque, las apps y el recorrido de tareas de Biblioteca se mantienen intactos.",
+          "Pruebas Chrome con 360/390/412/1280, oro/estrella, diálogo, silencio activo, crecimiento, cinco etapas, clima y preservación del historial; prueba física de Pixel pendiente."
+        ]
+      },
       {
         "version": "30.4.63",
         "build": "hub-30.4.63-20261011",
@@ -714,7 +725,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "8cce34f9d0f222d032e25d81eab665b0bb29b9db828c5f0d1f53856c327c6009"
+          "sha256": "452b168b6e08da798533689ba57e5f5afd44a73ca16bdfd9e78171b8365b9027"
         },
         {
           "url": "version-verifier.js",
@@ -722,7 +733,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "ddd7cb1d200785dcba0180133d0ebdcf1c17b514a7dfe8990442e80c7f55f8a6"
+          "sha256": "8cc7d378970a5e485827678c1126817054221079f7d7cf8ae2438f251bc4cf51"
         },
         {
           "url": "styles.css",
@@ -730,22 +741,22 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "f69ee77666e299b562ff5135776191a774543783dec90bfcd4535f81ec59d50c"
+          "sha256": "82ea8df0a0095895b9f048e9059e20d94aebd68d787a5bd08ec0e7f86d23f11f"
         },
         {
           "url": "build-assets.js",
-          "sha256": "73624279e01a5f8e38085eacfec2e043275a8ae2c5bf5d1a2c67d98525885a2d"
+          "sha256": "7af73637c149b15f0e26b29883925b15b9bb1cace09086a6c2340142209a77ca"
         }
       ]
     },
-    "cacheBuild": "0386ca5b0c88c8f5"
+    "cacheBuild": "acb82408a4ea1397"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.35.10",
-      "build": "sha256-a338fae3a9fd",
+      "version": "3.35.11",
+      "build": "sha256-938292e3377b",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -756,11 +767,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "4281a985a5d3c5d3e036adef768710f61481b8ebf46d477030ccfa03d0138524"
+            "sha256": "753d00111a65b6f782f2415021118850262a152a7dd8de88f4f3c7376a733b55"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "505ebad70a55615194882b249c054c1d8e290b1b265baa580621d7f98b7f044f"
+            "sha256": "333f6a266873ade0333db6c87b37bcadc17ae12619473cf2750cfb52f01de071"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
@@ -768,12 +779,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "bba9bedaef219414813d9c90c0c4733fa14370efba574f885c3c5be8bbbd4849"
+            "sha256": "92ec5e1e3d3b9f4fc66369de233f618ebd95a92dff3de1dc213386c7345e1711"
           }
         ]
       },
-      "sourceCommit": "a1277e5a087572fab0b7fe75a573041a721b0d12",
-      "cacheBuild": "4bb0491064282666",
+      "sourceCommit": "41b9e7235bab240a73cf1b3a3e472c792c23f65b",
+      "cacheBuild": "6ab77880723ff46c",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -861,8 +872,8 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.6",
-      "build": "sha256-3784d4cfe18c",
+      "version": "0.13.7",
+      "build": "sha256-d85d1ef4e0b1",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -873,11 +884,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "41367c855497a50ae2b54eb4db00c50a3fc5632b242d1168341af83b8fb649a3"
+            "sha256": "a44cfcc13f200180f6c5eaab197ba801f17e98a70d5958218802af588659505a"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "2043d3e54bc3d25aaa628074f7ce9fb9192b8141f5c01516a1097e83dce9e462"
+            "sha256": "95d141ee47a31380d439c9fb6441122ccfaeb0cafcbf8688ff58b374adb51ae8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -885,12 +896,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "50e6993348f89d49c30b306c25fc9283b9aa62271f353929e2821e238255e267"
+            "sha256": "b4ad666bebba4aaf41d364fe16bc1cf326cd393b7b21a911e3a89a068492a071"
           }
         ]
       },
-      "sourceCommit": "33a86b6333268a43b03f0cf44ea3b1d36be885bc",
-      "cacheBuild": "6ff1d27d09a7dec5",
+      "sourceCommit": "39b6b17d85046c1f4e1e311efa6b5b3c421788d4",
+      "cacheBuild": "2cd3b29facab884c",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -976,8 +987,8 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "2.2.8",
-      "build": "sha256-c7d81b704f8f",
+      "version": "3.0.2",
+      "build": "sha256-75f37d8ae67f",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -988,24 +999,24 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "e4032624affb95c48260ec5404aab6b0baa83da359cf02613ff4b7aa421afe05"
+            "sha256": "9df0f649a141b62ea4b058788953f5b312a6973c7ff270174b1042266af8de68"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "967d69ae1bf97130325124bba1064f10f1c71c6924615508d95255715e158fc7"
+            "sha256": "b4fb62f7881a9e6866a15e2626f729ae20711eb4fb08d692e01e037aeef71081"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "f691634787ae87206ccb13cbe444ac0e8295a7d3b5efdf06483da8e6a8727f3f"
+            "sha256": "57b93238dd80a8248f463d6dc54c54f8ef2c6bc4e005591521464552d49f27d1"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "6fe55ce98b9b7c3a6ab035119652c49109e5c73928057f271ab78252b4a6d1ad"
+            "sha256": "a523251c14dee039b08207dcf2d9da5d94437d19c1395efdc2f0bd429d7cd42a"
           }
         ]
       },
-      "sourceCommit": "7a1d7deb0dd128772c016bfd30ea0dbb123a3aae",
-      "cacheBuild": "f12caec669b780fd",
+      "sourceCommit": "5173da6440a285fc2eb2ccd1a6a7b9c96ca5d58d",
+      "cacheBuild": "3166c46a78cc7041",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -1101,8 +1112,8 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.8",
-      "build": "sha256-932146af0401",
+      "version": "1.11.9",
+      "build": "sha256-c1951b7e9a29",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1113,11 +1124,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "9fbb12b87f1977a85af62e8feea6fca14d295be14435f3a40c42c39f2317d8f1"
+            "sha256": "d4fcae462389b4317fa3ba54ff29160b2a5ebe0e4fd2660a9fa2ff7422894238"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "202b5d2706ef10e8f3d3435ed1755b429c2223697acc5d8e4cbb1e11cac2fda2"
+            "sha256": "16e6e90f504de9112537b5a62a1be559d223326e5635f56d18fcd8eebbc2d82b"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -1125,12 +1136,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "3d2b4fc10c78330e5f0ccec901014f5602d6564e896d52627261fbb27f591d88"
+            "sha256": "04e9bc317bed6371e14dd0b911ad344a9ccf50d89824e3e3783cf2f4ad661be6"
           }
         ]
       },
-      "sourceCommit": "c129c6dc6b2d45a6da43d0764ae60240ca66de53",
-      "cacheBuild": "54d8984c8137a079",
+      "sourceCommit": "bb86753ec124e33ea65ff599ba19ad77a8f0c86d",
+      "cacheBuild": "6f821b29f7eb72aa",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -1218,8 +1229,8 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.8",
-      "build": "sha256-690e48fa4799",
+      "version": "1.3.9",
+      "build": "sha256-e978d350f39a",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1231,11 +1242,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "c6b2e04fd2be5c6cbff14e25b52a1134ac85d0f3175a53bc7d36c0edd0652953"
+            "sha256": "720e2ef9280ccba39bb227a5614aae5603eb1e8a48fbdad5fe0997b398763419"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "89bb827847c5275e724603e4a465eacd2cb387bb1cedfd4f17b45b52de18383b"
+            "sha256": "e2976f8e88d68ddb9a8f86f327217e73c9d62058a48c960648da7001b7b83c2d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -1243,12 +1254,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "cc54ba60d37549e8058dc83e20fa4b951e3883223f87fa0a28355268337600ae"
+            "sha256": "9309e3428c3a9c9c739668eaf3539015dcc36ef2867bb6392e49f9fa2305220b"
           }
         ]
       },
-      "sourceCommit": "46a73a0613fdd0352bc9e60c012a1c0ff689d333",
-      "cacheBuild": "e79110cec66870ee",
+      "sourceCommit": "6b9148718e55442590a393582363baca8be2643b",
+      "cacheBuild": "611e46976ffddbb5",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -1398,7 +1409,7 @@
       "id": "keyword-speaking",
       "name": "B2 Transform",
       "version": "1.1.3",
-      "build": "sha256-c5541492771b",
+      "build": "sha256-a416763544e8",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1415,7 +1426,7 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "2fe1dbe2afd5650d7fd326f5df264baa0a2793318daba9fb602db4e2338eb1a5"
+            "sha256": "4ffb1e2e5b3be9d358d401a3251598bb1bcc927f830426eab4b5d4e500c35d78"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -1423,12 +1434,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "5e9b74ef93fce652da8f4d6e7c0c6f49e4b9bfbecc5d88eba2c353290eefe50c"
+            "sha256": "709b318360b4b80c07e52bd325647b428d4fc150a241f5e116c7e2c4cc534f16"
           }
         ]
       },
-      "sourceCommit": "f1c9864f489587934f51ba07cca8d2c57ff69a5e",
-      "cacheBuild": "536abb74b634fe40",
+      "sourceCommit": "2e107e970e6cde3a8e88ed515f13c43fdd664c11",
+      "cacheBuild": "36ae5a9b4b73931f",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
