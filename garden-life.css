@@ -144,3 +144,71 @@
   width:86px;height:86px;
  }
 }
+
+
+/* Hover from a pointer left behind by the walking dragon should not leave
+   oversized tree labels over the miniature landscape. Selection/focus still works. */
+.github-garden .gg-plant:not([data-selected="true"]):hover:not(:focus-visible) .gg-label{
+ opacity:0;
+}
+/* Living journeys (Hub garden only): walk to actual plants and the real cave.
+   The Podcast Task Garden remains independently positioned by taskProgress. */
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey]{
+ animation:none;
+ transition:left 3.6s cubic-bezier(.42,.12,.55,.96),
+            bottom 3.6s cubic-bezier(.42,.12,.55,.96),
+            scale 3.6s cubic-bezier(.42,.12,.55,.96);
+}
+/* The cavern is a distant, existing SVG structure. Shrink in perspective when
+   approaching its doorway, rather than looking larger than the refuge. */
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey="cave"][data-stage="1"]{scale:.42}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey="cave"][data-stage="2"]{scale:.49}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey="cave"][data-stage="3"]{scale:.53}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey="cave"][data-stage="4"]{scale:.56}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey="egg"]{
+ transition:none;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk svg.dragon-art{
+ animation:nl-dragon-travel-bob .55s ease-in-out infinite alternate;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .leg-front,
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .arm-back{
+ transform-origin:50% 10%;
+ animation:nl-dragon-paws .36s ease-in-out infinite alternate;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .leg-back,
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .arm-front{
+ transform-origin:50% 10%;
+ animation:nl-dragon-paws .36s ease-in-out infinite alternate-reverse;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-flight svg.dragon-art{
+ animation:nl-dragon-travel-glide 4.4s cubic-bezier(.4,.02,.65,.98) 1!important;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-flight .wing-front,
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-flight .wing-back{
+ animation:nl-dragon-flap .22s ease-in-out infinite alternate;
+}
+.github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-at-cave svg.dragon-art{
+ filter:drop-shadow(0 2px 2px rgba(12,44,31,.22));
+}
+@keyframes nl-dragon-travel-bob{
+ from{transform:translateY(0) rotate(-1deg)}
+ to{transform:translateY(-3px) rotate(1deg)}
+}
+@keyframes nl-dragon-travel-glide{
+ 0%,100%{transform:translateY(0) rotate(0)}
+ 28%{transform:translateY(-13px) rotate(-4deg)}
+ 55%{transform:translateY(-22px) rotate(3deg)}
+ 77%{transform:translateY(-10px) rotate(-1deg)}
+}
+@media(prefers-reduced-motion:reduce){
+ .github-garden:not(#taskGarden) .nl-dino.nl-dragon[data-journey]{
+  transition:none!important;animation:none!important;
+ }
+ .github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk svg.dragon-art,
+ .github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-flight svg.dragon-art,
+ .github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .leg-front,
+ .github-garden:not(#taskGarden) .nl-dino.nl-dragon.nl-dragon-travel-walk .leg-back{
+  animation:none!important;
+ }
+}

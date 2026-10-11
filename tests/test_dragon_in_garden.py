@@ -2,6 +2,7 @@
 Never connects to user data; synthetic completed blocks prove preserved tree progress.
 """
 import json, pathlib, threading, urllib.parse
+from datetime import datetime, timezone
 from functools import partial
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from playwright.sync_api import sync_playwright
@@ -18,7 +19,7 @@ try:
   for width in (360,390,412,1280):
    for amount,stage in cases:
     context=browser.new_context(viewport={'width':width,'height':820},service_workers='block')
-    records=[{'id':f'fixture-{i}','status':'completado','libraryId':'fixture'} for i in range(amount)]
+    records=[{'id':f'fixture-{i}','status':'completado','libraryId':'fixture','endedAt':datetime.now(timezone.utc).isoformat()} for i in range(amount)]
     history=json.dumps(records)
     context.add_init_script(f"localStorage.setItem('adrianEasyCatalanTaskSessionsV1',{json.dumps(history)});")
     page=context.new_page();errors=[]
@@ -49,8 +50,8 @@ try:
     d.click(force=True)
     assert page.locator('#githubGarden .nl-speaking').count()==1
     if stage>=3:
-     for _ in range(2):d.click(force=True)
-     assert d.evaluate("d=>d.classList.contains('nl-dragon-flight')")
+     for _ in range(3):d.click(force=True)
+     assert d.evaluate("d=>d.classList.contains('nl-dragon-travel-flight') && d.dataset.journey==='flying'")
     assert page.evaluate("localStorage.getItem('adrianEasyCatalanTaskSessionsV1')")==before
     assert page.locator('#githubGarden .cottage-garden [data-cottage-plant]').count()==tree_count
     assert not page.evaluate("document.documentElement.scrollWidth>innerWidth"),(width,stage)

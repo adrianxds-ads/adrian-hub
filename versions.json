@@ -4,16 +4,28 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.4.62",
-    "build": "hub-30.4.62-20261011",
+    "version": "30.4.63",
+    "build": "hub-30.4.63-20261011",
     "releasedAt": "2026-10-11",
     "changes": [
-      "Lectura previa de hasta 60 segundos por frase en English Grammar, Cloze Quiz, Phrasal Sprint, Classroom B2 y Key Word Quiz; el boton de cuatro colores adelanta la fase sin seleccionar una respuesta.",
-      "Relojes circulares sustituidos por segmentos amarillos progresivos; Cambridge usa una barra horizontal sin cifra de segundos. Se conserva la duracion original del examen y del tiempo de respuesta.",
-      "Controles compactos Atrás, Panel y Hub arriba y abajo de los juegos; se mantienen JSON y ajustes de legibilidad. Sin cambios en resultados, puntuaciones, rachas ni sincronizacion.",
-      "Pruebas Chrome movil 393x852 en siete entradas: sin desbordamiento ni errores JS; cuatro juegos completan la transicion lectura→respuesta sin respuesta accidental. Pixel fisico sin verificar."
+      "Dragoncillo con recorridos vivos: pasea hacia árboles grandes existentes, descubre plantas concretas del progreso y visita la verdadera cueva del jardín, en lugar de oscilar entre posiciones arbitrarias.",
+      "Perspectiva animada hacia la cueva, descanso nocturno y refugio ante lluvia, llovizna, nieve o tormenta. Minivuelos ocasionales solo desde etapa 3 con viento estimado inferior a 30 km/h.",
+      "Nuevo crecimiento del jardín provoca visita y comentario breves sin crear o modificar recompensas. Etiquetas grandes de los árboles más discretas con puntero, conservando selección y foco.",
+      "El modo tareas de Biblioteca conserva el recorrido vinculado al avance real del podcast. Huevos, cinco umbrales de evolución, árboles, medallas e históricos sin cambios.",
+      "Pruebas Playwright 360/390/412/1280, cinco etapas, cueva/árbol/planta, lluvia/viento, crecimiento, reduced-motion y tarea de Biblioteca; Pixel físico pendiente."
     ],
     "history": [
+      {
+        "version": "30.4.62",
+        "build": "hub-30.4.62-20261011",
+        "date": "2026-10-11",
+        "changes": [
+          "Lectura previa de hasta 60 segundos por frase en English Grammar, Cloze Quiz, Phrasal Sprint, Classroom B2 y Key Word Quiz; el boton de cuatro colores adelanta la fase sin seleccionar una respuesta.",
+          "Relojes circulares sustituidos por segmentos amarillos progresivos; Cambridge usa una barra horizontal sin cifra de segundos. Se conserva la duracion original del examen y del tiempo de respuesta.",
+          "Controles compactos Atrás, Panel y Hub arriba y abajo de los juegos; se mantienen JSON y ajustes de legibilidad. Sin cambios en resultados, puntuaciones, rachas ni sincronizacion.",
+          "Pruebas Chrome movil 393x852 en siete entradas: sin desbordamiento ni errores JS; cuatro juegos completan la transicion lectura→respuesta sin respuesta accidental. Pixel fisico sin verificar."
+        ]
+      },
       {
         "version": "30.4.61",
         "build": "hub-30.4.61-20261011",
@@ -690,7 +702,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "9dbf8e7d743ca5514fadd97cd4293f619090a6b60546c967d0793e489200ce3b"
+          "sha256": "41bcacd360a07647c2c5709324456bfccdce535f8c6fe0ef342303b8be6eb2ae"
         },
         {
           "url": "version-verifier.js",
@@ -698,7 +710,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "13878057935fa247316b824631d31a344bceb081da8c632f8aa08e31321b6622"
+          "sha256": "159a9eb674642ac7afdda3421bf1cbbd87f4fb013aff36fa4f4eff76228ac656"
         },
         {
           "url": "styles.css",
@@ -706,15 +718,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "2bd9774941fd03da468b99a759a83335da211747935ebc4977fa3fa3e39c3006"
+          "sha256": "05a57eb5050472416670bd8158021748ed92a731651520e1acddeb390843142c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "1724affbe94ca7a962798a1e50d2a703ab8fded028ff2c89651deac2622f0f96"
+          "sha256": "fffcdf0d478af96a9780be7fad8a42992864eec63983b61a84bc270980156d4a"
         }
       ]
     },
-    "cacheBuild": "112c3f23663b0f19"
+    "cacheBuild": "33462cedacfcbb70"
   },
   "apps": [
     {
@@ -1599,18 +1611,18 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.4",
-      "build": "sha256-baf595459f7a",
+      "version": "0.5.5",
+      "build": "sha256-db6211886914",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
-        "Mismo jardín de tareas con el dragoncillo SVG 2.5D más detallado y legible, con todos los progresos y recorridos de tareas intactos."
+        "Jardín compartido con rutas libres solo en la portada. El modo tarea mantiene exclusivamente su recorrido de podcast y las sesiones guardadas."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "2710a58f8967c900b26460e1742c355272ba91a72af980a62d4ce66535205f91"
+            "sha256": "8620196683bc64126cb8771c77af613bb49c535b547ead27590344abea93abb1"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -1623,6 +1635,14 @@
         ]
       },
       "history": [
+        {
+          "version": "0.5.4",
+          "build": "sha256-baf595459f7a",
+          "date": "2026-10-11",
+          "changes": [
+            "Mismo jardín de tareas con el dragoncillo SVG 2.5D más detallado y legible, con todos los progresos y recorridos de tareas intactos."
+          ]
+        },
         {
           "version": "0.5.3",
           "build": "sha256-48b014b482e5",

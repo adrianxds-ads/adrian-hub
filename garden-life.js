@@ -26,6 +26,140 @@ const WEATHER_URL='https://api.open-meteo.com/v1/forecast?latitude=41.3874&longi
 // not necessarily to rain falling at this instant. Use the instantaneous WMO code.
 const TTL=15*60*1000,MAX_STALE=30*60*1000;
 const mounted=new WeakSet();
+// Decorative journey state only; the task garden remains exclusively progress-driven.
+const journeys=new WeakMap();
+const JOURNEY_INTERVAL=16000;
+const travelDisabled=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function isTaskGarden(host){return host.id==='taskGarden'||!!host.closest('#taskJourney');}
+function clamp(n,a,b){return Math.max(a,Math.min(b,n));}
+function obstaclePoint(host,target){
+ const d=host.querySelector('.nl-dino'),box=host.getBoundingClientRect(),r=target?.getBoundingClientRect();
+ if(!d||!r||!r.width||!r.height||!box.width||!box.height)return null;
+ const half=d.offsetWidth/2;
+ // SVG g bounds are transformed into actual screen coordinates, including viewBox meet.
+ // Keep 10 px from the container and enough room for a short speech bubble.
+ const x=clamp(r.left+r.width/2-box.left-half,10,Math.max(10,box.width-half-67));
+ const bottom=clamp(box.bottom-r.bottom+3,Math.max(5,box.height*.055),Math.max(6,box.height*.31));
+ return {left:x,bottom};
+}
+function journeyDestination(host,place){
+ const d=host.querySelector('.nl-dino');if(!d)return null;
+ const plants=host.querySelectorAll('.cottage-garden [data-cottage-plant]');
+ const cave=host.querySelector('.cottage-garden .jurassic-cave');
+ if(place==='cave'){
+  const point=obstaclePoint(host,cave);
+  if(point)return point;
+  return {left:clamp(host.clientWidth*.72-d.offsetWidth/2,10,host.clientWidth*.72),
+    bottom:Math.max(7,host.clientHeight*.09)};
+ }
+ if(place==='tree'){
+  // These are the existing larger trees grown by the main Hub apps, not invented scenery.
+  const tree=host.querySelector('.gg-scene .gg-plant[data-active="true"]')||
+    host.querySelector('.gg-scene .gg-plant[data-app]');
+  const point=obstaclePoint(host,tree);
+  if(point)return point;
+ }
+ if(place==='plant'){
+  // The last live plant really belongs to the user's growth history.
+  const plant=plants.length?plants[plants.length-1]:null;
+  const point=obstaclePoint(host,plant);
+  if(point)return point;
+ }
+ const fallback=place==='clearing'?.28:.38;
+ return {left:clamp(host.clientWidth*fallback-d.offsetWidth/2,10,host.clientWidth*.68),
+  bottom:Math.max(8,host.clientHeight*.105)};
+}
+function weatherShelter(){
+ if(!weather||Date.now()-weatherAt>MAX_STALE)return false;
+ return ['rain','drizzle','snow','storm'].includes(weatherKind(weather));
+}
+function flightWeatherOK(){
+ if(weatherShelter())return false;
+ // Bad conditions do not trigger automatic takeoff (wind is a modelled, recent value).
+ if(weather&&Date.now()-weatherAt<=MAX_STALE){
+  const wind=Number(weather.wind_speed_10m);
+  if(Number.isFinite(wind)&&wind>=30)return false;
+ }
+ return true;
+}
+function visit(host,place,fly=false){
+ if(!host?.isConnected||isTaskGarden(host))return false;
+ const d=host.querySelector('.nl-dino'),stage=Number(d?.dataset.stage)||0;
+ if(!d||stage===0||travelDisabled())return false;
+ const j=journeys.get(host);if(!j)return false;
+ const coords=journeyDestination(host,place);
+ if(!coords)return false;
+ const actualFlight=fly&&stage>=3&&flightWeatherOK()&&place!=='cave';
+ const dx=Math.abs((parseFloat(d.style.left)||host.clientWidth*.14)-coords.left);
+ const duration=actualFlight?4400:Math.round(clamp(dx*25,2500,5700));
+ d.dataset.journey=actualFlight?'flying':place;
+ d.classList.toggle('nl-dragon-travel-flight',actualFlight);
+ d.classList.toggle('nl-dragon-travel-walk',!actualFlight&&place!=='cave');
+ d.style.transitionDuration=duration+'ms';
+ d.style.left=coords.left.toFixed(1)+'px';
+ d.style.bottom=coords.bottom.toFixed(1)+'px';
+ j.place=place;
+ clearTimeout(j.settleTimer);
+ j.settleTimer=setTimeout(()=>{
+  if(!d.isConnected||isTaskGarden(host))return;
+  d.classList.remove('nl-dragon-travel-flight','nl-dragon-travel-walk');
+  d.dataset.journey=place;
+  if(place==='cave')d.classList.add('nl-at-cave');else d.classList.remove('nl-at-cave');
+ },duration+100);
+ return true;
+}
+function journeyTick(host,immediate=false){
+ if(!host?.isConnected||isTaskGarden(host))return;
+ const d=host.querySelector('.nl-dino');
+ if(!d)return;
+ const stage=Number(d.dataset.stage)||0;
+ let j=journeys.get(host);
+ if(!j){j={turn:0,place:null,steps:null,settleTimer:null};journeys.set(host,j);}
+ if(stage===0){
+  d.dataset.journey='egg';
+  d.classList.remove('nl-dragon-travel-walk','nl-dragon-travel-flight','nl-at-cave');
+  d.style.removeProperty('left');d.style.removeProperty('bottom');
+  return;
+ }
+ if(travelDisabled()){
+  d.dataset.journey='still';
+  d.classList.remove('nl-dragon-travel-walk','nl-dragon-travel-flight');
+  d.style.removeProperty('left');d.style.removeProperty('bottom');
+  return;
+ }
+ // A newly completed growth step draws the dragon's attention to an existing plant.
+ const growth=Number(window.CottageGarden?.progress?.().growthSteps);
+ const growing=Number.isFinite(growth)&&j.steps!==null&&growth>j.steps;
+ if(Number.isFinite(growth))j.steps=growth;
+ const shelter=d.dataset.mood==='sleepy'||weatherShelter();
+ if(shelter){
+  if(j.place!=='cave')visit(host,'cave');
+  return;
+ }
+ if(growing){
+  if(visit(host,'plant')){
+   const bubble=d.querySelector('.nl-dino-bubble');
+   if(bubble){bubble.textContent='¡Ha crecido otra hojita en nuestro jardín!';d.classList.add('nl-speaking');
+    clearTimeout(d.__bubbleTimer);d.__bubbleTimer=setTimeout(()=>d.classList.remove('nl-speaking'),3100);}
+  }
+  return;
+ }
+ if(immediate){
+  if(j.place===null)visit(host,'clearing');
+  return;
+ }
+ j.turn++;
+ const path=['plant','clearing','cave','tree','plant','clearing'];
+ const place=path[j.turn%path.length];
+ // Later stages occasionally glide instead of marching, no new rewards.
+ const fly=stage>=3&&j.turn%4===0;
+ visit(host,place,fly);
+}
+function journeyLoop(){
+ if(document.hidden)return;
+ document.querySelectorAll('.github-garden').forEach(host=>journeyTick(host));
+}
+
 let weather=null,weatherAt=0,lastRequest=0,requesting=false;
 const weatherKinds={
  clear:{icon:'☀',label:'despejado'},partly:{icon:'⛅',label:'intervalos nubosos'},
@@ -90,6 +224,11 @@ function dinoClick(host){
  const d=host.querySelector('.nl-dino');if(!d)return;
  const state=d.dataset.mood||'curious',n=(Number(d.dataset.taps)||0)+1;
  d.dataset.taps=String(n);
+ if(!isTaskGarden(host)&&Number(d.dataset.stage)>=1){
+  if(d.dataset.mood==='sleepy'||weatherShelter())visit(host,'cave');
+  else if(n%3===0)visit(host,'cave');
+  else visit(host,n%2===0?'tree':'plant',Number(d.dataset.stage)>=3&&n%4===0);
+ }
  const msg=d.dataset.stage==='0'?['Crac… ¿has oído eso?','Dentro está creciendo algo.','Todavía un poquito de paciencia.'][(n-1)%3]:say[state][(n-1)%say[state].length];
  const bubble=d.querySelector('.nl-dino-bubble');bubble.textContent=msg;
  // A small wing celebration; occasional hover is unlocked only at stages 3–4.
@@ -97,7 +236,7 @@ function dinoClick(host){
   d.classList.remove('nl-dragon-flap','nl-dragon-flight');
   void d.offsetWidth;
   const stage=Number(d.dataset.stage);
-  d.classList.add(stage>=3&&n%3===0?'nl-dragon-flight':'nl-dragon-flap');
+  d.classList.add(stage>=3&&n%4===0&&flightWeatherOK()&&d.dataset.journey!=='cave'?'nl-dragon-flight':'nl-dragon-flap');
   clearTimeout(d.__motionTimer);
   d.__motionTimer=setTimeout(()=>d.classList.remove('nl-dragon-flap','nl-dragon-flight'),2600);
  }
@@ -199,7 +338,7 @@ async function refreshWeather(){
   weather=data.current;weatherAt=Date.now();
   try{localStorage.setItem(WEATHER_KEY,JSON.stringify({at:weatherAt,current:weather}));}catch{}
  }catch(e){/* Retain a recent real reading or show no current weather; never invent it. */}
- finally{requesting=false;document.querySelectorAll('.github-garden').forEach(applyWeather);}
+ finally{requesting=false;document.querySelectorAll('.github-garden').forEach(host=>{applyWeather(host);journeyTick(host,true);});}
 }
 function mount(host){
  if(!host.querySelector('.gg-scene'))return;
@@ -210,6 +349,8 @@ function mount(host){
   layer.querySelector('.nl-weather-chip').addEventListener('pointerdown',event=>event.stopPropagation());
  }
  if(!host.querySelector('.nl-dino')){
+  // Core garden may redraw its scene: forget coordinates belonging to an old pet node.
+  journeys.delete(host);
   const d=document.createElement('button');d.type='button';d.className='nl-dino nl-dragon';
   d.innerHTML=petArt(dinoStage())+'<span class="nl-dino-bubble" aria-live="polite"></span>';
   host.appendChild(d);
@@ -218,6 +359,7 @@ function mount(host){
  }
  if(!mounted.has(host))mounted.add(host);
  updateDino(host);applyWeather(host);
+ journeyTick(host,true);
 }
 function followTask(){
  const host=document.getElementById('taskGarden'),progress=document.getElementById('taskProgress');
@@ -233,6 +375,7 @@ function refresh(){
  document.querySelectorAll('.github-garden').forEach(mount);
  followTask();
  document.querySelectorAll('.nl-dino').forEach(el=>{if(el.isConnected)updateDino(el.closest('.github-garden'));});
+ document.querySelectorAll('.github-garden').forEach(host=>journeyTick(host,true));
 }
 let pending=false;
 function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;refresh();refreshWeather();});}
@@ -245,7 +388,8 @@ loadWeatherCache();
 window.addEventListener('storage',e=>{if(!e.key||e.key===HISTORY_KEY||e.key===WEATHER_KEY){if(e.key===WEATHER_KEY)loadWeatherCache();schedule();}});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastRequest=0;schedule();}});
 setInterval(()=>{updateBarcelonaClock();if(!document.hidden){refresh();refreshWeather();}},60000);
-window.NucleoGardenLife=Object.freeze({version:'1.2.0',refresh,weatherKind,mood});
+setInterval(journeyLoop,JOURNEY_INTERVAL);
+window.NucleoGardenLife=Object.freeze({version:'1.3.0',refresh,weatherKind,mood});
 loadDragonArtwork();
 updateBarcelonaBar();
 schedule();
