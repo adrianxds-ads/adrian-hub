@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-12T00:23:51.767825+02:00",
+  "generatedAt": "2026-10-12T04:24:40.361821+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.10",
-    "build": "hub-30.5.10-20261012",
+    "version": "30.5.11",
+    "build": "hub-30.5.11-20261012",
     "releasedAt": "2026-10-12",
     "changes": [
-      "Fase 4: paridad de cabeceras y respuestas 2x2, temporizadores visibles sin alterar sus motores.",
-      "Coach, Study File, Key Diary y Skill League: contraste oscuro unificado y porcentajes legibles.",
-      "Cambridge: cifra del donut restaurada y barra redundante retirada; cachés CSS de ocho apps renovadas."
+      "Tarjetas del Hub: cuadrícula accesible con logotipos 56 px, acciones independientes y bordes de color por materia.",
+      "Corregida la sintaxis inválida introducida por los commits concurrentes; conservadas medallas, estrellas y actualización individual.",
+      "Verificación responsive 360/390/412/1280 px; sin pérdida de navegación, información ni recompensas."
     ],
     "history": [
+      {
+        "version": "30.5.10",
+        "build": "hub-30.5.10-20261012",
+        "changes": [
+          "Fase 4: paridad de cabeceras y respuestas 2x2, temporizadores visibles sin alterar sus motores.",
+          "Coach, Study File, Key Diary y Skill League: contraste oscuro unificado y porcentajes legibles.",
+          "Cambridge: cifra del donut restaurada y barra redundante retirada; cachés CSS de ocho apps renovadas."
+        ],
+        "date": "2026-10-12"
+      },
       {
         "version": "30.5.9",
         "build": "hub-30.5.9-20261011",
@@ -908,7 +918,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "0a9c6c2cc9eb24aaeba99ef25afa7609e9d6f04c6157aad54c0bd3b423c95bb6"
+          "sha256": "025a7464be5a9e70e683f1ebe9a2d4df9b9dff9b5e4e40abec6b90b4c43203f9"
         },
         {
           "url": "version-verifier.js",
@@ -916,23 +926,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "834316cfbcaa5355509664cbc8cfcb04b5bc209eadead9159f8d3d70faeebe12"
+          "sha256": "d9b26e02e48cbb4680794b6d8e91e0ea5f01e68216a874ecf541f01661fb96b7"
         },
         {
           "url": "styles.css",
-          "sha256": "1d9a0ff8c153f893d7989cddd7cf6f99d314917462c0e9ede6ac359c36feb468"
+          "sha256": "c191124c642d47317a41b5cd8b7d7feec97fa554ff6a1d6ac6e12db85bfa77f2"
         },
         {
           "url": "service-worker.js",
-          "sha256": "68c07adb1fba517f0aff29e0ba284a99cd0132c8649f98f92ad58d479bb9ac71"
+          "sha256": "06afe54810528545ad2f880cc685b7a116b9c624f1384375ca6f3864f30a9186"
         },
         {
           "url": "build-assets.js",
-          "sha256": "dc2be2d2fe6ca4cfe1b5515bff2b04f32379630b27e48d7566b7870599c42f0c"
+          "sha256": "3d5ecc70dc04c3322eaf5f2c7ca196a0c5d7afceb04d05cc0ad886e3e7ebcdfa"
         }
       ]
     },
-    "cacheBuild": "65d351d85500bfb9"
+    "cacheBuild": "ced606f53e5dba7c"
   },
   "apps": [
     {

@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.10';
-const HUB_BUILD='hub-30.5.10-20261012';
+const HUB_VERSION='30.5.11';
+const HUB_BUILD='hub-30.5.11-20261012';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -16,13 +16,9 @@ function launchUrl(app){
 function render(){
   const visible=registry;
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
-  
-  // ESTA ES LA LÍNEA QUE DEBES CAMBIAR:
-  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card" data-id="${esc(a.id)}"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="glyph">${esc(a.glyph)}</span><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle\vert{}\vert{}'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span><span class="go" aria-hidden="true">›</span></a><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
-  
+  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card redesign" data-id="${esc(a.id)}"><div class="app-layout-grid"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="app-brand"><span class="glyph">${esc(a.glyph)}</span></span><span class="app-meta"><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span></span></a><div class="app-actions"><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></div></div></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
   renderTaskMedals();
   renderHubStars();
-}
 }
 async function fetchHubJson(path){
   const url=new URL(path,location.href);url.searchParams.set('hubv',HUB_VERSION);url.searchParams.set('fresh',Date.now());
@@ -244,138 +240,4 @@ document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.targ
 
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./service-worker.js?v=hub-v30.4.6-triage-lesson-20261007',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
-}
-/* =========================================
-   REDISEÑO DE TARJETAS (NUEVO HUB)
-   ========================================= */
-
-.app.ad-card.redesign {
-  position: relative;
-  background: var(--surface-2, #111111);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 16px;
-  overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-/* Bordes superiores de color según el ID de la aplicación */
-.app.ad-card.redesign[data-id="english"] { border-top: 3px solid #4a90e2; }
-.app.ad-card.redesign[data-id="phrasal-verbs"] { border-top: 3px solid #9b59b6; }
-.app.ad-card.redesign[data-id="catala"] { border-top: 3px solid #f1c40f; }
-
-.app.ad-card.redesign:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-/* Sistema de cuadrícula para alinear los elementos */
-.app-layout-grid {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "brand meta actions";
-  gap: 16px;
-  align-items: start;
-}
-
-.app-brand { grid-area: brand; }
-.app-meta { grid-area: meta; }
-.app-actions { grid-area: actions; }
-
-/* Mayor protagonismo a los logos (GQ, PS...) */
-.app.ad-card.redesign .glyph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* Textos de la tarjeta */
-.app.ad-card.redesign .app-launch {
-  text-decoration: none;
-  display: block;
-  outline: none;
-}
-
-.app.ad-card.redesign strong {
-  display: block;
-  font-size: 1.15rem;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.app.ad-card.redesign small {
-  display: block;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.3;
-}
-
-.app.ad-card.redesign .app-version-chip {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 0.75rem;
-  padding: 3px 6px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Icono de información reorganizado */
-.app.ad-card.redesign .app-info {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-  font-style: italic;
-  font-family: serif;
-}
-
-.app.ad-card.redesign .app-info:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-}
-
-/* Medallas dinámicas atenuadas hasta interactuar */
-.app.ad-card.redesign [class*="medal"],
-.app.ad-card.redesign [class*="reward"] {
-  opacity: 0.55;
-  transform: scale(0.85);
-  transform-origin: left bottom;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 12px;
-  display: inline-block;
-}
-
-.app.ad-card.redesign:hover [class*="medal"],
-.app.ad-card.redesign:hover [class*="reward"] {
-  opacity: 1;
-}
-
-/* Reposicionamiento del icono de recarga inyectado (↺) */
-.app.ad-card.redesign button:contains("↺"),
-.app.ad-card.redesign [class*="sync"] {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  opacity: 0.4;
-  transition: opacity 0.2s;
-}
-
-.app.ad-card.redesign:hover button:contains("↺"),
-.app.ad-card.redesign:hover [class*="sync"] {
-  opacity: 1;
 }
