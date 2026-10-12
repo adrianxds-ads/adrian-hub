@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-12T04:24:40.361821+02:00",
+  "generatedAt": "2026-10-12T04:34:09.532466+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.11",
-    "build": "hub-30.5.11-20261012",
+    "version": "30.5.12",
+    "build": "hub-30.5.12-20261012",
     "releasedAt": "2026-10-12",
     "changes": [
-      "Tarjetas del Hub: cuadrícula accesible con logotipos 56 px, acciones independientes y bordes de color por materia.",
-      "Corregida la sintaxis inválida introducida por los commits concurrentes; conservadas medallas, estrellas y actualización individual.",
-      "Verificación responsive 360/390/412/1280 px; sin pérdida de navegación, información ni recompensas."
+      "Identidad cromática permanente en las 15 tarjetas: borde superior de 3 px y contorno completo con el tono propio de cada módulo.",
+      "Paleta coherente por aplicación sin alterar fondo OLED, textos, controles, recompensas ni navegación.",
+      "Comprobada la visibilidad de 15/15 bordes y la regresión de tarjetas en 360/390/412/1280 px."
     ],
     "history": [
+      {
+        "version": "30.5.11",
+        "build": "hub-30.5.11-20261012",
+        "date": "2026-10-12",
+        "changes": [
+          "Tarjetas del Hub: cuadrícula accesible con logotipos 56 px, acciones independientes y bordes de color por materia.",
+          "Corregida la sintaxis inválida introducida por los commits concurrentes; conservadas medallas, estrellas y actualización individual.",
+          "Verificación responsive 360/390/412/1280 px; sin pérdida de navegación, información ni recompensas."
+        ]
+      },
       {
         "version": "30.5.10",
         "build": "hub-30.5.10-20261012",
@@ -918,7 +928,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "025a7464be5a9e70e683f1ebe9a2d4df9b9dff9b5e4e40abec6b90b4c43203f9"
+          "sha256": "c60610c954b8d82c69eb55e76b673a87c1918992dd2cb7285666d8c93bcd7adb"
         },
         {
           "url": "version-verifier.js",
@@ -926,23 +936,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "d9b26e02e48cbb4680794b6d8e91e0ea5f01e68216a874ecf541f01661fb96b7"
+          "sha256": "f4fb48a5d7ab7cc639a7b2b830cc4dfe92c8cc1e226590d16b1ea99666e7ac9b"
         },
         {
           "url": "styles.css",
-          "sha256": "c191124c642d47317a41b5cd8b7d7feec97fa554ff6a1d6ac6e12db85bfa77f2"
+          "sha256": "e426757a1de291f114b770eb7c16a0738f9d71ce4fbcac9cc650b37ae5dacfdd"
         },
         {
           "url": "service-worker.js",
-          "sha256": "06afe54810528545ad2f880cc685b7a116b9c624f1384375ca6f3864f30a9186"
+          "sha256": "14e447120fe22ed1811ecf9641f30cfcf2965d858cb4ed2f6fdc5e09ea56c261"
         },
         {
           "url": "build-assets.js",
-          "sha256": "3d5ecc70dc04c3322eaf5f2c7ca196a0c5d7afceb04d05cc0ad886e3e7ebcdfa"
+          "sha256": "72f02b00afce40f4db1406bdcf775b71c639e62d3c84f2bb8987bd38dda909f7"
         }
       ]
     },
-    "cacheBuild": "ced606f53e5dba7c"
+    "cacheBuild": "6d0cfbd12b64c8ea"
   },
   "apps": [
     {

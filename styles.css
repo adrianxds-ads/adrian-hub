@@ -894,23 +894,40 @@ button:disabled {
 }
 
 
-/* Card grid v1 · icon + metadata + accessible action, scoped to Hub modules.
-   Rewards and update actions remain outside this grid and retain their component styles. */
+/* Card grid v2 · one persistent accent for every registered module.
+   The brighter top edge and softer matching perimeter preserve the OLED cards.
+   Rewards, information and individual update controls are untouched. */
 .nucleo-readable #groups .app.ad-card.redesign {
+  --card-accent: #8EABC2;
   background: var(--ad-surface, #1B2228);
-  border-color: var(--ad-border, #414B54);
+  border: 1px solid #414B54;
+  border-color: color-mix(in srgb, var(--card-accent) 45%, #414B54);
+  border-top: 3px solid var(--card-accent);
   border-radius: 16px;
   overflow: hidden;
   transition: border-color .2s ease;
 }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="english"] { border-top: 3px solid #4A90E2; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="phrasal-verbs"] { border-top: 3px solid #9B59B6; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="catala"] { border-top: 3px solid #F1C40F; }
+/* The data-id values mirror apps.json; colors are always visible (no hover needed). */
+.nucleo-readable #groups .app.ad-card.redesign[data-id="english"] { --card-accent: #4A90E2; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="phrasal-verbs"] { --card-accent: #9B59B6; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="pizarras"] { --card-accent: #F29E4C; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="b2-cloze"] { --card-accent: #37BFB5; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="cambridge"] { --card-accent: #E66F8D; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="keyword-speaking"] { --card-accent: #A9CE5E; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="biblioteca"] { --card-accent: #F1C40F; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="hoti0108"] { --card-accent: #D6A26B; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="entrenamiento"] { --card-accent: #2EC78F; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="cambio"] { --card-accent: #67B7F7; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="dcinbox"] { --card-accent: #8EABC2; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="adri-type"] { --card-accent: #B58AEB; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="agents"] { --card-accent: #EC80CF; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="limpieza"] { --card-accent: #7CCB7A; }
+.nucleo-readable #groups .app.ad-card.redesign[data-id="job-engine"] { --card-accent: #F1B75B; }
 @media (hover: hover) {
-  .nucleo-readable #groups .app.ad-card.redesign:hover { border-color: #798B99; }
-  .nucleo-readable #groups .app.ad-card.redesign[data-id="english"]:hover { border-top-color: #4A90E2; }
-  .nucleo-readable #groups .app.ad-card.redesign[data-id="phrasal-verbs"]:hover { border-top-color: #9B59B6; }
-  .nucleo-readable #groups .app.ad-card.redesign[data-id="catala"]:hover { border-top-color: #F1C40F; }
+  .nucleo-readable #groups .app.ad-card.redesign:hover {
+    border-color: color-mix(in srgb, var(--card-accent) 68%, #414B54);
+    border-top-color: var(--card-accent);
+  }
 }
 .nucleo-readable #groups .app.ad-card.redesign .app-layout-grid {
   display: grid;
