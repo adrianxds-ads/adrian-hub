@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-12T04:34:09.532466+02:00",
+  "generatedAt": "2026-10-12T05:33:53.302054+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.12",
-    "build": "hub-30.5.12-20261012",
+    "version": "30.5.13",
+    "build": "hub-30.5.13-20261012",
     "releasedAt": "2026-10-12",
     "changes": [
-      "Identidad cromática permanente en las 15 tarjetas: borde superior de 3 px y contorno completo con el tono propio de cada módulo.",
-      "Paleta coherente por aplicación sin alterar fondo OLED, textos, controles, recompensas ni navegación.",
-      "Comprobada la visibilidad de 15/15 bordes y la regresión de tarjetas en 360/390/412/1280 px."
+      "Paleta corporativa de 15 colores en apps.json, compartida por bordes y monogramas de cada tarjeta.",
+      "Las ocho aplicaciones didácticas comparten esos colores exactos en su identidad de portada y tintes asociados, con acciones oscurecidas para contraste.",
+      "Sin cambios en semántica de respuestas, medallas, temporizadores, historial ni persistencia."
     ],
     "history": [
+      {
+        "version": "30.5.12",
+        "build": "hub-30.5.12-20261012",
+        "date": "2026-10-12",
+        "changes": [
+          "Identidad cromática permanente en las 15 tarjetas: borde superior de 3 px y contorno completo con el tono propio de cada módulo.",
+          "Paleta coherente por aplicación sin alterar fondo OLED, textos, controles, recompensas ni navegación.",
+          "Comprobada la visibilidad de 15/15 bordes y la regresión de tarjetas en 360/390/412/1280 px."
+        ]
+      },
       {
         "version": "30.5.11",
         "build": "hub-30.5.11-20261012",
@@ -928,7 +938,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "c60610c954b8d82c69eb55e76b673a87c1918992dd2cb7285666d8c93bcd7adb"
+          "sha256": "06ff0349e6f6605d6aa701d7a6140cd3f2d07f2ee789ebfbd70b135574f28468"
         },
         {
           "url": "version-verifier.js",
@@ -936,63 +946,71 @@
         },
         {
           "url": "index.html",
-          "sha256": "f4fb48a5d7ab7cc639a7b2b830cc4dfe92c8cc1e226590d16b1ea99666e7ac9b"
+          "sha256": "9380026c955ddc1f35ea529fc300a365f1f98f590065b442b4fad673fac38ba5"
         },
         {
           "url": "styles.css",
-          "sha256": "e426757a1de291f114b770eb7c16a0738f9d71ce4fbcac9cc650b37ae5dacfdd"
+          "sha256": "ddbe90a98fc417942745a963e5a3853a8270494f533d021063cfaeb3785c8fb9"
         },
         {
           "url": "service-worker.js",
-          "sha256": "14e447120fe22ed1811ecf9641f30cfcf2965d858cb4ed2f6fdc5e09ea56c261"
+          "sha256": "0364a2d306408f7781ff7a2b4cabacc106a2e288f8a135f87f74708363acbd38"
         },
         {
           "url": "build-assets.js",
-          "sha256": "72f02b00afce40f4db1406bdcf775b71c639e62d3c84f2bb8987bd38dda909f7"
+          "sha256": "76e3a1005b59d4afd02aaab717125f486ecec9044e27ac97e7e486cbb4e84021"
         }
       ]
     },
-    "cacheBuild": "6d0cfbd12b64c8ea"
+    "cacheBuild": "183f76c541f6d8b2"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.7",
-      "build": "sha256-016c1e5e8d17",
-      "releasedAt": "2026-10-11",
+      "version": "3.36.8",
+      "build": "sha256-0464e2f070f6",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "016c1e5e8d17cd335bbf9083a2b6e0471e1b4a0545fc0be12148618acc35f0f2"
+            "sha256": "2cb7e6c3ccbe18951b3e6692f0e3bee5c03fd3b1096e4bbb090d9645692afec0"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "b9c4213a55551e16637f98939fd3b9049a1f2b4487308e81a63a8ade94755c02"
+            "sha256": "0205a22bf8c719745faeac2b278d16ee88a336af9ec751b0899e2a53e275fafa"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "ce51ecb0fe49e9a5bf8e40b2e52f913bfaa029979b3af1b54effa4544a27b24e"
+            "sha256": "fac9c53257ead80c645b45c379e0608f96597a531c2ba2e3b5894cd97e098022"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "2700819f290997e76266840c1a1271371f5b3eb9cf525d3a461091b621cfdfbd"
+            "sha256": "1f3a84b1716577449ec426e7326f18d939163949f33dd9236691fb63f455c6f7"
           }
         ]
       },
-      "sourceCommit": "95bcfff87163a64ced91cf80589d57cd731c19cc",
-      "cacheBuild": "ca3d26f7bbfd467a",
+      "sourceCommit": "eea530e43a6d22607dcfbf0452231d73cec0df04",
+      "cacheBuild": "add2a4ea20077ec4",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.7",
+          "build": "sha256-016c1e5e8d17",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "3.36.6",
           "build": "sha256-4af4547cc3fe",
@@ -1134,23 +1152,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.14",
-      "build": "sha256-e4d72403007a",
-      "releasedAt": "2026-10-11",
+      "version": "0.13.15",
+      "build": "sha256-fad250536e7b",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "e4d72403007ab2d32bd8fa2f6e1b7b892b28d4861d14732d397eaa3bb02c6e0e"
+            "sha256": "2a15ac379782d213239c10fcf6511e9a163bdbe849fd0610c74d94cca3da00a6"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "0ec94c2253a72341d2bb532b06880da6c7c473ce4626ddb1399e5d857552847f"
+            "sha256": "3934c9cd1354b1ffb4cf3791bcc8f059d2a5ba60a32bdf45d1818e89904c4e33"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
@@ -1158,17 +1175,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "4fed1c93cd8520d3844c380810355c1acffdfc711b14e1a2055d3ed1c12e560d"
+            "sha256": "6a530edaaec2fbc9bad9bf5c61a32afc59a1fb1b206a23a3efe2a8ce732e5dfe"
           }
         ]
       },
-      "sourceCommit": "f9ab04e6d2113990b347c1db2c8b58b2733d1ece",
-      "cacheBuild": "59e26bb599987de3",
+      "sourceCommit": "942a47f13bc42168f2dc1a9554ba1aa877b601ea",
+      "cacheBuild": "5c5459b250dcb0f6",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.14",
+          "build": "sha256-e4d72403007a",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "0.13.13",
           "build": "sha256-3f960555abfd",
@@ -1277,23 +1303,22 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.9",
-      "build": "sha256-2c00150ccb73",
-      "releasedAt": "2026-10-11",
+      "version": "3.0.10",
+      "build": "sha256-3a301f7a57bb",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "2c00150ccb73284f799c41e20499228d92aa31cc737b87fc01be069f60202b7b"
+            "sha256": "c3e5dfaf8f6f2e2d3f55b00bc412641880bf940d12c9d356467bd77f986e6aa7"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "a87792c1d62ac171afe99d4768917750ec3f8aa8c226854f7a3bf3dadb0302a1"
+            "sha256": "a79ba6473ea56a04e0f7324ed494b433f382f32ba11c60c5ecf3d67a35117370"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
@@ -1301,17 +1326,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "9dd75e002b2b925279900c4cf262e854beb2f5ec11546420fe1d3eea0483384a"
+            "sha256": "e1b71bdc9006bd45e55c3987006ae125cc7f6cfd6b6def2dc3b503611570e41c"
           }
         ]
       },
-      "sourceCommit": "033989fad297a49f6ce1c07fbd1d0928a7fb6785",
-      "cacheBuild": "527b1c73a69b97e6",
+      "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
+      "cacheBuild": "0c93e16549277a84",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.9",
+          "build": "sha256-2c00150ccb73",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "3.0.8",
           "build": "sha256-7b9aecc77846",
@@ -1430,23 +1464,22 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.16",
-      "build": "sha256-196bc522b190",
-      "releasedAt": "2026-10-11",
+      "version": "1.11.17",
+      "build": "sha256-83bea5edace4",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "196bc522b19013abd66de4ec25d3df9143c6c03b5b3882207beb2a15c17a2f2c"
+            "sha256": "6651756fed76c68bf3905472290d14d764778ea0eccdbd602f61428460ede4d0"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "31f474cf0291825e63650ed001e72c2ca0a6cbb3d4971b4a7ed1e8989d472184"
+            "sha256": "c22795ca8f63e1a95f563cb60667b1828722ac33e8fe5d100846c3c5faaad63e"
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
@@ -1454,17 +1487,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "c9854b264d015e228caffe042ac47f3c1ac457e6a38ef2d9eb07cccb68c853fe"
+            "sha256": "6bd3c763c837e7916c5d48cb67228afe238d1d9485ea2e71f5046fb378860216"
           }
         ]
       },
-      "sourceCommit": "e18cb030176af2091338871e87ef1da3873b0712",
-      "cacheBuild": "7bbb179fe94c400e",
+      "sourceCommit": "3cad81e35240102ad453c4967da7aaa00fb04fc1",
+      "cacheBuild": "033fb93a5d90bb09",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.16",
+          "build": "sha256-196bc522b190",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "1.11.15",
           "build": "sha256-7cec13578918",
@@ -1575,23 +1617,22 @@
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.17",
-      "build": "sha256-a737a32753c4",
-      "releasedAt": "2026-10-11",
+      "version": "1.3.18",
+      "build": "sha256-13297d1e9693",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "a737a32753c4193316e6a43a13dd0e43c644d3523ed7fe7f8ebb6637528159de"
+            "sha256": "0f8a4a899170c7c2cf0e642a4327d504f9ef1431667f4cf6e8609c96f136029c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "c1e79b243fdd5a1f151802461ad8b3c647ed16ae40c5b89c074429bbee5287a7"
+            "sha256": "268cbb53333193f51081522d475f08a5c8d778d056c99dc369fe47c9195a7186"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
@@ -1599,17 +1640,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "5d385d9f1e67e4a776c4d0b4eaa83f39e58084894db5bf6e3fa6aaef6db22e0e"
+            "sha256": "fea982f39ffb94ce0c22cd10bb74adf57956650bf36cddf9b2ee206353bc648f"
           }
         ]
       },
-      "sourceCommit": "05f1eea65d5fa4f686b7f16fd0e92cff6dbbe608",
-      "cacheBuild": "654a6fdb66f674e2",
+      "sourceCommit": "517125b37db2e0be3ff86ade2e512947d773f691",
+      "cacheBuild": "aef0b17323cb646e",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.17",
+          "build": "sha256-a737a32753c4",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "1.3.16",
           "build": "sha256-89237485b2e0",
@@ -1782,23 +1832,22 @@
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.1.9",
-      "build": "sha256-76f445fb0a42",
-      "releasedAt": "2026-10-11",
+      "version": "1.1.10",
+      "build": "sha256-e6b91c37e5df",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "76f445fb0a4238d9bb3ae431ddffcce3e0a1a0cb2173c11649d730cf59390e15"
+            "sha256": "25b2476fd4666d9a7cc26bb1aa0ad25c23748bf6e39bdb146bfe461f14fa1e99"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "2b33792cf3e79d9787f41effaadbda6c53cdc304b57e4ad0a35f413abb9ee68e"
+            "sha256": "1bbc0a072c43613292b9b8ac2c63525d2afc7559b50018c8ee95193a4af7b287"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
@@ -1806,17 +1855,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "2ed2c64de37b69ee8410a75577b44037b8cdf82ee7427b65ac36207fcea8aa7b"
+            "sha256": "ba2156d1fecf8102533b5c3ed71d7574ad0408361163de7c31ee90443229916a"
           }
         ]
       },
-      "sourceCommit": "844a6e8197928eb76072b813dd7158f10d811f37",
-      "cacheBuild": "112dd12c4f55d688",
+      "sourceCommit": "d13205b41c37dc0c3ef9f820fbdc6524fe212b3b",
+      "cacheBuild": "44fd214d1e4036cd",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.1.9",
+          "build": "sha256-76f445fb0a42",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "1.1.8",
           "build": "sha256-120459698045",
@@ -1938,8 +1996,8 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.12",
-      "build": "sha256-0c3563042fa2",
+      "version": "0.10.13",
+      "build": "sha256-7716f447f2a1",
       "releasedAt": "2026-10-11",
       "kind": "public",
       "changes": [
@@ -1950,11 +2008,11 @@
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "0c3563042fa24c69fe605eb23716bf6e78510797aaced980342a57e3cc7a2930"
+            "sha256": "cb3ce31c8918238295271ab29d95e94f9c36af12269b397c5d39ab573926b9fd"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "ff5829318c003d58dc5595ef312ca143900ee849fbb8c4d265a2e7431891a279"
+            "sha256": "eeb39bee72ef17b930eae347fad56ad80ccb712adef928f671b315d2a4b49b79"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
@@ -1962,12 +2020,12 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "78872f6e9726aeb0edb103d3efc7b1e3527cffc0a39a0bc6555d05709c765b65"
+            "sha256": "f26da71cc79d360925c6d28cf47e6dc200c3bb6ac529de943d079bfef8d84655"
           }
         ]
       },
-      "sourceCommit": "ee5c2428f016230a7b291f77e2781add1c1c251a",
-      "cacheBuild": "e6a3d5ee609eec95",
+      "sourceCommit": "e90f6cde6d452c11fc01d5fce8e5cebdc5bdf492",
+      "cacheBuild": "d8ab6b6663a76781",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -2192,23 +2250,22 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.7.12",
-      "build": "sha256-9a86c9e87237",
-      "releasedAt": "2026-10-11",
+      "version": "2.7.13",
+      "build": "sha256-a3e6cb45b7a6",
+      "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "9a86c9e872371378d6e4ace4e4f686bcf60bf4557b8c3029cd9c7e291c517fb7"
+            "sha256": "07287aca7c92d03f310a6fe579641f668019c9abc474d3aa3a44a8ec2481d7f8"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "10698deac07b34288c010f43a74a75ff7000adf6a65b83c9f5ed5bb36197cd09"
+            "sha256": "6bd35a0f52942f02d1bdf0605451dde7d85f7d638051b23b4e09cdec194cb70c"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
@@ -2216,17 +2273,26 @@
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "eaef93015d45e8eab8bef8d891036334d4dc68b0d80cd0373c573aa6f6671aff"
+            "sha256": "e196e732f2a2a8b2de2035ec30596f9cbe8283134c7a2cf6bd417ecab84b99ed"
           }
         ]
       },
-      "sourceCommit": "1b032b5428709a67bd88d010e509cfa3b5e12a05",
-      "cacheBuild": "2fea7be785fdc552",
+      "sourceCommit": "d4131020c92e2879cf79fc0199be6a1745e04e61",
+      "cacheBuild": "d9e40ca2c07dc25f",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.7.12",
+          "build": "sha256-9a86c9e87237",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "2.7.11",
           "build": "sha256-71dc60800172",

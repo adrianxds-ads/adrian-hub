@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.5.12",
+  "hubVersion": "30.5.13",
   "apps": [
     {
       "id": "english",
@@ -16,7 +16,8 @@
         "Quiz de 15 preguntas",
         "Repaso espaciado",
         "Claves, ligas y evolución"
-      ]
+      ],
+      "brandColor": "#4A90E2"
     },
     {
       "id": "phrasal-verbs",
@@ -32,7 +33,8 @@
         "Cinco tipos de ejercicio",
         "Rondas de 15 preguntas",
         "Repaso de los verbos que cuestan"
-      ]
+      ],
+      "brandColor": "#9B59B6"
     },
     {
       "id": "pizarras",
@@ -48,7 +50,8 @@
         "Clases temporizadas",
         "Repetición de errores",
         "Quiz rápido de 15 preguntas"
-      ]
+      ],
+      "brandColor": "#F29E4C"
     },
     {
       "id": "b2-cloze",
@@ -64,7 +67,8 @@
         "2.431 tarjetas",
         "Cambridge Parts 1–3",
         "Repetición espaciada"
-      ]
+      ],
+      "brandColor": "#37BFB5"
     },
     {
       "id": "cambridge",
@@ -80,7 +84,8 @@
         "Partes 1–4 del examen",
         "Cambridge Quiz",
         "Corrección y estadísticas"
-      ]
+      ],
+      "brandColor": "#E66F8D"
     },
     {
       "id": "keyword-speaking",
@@ -96,7 +101,8 @@
         "Speaking y teclado",
         "Cambridge Part 4",
         "Corrección por ejercicio"
-      ]
+      ],
+      "brandColor": "#A9CE5E"
     },
     {
       "id": "biblioteca",
@@ -111,7 +117,8 @@
         "Reproductor de podcasts",
         "Modo Tarea con dinosaurio",
         "Escuchas y tareas contadas por separado"
-      ]
+      ],
+      "brandColor": "#F1C40F"
     },
     {
       "id": "hoti0108",
@@ -127,7 +134,8 @@
         "Estudio guiado",
         "Flashcards",
         "Preparación de exámenes"
-      ]
+      ],
+      "brandColor": "#D6A26B"
     },
     {
       "id": "entrenamiento",
@@ -142,7 +150,8 @@
         "Rutinas",
         "Temporizadores",
         "Histórico"
-      ]
+      ],
+      "brandColor": "#2EC78F"
     },
     {
       "id": "cambio",
@@ -156,7 +165,8 @@
       "features": [
         "Transiciones breves",
         "Entrenamiento ejecutivo"
-      ]
+      ],
+      "brandColor": "#67B7F7"
     },
     {
       "id": "dcinbox",
@@ -170,7 +180,8 @@
       "features": [
         "Entrada compartida",
         "Clasificación y envío"
-      ]
+      ],
+      "brandColor": "#8EABC2"
     },
     {
       "id": "adri-type",
@@ -185,7 +196,8 @@
       "features": [
         "Extensión para PC",
         "Acceso desde el Hub"
-      ]
+      ],
+      "brandColor": "#B58AEB"
     },
     {
       "id": "agents",
@@ -200,7 +212,8 @@
       "features": [
         "Coordinación",
         "Estado y formación de agentes"
-      ]
+      ],
+      "brandColor": "#EC80CF"
     },
     {
       "id": "limpieza",
@@ -216,7 +229,8 @@
         "Objetivos",
         "Seguimiento",
         "Acceso privado"
-      ]
+      ],
+      "brandColor": "#7CCB7A"
     },
     {
       "id": "job-engine",
@@ -231,7 +245,8 @@
         "Ofertas",
         "Candidaturas",
         "Métricas"
-      ]
+      ],
+      "brandColor": "#F1B75B"
     }
   ]
 }

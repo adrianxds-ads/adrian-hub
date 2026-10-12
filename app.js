@@ -1,11 +1,12 @@
-const HUB_VERSION='30.5.12';
-const HUB_BUILD='hub-30.5.12-20261012';
+const HUB_VERSION='30.5.13';
+const HUB_BUILD='hub-30.5.13-20261012';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
 let versionMap={};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function versionFor(id){return versionMap[id]||null;}
+const brandFor=a=>/^#[0-9a-f]{6}$/i.test(a?.brandColor||'')?a.brandColor:'#8EABC2';
 function launchUrl(app){
   const v=versionFor(app.id),u=new URL(app.url,location.href);
   u.searchParams.set('hubv',HUB_VERSION);
@@ -16,7 +17,7 @@ function launchUrl(app){
 function render(){
   const visible=registry;
   const groups=visible.reduce((acc,a)=>{const key=a.group||'Apps';(acc[key]||(acc[key]=[])).push(a);return acc;},{});
-  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card redesign" data-id="${esc(a.id)}"><div class="app-layout-grid"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="app-brand"><span class="glyph">${esc(a.glyph)}</span></span><span class="app-meta"><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span></span></a><div class="app-actions"><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></div></div></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
+  groupsEl.innerHTML=Object.entries(groups).map(([group,items])=>`<section class="group"><h2>${esc(group)}</h2><div class="apps">${items.map(a=>{const v=versionFor(a.id);return `<article class="app ad-card redesign" data-id="${esc(a.id)}" style="--card-accent:${brandFor(a)}"><div class="app-layout-grid"><a class="app-launch" href="${esc(launchUrl(a))}" aria-label="Abrir ${esc(a.name)}"><span class="app-brand"><span class="glyph">${esc(a.glyph)}</span></span><span class="app-meta"><span class="app-copy"><strong>${esc(a.name)}</strong><small>${esc(a.subtitle||'')}</small>${v?`<span class="app-version-chip">v${esc(v.version)}</span>`:''}</span></span></a><div class="app-actions"><button type="button" class="app-info" data-info="${esc(a.id)}" aria-label="Información sobre ${esc(a.name)}" title="Información sobre esta aplicación">i</button></div></div></article>`;}).join('')}</div></section>`).join('')||'<div class="empty ad-card">No encuentro ninguna app con ese nombre.</div>';
   renderTaskMedals();
   renderHubStars();
 }

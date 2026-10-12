@@ -907,22 +907,7 @@ button:disabled {
   overflow: hidden;
   transition: border-color .2s ease;
 }
-/* The data-id values mirror apps.json; colors are always visible (no hover needed). */
-.nucleo-readable #groups .app.ad-card.redesign[data-id="english"] { --card-accent: #4A90E2; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="phrasal-verbs"] { --card-accent: #9B59B6; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="pizarras"] { --card-accent: #F29E4C; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="b2-cloze"] { --card-accent: #37BFB5; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="cambridge"] { --card-accent: #E66F8D; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="keyword-speaking"] { --card-accent: #A9CE5E; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="biblioteca"] { --card-accent: #F1C40F; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="hoti0108"] { --card-accent: #D6A26B; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="entrenamiento"] { --card-accent: #2EC78F; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="cambio"] { --card-accent: #67B7F7; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="dcinbox"] { --card-accent: #8EABC2; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="adri-type"] { --card-accent: #B58AEB; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="agents"] { --card-accent: #EC80CF; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="limpieza"] { --card-accent: #7CCB7A; }
-.nucleo-readable #groups .app.ad-card.redesign[data-id="job-engine"] { --card-accent: #F1B75B; }
+/* Brand palette is registered once in apps.json and injected as a validated custom property. */
 @media (hover: hover) {
   .nucleo-readable #groups .app.ad-card.redesign:hover {
     border-color: color-mix(in srgb, var(--card-accent) 68%, #414B54);
@@ -959,10 +944,10 @@ button:disabled {
   width: 56px;
   height: 56px;
   box-sizing: border-box;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.11);
+  background: color-mix(in srgb, var(--card-accent) 11%, #252F36);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 48%, #414B54);
   border-radius: 14px;
-  color: var(--ad-text, #EAF0F5);
+  color: var(--card-accent);
   font-size: 24px;
   line-height: 1;
 }
