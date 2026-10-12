@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-12T05:33:53.302054+02:00",
+  "generatedAt": "2026-10-12T07:18:52.614120+02:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.13",
-    "build": "hub-30.5.13-20261012",
+    "version": "30.5.14",
+    "build": "hub-30.5.14-20261012",
     "releasedAt": "2026-10-12",
     "changes": [
-      "Paleta corporativa de 15 colores en apps.json, compartida por bordes y monogramas de cada tarjeta.",
-      "Las ocho aplicaciones didácticas comparten esos colores exactos en su identidad de portada y tintes asociados, con acciones oscurecidas para contraste.",
-      "Sin cambios en semántica de respuestas, medallas, temporizadores, historial ni persistencia."
+      "Primer piloto del Núcleo Design System: Grammar Quest combina portada OLED sobria, identidad azul y preguntas con fondo claro.",
+      "Medallas compactas, estrella independiente, CTA azul sin gradiente, navegación legible y Key Diary conservado.",
+      "Validación de una ronda completa, cinco anchuras, guardado y tests de integridad sin usar sesiones personales."
     ],
     "history": [
+      {
+        "version": "30.5.13",
+        "build": "hub-30.5.13-20261012",
+        "date": "2026-10-12",
+        "changes": [
+          "Paleta corporativa de 15 colores en apps.json, compartida por bordes y monogramas de cada tarjeta.",
+          "Las ocho aplicaciones didácticas comparten esos colores exactos en su identidad de portada y tintes asociados, con acciones oscurecidas para contraste.",
+          "Sin cambios en semántica de respuestas, medallas, temporizadores, historial ni persistencia."
+        ]
+      },
       {
         "version": "30.5.12",
         "build": "hub-30.5.12-20261012",
@@ -938,7 +948,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "06ff0349e6f6605d6aa701d7a6140cd3f2d07f2ee789ebfbd70b135574f28468"
+          "sha256": "29c637250494221cf9b2e72f3bf95a65ddd595f86355899aadaa6e0f9589304b"
         },
         {
           "url": "version-verifier.js",
@@ -946,7 +956,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "9380026c955ddc1f35ea529fc300a365f1f98f590065b442b4fad673fac38ba5"
+          "sha256": "1d9ccabc650f98ab03f35f11abf9a6c93409487600e63580b5c8e8864e3a9e9d"
         },
         {
           "url": "styles.css",
@@ -954,54 +964,64 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "0364a2d306408f7781ff7a2b4cabacc106a2e288f8a135f87f74708363acbd38"
+          "sha256": "28faf9ae5e9105ecde7b2be40a19566908022dc5aa667162835e5e3934f1d929"
         },
         {
           "url": "build-assets.js",
-          "sha256": "76e3a1005b59d4afd02aaab717125f486ecec9044e27ac97e7e486cbb4e84021"
+          "sha256": "461a6f9601d233ab3c17c1642b87440c6e3b31c740c76eded3de0aadf7c4c55e"
         }
       ]
     },
-    "cacheBuild": "183f76c541f6d8b2"
+    "cacheBuild": "7f953b9c4b41b293"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.8",
-      "build": "sha256-0464e2f070f6",
+      "version": "3.36.9",
+      "build": "sha256-a5bca3e6cfb0",
       "releasedAt": "2026-10-12",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Grammar Quest 3.36.9: portada neutra y azul corporativo, quiz/resultados claros y paneles de progreso coherentes.",
+        "Recompensas compactas, barra de navegación legible, diario navegable y resultados de alto contraste.",
+        "Sin cambios en bancos, motor, tiempos, modos, puntuación, histórico ni almacenamiento."
       ],
       "verify": {
         "files": [
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "2cb7e6c3ccbe18951b3e6692f0e3bee5c03fd3b1096e4bbb090d9645692afec0"
+            "sha256": "13bd7e07ae7a1a8f95a4c6d21c55cbd35f391c2c1eff6c05c4493b560120162d"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "0205a22bf8c719745faeac2b278d16ee88a336af9ec751b0899e2a53e275fafa"
+            "sha256": "541583d550621570b9361efd39a68906ab1a0ebb4708828461b9ad4ce7cc5235"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "fac9c53257ead80c645b45c379e0608f96597a531c2ba2e3b5894cd97e098022"
+            "sha256": "268f0850de836f40ee46fd1580ec63cfceafdc8d69c2ca29085ccd4595776ea9"
           },
           {
             "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "1f3a84b1716577449ec426e7326f18d939163949f33dd9236691fb63f455c6f7"
+            "sha256": "d0f74d0cfbf5e4007412b3e8f7ae5683dbf0c962073d672a6fcda312a8f20fde"
           }
         ]
       },
-      "sourceCommit": "eea530e43a6d22607dcfbf0452231d73cec0df04",
-      "cacheBuild": "add2a4ea20077ec4",
+      "sourceCommit": "7d5ab38038896bd29f94b7126ee254e24065132f",
+      "cacheBuild": "5dff7dadbd5d57a2",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.8",
+          "build": "sha256-0464e2f070f6",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "3.36.7",
           "build": "sha256-016c1e5e8d17",

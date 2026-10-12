@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.13';
-const HUB_BUILD='hub-30.5.13-20261012';
+const HUB_VERSION='30.5.14';
+const HUB_BUILD='hub-30.5.14-20261012';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
