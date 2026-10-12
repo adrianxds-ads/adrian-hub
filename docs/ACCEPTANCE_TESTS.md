@@ -2,6 +2,15 @@
 
 A change is complete only when the relevant checks pass and the observed result is recorded.
 
+## Núcleo Design System · Puertas de aceptación (2026-10-12)
+La especificación única vive en `../../adrian-core/design/NUCLEO_DESIGN_SYSTEM.md`. Definida en diseño NO equivale a implementada ni publicada.
+- Antes de un cambio visual, registrar HEAD, fuentes CSS canónicas, orden de capas, capturas y estilos computados.
+- Revisar 360/390/412/768/1280 px, zoom, contraste de texto, interacción táctil/teclado y ausencia de solapes.
+- Separar portada oscura y quiz claro; verificar que respuestas, tiempo real, Read First/Think Mode y resultados no cambian de función.
+- Verificar medallas, estrellas, Key Diary, histórico, JSON, IndexedDB, sincronización pertinente y salida/regreso sin pérdida de datos.
+- Tras publicar, contrastar versión y CSS realmente servidos (sin caché vieja). Guardar evidencia, límites y ruta de reversión.
+- Esta sección es el contrato para futuras pruebas; ninguna comprobación se considera ejecutada por el mero hecho de documentarla.
+
 ## Hub release check
 - Load the Hub from a clean/fresh browser state.
 - Confirm the visible Hub version matches `versions.json`.

@@ -8,6 +8,7 @@ Adrián Hub is the launcher and coordination layer for a personal ecosystem of s
 - Hub/app versions and release notes: `versions.json`
 - Hub shell: `index.html`, `app.js`, `styles.css`
 - Offline/cache layer: `service-worker.js`
+- Diseño visual maestro (aprobado como especificación, implantación pendiente): `../adrian-core/design/NUCLEO_DESIGN_SYSTEM.md`. Priorizar su árbol 01–06 al planificar reformas de interfaz; cotejar siempre el código y las pruebas reales. Las reglas antiguas describen versiones históricas.
 - Shared progress/storage: `progress-storage.js`
 - Path/Oca game: `hub-path-game.js`
 - Bundled apps: `apps/`
