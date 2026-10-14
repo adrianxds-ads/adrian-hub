@@ -1,6 +1,6 @@
 {
   "version": 25,
-  "hubVersion": "30.5.14",
+  "hubVersion": "30.5.16",
   "apps": [
     {
       "id": "english",
@@ -8,7 +8,7 @@
       "subtitle": "Quiz adaptativo · 25 claves de gramática",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-english/",
+      "url": "/adaptive-english/",
       "repo": "https://github.com/adrianxds-ads/adaptive-english",
       "glyph": "GQ",
       "description": "Entrena gramática inglesa en rondas rápidas de 15 preguntas. La dificultad se adapta a tus errores, dominio y revisiones pendientes.",
@@ -25,7 +25,7 @@
       "subtitle": "120 phrasal verbs · Quiz rápido",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/",
+      "url": "/adaptive-phrasal-verbs/",
       "repo": "https://github.com/adrianxds-ads/adaptive-phrasal-verbs",
       "glyph": "PS",
       "description": "Automatiza el reconocimiento y uso de 120 phrasal verbs frecuentes mediante preguntas breves y repasos adaptativos.",
@@ -42,7 +42,7 @@
       "subtitle": "Clases adaptativas · Sara B2",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-pizarras/",
+      "url": "/adaptive-pizarras/",
       "repo": "https://github.com/adrianxds-ads/adaptive-pizarras",
       "glyph": "CB",
       "description": "Convierte los materiales reales de clase en sesiones de aprendizaje adaptativo, con práctica hasta que termina el tiempo.",
@@ -59,7 +59,7 @@
       "subtitle": "B2 First · Cambridge Parts 1–3",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/",
+      "url": "/b2-multiple-choice-cloze/",
       "repo": "https://github.com/adrianxds-ads/b2-multiple-choice-cloze",
       "glyph": "CQ",
       "description": "Practica 2.431 tarjetas de Cambridge Parts 1, 2 y 3: vocabulario, open cloze y word formation, con distractores y repetición adaptativa.",
@@ -76,7 +76,7 @@
       "subtitle": "B2 First · Exámenes y Quiz",
       "group": "Estudio",
       "kind": "pwa-exam",
-      "url": "https://adrianxds-ads.github.io/adaptive-exam/",
+      "url": "/adaptive-exam/",
       "repo": "https://github.com/adrianxds-ads/adaptive-exam",
       "glyph": "CL",
       "description": "Prepara Reading and Use of English B2 First con ejercicios al estilo Cambridge, textos completos y práctica en formato quiz.",
@@ -93,7 +93,7 @@
       "subtitle": "Transformaciones · Voz y teclado",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/",
+      "url": "/adaptive-keyword-speaking/",
       "repo": "https://github.com/adrianxds-ads/adaptive-keyword-speaking",
       "glyph": "BT",
       "description": "Resuelve Key Word Transformations del B2 First dictando la frase o escribiendo la respuesta y comprueba las transformaciones.",
@@ -126,7 +126,7 @@
       "subtitle": "HOTI0108 · Estudio y exámenes",
       "group": "Estudio",
       "kind": "pwa-study",
-      "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/",
+      "url": "/adaptive-hoti0108/",
       "repo": "https://github.com/adrianxds-ads/adaptive-hoti0108",
       "glyph": "TL",
       "description": "Repasa contenidos del certificado HOTI0108 con preguntas, tarjetas y práctica de examen.",
@@ -136,6 +136,23 @@
         "Preparación de exámenes"
       ],
       "brandColor": "#D6A26B"
+    },
+    {
+      "id": "catala",
+      "name": "Català Conjuga",
+      "subtitle": "Verbs catalans · pràctica adaptativa",
+      "group": "Estudio",
+      "kind": "pwa-study",
+      "url": "/adaptive-verbs-catala/",
+      "repo": "https://github.com/adrianxds-ads/adaptive-verbs-catala",
+      "glyph": "CC",
+      "description": "Practica conjugaciones catalanas mediante rondas adaptativas, repaso espaciado y modalidades de recuerdo activo.",
+      "features": [
+        "Conjugaciones catalanas",
+        "Rondas adaptativas y repaso espaciado",
+        "Progreso, estadísticas y JSON"
+      ],
+      "brandColor": "#F1C40F"
     },
     {
       "id": "entrenamiento",

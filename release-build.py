@@ -21,13 +21,13 @@ for name in names:
  repo=w/name;(repo/'sw-integrity.js').write_bytes((w/'adrian-core/components/sw-integrity.js').read_bytes())
  urls=json.loads(subprocess.check_output(['node','-e',node,str(repo/'service-worker.js')],text=True))
  # Include concrete CSS/JS loaded by entry pages, preserving query strings.
- for index in repo.rglob('index.html'):
+ for index in repo.rglob('*.html'):
   if any(p in index.parts for p in ['.git','node_modules']):continue
   text=index.read_text(encoding='utf-8-sig')
   for url in re.findall(r'(?:src|href)=["\']([^"\']+)["\']',text):
    parsed=urlparse(url)
    if parsed.netloc and parsed.netloc!='adrianxds-ads.github.io':continue
-   if Path(parsed.path).suffix.lower() not in ['.js','.css','.svg','.webmanifest']:continue
+   if Path(parsed.path).suffix.lower() not in ['.js','.css','.svg','.webmanifest','.woff2']:continue
    if parsed.netloc or parsed.path.startswith('/'):candidate=parsed.path+('?' + parsed.query if parsed.query else '')
    else:
     relative=index.parent.relative_to(repo)/parsed.path
@@ -55,7 +55,7 @@ for a in [x['hub']]+x['apps']:
  elif a['kind']=='public':
   if args.hub_only:continue
   base=byid[a['id']]['url'] if a['id'] in byid else a['verify']['files'][0]['url'].rsplit('/',1)[0]+'/';repo=w/base.rstrip('/').split('/')[-1];s=(repo/'app.js').read_text(encoding='utf-8-sig');a['version']=re.search(r"const APP_VERSION\s*=\s*['\"]([^'\"]+)",s).group(1);files=[(base+f,repo/f) for f in ['app.js','index.html','service-worker.js','build-assets.js']]
-  a['cacheBuild']=builds[repo.name];a['sourceCommit']=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip();a['sourceDirty']=bool(subprocess.check_output(['git','-C',str(repo),'status','--porcelain'],text=True).strip())
+  a['cacheBuild']=builds[repo.name];a['sourceCommit']=json.loads((w/'source-provenance.json').read_text())[repo.name];a['sourceDirty']=True
  elif a['kind']=='bundled':
   base=byid[a['id']]['url'];local=hub/'apps'/a['id'];repo=local if local.is_dir() else hub/base.removeprefix('./');verify_base=('./apps/'+a['id']+'/') if local.is_dir() else base;files=[(verify_base+f,repo/f) for f in ['index.html','app.js','styles.css'] if (repo/f).exists()]
  else:continue

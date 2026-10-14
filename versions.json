@@ -1,18 +1,27 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-12T07:18:52.614120+02:00",
+  "generatedAt": "2026-10-14",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.14",
-    "build": "hub-30.5.14-20261012",
-    "releasedAt": "2026-10-12",
+    "version": "30.5.16",
+    "build": "hub-30.5.16-20261014-contract-audit",
+    "releasedAt": "2026-10-14",
     "changes": [
-      "Primer piloto del Núcleo Design System: Grammar Quest combina portada OLED sobria, identidad azul y preguntas con fondo claro.",
-      "Medallas compactas, estrella independiente, CTA azul sin gradiente, navegación legible y Key Diary conservado.",
-      "Validación de una ronda completa, cinco anchuras, guardado y tests de integridad sin usar sesiones personales."
+      "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+      "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
     ],
     "history": [
+      {
+        "version": "30.5.14",
+        "build": "hub-30.5.14-20261012",
+        "date": "2026-10-12",
+        "changes": [
+          "Primer piloto del Núcleo Design System: Grammar Quest combina portada OLED sobria, identidad azul y preguntas con fondo claro.",
+          "Medallas compactas, estrella independiente, CTA azul sin gradiente, navegación legible y Key Diary conservado.",
+          "Validación de una ronda completa, cinco anchuras, guardado y tests de integridad sin usar sesiones personales."
+        ]
+      },
       {
         "version": "30.5.13",
         "build": "hub-30.5.13-20261012",
@@ -948,7 +957,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "29c637250494221cf9b2e72f3bf95a65ddd595f86355899aadaa6e0f9589304b"
+          "sha256": "03d9d1b65c022be3e2a0c4a29bd87e56eae5d580ce33089e832971450d9306b7"
         },
         {
           "url": "version-verifier.js",
@@ -956,7 +965,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "1d9ccabc650f98ab03f35f11abf9a6c93409487600e63580b5c8e8864e3a9e9d"
+          "sha256": "d257a77b8cc53df6f242087bc517f4376b88b038915c112d4b1898b9cf35fd0f"
         },
         {
           "url": "styles.css",
@@ -964,56 +973,66 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "28faf9ae5e9105ecde7b2be40a19566908022dc5aa667162835e5e3934f1d929"
+          "sha256": "b8331757d1d680c9186aee7e3fcbd0cd7c8ab763c02140ef090d88ab9f8a2667"
         },
         {
           "url": "build-assets.js",
-          "sha256": "461a6f9601d233ab3c17c1642b87440c6e3b31c740c76eded3de0aadf7c4c55e"
+          "sha256": "91a7b2e0c2d789b47d4d7b35864159be487e8ad4115ee68f669faaf7b8f8526b"
         }
       ]
     },
-    "cacheBuild": "7f953b9c4b41b293"
+    "cacheBuild": "2c6384bc569bae1d",
+    "status": "contract-audit-candidate-not-published"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.9",
-      "build": "sha256-a5bca3e6cfb0",
-      "releasedAt": "2026-10-12",
+      "version": "3.36.11",
+      "build": "sha256-70f4f20e6444",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Grammar Quest 3.36.9: portada neutra y azul corporativo, quiz/resultados claros y paneles de progreso coherentes.",
-        "Recompensas compactas, barra de navegación legible, diario navegable y resultados de alto contraste.",
-        "Sin cambios en bancos, motor, tiempos, modos, puntuación, histórico ni almacenamiento."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/app.js",
-            "sha256": "13bd7e07ae7a1a8f95a4c6d21c55cbd35f391c2c1eff6c05c4493b560120162d"
+            "url": "/adaptive-english/app.js",
+            "sha256": "72cf7c191261527b5a86d0ea21b01996572e1c04035a678f61d588c446063da5"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/index.html",
-            "sha256": "541583d550621570b9361efd39a68906ab1a0ebb4708828461b9ad4ce7cc5235"
+            "url": "/adaptive-english/index.html",
+            "sha256": "b349ff83d9caf9e03e2c1bf727dd50f8dc2e9001a0fa1708cbe43862d8186b2b"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/service-worker.js",
-            "sha256": "268f0850de836f40ee46fd1580ec63cfceafdc8d69c2ca29085ccd4595776ea9"
+            "url": "/adaptive-english/service-worker.js",
+            "sha256": "8270ff8f44140010aa8585fa11c673d1037c8ba9d41a14283ed2081aef0c26b4"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-english/build-assets.js",
-            "sha256": "d0f74d0cfbf5e4007412b3e8f7ae5683dbf0c962073d672a6fcda312a8f20fde"
+            "url": "/adaptive-english/build-assets.js",
+            "sha256": "b76fdc603ea45c28084bc69825710a32b5f993abc19a4e5e91554604e28b867d"
           }
         ]
       },
       "sourceCommit": "7d5ab38038896bd29f94b7126ee254e24065132f",
-      "cacheBuild": "5dff7dadbd5d57a2",
-      "sourceDirty": false,
+      "cacheBuild": "52d22d6ce0388124",
+      "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.9",
+          "build": "sha256-a5bca3e6cfb0",
+          "date": "2026-10-12",
+          "changes": [
+            "Grammar Quest 3.36.9: portada neutra y azul corporativo, quiz/resultados claros y paneles de progreso coherentes.",
+            "Recompensas compactas, barra de navegación legible, diario navegable y resultados de alto contraste.",
+            "Sin cambios en bancos, motor, tiempos, modos, puntuación, histórico ni almacenamiento."
+          ]
+        },
         {
           "version": "3.36.8",
           "build": "sha256-0464e2f070f6",
@@ -1167,45 +1186,55 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.15",
-      "build": "sha256-fad250536e7b",
-      "releasedAt": "2026-10-12",
+      "version": "0.13.17",
+      "build": "sha256-2528358e96af",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/app.js",
-            "sha256": "2a15ac379782d213239c10fcf6511e9a163bdbe849fd0610c74d94cca3da00a6"
+            "url": "/adaptive-phrasal-verbs/app.js",
+            "sha256": "f96e43388b48fe700628bcdb7b185bf473f93ccd247fa248eae6e77bed71fbdb"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/index.html",
-            "sha256": "3934c9cd1354b1ffb4cf3791bcc8f059d2a5ba60a32bdf45d1818e89904c4e33"
+            "url": "/adaptive-phrasal-verbs/index.html",
+            "sha256": "1daa564b1ab0371854d94cb94dccf4f688f6afdee3fced22c9ce3e10fe042b0b"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "76e4c48e3cf0b51a81f81a53b1af50e3fd132b825994874f214b7a8edb56ecaa"
+            "url": "/adaptive-phrasal-verbs/service-worker.js",
+            "sha256": "9ef8f226444db10f16641d25c0bb9ada7457535bc99f79f969835ad7c2b1d328"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "6a530edaaec2fbc9bad9bf5c61a32afc59a1fb1b206a23a3efe2a8ce732e5dfe"
+            "url": "/adaptive-phrasal-verbs/build-assets.js",
+            "sha256": "8b0c76e1f22d2a7c0fab7d615bf7a105f94df785de285955fd2bb0bd380bc4f8"
           }
         ]
       },
       "sourceCommit": "942a47f13bc42168f2dc1a9554ba1aa877b601ea",
-      "cacheBuild": "5c5459b250dcb0f6",
-      "sourceDirty": false,
+      "cacheBuild": "94893319a6f3d04a",
+      "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.15",
+          "build": "sha256-fad250536e7b",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "0.13.14",
           "build": "sha256-e4d72403007a",
@@ -1318,45 +1347,55 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.10",
-      "build": "sha256-3a301f7a57bb",
-      "releasedAt": "2026-10-12",
+      "version": "3.0.12",
+      "build": "sha256-bd7e09b2d779",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/app.js",
-            "sha256": "c3e5dfaf8f6f2e2d3f55b00bc412641880bf940d12c9d356467bd77f986e6aa7"
+            "url": "/adaptive-pizarras/app.js",
+            "sha256": "5aa0d0047648104cf18e0a321af211f8d28b1a0c1191d6b0f9044c8248c1080c"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/index.html",
-            "sha256": "a79ba6473ea56a04e0f7324ed494b433f382f32ba11c60c5ecf3d67a35117370"
+            "url": "/adaptive-pizarras/index.html",
+            "sha256": "b815d76cad1eb5052eedcb7ed845ff46d761aee3baa41c2fad0d194be2f608b1"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/service-worker.js",
-            "sha256": "e5c4df7ded0f8ba18b3278c4bbc6baa356a4464938b1194c0589f37557615ad7"
+            "url": "/adaptive-pizarras/service-worker.js",
+            "sha256": "5ea180562d65b342393d5ae8e6ac3792a84b559a86f25e02be8712991af09854"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-pizarras/build-assets.js",
-            "sha256": "e1b71bdc9006bd45e55c3987006ae125cc7f6cfd6b6def2dc3b503611570e41c"
+            "url": "/adaptive-pizarras/build-assets.js",
+            "sha256": "ca448409fa89f952e91cf068de58b5d2f319ea8fd00010f31db9462c40e4ed82"
           }
         ]
       },
       "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
-      "cacheBuild": "0c93e16549277a84",
-      "sourceDirty": false,
+      "cacheBuild": "379a46c1aa3c2f1b",
+      "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.10",
+          "build": "sha256-3a301f7a57bb",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "3.0.9",
           "build": "sha256-2c00150ccb73",
@@ -1479,45 +1518,55 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.17",
-      "build": "sha256-83bea5edace4",
-      "releasedAt": "2026-10-12",
+      "version": "1.11.19",
+      "build": "sha256-af0b252a5909",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/app.js",
-            "sha256": "6651756fed76c68bf3905472290d14d764778ea0eccdbd602f61428460ede4d0"
+            "url": "/b2-multiple-choice-cloze/app.js",
+            "sha256": "63f20653d62f544e1f302037ceda080095adf652085e609ab5b7d44440b408d7"
           },
           {
-            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/index.html",
-            "sha256": "c22795ca8f63e1a95f563cb60667b1828722ac33e8fe5d100846c3c5faaad63e"
+            "url": "/b2-multiple-choice-cloze/index.html",
+            "sha256": "24c81bba0a3f5dc4ea69a12f7ef3791105f27a5758c1ad64f261ceb221c0a916"
           },
           {
-            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "5d9928c04fcd62a52ad0518e2572e0a9634abb24045649e226264d30eed91a01"
+            "url": "/b2-multiple-choice-cloze/service-worker.js",
+            "sha256": "a1eb93d2b5b5fd6cc80e6d185bb082a3dccb3bab281dcbf445bdb74b1eb8e17c"
           },
           {
-            "url": "https://adrianxds-ads.github.io/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "6bd3c763c837e7916c5d48cb67228afe238d1d9485ea2e71f5046fb378860216"
+            "url": "/b2-multiple-choice-cloze/build-assets.js",
+            "sha256": "95bd1a244a9b7dad7dbe0795841b44be05d28b8f8a5ca55869e9d3fa6943a034"
           }
         ]
       },
       "sourceCommit": "3cad81e35240102ad453c4967da7aaa00fb04fc1",
-      "cacheBuild": "033fb93a5d90bb09",
-      "sourceDirty": false,
+      "cacheBuild": "8c2f748506fe914e",
+      "sourceDirty": true,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.17",
+          "build": "sha256-83bea5edace4",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "1.11.16",
           "build": "sha256-196bc522b190",
@@ -1632,45 +1681,55 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "cambridge",
       "name": "Cambridge Lab",
-      "version": "1.3.18",
-      "build": "sha256-13297d1e9693",
-      "releasedAt": "2026-10-12",
+      "version": "1.3.20",
+      "build": "sha256-2f2cec5d5674",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/app.js",
-            "sha256": "0f8a4a899170c7c2cf0e642a4327d504f9ef1431667f4cf6e8609c96f136029c"
+            "url": "/adaptive-exam/app.js",
+            "sha256": "04830e1cb7b2139bee342fc9ce2a4e2475d715ce0e0687dd5cd91ef1a51b75a9"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/index.html",
-            "sha256": "268cbb53333193f51081522d475f08a5c8d778d056c99dc369fe47c9195a7186"
+            "url": "/adaptive-exam/index.html",
+            "sha256": "7a59882b5e722e0abe4932bafb4d8b5bb1b940fc3b662c4475b58e256f6f9799"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/service-worker.js",
-            "sha256": "df209600939d5741d2ee81cd0460e932275b0bf1e886063378c0b50f88344743"
+            "url": "/adaptive-exam/service-worker.js",
+            "sha256": "35eb6485ae17833b418bcb2463d8f2853bf5627baabaf55d950a4e568fea5574"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-exam/build-assets.js",
-            "sha256": "fea982f39ffb94ce0c22cd10bb74adf57956650bf36cddf9b2ee206353bc648f"
+            "url": "/adaptive-exam/build-assets.js",
+            "sha256": "3e51498aea5e584d69d4fa2550ff0cd22a0465ca36039345307f3b42cb88ae78"
           }
         ]
       },
       "sourceCommit": "517125b37db2e0be3ff86ade2e512947d773f691",
-      "cacheBuild": "aef0b17323cb646e",
-      "sourceDirty": false,
+      "cacheBuild": "f6fbf07c47256ee7",
+      "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
       "history": [
+        {
+          "version": "1.3.18",
+          "build": "sha256-13297d1e9693",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "1.3.17",
           "build": "sha256-a737a32753c4",
@@ -1847,45 +1906,55 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.1.10",
-      "build": "sha256-e6b91c37e5df",
-      "releasedAt": "2026-10-12",
+      "version": "1.1.12",
+      "build": "sha256-b1b7a016b7c9",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/app.js",
-            "sha256": "25b2476fd4666d9a7cc26bb1aa0ad25c23748bf6e39bdb146bfe461f14fa1e99"
+            "url": "/adaptive-keyword-speaking/app.js",
+            "sha256": "ae2113c64a8787aa9e00276867d8e9b35aab201a4834b7a0ce127e8b4da251a2"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/index.html",
-            "sha256": "1bbc0a072c43613292b9b8ac2c63525d2afc7559b50018c8ee95193a4af7b287"
+            "url": "/adaptive-keyword-speaking/index.html",
+            "sha256": "0a39dcad8026c60a236bfd6bf4a2517369bb6a9dad71e606267641457a299d88"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "f4a1327987f2fb688b764b60df461762fea88d1a288aabffacbb78cea0a6c623"
+            "url": "/adaptive-keyword-speaking/service-worker.js",
+            "sha256": "cada4de583e7bf5ed51e5aa6c1eb10da4867b184f4a3578b8271cd6303c79dee"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "ba2156d1fecf8102533b5c3ed71d7574ad0408361163de7c31ee90443229916a"
+            "url": "/adaptive-keyword-speaking/build-assets.js",
+            "sha256": "b7e686505f092a2b74ed6e7181ea16c0b1fde0abda8f690133f07bc79cd919a5"
           }
         ]
       },
       "sourceCommit": "d13205b41c37dc0c3ef9f820fbdc6524fe212b3b",
-      "cacheBuild": "44fd214d1e4036cd",
-      "sourceDirty": false,
+      "cacheBuild": "0464a7e4458deb2d",
+      "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.1.10",
+          "build": "sha256-e6b91c37e5df",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "1.1.9",
           "build": "sha256-76f445fb0a42",
@@ -2011,46 +2080,56 @@
             "Sync 1.0.8, oro global, Oca común, PWA offline y Version Center."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.13",
-      "build": "sha256-7716f447f2a1",
-      "releasedAt": "2026-10-11",
+      "version": "0.10.15",
+      "build": "sha256-4a21f802efaa",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
-        "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/app.js",
-            "sha256": "cb3ce31c8918238295271ab29d95e94f9c36af12269b397c5d39ab573926b9fd"
+            "url": "/adaptive-verbs-catala/app.js",
+            "sha256": "cbc676c03b1a60838a0f0b5c44317c853e3ee9ab6319eef2bd8da971086171a1"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/index.html",
-            "sha256": "eeb39bee72ef17b930eae347fad56ad80ccb712adef928f671b315d2a4b49b79"
+            "url": "/adaptive-verbs-catala/index.html",
+            "sha256": "f7f6d42a53c3b21999ec13cc175e43959583012e707c2c70e976af7e46d363e8"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/service-worker.js",
-            "sha256": "a34caa0917316482eba8418a029cf270be121468b0ac5c137f96c2fa9f4e252d"
+            "url": "/adaptive-verbs-catala/service-worker.js",
+            "sha256": "2b5afd05127aac342a68881ce8fc589a665ad68d7b6a595265e5a742e3e68ed0"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-verbs-catala/build-assets.js",
-            "sha256": "f26da71cc79d360925c6d28cf47e6dc200c3bb6ac529de943d079bfef8d84655"
+            "url": "/adaptive-verbs-catala/build-assets.js",
+            "sha256": "145a713aad842bc049efd1804bee6733a5106a3aeb832cbdae097d7ac24a00d4"
           }
         ]
       },
       "sourceCommit": "e90f6cde6d452c11fc01d5fce8e5cebdc5bdf492",
-      "cacheBuild": "d8ab6b6663a76781",
-      "sourceDirty": false,
+      "cacheBuild": "03adc6ce83fecd62",
+      "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.13",
+          "build": "sha256-7716f447f2a1",
+          "date": "2026-10-11",
+          "changes": [
+            "Estilos circulares v4.5 con recuento visible de medallas y colores por categoría.",
+            "Paleta OLED y contraste sincronizados con el Hub, sin alterar la lógica de estudio."
+          ]
+        },
         {
           "version": "0.10.11",
           "build": "sha256-7a2e6be429b4",
@@ -2138,13 +2217,14 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
       "version": "0.5.8",
-      "build": "sha256-1e7e968d0693",
+      "build": "sha256-4594fde8495e",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
@@ -2154,7 +2234,7 @@
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "608f6cae124e394c0af1258f2cbf761afbf09567aeaa6e5669c94627e98ac1eb"
+            "sha256": "e1d0679e4401a626e252723f45d0b43a0551e51029f7017023a755734f1eb82e"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -2270,40 +2350,49 @@
     {
       "id": "hoti0108",
       "name": "Turismo Lab",
-      "version": "2.7.13",
-      "build": "sha256-a3e6cb45b7a6",
-      "releasedAt": "2026-10-12",
+      "version": "2.7.15",
+      "build": "sha256-5c521eef98df",
+      "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
-        "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
       ],
       "verify": {
         "files": [
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/app.js",
-            "sha256": "07287aca7c92d03f310a6fe579641f668019c9abc474d3aa3a44a8ec2481d7f8"
+            "url": "/adaptive-hoti0108/app.js",
+            "sha256": "c124a1f5a304db7edf25a527a61019d33b6ced8b79d0139934de0bb3c6ba0f7c"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/index.html",
-            "sha256": "6bd35a0f52942f02d1bdf0605451dde7d85f7d638051b23b4e09cdec194cb70c"
+            "url": "/adaptive-hoti0108/index.html",
+            "sha256": "bb69ceeb058a6491661d8157d36fc8393b1d623e1988d458c72558a202d01f64"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/service-worker.js",
-            "sha256": "bbb41121de1c4367c7f81194a07b9a4f0297a2168dfe1c56b34595ba3a222d66"
+            "url": "/adaptive-hoti0108/service-worker.js",
+            "sha256": "11c93a39a2a068812aa35b90692cc70f2e8c461995010e95424309a3a46aa20c"
           },
           {
-            "url": "https://adrianxds-ads.github.io/adaptive-hoti0108/build-assets.js",
-            "sha256": "e196e732f2a2a8b2de2035ec30596f9cbe8283134c7a2cf6bd417ecab84b99ed"
+            "url": "/adaptive-hoti0108/build-assets.js",
+            "sha256": "8f940b7e5a21ebc587c443a2651531f8c7d5d41e8543f399bd43de3c6865608e"
           }
         ]
       },
       "sourceCommit": "d4131020c92e2879cf79fc0199be6a1745e04e61",
-      "cacheBuild": "d9e40ca2c07dc25f",
-      "sourceDirty": false,
+      "cacheBuild": "b43680a82d49ddbf",
+      "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
       "history": [
+        {
+          "version": "2.7.13",
+          "build": "sha256-a3e6cb45b7a6",
+          "date": "2026-10-12",
+          "changes": [
+            "Identidad corporativa coordinada con el Hub: tono exacto para portada, tintes de lectura y acento accesible en controles, preservando las funciones de aprendizaje."
+          ]
+        },
         {
           "version": "2.7.12",
           "build": "sha256-9a86c9e87237",
@@ -2398,13 +2487,14 @@
             "Adopta Sync 1.0.8 y los componentes comunes actualizados para integrar Key Word Speaking con protección de progreso."
           ]
         }
-      ]
+      ],
+      "status": "contract-audit-candidate-not-published"
     },
     {
       "id": "entrenamiento",
       "name": "Gym Tracker",
       "version": "1.0.2",
-      "build": "sha256-048a2da5b2f9",
+      "build": "sha256-a403ff9e5348",
       "releasedAt": "2026-10-10",
       "kind": "bundled",
       "changes": [
@@ -2415,7 +2505,7 @@
         "files": [
           {
             "url": "./apps/entrenamiento/index.html",
-            "sha256": "06cce404a38399661b5c6cfbacaedf7b99126c72267ada08c5e0fa7ba0b95f73"
+            "sha256": "ad5b2377592ab5a15ca0315665db6f7739ffaba918f59369421f5d3b78d689e4"
           },
           {
             "url": "./apps/entrenamiento/app.js",
@@ -2450,7 +2540,7 @@
       "id": "cambio",
       "name": "Cambio",
       "version": "1.0.2",
-      "build": "sha256-8170d0733897",
+      "build": "sha256-ac90ac638a6c",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
@@ -2461,7 +2551,7 @@
         "files": [
           {
             "url": "./apps/cambio/index.html",
-            "sha256": "c06d48d5302d12f9a258751a080b92a7f028149c8acbc3e971be8368912cb118"
+            "sha256": "993ae645e64677e3e4cd1ec9f216354b2885bcd3450a13402e929cf0cdf60cef"
           },
           {
             "url": "./apps/cambio/app.js",
@@ -2496,7 +2586,7 @@
       "id": "dcinbox",
       "name": "Buzón DC",
       "version": "1.0.2",
-      "build": "sha256-d23a3d77d37e",
+      "build": "sha256-2e500ec1d248",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
@@ -2506,7 +2596,7 @@
         "files": [
           {
             "url": "./apps/dc-inbox/index.html",
-            "sha256": "c52022c816856743ae6c5b0344bd93f7cf8f4ba2b556cfe06902508d05ebbc89"
+            "sha256": "b1aeccfa9719f52d9454fba1a586f255d19d98ef1b6409fac483c011e9e5d37e"
           },
           {
             "url": "./apps/dc-inbox/app.js",
@@ -2556,7 +2646,7 @@
       "id": "agents",
       "name": "Agentes",
       "version": "1.4.1",
-      "build": "sha256-c0cf1a3637c5",
+      "build": "sha256-2bc0bc49d9aa",
       "releasedAt": "2026-10-11",
       "kind": "bundled",
       "changes": [
@@ -2566,7 +2656,7 @@
         "files": [
           {
             "url": "./apps/agents/index.html",
-            "sha256": "376701ff0c24dcf611c117981950fdcda1f1d3fb6f10f028aea9431d79b998b9"
+            "sha256": "aa4aaaa5c790050bb65be2cb101482e69645a7ff34c2c9e5691fe739ef754b64"
           },
           {
             "url": "./apps/agents/app.js",
@@ -2634,7 +2724,7 @@
       "id": "job-engine",
       "name": "Empleo Hub",
       "version": "0.1.1",
-      "build": "sha256-dc383202e91b",
+      "build": "sha256-a4d6e12a76c8",
       "releasedAt": "2026-10-08",
       "kind": "bundled",
       "changes": [
@@ -2644,7 +2734,7 @@
         "files": [
           {
             "url": "./apps/job-engine/index.html",
-            "sha256": "f2f60576a13b1a8a9aa7729ed26517416468e78c23000de43671e88649dc47d2"
+            "sha256": "048935c61df9c899b46d728563a02e3ade6089bf915cba41674d80667eee2433"
           },
           {
             "url": "./apps/job-engine/app.js",
@@ -2667,5 +2757,6 @@
         }
       ]
     }
-  ]
+  ],
+  "status": "contract-audit-candidate-not-published"
 }
