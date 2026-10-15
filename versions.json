@@ -6,12 +6,12 @@
     "name": "Adrián Hub",
     "version": "30.5.17",
     "build": "hub-30.5.17-20261015-visual-conformity",
-    "releasedAt": null,
+    "releasedAt": "2026-10-15",
     "changes": [
       "Conformidad visual: tres medallas circulares y estrella independiente en las tarjetas; sin alterar contadores ni premios.",
       "Botón Ampliar, estadísticas legibles, modelos y gráficas originales consultables sin redundancia de portada.",
       "Contratos v1.1 preservados, ocho motores intactos salvo cambio del literal de versión en tres apps, y reconstrucción SHA-256 de caches.",
-      "Preparado y probado en laboratorio. Pendiente autorización, publicación y comprobación en Pixel.",
+      "La entrega 30.5.17 incorpora las correcciones visuales verificadas en laboratorio y conserva la estructura de datos.",
       "Corrección de actualización PWA: se elimina un registro automático de service worker heredado que competía con la versión oficial de la portada."
     ],
     "history": [
@@ -1002,7 +1002,7 @@
       ]
     },
     "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-    "status": "release-prepared-not-published"
+    "status": "published"
   },
   "apps": [
     {
@@ -1010,12 +1010,12 @@
       "name": "Grammar Quest",
       "version": "3.36.12",
       "build": "sha256-6ad7532c25fd",
-      "releasedAt": null,
+      "releasedAt": "2026-10-15",
       "kind": "public",
       "changes": [
         "Panel común priorizado, estadísticas históricas y modelos originales desplegables.",
         "Se conservan datos, campañas, Coach y exportación JSON.",
-        "Versión preparada; publicación pendiente de autorización."
+        "Actualización de conformidad visual con las pruebas de integridad completadas."
       ],
       "verify": {
         "files": [
@@ -1041,9 +1041,9 @@
           }
         ]
       },
-      "sourceCommit": "7d5ab38038896bd29f94b7126ee254e24065132f",
+      "sourceCommit": "fbdadd853594af4ef790b452829f0300544da09b",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
@@ -1221,7 +1221,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "phrasal-verbs",
@@ -1254,9 +1254,9 @@
           }
         ]
       },
-      "sourceCommit": "942a47f13bc42168f2dc1a9554ba1aa877b601ea",
+      "sourceCommit": "9a9e23f20c65cc64692f18d4e636e4ed172ac2c3",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
@@ -1382,7 +1382,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "pizarras",
@@ -1415,9 +1415,9 @@
           }
         ]
       },
-      "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
+      "sourceCommit": "5208319ef3a5d82996b27d150d8d10bf5609f1a8",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
@@ -1553,7 +1553,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "b2-cloze",
@@ -1586,9 +1586,9 @@
           }
         ]
       },
-      "sourceCommit": "3cad81e35240102ad453c4967da7aaa00fb04fc1",
+      "sourceCommit": "6488a659bf041eb00777f18d53f8681556f137af",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
@@ -1716,7 +1716,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "cambridge",
@@ -1749,9 +1749,9 @@
           }
         ]
       },
-      "sourceCommit": "517125b37db2e0be3ff86ade2e512947d773f691",
+      "sourceCommit": "abb316563a0bb89b365529cf4c091f46865cdcf3",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
       ],
@@ -1941,18 +1941,18 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
       "version": "1.1.13",
       "build": "sha256-4ac18d91983a",
-      "releasedAt": null,
+      "releasedAt": "2026-10-15",
       "kind": "public",
       "changes": [
         "Corrección de desbordamiento a 320 px en Estadísticas sin alterar ejercicios ni historial.",
-        "Versión preparada; publicación pendiente de autorización."
+        "Actualización de conformidad visual con las pruebas de integridad completadas."
       ],
       "verify": {
         "files": [
@@ -1974,9 +1974,9 @@
           }
         ]
       },
-      "sourceCommit": "d13205b41c37dc0c3ef9f820fbdc6524fe212b3b",
+      "sourceCommit": "6f98b96c9f42ae3aabe6b53a1afb07b3d89a5b08",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
@@ -2124,19 +2124,19 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "catala",
       "name": "Conjuga CAT",
       "version": "0.10.16",
       "build": "sha256-0a1a6b10c3de",
-      "releasedAt": null,
+      "releasedAt": "2026-10-15",
       "kind": "public",
       "changes": [
         "Estadísticas originales consultables sin duplicación, y liga de tiempos con porcentajes legibles.",
         "Se conservan conjugaciones, tiempos, datos y JSON.",
-        "Versión preparada; publicación pendiente de autorización."
+        "Actualización de conformidad visual con las pruebas de integridad completadas."
       ],
       "verify": {
         "files": [
@@ -2162,9 +2162,9 @@
           }
         ]
       },
-      "sourceCommit": "e90f6cde6d452c11fc01d5fce8e5cebdc5bdf492",
+      "sourceCommit": "ee853fdbd9c90fdd16c44ae5e63194797e8bc5e5",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
@@ -2275,7 +2275,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "biblioteca",
@@ -2435,9 +2435,9 @@
           }
         ]
       },
-      "sourceCommit": "d4131020c92e2879cf79fc0199be6a1745e04e61",
+      "sourceCommit": "e45996234754dba0d7a328f56c386958f4778b1b",
       "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
-      "sourceDirty": true,
+      "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
       ],
@@ -2545,7 +2545,7 @@
           ]
         }
       ],
-      "status": "release-prepared-not-published"
+      "status": "published"
     },
     {
       "id": "entrenamiento",
@@ -2815,5 +2815,5 @@
       ]
     }
   ],
-  "status": "release-prepared-not-published"
+  "status": "published"
 }
