@@ -1,6 +1,6 @@
 {
-  "version": 26,
-  "hubVersion": "30.5.17",
+  "version": 27,
+  "hubVersion": "30.5.18",
   "apps": [
     {
       "id": "english",
@@ -103,6 +103,22 @@
         "Corrección por ejercicio"
       ],
       "brandColor": "#A9CE5E"
+    },
+    {
+      "id": "atajos",
+      "name": "Atajos Sprint",
+      "subtitle": "Windows · PowerToys · Pixel · 33 QQ",
+      "group": "Estudio",
+      "kind": "hub-module",
+      "url": "./apps/atajos/",
+      "glyph": "AS",
+      "description": "Memoriza 136 atajos con quiz de 5 segundos, flashcards, repaso por errores, progreso y JSON.",
+      "features": [
+        "136 tarjetas",
+        "Quiz de 15 · 5 segundos",
+        "Flashcards y automatismos"
+      ],
+      "brandColor": "#926DAA"
     },
     {
       "id": "biblioteca",

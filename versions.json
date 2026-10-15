@@ -4,17 +4,26 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.17",
-    "build": "hub-30.5.17-20261015-visual-conformity",
+    "version": "30.5.18",
+    "build": "hub-30.5.18-20261015",
     "releasedAt": "2026-10-15",
     "changes": [
-      "Conformidad visual: tres medallas circulares y estrella independiente en las tarjetas; sin alterar contadores ni premios.",
-      "Botón Ampliar, estadísticas legibles, modelos y gráficas originales consultables sin redundancia de portada.",
-      "Contratos v1.1 preservados, ocho motores intactos salvo cambio del literal de versión en tres apps, y reconstrucción SHA-256 de caches.",
-      "La entrega 30.5.17 incorpora las correcciones visuales verificadas en laboratorio y conserva la estructura de datos.",
-      "Corrección de actualización PWA: se elimina un registro automático de service worker heredado que competía con la versión oficial de la portada."
+      "Atajos Sprint: nueva app ligera integrada en el Hub con 136 tarjetas, quiz de cinco segundos y flashcards.",
+      "Medallas locales, porcentaje de aprendizaje, histórico de sesiones y JSON exportable; sin alterar datos de las apps existentes."
     ],
     "history": [
+      {
+        "version": "30.5.17",
+        "build": "hub-30.5.17-20261015-visual-conformity",
+        "date": "2026-10-15",
+        "changes": [
+          "Conformidad visual: tres medallas circulares y estrella independiente en las tarjetas; sin alterar contadores ni premios.",
+          "Botón Ampliar, estadísticas legibles, modelos y gráficas originales consultables sin redundancia de portada.",
+          "Contratos v1.1 preservados, ocho motores intactos salvo cambio del literal de versión en tres apps, y reconstrucción SHA-256 de caches.",
+          "La entrega 30.5.17 incorpora las correcciones visuales verificadas en laboratorio y conserva la estructura de datos.",
+          "Corrección de actualización PWA: se elimina un registro automático de service worker heredado que competía con la versión oficial de la portada."
+        ]
+      },
       {
         "version": "30.5.16",
         "build": "hub-30.5.16-20261014-contract-audit",
@@ -969,7 +978,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "9861aa70a66b59d98e165108696212193429483f8e2c320fe8d25202aad176d1"
+          "sha256": "fc61bc2e67462f5251886a53644bc805cd10a7e5f114802ce96fc3da91ea2032"
         },
         {
           "url": "version-verifier.js",
@@ -977,7 +986,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "56ce95055223cb98ae2360cd706d924f95f856c24b917d52c2dbf0f0536ad204"
+          "sha256": "6f852330b3040242d14e7d9f80f0fd5f1ff1ed7af41fa121c8f59317d555988a"
         },
         {
           "url": "styles.css",
@@ -985,23 +994,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "d4e62731bcc821e2b12283f815e5c0cdaf7326c0a029360db52ec28ec298a746"
+          "sha256": "218429b5f3d67aad1a169033a4cd021aca51d626403a86dcfbdab0bf75921606"
         },
         {
-          "url": "hub-card-rewards.js",
-          "sha256": "7b05750502f4ab98c05f697eb989fb069c67f3e2e6433adf57c7d2151ce923b1"
-        },
-        {
-          "url": "hub-medals-v45.css",
-          "sha256": "1609835e1c5931d477df8fb1cc565cc8d052d37b9b83c1927b42bf803ab6f491"
-        },
-        {
-          "url": "apps.json",
-          "sha256": "ed828e9d3865ab202d65eb4714f80ffbe2d76674110916945797db9c0ef4a9b1"
+          "url": "build-assets.js",
+          "sha256": "a982de5efe0efb23158589ac5765174151f436523f75dcda4221d669b1856e6a"
         }
       ]
     },
-    "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+    "cacheBuild": "d7f989b39cbfa826",
     "status": "published"
   },
   "apps": [
@@ -2276,6 +2277,36 @@
         }
       ],
       "status": "published"
+    },
+    {
+      "id": "atajos",
+      "name": "Atajos Sprint",
+      "version": "1.0.0",
+      "build": "sha256-3b4dc5dc50d2",
+      "releasedAt": "2026-10-15",
+      "kind": "bundled",
+      "changes": [
+        "136 tarjetas exactas: Windows 44, PowerToys 15, Pixel/Android 44 y QQ Núcleo 33.",
+        "Quiz de 15 con respuesta de 5 segundos, lectura previa optativa, corrección de 1,1 s y medallas 13/14/15.",
+        "Flashcards, repaso de errores, progreso local, gráfica de automatismos e histórico completo JSON sin sincronización presunta."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/atajos/index.html",
+            "sha256": "da8b2c3b6e9b86ee75d132889503ecc50001583b74d004b495b86ce836ed5b81"
+          },
+          {
+            "url": "./apps/atajos/app.js",
+            "sha256": "9b78e57af46dc9e2225d40fdbef9df5ce1fced3bd8b7a3befba83ae820e762d3"
+          },
+          {
+            "url": "./apps/atajos/styles.css",
+            "sha256": "dd40cf368e5ada3b11065dd33fa0f04790ff816234454825262e0b475b5de08a"
+          }
+        ]
+      },
+      "history": []
     },
     {
       "id": "biblioteca",

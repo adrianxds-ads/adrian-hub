@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eaf0f5"><title>Atajos Sprint · XDS Lab</title>
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-visual-profile.css">
+<link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-game-theme.css">
+<link rel="stylesheet" href="./styles.css?v=1.0.0">
+</head><body data-nucleo-game="atajos">
+<main class="shell">
+<header class="topbar"><a href="../../" class="back" aria-label="Volver al Hub">‹ Hub</a><div class="brand"><span class="brand-emblem">⌘</span><div><b>ATAJOS SPRINT</b><small>XDS LAB · 1.0.0</small></div></div><button id="soundToggle" class="quiet" aria-label="Alternar sonido" aria-pressed="false">♪</button></header>
+<section id="home" class="view">
+<div class="hero"><div><p class="eyebrow">NÚCLEO · MEMORIA DE ATAJOS</p><h1>Los atajos, a la punta de los dedos.</h1><p>Windows, PowerToys, Pixel y nuestros 33 QQ. Sesiones cortas para recordar sin consultar.</p></div><div class="hero-mark" aria-hidden="true">⌘</div></div>
+<div class="kpis" aria-label="Progreso de aprendizaje"><div><strong id="coverage">0%</strong><span>Cobertura</span></div><div><strong id="mastery">0%</strong><span>Dominio</span></div><div><strong id="due">136</strong><span>Pendientes</span></div></div>
+<div class="medals panel" aria-label="Premios acumulados"><span>MEDALLAS</span><div class="medal-row"><div class="medal bronze"><b>13</b><small id="medal13">0</small></div><div class="medal violet"><b>14</b><small id="medal14">0</small></div><div class="medal gold"><b>15</b><small id="medal15">0</small></div><div class="medal star"><b>★</b><small id="starCount">0</small></div></div><small class="muted">Una estrella por cada cinco oros. Recompensas locales de esta app.</small></div>
+<div class="panel settings">
+<label for="groupSelect">Qué quieres practicar</label><select id="groupSelect"><option value="all">Todo el repertorio · 136</option><option value="windows">Windows · 44</option><option value="powertoys">PowerToys · 15</option><option value="android">Pixel / Android · 44</option><option value="qq">QQ Núcleo · 33</option></select>
+<label class="switch"><input id="readFirst" type="checkbox" checked><span>Leer primero (1 segundo sin consumir tiempo)</span></label>
+</div>
+<div class="actions"><button id="startQuiz" class="primary">⚡ Quiz · 15 preguntas</button><button id="startFlash" class="secondary">▣ Flashcards</button></div>
+<section class="panel insight"><div class="sectionhead"><h2>Automatismos</h2><span>Historial real</span></div><canvas id="trendChart" height="120" aria-label="Gráfica de aciertos y respuestas rápidas de las últimas sesiones" role="img"></canvas><p id="trendEmpty" class="muted">Termina un quiz para ver la evolución de tus automatismos.</p><div id="history" class="history" aria-live="polite"></div></section>
+<div class="actions small-actions"><button id="exportJson" class="secondary">↓ Exportar JSON</button><button id="copyJson" class="secondary">⧉ Copiar JSON</button></div>
+<p id="storageStatus" class="muted storage" role="status">Progreso guardado en este navegador. No se presume sincronización entre dispositivos.</p>
+</section>
+<section id="quiz" class="view" hidden aria-label="Quiz">
+<div class="game-head"><button id="quitQuiz" class="quiet">← Panel</button><strong id="questionNumber">1 / 15</strong><strong id="points">0 pts</strong></div>
+<div class="timer-wrap"><svg id="timer" width="112" height="112" viewBox="0 0 112 112" aria-label="Temporizador 5 segundos"><defs><linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a56b3b"/><stop offset="36%" stop-color="#a459b9"/><stop offset="72%" stop-color="#6478d6"/><stop offset="100%" stop-color="#ddb24e"/></linearGradient></defs><circle cx="56" cy="56" r="45" fill="none" stroke="#ced7df" stroke-width="10"/><circle id="timerArc" cx="56" cy="56" r="45" fill="none" stroke="url(#rainbow)" stroke-width="10" stroke-linecap="round" stroke-dasharray="282.743" stroke-dashoffset="0" transform="rotate(-90 56 56)"/></svg><div class="timer-text"><b id="secondsLeft">5</b><small>SEG</small></div></div>
+<div class="question-card panel"><span class="eyebrow" id="questionGroup">WINDOWS</span><h2 id="questionText">¿Qué hace este atajo?</h2><p id="questionHint" class="muted"></p></div>
+<p id="readPrompt" class="read-prompt" hidden>Lee la pregunta…</p>
+<div id="options" class="options" role="group" aria-label="Opciones de respuesta"></div>
+<div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+</section>
+<section id="flash" class="view" hidden aria-label="Flashcards">
+<div class="game-head"><button id="quitFlash" class="quiet">← Panel</button><strong id="flashCounter">1 / 136</strong><strong id="flashGroup">QQ</strong></div>
+<div class="flash-card panel"><span class="eyebrow" id="flashCaption">RECUERDA</span><h2 id="flashFront"></h2><div id="flashBack" class="flash-back" hidden></div><button id="revealFlash" class="primary">Mostrar respuesta</button></div>
+<div id="flashActions" class="actions" hidden><button id="flashAgain" class="secondary">↺ Repasar</button><button id="flashKnown" class="primary">✓ La recordaba</button></div>
+<p class="muted helper">Las flashcards cuentan como práctica de reconocimiento, separada de los aciertos del quiz.</p>
+</section>
+<section id="result" class="view" hidden aria-label="Resultado">
+<div class="result-card panel"><span class="eyebrow">SESIÓN COMPLETADA</span><div class="result-score" id="finalScore">0/15</div><h1 id="resultTitle">Sesión registrada</h1><p id="resultDetail"></p><div class="result-stats"><span id="resultTime"></span><span id="resultMedal"></span></div><div id="errorReview" class="error-review"></div></div>
+<div class="actions"><button id="playAgain" class="primary">Otra ronda</button><button id="goHome" class="secondary">Volver al panel</button></div>
+</section>
+</main>
+<script src="./cards.js?v=1.0.0"></script><script src="./app.js?v=1.0.0"></script></body></html>
