@@ -25,10 +25,18 @@ html body #groups .hub-medal .hub-medal-count{
   font-variant-numeric:tabular-nums;letter-spacing:normal;
   color:var(--ad-text,#EAF0F5);opacity:1;text-shadow:none;
 }
-html body #groups .hub-medal-star::after{
-  content:"\2605";position:absolute;right:-3px;top:-6px;
-  font:850 10px/1 system-ui,sans-serif;color:#E7BF57;
-  text-shadow:0 1px 2px #000;pointer-events:none;
+/* Stars are distinct from medals, with the total printed alongside. */
+html body #groups .hub-card-star{
+  display:inline-flex;align-items:center;gap:4px;flex:0 0 auto;
+  color:#E7BF57;font:700 16px/1 Roboto,system-ui,sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+html body #groups .hub-card-star-glyph{
+  font:850 24px/1 Roboto,system-ui,sans-serif;
+}
+html body #groups .hub-card-star-count{
+  display:inline-block;min-width:1ch;text-align:left;
+  color:#EAF0F5;font:700 16px/1 Roboto,system-ui,sans-serif;
 }
 html body #groups .app-gold-chip{display:none}
 @media(max-width:360px){

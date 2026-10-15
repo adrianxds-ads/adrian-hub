@@ -1,17 +1,29 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-14",
+  "generatedAt": "2026-10-15",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.16",
-    "build": "hub-30.5.16-20261014-contract-audit",
-    "releasedAt": "2026-10-14",
+    "version": "30.5.17",
+    "build": "hub-30.5.17-20261015-visual-conformity",
+    "releasedAt": null,
     "changes": [
-      "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-      "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+      "Conformidad visual: tres medallas circulares y estrella independiente en las tarjetas; sin alterar contadores ni premios.",
+      "Botón Ampliar, estadísticas legibles, modelos y gráficas originales consultables sin redundancia de portada.",
+      "Contratos v1.1 preservados, ocho motores intactos salvo cambio del literal de versión en tres apps, y reconstrucción SHA-256 de caches.",
+      "Preparado y probado en laboratorio. Pendiente autorización, publicación y comprobación en Pixel.",
+      "Corrección de actualización PWA: se elimina un registro automático de service worker heredado que competía con la versión oficial de la portada."
     ],
     "history": [
+      {
+        "version": "30.5.16",
+        "build": "hub-30.5.16-20261014-contract-audit",
+        "date": "2026-10-15",
+        "changes": [
+          "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+          "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        ]
+      },
       {
         "version": "30.5.14",
         "build": "hub-30.5.14-20261012",
@@ -957,7 +969,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "f0128c02c5d0d0da8d2970f6f56b745dfd075ffba53d6f4f3ee5f4c3f636d6e0"
+          "sha256": "9861aa70a66b59d98e165108696212193429483f8e2c320fe8d25202aad176d1"
         },
         {
           "url": "version-verifier.js",
@@ -965,7 +977,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "e1ed88b315f13be5a91c1f8d14a894d4fe923223d8d52bd95d25e597b4345993"
+          "sha256": "56ce95055223cb98ae2360cd706d924f95f856c24b917d52c2dbf0f0536ad204"
         },
         {
           "url": "styles.css",
@@ -973,56 +985,78 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "b8331757d1d680c9186aee7e3fcbd0cd7c8ab763c02140ef090d88ab9f8a2667"
+          "sha256": "d4e62731bcc821e2b12283f815e5c0cdaf7326c0a029360db52ec28ec298a746"
         },
         {
-          "url": "build-assets.js",
-          "sha256": "e378fabd648f66d607a20c384f57b3aa79c3c68601064401591943c497baef25"
+          "url": "hub-card-rewards.js",
+          "sha256": "7b05750502f4ab98c05f697eb989fb069c67f3e2e6433adf57c7d2151ce923b1"
+        },
+        {
+          "url": "hub-medals-v45.css",
+          "sha256": "1609835e1c5931d477df8fb1cc565cc8d052d37b9b83c1927b42bf803ab6f491"
+        },
+        {
+          "url": "apps.json",
+          "sha256": "ed828e9d3865ab202d65eb4714f80ffbe2d76674110916945797db9c0ef4a9b1"
         }
       ]
     },
-    "cacheBuild": "ca07af6a65b4fdfa",
-    "status": "contract-audit-candidate-not-published"
+    "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+    "status": "release-prepared-not-published"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.11",
-      "build": "sha256-70f4f20e6444",
-      "releasedAt": "2026-10-14",
+      "version": "3.36.12",
+      "build": "sha256-6ad7532c25fd",
+      "releasedAt": null,
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "Panel común priorizado, estadísticas históricas y modelos originales desplegables.",
+        "Se conservan datos, campañas, Coach y exportación JSON.",
+        "Versión preparada; publicación pendiente de autorización."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "72cf7c191261527b5a86d0ea21b01996572e1c04035a678f61d588c446063da5"
+            "sha256": "6ad7532c25fdd017cea1b7f6655396e36e5cc922d42c800df3d1f7c9496b02e8"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "b349ff83d9caf9e03e2c1bf727dd50f8dc2e9001a0fa1708cbe43862d8186b2b"
+            "sha256": "5ced47366fdde5e912a5a36b89199fbe061c948374bd21bd97b2335713f8f469"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "8270ff8f44140010aa8585fa11c673d1037c8ba9d41a14283ed2081aef0c26b4"
+            "sha256": "38e55037641fae098875fe2507afd33270fdc5b35213a976d2c368c323e14c5a"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "b76fdc603ea45c28084bc69825710a32b5f993abc19a4e5e91554604e28b867d"
+            "sha256": "f3f7c8d2e384c917dc825aad90b05a80f278f86cdb916245e1ecbbe042ee0870"
+          },
+          {
+            "url": "/adaptive-english/performance-adapter.js",
+            "sha256": "e1fc37d45f7f3f2cfc1fe5aa440ae24d843b7622f6b399d1e6181b4d5354be39"
           }
         ]
       },
       "sourceCommit": "7d5ab38038896bd29f94b7126ee254e24065132f",
-      "cacheBuild": "52d22d6ce0388124",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.11",
+          "build": "sha256-70f4f20e6444",
+          "date": "2026-10-15",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "3.36.9",
           "build": "sha256-a5bca3e6cfb0",
@@ -1187,7 +1221,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "phrasal-verbs",
@@ -1216,12 +1250,12 @@
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "8b0c76e1f22d2a7c0fab7d615bf7a105f94df785de285955fd2bb0bd380bc4f8"
+            "sha256": "08eb8e5b4eff50307bc514626b19f6559596f0a39b51683b212df411f4998b85"
           }
         ]
       },
       "sourceCommit": "942a47f13bc42168f2dc1a9554ba1aa877b601ea",
-      "cacheBuild": "94893319a6f3d04a",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "apv-"
@@ -1348,7 +1382,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "pizarras",
@@ -1377,12 +1411,12 @@
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "99159ec82fc0f75319c4c4b1dfb2aee32161e097fdc9184158459037edaec348"
+            "sha256": "798393a001175ef5146e2d464b47330bbbecb7365aa2a49ec304046a51505526"
           }
         ]
       },
       "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
-      "cacheBuild": "a781dc2004a08842",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
@@ -1519,7 +1553,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "b2-cloze",
@@ -1548,12 +1582,12 @@
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "95bd1a244a9b7dad7dbe0795841b44be05d28b8f8a5ca55869e9d3fa6943a034"
+            "sha256": "15e369fa093123450f9111392941e0664ea6d16232d88ffbb23ff6dd0e8af6b5"
           }
         ]
       },
       "sourceCommit": "3cad81e35240102ad453c4967da7aaa00fb04fc1",
-      "cacheBuild": "8c2f748506fe914e",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -1682,7 +1716,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "cambridge",
@@ -1711,12 +1745,12 @@
           },
           {
             "url": "/adaptive-exam/build-assets.js",
-            "sha256": "3e51498aea5e584d69d4fa2550ff0cd22a0465ca36039345307f3b42cb88ae78"
+            "sha256": "c190740f27925c974fb1e502005b619ccb05fc7ab975ccaa9ba252c6d18dee78"
           }
         ]
       },
       "sourceCommit": "517125b37db2e0be3ff86ade2e512947d773f691",
-      "cacheBuild": "f6fbf07c47256ee7",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -1907,28 +1941,28 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "keyword-speaking",
       "name": "B2 Transform",
-      "version": "1.1.12",
-      "build": "sha256-b1b7a016b7c9",
-      "releasedAt": "2026-10-14",
+      "version": "1.1.13",
+      "build": "sha256-4ac18d91983a",
+      "releasedAt": null,
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "Corrección de desbordamiento a 320 px en Estadísticas sin alterar ejercicios ni historial.",
+        "Versión preparada; publicación pendiente de autorización."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-keyword-speaking/app.js",
-            "sha256": "ae2113c64a8787aa9e00276867d8e9b35aab201a4834b7a0ce127e8b4da251a2"
+            "sha256": "4ac18d91983af1855d37964d18ce73da52e3ce18ad8d9b644760ba8fc2dde423"
           },
           {
             "url": "/adaptive-keyword-speaking/index.html",
-            "sha256": "0a39dcad8026c60a236bfd6bf4a2517369bb6a9dad71e606267641457a299d88"
+            "sha256": "cc25657f1c82283dee30300478a9f56e165014bf607c308afa6780a04b3bb221"
           },
           {
             "url": "/adaptive-keyword-speaking/service-worker.js",
@@ -1936,17 +1970,26 @@
           },
           {
             "url": "/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "b7e686505f092a2b74ed6e7181ea16c0b1fde0abda8f690133f07bc79cd919a5"
+            "sha256": "795b19b8f7585057f3e90aa3e8dbca6d5e072602e16630e95d24324822a4d94a"
           }
         ]
       },
       "sourceCommit": "d13205b41c37dc0c3ef9f820fbdc6524fe212b3b",
-      "cacheBuild": "0464a7e4458deb2d",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "keyword-speaking-"
       ],
       "history": [
+        {
+          "version": "1.1.12",
+          "build": "sha256-b1b7a016b7c9",
+          "date": "2026-10-15",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "1.1.10",
           "build": "sha256-e6b91c37e5df",
@@ -2081,28 +2124,29 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.15",
-      "build": "sha256-4a21f802efaa",
-      "releasedAt": "2026-10-14",
+      "version": "0.10.16",
+      "build": "sha256-0a1a6b10c3de",
+      "releasedAt": null,
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "Estadísticas originales consultables sin duplicación, y liga de tiempos con porcentajes legibles.",
+        "Se conservan conjugaciones, tiempos, datos y JSON.",
+        "Versión preparada; publicación pendiente de autorización."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-verbs-catala/app.js",
-            "sha256": "cbc676c03b1a60838a0f0b5c44317c853e3ee9ab6319eef2bd8da971086171a1"
+            "sha256": "0a1a6b10c3de8d16a5df2dbc9e405393ba8119252ec27b3f46d550eb4091f7e1"
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "f7f6d42a53c3b21999ec13cc175e43959583012e707c2c70e976af7e46d363e8"
+            "sha256": "4d901311b4e566eec3ba1b02528a6540b91653f41d08cf6a692ece33df9819e4"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
@@ -2110,17 +2154,30 @@
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "145a713aad842bc049efd1804bee6733a5106a3aeb832cbdae097d7ac24a00d4"
+            "sha256": "832e6b587b59d400aa5c472dfbc0ec376d15c960c941d15307e7954a625e9199"
+          },
+          {
+            "url": "/adaptive-verbs-catala/performance-adapter.js",
+            "sha256": "3bcfb6dfa1c4cac35e9b208a64f1e2e11038df6e7fa1412cabf3628eb0bd7b5e"
           }
         ]
       },
       "sourceCommit": "e90f6cde6d452c11fc01d5fce8e5cebdc5bdf492",
-      "cacheBuild": "03adc6ce83fecd62",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.15",
+          "build": "sha256-4a21f802efaa",
+          "date": "2026-10-15",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "0.10.13",
           "build": "sha256-7716f447f2a1",
@@ -2218,7 +2275,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "biblioteca",
@@ -2374,12 +2431,12 @@
           },
           {
             "url": "/adaptive-hoti0108/build-assets.js",
-            "sha256": "8f940b7e5a21ebc587c443a2651531f8c7d5d41e8543f399bd43de3c6865608e"
+            "sha256": "e317f480efa92c014f469b21ba77fa78983a804802e6ea077ce240a57ef6444c"
           }
         ]
       },
       "sourceCommit": "d4131020c92e2879cf79fc0199be6a1745e04e61",
-      "cacheBuild": "b43680a82d49ddbf",
+      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
       "sourceDirty": true,
       "cachePrefixes": [
         "adaptive-hoti0108-"
@@ -2488,7 +2545,7 @@
           ]
         }
       ],
-      "status": "contract-audit-candidate-not-published"
+      "status": "release-prepared-not-published"
     },
     {
       "id": "entrenamiento",
@@ -2758,5 +2815,5 @@
       ]
     }
   ],
-  "status": "contract-audit-candidate-not-published"
+  "status": "release-prepared-not-published"
 }

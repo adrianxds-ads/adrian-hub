@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.16';
-const HUB_BUILD='hub-30.5.16-20261014-contract-audit';
+const HUB_VERSION='30.5.17';
+const HUB_BUILD='hub-30.5.17-20261015-visual-conformity';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -239,6 +239,5 @@ document.querySelector('#updateAllVersionsBtn')?.addEventListener('click',update
 document.querySelector('#versionDialogClose')?.addEventListener('click',()=>document.querySelector('#versionDialog')?.close());
 document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
 
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('./service-worker.js?v=hub-v30.4.6-triage-lesson-20261007',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
-}
+// Service worker registration is owned by index.html (vHUB_VERSION).
+// Version Center retains explicit, opt-in update controls above.

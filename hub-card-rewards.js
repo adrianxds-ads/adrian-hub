@@ -81,13 +81,17 @@
         const count=document.createElement('span');count.className='hub-medal-count';count.textContent=known?String(value):'—';
         badge.append(emblem,count);row.push(badge);
       }
-      const star=document.createElement('span');star.className='hub-medal hub-medal-star'+(starCount?' earned':' locked');
-      star.dataset.medal='star';star.dataset.count=String(starCount);
-      star.title=starCount+' estrellas: una por cada cinco oros de esta aplicación';
-      star.setAttribute('aria-label',star.title);
-      const emblem=document.createElement('span');emblem.className='hub-medal-emblem';emblem.setAttribute('aria-hidden','true');emblem.textContent='★';
-      const count=document.createElement('span');count.className='hub-medal-count';count.textContent=String(starCount);
-      star.append(emblem,count);row.push(star);
+      // The three medal circles show totals. A star is a separate glyph,
+      // only present in the compact card after the first five gold medals.
+      if(starCount>0){
+        const star=document.createElement('span');star.className='hub-card-star';
+        star.dataset.medal='star';star.dataset.count=String(starCount);
+        star.title=starCount+' estrellas: una por cada cinco oros de esta aplicación';
+        star.setAttribute('aria-label',star.title);
+        const glyph=document.createElement('span');glyph.className='hub-card-star-glyph';glyph.setAttribute('aria-hidden','true');glyph.textContent='★';
+        const count=document.createElement('span');count.className='hub-card-star-count';count.textContent=String(starCount);
+        star.append(glyph,count);row.push(star);
+      }
       host.replaceChildren(...row);
     }
   }
