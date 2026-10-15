@@ -1,3 +1,4 @@
+// Cache refresh for bundled Atajos Sprint 1.0.1 timer (15 s); no change in worker behavior.
 importScripts('./build-assets.js','./sw-integrity.js');
 const CACHE_PREFIX='adrian-hub-';
 const CACHE='adrian-hub-'+self.AdrianRelease.build;

@@ -994,7 +994,7 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "218429b5f3d67aad1a169033a4cd021aca51d626403a86dcfbdab0bf75921606"
+          "sha256": "e10c3323cdeb33658e45d06d8f1a951e4b35862fafc95ecb309ccbe7561e1250"
         },
         {
           "url": "build-assets.js",
@@ -2281,24 +2281,25 @@
     {
       "id": "atajos",
       "name": "Atajos Sprint",
-      "version": "1.0.0",
-      "build": "sha256-3b4dc5dc50d2",
+      "version": "1.0.1",
+      "build": "sha256-bb0fbd95ab08",
       "releasedAt": "2026-10-15",
       "kind": "bundled",
       "changes": [
         "136 tarjetas exactas: Windows 44, PowerToys 15, Pixel/Android 44 y QQ Núcleo 33.",
-        "Quiz de 15 con respuesta de 5 segundos, lectura previa optativa, corrección de 1,1 s y medallas 13/14/15.",
-        "Flashcards, repaso de errores, progreso local, gráfica de automatismos e histórico completo JSON sin sincronización presunta."
+        "Quiz de 15 con respuesta de 15 segundos, lectura previa optativa, corrección de 1,1 s y medallas 13/14/15.",
+        "Flashcards, repaso de errores, progreso local, gráfica de automatismos e histórico completo JSON sin sincronización presunta.",
+        "Ajuste exclusivo del temporizador: 5 s → 15 s por pregunta; el resto se conserva."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/atajos/index.html",
-            "sha256": "da8b2c3b6e9b86ee75d132889503ecc50001583b74d004b495b86ce836ed5b81"
+            "sha256": "f26865654438a94d2baedc6083d6b7fb51b9ceb59e4e9242233241252440127c"
           },
           {
             "url": "./apps/atajos/app.js",
-            "sha256": "9b78e57af46dc9e2225d40fdbef9df5ce1fced3bd8b7a3befba83ae820e762d3"
+            "sha256": "28f24acbcb3e8f37d7eb8f622b595fc7cc7b21d0fc9d9578f286f7d04c1d6d57"
           },
           {
             "url": "./apps/atajos/styles.css",

@@ -1,8 +1,8 @@
-/* Atajos Sprint 1.0.0 · Quiz de 5 s, flashcards, progreso e histórico local exportable. */
+/* Atajos Sprint 1.0.1 · Quiz de 15 s, flashcards, progreso e histórico local exportable. */
 (() => {
 'use strict';
 const bank=window.ATAJOS_BANK||[],groups=window.ATAJOS_GROUPS||{};
-const STORE='xds_atajos_sprint_v1',ROUND=15,SECONDS=5,READ_MS=1000,HOLD_MS=1100;
+const STORE='xds_atajos_sprint_v1',ROUND=15,SECONDS=15,READ_MS=1000,HOLD_MS=1100;
 const $=id=>document.getElementById(id),byId=new Map(bank.map(x=>[x.id,x]));
 const views=['home','quiz','flash','result'];
 const nowISO=()=>new Date().toISOString(),rand=()=>Math.random().toString(36).slice(2,10);
@@ -115,7 +115,7 @@ function nextQuestion(){
   const text=document.createElement('span');text.textContent=value;b.append(key,text);
   b.addEventListener('click',()=>answer(index));options.appendChild(b);
  });
- $('secondsLeft').textContent='5';$('timerArc').style.strokeDashoffset='0';
+ $('secondsLeft').textContent=String(SECONDS);$('timerArc').style.strokeDashoffset='0';
  $('readPrompt').hidden=!state.prefs.readFirst;
  if(state.prefs.readFirst){
   hold=setTimeout(()=>{hold=null;if(!quiz||quiz.phase!=='reading')return;$('readPrompt').hidden=true;options.hidden=false;startClock();},READ_MS);
