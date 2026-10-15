@@ -957,7 +957,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "03d9d1b65c022be3e2a0c4a29bd87e56eae5d580ce33089e832971450d9306b7"
+          "sha256": "f0128c02c5d0d0da8d2970f6f56b745dfd075ffba53d6f4f3ee5f4c3f636d6e0"
         },
         {
           "url": "version-verifier.js",
@@ -965,7 +965,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "d257a77b8cc53df6f242087bc517f4376b88b038915c112d4b1898b9cf35fd0f"
+          "sha256": "e1ed88b315f13be5a91c1f8d14a894d4fe923223d8d52bd95d25e597b4345993"
         },
         {
           "url": "styles.css",
@@ -977,11 +977,11 @@
         },
         {
           "url": "build-assets.js",
-          "sha256": "91a7b2e0c2d789b47d4d7b35864159be487e8ad4115ee68f669faaf7b8f8526b"
+          "sha256": "e378fabd648f66d607a20c384f57b3aa79c3c68601064401591943c497baef25"
         }
       ]
     },
-    "cacheBuild": "2c6384bc569bae1d",
+    "cacheBuild": "ca07af6a65b4fdfa",
     "status": "contract-audit-candidate-not-published"
   },
   "apps": [
@@ -1353,8 +1353,8 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.12",
-      "build": "sha256-bd7e09b2d779",
+      "version": "3.0.13",
+      "build": "sha256-147086fadcbc",
       "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
@@ -1365,24 +1365,24 @@
         "files": [
           {
             "url": "/adaptive-pizarras/app.js",
-            "sha256": "5aa0d0047648104cf18e0a321af211f8d28b1a0c1191d6b0f9044c8248c1080c"
+            "sha256": "7dc993b7146ee646f23cefd175e13bc529b7adb4c8ee46bf81f8d2f4cf8a3694"
           },
           {
             "url": "/adaptive-pizarras/index.html",
-            "sha256": "b815d76cad1eb5052eedcb7ed845ff46d761aee3baa41c2fad0d194be2f608b1"
+            "sha256": "4009045df2dab54bf202e7a8e017aa15ceb8686eb7046f507b76068e75b3f4e5"
           },
           {
             "url": "/adaptive-pizarras/service-worker.js",
-            "sha256": "5ea180562d65b342393d5ae8e6ac3792a84b559a86f25e02be8712991af09854"
+            "sha256": "b7b26f84823d1467cab1ee415e22662fa389ff84775d91d73588c3e1b6aea43d"
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "ca448409fa89f952e91cf068de58b5d2f319ea8fd00010f31db9462c40e4ed82"
+            "sha256": "425dd250f7d54b702d75121808b2f88aec4ac6d857809fbc905726ee6a3b2a17"
           }
         ]
       },
       "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
-      "cacheBuild": "379a46c1aa3c2f1b",
+      "cacheBuild": "351a0ec835e98f24",
       "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
