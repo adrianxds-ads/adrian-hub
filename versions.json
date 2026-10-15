@@ -1354,7 +1354,7 @@
       "id": "pizarras",
       "name": "Classroom B2",
       "version": "3.0.13",
-      "build": "sha256-147086fadcbc",
+      "build": "sha256-e4b4dde22e0d",
       "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
@@ -1377,12 +1377,12 @@
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "425dd250f7d54b702d75121808b2f88aec4ac6d857809fbc905726ee6a3b2a17"
+            "sha256": "99159ec82fc0f75319c4c4b1dfb2aee32161e097fdc9184158459037edaec348"
           }
         ]
       },
       "sourceCommit": "7eb672fbafd595ba026bd5ab71dda045849ef279",
-      "cacheBuild": "351a0ec835e98f24",
+      "cacheBuild": "a781dc2004a08842",
       "sourceDirty": true,
       "cachePrefixes": [
         "pizarras-"
