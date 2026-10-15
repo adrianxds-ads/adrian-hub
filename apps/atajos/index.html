@@ -4,10 +4,11 @@
 <meta name="theme-color" content="#eaf0f5"><title>Atajos Sprint · XDS Lab</title>
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-visual-profile.css">
 <link rel="stylesheet" href="https://adrianxds-ads.github.io/adrian-core/design/nucleo-game-theme.css">
-<link rel="stylesheet" href="./styles.css?v=1.0.0">
+<link rel="stylesheet" href="./styles.css?v=1.0.2">
 </head><body data-nucleo-game="atajos">
 <main class="shell">
-<header class="topbar"><a href="../../" class="back" aria-label="Volver al Hub">‹ Hub</a><div class="brand"><span class="brand-emblem">⌘</span><div><b>ATAJOS SPRINT</b><small>XDS LAB · 1.0.1</small></div></div><button id="soundToggle" class="quiet" aria-label="Alternar sonido" aria-pressed="false">♪</button></header>
+<header class="topbar"><a href="../../" class="back" aria-label="Volver al Hub">‹ Hub</a><div class="brand"><span class="brand-emblem">⌘</span><div><b>ATAJOS SPRINT</b><small>XDS LAB · 1.0.2</small></div></div><button id="soundToggle" class="quiet" aria-label="Alternar sonido" aria-pressed="false">♪</button></header>
+<div class="font-tools" role="group" aria-label="Tamaño de la letra"><span>Texto</span><button id="fontSmaller" type="button" aria-label="Reducir el tamaño de letra">A−</button><output id="fontSizeLabel" aria-live="polite">115%</output><button id="fontLarger" type="button" aria-label="Aumentar el tamaño de letra">A+</button></div>
 <section id="home" class="view">
 <div class="hero"><div><p class="eyebrow">NÚCLEO · MEMORIA DE ATAJOS</p><h1>Los atajos, a la punta de los dedos.</h1><p>Windows, PowerToys, Pixel y nuestros 33 QQ. Sesiones cortas para recordar sin consultar.</p></div><div class="hero-mark" aria-hidden="true">⌘</div></div>
 <div class="kpis" aria-label="Progreso de aprendizaje"><div><strong id="coverage">0%</strong><span>Cobertura</span></div><div><strong id="mastery">0%</strong><span>Dominio</span></div><div><strong id="due">136</strong><span>Pendientes</span></div></div>
@@ -37,7 +38,8 @@
 </section>
 <section id="result" class="view" hidden aria-label="Resultado">
 <div class="result-card panel"><span class="eyebrow">SESIÓN COMPLETADA</span><div class="result-score" id="finalScore">0/15</div><h1 id="resultTitle">Sesión registrada</h1><p id="resultDetail"></p><div class="result-stats"><span id="resultTime"></span><span id="resultMedal"></span></div><div id="errorReview" class="error-review"></div></div>
+<section class="panel glossary-wrap" aria-labelledby="glossaryTitle"><h2 id="glossaryTitle">Glosario de esta partida</h2><p>Los 15 atajos practicados: aciertos, errores, teclas y para qué sirve cada uno.</p><details id="sessionGlossary" open><summary>Consultar los 15 atajos</summary><ol id="glossaryList" class="glossary-list"></ol></details></section>
 <div class="actions"><button id="playAgain" class="primary">Otra ronda</button><button id="goHome" class="secondary">Volver al panel</button></div>
 </section>
 </main>
-<script src="./cards.js?v=1.0.0"></script><script src="./app.js?v=1.0.1"></script></body></html>
+<script src="./cards.js?v=1.0.0"></script><script src="./app.js?v=1.0.2"></script></body></html>

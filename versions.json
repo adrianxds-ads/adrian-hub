@@ -4,14 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.18",
-    "build": "hub-30.5.18-20261015",
+    "version": "30.5.19",
+    "build": "hub-30.5.19-20261015",
     "releasedAt": "2026-10-15",
     "changes": [
-      "Atajos Sprint: nueva app ligera integrada en el Hub con 136 tarjetas, quiz de cinco segundos y flashcards.",
-      "Medallas locales, porcentaje de aprendizaje, histórico de sesiones y JSON exportable; sin alterar datos de las apps existentes."
+      "Atajos Sprint 1.0.2: botones A−/A+ accesibles en todas sus pantallas, escala 100–160% (115% inicial) persistente sin alterar sesiones.",
+      "Glosario final de los 15 atajos, acertados y errados, con función y explicación de las teclas cuando procede.",
+      "Texto ampliado para móvil y ficha del Hub corregida a 15 segundos; 136 tarjetas, algoritmos y almacenamiento local conservados."
     ],
     "history": [
+      {
+        "version": "30.5.18",
+        "build": "hub-30.5.18-20261015",
+        "date": "2026-10-15",
+        "changes": [
+          "Atajos Sprint: nueva app ligera integrada en el Hub con 136 tarjetas, quiz de cinco segundos y flashcards.",
+          "Medallas locales, porcentaje de aprendizaje, histórico de sesiones y JSON exportable; sin alterar datos de las apps existentes."
+        ]
+      },
       {
         "version": "30.5.17",
         "build": "hub-30.5.17-20261015-visual-conformity",
@@ -978,7 +988,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "fc61bc2e67462f5251886a53644bc805cd10a7e5f114802ce96fc3da91ea2032"
+          "sha256": "2c5c1939d8aff30bc039016caff42cf258b780e2e671315680698b08f073d5cc"
         },
         {
           "url": "version-verifier.js",
@@ -986,7 +996,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "6f852330b3040242d14e7d9f80f0fd5f1ff1ed7af41fa121c8f59317d555988a"
+          "sha256": "004aa8f87d8ed2965e33fb1d3a4a1789140e896139d498a9b6401642eba193af"
         },
         {
           "url": "styles.css",
@@ -994,15 +1004,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e10c3323cdeb33658e45d06d8f1a951e4b35862fafc95ecb309ccbe7561e1250"
+          "sha256": "e11517c20a48b2f4605bf016c17d434aa5e68148a575b9d2932a595429bfa975"
         },
         {
           "url": "build-assets.js",
-          "sha256": "a982de5efe0efb23158589ac5765174151f436523f75dcda4221d669b1856e6a"
+          "sha256": "56c0127fc23ac12cbc232c5804463e9ad08125b3b8215aca3a03cb0dc0a3271a"
         }
       ]
     },
-    "cacheBuild": "d7f989b39cbfa826",
+    "cacheBuild": "6bfae97f28c47c34",
     "status": "published"
   },
   "apps": [
@@ -2281,33 +2291,43 @@
     {
       "id": "atajos",
       "name": "Atajos Sprint",
-      "version": "1.0.1",
-      "build": "sha256-bb0fbd95ab08",
+      "version": "1.0.2",
+      "build": "sha256-efb7e85a2885",
       "releasedAt": "2026-10-15",
       "kind": "bundled",
       "changes": [
-        "136 tarjetas exactas: Windows 44, PowerToys 15, Pixel/Android 44 y QQ Núcleo 33.",
-        "Quiz de 15 con respuesta de 15 segundos, lectura previa optativa, corrección de 1,1 s y medallas 13/14/15.",
-        "Flashcards, repaso de errores, progreso local, gráfica de automatismos e histórico completo JSON sin sincronización presunta.",
-        "Ajuste exclusivo del temporizador: 5 s → 15 s por pregunta; el resto se conserva."
+        "Control visible A− / A+ y texto ampliado con escala 100–160% persistente.",
+        "Glosario consultable tras cada partida: los 15 atajos con respuesta, función, teclas y acierto/error.",
+        "Sin cambios de temporizador (15 s), 136 tarjetas, corrección, puntuación ni claves locales de progreso."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/atajos/index.html",
-            "sha256": "f26865654438a94d2baedc6083d6b7fb51b9ceb59e4e9242233241252440127c"
+            "sha256": "b48f2a0a17065b95c9807d413b18b1ae1e42a98ae9e63fe578a91519d0485bfe"
           },
           {
             "url": "./apps/atajos/app.js",
-            "sha256": "28f24acbcb3e8f37d7eb8f622b595fc7cc7b21d0fc9d9578f286f7d04c1d6d57"
+            "sha256": "aab9a0343526bc302d6b84375e0a7c215f956ce25e6ccbed2bd732cb897b54e9"
           },
           {
             "url": "./apps/atajos/styles.css",
-            "sha256": "dd40cf368e5ada3b11065dd33fa0f04790ff816234454825262e0b475b5de08a"
+            "sha256": "3f54b244e7d71e8e1875307aae090484a8e191e08caef71d51629d41a85db2e0"
           }
         ]
       },
-      "history": []
+      "history": [
+        {
+          "version": "1.0.1",
+          "date": "2026-10-15",
+          "changes": [
+            "136 tarjetas exactas: Windows 44, PowerToys 15, Pixel/Android 44 y QQ Núcleo 33.",
+            "Quiz de 15 con respuesta de 15 segundos, lectura previa optativa, corrección de 1,1 s y medallas 13/14/15.",
+            "Flashcards, repaso de errores, progreso local, gráfica de automatismos e histórico completo JSON sin sincronización presunta.",
+            "Ajuste exclusivo del temporizador: 5 s → 15 s por pregunta; el resto se conserva."
+          ]
+        }
+      ]
     },
     {
       "id": "biblioteca",

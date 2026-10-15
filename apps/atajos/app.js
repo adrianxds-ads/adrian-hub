@@ -1,4 +1,4 @@
-/* Atajos Sprint 1.0.1 · Quiz de 15 s, flashcards, progreso e histórico local exportable. */
+/* Atajos Sprint 1.0.2 · Quiz de 15 s, flashcards, progreso e histórico local exportable. */
 (() => {
 'use strict';
 const bank=window.ATAJOS_BANK||[],groups=window.ATAJOS_GROUPS||{};
@@ -6,13 +6,32 @@ const STORE='xds_atajos_sprint_v1',ROUND=15,SECONDS=15,READ_MS=1000,HOLD_MS=1100
 const $=id=>document.getElementById(id),byId=new Map(bank.map(x=>[x.id,x]));
 const views=['home','quiz','flash','result'];
 const nowISO=()=>new Date().toISOString(),rand=()=>Math.random().toString(36).slice(2,10);
-const empty=()=>({schema:1,app:'atajos-sprint',cards:{},sessions:[],draft:null,prefs:{group:'all',readFirst:true,sound:false}});
+const empty=()=>({schema:1,app:'atajos-sprint',cards:{},sessions:[],draft:null,prefs:{group:'all',readFirst:true,sound:false,fontScale:115}});
 let state;let mode='home',clock=null,hold=null,quiz=null,flash=null,audio=null;
 function load(){
  try{const x=JSON.parse(localStorage.getItem(STORE)||'null');if(x?.schema===1&&x.cards&&Array.isArray(x.sessions)){return {...empty(),...x,prefs:{...empty().prefs,...x.prefs}};}}catch(_){}
  return empty();
 }
 state=load();
+const FONT_STEPS=[100,115,130,145,160];
+function applyFontScale(){
+ const n=Number(state.prefs.fontScale);
+ const scale=FONT_STEPS.includes(n)?n:115;
+ document.documentElement.style.setProperty('--atajos-type-scale',String(scale/100));
+ $('fontSizeLabel').textContent=scale+'%';
+ $('fontSmaller').disabled=scale<=FONT_STEPS[0];
+ $('fontLarger').disabled=scale>=FONT_STEPS[FONT_STEPS.length-1];
+}
+function changeFont(direction){
+ const cur=FONT_STEPS.includes(Number(state.prefs.fontScale))?Number(state.prefs.fontScale):115;
+ const next=FONT_STEPS[Math.max(0,Math.min(FONT_STEPS.length-1,FONT_STEPS.indexOf(cur)+direction))];
+ if(next===cur)return;
+ state.prefs.fontScale=next;
+ applyFontScale();
+ save();
+ if(mode==='home')renderHome();
+}
+applyFontScale();
 function save(){
  try{localStorage.setItem(STORE,JSON.stringify(state));$('storageStatus').textContent='Progreso guardado en este navegador · sin sincronización entre dispositivos.';return true;}
  catch(err){$('storageStatus').textContent='⚠ Sin espacio o almacenamiento restringido: exporta JSON para conservar tu progreso.';console.error('No se guardó el estado',err);return false;}
@@ -182,6 +201,38 @@ function finishQuiz(){
  const wrong=s.attempts.filter(a=>!a.correct);
  if(wrong.length){const h=document.createElement('h2');h.textContent='Repasa estas respuestas';$('errorReview').appendChild(h);}
  for(const a of wrong){const row=document.createElement('article'),code=document.createElement('strong'),answerText=document.createElement('span');code.textContent=a.key;answerText.textContent='→ '+byId.get(a.cardId).meaning;row.append(code,answerText);$('errorReview').appendChild(row);}
+ renderGlossary(s);
+}
+const KEY_NAMES={Win:'tecla Windows',Ctrl:'Control',Alt:'Alt (alternativa)',Mayús:'Mayúsculas (Shift)',Esc:'Escape',Tab:'Tabulador',Espacio:'barra espaciadora',Intro:'Enter',Supr:'Suprimir'};
+function explainKeys(key){
+ const names=[...new Set((key.match(/\b(?:Win|Ctrl|Alt|Mayús|Esc|Tab|Espacio|Intro|Supr|F\d{1,2})\b/g)||[]))];
+ const bits=names.map(x=>x+' = '+(KEY_NAMES[x]||'tecla de función '+x));
+ if(key.includes('←')||key.includes('→'))bits.push('←/→ = flechas de dirección');
+ return bits.join(' · ');
+}
+function renderGlossary(session){
+ const host=$('glossaryList');host.replaceChildren();
+ $('sessionGlossary').open=true;
+ for(const [i,a] of session.attempts.entries()){
+  const card=byId.get(a.cardId),row=document.createElement('li');
+  row.className='glossary-item '+(a.correct?'is-correct':'is-wrong');
+  if(!card){row.textContent=(i+1)+'. Atajo sin ficha disponible';host.appendChild(row);continue;}
+  const top=document.createElement('div');top.className='glossary-top';
+  const code=document.createElement('strong');code.textContent=card.key;
+  const status=document.createElement('span');status.className='glossary-status';
+  status.textContent=a.correct?'✓ Acertado':a.timeout?'⏱ Sin responder':'✕ Error';
+  top.append(code,status);
+  const action=document.createElement('p');action.className='glossary-action';action.textContent='¿Para qué sirve? '+card.meaning+'.';
+  row.append(top,action);
+  const keyParts=explainKeys(card.key);
+  if(keyParts){const description=document.createElement('p');description.className='glossary-key-legend';description.textContent='Teclas: '+keyParts;row.appendChild(description);}
+  if(!a.correct){
+   const userAnswer=document.createElement('p');userAnswer.className='glossary-user-answer';
+   userAnswer.textContent=a.timeout?'Se agotó el tiempo sin responder.':'Tu respuesta: '+String(a.response??'Sin respuesta');
+   row.appendChild(userAnswer);
+  }
+  host.appendChild(row);
+ }
 }
 function startFlash(){
  if(mode==='quiz')return;stopTimers();flash={cards:shuffle(groupCards()).sort((a,b)=>getStats(a.id).box-getStats(b.id).box),index:0,up:false};show('flash');paintFlash();
@@ -219,7 +270,7 @@ function drawChart(sessions){
  });
 }
 function jsonExport(){
- const m=metrics();return{schema:'xds.shortcuts.learning.v1',exportedAt:nowISO(),source:'Memoria de atajos v1.0 · 15/10/2026',appVersion:'1.0.0',
+ const m=metrics();return{schema:'xds.shortcuts.learning.v1',exportedAt:nowISO(),source:'Memoria de atajos v1.0 · 15/10/2026',appVersion:'1.0.2',
   deviceScope:'Almacenamiento local del navegador; no sincronización certificada',bank:{total:bank.length,groups:Object.fromEntries(Object.keys(groups).map(g=>[g,bank.filter(c=>c.group===g).length]))},
   metrics:{coverage:Math.round(100*m.seen/bank.length),estimatedMastery:Math.round(100*m.mastered/bank.length),remaining:m.pending,medals:m.medals,stars:m.stars},
   cards:state.cards,sessions:state.sessions,draft:state.draft,prefs:state.prefs};
@@ -232,6 +283,8 @@ async function copyJson(){
  try{await navigator.clipboard.writeText(text);$('storageStatus').textContent='JSON completo copiado al portapapeles.';}
  catch(_){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.top='0';ta.style.width='1px';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy');}catch(_){}ta.remove();$('storageStatus').textContent=ok?'JSON copiado.':'La copia no está disponible; utiliza Exportar JSON.';}
 }
+$('fontSmaller').addEventListener('click',()=>changeFont(-1));
+$('fontLarger').addEventListener('click',()=>changeFont(1));
 $('groupSelect').addEventListener('change',e=>{state.prefs.group=e.target.value;save();renderHome();});
 $('readFirst').addEventListener('change',e=>{state.prefs.readFirst=e.target.checked;save();});
 $('soundToggle').addEventListener('click',soundToggle);
@@ -241,6 +294,6 @@ $('revealFlash').addEventListener('click',revealFlash);$('flashAgain').addEventL
 $('playAgain').addEventListener('click',()=>{show('home');startQuiz();});$('goHome').addEventListener('click',()=>show('home'));
 $('exportJson').addEventListener('click',downloadJson);$('copyJson').addEventListener('click',copyJson);
 window.addEventListener('resize',()=>{if(mode==='home')renderHome();});
-window.__ATAJOS_TEST__={bankSize:bank.length,metrics,storeKey:STORE,version:'1.0.0'};
+window.__ATAJOS_TEST__={bankSize:bank.length,metrics,storeKey:STORE,version:'1.0.2'};
 renderHome();
 })();

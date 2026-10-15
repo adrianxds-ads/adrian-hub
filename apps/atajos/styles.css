@@ -7,3 +7,37 @@
 :where(.option):nth-child(4){background:#ddf3ec;border-color:#9acdbb}
 .option.correct{background:#d7f2dc;border-color:#3c8b61;color:#173b2c}
 .option.wrong{background:#ffe3e1;border-color:#c85d62;color:#77252a}
+
+/* Typography control is available in every view, including quiz and results.
+   Base uses a larger default; explicit text sizes scale without zooming controls
+   or distorting the 15-second timer. */
+:root{--atajos-type-scale:1.15}
+.font-tools{position:sticky;top:0;z-index:12;display:flex;justify-content:flex-end;align-items:center;gap:9px;padding:5px 7px;margin-bottom:8px;background:rgba(234,240,245,.97);border-radius:12px;box-shadow:0 1px 6px #22313c18;color:#283747}
+.font-tools>span{font-size:calc(16px * var(--atajos-type-scale));font-weight:700}
+.font-tools button{min-width:54px;min-height:48px;padding:5px 9px;border-radius:11px;font-size:22px;color:#302b50;border:1px solid #99a9c5;background:#fff}
+.font-tools output{min-width:53px;text-align:center;font-weight:800;font-size:17px;font-variant-numeric:tabular-nums}
+.font-tools button:disabled{opacity:.45}
+body[data-nucleo-game="atajos"]{font-size:calc(19px * var(--atajos-type-scale))}
+.hero p,.muted,.switch,.settings label:not(.switch),.storage,.helper{font-size:calc(17px * var(--atajos-type-scale))!important}
+.brand b,.brand small,.eyebrow,.kpis span,.medals>span,.medal small,.sectionhead span,.history-item,.question-card p,.game-head strong,.timer-text small{font-size:calc(15px * var(--atajos-type-scale))!important}
+.settings select,.actions button,.back,.sectionhead h2,.result-stats,.feedback,.read-prompt,.medal-row{font-size:calc(18px * var(--atajos-type-scale))!important}
+.option,.option .letter{font-size:calc(20px * var(--atajos-type-scale))!important}
+.question-card h2{font-size:calc(24px * var(--atajos-type-scale))!important}
+.flash-card h2{font-size:calc(30px * var(--atajos-type-scale))!important}
+.flash-back{font-size:calc(23px * var(--atajos-type-scale))!important}
+.result-card h1,.glossary-wrap h2{font-size:calc(25px * var(--atajos-type-scale))!important}
+.error-review article,.error-review summary{font-size:calc(17px * var(--atajos-type-scale))!important}
+.glossary-wrap{margin-top:16px}
+.glossary-wrap>p{font-size:calc(17px * var(--atajos-type-scale));color:#455669}
+.glossary-wrap details>summary{cursor:pointer;padding:12px 3px;font-size:calc(18px * var(--atajos-type-scale));font-weight:800}
+.glossary-list{padding:0;list-style:none;display:grid;gap:12px}
+.glossary-item{border:1px solid #c6d4df;border-left:5px solid #4b966f;border-radius:14px;background:#f8fbfd;padding:13px}
+.glossary-item.is-wrong{border-left-color:#b65a65;background:#fffaf8}
+.glossary-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.glossary-top strong{font-size:calc(20px * var(--atajos-type-scale));overflow-wrap:anywhere}
+.glossary-status{font-weight:750;color:#345843;font-size:calc(15px * var(--atajos-type-scale))}
+.is-wrong .glossary-status{color:#923e48}
+.glossary-item p{margin:8px 0 0;overflow-wrap:anywhere}
+.glossary-action{font-size:calc(19px * var(--atajos-type-scale));font-weight:600}
+.glossary-key-legend,.glossary-user-answer{font-size:calc(17px * var(--atajos-type-scale));color:#435669}
+@media (max-width:430px){.font-tools{margin-top:-3px}.option{min-height:64px}.font-tools button{min-width:52px}.glossary-top{display:block}.glossary-status{display:block;margin-top:4px}}

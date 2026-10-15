@@ -1,6 +1,6 @@
 {
   "version": 27,
-  "hubVersion": "30.5.18",
+  "hubVersion": "30.5.19",
   "apps": [
     {
       "id": "english",
@@ -112,11 +112,11 @@
       "kind": "hub-module",
       "url": "./apps/atajos/",
       "glyph": "AS",
-      "description": "Memoriza 136 atajos con quiz de 5 segundos, flashcards, repaso por errores, progreso y JSON.",
+      "description": "Memoriza 136 atajos con quiz de 15 segundos, flashcards, repaso por errores, glosario de cada partida, progreso y JSON.",
       "features": [
         "136 tarjetas",
-        "Quiz de 15 · 5 segundos",
-        "Flashcards y automatismos"
+        "Quiz de 15 · 15 segundos",
+        "Glosario, letra ajustable y automatismos"
       ],
       "brandColor": "#926DAA"
     },
