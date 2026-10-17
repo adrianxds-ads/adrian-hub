@@ -4,15 +4,25 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.20",
-    "build": "hub-30.5.20-20261017",
+    "version": "30.5.21",
+    "build": "hub-30.5.21-20261017",
     "releasedAt": "2026-10-17",
     "changes": [
-      "Integración móvil: Grammar 3.36.14, Cloze 1.11.21, Classroom 3.0.15 y Phrasal 0.13.18 con commits, builds y SHA-256 auténticos.",
-      "Cuenta atrás única en Grammar y corrección acotada de bloqueos del control oculto de revelar respuestas; Cambridge excluido.",
-      "Pruebas aisladas superadas; comprobación física posterior a publicación pendiente por desconexión ADB del Pixel."
+      "Ergonomía de las cuatro apps de inglés: Grammar 3.36.15, Cloze 1.11.22, Phrasal 0.13.19 y Classroom 3.0.16.",
+      "Opciones 1×4, altura estable, progreso semántico y temporizador continuo; preservados los datos y la selección adaptativa.",
+      "Registro de commits y huellas que incluye las nuevas hojas de estilo y el controlador; Cambridge queda excluido."
     ],
     "history": [
+      {
+        "version": "30.5.20",
+        "build": "hub-30.5.20-20261017",
+        "changes": [
+          "Integración móvil: Grammar 3.36.14, Cloze 1.11.21, Classroom 3.0.15 y Phrasal 0.13.18 con commits, builds y SHA-256 auténticos.",
+          "Cuenta atrás única en Grammar y corrección acotada de bloqueos del control oculto de revelar respuestas; Cambridge excluido.",
+          "Pruebas aisladas superadas; comprobación física posterior a publicación pendiente por desconexión ADB del Pixel."
+        ],
+        "date": "2026-10-17"
+      },
       {
         "version": "30.5.19",
         "build": "hub-30.5.19-20261015",
@@ -998,7 +1008,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "929aebae0d43914d510ff35ceacfdb3a030069287fd0df7dc0ece0ba564f1b06"
+          "sha256": "bec1c25b86001dfbfd0ddb9212103967a409861fc1236c1ef56e59dccd9874e9"
         },
         {
           "url": "version-verifier.js",
@@ -1006,7 +1016,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "857b173cb71ed0885b06a51a6251b5d68e9c3d69a754149593d8dac839d419ed"
+          "sha256": "960c73a0ac4c66000d8aff366ddd900a2c9e0a707e6b50eda9e5949b1250ef7b"
         },
         {
           "url": "styles.css",
@@ -1014,55 +1024,74 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "a95c0897cd2fc091e5d53d43237f091aeaecbeae1d210dac1a558695da339e4a"
+          "sha256": "a83aa4ae48809758394cc4ad8cb8dda3b39d18a1150b39d19d9ac459fb62f78c"
         },
         {
           "url": "build-assets.js",
-          "sha256": "706a5bb18f180126e6070dab1455700e1545b966dd8f988119bcdc65f1fc5fb0"
+          "sha256": "aaf6b9b2c6c4f43514def48cabaf05a4d5f31257b7a0975a2dc146f22862ebc8"
         }
       ]
     },
-    "cacheBuild": "ba2c89afc8327493",
+    "cacheBuild": "6e08f37e72a6c74e",
     "status": "published"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.14",
-      "build": "sha256-811f656ab6ec",
+      "version": "3.36.15",
+      "build": "sha256-f5915b1fe563",
       "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Una sola cuenta atrás visible de 15 segundos, con barra descendente y contraste legible. Retiradas la carga del indicador ascendente heredado y la barra redundante; oculto el reloj integrado que indicaba sin límite. Motor y medición de respuestas conservados."
+        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "d7e4f699f2e111b1b545eb34ec4521dc7510dac3345666dc14b68ccc6cc5758c"
+            "sha256": "ea5aaaa252ab54ad49fe7151fed7981fada433c2ea6538e192679a0020836ca1"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "00d65d979a2aebbec4375b60f710787033cedcf39d00e78da49459dc82d33d19"
+            "sha256": "72a7bc9e7f5144bd89247ce56c5ed1c21cbacd90da3add86f6f9ec0b7a046c60"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "570db720407b949f7152c9471c003987f71805f66550d56f3f86ebf8edfaeadc"
+            "sha256": "453b81eb7a05b9163c963c377ddab02c44fac0f011b6ad87c6bcf1066bf7d034"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "3cc5efcf1ad72115778fa33eac382b14c9144a5465183ea5b922feed79f052d5"
+            "sha256": "068499e40beb8d1699e6e30bda6da8bbb527041f78af3ee0424c233f138db07f"
+          },
+          {
+            "url": "/adaptive-english/quiz-ergonomics.js",
+            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+          },
+          {
+            "url": "/adaptive-english/quiz-ergonomics.css",
+            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
           }
         ]
       },
-      "sourceCommit": "d5a2afc660c0a167648aaaa768fce45d97feff1c",
-      "cacheBuild": "grammar-countdown-20261017-33614",
+      "sourceCommit": "0fd576ebcd251d2e6143a1dd0dc6af23721df276",
+      "cacheBuild": "ergonomics-792198c164a551df",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.14",
+          "build": "sha256-811f656ab6ec",
+          "date": "2026-10-17",
+          "changes": [
+            "Una sola cuenta atrás visible de 15 segundos, con barra descendente y contraste legible. Retiradas la carga del indicador ascendente heredado y la barra redundante; oculto el reloj integrado que indicaba sin límite. Motor y medición de respuestas conservados."
+          ]
+        },
         {
           "version": "3.36.12",
           "build": "sha256-6ad7532c25fd",
@@ -1251,40 +1280,59 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.18",
-      "build": "sha256-cf3f322f8177",
+      "version": "0.13.19",
+      "build": "sha256-5d5af7a7ce19",
       "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Reparado el mismo bloqueo reproducido del control oculto de revelar opciones. Selector de feedback limitado a respuestas; reglas, temporizador, medallas y progreso conservados."
+        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "cf4ddea92f2417087d88014ea6bddfa8c21c0eb64dda64a1ea358d4cae8db054"
+            "sha256": "4f3e3aa254eef368347cdc1736fee81367ca2cab627bd7bc73565cb5b43d80b2"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "d75e38d42813841bd9c0b2363fb7116f13cfb3ade68cc42eeca8267e97a11fee"
+            "sha256": "7f250f53e6da8a3a431a8e5abca43900a1b6e8b95703fc1a05a69a9755ec221a"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "9ef8f226444db10f16641d25c0bb9ada7457535bc99f79f969835ad7c2b1d328"
+            "sha256": "2d766beb83eafc05061e558af1f56c37d9069d5101f4ba80bbbdc51d1f1077cb"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "0ffb9cc1ab4eb2c249d00466366034ad8454ba59b6e1874bc55792f39eb5270f"
+            "sha256": "81832737e4e697474de8fd0a6912215d83a50bab062b50a2580511cc9efe6cdc"
+          },
+          {
+            "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
+            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+          },
+          {
+            "url": "/adaptive-phrasal-verbs/quiz-ergonomics.css",
+            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
           }
         ]
       },
-      "sourceCommit": "13472ca9214adf2aba46c7311b382f1275711b37",
-      "cacheBuild": "phrasal-touch-20261017-01318",
+      "sourceCommit": "1314737d5aff11350758b8838c1d2fab2fe53e59",
+      "cacheBuild": "ergonomics-7b42024d4dbf8cda",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.18",
+          "build": "sha256-cf3f322f8177",
+          "date": "2026-10-17",
+          "changes": [
+            "Reparado el mismo bloqueo reproducido del control oculto de revelar opciones. Selector de feedback limitado a respuestas; reglas, temporizador, medallas y progreso conservados."
+          ]
+        },
         {
           "version": "0.13.17",
           "build": "sha256-2528358e96af",
@@ -1420,40 +1468,59 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.15",
-      "build": "sha256-34fc9914b6f3",
+      "version": "3.0.16",
+      "build": "sha256-7fb5dd77a769",
       "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "La corrección excluye el control de revelar opciones y evita bloquear la siguiente pregunta. Target inicial y final del quiz rápido verificados; clases, contratos y persistencia sin cambios."
+        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-pizarras/app.js",
-            "sha256": "ab69af4a26a9a705393a2e19d4378125107a8a8cee02e8032ee2f8aab44cb108"
+            "sha256": "a5d7df66f4c3186a551f9ade38188c10486a882af04708723925322651c9aa5e"
           },
           {
             "url": "/adaptive-pizarras/index.html",
-            "sha256": "b55f62cd734844197af15c227c6e648dde762459b292479bae7df2ca22baf6d5"
+            "sha256": "52334bc20e33290b31e6ca5a12f287319dd35b22aa4d5127bdfeb945b9322ef4"
           },
           {
             "url": "/adaptive-pizarras/service-worker.js",
-            "sha256": "b7b26f84823d1467cab1ee415e22662fa389ff84775d91d73588c3e1b6aea43d"
+            "sha256": "9f75ecc73455b49697587559ccf85e304de7d2dabb2340ec3bfa7bf627b0f033"
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "c2d64b9db845a4ae9d5b920e3b62b7e17b38b51b1da7413b260a682bbbb40ef0"
+            "sha256": "e9e1c702f672b19c37a2e9c7886bcd8f4ba49a4b700cea3c3ae6a9cb2a133e99"
+          },
+          {
+            "url": "/adaptive-pizarras/quiz-ergonomics.js",
+            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+          },
+          {
+            "url": "/adaptive-pizarras/quiz-ergonomics.css",
+            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
           }
         ]
       },
-      "sourceCommit": "815f3757d19e053e19b69c0073c63df185438746",
-      "cacheBuild": "classroom-touch-20261017-3015",
+      "sourceCommit": "92cc8ec854269686c389a598d6c77308f740a3c3",
+      "cacheBuild": "ergonomics-7da1a0b4264dcc74",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.15",
+          "build": "sha256-34fc9914b6f3",
+          "date": "2026-10-17",
+          "changes": [
+            "La corrección excluye el control de revelar opciones y evita bloquear la siguiente pregunta. Target inicial y final del quiz rápido verificados; clases, contratos y persistencia sin cambios."
+          ]
+        },
         {
           "version": "3.0.13",
           "build": "sha256-e4b4dde22e0d",
@@ -1599,40 +1666,59 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.21",
-      "build": "sha256-84fc97677cf3",
+      "version": "1.11.22",
+      "build": "sha256-e65426b1acc9",
       "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "La corrección solo marca botones de respuesta: el control oculto de revelar opciones ya no bloquea las preguntas siguientes. Probadas tres rondas, suspensión y recuperación de transición en pregunta 10, sin duplicar respuestas."
+        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "2b315f39b4fe242b26296ee361b0a5a820aa6b2dd1e432c938baeddf0c9801d8"
+            "sha256": "696cc66528bef21ece693ea35bf374a7f973519f1e986cef15d77d5817f467a1"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "416f6ac12de0647866d1aa2b64b57f463d6de7a4988a4e050a7303bbbab92708"
+            "sha256": "029b9a4d7ffa4aea165b110500aeb12fa201e40e128f921569fc714242268c22"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "a1eb93d2b5b5fd6cc80e6d185bb082a3dccb3bab281dcbf445bdb74b1eb8e17c"
+            "sha256": "e95fece21b0df14717f41dc5fc45055843e145641974f41f7b872f92d7277b44"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "5e566862f02b46c92d635aca0242ab4b2b70aac33b300ade2494b7a63f980d1c"
+            "sha256": "5a685ff279785c4492a28a52560f3a537cc72ba1e4a8b4c2813ef0521aa5d60d"
+          },
+          {
+            "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
+            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+          },
+          {
+            "url": "/b2-multiple-choice-cloze/quiz-ergonomics.css",
+            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
           }
         ]
       },
-      "sourceCommit": "6dc811fbb57c6940d7e3326e57f0801c9294def9",
-      "cacheBuild": "cloze-touch-20261017-11121",
+      "sourceCommit": "a8b8ecb56482369da983d0dbf406e53aeb7df9c6",
+      "cacheBuild": "ergonomics-5424adb59ed07e6b",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.21",
+          "build": "sha256-84fc97677cf3",
+          "date": "2026-10-17",
+          "changes": [
+            "La corrección solo marca botones de respuesta: el control oculto de revelar opciones ya no bloquea las preguntas siguientes. Probadas tres rondas, suspensión y recuperación de transición en pregunta 10, sin duplicar respuestas."
+          ]
+        },
         {
           "version": "1.11.19",
           "build": "sha256-af0b252a5909",

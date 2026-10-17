@@ -61,7 +61,7 @@ with sync_playwright() as pw:
  assert 'TARGET' in p.locator('#missionBody').inner_text()
  p.wait_for_selector('#gameScreen:not(.hidden)')
  p.wait_for_function('!focusAwaiting && !locked',timeout=12000)
- v=p.evaluate("""()=>{const visible=e=>!!(e&&e.getBoundingClientRect().height&&getComputedStyle(e).display!=='none');return {clock:visible(document.querySelector('#focusTimerText')),elapsed:visible(document.querySelector('#focusTimeDisplay')),extra:visible(document.querySelector('#quiz-segmented-timer')),audio:audioCtx?.state,limit:(deadline-focusAnswerAt)/1000}}""")
+ v=p.evaluate("""()=>{const visible=e=>!!(e&&e.getBoundingClientRect().height&&getComputedStyle(e).display!=='none');return {clock:visible(document.querySelector('.timer-number')),elapsed:visible(document.querySelector('#focusTimeDisplay')),extra:visible(document.querySelector('#quiz-segmented-timer')),audio:audioCtx?.state,limit:(deadline-focusAnswerAt)/1000}}""")
  assert p.locator('.integrated-timer').is_hidden()
  assert p.locator('#focusTimeDisplay').count()==0
  for width in [360,390,412,768,1280]:
@@ -87,7 +87,7 @@ with sync_playwright() as pw:
  p.screenshot(path=str(root/'grammar-after.png'),full_page=True);c.close()
  if '--post' not in sys.argv:
   c,p=openapp('adaptive-pizarras')
-  p.wait_for_function("document.querySelector('#quickBtn')?.onclick!=null")
+  p.wait_for_function("window.ClassroomBootComplete===true")
   p.locator('#quickBtn').click()
   p.wait_for_selector('#classroomMission:not([hidden])')
   assert 'TARGET' in p.locator('#classroomMissionBody').inner_text()
@@ -104,7 +104,7 @@ with sync_playwright() as pw:
   assert not p.errors,p.errors
   record('Classroom quick initial and final target',got);c.close()
  c,p=openapp('adaptive-phrasal-verbs')
- p.wait_for_function("document.querySelector('#buildVersion')?.textContent.includes('0.13.18')")
+ p.wait_for_function("typeof APP_VERSION!=='undefined'&&document.querySelector('#buildVersion')?.textContent.includes(APP_VERSION)")
  p.locator('#startBtn').click();p.wait_for_selector('#gameScreen:not(.hidden)')
  for i in range(15):
   p.wait_for_function("!locked && questionPhase==='answer' && document.querySelector('#answers button:not(:disabled)')",timeout=12000)

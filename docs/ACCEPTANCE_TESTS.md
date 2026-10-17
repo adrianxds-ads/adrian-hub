@@ -134,3 +134,23 @@ Cierre de publicación verificado · 17/10/2026:
 - Pruebas de service worker en fixture: Hub/Grammar/Classroom instalan assets auténticos y rechazan builds corruptos; Phrasal/Cloze mantienen instalación diferida. Activación comprobada sin eliminar la caché durable independiente en los casos precargados.
 - Última consulta ADB: lista vacía. Pendiente exclusivamente verificar las versiones nuevas desde el Hub físico, jugar allí voluntariamente y cotejar el progreso real. No se reactivó sincronización ni se borraron datos personales.
 - Siguiente paso cuando vuelva el Pixel: comprobar primero sesión activa y almacenamiento; abrir por Hub sin forzar reinicios ni limpiar cachés de progreso. La validación física queda abierta y no se da por superada.
+
+
+## Ergonomía de las cuatro apps · 17/10/2026 · Hub 30.5.21
+Petición: aplicar la propuesta de Gemini a Grammar, Cloze, Phrasal y Classroom; Cambridge excluido. Adaptación al DOM y a los motores existentes, sin sustituirlos por un quiz de demostración. Maestro y copias: Core components/quiz-ergonomics.js + design/quiz-ergonomics.css 1.0.0.
+
+Cambios observados:
+- Pila 1×4, A/B/C/D neutras a la izquierda, texto alineado a la izquierda; hueco azul y respuesta correcta amarilla. Acierto/error en opciones y píldoras de progreso. Una barra continua con segundos enteros; Read First queda separado de los 15s de respuesta.
+- Medición del espacio de preguntas/opciones y feedback; scroll de página único. Reproducido desplazamiento de los antiguos contenedores internos al enfocar respuestas. Las rondas finales probadas conservan las coordenadas de las opciones.
+- Avance cancelable: acierto 850ms, error/timeout 1850ms, transición 150ms; intervalos con guardas de sesión/pregunta/generación y reintento acotado. No se afirma una garantía matemática frente a cualquier fallo.
+- Classroom conserva contrato, banco, duración y persistencia. Si el reloj de clase vence durante la corrección final, espera a completarla antes de cerrar una sola vez.
+
+Verificado en Chrome aislado con almacenamiento ficticio y red externa bloqueada:
+- tests/test_quiz_ergonomics_flow.cjs: pausas exactas en reloj controlado, cancelación, callback residual y reintento sin duplicar avance.
+- tests/test_quiz_ergonomics.py: cuatro rondas de 15, errores en 6/10, entradas duplicadas, callbacks antiguos, página suspendida y excepción de render recuperable; respuesta una sola vez, una sesión y persistencia tras recarga. Geometría con diferencia 0px en las rondas comprobadas. El cierre final confirma el recorrido con toques.
+- tests/test_quiz_ergonomics_edges.py: vencimiento real de ~15s en las cuatro, salida durante el feedback y reinicio sin callback antiguo.
+- tests/test_quiz_ergonomics_visual.py: 360/390/412/768/1280, escala de fuente 100%/160%; pila alineada, superficies desde 56px, un temporizador visible y sin overflow horizontal. Capturas inspeccionadas.
+- tests/test_quiz_ergonomics_class.py: contrato de 480s intacto; vencimiento simulado durante la octava corrección, un cierre y recarga sin duplicar clase.
+- Sintaxis, copias canónicas, bancos/almacenamiento/guardas de importación byte a byte contra la base y assets de instalación verificados. La activación conserva la caché durable independiente de Cloze en fixtures; no se cambian las claves de persistencia ni se arranca sincronización remota.
+
+Publicación y dispositivo físico: se registran tras la comprobación pública. Los resultados de laboratorio no equivalen a una partida en el perfil personal del Pixel.
