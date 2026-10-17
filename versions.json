@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-15",
+  "generatedAt": "2026-10-17",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.19",
-    "build": "hub-30.5.19-20261015",
-    "releasedAt": "2026-10-15",
+    "version": "30.5.20",
+    "build": "hub-30.5.20-20261017",
+    "releasedAt": "2026-10-17",
     "changes": [
-      "Atajos Sprint 1.0.2: botones A−/A+ accesibles en todas sus pantallas, escala 100–160% (115% inicial) persistente sin alterar sesiones.",
-      "Glosario final de los 15 atajos, acertados y errados, con función y explicación de las teclas cuando procede.",
-      "Texto ampliado para móvil y ficha del Hub corregida a 15 segundos; 136 tarjetas, algoritmos y almacenamiento local conservados."
+      "Integración móvil: Grammar 3.36.14, Cloze 1.11.21, Classroom 3.0.15 y Phrasal 0.13.18 con commits, builds y SHA-256 auténticos.",
+      "Cuenta atrás única en Grammar y corrección acotada de bloqueos del control oculto de revelar respuestas; Cambridge excluido.",
+      "Pruebas aisladas superadas; comprobación física posterior a publicación pendiente por desconexión ADB del Pixel."
     ],
     "history": [
+      {
+        "version": "30.5.19",
+        "build": "hub-30.5.19-20261015",
+        "changes": [
+          "Atajos Sprint 1.0.2: botones A−/A+ accesibles en todas sus pantallas, escala 100–160% (115% inicial) persistente sin alterar sesiones.",
+          "Glosario final de los 15 atajos, acertados y errados, con función y explicación de las teclas cuando procede.",
+          "Texto ampliado para móvil y ficha del Hub corregida a 15 segundos; 136 tarjetas, algoritmos y almacenamiento local conservados."
+        ],
+        "date": "2026-10-15"
+      },
       {
         "version": "30.5.18",
         "build": "hub-30.5.18-20261015",
@@ -988,7 +998,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "2c5c1939d8aff30bc039016caff42cf258b780e2e671315680698b08f073d5cc"
+          "sha256": "929aebae0d43914d510ff35ceacfdb3a030069287fd0df7dc0ece0ba564f1b06"
         },
         {
           "url": "version-verifier.js",
@@ -996,7 +1006,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "004aa8f87d8ed2965e33fb1d3a4a1789140e896139d498a9b6401642eba193af"
+          "sha256": "857b173cb71ed0885b06a51a6251b5d68e9c3d69a754149593d8dac839d419ed"
         },
         {
           "url": "styles.css",
@@ -1004,61 +1014,65 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "e11517c20a48b2f4605bf016c17d434aa5e68148a575b9d2932a595429bfa975"
+          "sha256": "a95c0897cd2fc091e5d53d43237f091aeaecbeae1d210dac1a558695da339e4a"
         },
         {
           "url": "build-assets.js",
-          "sha256": "56c0127fc23ac12cbc232c5804463e9ad08125b3b8215aca3a03cb0dc0a3271a"
+          "sha256": "706a5bb18f180126e6070dab1455700e1545b966dd8f988119bcdc65f1fc5fb0"
         }
       ]
     },
-    "cacheBuild": "6bfae97f28c47c34",
+    "cacheBuild": "ba2c89afc8327493",
     "status": "published"
   },
   "apps": [
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.12",
-      "build": "sha256-6ad7532c25fd",
-      "releasedAt": "2026-10-15",
+      "version": "3.36.14",
+      "build": "sha256-811f656ab6ec",
+      "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Panel común priorizado, estadísticas históricas y modelos originales desplegables.",
-        "Se conservan datos, campañas, Coach y exportación JSON.",
-        "Actualización de conformidad visual con las pruebas de integridad completadas."
+        "Una sola cuenta atrás visible de 15 segundos, con barra descendente y contraste legible. Retiradas la carga del indicador ascendente heredado y la barra redundante; oculto el reloj integrado que indicaba sin límite. Motor y medición de respuestas conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "6ad7532c25fdd017cea1b7f6655396e36e5cc922d42c800df3d1f7c9496b02e8"
+            "sha256": "d7e4f699f2e111b1b545eb34ec4521dc7510dac3345666dc14b68ccc6cc5758c"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "5ced47366fdde5e912a5a36b89199fbe061c948374bd21bd97b2335713f8f469"
+            "sha256": "00d65d979a2aebbec4375b60f710787033cedcf39d00e78da49459dc82d33d19"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "38e55037641fae098875fe2507afd33270fdc5b35213a976d2c368c323e14c5a"
+            "sha256": "570db720407b949f7152c9471c003987f71805f66550d56f3f86ebf8edfaeadc"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "f3f7c8d2e384c917dc825aad90b05a80f278f86cdb916245e1ecbbe042ee0870"
-          },
-          {
-            "url": "/adaptive-english/performance-adapter.js",
-            "sha256": "e1fc37d45f7f3f2cfc1fe5aa440ae24d843b7622f6b399d1e6181b4d5354be39"
+            "sha256": "3cc5efcf1ad72115778fa33eac382b14c9144a5465183ea5b922feed79f052d5"
           }
         ]
       },
-      "sourceCommit": "fbdadd853594af4ef790b452829f0300544da09b",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "d5a2afc660c0a167648aaaa768fce45d97feff1c",
+      "cacheBuild": "grammar-countdown-20261017-33614",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.12",
+          "build": "sha256-6ad7532c25fd",
+          "date": "2026-10-15",
+          "changes": [
+            "Panel común priorizado, estadísticas históricas y modelos originales desplegables.",
+            "Se conservan datos, campañas, Coach y exportación JSON.",
+            "Actualización de conformidad visual con las pruebas de integridad completadas."
+          ]
+        },
         {
           "version": "3.36.11",
           "build": "sha256-70f4f20e6444",
@@ -1237,23 +1251,22 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.17",
-      "build": "sha256-2528358e96af",
-      "releasedAt": "2026-10-14",
+      "version": "0.13.18",
+      "build": "sha256-cf3f322f8177",
+      "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "Reparado el mismo bloqueo reproducido del control oculto de revelar opciones. Selector de feedback limitado a respuestas; reglas, temporizador, medallas y progreso conservados."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "f96e43388b48fe700628bcdb7b185bf473f93ccd247fa248eae6e77bed71fbdb"
+            "sha256": "cf4ddea92f2417087d88014ea6bddfa8c21c0eb64dda64a1ea358d4cae8db054"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "1daa564b1ab0371854d94cb94dccf4f688f6afdee3fced22c9ce3e10fe042b0b"
+            "sha256": "d75e38d42813841bd9c0b2363fb7116f13cfb3ade68cc42eeca8267e97a11fee"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
@@ -1261,17 +1274,26 @@
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "08eb8e5b4eff50307bc514626b19f6559596f0a39b51683b212df411f4998b85"
+            "sha256": "0ffb9cc1ab4eb2c249d00466366034ad8454ba59b6e1874bc55792f39eb5270f"
           }
         ]
       },
-      "sourceCommit": "9a9e23f20c65cc64692f18d4e636e4ed172ac2c3",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "13472ca9214adf2aba46c7311b382f1275711b37",
+      "cacheBuild": "phrasal-touch-20261017-01318",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.17",
+          "build": "sha256-2528358e96af",
+          "date": "2026-10-14",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "0.13.15",
           "build": "sha256-fad250536e7b",
@@ -1398,23 +1420,22 @@
     {
       "id": "pizarras",
       "name": "Classroom B2",
-      "version": "3.0.13",
-      "build": "sha256-e4b4dde22e0d",
-      "releasedAt": "2026-10-14",
+      "version": "3.0.15",
+      "build": "sha256-34fc9914b6f3",
+      "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "La corrección excluye el control de revelar opciones y evita bloquear la siguiente pregunta. Target inicial y final del quiz rápido verificados; clases, contratos y persistencia sin cambios."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-pizarras/app.js",
-            "sha256": "7dc993b7146ee646f23cefd175e13bc529b7adb4c8ee46bf81f8d2f4cf8a3694"
+            "sha256": "ab69af4a26a9a705393a2e19d4378125107a8a8cee02e8032ee2f8aab44cb108"
           },
           {
             "url": "/adaptive-pizarras/index.html",
-            "sha256": "4009045df2dab54bf202e7a8e017aa15ceb8686eb7046f507b76068e75b3f4e5"
+            "sha256": "b55f62cd734844197af15c227c6e648dde762459b292479bae7df2ca22baf6d5"
           },
           {
             "url": "/adaptive-pizarras/service-worker.js",
@@ -1422,17 +1443,26 @@
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "798393a001175ef5146e2d464b47330bbbecb7365aa2a49ec304046a51505526"
+            "sha256": "c2d64b9db845a4ae9d5b920e3b62b7e17b38b51b1da7413b260a682bbbb40ef0"
           }
         ]
       },
-      "sourceCommit": "5208319ef3a5d82996b27d150d8d10bf5609f1a8",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "815f3757d19e053e19b69c0073c63df185438746",
+      "cacheBuild": "classroom-touch-20261017-3015",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
       ],
       "history": [
+        {
+          "version": "3.0.13",
+          "build": "sha256-e4b4dde22e0d",
+          "date": "2026-10-14",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "3.0.10",
           "build": "sha256-3a301f7a57bb",
@@ -1569,23 +1599,22 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.19",
-      "build": "sha256-af0b252a5909",
-      "releasedAt": "2026-10-14",
+      "version": "1.11.21",
+      "build": "sha256-84fc97677cf3",
+      "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
-        "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
-        "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+        "La corrección solo marca botones de respuesta: el control oculto de revelar opciones ya no bloquea las preguntas siguientes. Probadas tres rondas, suspensión y recuperación de transición en pregunta 10, sin duplicar respuestas."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "63f20653d62f544e1f302037ceda080095adf652085e609ab5b7d44440b408d7"
+            "sha256": "2b315f39b4fe242b26296ee361b0a5a820aa6b2dd1e432c938baeddf0c9801d8"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "24c81bba0a3f5dc4ea69a12f7ef3791105f27a5758c1ad64f261ceb221c0a916"
+            "sha256": "416f6ac12de0647866d1aa2b64b57f463d6de7a4988a4e050a7303bbbab92708"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
@@ -1593,17 +1622,26 @@
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "15e369fa093123450f9111392941e0664ea6d16232d88ffbb23ff6dd0e8af6b5"
+            "sha256": "5e566862f02b46c92d635aca0242ab4b2b70aac33b300ade2494b7a63f980d1c"
           }
         ]
       },
-      "sourceCommit": "6488a659bf041eb00777f18d53f8681556f137af",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "6dc811fbb57c6940d7e3326e57f0801c9294def9",
+      "cacheBuild": "cloze-touch-20261017-11121",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.19",
+          "build": "sha256-af0b252a5909",
+          "date": "2026-10-14",
+          "changes": [
+            "Auditoría contractual de ocho aplicaciones: navegación única, controles legibles, progreso real y recompensas compactas.",
+            "Candidato aislado en verificación; motores, bancos y datos conservados; no publicado."
+          ]
+        },
         {
           "version": "1.11.17",
           "build": "sha256-83bea5edace4",
