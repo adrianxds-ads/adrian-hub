@@ -125,3 +125,12 @@ Publicación verificada el 11/10/2026: Hub 30.5.0 (6944349), Grammar Quest 3.36.
 - Persistencia inspeccionada: Grammar localStorage + adrian-grammar-progress-v1; Cloze IndexedDB + caché independiente adrian-cloze-durable-progress-v1; Classroom IndexedDB con commit verificado y claves originales; archivo xds-learning-history-v1. Estos módulos no se han editado. Instalación/cachés e integridad se comprueban aparte; no se restablece sincronización.
 - Pixel físico: Hub 30.5.19 leído antes del cambio, confirmados enlaces con appv antiguo. Se renovó y liberó la concesión temporal de pantalla. Después ADB dejó de listar dispositivos: no se afirma comprobación física de las nuevas versiones ni preservación cotejada del almacenamiento real tras publicar.
 - Publicación y huellas: ver cierre siguiente; una prueba de laboratorio no acredita el recorrido físico Hub→app.
+
+
+Cierre de publicación verificado · 17/10/2026:
+- Hub 30.5.20 publicado en 8b1e0e7; apps: Grammar d5a2afc, Cloze 6dc811f, Classroom 815f375 y Phrasal 13472ca.
+- 24/24 archivos públicos coinciden byte a byte con SHA-256 local normalizado. Integridad de los 85 assets del Hub validada.
+- Navegador Chrome aislado 412×915 contra GitHub Pages: clic real Hub→cada una de las cuatro apps; appv/build/hubv y APP_VERSION ejecutado coinciden con el catálogo. Service workers desactivados solo en ese perfil de prueba; no equivale a validar caché instalada en Pixel.
+- Pruebas de service worker en fixture: Hub/Grammar/Classroom instalan assets auténticos y rechazan builds corruptos; Phrasal/Cloze mantienen instalación diferida. Activación comprobada sin eliminar la caché durable independiente en los casos precargados.
+- Última consulta ADB: lista vacía. Pendiente exclusivamente verificar las versiones nuevas desde el Hub físico, jugar allí voluntariamente y cotejar el progreso real. No se reactivó sincronización ni se borraron datos personales.
+- Siguiente paso cuando vuelva el Pixel: comprobar primero sesión activa y almacenamiento; abrir por Hub sin forzar reinicios ni limpiar cachés de progreso. La validación física queda abierta y no se da por superada.
