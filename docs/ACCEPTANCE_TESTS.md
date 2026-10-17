@@ -154,3 +154,13 @@ Verificado en Chrome aislado con almacenamiento ficticio y red externa bloqueada
 - Sintaxis, copias canónicas, bancos/almacenamiento/guardas de importación byte a byte contra la base y assets de instalación verificados. La activación conserva la caché durable independiente de Cloze en fixtures; no se cambian las claves de persistencia ni se arranca sincronización remota.
 
 Publicación y dispositivo físico: se registran tras la comprobación pública. Los resultados de laboratorio no equivalen a una partida en el perfil personal del Pixel.
+
+
+Cierre de publicación de ergonomía · 17/10/2026:
+- Hub 30.5.21: bdd36fce58b7e674a449382af7b40c97e8062b87. Core 1.0.0: 4f0c9845bbbdb1c92ea6c5ca9c48e14f38262302.
+- Grammar 3.36.15: 0fd576ebcd251d2e6143a1dd0dc6af23721df276; Cloze 1.11.22: a8b8ecb56482369da983d0dbf406e53aeb7df9c6; Phrasal 0.13.19: 1314737d5aff11350758b8838c1d2fab2fe53e59; Classroom 3.0.16: 92cc8ec854269686c389a598d6c77308f740a3c3.
+- 36/36 archivos servidos por GitHub Pages coinciden con las huellas locales. Integridad de 85 assets del Hub aprobada.
+- Chrome aislado 412x915 contra la publicación: clic Hub -> las cuatro apps, APP_VERSION ejecutado y parámetros appv/build/hubv coinciden con el catálogo. Service workers bloqueados únicamente en este perfil: no acredita actualización de la caché instalada en el Pixel.
+- Última ronda aislada completa con toques: 15 respuestas/una sesión en cada app, diferencia de coordenadas 0px, errores en 6/10, suspensión, callback residual, entrada duplicada y fallo de render recuperable sin doble avance. Esto no garantiza ausencia absoluta de fallos intermitentes.
+- Pixel físico: ADB intermitente. Incluso al aparecer conectado, Chrome no respondió al canal de inspección; no se obtuvo una línea base de almacenamiento ni se verificó una partida en el dispositivo. Cada intento liberó la concesión temporal de pantalla.
+- Pendiente: comprobar en el Pixel las versiones y presentación desde el acceso habitual Hub -> app, y cotejar progreso real. No se borró ni reinició almacenamiento personal, no se generaron respuestas personales y no se reactivó sincronización. La preservación real antes/después no se afirma como comprobada.
