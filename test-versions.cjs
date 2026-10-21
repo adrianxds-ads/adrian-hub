@@ -12,7 +12,7 @@ const ctx={window:{},crypto:crypto.webcrypto,Uint8Array,URL,Date,location:{href:
  assert.equal((await verify({kind:'extension',version:'0.4.3'})).ok,null,'missing extension');
  ctx.document.documentElement.dataset.hubControlVersion='0.4.2';assert.equal((await verify({kind:'extension',version:'0.4.3'})).ok,false);
  const catalog=JSON.parse(fs.readFileSync(path.join(__dirname,'versions.json'),'utf8')),registry=JSON.parse(fs.readFileSync(path.join(__dirname,'apps.json'),'utf8'));
- assert.equal(catalog.hub.version,registry.hubVersion);assert.equal(new Set(catalog.apps.map(x=>x.id)).size,catalog.apps.length);const active=registry.apps.map(x=>x.id).sort(),known=catalog.apps.map(x=>x.id).sort();assert(active.every(id=>known.includes(id)),'every active app has version evidence');assert.deepEqual(known.filter(id=>!active.includes(id)),['catala'],'retired Conjuga CAT stays out of active registry');
+ assert.equal(catalog.hub.version,registry.hubVersion);assert.equal(new Set(catalog.apps.map(x=>x.id)).size,catalog.apps.length);const active=registry.apps.map(x=>x.id).sort(),known=catalog.apps.map(x=>x.id).sort();assert(active.every(id=>known.includes(id)),'every active app has version evidence');assert.deepEqual(known.filter(id=>!active.includes(id)),[],'Version Center contains no unregistered apps (Conjuga CAT active in current baseline)');
  for(const e of [catalog.hub,...catalog.apps])for(const f of e.verify?.files||[]){
   const p=f.url.startsWith('https:')?path.join(__dirname,'..',new URL(f.url).pathname):path.join(__dirname,f.url);
   assert.equal(crypto.createHash('sha256').update(Buffer.from(fs.readFileSync(p).toString('utf8').replace(/\r\n/g,'\n'),'utf8')).digest('hex'),f.sha256,'registry fingerprint '+f.url);

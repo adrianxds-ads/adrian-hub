@@ -1,5 +1,5 @@
-const STORE='adrianLibraryEasyCatalanV1', POS='adrianLibraryEasyCatalanPositionsV1';
-const NORMAL_PLAYS='adrianEasyCatalanNormalPlaysV1', TASK_PLAYS='adrianEasyCatalanTaskSessionsV1';
+const CFG=window.PodcastLibraryConfig;
+const {STORE,POS,NORMAL_PLAYS,TASK_PLAYS}=CFG;
 const $=s=>document.querySelector(s);
 const els={art:$('#artwork'),heard:$('#heardCount'),total:$('#totalCount'),search:$('#search'),sort:$('#sortBtn'),sortLabel:$('#sortLabel'),shown:$('#shownCount'),list:$('#episodes'),empty:$('#empty'),audio:$('#audio'),player:$('#player'),playerToggle:$('#playerToggle'),playerTitle:$('#playerTitle'),playerDone:$('#playerDone'),seek:$('#seek'),elapsed:$('#elapsed'),remaining:$('#remaining')};
 let data=null,order='asc',current=null,lastSaved=0;
@@ -36,7 +36,7 @@ function saveNormalListen(n){
 
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const dateText=raw=>{const d=new Date(raw);return Number.isNaN(+d)?'':d.toLocaleDateString('ca-ES',{day:'numeric',month:'short',year:'numeric'})};
+const dateText=raw=>{const d=new Date(raw);return Number.isNaN(+d)?'':d.toLocaleDateString(CFG.locale,{day:'numeric',month:'short',year:'numeric'})};
 const time=s=>{s=Math.max(0,Math.floor(Number(s)||0));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 function render(){
   if(!data)return;
@@ -44,7 +44,7 @@ function render(){
   let rows=data.episodes.filter(e=>!q||norm(e.number+' '+e.title+' '+e.summary).includes(q));
   if(order==='desc')rows=[...rows].reverse();
   const known=new Set([...done,...Object.keys(normal).filter(n=>normal[n]>0).map(Number),...Object.keys(tasks).filter(n=>tasks[n]>0).map(Number)]);
-  els.heard.textContent=known.size;els.total.textContent=data.episodes.length;els.shown.textContent=rows.length===data.episodes.length?'':rows.length+' resultats';
+  els.heard.textContent=[...known].filter(n=>data.episodes.some(e=>e.number===n)).length;els.total.textContent=data.episodes.length;els.shown.textContent=rows.length===data.episodes.length?'':rows.length+(CFG.isEnglish?' results':' resultats');
   els.empty.hidden=window.ModeTarea?.selectedTab==='task'||!!rows.length;
   els.list.innerHTML=rows.map(e=>{
     const isDone=known.has(e.number),playing=current===e.number&&!els.audio.paused;
@@ -52,10 +52,10 @@ function render(){
     const listeningInfo=(ordinary||work)?'<div class="listen-tally">'+(ordinary?'🎧 '+ordinary+' '+(ordinary===1?'escucha':'escuchas'):'')+(ordinary&&work?' · ':'')+(work?'🦖 '+work+' '+(work===1?'tarea':'tareas')+' completadas':'')+'</div>':(isDone?'<div class="listen-tally">✓ Marcado como escuchado</div>':'');
     const logged=ordinary>0||work>0;
     return '<article class="episode '+(isDone?'done':'')+'" data-episode="'+e.number+'">'+
-      '<button class="play-btn '+(playing?'playing':'')+'" data-play="'+e.number+'" aria-label="'+(playing?'Pausar':'Reproduir')+'">'+(playing?'Ⅱ':'▶')+'</button>'+
+      '<button class="play-btn '+(playing?'playing':'')+'" data-play="'+e.number+'" '+(!e.audio?'disabled ':'')+'aria-label="'+(e.audio?(playing?'Pausar':'Reproducir'):'Importa el audio para reproducir')+'">'+(playing?'Ⅱ':'▶')+'</button>'+
       '<div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+esc(e.title)+'</h2></div>'+
       '<div class="meta">'+esc(dateText(e.dateRaw))+(e.duration?' · '+esc(e.duration):'')+'</div>'+
-      '<p class="summary">'+esc(e.summary||'')+'</p>'+listeningInfo+'</div>'+
+      '<p class="summary">'+esc(e.summary||'')+'</p>'+(CFG.isEnglish?'<div class="cambridge-audio-state">'+(e.audio?'<span>✓ Audio guardado en este dispositivo</span>':'<span>Archivo requerido: '+esc(e.fileName)+'</span>')+'</div>':'')+listeningInfo+'</div>'+
       (logged?'<span class="state-btn state-logged" role="img" aria-label="Escucha o tarea registrada; historial conservado">✓</span>':'<button class="state-btn" data-state="'+e.number+'" aria-label="'+(isDone?'Quitar marca manual':'Marcar como escuchado')+'">'+(isDone?'✓':'×')+'</button>')+'</article>'
   }).join('');
   els.list.querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>toggleEpisode(Number(b.dataset.play)));
@@ -84,7 +84,7 @@ function updateTimeline(){
   els.playerToggle.textContent=els.audio.paused?'▶':'Ⅱ';
 }
 els.search.oninput=render;
-els.sort.onclick=()=>{order=order==='asc'?'desc':'asc';els.sortLabel.textContent=order==='asc'?'1 → 233':'233 → 1';render()};
+els.sort.onclick=()=>{order=order==='asc'?'desc':'asc';const total=data?.episodes.length||0;els.sortLabel.textContent=order==='asc'?'1 → '+total:total+' → 1';render()};
 els.playerToggle.onclick=async()=>{if(!current)return;if(els.audio.paused)await els.audio.play();else els.audio.pause();render()};
 els.playerDone.onclick=()=>{if(current)toggleDone(current,true)};
 els.seek.oninput=()=>{if(Number.isFinite(els.audio.duration))els.audio.currentTime=els.audio.duration*Number(els.seek.value)/1000};
@@ -100,4 +100,4 @@ window.addEventListener('adrian-sync-updated',refreshPodcastViews);
 window.addEventListener('storage',e=>{if([STORE,NORMAL_PLAYS,TASK_PLAYS].includes(e.key))refreshPodcastViews()});
 window.LibraryGetSort=()=>order;
 window.LibraryOriginalStop=()=>{persistPosition();els.audio.pause();current=null;els.audio.onloadedmetadata=null;els.player.hidden=true;render()};
-fetch('./easy-catalan.json').then(r=>{if(!r.ok)throw Error('Catàleg no disponible');return r.json()}).then(x=>{data=x;els.art.src=x.artwork;render();window.ModeTarea?.catalogReady(x)}).catch(err=>{els.empty.hidden=false;els.empty.textContent='No s’ha pogut carregar el catàleg.';console.error(err)});
+fetch(CFG.catalog).then(r=>{if(!r.ok)throw Error('Catálogo no disponible');return r.json()}).then(async x=>{if(!Array.isArray(x.episodes))throw Error('Invalid podcast catalogue');if(CFG.isEnglish)await window.CambridgeAudio.attachSaved(x);data=x;els.art.src=x.artwork||'../../icon.svg';els.sortLabel.textContent='1 → '+data.episodes.length;render();window.ModeTarea?.catalogReady(x);window.CambridgeAudio?.catalogReady?.(x,()=>{render();window.ModeTarea?.refresh?.()});}).catch(err=>{els.empty.hidden=false;els.empty.textContent=CFG.isEnglish?'No se ha podido cargar el catálogo Cambridge.':'No s’ha pogut carregar el catàleg.';console.error(err)});

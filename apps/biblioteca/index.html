@@ -33,6 +33,14 @@
   <button id="tabTasks" class="library-tab" type="button" aria-selected="false">🦖 Modo Tarea</button>
 </nav>
 
+<section id="cambridgeImport" class="cambridge-import" hidden aria-label="Archivos de los audiolibros Cambridge">
+  <strong>🎧 Nuestros audiolibros Cambridge B2</strong>
+  <p>Los exámenes están catalogados aquí, pero sus MP3 permanecen privados. Para escucharlos en este dispositivo, importa los archivos que ya hemos creado en Google AI Studio desde nuestra carpeta de Drive. Se guardarán solamente en este navegador.</p>
+  <label class="cambridge-import-label" for="cambridgeFiles">Importar uno o varios MP3 originales</label>
+  <input id="cambridgeFiles" type="file" accept=".mp3,audio/mpeg" multiple>
+  <small id="cambridgeImportStatus" role="status" aria-live="polite">Pendientes de vincular en este dispositivo.</small>
+</section>
+
 <section class="tools" aria-label="Cercar i ordenar">
   <label class="searchbox"><span>CERCAR</span><input id="search" type="search" placeholder="Número, títol o tema…" autocomplete="off"></label>
   <button id="sortBtn" class="sort-btn" type="button" aria-label="Canviar l'ordre"><span>ORDRE</span><b id="sortLabel">1 → 233</b></button>
@@ -119,6 +127,9 @@
   <p id="taskDayInfoFull" class="task-day-info"></p>
 </dialog>
 <audio id="audio" preload="metadata"></audio>
+
+<script src="./config.js"></script>
+<script src="./cambridge-audio.js"></script>
 <script src="./app.js"></script>
 <script src="/adrian-core/components/adrian-achievements.js?v=1.2.0"></script>
 <script src="/adrian-core/components/github-garden.js?v=7"></script>

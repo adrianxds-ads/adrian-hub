@@ -2,13 +2,33 @@
 from pathlib import Path
 import hashlib,json,re,subprocess,argparse,datetime
 from urllib.parse import urlparse,unquote
+import requests
 parser=argparse.ArgumentParser();parser.add_argument('--hub-version');parser.add_argument('--hub-only',action='store_true');args=parser.parse_args()
 hub=Path(__file__).parent;w=hub.parent
 all_names=['adrian-hub','adaptive-english','adaptive-exam','adaptive-hoti0108','adaptive-phrasal-verbs','adaptive-pizarras','adaptive-verbs-catala','b2-multiple-choice-cloze','adaptive-keyword-speaking']
 names=['adrian-hub'] if args.hub_only else all_names
 TEXT_EXT={'.js','.cjs','.html','.css','.json','.webmanifest','.svg','.py','.md','.txt'}
+# Core is deployed in its own repository; this isolated Hub worktree must hash
+# the actual public Core bytes, not a stale/missing neighbouring checkout.
+PUBLIC_CORE_BASE='https://adrianxds-ads.github.io/'
+_core_cache={}
+def core_rel(p):
+ try:
+  parts=p.resolve().relative_to(w.resolve()).parts
+  return '/'.join(parts) if parts and parts[0]=='adrian-core' else None
+ except ValueError:return None
 def digest(p):
- b=p.read_bytes()
+ rel=core_rel(p)
+ if rel:
+  if rel not in _core_cache:
+   url=PUBLIC_CORE_BASE+rel
+   response=requests.get(url,timeout=30)
+   response.raise_for_status()
+   if not response.content or b'<!DOCTYPE html' in response.content[:100]:
+    raise RuntimeError('Invalid published Core asset '+url)
+   _core_cache[rel]=response.content
+  b=_core_cache[rel]
+ else:b=p.read_bytes()
  if p.suffix.lower() in TEXT_EXT:b=b.replace(b'\r\n',b'\n')
  return hashlib.sha256(b).hexdigest()
 if args.hub_version:
@@ -18,7 +38,10 @@ if args.hub_version:
 node="""const fs=require('fs'),vm=require('vm');const ctx={self:{AdrianRelease:{build:'test'},addEventListener(){}},importScripts(){}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),ctx);console.log(JSON.stringify(vm.runInContext("typeof ASSETS!=='undefined'?ASSETS:SHELL",ctx)));"""
 builds={}
 for name in names:
- repo=w/name;(repo/'sw-integrity.js').write_bytes((w/'adrian-core/components/sw-integrity.js').read_bytes())
+ # Git worktrees do not have the same name as their canonical repository.
+ # Keep ALL Hub writes and hashes confined to this checked-out worktree.
+ repo=hub if name=='adrian-hub' else w/name
+ (repo/'sw-integrity.js').write_bytes((w/'adrian-core/components/sw-integrity.js').read_bytes())
  urls=json.loads(subprocess.check_output(['node','-e',node,str(repo/'service-worker.js')],text=True))
  # Include concrete CSS/JS loaded by entry pages, preserving query strings.
  for index in repo.rglob('*.html'):
@@ -38,10 +61,19 @@ for name in names:
  for url in sorted(set(urls)):
   clean=unquote(urlparse(url).path)
   if clean.endswith('/') or clean in ['.','./']:clean=clean.rstrip('/')+'/index.html'
-  file=(w/clean.lstrip('/')) if clean.startswith('/') else (repo/clean)
+  if clean.startswith('/adrian-hub/'):
+   file=hub/clean.removeprefix('/adrian-hub/')
+  elif clean.startswith('/'):
+   file=w/clean.lstrip('/')
+  else:
+   file=repo/clean
   if file.name in ['build-assets.js','versions.json','apps.json']:continue
-  if not file.is_file():raise RuntimeError('Missing release asset: '+name+' '+url)
-  pathname='/'+str(file.resolve().relative_to(w.resolve())).replace('\\','/')
+  if not file.is_file() and not core_rel(file):raise RuntimeError('Missing release asset: '+name+' '+url)
+  absolute=file.resolve()
+  if absolute.is_relative_to(hub.resolve()):
+   pathname='/adrian-hub/'+absolute.relative_to(hub.resolve()).as_posix()
+  else:
+   pathname='/'+absolute.relative_to(w.resolve()).as_posix()
   assets[pathname]=digest(file)
  build=hashlib.sha256(json.dumps(assets,sort_keys=True,separators=(',',':')).encode()).hexdigest()[:16]
  payload={'schema':1,'build':build,'assets':assets}
@@ -57,7 +89,7 @@ for a in [x['hub']]+x['apps']:
   base=byid[a['id']]['url'] if a['id'] in byid else a['verify']['files'][0]['url'].rsplit('/',1)[0]+'/';repo=w/base.rstrip('/').split('/')[-1];s=(repo/'app.js').read_text(encoding='utf-8-sig');a['version']=re.search(r"const APP_VERSION\s*=\s*['\"]([^'\"]+)",s).group(1);files=[(base+f,repo/f) for f in ['app.js','index.html','service-worker.js','build-assets.js']]
   a['cacheBuild']=builds[repo.name];a['sourceCommit']=json.loads((w/'source-provenance.json').read_text())[repo.name];a['sourceDirty']=True
  elif a['kind']=='bundled':
-  base=byid[a['id']]['url'];local=hub/'apps'/a['id'];repo=local if local.is_dir() else hub/base.removeprefix('./');verify_base=('./apps/'+a['id']+'/') if local.is_dir() else base;files=[(verify_base+f,repo/f) for f in ['index.html','app.js','styles.css'] if (repo/f).exists()]
+  base=byid[a['id']]['url'].split('?',1)[0];local=hub/'apps'/a['id'];repo=local if local.is_dir() else hub/base.removeprefix('./');verify_base=('./apps/'+a['id']+'/') if local.is_dir() else base;files=[(verify_base+f,repo/f) for f in ['index.html','app.js','styles.css'] if (repo/f).exists()]
  else:continue
  a['verify']={'files':[{'url':url,'sha256':digest(p)} for url,p in files]}
  if a['id']!='hub':a['build']='sha256-'+hashlib.sha256(''.join(f['sha256'] for f in a['verify']['files']).encode()).hexdigest()[:12]

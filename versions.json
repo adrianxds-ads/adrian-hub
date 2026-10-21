@@ -1,18 +1,28 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-17",
+  "generatedAt": "2026-10-21",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.21",
-    "build": "hub-30.5.21-20261017",
-    "releasedAt": "2026-10-17",
+    "version": "30.5.22",
+    "build": "hub-30.5.22-20261021",
+    "releasedAt": "2026-10-21",
     "changes": [
-      "Ergonomía de las cuatro apps de inglés: Grammar 3.36.15, Cloze 1.11.22, Phrasal 0.13.19 y Classroom 3.0.16.",
-      "Opciones 1×4, altura estable, progreso semántico y temporizador continuo; preservados los datos y la selección adaptativa.",
-      "Registro de commits y huellas que incluye las nuevas hojas de estilo y el controlador; Cambridge queda excluido."
+      "Podcasts Inglés incorpora solo nuestros audiolibros Cambridge B2 elaborados con Google AI Studio; sin podcasts externos.",
+      "Biblioteca catalana preservada; mismo reproductor y Modo Tarea con historial separado por idioma.",
+      "MP3 originales privados: importación local verificada por hash SHA-256, sin publicar audios ni exámenes; índice actualizable según terminan los siguientes exámenes."
     ],
     "history": [
+      {
+        "version": "30.5.21",
+        "build": "hub-30.5.21-20261017",
+        "changes": [
+          "Ergonomía de las cuatro apps de inglés: Grammar 3.36.15, Cloze 1.11.22, Phrasal 0.13.19 y Classroom 3.0.16.",
+          "Opciones 1×4, altura estable, progreso semántico y temporizador continuo; preservados los datos y la selección adaptativa.",
+          "Registro de commits y huellas que incluye las nuevas hojas de estilo y el controlador; Cambridge queda excluido."
+        ],
+        "date": "2026-10-17"
+      },
       {
         "version": "30.5.20",
         "build": "hub-30.5.20-20261017",
@@ -1008,7 +1018,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "bec1c25b86001dfbfd0ddb9212103967a409861fc1236c1ef56e59dccd9874e9"
+          "sha256": "82a980638c1152536de979f57cbb088162b556c6a6fc1b35c068edd5507be8d0"
         },
         {
           "url": "version-verifier.js",
@@ -1016,7 +1026,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "960c73a0ac4c66000d8aff366ddd900a2c9e0a707e6b50eda9e5949b1250ef7b"
+          "sha256": "b2cf592bb2799a752b37a0ed38fed72ffb3601502b08c5943e8a061fbfb0c733"
         },
         {
           "url": "styles.css",
@@ -1024,15 +1034,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "a83aa4ae48809758394cc4ad8cb8dda3b39d18a1150b39d19d9ac459fb62f78c"
+          "sha256": "58700240cd7f8ada72e1456fb4e4c88b35c9813e08ed6e94d785db0d349df75e"
         },
         {
           "url": "build-assets.js",
-          "sha256": "aaf6b9b2c6c4f43514def48cabaf05a4d5f31257b7a0975a2dc146f22862ebc8"
+          "sha256": "7d0f02ccbb36caa27376cb2a98ad4dadafbb1eae9e35dd80dbae1cffa6b22dca"
         }
       ]
     },
-    "cacheBuild": "6e08f37e72a6c74e",
+    "cacheBuild": "fc51fe504ab89eb4",
     "status": "published"
   },
   "apps": [
@@ -2456,30 +2466,38 @@
     {
       "id": "biblioteca",
       "name": "Català Podcasts",
-      "version": "0.5.8",
-      "build": "sha256-4594fde8495e",
-      "releasedAt": "2026-10-11",
+      "version": "0.5.9",
+      "build": "sha256-d208a65e1b56",
+      "releasedAt": "2026-10-21",
       "kind": "bundled",
       "changes": [
-        "Capa de estilo compartida sin skyline en tarea; datos y recorrido de podcast intactos."
+        "Català Podcasts conserva su catálogo de 233 episodios y sus claves de progreso, compartiendo motor con Cambridge B2."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "e1d0679e4401a626e252723f45d0b43a0551e51029f7017023a755734f1eb82e"
+            "sha256": "fa64136194bca1c214d4649418f83454825ea2a6c35af936f12e93a5101b385d"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "134bfd74fd202822406cc16fa5dc0c00087c60d75effb630c0786a510e1f2fa1"
+            "sha256": "3fcbd41cb3fffcf65c5498a2cd95036fc955f928e3a36415229842b8eb50f9a9"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "a6b863871d793850255b6c7ab33e00877ea61cc68b47f2690817f1ec84d02a40"
+            "sha256": "2dcc7a64e11d11e0d468dad80b810edda7af6891453f45f322aebe274881db5d"
           }
         ]
       },
       "history": [
+        {
+          "version": "0.5.8",
+          "build": "sha256-4594fde8495e",
+          "changes": [
+            "Capa de estilo compartida sin skyline en tarea; datos y recorrido de podcast intactos."
+          ],
+          "date": "2026-10-11"
+        },
         {
           "version": "0.5.7",
           "build": "sha256-b6dcee5ff1c9",
@@ -2579,6 +2597,34 @@
           ]
         }
       ]
+    },
+    {
+      "id": "biblioteca-english",
+      "name": "Podcasts Inglés",
+      "version": "0.1.0",
+      "build": "sha256-d208a65e1b56",
+      "releasedAt": "2026-10-21",
+      "kind": "bundled",
+      "changes": [
+        "Exámenes Cambridge B2 01–04 con voces Fola, Arlo, Enya y Cleo; MP3 privados vinculables desde el dispositivo y Modo Tarea compartido."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./apps/biblioteca/index.html",
+            "sha256": "fa64136194bca1c214d4649418f83454825ea2a6c35af936f12e93a5101b385d"
+          },
+          {
+            "url": "./apps/biblioteca/app.js",
+            "sha256": "3fcbd41cb3fffcf65c5498a2cd95036fc955f928e3a36415229842b8eb50f9a9"
+          },
+          {
+            "url": "./apps/biblioteca/styles.css",
+            "sha256": "2dcc7a64e11d11e0d468dad80b810edda7af6891453f45f322aebe274881db5d"
+          }
+        ]
+      },
+      "history": []
     },
     {
       "id": "hoti0108",

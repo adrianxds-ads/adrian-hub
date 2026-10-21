@@ -164,3 +164,23 @@ Cierre de publicación de ergonomía · 17/10/2026:
 - Última ronda aislada completa con toques: 15 respuestas/una sesión en cada app, diferencia de coordenadas 0px, errores en 6/10, suspensión, callback residual, entrada duplicada y fallo de render recuperable sin doble avance. Esto no garantiza ausencia absoluta de fallos intermitentes.
 - Pixel físico: ADB intermitente. Incluso al aparecer conectado, Chrome no respondió al canal de inspección; no se obtuvo una línea base de almacenamiento ni se verificó una partida en el dispositivo. Cada intento liberó la concesión temporal de pantalla.
 - Pendiente: comprobar en el Pixel las versiones y presentación desde el acceso habitual Hub -> app, y cotejar progreso real. No se borró ni reinició almacenamiento personal, no se generaron respuestas personales y no se reactivó sincronización. La preservación real antes/después no se afirma como comprobada.
+
+
+## Podcasts Inglés · Cambridge B2 · 2026-10-21
+
+Alcance confirmado: exclusivamente audiolibros Cambridge B2 generados con Google AI Studio. Cuatro exámenes completos (01 Fola, 02 Arlo, 03 Enya y 04 Cleo); 05 todavía incompleto. No se incorporan episodios de otros podcasts. El módulo comparte reproductor y Modo Tarea con Català Podcasts, pero mantiene separados los catálogos y datos de progreso.
+
+Los MP3 permanecen en el Drive del usuario y se incorporan al navegador mediante selección local y verificación SHA-256. La biblioteca pública solo contiene metadatos. Para incorporar exámenes posteriores, ejecutar apps/biblioteca/update_cambridge_catalog.py contra la carpeta sincronizada una vez estén completos.
+
+Verificaciones completadas: test_cambridge_bilingual.py en Edge aislado (390x844 y 1280x800), 233 episodios catalanes intactos, cuatro Cambridge; importación real con hash, IndexedDB persistente, reproducción y Modo Tarea, historiales independientes, sin errores JS. test_cambridge_real_audio.py confirma decodificación de MP3 en HTMLAudioElement (20:28). Prueba física Pixel y publicación siguen pendientes de la integridad del sistema de release.
+
+
+### Verificación previa a publicación · 21/10/2026
+
+- `python test-release-integrity.py`: **PASS**, 88 recursos con hash coincidente con los ficheros del Hub y el Core público.
+- `node test-hub-podcasts-sw.cjs`: **PASS**, instalación atómica del service worker, catálogo Cambridge y scripts guardados; rechazo y eliminación de caché ante `app.js` manipulado.
+- `python apps/biblioteca/test_hub_cambridge_navigation.py`: **PASS**, portada Hub → tarjeta Podcasts Inglés → ruta Cambridge, navegadores aislados 390 y 1280 px, cuatro exámenes, sin errores de JS.
+- `python apps/biblioteca/test_cambridge_bilingual.py`: **PASS**, 233 episodios catalanes, cuatro Cambridge, separación de progreso, importación real con SHA256, IndexedDB y Modo Tarea.
+- `python apps/biblioteca/test_cambridge_real_audio.py`: **PASS**, decodificador HTML5, MP3 original de 1228 segundos.
+- Corrección del generador de huellas para worktrees: archivos Hub desde la rama aislada y archivos Core desde la copia pública vigente, con rutas canónicas `/adrian-hub/` y `/adrian-core/`.
+- **Sin comprobación física del Pixel**, por petición expresa. La publicación se confirmará con web pública y versión/commit, no con un dispositivo físico.

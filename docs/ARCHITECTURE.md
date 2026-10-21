@@ -102,3 +102,10 @@ Reproducido: letras claras sobre pastel, medallas cero atenuadas, objetivos/HUD 
 Verificado en Chrome aislado: 136 pantallas/estados a 360/390/412/1280, cero overflow horizontal/errores JS y cero fallos de contraste de superficies sólidas en el recorrido probado; fondos con degradado y pantallas principales también inspeccionados visualmente. Controles y ayudas revisados, respuestas desde 20 px y datos de progreso intactos.
 Regresión: 14 recorridos de respuesta correcta/error/espera/avance/guardado; Classroom final único; bancos y materiales protegidos; teclado Cambridge Parts 2/3/4 a 360/390/740 y escritorio; nueve cachés con rechazo de build corrupto/consulta obsoleta; 54 fingerprints Hub y registros coherentes. Las pruebas no usan almacenamiento personal.
 Límites: no prueba física Pixel ni sincronización real entre dispositivos. Publicación se verifica contra bytes y versiones efectivamente servidos por separado.
+
+
+## Biblioteca de podcasts en dos idiomas · 2026-10-21
+
+La ruta apps/biblioteca/ mantiene Català Podcasts sin parámetros. apps/biblioteca/?lang=en presenta Podcasts Inglés exclusivamente con el catálogo cambridge-exams.json; config.js parametriza reproductor, catálogo y claves localStorage, sin duplicar Modo Tarea. La recuperación histórica de sesiones de Catalán solo actúa en el modo catalán.
+
+cambridge-audio.js almacena los MP3 originales que seleccione el usuario en IndexedDB de su dispositivo y solo los habilita tras comprobar sus huellas SHA-256 frente al catálogo. La web no distribuye los MP3 ni los documentos de examen. Un dispositivo nuevo necesita importar sus propios archivos originales. El actualizador update_cambridge_catalog.py añade metadatos tras comprobar el estado completo de cada examen.

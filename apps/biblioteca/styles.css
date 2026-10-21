@@ -213,3 +213,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 #taskPlanner .task-plan-heading span{font-size:14px;line-height:1.35;min-width:0;overflow-wrap:anywhere}
 #taskStage .task-stage-head button{min-height:48px!important;min-width:48px;box-sizing:border-box;touch-action:manipulation}
 @media (max-width:520px){#taskPlanner .task-plan-heading span{font-size:14px;line-height:1.35}#taskStage .task-stage-head button{min-height:48px!important}}
+
+/* Official-source transcript link only; no copyrighted transcript hosted here. */
+.transcript-link{display:inline-flex;min-height:44px;align-items:center;margin-top:4px;color:#9bdae9;font-size:14px;font-weight:850;text-underline-offset:3px}
+
+/* Imported Cambridge MP3s stay in this device's IndexedDB, never in public repo. */
+.cambridge-import{display:grid;gap:8px;padding:15px;margin:12px 0;border:1px solid #345660;background:#12252b;border-radius:16px}
+.cambridge-import strong{font-size:18px}.cambridge-import p{font-size:15px;line-height:1.45;margin:0;color:#c1d3d7}
+.cambridge-import-label{font-size:15px;font-weight:800;color:#eff9fa}
+.cambridge-import input[type=file]{width:100%;font-size:14px;max-width:100%}
+.cambridge-import small{font-size:13px;line-height:1.4;color:#a7c4cc}
+.cambridge-audio-state{color:#b5ccd2;font-size:12px;margin:6px 0 0;overflow-wrap:anywhere}
+.cambridge-audio-state:has(span:first-child:last-child){line-height:1.4}
+.play-btn:disabled,.task-select-btn:disabled{opacity:.38;cursor:not-allowed}

@@ -2,7 +2,8 @@
 (() => {
 'use strict';
 const $=id=>document.getElementById(id);
-const KEY='adrianEasyCatalanTaskSessionsV1', LIVE='adrianEasyCatalanTaskLiveV1';
+const CFG=window.PodcastLibraryConfig;
+const KEY=CFG.TASK_PLAYS, LIVE=CFG.TASK_LIVE;
 const audio=$('audio'), panel=$('taskPanel'), list=$('taskEpisodes'), original=$('episodes');
 const els={normal:$('tabPodcasts'),task:$('tabTasks'),legend:$('libraryLegend'),empty:$('empty'),search:$('search'),sort:$('sortBtn'),sortLabel:$('sortLabel'),modal:$('taskSetup'),setupTitle:$('taskSetupTitle'),taskText:$('taskText'),setupButton:$('taskSetupButton'),setupCancel:$('taskSetupCancel'),stage:$('taskStage'),journey:$('taskJourney'),dino:$('taskDino'),progress:$('taskProgress'),clock:$('taskClock'),stageTitle:$('taskStageTitle'),stageTask:$('taskStageTask'),resume:$('taskResume'),finish:$('taskFinish'),exit:$('taskExit'),breakBox:$('taskBreak'),breakClock:$('taskBreakClock'),breakText:$('taskBreakText'),today:$('taskToday'),total:$('taskTotal'),minutes:$('taskMinutes'),chart:$('taskChart'),chartFull:$('taskChartFull'),chartOpen:$('taskChartOpen'),chartClose:$('taskChartClose'),chartDialog:$('taskChartDialog'),dayInfo:$('taskDayInfo'),dayInfoFull:$('taskDayInfoFull'),history:$('taskHistory'),openStats:$('taskStatsToggle'),stats:$('taskStatsDetails'),planner:$('taskPlanner'),slots:$('taskPlanSlots'),hint:$('taskPlanHint'),startPlan:$('taskPlanStart'),completed:$('taskCompleted'),setupPosition:$('taskSetupPosition'),stagePosition:$('taskStagePosition'),medals:$('taskMedals'),medalFraction:$('taskMedalFraction'),medalBar:$('taskMedalBar'),uniqueCount:$('taskUniqueCount')};
 let catalog=null,chosen=null,lastPersist=0,allowSeek=false,restoring=false,tick=null,taskDescending=true;
@@ -19,7 +20,7 @@ const RECOVERY_MARK='adrianEasyCatalan20261009ReconciliationV1';
 const RECOVERY_BACKUP='adrianEasyCatalanTaskSessions_before_recovery_20261009';
 const USER_CONFIRMED=[233,232];
 function reconcileUserConfirmedBlocks(){
- if(!catalog)return;
+ if(CFG.isEnglish||!catalog)return; // Historical 2026 Catalan user-confirmed recovery must never write English task history.
  const marker=parse(RECOVERY_MARK,null);
  if(marker?.skipped==='no-preexisting-data')return;
  const previous=logs();
@@ -119,7 +120,7 @@ function renderPlan(){
   const current=!locked&&draft.slot===i,done=!!step;
   return '<button type="button" class="task-slot '+(current?'task-slot-current ':'')+(done?'task-slot-filled':'')+'" data-task-slot="'+i+'" '+(locked?'disabled':'')+'>'+
    '<strong>'+(i+1)+'. '+(step?safe(step.task):'Elegir tarea')+'</strong>'+
-   '<span>'+(step?'#'+step.episodeNumber+' · '+safe(catalog?.episodes.find(e=>e.number===step.episodeNumber)?.title||'Easy Catalan'):'Podcast por elegir')+'</span></button>';
+   '<span>'+(step?'#'+step.episodeNumber+' · '+safe(catalog?.episodes.find(e=>e.number===step.episodeNumber)?.title||(CFG.isEnglish?'Cambridge B2':'Easy Catalan')):'Podcast por elegir')+'</span></button>';
  }).join('');
  els.slots.querySelectorAll('[data-task-slot]').forEach(b=>b.onclick=()=>{
   draft.slot=Number(b.dataset.taskSlot);renderPlan();
@@ -142,7 +143,7 @@ function tabs(tab){
  window.ModeTarea.selectedTab=tab;
  els.normal.setAttribute('aria-selected',String(!task));els.task.setAttribute('aria-selected',String(task));
  panel.hidden=!task;original.hidden=task;els.legend.hidden=task;
- els.sortLabel.textContent=task?(taskDescending?'233 → 1':'1 → 233'):(window.LibraryGetSort?.()==='desc'?'233 → 1':'1 → 233');
+ els.sortLabel.textContent=task?(taskDescending?(catalog?.episodes.length||0)+' → 1':'1 → '+(catalog?.episodes.length||0)):(window.LibraryGetSort?.()==='desc'?(catalog?.episodes.length||0)+' → 1':'1 → '+(catalog?.episodes.length||0));
  if(task)els.empty.hidden=true;
  else {els.empty.hidden=true;if(typeof render==='function')render()}
  if(task){renderList();renderStats();renderBreak();renderPlan()}
@@ -153,11 +154,11 @@ function renderList(){
  let rows=catalog.episodes.filter(e=>!q||norm(e.number+' '+e.title+' '+e.summary).includes(q));
  if(taskDescending)rows=rows.slice().reverse();
  const tasks=window.PodcastCounts?.taskCounts?.()||{},normal=window.PodcastCounts?.normalCounts?.()||{};
- const flags=new Set((()=>{try{return JSON.parse(localStorage.getItem('adrianLibraryEasyCatalanV1')||'[]').map(Number)}catch{return []}})());
+ const flags=new Set((()=>{try{return JSON.parse(localStorage.getItem(CFG.STORE)||'[]').map(Number)}catch{return []}})());
  list.innerHTML=rows.map(e=>{
   const work=tasks[e.number]||0,ordinary=Math.max(0,Number(normal[e.number])||0),listened=ordinary>0||flags.has(e.number);
   const annotation=(work||ordinary||listened)?'<div class="task-tally">'+(work?'🦖 '+work+' '+(work===1?'tarea completada':'tareas completadas'):'Sin tareas completadas')+(ordinary?' · 🎧 '+ordinary+' '+(ordinary===1?'escucha':'escuchas'):'')+(!ordinary&&listened&&!work?' · ✓ Marcado escuchado':'')+'</div>':'';
-  return '<article class="episode task-episode '+(work?'task-episode-done':'')+'"><button type="button" class="play-btn" data-task-episode="'+e.number+'" aria-label="Añadir episodio '+e.number+' a una tarea">▶</button><div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+safe(e.title)+'</h2></div><div class="meta">'+safe(e.duration||'')+' · Duración fija</div><p class="summary">'+safe(e.summary||'')+'</p>'+annotation+'</div><button type="button" class="task-select-btn '+(work?'task-select-done':'')+'" data-task-episode="'+e.number+'" aria-label="Elegir episodio '+e.number+' para trabajar">'+(work?'✓ '+work+' '+(work===1?'vez':'veces'):'＋')+'</button></article>';
+  return '<article class="episode task-episode '+(work?'task-episode-done':'')+'"><button type="button" class="play-btn" '+(!e.audio?'disabled ':'')+'data-task-episode="'+e.number+'" aria-label="Añadir episodio '+e.number+' a una tarea">▶</button><div class="episode-main"><div class="episode-top"><span class="episode-no">#'+e.number+'</span><h2 class="episode-title">'+safe(e.title)+'</h2></div><div class="meta">'+safe(e.duration||'')+' · Duración fija</div><p class="summary">'+safe(e.summary||'')+'</p>'+annotation+'</div><button type="button" class="task-select-btn '+(work?'task-select-done':'')+'" '+(!e.audio?'disabled ':'')+'data-task-episode="'+e.number+'" aria-label="Elegir episodio '+e.number+' para trabajar">'+(work?'✓ '+work+' '+(work===1?'vez':'veces'):'＋')+'</button></article>';
  }).join('');
  $('taskEmpty').hidden=!!rows.length;
  list.querySelectorAll('[data-task-episode]').forEach(b=>b.addEventListener('click',()=>choose(Number(b.dataset.taskEpisode))));
@@ -329,7 +330,7 @@ els.search.addEventListener('input',()=>{renderList();if(window.ModeTarea.select
 els.sort.addEventListener('click',e=>{
  if(window.ModeTarea.selectedTab!=='task')return;
  e.stopImmediatePropagation();taskDescending=!taskDescending;
- els.sortLabel.textContent=taskDescending?'233 → 1':'1 → 233';
+ els.sortLabel.textContent=taskDescending?(catalog?.episodes.length||0)+' → 1':'1 → '+(catalog?.episodes.length||0);
  renderList();
 },true);
 els.planner.querySelectorAll('[data-task-count]').forEach(btn=>btn.onclick=()=>{
