@@ -4,15 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.27",
-    "build": "hub-30.5.27-20261022",
+    "version": "30.5.28",
+    "build": "hub-30.5.28-20261022",
     "releasedAt": "2026-10-22",
     "changes": [
-      "Cucu Finder 1.1.0 incorporado como primera tarjeta del Hub y acceso directo a 220 entradas QQ.",
-      "Favoritos, frecuencia de copia local, colores funcionales, prompts rellenables y descarga CSV/BIN/AHK.",
-      "Se conserva el comportamiento de todos los módulos existentes y las carpetas del Hub."
+      "Podcasts Inglés 0.1.5: séptimo audiolibro Cambridge B2 completo, voz Fola, 20:36 y 20 fragmentos verificados.",
+      "Paquete ZIP incremental privado del examen 07; conserva progresos y publicación previa de Cucu Finder."
     ],
     "history": [
+      {
+        "version": "30.5.27",
+        "build": "hub-30.5.27-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Cucu Finder 1.1.0 incorporado como primera tarjeta del Hub y acceso directo a 220 entradas QQ.",
+          "Favoritos, frecuencia de copia local, colores funcionales, prompts rellenables y descarga CSV/BIN/AHK.",
+          "Se conserva el comportamiento de todos los módulos existentes y las carpetas del Hub."
+        ]
+      },
       {
         "version": "30.5.26",
         "build": "hub-30.5.26-20261022",
@@ -1060,7 +1069,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "2aab6e7e44f365e8c9c5aaff8851badb232743dc284a915ee014e52f6ad9e0e7"
+          "sha256": "b5d216eb201f302eee4a9dd059e78fc1bfab9fe59128db3200a010e1314281ea"
         },
         {
           "url": "version-verifier.js",
@@ -1068,7 +1077,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "77f28022507d265ff61a9f31829626ca10c0e85cf20cbdce97ba48e1e1d319b6"
+          "sha256": "b86d75bd10418819c5ccd607819fecc3cf49f241cd2eb2cbce2d47334db131f4"
         },
         {
           "url": "styles.css",
@@ -1076,15 +1085,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "893cbac4791b799545151837451a164e22dabbb1cf1731e73065d0c8a4c74681"
+          "sha256": "d83a33489156e17d6063079dc3b1b4464e4a1c61b56f685f284abcd06da8f78a"
         },
         {
           "url": "build-assets.js",
-          "sha256": "82dce7efb619b32c0de1ceccda35aca36d8dd7295bd3bfd07d2a9c2d759475ae"
+          "sha256": "eae4eb55cbcafa9992a01f91b6292b57eaaf5ef41526459905356a4cf3bc30b8"
         }
       ]
     },
-    "cacheBuild": "b7bf15db66036079",
+    "cacheBuild": "6eeae01c605ed7ca",
     "status": "published"
   },
   "apps": [
@@ -2674,13 +2683,13 @@
     {
       "id": "biblioteca-english",
       "name": "Podcasts Inglés",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "build": "sha256-29572bcdf492",
       "releasedAt": "2026-10-22",
       "kind": "bundled",
       "changes": [
-        "Examen 06 Cambridge B2 con voz Enya: 20:46, partes 1–4, 20/20 fragmentos y transcripciones verificadas.",
-        "Catálogo ampliado a seis; importación ZIP incremental privada, sin duplicar MP3 ni modificar los 233 podcasts catalanes."
+        "Séptimo examen Cambridge B2 completo con voz Fola, 20:36; partes 1–4 y 20 WAV con transcripciones verificadas.",
+        "Siete audiolibros; importación ZIP incremental privada, sin duplicados y sin cambios en Català Podcasts."
       ],
       "verify": {
         "files": [
