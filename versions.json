@@ -4,14 +4,22 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.24",
-    "build": "hub-30.5.24-20261022",
+    "version": "30.5.25",
+    "build": "hub-30.5.25-20261022",
     "releasedAt": "2026-10-22",
     "changes": [
-      "Podcasts Inglés 0.1.2: incorporación de exámenes Cambridge B2 por un solo ZIP privado; evita importar cada MP3 por separado.",
-      "Cuatro audios originales verificados e importados, historial y Català Podcasts sin cambios."
+      "Podcasts Inglés 0.1.3: quinto audiolibro Cambridge B2 de 20:18, voz Arlo; cinco exámenes disponibles y verificados.",
+      "Paquete ZIP incremental del examen 05, sin volver a importar los cuatro primeros ni exponer los audios privados."
     ],
     "history": [
+      {
+        "version": "30.5.24",
+        "build": "hub-30.5.24-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Importación privada de exámenes Cambridge B2 por ZIP, con reconocimiento SHA-256 y prevención de duplicados."
+        ]
+      },
       {
         "version": "30.5.23",
         "build": "hub-30.5.23-20261022",
@@ -1034,7 +1042,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "9b79c34b50a1619cc002860da681d6c05c9aef1d52aaf71c215023730c274260"
+          "sha256": "baf14630bdc9aafff694f30f75bc248d0b6fa8ec95f055d458b36b72e68df279"
         },
         {
           "url": "version-verifier.js",
@@ -1042,7 +1050,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "ff9dba978fecc531a78d3ef5f75e37466b6f393a5a2dafa79b26f75bee3c2022"
+          "sha256": "0d87f60fc1815901d62f4c863ed13df9f4420d2ca05e3736921061e60a121aee"
         },
         {
           "url": "styles.css",
@@ -1050,15 +1058,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "a39d88e1f5017f2082712d9f7edc6778b186e52f81d63d474982fbc615e414be"
+          "sha256": "d8ec0d4600bfc6f1a046c93746e6ee0d1683b53864d19cf53a7db6b20d3f743b"
         },
         {
           "url": "build-assets.js",
-          "sha256": "5bc8c8197eb8794316eb3d0b00796569bf0056f05d8b448a4a77acc2319ae70c"
+          "sha256": "e0446860348597ce059aeef2a691563a81a1db5756cbef63d0293e7c2403fbfe"
         }
       ]
     },
-    "cacheBuild": "f5f7f06cdfe78f18",
+    "cacheBuild": "27e7597ca185587c",
     "status": "published"
   },
   "apps": [
@@ -2617,13 +2625,13 @@
     {
       "id": "biblioteca-english",
       "name": "Podcasts Inglés",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "build": "sha256-29572bcdf492",
       "releasedAt": "2026-10-22",
       "kind": "bundled",
       "changes": [
-        "Importación masiva de audiolibros Cambridge B2 desde un único archivo ZIP privado, sin subir MP3 al Hub ni a GitHub.",
-        "Validación SHA-256 por examen; conserva audios existentes y evita duplicados al repetir una importación."
+        "El examen 05 se incorpora a Podcasts Inglés: 20:18, voz Arlo, partes 1–4 y fragmentos verificados.",
+        "Catálogo ampliado a cinco; ZIP privado incremental solo del 05; importación y reproducción sin duplicados."
       ],
       "verify": {
         "files": [

@@ -2,7 +2,7 @@
   "source": "Producción personal Cambridge B2 (archivos privados de Google Drive)",
   "title": "Cambridge B2 · Audiolibros de exámenes",
   "artwork": "../../icon.svg",
-  "count": 4,
+  "count": 5,
   "episodes": [
     {
       "number": 1,
@@ -59,6 +59,20 @@
       "summary": "Reading and Use of English · Partes 1–4 · Voz Cleo. Audio original de nuestra producción en Google AI Studio.",
       "level": "B2",
       "voice": "Cleo"
+    },
+    {
+      "number": 5,
+      "title": "Cambridge B2 First · Examen 05",
+      "source": "Audiolibro Cambridge B2 · Proyecto privado",
+      "dateRaw": "2026-10-22",
+      "duration": "20:18",
+      "audio": "",
+      "fileName": "EX05_PARTES1-4_ARLO_CONTINUO.mp3",
+      "audioSha256": "02f9c04bcf59118fca20b5ae6f768058a2e2696a6aa77bff6cf19e06f66c91fe",
+      "audioBytes": 19486892,
+      "summary": "Reading and Use of English · Partes 1–4 · Voz Arlo. Audio original de nuestra producción en Google AI Studio.",
+      "level": "B2",
+      "voice": "Arlo"
     }
   ]
 }
