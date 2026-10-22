@@ -1,0 +1,70 @@
+/* Cucu Finder 1.1.0 · colores por familia, interacción instantánea y accesible */
+:root{--cucu-txt:#eef3ff;--cucu-card:#18253c}
+.brand{font-size:1.14rem}.brand em{color:#a7d5ff}
+header{padding:11px 12px 10px}
+main{padding:13px 12px 88px}
+.intro{font-size:1.3rem;margin:8px 4px 12px}
+.filters{padding:10px 0 6px}
+.sortbar{display:flex;align-items:center;justify-content:space-between;gap:11px;margin:8px 2px 12px}
+.sortbar label{display:flex;align-items:center;gap:8px;flex:1}
+.sortbar label span{font-size:.75rem;color:#a6bad6;flex:0 0 auto}
+.sortbar select{min-height:42px;flex:1;min-width:0;color:#e9f5ff;background:#223554;border:1px solid #4f7195;border-radius:11px;padding:4px 9px;font-size:.83rem}
+.downloadToggle{min-height:42px;flex:0 0 auto;border:1px solid #79b3cf;color:#edf9ff;background:#1e4250;border-radius:11px;font-weight:650;font-size:.82rem;padding:7px 13px}
+.exportPanel[hidden]{display:none}
+.exportPanel{padding:12px 14px;margin:4px 0 14px;border-radius:16px;border:1px solid #516b8e;background:linear-gradient(140deg,#1a2d46,#152337)}
+.exportPanel h2{font-size:.97rem;margin:0 0 4px}
+.exportPanel p{font-size:.75rem;line-height:1.45;color:#a5c1db;margin:7px 0 11px}
+.exportLinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.exportLinks a,.exportLinks button{padding:11px 8px;min-height:58px;text-align:center;display:flex;align-items:center;justify-content:center;background:#304b73;color:#eef5ff;border:1px solid #7391b8;border-radius:10px;text-decoration:none;font-size:.8rem;font-weight:670}
+.entry{position:relative;--accent:#a1b5e3;display:grid;grid-template-columns:minmax(0,1fr) 44px 80px;align-items:stretch;gap:7px;margin:8px 0}
+.entry .item{margin:0;min-height:83px;padding:11px 12px;border-left:5px solid var(--accent);background:linear-gradient(95deg,color-mix(in srgb,var(--accent) 12%,#18253c) 0%,#172234 80%);border-top-color:#354762;border-bottom-color:#354762;border-right-color:#354762}
+.itemName{font-size:.89rem;line-height:1.23}
+.itemTop{align-items:start;gap:6px}
+.code{font-size:.75rem;color:#cbd8ff}
+.sub{font-size:.68rem;line-height:1.35;margin-top:7px;color:#b4c4db}
+.favButton{border:1px solid #5c718a;border-radius:12px;background:#263752;color:#f9d780;font-size:1.38rem;min-height:50px;font-weight:760}
+.favButton[aria-pressed=true]{color:#ffdb7e;background:#514324;border-color:#bd9b47}
+.quickCopy{align-self:stretch;min-width:0;padding:5px 5px;border-radius:12px;background:#294568;border:1px solid #5e86b4;color:#eaf5ff;font-size:.77rem;font-weight:750}
+.quickCopy:disabled{opacity:.45}
+.quickCopy:active,.favButton:active{filter:brightness(1.28)}
+.stats{margin:10px 3px 9px;line-height:1.35;font-size:.72rem}
+.chip{font-size:.8rem;padding:8px 12px;background:#223248}
+.chip.selected{background:#c3defe;color:#152840}
+.chip[data-mode=favorites].selected{background:#ffe1a1;color:#40320c}
+#sourceState{max-width:55%;text-align:right}
+.sheet{max-height:95dvh;overflow:hidden}
+.sheetHead{flex-shrink:0}
+.sheet .context{margin-bottom:7px}
+.payload{flex:1;min-height:100px;font-size:.85rem;line-height:1.5}
+.payload:not([readonly]){border-color:#a7dfc6;background:#132c35}
+.dataBox{border:1px solid #475d79;border-radius:12px;padding:10px 12px;margin-top:9px;background:#1b2b40}
+.dataBox[hidden]{display:none}
+.dataBox label{display:block;font-size:.81rem;font-weight:700;color:#d3e7ff;margin-bottom:6px}
+.dataBox p{margin:5px 0 0;font-size:.72rem;color:#93b3cf}
+.dataBox textarea{width:100%;min-height:62px;max-height:18vh;resize:vertical;border:1px solid #5d7b9c;border-radius:9px;background:#101e2f;color:#f5faff;padding:9px;line-height:1.4}
+.detailTools{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0 0}
+.detailTools button{border:1px solid #536c8b;border-radius:9px;background:#263956;color:#daedff;padding:8px 11px;font-size:.78rem;min-height:38px}
+.detailTools button[aria-pressed=true]{background:#275348;border-color:#76bba2;color:#ddfff2}
+.detailTools button[hidden]{display:none}
+.actions{gap:7px;flex:0 0 auto}
+.actions button{font-size:.81rem;min-height:46px}
+.actions .primary{flex:2}
+.actions .secondary{flex:1}
+.goBack{padding:9px 10px;font-size:.8rem;min-height:43px}
+@media(max-width:420px){
+ .entry{grid-template-columns:minmax(0,1fr) 37px 74px;gap:5px}
+ .entry .item{padding:10px 9px}
+ .itemName{font-size:.84rem}
+ .code{font-size:.68rem}
+ .sub{font-size:.66rem}
+ .favButton{font-size:1.24rem}
+ .quickCopy{font-size:.7rem}
+ .exportLinks{grid-template-columns:1fr}
+ .exportLinks a,.exportLinks button{min-height:44px}
+ .sortbar label span{display:none}
+ .downloadToggle{font-size:.77rem;padding:7px 9px}
+ .actions button{font-size:.75rem;padding:10px 7px}
+ .sheet{padding:13px 11px max(12px,env(safe-area-inset-bottom))}
+}
+@media(min-width:800px){.entry{grid-template-columns:minmax(0,1fr) 52px 95px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}

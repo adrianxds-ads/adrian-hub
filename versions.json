@@ -4,14 +4,24 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.26",
-    "build": "hub-30.5.26-20261022",
+    "version": "30.5.27",
+    "build": "hub-30.5.27-20261022",
     "releasedAt": "2026-10-22",
     "changes": [
-      "Podcasts Inglés 0.1.4: sexto examen Cambridge B2 narrado por Enya, 20:46, con 20 fragmentos verificados.",
-      "ZIP incremental privado del examen 06; seis audiolibros importables y reproducibles sin duplicaciones."
+      "Cucu Finder 1.1.0 incorporado como primera tarjeta del Hub y acceso directo a 220 entradas QQ.",
+      "Favoritos, frecuencia de copia local, colores funcionales, prompts rellenables y descarga CSV/BIN/AHK.",
+      "Se conserva el comportamiento de todos los módulos existentes y las carpetas del Hub."
     ],
     "history": [
+      {
+        "version": "30.5.26",
+        "build": "hub-30.5.26-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Podcasts Inglés 0.1.4: sexto examen Cambridge B2 narrado por Enya, 20:46, con 20 fragmentos verificados.",
+          "ZIP incremental privado del examen 06; seis audiolibros importables y reproducibles sin duplicaciones."
+        ]
+      },
       {
         "version": "30.5.25",
         "build": "hub-30.5.25-20261022",
@@ -1050,7 +1060,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "472dac3d9651846255b604732a80956e805a79309c74112fd7c91c12d899e9f8"
+          "sha256": "2aab6e7e44f365e8c9c5aaff8851badb232743dc284a915ee014e52f6ad9e0e7"
         },
         {
           "url": "version-verifier.js",
@@ -1058,7 +1068,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "9f69ea3ccbb51446dde06e3d323628388e643dca7de0f5b025cd28483f1739a8"
+          "sha256": "77f28022507d265ff61a9f31829626ca10c0e85cf20cbdce97ba48e1e1d319b6"
         },
         {
           "url": "styles.css",
@@ -1066,18 +1076,49 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "c141255fd06c86e96564aa2492421b93b68ef55afced1dcbcb7bc5438cd3a50e"
+          "sha256": "893cbac4791b799545151837451a164e22dabbb1cf1731e73065d0c8a4c74681"
         },
         {
           "url": "build-assets.js",
-          "sha256": "4b7a816475341a5269abfaeac84653597da5a7a24e9ee4bce7c46aa9bb7fef26"
+          "sha256": "82dce7efb619b32c0de1ceccda35aca36d8dd7295bd3bfd07d2a9c2d759475ae"
         }
       ]
     },
-    "cacheBuild": "5da139505437244e",
+    "cacheBuild": "b7bf15db66036079",
     "status": "published"
   },
   "apps": [
+    {
+      "id": "cucu-finder",
+      "name": "Cucu Finder",
+      "version": "1.1.0",
+      "build": "sha256-f219aabf91fd",
+      "releasedAt": "2026-10-22",
+      "kind": "bundled",
+      "changes": [
+        "Buscar y copiar 220 registros QQ, con acciones y enlaces correctamente identificados.",
+        "Destacados persistentes en navegador y ordenación según copias reales.",
+        "Edición de copia y datos añadidos sin modificar los prompts de origen.",
+        "CSV compatible keyword,phrase; BIN agrupado y copia AHK disponibles desde Descargas.",
+        "PWA con instalación en Pixel y reapertura sin red después de la primera visita."
+      ],
+      "verify": {
+        "files": [
+          {
+            "url": "./qq-finder/index.html",
+            "sha256": "c201ea8e25bdd29056dc7573840c11e6dc84d7e615ebe3b252879bb3fe05fbb2"
+          },
+          {
+            "url": "./qq-finder/app.js",
+            "sha256": "7edc3f8cbf7482f58f82808d07cf3579d6bb0f197fc8a03d225671af8b48676e"
+          },
+          {
+            "url": "./qq-finder/styles.css",
+            "sha256": "af007027fa049b04fd38d1bc8e1ed70a10e45e23cf8923653561993f8ae05900"
+          }
+        ]
+      }
+    },
     {
       "id": "english",
       "name": "Grammar Quest",

@@ -1,7 +1,23 @@
 {
-  "version": 28,
-  "hubVersion": "30.5.26",
+  "version": 29,
+  "hubVersion": "30.5.27",
   "apps": [
+    {
+      "id": "cucu-finder",
+      "name": "Cucu Finder",
+      "subtitle": "220 atajos QQ · Buscar, destacar y copiar",
+      "group": "Acceso inmediato",
+      "kind": "hub-module",
+      "url": "./qq-finder/",
+      "glyph": "QQ",
+      "description": "Biblioteca interactiva de 220 entradas QQ: favoritos, orden por uso real, búsqueda, adaptación de prompts y exportación compatible con Escritura Rápida.",
+      "features": [
+        "Copia instantánea y edición temporal",
+        "Destacados y filtros por frecuencia",
+        "Exportar CSV, BIN y copia AHK"
+      ],
+      "brandColor": "#79B9F3"
+    },
     {
       "id": "english",
       "name": "Grammar Quest",

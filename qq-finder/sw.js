@@ -1,7 +1,7 @@
-/* QQ Finder · SW network-first, offline fallback. Version release 1.0.0. */
-const CACHE='qq-finder-1.0.0';
+﻿/* QQ Finder · SW network-first, offline fallback. Version release 1.0.0. */
+const CACHE='qq-finder-1.1.0';
 const PAGE='./index.html';
-self.addEventListener('install',evt=>{evt.waitUntil(caches.open(CACHE).then(c=>c.addAll([PAGE,'./manifest.webmanifest','./icon.svg'])).then(()=>self.skipWaiting()))});
+self.addEventListener('install',evt=>{evt.waitUntil(caches.open(CACHE).then(c=>c.addAll([PAGE,'./manifest.webmanifest','./icon.svg','./styles.css','./app.js'])).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',evt=>{evt.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('qq-finder-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',evt=>{
  const req=evt.request;
