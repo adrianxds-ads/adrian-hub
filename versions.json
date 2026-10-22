@@ -1,18 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-21",
+  "generatedAt": "2026-10-22",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.22",
-    "build": "hub-30.5.22-20261021",
-    "releasedAt": "2026-10-21",
+    "version": "30.5.23",
+    "build": "hub-30.5.23-20261022",
+    "releasedAt": "2026-10-22",
     "changes": [
-      "Podcasts Inglés incorpora solo nuestros audiolibros Cambridge B2 elaborados con Google AI Studio; sin podcasts externos.",
-      "Biblioteca catalana preservada; mismo reproductor y Modo Tarea con historial separado por idioma.",
-      "MP3 originales privados: importación local verificada por hash SHA-256, sin publicar audios ni exámenes; índice actualizable según terminan los siguientes exámenes."
+      "Podcasts Inglés 0.1.1: Play vuelve a funcionar tras regresar a la aplicación; los MP3 privados conservan sus enlaces mientras la pestaña siga viva.",
+      "Los errores del reproductor muestran una explicación; cuatro audiolibros originales comprobados sin cambios en Català Podcasts ni Modo Tarea."
     ],
     "history": [
+      {
+        "version": "30.5.22",
+        "build": "hub-30.5.22-20261021",
+        "date": "2026-10-21",
+        "changes": [
+          "Podcasts Inglés incorpora los audiolibros Cambridge B2 propios con MP3 privados importados por dispositivo.",
+          "Catálogo y progreso separados de Català Podcasts; sin podcasts ajenos ni publicación de audios originales."
+        ]
+      },
       {
         "version": "30.5.21",
         "build": "hub-30.5.21-20261017",
@@ -1018,7 +1026,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "82a980638c1152536de979f57cbb088162b556c6a6fc1b35c068edd5507be8d0"
+          "sha256": "26ef4b9ad06d644dec2c5782ffbdb84c4482c577c4bb447f4feb2e61206f6010"
         },
         {
           "url": "version-verifier.js",
@@ -1026,7 +1034,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "b2cf592bb2799a752b37a0ed38fed72ffb3601502b08c5943e8a061fbfb0c733"
+          "sha256": "32862932657f30baa66f87d3b36e5fe66d7f3cb570f776a72cbc1264ce66e73a"
         },
         {
           "url": "styles.css",
@@ -1034,15 +1042,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "58700240cd7f8ada72e1456fb4e4c88b35c9813e08ed6e94d785db0d349df75e"
+          "sha256": "54c8b20c2fa18b757aafd7eb7bcc623a3c9eb8aa794174d759a41595a6bb0e57"
         },
         {
           "url": "build-assets.js",
-          "sha256": "7d0f02ccbb36caa27376cb2a98ad4dadafbb1eae9e35dd80dbae1cffa6b22dca"
+          "sha256": "d302efd2ffd5673910ddd9ce8401de2ebb9fb4ee3bea2dc13647e2693be2c8a4"
         }
       ]
     },
-    "cacheBuild": "fc51fe504ab89eb4",
+    "cacheBuild": "59a857a6bd082c11",
     "status": "published"
   },
   "apps": [
@@ -2467,7 +2475,7 @@
       "id": "biblioteca",
       "name": "Català Podcasts",
       "version": "0.5.9",
-      "build": "sha256-d208a65e1b56",
+      "build": "sha256-39283eaa00a2",
       "releasedAt": "2026-10-21",
       "kind": "bundled",
       "changes": [
@@ -2477,15 +2485,15 @@
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "fa64136194bca1c214d4649418f83454825ea2a6c35af936f12e93a5101b385d"
+            "sha256": "799fa7133762cb41e3003f8352453f3b30aec915d6f0a01742facb59f21a3a06"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "3fcbd41cb3fffcf65c5498a2cd95036fc955f928e3a36415229842b8eb50f9a9"
+            "sha256": "76f0f1db3206c4ceb7a15aee49d9291890fa13a4305e845e16d05e4b3285ba8c"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "2dcc7a64e11d11e0d468dad80b810edda7af6891453f45f322aebe274881db5d"
+            "sha256": "ce4b92ddd960c05af6bb18dd5c930af542e954bf1e5d2d3cecb2e26cbfa17c8d"
           }
         ]
       },
@@ -2601,26 +2609,27 @@
     {
       "id": "biblioteca-english",
       "name": "Podcasts Inglés",
-      "version": "0.1.0",
-      "build": "sha256-d208a65e1b56",
-      "releasedAt": "2026-10-21",
+      "version": "0.1.1",
+      "build": "sha256-39283eaa00a2",
+      "releasedAt": "2026-10-22",
       "kind": "bundled",
       "changes": [
-        "Exámenes Cambridge B2 01–04 con voces Fola, Arlo, Enya y Cleo; MP3 privados vinculables desde el dispositivo y Modo Tarea compartido."
+        "Corregida la reanudación de MP3 privados después de volver a la app; Play comunica los errores de audio en vez de ocultarlos.",
+        "Biblioteca Cambridge B2 01–04 y Modo Tarea conservados, sin publicar los MP3 originales."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "fa64136194bca1c214d4649418f83454825ea2a6c35af936f12e93a5101b385d"
+            "sha256": "799fa7133762cb41e3003f8352453f3b30aec915d6f0a01742facb59f21a3a06"
           },
           {
             "url": "./apps/biblioteca/app.js",
-            "sha256": "3fcbd41cb3fffcf65c5498a2cd95036fc955f928e3a36415229842b8eb50f9a9"
+            "sha256": "76f0f1db3206c4ceb7a15aee49d9291890fa13a4305e845e16d05e4b3285ba8c"
           },
           {
             "url": "./apps/biblioteca/styles.css",
-            "sha256": "2dcc7a64e11d11e0d468dad80b810edda7af6891453f45f322aebe274881db5d"
+            "sha256": "ce4b92ddd960c05af6bb18dd5c930af542e954bf1e5d2d3cecb2e26cbfa17c8d"
           }
         ]
       },

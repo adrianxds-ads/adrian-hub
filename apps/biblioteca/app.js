@@ -62,16 +62,29 @@ function render(){
   els.list.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>toggleDone(Number(b.dataset.state)));
 }
 function episode(n){return data?.episodes.find(e=>e.number===n)}
+function playbackError(error){
+  if(!CFG.isEnglish)return;
+  const message=error?.name==='NotAllowedError'
+    ?'El navegador ha bloqueado el audio. Pulsa Play otra vez.'
+    :'No se puede reproducir este MP3. Prueba a recargar la aplicación; si continúa, vuelve a importar el original.';
+  const status=$('#playerError');if(status){status.textContent=message;status.hidden=false}
+  console.warn('Cambridge MP3 playback:',error);
+}
+async function playAudio(){
+  try{await els.audio.play();const status=$('#playerError');if(status)status.hidden=true;return true}
+  catch(error){playbackError(error);return false}
+}
 function toggleDone(n,force){
   const s=heard(),next=force===undefined?!s.has(n):!!force;
   next?s.add(n):s.delete(n);saveHeard(s);render();
 }
 async function toggleEpisode(n){
   const e=episode(n);if(!e||!e.audio||window.ModeTarea?.playing)return;
-  if(current===n){if(els.audio.paused)await els.audio.play();else els.audio.pause();render();return}
+  if(current===n){if(els.audio.paused)await playAudio();else els.audio.pause();render();return}
   persistPosition();current=n;els.audio.src=e.audio;els.player.hidden=false;els.playerTitle.textContent='#'+e.number+' · '+e.title;
   els.audio.onloadedmetadata=()=>{const p=positions()[n]||0;if(p>3&&p<els.audio.duration-10)els.audio.currentTime=p;updateTimeline()};
-  try{await els.audio.play()}catch{}
+  const status=$('#playerError');if(status)status.hidden=true;
+  await playAudio();
   render();
 }
 function persistPosition(){
@@ -85,7 +98,7 @@ function updateTimeline(){
 }
 els.search.oninput=render;
 els.sort.onclick=()=>{order=order==='asc'?'desc':'asc';const total=data?.episodes.length||0;els.sortLabel.textContent=order==='asc'?'1 → '+total:total+' → 1';render()};
-els.playerToggle.onclick=async()=>{if(!current)return;if(els.audio.paused)await els.audio.play();else els.audio.pause();render()};
+els.playerToggle.onclick=async()=>{if(!current)return;if(els.audio.paused)await playAudio();else els.audio.pause();render()};
 els.playerDone.onclick=()=>{if(current)toggleDone(current,true)};
 els.seek.oninput=()=>{if(Number.isFinite(els.audio.duration))els.audio.currentTime=els.audio.duration*Number(els.seek.value)/1000};
 els.audio.addEventListener('play',()=>{updateTimeline();render()});

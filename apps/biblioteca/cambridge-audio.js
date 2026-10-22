@@ -113,5 +113,8 @@ function catalogReady(data,onRefresh){
  setStatus(data.episodes.filter(e=>!!e.audio).length+' de '+data.episodes.length+' audiolibros disponibles en este dispositivo.');
 }
 window.CambridgeAudio={attachSaved,catalogReady,importFiles};
-window.addEventListener('pagehide',()=>{for(const url of urls.values())URL.revokeObjectURL(url);urls.clear();});
+// Do not revoke on pagehide: Android/Chromium may keep this document in the
+// back-forward cache. Revoking there makes the MP3 silently fail after return.
+// The browser releases these object URLs when the document is actually destroyed;
+// attach() still revokes superseded URLs when an MP3 is reimported.
 })();
