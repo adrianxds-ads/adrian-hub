@@ -4,14 +4,22 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.25",
-    "build": "hub-30.5.25-20261022",
+    "version": "30.5.26",
+    "build": "hub-30.5.26-20261022",
     "releasedAt": "2026-10-22",
     "changes": [
-      "Podcasts Inglés 0.1.3: quinto audiolibro Cambridge B2 de 20:18, voz Arlo; cinco exámenes disponibles y verificados.",
-      "Paquete ZIP incremental del examen 05, sin volver a importar los cuatro primeros ni exponer los audios privados."
+      "Podcasts Inglés 0.1.4: sexto examen Cambridge B2 narrado por Enya, 20:46, con 20 fragmentos verificados.",
+      "ZIP incremental privado del examen 06; seis audiolibros importables y reproducibles sin duplicaciones."
     ],
     "history": [
+      {
+        "version": "30.5.25",
+        "build": "hub-30.5.25-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Publicación del quinto audiolibro Cambridge B2, voz Arlo, 20:18, con paquete ZIP incremental privado."
+        ]
+      },
       {
         "version": "30.5.24",
         "build": "hub-30.5.24-20261022",
@@ -1042,7 +1050,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "baf14630bdc9aafff694f30f75bc248d0b6fa8ec95f055d458b36b72e68df279"
+          "sha256": "472dac3d9651846255b604732a80956e805a79309c74112fd7c91c12d899e9f8"
         },
         {
           "url": "version-verifier.js",
@@ -1050,7 +1058,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "0d87f60fc1815901d62f4c863ed13df9f4420d2ca05e3736921061e60a121aee"
+          "sha256": "9f69ea3ccbb51446dde06e3d323628388e643dca7de0f5b025cd28483f1739a8"
         },
         {
           "url": "styles.css",
@@ -1058,15 +1066,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "d8ec0d4600bfc6f1a046c93746e6ee0d1683b53864d19cf53a7db6b20d3f743b"
+          "sha256": "c141255fd06c86e96564aa2492421b93b68ef55afced1dcbcb7bc5438cd3a50e"
         },
         {
           "url": "build-assets.js",
-          "sha256": "e0446860348597ce059aeef2a691563a81a1db5756cbef63d0293e7c2403fbfe"
+          "sha256": "4b7a816475341a5269abfaeac84653597da5a7a24e9ee4bce7c46aa9bb7fef26"
         }
       ]
     },
-    "cacheBuild": "27e7597ca185587c",
+    "cacheBuild": "5da139505437244e",
     "status": "published"
   },
   "apps": [
@@ -2625,13 +2633,13 @@
     {
       "id": "biblioteca-english",
       "name": "Podcasts Inglés",
-      "version": "0.1.3",
+      "version": "0.1.4",
       "build": "sha256-29572bcdf492",
       "releasedAt": "2026-10-22",
       "kind": "bundled",
       "changes": [
-        "El examen 05 se incorpora a Podcasts Inglés: 20:18, voz Arlo, partes 1–4 y fragmentos verificados.",
-        "Catálogo ampliado a cinco; ZIP privado incremental solo del 05; importación y reproducción sin duplicados."
+        "Examen 06 Cambridge B2 con voz Enya: 20:46, partes 1–4, 20/20 fragmentos y transcripciones verificadas.",
+        "Catálogo ampliado a seis; importación ZIP incremental privada, sin duplicar MP3 ni modificar los 233 podcasts catalanes."
       ],
       "verify": {
         "files": [

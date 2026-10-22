@@ -34,7 +34,7 @@ with sync_playwright() as p:
   page.locator('#episodes .episode').first.wait_for(timeout=8000)
   print('NAV',width,page.url,'TITLE',page.title(),flush=True)
   assert '?lang=en' in page.url
-  assert page.locator('#episodes .episode').count()==5
+  assert page.locator('#episodes .episode').count()==6
   assert not errors,errors
   context.close()
  browser.close()
