@@ -38,8 +38,8 @@ with sync_playwright() as pw:
    import json
    entries=json.loads((Path(__file__).parent/'cambridge-exams.json').read_text(encoding='utf-8'))['episodes']
    page.locator('#cambridgeFiles').set_input_files([str(next(AUDIO.parent.rglob(entry['fileName']))) for entry in entries])
-   page.wait_for_function("document.querySelectorAll('#episodes [data-play]:not([disabled])').length===6",timeout=30000)
-   for number in (2,3,4,5,6):
+   page.wait_for_function("(n)=>document.querySelectorAll('#episodes [data-play]:not([disabled])').length===n",arg=len(entries),timeout=30000)
+   for number in range(2,len(entries)+1):
     page.locator(f'[data-play="{number}"]').click()
     page.wait_for_function('audio.readyState>=2 && !audio.paused && audio.currentTime>0.35',timeout=12000)
     print('REAL_MP3_PLAYED',number,page.evaluate('({time:audio.currentTime,duration:audio.duration,error:audio.error?.message??""})'),flush=True)

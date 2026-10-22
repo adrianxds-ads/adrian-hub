@@ -4,13 +4,14 @@ No real user progress or original Cambridge audio leaves this computer.
 """
 from pathlib import Path
 from playwright.sync_api import sync_playwright
-import requests
+import requests, json
+COUNT=json.loads((Path(__file__).with_name('cambridge-exams.json')).read_text(encoding='utf-8'))['count']
 BASE='http://127.0.0.1:19543'
 CAT=BASE+'/apps/biblioteca/'
 ENG=CAT+'?lang=en'
 AUDIO=Path.home()/'My Drive'/'Inglés B2'/'B2 Inglés · Exámenes'/'00 · ÍNDICE'/'Audiolibro Cambridge B2'/'01_EXAMEN01_PARTES1-4_CONTINUO_FOLA.mp3'
 assert AUDIO.is_file()
-assert requests.get(BASE+'/apps/biblioteca/cambridge-exams.json',timeout=10).json()['count']==6
+assert requests.get(BASE+'/apps/biblioteca/cambridge-exams.json',timeout=10).json()['count']==COUNT
 MOCK=r"""(()=>{
  Object.defineProperty(navigator,'wakeLock',{configurable:true,value:{request:async()=>({release:async()=>{},addEventListener(){}})}});
  Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{cancel(){},getVoices(){return []},speak(u){u.onend?.()}}});
@@ -37,18 +38,18 @@ with sync_playwright() as pw:
   page.goto(ENG,wait_until='domcontentloaded')
   page.locator('#episodes .episode').first.wait_for(timeout=20000)
   assert 'Cambridge' in page.title()
-  assert page.locator('#episodes .episode').count()==6
-  assert page.locator('#totalCount').inner_text()=='6'
+  assert page.locator('#episodes .episode').count()==COUNT
+  assert page.locator('#totalCount').inner_text()==str(COUNT)
   assert page.locator('#cambridgeImport').is_visible()
-  assert page.locator('#sortLabel').inner_text()=='1 → 6'
+  assert page.locator('#sortLabel').inner_text()==f'1 → {COUNT}'
   assert page.locator('#episodes [data-play="1"]').is_disabled()
   assert page.locator('#episodes [data-play="4"]').is_disabled()
   assert not page.locator('.transcript-link').count()
-  assert page.locator('.cambridge-audio-state').count()==6
+  assert page.locator('.cambridge-audio-state').count()==COUNT
   assert page.locator('body').inner_text().count('Easy English')==0
   # Import real full Google AI Studio MP3. File is stored only in IndexedDB.
   page.locator('#cambridgeFiles').set_input_files(str(AUDIO))
-  page.wait_for_function("document.getElementById('cambridgeImportStatus').textContent.includes('1 de 6')",timeout=30000)
+  page.wait_for_function("(s)=>document.getElementById('cambridgeImportStatus').textContent.includes(s)",arg=f'1 de {COUNT}',timeout=30000)
   assert page.locator('#episodes [data-play="1"]').is_enabled()
   assert page.locator('#episodes [data-play="2"]').is_disabled()
   page.locator('#episodes [data-play="1"]').click()
@@ -60,7 +61,7 @@ with sync_playwright() as pw:
   assert 1 in page.evaluate("JSON.parse(localStorage.getItem('adrianLibraryCambridgeAudiobooksV1'))")
   # Task mode inherits exact same dinosaur mode as Catalan; no artificial tasks in real profile.
   page.locator('#tabTasks').click()
-  assert page.locator('#taskEpisodes .episode').count()==6
+  assert page.locator('#taskEpisodes .episode').count()==COUNT
   assert page.locator('#taskEpisodes [data-task-episode="1"]').first.is_enabled()
   assert page.locator('#taskEpisodes [data-task-episode="2"]').first.is_disabled()
   page.locator('#taskEpisodes [data-task-episode="1"]').first.click()
@@ -83,7 +84,7 @@ with sync_playwright() as pw:
   assert page.evaluate("localStorage.getItem('adrianEasyCatalanTaskLiveV1')")==snapshot['live']
   assert page.evaluate("document.documentElement.scrollWidth<=window.innerWidth+1")
   assert not errors,errors
-  print('PASS',width,'CAT_233','CAMBRIDGE_6','REAL_MP3_SHA_VERIFIED','PERSISTENT_IDB','LISTEN','TASK_DINO','INDEPENDENT_HISTORY','NO_JS_ERRORS',flush=True)
+  print('PASS',width,'CAT_233',f'CAMBRIDGE_{COUNT}','REAL_MP3_SHA_VERIFIED','PERSISTENT_IDB','LISTEN','TASK_DINO','INDEPENDENT_HISTORY','NO_JS_ERRORS',flush=True)
   context.close()
  browser.close()
 print('CAMBRIDGE_BILINGUAL_ACCEPTANCE_PASSED',flush=True)

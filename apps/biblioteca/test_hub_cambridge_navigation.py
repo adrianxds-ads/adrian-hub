@@ -1,6 +1,9 @@
 from playwright.sync_api import sync_playwright
 import requests
 from urllib.parse import urlsplit
+from pathlib import Path
+import json
+COUNT=json.loads((Path(__file__).with_name('cambridge-exams.json')).read_text(encoding='utf-8'))['count']
 ROOT='http://127.0.0.1:19543/'
 session=requests.Session()
 asset_cache={}
@@ -34,7 +37,7 @@ with sync_playwright() as p:
   page.locator('#episodes .episode').first.wait_for(timeout=8000)
   print('NAV',width,page.url,'TITLE',page.title(),flush=True)
   assert '?lang=en' in page.url
-  assert page.locator('#episodes .episode').count()==6
+  assert page.locator('#episodes .episode').count()==COUNT
   assert not errors,errors
   context.close()
  browser.close()
