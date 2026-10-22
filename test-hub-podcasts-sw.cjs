@@ -65,6 +65,7 @@ async function run(bad){
   let req=new Request(scope+'apps/biblioteca/cambridge-exams.json');
   assert((await c.match(req))?.ok,'Cambridge catalog is cached');
   assert((await c.match(new Request(scope+'apps/biblioteca/cambridge-audio.js')))?.ok,'Cambridge importer cached');
+  assert((await c.match(new Request(scope+'apps/biblioteca/cambridge-zip.js')))?.ok,'Cambridge ZIP reader cached');
   assert((await c.match(new Request(scope+'apps/biblioteca/config.js')))?.ok,'Language config cached');
  }
 }

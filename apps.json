@@ -1,6 +1,6 @@
 {
   "version": 28,
-  "hubVersion": "30.5.23",
+  "hubVersion": "30.5.24",
   "apps": [
     {
       "id": "english",
@@ -147,7 +147,7 @@
       "description": "Escucha exclusivamente los audiolibros de nuestros exámenes Cambridge B2 generados con Google AI Studio. Reproductor y Modo Tarea compartidos con Català Podcasts; audios privados importados en el dispositivo.",
       "features": [
         "Audiolibros Cambridge B2 originales",
-        "Reproductor de audio importado y privado",
+        "Importación conjunta desde un ZIP privado o MP3",
         "Modo Tarea con dinosaurio",
         "Escuchas y tareas independientes de Catalán"
       ]

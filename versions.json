@@ -4,14 +4,22 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.23",
-    "build": "hub-30.5.23-20261022",
+    "version": "30.5.24",
+    "build": "hub-30.5.24-20261022",
     "releasedAt": "2026-10-22",
     "changes": [
-      "Podcasts Inglés 0.1.1: Play vuelve a funcionar tras regresar a la aplicación; los MP3 privados conservan sus enlaces mientras la pestaña siga viva.",
-      "Los errores del reproductor muestran una explicación; cuatro audiolibros originales comprobados sin cambios en Català Podcasts ni Modo Tarea."
+      "Podcasts Inglés 0.1.2: incorporación de exámenes Cambridge B2 por un solo ZIP privado; evita importar cada MP3 por separado.",
+      "Cuatro audios originales verificados e importados, historial y Català Podcasts sin cambios."
     ],
     "history": [
+      {
+        "version": "30.5.23",
+        "build": "hub-30.5.23-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Reparación de Play y de reanudación del MP3 privado después de volver a la aplicación."
+        ]
+      },
       {
         "version": "30.5.22",
         "build": "hub-30.5.22-20261021",
@@ -1026,7 +1034,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "26ef4b9ad06d644dec2c5782ffbdb84c4482c577c4bb447f4feb2e61206f6010"
+          "sha256": "9b79c34b50a1619cc002860da681d6c05c9aef1d52aaf71c215023730c274260"
         },
         {
           "url": "version-verifier.js",
@@ -1034,7 +1042,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "32862932657f30baa66f87d3b36e5fe66d7f3cb570f776a72cbc1264ce66e73a"
+          "sha256": "ff9dba978fecc531a78d3ef5f75e37466b6f393a5a2dafa79b26f75bee3c2022"
         },
         {
           "url": "styles.css",
@@ -1042,15 +1050,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "54c8b20c2fa18b757aafd7eb7bcc623a3c9eb8aa794174d759a41595a6bb0e57"
+          "sha256": "a39d88e1f5017f2082712d9f7edc6778b186e52f81d63d474982fbc615e414be"
         },
         {
           "url": "build-assets.js",
-          "sha256": "d302efd2ffd5673910ddd9ce8401de2ebb9fb4ee3bea2dc13647e2693be2c8a4"
+          "sha256": "5bc8c8197eb8794316eb3d0b00796569bf0056f05d8b448a4a77acc2319ae70c"
         }
       ]
     },
-    "cacheBuild": "59a857a6bd082c11",
+    "cacheBuild": "f5f7f06cdfe78f18",
     "status": "published"
   },
   "apps": [
@@ -2475,7 +2483,7 @@
       "id": "biblioteca",
       "name": "Català Podcasts",
       "version": "0.5.9",
-      "build": "sha256-39283eaa00a2",
+      "build": "sha256-29572bcdf492",
       "releasedAt": "2026-10-21",
       "kind": "bundled",
       "changes": [
@@ -2485,7 +2493,7 @@
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "799fa7133762cb41e3003f8352453f3b30aec915d6f0a01742facb59f21a3a06"
+            "sha256": "389b1f62c79d603e5270a88f656762e29e6321cb0db10b7a80c3ed16e29d8c45"
           },
           {
             "url": "./apps/biblioteca/app.js",
@@ -2609,19 +2617,19 @@
     {
       "id": "biblioteca-english",
       "name": "Podcasts Inglés",
-      "version": "0.1.1",
-      "build": "sha256-39283eaa00a2",
+      "version": "0.1.2",
+      "build": "sha256-29572bcdf492",
       "releasedAt": "2026-10-22",
       "kind": "bundled",
       "changes": [
-        "Corregida la reanudación de MP3 privados después de volver a la app; Play comunica los errores de audio en vez de ocultarlos.",
-        "Biblioteca Cambridge B2 01–04 y Modo Tarea conservados, sin publicar los MP3 originales."
+        "Importación masiva de audiolibros Cambridge B2 desde un único archivo ZIP privado, sin subir MP3 al Hub ni a GitHub.",
+        "Validación SHA-256 por examen; conserva audios existentes y evita duplicados al repetir una importación."
       ],
       "verify": {
         "files": [
           {
             "url": "./apps/biblioteca/index.html",
-            "sha256": "799fa7133762cb41e3003f8352453f3b30aec915d6f0a01742facb59f21a3a06"
+            "sha256": "389b1f62c79d603e5270a88f656762e29e6321cb0db10b7a80c3ed16e29d8c45"
           },
           {
             "url": "./apps/biblioteca/app.js",

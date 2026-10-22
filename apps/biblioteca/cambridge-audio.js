@@ -74,31 +74,45 @@ async function importFiles(files){
  if(!catalog)return;
  const selected=[...files];
  if(!selected.length)return;
+ const expanded=[];
+ let failed=0,skipped=0,count=0,firstError='';
+ for(const file of selected){
+  if(file.name.toLowerCase().endsWith('.zip')){
+   try{
+    setStatus('Abriendo paquete '+file.name+'…');
+    expanded.push(...await window.CambridgeZip.unpack(file));
+   }catch(error){
+    failed++;firstError||=error.message;
+    console.warn('ZIP omitido:',file.name,error);
+   }
+  }else expanded.push(file);
+ }
  const unique=new Set();
- let count=0,failed=0;
- for(let i=0;i<selected.length;i++){
-  const file=selected[i];
+ for(let i=0;i<expanded.length;i++){
+  const file=expanded[i];
   try{
-   setStatus('Comprobando MP3 '+(i+1)+' de '+selected.length+'…');
+   setStatus('Verificando audiolibro '+(i+1)+' de '+expanded.length+'…');
    if(!file.name.toLowerCase().endsWith('.mp3')||file.size<10000)throw new Error('No es un MP3 válido.');
    const candidates=catalog.episodes.filter(e=>!unique.has(e.number)&&e.audioBytes===file.size);
    if(!candidates.length)throw new Error('No coincide con ningún examen terminado.');
    const hash=await sha(file);
    const row=candidates.find(e=>e.audioSha256===hash);
    if(!row)throw new Error('El contenido no coincide con los MP3 originales comprobados.');
+   unique.add(row.number);
+   if(row.audio){skipped++;continue}
    await store(row.number,hash,file);
    attach(row,file);
-   unique.add(row.number);
    count++;
   }catch(error){
-   failed++;
+   failed++;firstError||=error.message;
    console.warn('MP3 omitido:',file.name,error);
   }
  }
  refresh?.();
  const ready=catalog.episodes.filter(e=>!!e.audio).length;
- setStatus(ready+' de '+catalog.episodes.length+' disponibles. '+count+' incorporado(s) ahora.'+
-  (failed?' '+failed+' archivo(s) no reconocido(s): deben ser nuestros MP3 originales.':''));
+ setStatus(ready+' de '+catalog.episodes.length+' disponibles. '+count+' nuevo(s).'+
+  (skipped?' '+skipped+' ya estaban guardados.':'')+
+  (failed?' '+failed+' no incorporado(s): '+firstError:''));
 }
 function catalogReady(data,onRefresh){
  if(!window.PodcastLibraryConfig?.isEnglish)return;
