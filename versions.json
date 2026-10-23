@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-22",
+  "generatedAt": "2026-10-23",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -1758,51 +1758,60 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.11.22",
-      "build": "sha256-e65426b1acc9",
-      "releasedAt": "2026-10-17",
+      "version": "1.12.6",
+      "build": "sha256-ddd1f8395655",
+      "releasedAt": "2026-10-22",
       "kind": "public",
       "changes": [
-        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
-        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
-        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
-        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+        "Cloze Quiz 1.12.6: quiz Cambridge de las partes 1-4, temporizadores adaptados a la longitud de cada pregunta y ajustes de navegacion y portada en movil.",
+        "Registro del Hub alineado con los seis archivos ya publicados mediante huellas SHA-256; no se modifica la aplicacion ni sus datos."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "696cc66528bef21ece693ea35bf374a7f973519f1e986cef15d77d5817f467a1"
+            "sha256": "7043d5175b43b6115316485cd6b24952660ad9b52128f21c705ad1e62a5bfd27"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "029b9a4d7ffa4aea165b110500aeb12fa201e40e128f921569fc714242268c22"
+            "sha256": "22d6af53c12d2e7320bfc333e447ca389c3d7b95679463566ab1e2fc31a10e2c"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "e95fece21b0df14717f41dc5fc45055843e145641974f41f7b872f92d7277b44"
+            "sha256": "22cf7e53fc05cb6d2456d05f3900fd28018c4c8f06406c93cfb6590d28f59651"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "5a685ff279785c4492a28a52560f3a537cc72ba1e4a8b4c2813ef0521aa5d60d"
+            "sha256": "b57ae4d525587e9e951d8b819e00596148dd2b6aa2315450d312da0330f61fd4"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
-            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+            "sha256": "dbde6ce5de3275451c01ad60abf1c6d0ca75ea549d1ece626a48a90cbbc39386"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.css",
-            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
+            "sha256": "0e89193f18bb46ffaef4cc1e89ddb3e446af8818a8d6c5fae483d21af8022261"
           }
         ]
       },
-      "sourceCommit": "a8b8ecb56482369da983d0dbf406e53aeb7df9c6",
-      "cacheBuild": "ergonomics-5424adb59ed07e6b",
+      "sourceCommit": "be68d8db76e8bbf463c77fec12448eaff3d81083",
+      "cacheBuild": "708830993118bc01",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.11.22",
+          "build": "sha256-e65426b1acc9",
+          "date": "2026-10-17",
+          "changes": [
+            "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+            "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+            "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+            "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+          ]
+        },
         {
           "version": "1.11.21",
           "build": "sha256-84fc97677cf3",
