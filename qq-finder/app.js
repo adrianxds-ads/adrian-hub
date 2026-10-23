@@ -9,7 +9,16 @@ const persist = (key,value) => { try { localStorage.setItem(key,JSON.stringify(v
 const restore = (key,fallback) => { try {const value=JSON.parse(localStorage.getItem(key));return value??fallback;}catch(e){return fallback;} };
 const favs = new Set(restore('cucu-favorites-v1',[]));
 const usage = restore('cucu-usage-v1',{});
-const state = {mode:'all',sort:restore('cucu-order-v1','usage'),query:'',visible:30,active:null,editing:false};
+const state = {mode:'essentials',sort:restore('cucu-order-v1','alpha'),query:'',visible:30,active:null,editing:false};
+const essentialIds=['qqpro','qqs','qqctx','qqe','qqpln','qqres','qqadd','qqcre','qqaud','qqx','qqzip','qq2','qqcomp','qqmenu','qqsearch'];
+const essentialRank=new Map(essentialIds.map((id,i)=>[id,i]));
+const windowsKeys=[
+ ['Edición','Ctrl + C','Copiar','copiar'],['Edición','Ctrl + V','Pegar','pegar'],['Edición','Ctrl + X','Cortar','cortar'],['Edición','Ctrl + Z','Deshacer','deshacer'],['Edición','Ctrl + Y','Rehacer','rehacer'],['Edición','Ctrl + A','Seleccionar todo','seleccion'],
+ ['Edición','Ctrl + F','Buscar en documento o página','buscar'],['Ventanas','Alt + Tab','Cambiar de ventana','aplicaciones'],['Ventanas','Win + E','Abrir Explorador de archivos','carpetas'],['Ventanas','Win + V','Historial de portapapeles (si está activado)','historial'],['Ventanas','Win + Shift + S','Recortar pantalla','captura'],['Ventanas','Win + D','Mostrar escritorio','escritorio'],['Ventanas','Ctrl + Shift + Esc','Administrador de tareas','procesos'],['Ventanas','Win + L','Bloquear sesión','bloquear'],
+ ['Navegador','Ctrl + T','Pestaña nueva','pestaña'],['Navegador','Ctrl + W','Cerrar pestaña','pestaña'],['Navegador','Ctrl + Shift + T','Reabrir pestaña cerrada','restaurar'],
+ ['QQ · AHK documentado','Alt + Q','Abrir QQ Finder (script versionado)','finder'],['QQ · AHK documentado','Alt + Shift + Q','Abrir menú clásico QQ (script versionado)','menu']
+].map(([category,keys,description,keywords])=>({category,keys,description,keywords}));
+
 const categoryPalette = [
  ['web', '#56d6d3','🔗'],['windows','#ffcd73','⌨️'],['informática','#55b7ff','💻'],
  ['código','#55b7ff','💻'],['audio','#f8a9e4','🎧'],['notebook','#f8a9e4','🎧'],
@@ -27,6 +36,8 @@ const paletteOf = x => {
 const isHistoric=x=>x.status==='historical';
 const isAction=x=>x.type==='action'||!(x.text||'').trim();
 function matchMode(x){
+ if(state.mode==='windows')return false;
+ if(state.mode==='essentials')return !isHistoric(x)&&essentialRank.has(x.id);
  if(state.mode==='history')return isHistoric(x);
  if(isHistoric(x))return false;
  if(state.mode==='favorites')return favs.has(x.id);
@@ -57,7 +68,9 @@ function ordered(){
  return all.filter(matchMode).map(x=>({x,rank:relevance(x,terms)})).filter(z=>z.rank!==100)
  .sort((a,b)=>{
   if(terms.length&&a.rank!==b.rank)return a.rank-b.rank;
-  if(state.mode!=='favorites'&&favs.has(a.x.id)!==favs.has(b.x.id))return favs.has(a.x.id)?-1:1;
+  if(state.mode==='essentials')return essentialRank.get(a.x.id)-essentialRank.get(b.x.id);
+  if(state.mode==='favorites')return a.x.name.localeCompare(b.x.name,'es');
+  if(favs.has(a.x.id)!==favs.has(b.x.id))return favs.has(a.x.id)?-1:1;
   return compareUsage(a.x,b.x)||a.x.name.localeCompare(b.x.name,'es');
  }).map(z=>z.x);
 }
@@ -83,7 +96,7 @@ function notify(message){
  status.textContent=message;
  status.setAttribute('role','status');
  clearTimeout(toastTimeout);
- toastTimeout=setTimeout(()=>{status.textContent='v1.1.0 · '+favs.size+' destacados';},1800);
+ toastTimeout=setTimeout(()=>{status.textContent='★ '+favs.size+' favoritos personales';},1800);
 }
 async function clipboardWrite(value){
  if(navigator.clipboard?.writeText) {
@@ -142,20 +155,40 @@ function row(x){
  wrap.append(main,fav,action);
  return wrap;
 }
+function windowsResults(){
+ const terms=tokensOf(state.query);
+ return windowsKeys.filter(x=>terms.every(t=>norm([x.keys,x.description,x.category,x.keywords].join(' ')).includes(t)));
+}
+function windowsRow(x){
+ const wrap=document.createElement('div');wrap.className='shortcutRow';
+ const info=document.createElement('div');info.className='shortcutInfo';
+ const keys=document.createElement('kbd');keys.textContent=x.keys;
+ const desc=document.createElement('span');desc.textContent=x.description;
+ const cat=document.createElement('small');cat.textContent=x.category;
+ info.append(keys,desc,cat);
+ const copy=button('Copiar','shortcutCopy',async()=>{
+  notify(await clipboardWrite(x.keys)?'✓ Copiado: '+x.keys:'No se pudo copiar; selecciona el texto.');
+ },'Copiar '+x.keys);
+ wrap.append(info,copy);return wrap;
+}
 function render(){
- const out=ordered(),list=$('results');
- list.replaceChildren();
- for(const x of out.slice(0,state.visible))list.append(row(x));
+ const list=$('results');list.replaceChildren();
+ const isWin=state.mode==='windows',out=isWin?windowsResults():ordered();
+ for(const x of out.slice(0,state.visible))list.append(isWin?windowsRow(x):row(x));
  if(!out.length){
-  const div=document.createElement('p');div.className='empty';
-  div.textContent=state.mode==='favorites'?'Todavía no tienes favoritos. Pulsa ☆ para guardar los que más utilices.':'No hay coincidencias. Prueba otro código o palabra.';
-  list.append(div);
+  const p=document.createElement('p');p.className='empty';
+  p.textContent=state.mode==='favorites'?'Sin favoritos aún: ve a Esenciales y toca ☆.':'No hay coincidencias. Prueba otro término.';
+  list.append(p);
  }
- $('counter').textContent=out.length+' resultado'+(out.length===1?'':'s')+' · '+all.length+' registros';
+ const intro={essentials:'Seleccionados por utilidad en QQ Prompts, no por supuestas estadísticas.',favorites:'Guardados por ti en este navegador.',all:'Listado completo con búsqueda, categorías y ordenación.',windows:'Chuleta de Windows. Los accesos de QQ proceden del AHK versionado; instalación actual no comprobada.'};
+ $('viewIntro').textContent=intro[state.mode]||intro.all;
+ document.querySelector('.filters').hidden=state.mode!=='all';
+ document.querySelector('.sortbar').hidden=state.mode!=='all';
+ $('counter').textContent=out.length+' '+(isWin?'atajos':'resultados')+(state.mode==='essentials'?' · Orden de importancia':'');
  $('more').hidden=out.length<=state.visible;
  $('more').textContent='Mostrar más ('+(out.length-state.visible)+')';
  $('clear').hidden=!state.query;
- $('sourceState').textContent= $('sourceState').textContent.startsWith('✓')?$('sourceState').textContent:('v1.1.0 · '+favs.size+' destacados');
+ if(!$('sourceState').textContent.startsWith('✓'))$('sourceState').textContent='★ '+favs.size+' favoritos personales';
 }
 function openDetail(x){
  state.active=x;state.editing=false;
@@ -227,6 +260,12 @@ function exportCSV(){
  notify('CSV preparado: '+used.size+' atajos de texto');
 }
 const input=$('q');
+document.querySelectorAll('.viewTab').forEach(tab=>tab.addEventListener('click',()=>{
+ state.mode=tab.dataset.view;state.visible=30;
+ document.querySelectorAll('.viewTab').forEach(t=>{t.classList.toggle('active',t===tab);t.setAttribute('aria-pressed',String(t===tab));});
+ document.querySelectorAll('.chip').forEach(t=>{t.classList.toggle('selected',t.dataset.mode==='all');t.setAttribute('aria-pressed',String(t.dataset.mode==='all'));});
+ render();
+}));
 input.addEventListener('input',()=>{state.query=input.value;state.visible=30;render();});
 $('clear').addEventListener('click',()=>{input.value='';state.query='';state.visible=30;render();input.focus();});
 $('more').addEventListener('click',()=>{state.visible+=30;render();});
@@ -236,7 +275,7 @@ document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
   c.classList.toggle('selected',c===b);c.setAttribute('aria-pressed',String(c===b));
  });render();
 }));
-$('sortOrder').value=['usage','recent','alpha','category'].includes(state.sort)?state.sort:'usage';
+$('sortOrder').value=['usage','recent','alpha','category'].includes(state.sort)?state.sort:'alpha';
 $('sortOrder').addEventListener('change',e=>{state.sort=e.target.value;persist('cucu-order-v1',state.sort);render();});
 $('exportsToggle').addEventListener('click',()=>{
  const panel=$('exports');panel.hidden=!panel.hidden;
@@ -277,7 +316,7 @@ $('select').addEventListener('click',()=>{
 document.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&!$('overlay').hidden){closeDetail();return;}
  if(e.key==='Enter'&&e.target===input){
-  const first=document.querySelector('.entry .item');
+  const first=document.querySelector('.entry .item, .shortcutRow .shortcutCopy');
   if(first){e.preventDefault();first.click();}
  }
 });
