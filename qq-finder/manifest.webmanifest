@@ -1,7 +1,7 @@
 {
   "id": "/adrian-hub/qq-finder/",
-  "name": "Cucu Finder · Biblioteca QQ",
-  "short_name": "Cucu Finder",
+  "name": "QQ Finder · Biblioteca de atajos",
+  "short_name": "QQ Finder",
   "description": "Busca, destaca, rellena y copia tus prompts QQ al instante",
   "start_url": "./",
   "scope": "/adrian-hub/qq-finder/",
