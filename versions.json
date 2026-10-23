@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.28",
-    "build": "hub-30.5.28-20261022",
-    "releasedAt": "2026-10-22",
+    "version": "30.5.29",
+    "build": "hub-30.5.29-20261023",
+    "releasedAt": "2026-10-23",
     "changes": [
-      "Podcasts Inglés 0.1.5: séptimo audiolibro Cambridge B2 completo, voz Fola, 20:36 y 20 fragmentos verificados.",
-      "Paquete ZIP incremental privado del examen 07; conserva progresos y publicación previa de Cucu Finder."
+      "Ajustes incorpora Conectar sincronizacion: Chrome solicita el permiso de red local solo cuando el usuario pulsa el boton; nunca se concede automaticamente.",
+      "La comprobacion utiliza el servicio de sincronizacion original y, con acceso autorizado, inicia su reconciliacion protegida; ejercicios, datos y configuracion de Tailscale conservados."
     ],
     "history": [
+      {
+        "version": "30.5.28",
+        "build": "hub-30.5.28-20261022",
+        "date": "2026-10-22",
+        "changes": [
+          "Podcasts Inglés 0.1.5: séptimo audiolibro Cambridge B2 completo, voz Fola, 20:36 y 20 fragmentos verificados.",
+          "Paquete ZIP incremental privado del examen 07; conserva progresos y publicación previa de Cucu Finder."
+        ]
+      },
       {
         "version": "30.5.27",
         "build": "hub-30.5.27-20261022",
@@ -1069,7 +1078,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "b5d216eb201f302eee4a9dd059e78fc1bfab9fe59128db3200a010e1314281ea"
+          "sha256": "78056486681c47283763be58d4c778b27e83a78556531375f0434ddcba5f06c9"
         },
         {
           "url": "version-verifier.js",
@@ -1077,23 +1086,23 @@
         },
         {
           "url": "index.html",
-          "sha256": "b86d75bd10418819c5ccd607819fecc3cf49f241cd2eb2cbce2d47334db131f4"
+          "sha256": "293d0406c2cb52dd96141fc1b03cef71a2103436e38a9e81c9386dea3eded3da"
         },
         {
           "url": "styles.css",
-          "sha256": "ddbe90a98fc417942745a963e5a3853a8270494f533d021063cfaeb3785c8fb9"
+          "sha256": "816df907b2b0046eb19fdfd6d222b046e24f02b5149576aaa7ba3282857415f2"
         },
         {
           "url": "service-worker.js",
-          "sha256": "d83a33489156e17d6063079dc3b1b4464e4a1c61b56f685f284abcd06da8f78a"
+          "sha256": "7290e69b9fd88da101d2778af8756c4c18a4179de9505ec751682285d5a3e6d1"
         },
         {
           "url": "build-assets.js",
-          "sha256": "eae4eb55cbcafa9992a01f91b6292b57eaaf5ef41526459905356a4cf3bc30b8"
+          "sha256": "6931f1b04eec0dd3521e456554753318051f4e3adc4a93101b3a93b5484804fe"
         }
       ]
     },
-    "cacheBuild": "6eeae01c605ed7ca",
+    "cacheBuild": "dca957780e83404b",
     "status": "published"
   },
   "apps": [

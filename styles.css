@@ -1011,3 +1011,8 @@ button:disabled {
 @media (prefers-reduced-motion: reduce) {
   .nucleo-readable #groups .app.ad-card.redesign { transition: none; }
 }
+
+/* Explicit, user-controlled connection to the existing private sync service. */
+#hubSyncAccess{display:grid;gap:9px;margin:12px 0;padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:12px}
+#hubSyncAccess .ad-button{justify-self:start;max-width:100%}
+#hubSyncAccess small{display:block;line-height:1.5;color:var(--text-secondary,#c5d0d8)}

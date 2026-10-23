@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.28';
-const HUB_BUILD='hub-30.5.28-20261022';
+const HUB_VERSION='30.5.29';
+const HUB_BUILD='hub-30.5.29-20261023';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -238,6 +238,36 @@ document.querySelector('#verifyVersionsBtn')?.addEventListener('click',()=>verif
 document.querySelector('#updateAllVersionsBtn')?.addEventListener('click',updateAllVersions);
 document.querySelector('#versionDialogClose')?.addEventListener('click',()=>document.querySelector('#versionDialog')?.close());
 document.querySelector('#versionDialog')?.addEventListener('click',e=>{if(e.target===e.currentTarget)e.currentTarget.close();});
+
+
+// Chrome Local Network Access requires a user gesture for permission to a private Tailnet host.
+// This control never changes browser permission or deletes progress; consent is managed by Chrome.
+async function connectHubSyncFromSettings(){
+  const button=document.querySelector('#hubSyncConnect'),message=document.querySelector('#hubSyncAccessStatus');
+  if(!button||!message||button.disabled)return;
+  button.disabled=true;
+  message.textContent='Solicitando acceso al servidor privado...';
+  try{
+    // Begin the network request directly from the user's click (before any await).
+    const response=await fetch('https://adrin.tail8fd071.ts.net/hub-sync/health',{
+      mode:'cors',cache:'no-store',targetAddressSpace:'local'
+    });
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const health=await response.json();
+    if(!health.ok||health.service!=='adrian-hub-sync')throw new Error('Unexpected service');
+    message.textContent='Servidor accesible. Comprobando sincronizaci\u00f3n...';
+    if(!window.AdrianSync?.pull){message.textContent='Servidor disponible; este navegador no tiene cliente de sincronizaci\u00f3n.';return;}
+    const synced=await window.AdrianSync.pull(true);
+    message.textContent=synced?'Sincronizaci\u00f3n conectada. Se conserva el progreso local.':'Servidor disponible, pero el progreso sigue pendiente de sincronizaci\u00f3n.';
+  }catch(_){
+    let permission='';
+    try{permission=(await navigator.permissions.query({name:'local-network'})).state;}catch(_){}
+    message.textContent=permission==='denied'
+      ?'Acceso bloqueado. En Chrome, abre Configuraci\u00f3n del sitio y permite Red local para este Hub.'
+      :'No se pudo conectar. Revisa Tailscale y, si Chrome solicita acceso a la red local, decide si quieres permitirlo.';
+  }finally{button.disabled=false;}
+}
+document.querySelector('#hubSyncConnect')?.addEventListener('click',connectHubSyncFromSettings);
 
 // Service worker registration is owned by index.html (vHUB_VERSION).
 // Version Center retains explicit, opt-in update controls above.
