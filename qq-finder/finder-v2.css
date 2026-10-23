@@ -25,3 +25,8 @@ main{max-width:960px;padding-inline:max(14px,env(safe-area-inset-left)) max(14px
 .shortcutCopy{min-height:44px;padding:7px 4px;border:1px solid #678dbd;border-radius:10px;background:#2c4b73;color:#fff;font-weight:700;font-size:.74rem}
 @media(max-width:420px){.viewTab{font-size:.7rem;padding:7px 3px}.entry{grid-template-columns:minmax(0,1fr) 60px}.entry .item{padding:10px}.entry .quickCopy{font-size:.7rem}}
 @media(max-width:340px){.viewNav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Correcciones de la revisión visual */
+.more[hidden]{display:none!important}
+.entry .favButton[aria-pressed=false]{color:#a9bdd4;background:#223450;border-color:#4e6683}
+.entry .favButton[aria-pressed=true]{color:#ffdb7e;background:#514324;border-color:#bd9b47}
