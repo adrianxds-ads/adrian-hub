@@ -135,10 +135,10 @@ function row(x){
  const code=document.createElement('span');code.className='code';code.textContent=x.id;
  top.append(title,code);
  const sub=document.createElement('div');sub.className='sub';
- const how=isAction(x)?(x.target_url?'Abrir enlace':'Acción · sin texto'):('Prompt · '+(usage[x.id]?.count||0)+' usos');
+ const how=isAction(x)?(x.target_url?'Abrir enlace':'Acción · sin texto'):'Prompt';
  sub.textContent=x.category+' · '+how+(isHistoric(x)?' · Histórico':x.status==='proposal'?' · Propuesta':'');
  main.append(top,sub);
- const fav=button(favs.has(x.id)?'★':'☆','favButton',()=>toggleFavorite(x.id),'Destacar '+x.id);
+ const fav=button(favs.has(x.id)?'★':'☆','favButton',()=>toggleFavorite(x.id),(favs.has(x.id)?'Quitar de favoritos ':'Añadir a favoritos ')+x.id);
  fav.setAttribute('aria-pressed',String(favs.has(x.id)));
  let action;
  if(x.text){
