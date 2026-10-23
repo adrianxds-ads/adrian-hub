@@ -1,6 +1,6 @@
 {
   "version": 29,
-  "hubVersion": "30.5.29",
+  "hubVersion": "30.5.30",
   "apps": [
     {
       "id": "cucu-finder",
@@ -286,7 +286,7 @@
       "subtitle": "Inspección y objetivos",
       "group": "Hogar",
       "kind": "private-pwa",
-      "url": "https://adrin.tail8fd071.ts.net/limpieza/",
+      "url": "https://adrin.tail8fd071.ts.net:8443/limpieza/",
       "repo": "https://github.com/adrianxds-ads/limpieza-2.0",
       "glyph": "LI",
       "description": "Organiza las tareas de limpieza y comprueba su estado. Requiere acceso privado por Tailscale.",

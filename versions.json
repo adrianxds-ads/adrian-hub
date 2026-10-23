@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.29",
-    "build": "hub-30.5.29-20261023",
+    "version": "30.5.30",
+    "build": "hub-30.5.30-20261023",
     "releasedAt": "2026-10-23",
     "changes": [
-      "Ajustes incorpora Conectar sincronizacion: Chrome solicita el permiso de red local solo cuando el usuario pulsa el boton; nunca se concede automaticamente.",
-      "La comprobacion utiliza el servicio de sincronizacion original y, con acceso autorizado, inicia su reconciliacion protegida; ejercicios, datos y configuracion de Tailscale conservados."
+      "Restablecido el enlace privado de Limpieza 2.2 a su servidor independiente HTTPS 8443 dentro de Tailscale; Nucleo Vault conserva 8765.",
+      "Backend original 0.2.13 con autenticacion previa; servidor 8790 y vigilancia Windows existente. Planificador automatico de camara temporalmente inactivo sin modificar sus horarios."
     ],
     "history": [
+      {
+        "version": "30.5.29",
+        "build": "hub-30.5.29-20261023",
+        "date": "2026-10-23",
+        "changes": [
+          "Ajustes incorpora Conectar sincronizacion: Chrome solicita el permiso de red local solo cuando el usuario pulsa el boton; nunca se concede automaticamente.",
+          "La comprobacion utiliza el servicio de sincronizacion original y, con acceso autorizado, inicia su reconciliacion protegida; ejercicios, datos y configuracion de Tailscale conservados."
+        ]
+      },
       {
         "version": "30.5.28",
         "build": "hub-30.5.28-20261022",
@@ -1078,7 +1087,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "78056486681c47283763be58d4c778b27e83a78556531375f0434ddcba5f06c9"
+          "sha256": "a49d9d7eb7ee9776f7ec51df15182f40f20dfd04f74563751f763f7ad6b5597b"
         },
         {
           "url": "version-verifier.js",
@@ -1086,7 +1095,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "293d0406c2cb52dd96141fc1b03cef71a2103436e38a9e81c9386dea3eded3da"
+          "sha256": "c37e64848de941c390a1861ff1fdae422b27a43c1bd616ea44e5334f73cc2d24"
         },
         {
           "url": "styles.css",
@@ -1094,15 +1103,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "7290e69b9fd88da101d2778af8756c4c18a4179de9505ec751682285d5a3e6d1"
+          "sha256": "8a7810a9c06e1a4b699872c276af9a535e7dc6637ef838d64b05a7578752d046"
         },
         {
           "url": "build-assets.js",
-          "sha256": "6931f1b04eec0dd3521e456554753318051f4e3adc4a93101b3a93b5484804fe"
+          "sha256": "e662ed02da0079923d409df78cee721236258d09ab8f25f17468d635abfc6215"
         }
       ]
     },
-    "cacheBuild": "dca957780e83404b",
+    "cacheBuild": "96c0c409c6b315a2",
     "status": "published"
   },
   "apps": [
