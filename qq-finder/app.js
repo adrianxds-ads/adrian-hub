@@ -9,7 +9,7 @@ const persist = (key,value) => { try { localStorage.setItem(key,JSON.stringify(v
 const restore = (key,fallback) => { try {const value=JSON.parse(localStorage.getItem(key));return value??fallback;}catch(e){return fallback;} };
 const favs = new Set(restore('cucu-favorites-v1',[]));
 const usage = restore('cucu-usage-v1',{});
-const state = {mode:'essentials',sort:restore('cucu-order-v1','alpha'),query:'',visible:30,active:null,editing:false};
+const state = {mode:'essentials',sort:restore('qq-finder-sort-v2','alpha'),query:'',visible:30,active:null,editing:false};
 const essentialIds=['qqpro','qqs','qqctx','qqe','qqpln','qqres','qqadd','qqcre','qqaud','qqx','qqzip','qq2','qqcomp','qqmenu','qqsearch'];
 const essentialRank=new Map(essentialIds.map((id,i)=>[id,i]));
 const windowsKeys=[
@@ -70,7 +70,7 @@ function ordered(){
   if(terms.length&&a.rank!==b.rank)return a.rank-b.rank;
   if(state.mode==='essentials')return essentialRank.get(a.x.id)-essentialRank.get(b.x.id);
   if(state.mode==='favorites')return a.x.name.localeCompare(b.x.name,'es');
-  if(favs.has(a.x.id)!==favs.has(b.x.id))return favs.has(a.x.id)?-1:1;
+  if(state.sort!=='alpha'&&favs.has(a.x.id)!==favs.has(b.x.id))return favs.has(a.x.id)?-1:1;
   return compareUsage(a.x,b.x)||a.x.name.localeCompare(b.x.name,'es');
  }).map(z=>z.x);
 }
@@ -182,8 +182,9 @@ function render(){
  }
  const intro={essentials:'Seleccionados por utilidad en QQ Prompts, no por supuestas estadísticas.',favorites:'Guardados por ti en este navegador.',all:'Listado completo con búsqueda, categorías y ordenación.',windows:'Chuleta de Windows. Los accesos de QQ proceden del AHK versionado; instalación actual no comprobada.'};
  $('viewIntro').textContent=intro[state.mode]||intro.all;
- document.querySelector('.filters').hidden=state.mode!=='all';
- document.querySelector('.sortbar').hidden=state.mode!=='all';
+ const inLibrary=['all','prompt','actions','history'].includes(state.mode);
+ document.querySelector('.filters').hidden=!inLibrary;
+ document.querySelector('.sortbar').hidden=!inLibrary;
  $('counter').textContent=out.length+' '+(isWin?'atajos':'resultados')+(state.mode==='essentials'?' · Orden de importancia':'');
  $('more').hidden=out.length<=state.visible;
  $('more').textContent='Mostrar más ('+(out.length-state.visible)+')';
@@ -276,7 +277,7 @@ document.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{
  });render();
 }));
 $('sortOrder').value=['usage','recent','alpha','category'].includes(state.sort)?state.sort:'alpha';
-$('sortOrder').addEventListener('change',e=>{state.sort=e.target.value;persist('cucu-order-v1',state.sort);render();});
+$('sortOrder').addEventListener('change',e=>{state.sort=e.target.value;persist('qq-finder-sort-v2',state.sort);render();});
 $('exportsToggle').addEventListener('click',()=>{
  const panel=$('exports');panel.hidden=!panel.hidden;
  $('exportsToggle').setAttribute('aria-expanded',String(!panel.hidden));
