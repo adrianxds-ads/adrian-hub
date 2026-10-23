@@ -1,0 +1,27 @@
+/* QQ Finder 2.0 · mejoras aisladas para conservar estilos originales */
+body{overflow-x:hidden}
+main{max-width:960px;padding-inline:max(14px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-right))}
+.intro{font-size:1.38rem;margin:5px 1px 1px}
+.introSub{font-size:.82rem;color:#b7cce5;line-height:1.4;margin:6px 2px 14px}
+.searchBox{border-color:#7799c4;background:#1b3251}
+.viewNav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:14px 0 9px}
+.viewTab{min-width:0;min-height:48px;border:1px solid #485f7b;border-radius:12px;background:#1b2b42;color:#d6e9ff;font-size:.76rem;font-weight:700;line-height:1.2;padding:8px 4px;white-space:normal}
+.viewTab.active{background:#d3e6ff;color:#162943;border-color:#d3e6ff}
+.viewIntro{color:#b3c4de;font-size:.76rem;line-height:1.4;min-height:32px;margin:9px 3px 7px}
+.filters[hidden],.sortbar[hidden]{display:none!important}
+.entry{display:grid;grid-template-columns:minmax(0,1fr) 66px;grid-template-rows:minmax(44px,auto) minmax(44px,auto);gap:6px;min-width:0;margin:8px 0}
+.entry .item{grid-column:1;grid-row:1/3;min-width:0;min-height:94px;padding:12px}
+.entry .favButton{grid-column:2;grid-row:1;min-width:0;min-height:44px;font-size:1.4rem}
+.entry .quickCopy{grid-column:2;grid-row:2;min-width:0;min-height:44px;font-size:.75rem}
+.itemTop{display:flex;flex-wrap:wrap;align-items:flex-start;gap:5px 9px}
+.itemName{flex:1 1 145px;min-width:0;overflow-wrap:anywhere;font-size:.88rem}
+.code{white-space:normal;overflow-wrap:anywhere}
+.sub{overflow-wrap:anywhere;line-height:1.35;font-size:.7rem}
+.shortcutRow{display:grid;grid-template-columns:minmax(0,1fr) 74px;align-items:center;gap:8px;padding:10px 11px;margin:8px 0;border:1px solid #344b69;border-radius:14px;background:#17273d}
+.shortcutInfo{min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.shortcutInfo kbd{border:1px solid #6687af;border-bottom-width:3px;background:#2a4162;padding:8px 10px;border-radius:8px;color:#e8f2ff;font:700 .88rem ui-monospace,monospace}
+.shortcutInfo span{flex:1 1 120px;color:#f0f5ff;font-size:.84rem}
+.shortcutInfo small{display:block;width:100%;color:#aebfd8;font-size:.68rem}
+.shortcutCopy{min-height:44px;padding:7px 4px;border:1px solid #678dbd;border-radius:10px;background:#2c4b73;color:#fff;font-weight:700;font-size:.74rem}
+@media(max-width:420px){.viewTab{font-size:.7rem;padding:7px 3px}.entry{grid-template-columns:minmax(0,1fr) 60px}.entry .item{padding:10px}.entry .quickCopy{font-size:.7rem}}
+@media(max-width:340px){.viewNav{grid-template-columns:repeat(2,minmax(0,1fr))}}
