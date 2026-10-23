@@ -70,7 +70,7 @@ try:
             assert button.is_visible() and button.is_enabled()
             assert not health_calls, "Health probe must never run before explicit click"
             button.click()
-            page.wait_for_function("""() => document.querySelector('#hubSyncAccessStatus')?.textContent.includes('conectada')""", timeout=12000)
+            page.wait_for_function("""() => document.querySelector('#hubSyncAccessStatus')?.textContent.includes('Recuperaci')""", timeout=12000)
             assert len(health_calls) == 1, health_calls
             assert button.is_enabled()
             assert not exceptions, exceptions

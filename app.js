@@ -1,5 +1,5 @@
-const HUB_VERSION='30.5.30';
-const HUB_BUILD='hub-30.5.30-20261023';
+const HUB_VERSION='30.5.31';
+const HUB_BUILD='hub-30.5.31-20261023';
 const groupsEl=document.querySelector('#groups');
 let registry=[];
 let versionCatalog=null;
@@ -256,9 +256,11 @@ async function connectHubSyncFromSettings(){
     const health=await response.json();
     if(!health.ok||health.service!=='adrian-hub-sync')throw new Error('Unexpected service');
     message.textContent='Servidor accesible. Comprobando sincronizaci\u00f3n...';
-    if(!window.AdrianSync?.pull){message.textContent='Servidor disponible; este navegador no tiene cliente de sincronizaci\u00f3n.';return;}
-    const synced=await window.AdrianSync.pull(true);
-    message.textContent=synced?'Sincronizaci\u00f3n conectada. Se conserva el progreso local.':'Servidor disponible, pero el progreso sigue pendiente de sincronizaci\u00f3n.';
+    if(!window.AdrianSync?.recover){message.textContent='Servidor disponible; este navegador no dispone de recuperaci\u00f3n protegida.';return;}
+    const result=await window.AdrianSync.recover();
+    message.textContent=result
+      ?'Recuperaci\u00f3n comprobada: '+result.restored+' registros restaurados y '+result.protected+' estados locales diferentes conservados. Reabre las aplicaciones para actualizar niveles.'
+      :'Servidor disponible, pero la recuperaci\u00f3n no se complet\u00f3. No borres datos del navegador.';
   }catch(_){
     let permission='';
     try{permission=(await navigator.permissions.query({name:'local-network'})).state;}catch(_){}

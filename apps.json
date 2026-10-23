@@ -1,6 +1,6 @@
 {
   "version": 29,
-  "hubVersion": "30.5.30",
+  "hubVersion": "30.5.31",
   "apps": [
     {
       "id": "cucu-finder",

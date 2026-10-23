@@ -4,14 +4,23 @@
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.30",
-    "build": "hub-30.5.30-20261023",
+    "version": "30.5.31",
+    "build": "hub-30.5.31-20261023",
     "releasedAt": "2026-10-23",
     "changes": [
-      "Restablecido el enlace privado de Limpieza 2.2 a su servidor independiente HTTPS 8443 dentro de Tailscale; Nucleo Vault conserva 8765.",
-      "Backend original 0.2.13 con autenticacion previa; servidor 8790 y vigilancia Windows existente. Planificador automatico de camara temporalmente inactivo sin modificar sus horarios."
+      "Recuperacion protegida del progreso antiguo: consulta completa de niveles, sesiones y recompensas desde el boton de Ajustes, aun si el navegador cree tener una revision reciente.",
+      "Las campanas grandes se restauran comprimidas, evitando el desbordamiento de localStorage. Se conserva el progreso local superior o incompatible y no se borran perfiles, configuraciones ni respaldos."
     ],
     "history": [
+      {
+        "version": "30.5.30",
+        "build": "hub-30.5.30-20261023",
+        "date": "2026-10-23",
+        "changes": [
+          "Restablecido el enlace privado de Limpieza 2.2 a su servidor independiente HTTPS 8443 dentro de Tailscale; Nucleo Vault conserva 8765.",
+          "Backend original 0.2.13 con autenticacion previa; servidor 8790 y vigilancia Windows existente. Planificador automatico de camara temporalmente inactivo sin modificar sus horarios."
+        ]
+      },
       {
         "version": "30.5.29",
         "build": "hub-30.5.29-20261023",
@@ -1087,7 +1096,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "a49d9d7eb7ee9776f7ec51df15182f40f20dfd04f74563751f763f7ad6b5597b"
+          "sha256": "163bebd6833c0cfb93d89fd353c7baacefd12916251ab298716f4ccad5d30c78"
         },
         {
           "url": "version-verifier.js",
@@ -1095,7 +1104,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "c37e64848de941c390a1861ff1fdae422b27a43c1bd616ea44e5334f73cc2d24"
+          "sha256": "485e1b9b0b55bd09794922d0b5f7b48c502d357c6d32117b4a16a4878c84acf1"
         },
         {
           "url": "styles.css",
@@ -1103,15 +1112,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "8a7810a9c06e1a4b699872c276af9a535e7dc6637ef838d64b05a7578752d046"
+          "sha256": "c3fa85a39b5c2e536acdebf1bdbd0c6b635dbc10c70a9160b5abe24c6b4ef8d8"
         },
         {
           "url": "build-assets.js",
-          "sha256": "e662ed02da0079923d409df78cee721236258d09ab8f25f17468d635abfc6215"
+          "sha256": "c3ab638c5a0bfea9f40012f775374a98ea08fe7abe48e41e4a24fd0366e54f9b"
         }
       ]
     },
-    "cacheBuild": "96c0c409c6b315a2",
+    "cacheBuild": "22ae24ee9c1655b4",
     "status": "published"
   },
   "apps": [
@@ -2202,11 +2211,11 @@
       "name": "B2 Transform",
       "version": "1.1.13",
       "build": "sha256-4ac18d91983a",
-      "releasedAt": "2026-10-15",
+      "releasedAt": "2026-10-23",
       "kind": "public",
       "changes": [
-        "Corrección de desbordamiento a 320 px en Estadísticas sin alterar ejercicios ni historial.",
-        "Actualización de conformidad visual con las pruebas de integridad completadas."
+        "Corregidas las equivalencias del examen 12, Part 4, pregunta 25: se acepta is three years since y se rechaza has is three years since.",
+        "El motor aclara que la puntuacion automatica admite 0 o 2, sin inventar puntuacion parcial. Cambios de banco y cache publicados el 23/10, commit 9eafd02."
       ],
       "verify": {
         "files": [
@@ -2216,7 +2225,7 @@
           },
           {
             "url": "/adaptive-keyword-speaking/index.html",
-            "sha256": "cc25657f1c82283dee30300478a9f56e165014bf607c308afa6780a04b3bb221"
+            "sha256": "1462af821ca1278fcdf42c32f11e6b01fc95dfb9327a53cee3242a118ce36252"
           },
           {
             "url": "/adaptive-keyword-speaking/service-worker.js",
@@ -2224,12 +2233,12 @@
           },
           {
             "url": "/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "795b19b8f7585057f3e90aa3e8dbca6d5e072602e16630e95d24324822a4d94a"
+            "sha256": "2bc8aec9da7590440a9135a209297b19b1b3b6ea0e016f939943989d6f2e7d02"
           }
         ]
       },
-      "sourceCommit": "6f98b96c9f42ae3aabe6b53a1afb07b3d89a5b08",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "9eafd02386672f09b1b6e7bb5f15637cc37224da",
+      "cacheBuild": "audit-b2-q25-ui-20261023-1462af82",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
