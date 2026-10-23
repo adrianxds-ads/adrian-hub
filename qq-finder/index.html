@@ -4,7 +4,7 @@
 <meta name="color-scheme" content="dark"><meta name="theme-color" content="#0d1321">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; worker-src 'self'; manifest-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
 <link rel="manifest" href="./manifest.webmanifest">
-<title>Cucu Finder · Biblioteca QQ</title><link rel="stylesheet" href="./styles.css">
+<title>QQ Finder · Atajos</title><link rel="stylesheet" href="./styles.css">
 <style>
 :root{color-scheme:dark;font-family:Roboto,"Segoe UI",system-ui,sans-serif;font-size:17px;background:#0c111d;color:#f1f5ff}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(170deg,#111d34,#0b101b 35%);-webkit-tap-highlight-color:transparent}
@@ -50,13 +50,18 @@ main{max-width:820px;margin:auto;padding:18px 15px 90px}.intro{font-size:1.45rem
 .goBack{border:1px solid #526d90;background:#203451;color:#ddecff;border-radius:12px;padding:11px 15px;font-weight:650;min-height:45px}
 .goBack:focus-visible,.quickCopy:focus-visible{outline:3px solid #93c5fd}
 @media(max-width:380px){.quickCopy{min-width:72px;font-size:.77rem}}
-</style></head>
-<body><header><div class="head"><div><div class="brand">Cucu <em>Finder</em> <span class="meta">1.1</span></div><div class="meta">Biblioteca de capacidades</div></div><button class="goBack" id="returnChat" aria-label="Volver al chat">↩ Volver</button></div></header>
-<main><div class="intro">Tu biblioteca QQ al instante</div><div class="searchBox"><span aria-hidden="true">⌕</span><input id="q" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Código, nombre o función…" aria-label="Buscar capacidades"><button id="clear" class="clear" aria-label="Vaciar búsqueda" hidden>×</button></div>
-<div class="filters" role="group" aria-label="Filtrar biblioteca"><button class="chip selected" data-mode="all" aria-pressed="true">Todo</button><button class="chip" data-mode="prompt" aria-pressed="false">Prompts</button><button class="chip" data-mode="actions" aria-pressed="false">Acciones</button><button class="chip" data-mode="history" aria-pressed="false">Históricos</button><button class="chip" data-mode="favorites" aria-pressed="false">★ Destacados</button></div>
+</style><link rel="stylesheet" href="./finder-v2.css"></head>
+<body><header><div class="head"><div><div class="brand">QQ <em>Finder</em> <span class="meta">2.0</span></div><div class="meta">Biblioteca de capacidades</div></div><button class="goBack" id="returnChat" aria-label="Volver al chat">↩ Volver</button></div></header>
+<main><div class="intro">¿Qué necesitas hacer?</div><p class="introSub">Encuentra el atajo y copia el texto en segundos.</p><div class="searchBox"><span aria-hidden="true">⌕</span><input id="q" type="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Código, nombre o función…" aria-label="Buscar capacidades"><button id="clear" class="clear" aria-label="Vaciar búsqueda" hidden>×</button></div>
+<nav class="viewNav" aria-label="Secciones del buscador">
+<button class="viewTab active" type="button" data-view="essentials" aria-pressed="true">✦ Esenciales</button>
+<button class="viewTab" type="button" data-view="favorites" aria-pressed="false">★ Mis favoritos</button>
+<button class="viewTab" type="button" data-view="all" aria-pressed="false">A–Z Biblioteca</button>
+<button class="viewTab" type="button" data-view="windows" aria-pressed="false">⌨ Windows</button>
+</nav><p id="viewIntro" class="viewIntro"></p><div class="filters" role="group" aria-label="Filtrar biblioteca"><button class="chip selected" data-mode="all" aria-pressed="true">Todo</button><button class="chip" data-mode="prompt" aria-pressed="false">Prompts</button><button class="chip" data-mode="actions" aria-pressed="false">Acciones</button><button class="chip" data-mode="history" aria-pressed="false">Históricos</button></div>
 <div class="sortbar">
  <label for="sortOrder"><span>Ordenar:</span><select id="sortOrder" aria-label="Ordenar resultados">
-  <option value="usage">Más usados</option><option value="recent">Usados recientemente</option><option value="alpha">Nombre A–Z</option><option value="category">Categoría</option>
+  <option value="usage">Mi uso en este navegador</option><option value="recent">Mi uso reciente</option><option value="alpha">Nombre A–Z</option><option value="category">Categoría</option>
  </select></label>
  <button id="exportsToggle" class="downloadToggle" aria-expanded="false" aria-controls="exports">↓ Descargas</button>
 </div>
@@ -71,7 +76,7 @@ main{max-width:820px;margin:auto;padding:18px 15px 90px}.intro{font-size:1.45rem
  <p>El archivo AHK es una copia de respaldo del script de Windows, no una instalación automática. Exportar no cambia los atajos instalados en tus dispositivos.</p>
 </section>
 <div class="stats"><span id="counter">Cargando biblioteca…</span><span id="sourceState"></span></div><div id="results" aria-live="polite"></div><button id="more" class="more" hidden>Mostrar más resultados</button>
-<div class="foot">Biblioteca QQ · Versión pública · Actualizada al publicar cambios. Funciona sin conexión tras la primera visita.<div id="checksum"></div></div></main>
+<div class="foot">Favoritos y uso: guardados solo en este navegador. Esenciales: selección editorial, no estadísticas. Funciona sin conexión tras la primera visita.<div id="checksum"></div></div></main>
 <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden><section class="sheet"><div class="sheetHead"><div><h2 id="detailTitle"></h2><p id="detailContext" class="context"></p></div><button class="iconBtn" id="close" aria-label="Cerrar">×</button></div><textarea id="payload" class="payload" readonly spellcheck="false" aria-label="Texto completo de la capacidad"></textarea>
 <div id="dataBox" class="dataBox"><label for="dataInput">Añadir datos, números o contexto (opcional)</label>
 <textarea id="dataInput" rows="3" spellcheck="true" placeholder="Ej.: calcula 238 × 1,21 y explica los pasos..."></textarea>
