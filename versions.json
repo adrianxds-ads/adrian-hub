@@ -1104,7 +1104,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "d200bfc1b75be04b2bdb211d8f0a49a678d2052567c01be088133c33e4e5124c"
+          "sha256": "3225212520a075f94976209adde11e2c2ee94e25b57a52eea9feacaf5cf3d7f4"
         },
         {
           "url": "styles.css",
@@ -1112,15 +1112,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "1845330d26aceafaddef112a37ab858161da927bd648d40cc84dbe8f4e0d1bcf"
+          "sha256": "9fa690861c93a2801f3adacd3cb9245e461cdf8a4530af6dacd35c3934af1735"
         },
         {
           "url": "build-assets.js",
-          "sha256": "e813137067cc25d45252774851041b435f6e9460afde83b4525d646253dbb3a6"
+          "sha256": "baa987ae12f77d89cf883088d25c4589b218aa23b2b81c619e185130a6e14b47"
         }
       ]
     },
-    "cacheBuild": "c9b4bd2266b809ec",
+    "cacheBuild": "64dd3819f3cf04a2",
     "status": "published"
   },
   "apps": [
@@ -1159,7 +1159,7 @@
       "id": "english",
       "name": "Grammar Quest",
       "version": "3.36.20",
-      "build": "sha256-df11f8186939",
+      "build": "sha256-e0a55d86c33a",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
@@ -1174,15 +1174,15 @@
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "e5eb9f343e94accefd74deeae9f6e8fc97b0dc51492960faa10bc4337466b3d3"
+            "sha256": "59d5026b59a5fff704a33be82c7cc84bbed504ce70b2c457d5c0c6113a06b9dd"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "105b44423f2c6a8b5496c3ab4b093fb1dcea4d613a38c3f051c364e9a018c584"
+            "sha256": "382676ad7a26137d7fcead07a459b48811b8fec947d972f858786481bd0689c1"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "a53a114b266db8150070f3e023f60f4cff267e88d4960a9e50e65e97357a53ab"
+            "sha256": "92b6e1f5e91fd83e465040e5a1bb4e7483b3e67ff7e82ba0dc5834188e9d8f70"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.js",
@@ -1194,8 +1194,8 @@
           }
         ]
       },
-      "sourceCommit": "f75005f330585e1c6ac636f03580be60b0304690",
-      "cacheBuild": "bab14a259589beb5",
+      "sourceCommit": "929c0fe2e1f184f7e335a32b79af4bfb3f591425",
+      "cacheBuild": "e2aede27bac0e557",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
@@ -1437,7 +1437,7 @@
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
       "version": "0.13.24",
-      "build": "sha256-4686dbbbedb6",
+      "build": "sha256-da5fe7c70930",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
@@ -1452,15 +1452,15 @@
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "62c061455dec6482ae593f0451741a203cee06c060e47cc68d37fdd2f9d47c44"
+            "sha256": "39dc2bcbecf52e6a6c9a7c0598a6ee7614519cd4365389988fd2c95053aa01fa"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "27663864036760ebe5dfdc50697c576898a083f03eaa18f9f46f0ad460f08387"
+            "sha256": "8a390787e1542983c67f039c89e119a376e19555a0224da09f6ae8d0588e3d4b"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "4245440cc888be2371c0876c7a25d949325483ca7cf2a48936f59f9d72f88823"
+            "sha256": "32a70837764c2ac59c50dbfa6f9a9d6aeccb51d8f81daba04a711dc5cde9f673"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
@@ -1472,8 +1472,8 @@
           }
         ]
       },
-      "sourceCommit": "bdf3ead4bc79f3a4959de461fd221a309c52868c",
-      "cacheBuild": "45ebaed3ad72bfc4",
+      "sourceCommit": "a02442ac96fa82ff354d0cb15ab3322718ab5f29",
+      "cacheBuild": "711be92c5da7006b",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
@@ -1662,7 +1662,7 @@
       "id": "pizarras",
       "name": "Classroom B2",
       "version": "3.0.16",
-      "build": "sha256-0336367a7f50",
+      "build": "sha256-9308d725b493",
       "releasedAt": "2026-10-17",
       "kind": "public",
       "changes": [
@@ -1679,15 +1679,15 @@
           },
           {
             "url": "/adaptive-pizarras/index.html",
-            "sha256": "158539d820f6bf01d25501f0704404ae70f1697f44a13fc1fd29bdfcf2b13c7a"
+            "sha256": "a66f7b477c4dc632e7e934f942b8e4ef1554be0bcc3410948342dce48c373bb4"
           },
           {
             "url": "/adaptive-pizarras/service-worker.js",
-            "sha256": "5604379943545fd84c111507641a026ee0e4578b8fc5a958217a0d5f8d2dd568"
+            "sha256": "0da0cef9e95f1af0439746ee170bd7f4656993b34d4af746aee1ca4666c50f17"
           },
           {
             "url": "/adaptive-pizarras/build-assets.js",
-            "sha256": "95600f5459631b4b9a4df98248928a6700a1eeafd6ab49f5aa19126e4da6cb98"
+            "sha256": "bab1d205f555e186c54b71a658743288258d4a51b01e3a8dc5f224884fe632f3"
           },
           {
             "url": "/adaptive-pizarras/quiz-ergonomics.js",
@@ -1699,8 +1699,8 @@
           }
         ]
       },
-      "sourceCommit": "db533a8fd075902f3b0c28e08d165ac86e6f1fd3",
-      "cacheBuild": "162e3d69e64460bf",
+      "sourceCommit": "4599c3c81a97f2466dfde5550ee10fa24abce42b",
+      "cacheBuild": "acedd48802a00d96",
       "sourceDirty": false,
       "cachePrefixes": [
         "pizarras-"
@@ -1860,7 +1860,7 @@
       "id": "b2-cloze",
       "name": "Cloze Quiz",
       "version": "1.12.11",
-      "build": "sha256-216a703bb1d9",
+      "build": "sha256-88fb85212fc7",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
@@ -1875,15 +1875,15 @@
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "f72f9c33ae7cf2ef3e01a2249a96c2fe8d75a7f372c04b0527979e9c395fa78b"
+            "sha256": "6c866a9bb6ad827ffa82222c203f6b8cae37e0934af023abdc6bcdd6130d25e2"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "3c649db49383a07f92b001484ed260d9676ab67c2cfaba07c3193ec4b040fe84"
+            "sha256": "b6dafbcef00345fbf3b90c6fda362ab7f2a8073a3aa1416171b8f38ea528c051"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "2bf684d1a2b92dd71c66c6f762dc83274fc97c4ff9a142940707b4ead23fe927"
+            "sha256": "fa2050a35adc32e09b11e996a9ad0c04b272bf923b319316303289444d341835"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
@@ -1895,8 +1895,8 @@
           }
         ]
       },
-      "sourceCommit": "1fa5390c2a85c6b49739b65c78ce83229127e3ac",
-      "cacheBuild": "f7fe2753c4253a18",
+      "sourceCommit": "1a1b077e798d1e2001b09b7516cb722398a5ba8e",
+      "cacheBuild": "bf1e4ea6e430ce56",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
@@ -2096,7 +2096,7 @@
       "id": "cambridge",
       "name": "Cambridge Lab",
       "version": "1.3.20",
-      "build": "sha256-8f81164dcd29",
+      "build": "sha256-e9dc268bb540",
       "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
@@ -2111,20 +2111,20 @@
           },
           {
             "url": "/adaptive-exam/index.html",
-            "sha256": "4df44bc62eacf5cb5a588a9fb2cd2d96b58649bdbab316a0a68c767ef5ddd997"
+            "sha256": "95d0b92a80965ce33b85cd9cbe27ebd7d9b6fbb72064d44d1a6b37840e3966f1"
           },
           {
             "url": "/adaptive-exam/service-worker.js",
-            "sha256": "d348b68f1af520c4ee3cbf76a0bf12492bbf3fb1b0f1afaea20971ab6b0e8c02"
+            "sha256": "697a378e1f9003dfd9f4823818ff1e82e1495548a0163d6fe69231eebffbd78a"
           },
           {
             "url": "/adaptive-exam/build-assets.js",
-            "sha256": "e24b37371200a07b7525d627866cd9b8a5d1d3b9d41bea37ad0ba5f4daedb23d"
+            "sha256": "31fcd4315a305cb0caadb42ab97c75a79d1ff42e42556204afdd7401fd88211f"
           }
         ]
       },
-      "sourceCommit": "bde30d34b00d74e22dfa1f52cd0ec3abcfa8516c",
-      "cacheBuild": "ec43fce5d32aa868",
+      "sourceCommit": "00de92f48d70049582e5ac9ca861ba5919c68bc4",
+      "cacheBuild": "f96c0d2e205b5256",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-exam-"
@@ -2321,7 +2321,7 @@
       "id": "keyword-speaking",
       "name": "B2 Transform",
       "version": "1.1.13",
-      "build": "sha256-2f134926ba46",
+      "build": "sha256-7732a85238df",
       "releasedAt": "2026-10-23",
       "kind": "public",
       "changes": [
@@ -2336,20 +2336,20 @@
           },
           {
             "url": "/adaptive-keyword-speaking/index.html",
-            "sha256": "10a454e1365941b0f56cee9633aefb66be6a0616fb1d9b39aa988cfff2fd1960"
+            "sha256": "31c9cd6162bf3a23f8ddef54c18ddb9354cb33c3acc7d17d644343136f5b316b"
           },
           {
             "url": "/adaptive-keyword-speaking/service-worker.js",
-            "sha256": "8fa9fe46cd698ef2cabe8e99a8c47c71272ed5068d313ce215af9a2adb96f4d9"
+            "sha256": "9df18e0edc28f22b129fc10e94bd6c51db5db5204092545aba90a75581380e6e"
           },
           {
             "url": "/adaptive-keyword-speaking/build-assets.js",
-            "sha256": "041a37b437950eb8cc4fced3a9a1c230e490c98c737a05e03f1f95bd36137086"
+            "sha256": "f5d60da686187d053ab5c5e56b00a6b143f2eefd57d0360ac12e70256e14d865"
           }
         ]
       },
-      "sourceCommit": "20afc72c4acd41eb9e00f5c30d18d60810ba2aea",
-      "cacheBuild": "f94aad9e2bc0081d",
+      "sourceCommit": "d279c41a6a7f63b2ea8771960f224da836f2676b",
+      "cacheBuild": "97a726da9f429e63",
       "sourceDirty": false,
       "cachePrefixes": [
         "keyword-speaking-"
@@ -2504,7 +2504,7 @@
       "id": "catala",
       "name": "Conjuga CAT",
       "version": "0.10.20",
-      "build": "sha256-be142a94e331",
+      "build": "sha256-d38fc72122fb",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
@@ -2519,15 +2519,15 @@
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "4c74361733bd000f9335f3672f1d34e27ea7c374d692428448cfcbc897ef1008"
+            "sha256": "bc1275b5f0d7763db28fcadd3e1326942f351665e76ab97faa1da898c5cb7466"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
-            "sha256": "017349a9dec17b5fb606be5249b9119784ab655ef9fbfa23b524a58de5871d65"
+            "sha256": "c017731eceff3e2574e913d8aaf127eeeed23575847a57c6f97060027a8ea491"
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "96cf0f7a32622999f5ab745724df632c7eed8754adf389a996b8d19792d14179"
+            "sha256": "8a332db9fc6467b832898cd5282a9a717cd27e4f71365dad54d0011fff13a895"
           },
           {
             "url": "/adaptive-verbs-catala/performance-adapter.js",
@@ -2535,8 +2535,8 @@
           }
         ]
       },
-      "sourceCommit": "8b9c4929f3d71fbe5ec51a450a8fa3d0b12091cd",
-      "cacheBuild": "821ded229c1c3653",
+      "sourceCommit": "00ab8c491fa90c9e89674554ce35271434533e92",
+      "cacheBuild": "7f61d64f93dad8d5",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
@@ -2897,7 +2897,7 @@
       "id": "hoti0108",
       "name": "Turismo Lab",
       "version": "2.7.15",
-      "build": "sha256-db0b82a81f97",
+      "build": "sha256-3774be0ab475",
       "releasedAt": "2026-10-14",
       "kind": "public",
       "changes": [
@@ -2912,20 +2912,20 @@
           },
           {
             "url": "/adaptive-hoti0108/index.html",
-            "sha256": "ad0152890bb469ff4cc1f40ea688b7625b6c32f4783d2817b82df873c92dcb4a"
+            "sha256": "40cf14b40a8bb13f1e44edc180e70448a2d35a493c2c0f2e6b6ecc571f6ba82d"
           },
           {
             "url": "/adaptive-hoti0108/service-worker.js",
-            "sha256": "ba1edfb12ba882205efdd9eee465e388fdbbd4cda1810b8f5d4c14ea754c4826"
+            "sha256": "f12bc00a9dde247f76fe20b954ffeb0bd75da630d0e7e270b6d7f8407bf0621d"
           },
           {
             "url": "/adaptive-hoti0108/build-assets.js",
-            "sha256": "3cfeae9014f6beb84181f6122ab278a8a0345b226e01c04a67ee77d6cfaaaf23"
+            "sha256": "eb302cb1c0fcb0ffb25ed6860923a4472321c26959f841d2863162e6d3a8754b"
           }
         ]
       },
-      "sourceCommit": "eec16714126ddfd6c8c21c3b562cd9c29c8f6279",
-      "cacheBuild": "f51decab5bd5684b",
+      "sourceCommit": "babf54a1a8d6fe1264e667be64343159bbfb76c5",
+      "cacheBuild": "096e4d4d11b748d7",
       "sourceDirty": false,
       "cachePrefixes": [
         "adaptive-hoti0108-"
