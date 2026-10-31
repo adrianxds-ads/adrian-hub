@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-31T19:52:43+01:00",
+  "generatedAt": "2026-10-31T20:17:41+01:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -1158,31 +1158,31 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.18",
-      "build": "sha256-dc62cb36b3c2",
+      "version": "3.36.19",
+      "build": "sha256-ab222390ce40",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
-        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+        "Recuperación segura de progreso tras interrupción de Adrián Sync",
+        "Protección contra subidas vacías, recuperación sin recarga y prioridad al historial frente a IndexedDB vacío"
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "dc62cb36b3c279184d6a61f43d32ed7566b7391460c577030101831d200a4ac5"
+            "sha256": "ab222390ce407a35df8f45d71d1cd2d61b251394743308bcb1988926c4ecc79d"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "cda273ebc497d7cdcc782b69758e12e24eecde0dc898a74c7cd69b5e13e4e6ee"
+            "sha256": "faec50fd1ea4501766529e7597b187fe7b58610166887c51cd9fe2d18507c871"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "119d3204489ac3e3fff9d73da670332ae8a62f2663b303e4983f538bf7f1be96"
+            "sha256": "e0ad5de4aa2f7787d725f998bd503390af650cdc7160f0c69f8f119c375a9232"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "7defa903bca8164feac753c28d45111c8f05e7873fd174bf9a7943cdadc8cec7"
+            "sha256": "4d994396fd9ff76d10c4b5d7a3dc38d4f59fdd83f612c99477ecb4e89348acc1"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.js",
@@ -1194,13 +1194,22 @@
           }
         ]
       },
-      "sourceCommit": "67c3c50556150efdce1b30213f3f7a1139295403",
-      "cacheBuild": "games-c1c91b2f39ed7f0a",
+      "sourceCommit": "bce657c9ada33c386226c8e59f3e7f2db02dbf61",
+      "cacheBuild": "games-8658c05f9eb77df1",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.18",
+          "build": "sha256-dc62cb36b3c2",
+          "date": "2026-10-31",
+          "changes": [
+            "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+            "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+          ]
+        },
         {
           "version": "3.36.17",
           "build": "sha256-09347a967cc3",
@@ -1417,31 +1426,31 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.22",
-      "build": "sha256-c02103e05131",
+      "version": "0.13.23",
+      "build": "sha256-4f59558536f9",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
-        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+        "Recuperación segura de progreso tras interrupción de Adrián Sync",
+        "Protección contra subidas vacías, recuperación sin recarga y prioridad al historial frente a IndexedDB vacío"
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "c02103e05131a015f0d5a51cf7b1cd2948fb22e23105898cb010e231617e1e20"
+            "sha256": "4f59558536f93a74426e1dade9f43f32f482a47653cb515444ff4e4971306e42"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "e01afef50aca1baef0f424fe94732f22a01e3eff06e182f63092d4492248a0c6"
+            "sha256": "1a2c9fd19bd6cef9358a02036a498ee0de67d117082b94078160e1288a784c52"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "9d598ebce1759517b5820809389229ef6272a87d8735abadf2ad2b25da64a1ad"
+            "sha256": "42a35b0e6f487a2e97f46091b4832a85526899a5025e8b30799cbee4b41ca9fe"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "41cf9deac33bc13319942a6e5e4eb75c502ed4e8c3ecdddf3f07b73654121356"
+            "sha256": "5f3687c874acedba7328c9bc25a631a7de1a2ff1fd451517d8ca1d07105bbaee"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
@@ -1453,13 +1462,22 @@
           }
         ]
       },
-      "sourceCommit": "935073cd54078c4819cdb711ae6dad23a901c91e",
-      "cacheBuild": "games-017bdba4343d63aa",
+      "sourceCommit": "8456f6d709edac3bb58bb5f0672a36b27cadc7ea",
+      "cacheBuild": "games-14d6745b7006eaf2",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.22",
+          "build": "sha256-c02103e05131",
+          "date": "2026-10-31",
+          "changes": [
+            "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+            "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+          ]
+        },
         {
           "version": "0.13.21",
           "build": "sha256-948b515bd05a",
@@ -1821,31 +1839,31 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.12.9",
-      "build": "sha256-d62e0a1a5c1e",
+      "version": "1.12.10",
+      "build": "sha256-d954d9bfd9d8",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
-        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+        "Recuperación segura de progreso tras interrupción de Adrián Sync",
+        "Protección contra subidas vacías, recuperación sin recarga y prioridad al historial frente a IndexedDB vacío"
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "d62e0a1a5c1ec6508ba1d1a4f952a95c83f4f02933b5b859eb4b0d0f01e04509"
+            "sha256": "d954d9bfd9d883f644763b6dfa34b11cf18fd731d601683ce53a069600c78e17"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "ae24cfb71c02285340ae432a086d6d22040688e9dc4e835ebaa0f8c2a383f249"
+            "sha256": "554e88f899f63da3b31263c444e447972808c6f552689c369446ca4dff171c8f"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "e9d35df8963f91e38c5fe5103f28e46da16ce585ded7209d3c5f379c6bc54f9e"
+            "sha256": "9bd55a191cd10d87afd7c82fb7a6d371ae94441e997f607b37a328c8f1eb4edf"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "bdb36a9f09eb44a187d5869f67292c33f1afd5116d878cc3b43e768edf78c7dd"
+            "sha256": "4d6892e9056e910cbbba39642a26a1442580715e2a1c8fc3c88c8b44a99e63d1"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
@@ -1857,13 +1875,22 @@
           }
         ]
       },
-      "sourceCommit": "d80b13a1f610c54a8e5bf1fb305fad87ac5410f5",
-      "cacheBuild": "games-9be4d98c633f64c0",
+      "sourceCommit": "6d0c9835ddce9c2de9bc2c8e3fcb5bfae34d7dbd",
+      "cacheBuild": "games-90aea72ab35d15c5",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.12.9",
+          "build": "sha256-d62e0a1a5c1e",
+          "date": "2026-10-31",
+          "changes": [
+            "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+            "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+          ]
+        },
         {
           "version": "1.12.8",
           "build": "sha256-e36b633cb97b",
@@ -2446,31 +2473,31 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.18",
-      "build": "sha256-67eabaa5de95",
+      "version": "0.10.19",
+      "build": "sha256-6af2aa5961ac",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
-        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+        "Recuperación segura de progreso tras interrupción de Adrián Sync",
+        "Protección contra subidas vacías, recuperación sin recarga y prioridad al historial frente a IndexedDB vacío"
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-verbs-catala/app.js",
-            "sha256": "67eabaa5de95c5dbde690716ca3322c48b5257530da1dd31ae436d0adc3f4c42"
+            "sha256": "6af2aa5961ac7e2937e2e2e400f8fae1ac9df2e42c60df52246e861a0978abed"
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "cd93ebd2fad1d78a421a43e8b419fb76a027a50ab866a835744a631b72d18a1b"
+            "sha256": "113c20ba8a03b44200cd428aff9c7d647930a6ac74c930c70813b089bc753a75"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
-            "sha256": "ce9c948947ec71392bbe5f67b7b0ce1e6a519bb4934e4525da1f7b26e826239c"
+            "sha256": "5833d792e8fc2dcb489db77fd793404ec7c4b8c69d63d90066ed301d85526435"
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "c53fe22dab9e2400326cec6b27a85f8ac5c763061a0a1f05599fe50b80a64f8c"
+            "sha256": "e05f48969191e06cbcc51b7c9ac06850282c02f1e759caf4e12fb94f5aaee58d"
           },
           {
             "url": "/adaptive-verbs-catala/performance-adapter.js",
@@ -2478,13 +2505,22 @@
           }
         ]
       },
-      "sourceCommit": "2858a97005aad65f8fea3da711c71bd79b334985",
-      "cacheBuild": "games-9af211665ec25696",
+      "sourceCommit": "8e185fa10964d5b0e4eb7279b25f56df4f2104ab",
+      "cacheBuild": "games-2dc680415028fa68",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.18",
+          "build": "sha256-67eabaa5de95",
+          "date": "2026-10-31",
+          "changes": [
+            "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+            "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
+          ]
+        },
         {
           "version": "0.10.17",
           "build": "sha256-49f179192fca",
