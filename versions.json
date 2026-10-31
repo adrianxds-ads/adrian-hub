@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-23",
+  "generatedAt": "2026-10-31T19:29:08+01:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -1158,51 +1158,60 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.15",
-      "build": "sha256-f5915b1fe563",
-      "releasedAt": "2026-10-17",
+      "version": "3.36.17",
+      "build": "sha256-09347a967cc3",
+      "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
-        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
-        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
-        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "ea5aaaa252ab54ad49fe7151fed7981fada433c2ea6538e192679a0020836ca1"
+            "sha256": "09347a967cc33ac5b5499faa48564f9584ee5e7d03e229c0828fba39c5e6a449"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "72a7bc9e7f5144bd89247ce56c5ed1c21cbacd90da3add86f6f9ec0b7a046c60"
+            "sha256": "1133eaa1b4cd95fe654f60a77a29f36bcbeacd53a52bedc19f4198f6d602774b"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "453b81eb7a05b9163c963c377ddab02c44fac0f011b6ad87c6bcf1066bf7d034"
+            "sha256": "5021636aa45707b11451fa19afa8f6bf794e99a5f04e81db6228dc9de5f25c62"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "068499e40beb8d1699e6e30bda6da8bbb527041f78af3ee0424c233f138db07f"
+            "sha256": "dd001895ad28451c6f9e0b9204d7ac475fa4c57694432630b9b8fe83ca8d0340"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.js",
-            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+            "sha256": "d7d81bb84ca107fd0864e9e9b584722991e5c508f276846ddf8d30e2b635b00b"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.css",
-            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
+            "sha256": "0ad18dbf472041cdfa445f419ed38989ed3f0abeba5386cc0867b83b2ac1862d"
           }
         ]
       },
-      "sourceCommit": "0fd576ebcd251d2e6143a1dd0dc6af23721df276",
-      "cacheBuild": "ergonomics-792198c164a551df",
+      "sourceCommit": "9be9a3be5929c5f8c9c85daef5e4f55a2e62e090",
+      "cacheBuild": "levels0-154ef9618e853984",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.15",
+          "build": "sha256-f5915b1fe563",
+          "date": "2026-10-17",
+          "changes": [
+            "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+            "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+            "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+            "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+          ]
+        },
         {
           "version": "3.36.14",
           "build": "sha256-811f656ab6ec",
@@ -1399,51 +1408,60 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.19",
-      "build": "sha256-5d5af7a7ce19",
-      "releasedAt": "2026-10-17",
+      "version": "0.13.21",
+      "build": "sha256-948b515bd05a",
+      "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
-        "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
-        "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
-        "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "4f3e3aa254eef368347cdc1736fee81367ca2cab627bd7bc73565cb5b43d80b2"
+            "sha256": "948b515bd05af1c11efff46e31300c0e8a301401ae288428d930abd5ec38c001"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "7f250f53e6da8a3a431a8e5abca43900a1b6e8b95703fc1a05a69a9755ec221a"
+            "sha256": "3847538d1906306b80c7e31bde4da0ef14e8dbbeaf531a843aa6478d9804ec9d"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "2d766beb83eafc05061e558af1f56c37d9069d5101f4ba80bbbdc51d1f1077cb"
+            "sha256": "a2c492779b6654f479eb83860a495645dc39fb7fdd04c0106f69caec0e98c68e"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "81832737e4e697474de8fd0a6912215d83a50bab062b50a2580511cc9efe6cdc"
+            "sha256": "b5360c8eb4aba813319003c5b4d567ceb59b48d5fbcb36734218d1d7ec8c51f1"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
-            "sha256": "5a2fae2589f44fa2ca537fb21bddbbbb0fe503f642d7ffdb8b96f3dfcaf15cde"
+            "sha256": "d7d81bb84ca107fd0864e9e9b584722991e5c508f276846ddf8d30e2b635b00b"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.css",
-            "sha256": "4840f0390952c732373037898bb3bf97f7edc6fbe9e5ee361e8135a04dc4f00f"
+            "sha256": "0ad18dbf472041cdfa445f419ed38989ed3f0abeba5386cc0867b83b2ac1862d"
           }
         ]
       },
-      "sourceCommit": "1314737d5aff11350758b8838c1d2fab2fe53e59",
-      "cacheBuild": "ergonomics-7b42024d4dbf8cda",
+      "sourceCommit": "b196e58396304408ada6b032c349e7af2e6f3f57",
+      "cacheBuild": "levels0-2ce07f9bcb8af795",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.19",
+          "build": "sha256-5d5af7a7ce19",
+          "date": "2026-10-17",
+          "changes": [
+            "Interfaz de quiz: opciones verticales alineadas a la izquierda con letras neutras, tarjeta estabilizada y progreso por acierto/error.",
+            "Barra temporal continua y segundos enteros; 15 segundos reales después de la lectura previa.",
+            "Corrección durante 850ms tras acierto y 1850ms tras fallo, más transición de 150ms; avances cancelables y callbacks asociados a cada pregunta.",
+            "Motores, bancos, progreso e histórico conservados. Classroom mantiene la duración de sus clases."
+          ]
+        },
         {
           "version": "0.13.18",
           "build": "sha256-cf3f322f8177",
@@ -1785,49 +1803,58 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.12.6",
-      "build": "sha256-ddd1f8395655",
-      "releasedAt": "2026-10-22",
+      "version": "1.12.8",
+      "build": "sha256-e36b633cb97b",
+      "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Cloze Quiz 1.12.6: quiz Cambridge de las partes 1-4, temporizadores adaptados a la longitud de cada pregunta y ajustes de navegacion y portada en movil.",
-        "Registro del Hub alineado con los seis archivos ya publicados mediante huellas SHA-256; no se modifica la aplicacion ni sus datos."
+        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "7043d5175b43b6115316485cd6b24952660ad9b52128f21c705ad1e62a5bfd27"
+            "sha256": "e36b633cb97bf382faf1ce5aa75fc1bf140d11e43932a38010378a4a654a4bcf"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "22d6af53c12d2e7320bfc333e447ca389c3d7b95679463566ab1e2fc31a10e2c"
+            "sha256": "277f6f7236e671d2105ea9145f670201fdd89cec0d1ff098589b7bdbc1a61096"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "22cf7e53fc05cb6d2456d05f3900fd28018c4c8f06406c93cfb6590d28f59651"
+            "sha256": "ec0ce40c4071b62d162fb1a977690e9c5b50a72ad9a4917f8f60614ffdac6220"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "b57ae4d525587e9e951d8b819e00596148dd2b6aa2315450d312da0330f61fd4"
+            "sha256": "0f7a58d5e6880fbab00b396878764d2189a6ca2e366e0fbb4eb578855611bf09"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
-            "sha256": "dbde6ce5de3275451c01ad60abf1c6d0ca75ea549d1ece626a48a90cbbc39386"
+            "sha256": "ee7cf03cfc4ca2d2d7ae5299e474d15af4d381fa352c215c5f6d8d4919b730f5"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.css",
-            "sha256": "0e89193f18bb46ffaef4cc1e89ddb3e446af8818a8d6c5fae483d21af8022261"
+            "sha256": "17948e6862a6974b988ae563ab216e97608e46f00ca1ba91862c3da275617dc9"
           }
         ]
       },
-      "sourceCommit": "be68d8db76e8bbf463c77fec12448eaff3d81083",
-      "cacheBuild": "708830993118bc01",
+      "sourceCommit": "c7f461dcdc29f56a7e6f71f1ff10db426a637d06",
+      "cacheBuild": "levels0-3cf66a9f9ea1769c",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.12.6",
+          "build": "sha256-ddd1f8395655",
+          "date": "2026-10-22",
+          "changes": [
+            "Cloze Quiz 1.12.6: quiz Cambridge de las partes 1-4, temporizadores adaptados a la longitud de cada pregunta y ajustes de navegacion y portada en movil.",
+            "Registro del Hub alineado con los seis archivos ya publicados mediante huellas SHA-256; no se modifica la aplicacion ni sus datos."
+          ]
+        },
         {
           "version": "1.11.22",
           "build": "sha256-e65426b1acc9",
@@ -2392,32 +2419,31 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.16",
-      "build": "sha256-0a1a6b10c3de",
-      "releasedAt": "2026-10-15",
+      "version": "0.10.17",
+      "build": "sha256-49f179192fca",
+      "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Estadísticas originales consultables sin duplicación, y liga de tiempos con porcentajes legibles.",
-        "Se conservan conjugaciones, tiempos, datos y JSON.",
-        "Actualización de conformidad visual con las pruebas de integridad completadas."
+        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-verbs-catala/app.js",
-            "sha256": "0a1a6b10c3de8d16a5df2dbc9e405393ba8119252ec27b3f46d550eb4091f7e1"
+            "sha256": "49f179192fca11b816c3aeb9d7f8bc00e641a27ed781a7b689496dfb38c07af0"
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "4d901311b4e566eec3ba1b02528a6540b91653f41d08cf6a692ece33df9819e4"
+            "sha256": "419fbaa0b0fb79d995d052cd9bcdd84604b69f74c0cce6a0384489fdc8b90e30"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
-            "sha256": "2b5afd05127aac342a68881ce8fc589a665ad68d7b6a595265e5a742e3e68ed0"
+            "sha256": "5b575d1ebc48f7a0d53e0ab8aa81b0e4f1726cb385d3eb1fc0cd0d711f1574b3"
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "832e6b587b59d400aa5c472dfbc0ec376d15c960c941d15307e7954a625e9199"
+            "sha256": "6b80159562830afe46527cd020e3296235a7846a4e2b4602fa1df1ea3fb7865a"
           },
           {
             "url": "/adaptive-verbs-catala/performance-adapter.js",
@@ -2425,13 +2451,23 @@
           }
         ]
       },
-      "sourceCommit": "ee853fdbd9c90fdd16c44ae5e63194797e8bc5e5",
-      "cacheBuild": "visual-p5-20261015-4c3b6757e72a",
+      "sourceCommit": "74fd293545b16a028654120a39132915e97e0d88",
+      "cacheBuild": "levels0-f0f99df4a8a7b8a2",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.16",
+          "build": "sha256-0a1a6b10c3de",
+          "date": "2026-10-15",
+          "changes": [
+            "Estadísticas originales consultables sin duplicación, y liga de tiempos con porcentajes legibles.",
+            "Se conservan conjugaciones, tiempos, datos y JSON.",
+            "Actualización de conformidad visual con las pruebas de integridad completadas."
+          ]
+        },
         {
           "version": "0.10.15",
           "build": "sha256-4a21f802efaa",
