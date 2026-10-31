@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-31T19:29:08+01:00",
+  "generatedAt": "2026-10-31T19:52:43+01:00",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
@@ -1158,31 +1158,31 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.17",
-      "build": "sha256-09347a967cc3",
+      "version": "3.36.18",
+      "build": "sha256-dc62cb36b3c2",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
-        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "09347a967cc33ac5b5499faa48564f9584ee5e7d03e229c0828fba39c5e6a449"
+            "sha256": "dc62cb36b3c279184d6a61f43d32ed7566b7391460c577030101831d200a4ac5"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "1133eaa1b4cd95fe654f60a77a29f36bcbeacd53a52bedc19f4198f6d602774b"
+            "sha256": "cda273ebc497d7cdcc782b69758e12e24eecde0dc898a74c7cd69b5e13e4e6ee"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "5021636aa45707b11451fa19afa8f6bf794e99a5f04e81db6228dc9de5f25c62"
+            "sha256": "119d3204489ac3e3fff9d73da670332ae8a62f2663b303e4983f538bf7f1be96"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "dd001895ad28451c6f9e0b9204d7ac475fa4c57694432630b9b8fe83ca8d0340"
+            "sha256": "7defa903bca8164feac753c28d45111c8f05e7873fd174bf9a7943cdadc8cec7"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.js",
@@ -1194,13 +1194,22 @@
           }
         ]
       },
-      "sourceCommit": "9be9a3be5929c5f8c9c85daef5e4f55a2e62e090",
-      "cacheBuild": "levels0-154ef9618e853984",
+      "sourceCommit": "67c3c50556150efdce1b30213f3f7a1139295403",
+      "cacheBuild": "games-c1c91b2f39ed7f0a",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.17",
+          "build": "sha256-09347a967cc3",
+          "date": "2026-10-31",
+          "changes": [
+            "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+            "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+          ]
+        },
         {
           "version": "3.36.15",
           "build": "sha256-f5915b1fe563",
@@ -1408,31 +1417,31 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.21",
-      "build": "sha256-948b515bd05a",
+      "version": "0.13.22",
+      "build": "sha256-c02103e05131",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
-        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "948b515bd05af1c11efff46e31300c0e8a301401ae288428d930abd5ec38c001"
+            "sha256": "c02103e05131a015f0d5a51cf7b1cd2948fb22e23105898cb010e231617e1e20"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "3847538d1906306b80c7e31bde4da0ef14e8dbbeaf531a843aa6478d9804ec9d"
+            "sha256": "e01afef50aca1baef0f424fe94732f22a01e3eff06e182f63092d4492248a0c6"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "a2c492779b6654f479eb83860a495645dc39fb7fdd04c0106f69caec0e98c68e"
+            "sha256": "9d598ebce1759517b5820809389229ef6272a87d8735abadf2ad2b25da64a1ad"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "b5360c8eb4aba813319003c5b4d567ceb59b48d5fbcb36734218d1d7ec8c51f1"
+            "sha256": "41cf9deac33bc13319942a6e5e4eb75c502ed4e8c3ecdddf3f07b73654121356"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
@@ -1444,13 +1453,22 @@
           }
         ]
       },
-      "sourceCommit": "b196e58396304408ada6b032c349e7af2e6f3f57",
-      "cacheBuild": "levels0-2ce07f9bcb8af795",
+      "sourceCommit": "935073cd54078c4819cdb711ae6dad23a901c91e",
+      "cacheBuild": "games-017bdba4343d63aa",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.21",
+          "build": "sha256-948b515bd05a",
+          "date": "2026-10-31",
+          "changes": [
+            "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+            "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+          ]
+        },
         {
           "version": "0.13.19",
           "build": "sha256-5d5af7a7ce19",
@@ -1803,31 +1821,31 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.12.8",
-      "build": "sha256-e36b633cb97b",
+      "version": "1.12.9",
+      "build": "sha256-d62e0a1a5c1e",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
-        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "e36b633cb97bf382faf1ce5aa75fc1bf140d11e43932a38010378a4a654a4bcf"
+            "sha256": "d62e0a1a5c1ec6508ba1d1a4f952a95c83f4f02933b5b859eb4b0d0f01e04509"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "277f6f7236e671d2105ea9145f670201fdd89cec0d1ff098589b7bdbc1a61096"
+            "sha256": "ae24cfb71c02285340ae432a086d6d22040688e9dc4e835ebaa0f8c2a383f249"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "ec0ce40c4071b62d162fb1a977690e9c5b50a72ad9a4917f8f60614ffdac6220"
+            "sha256": "e9d35df8963f91e38c5fe5103f28e46da16ce585ded7209d3c5f379c6bc54f9e"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "0f7a58d5e6880fbab00b396878764d2189a6ca2e366e0fbb4eb578855611bf09"
+            "sha256": "bdb36a9f09eb44a187d5869f67292c33f1afd5116d878cc3b43e768edf78c7dd"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
@@ -1839,13 +1857,22 @@
           }
         ]
       },
-      "sourceCommit": "c7f461dcdc29f56a7e6f71f1ff10db426a637d06",
-      "cacheBuild": "levels0-3cf66a9f9ea1769c",
+      "sourceCommit": "d80b13a1f610c54a8e5bf1fb305fad87ac5410f5",
+      "cacheBuild": "games-9be4d98c633f64c0",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.12.8",
+          "build": "sha256-e36b633cb97b",
+          "date": "2026-10-31",
+          "changes": [
+            "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+            "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+          ]
+        },
         {
           "version": "1.12.6",
           "build": "sha256-ddd1f8395655",
@@ -2419,31 +2446,31 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.17",
-      "build": "sha256-49f179192fca",
+      "version": "0.10.18",
+      "build": "sha256-67eabaa5de95",
       "releasedAt": "2026-10-31",
       "kind": "public",
       "changes": [
-        "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
-        "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+        "Nivel acumulado desde cero: muestra las partidas completadas que constan en cada aplicación, no el nivel interno heredado.",
+        "La numeración visible no altera dificultad adaptativa, preguntas, historial, estadísticas ni progreso guardado."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-verbs-catala/app.js",
-            "sha256": "49f179192fca11b816c3aeb9d7f8bc00e641a27ed781a7b689496dfb38c07af0"
+            "sha256": "67eabaa5de95c5dbde690716ca3322c48b5257530da1dd31ae436d0adc3f4c42"
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "419fbaa0b0fb79d995d052cd9bcdd84604b69f74c0cce6a0384489fdc8b90e30"
+            "sha256": "cd93ebd2fad1d78a421a43e8b419fb76a027a50ab866a835744a631b72d18a1b"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
-            "sha256": "5b575d1ebc48f7a0d53e0ab8aa81b0e4f1726cb385d3eb1fc0cd0d711f1574b3"
+            "sha256": "ce9c948947ec71392bbe5f67b7b0ce1e6a519bb4934e4525da1f7b26e826239c"
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "6b80159562830afe46527cd020e3296235a7846a4e2b4602fa1df1ea3fb7865a"
+            "sha256": "c53fe22dab9e2400326cec6b27a85f8ac5c763061a0a1f05599fe50b80a64f8c"
           },
           {
             "url": "/adaptive-verbs-catala/performance-adapter.js",
@@ -2451,13 +2478,22 @@
           }
         ]
       },
-      "sourceCommit": "74fd293545b16a028654120a39132915e97e0d88",
-      "cacheBuild": "levels0-f0f99df4a8a7b8a2",
+      "sourceCommit": "2858a97005aad65f8fea3da711c71bd79b334985",
+      "cacheBuild": "games-9af211665ec25696",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.17",
+          "build": "sha256-49f179192fca",
+          "date": "2026-10-31",
+          "changes": [
+            "Nueva etapa de juego: el contador visible comienza en LEVEL 0 y avanza por partidas terminadas.",
+            "Conservados niveles históricos internos, algoritmo adaptativo, preguntas, respuestas, estadísticas y progresos personales; no se eliminan datos."
+          ]
+        },
         {
           "version": "0.10.16",
           "build": "sha256-0a1a6b10c3de",
