@@ -1,17 +1,26 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-31T21:17:02+01:00",
+  "generatedAt": "2026-11-02",
   "hub": {
     "id": "hub",
     "name": "Adrián Hub",
-    "version": "30.5.31",
-    "build": "hub-30.5.31-20261023",
-    "releasedAt": "2026-10-23",
+    "version": "30.5.32",
+    "build": "hub-30.5.32-20261102",
+    "releasedAt": "2026-11-02",
     "changes": [
-      "Recuperacion protegida del progreso antiguo: consulta completa de niveles, sesiones y recompensas desde el boton de Ajustes, aun si el navegador cree tener una revision reciente.",
-      "Las campanas grandes se restauran comprimidas, evitando el desbordamiento de localStorage. Se conserva el progreso local superior o incompatible y no se borran perfiles, configuraciones ni respaldos."
+      "Sync 1.0.16: retirados los avisos flotantes de sincronización en los juegos; guardado y reintentos conservados.",
+      "Integridad y simulaciones verificadas. Comprobación física de Pixel y sincronización privada pendientes."
     ],
     "history": [
+      {
+        "version": "30.5.31",
+        "build": "hub-30.5.31-20261023",
+        "releasedAt": "2026-10-23",
+        "changes": [
+          "Recuperacion protegida del progreso antiguo: consulta completa de niveles, sesiones y recompensas desde el boton de Ajustes, aun si el navegador cree tener una revision reciente.",
+          "Las campanas grandes se restauran comprimidas, evitando el desbordamiento de localStorage. Se conserva el progreso local superior o incompatible y no se borran perfiles, configuraciones ni respaldos."
+        ]
+      },
       {
         "version": "30.5.30",
         "build": "hub-30.5.30-20261023",
@@ -1096,7 +1105,7 @@
       "files": [
         {
           "url": "app.js",
-          "sha256": "163bebd6833c0cfb93d89fd353c7baacefd12916251ab298716f4ccad5d30c78"
+          "sha256": "5c39f09a573b777bc06606b41ec376694e29bc09d1383cd78add70e6f44f74d5"
         },
         {
           "url": "version-verifier.js",
@@ -1104,7 +1113,7 @@
         },
         {
           "url": "index.html",
-          "sha256": "444cbb195cbb1f07ddfcb331afcce5c3a6653f49dd976b3dd6f60380248f4dcc"
+          "sha256": "a3a8f9c7a067704a1e72c9ea78f7bb1512483f1a66dcab0df63cb2bbc48449da"
         },
         {
           "url": "styles.css",
@@ -1112,15 +1121,15 @@
         },
         {
           "url": "service-worker.js",
-          "sha256": "38daf9a419d66dedc06cc9423590d5ae2300d1ac80b05b168de1929b75cefa28"
+          "sha256": "c76f53dd67e26c9daee4f6854b9a832f71f6132b5453820a7bc1358909f351fa"
         },
         {
           "url": "build-assets.js",
-          "sha256": "8f0bc96cc4401499e2e2e26e8023e8d69a1257ea8b3f29b9b1931f3be3b2dec1"
+          "sha256": "0d2782ed1b477b4b3523b37498e578afd4b59b0d9efc66b34e43bba560a2e62d"
         }
       ]
     },
-    "cacheBuild": "97c06ff541132ab8",
+    "cacheBuild": "9176dfe365bf4788",
     "status": "published"
   },
   "apps": [
@@ -1158,31 +1167,31 @@
     {
       "id": "english",
       "name": "Grammar Quest",
-      "version": "3.36.20",
-      "build": "sha256-96677242e507",
-      "releasedAt": "2026-10-31",
+      "version": "3.36.21",
+      "build": "sha256-669c82f39b35",
+      "releasedAt": "2026-11-02",
       "kind": "public",
       "changes": [
-        "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
-        "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+        "Sync 1.0.16: retirados los avisos flotantes de sincronización en los juegos; guardado y reintentos conservados.",
+        "Integridad y simulaciones verificadas. Comprobación física de Pixel y sincronización privada pendientes."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-english/app.js",
-            "sha256": "34d6d3fa6b4a50ee51e639bcfdf57e3342fe379197624f6947a0e48e6e6b6769"
+            "sha256": "669c82f39b3595b69cbedc827ea5bebcc4a60fdf242d030406bb0062ad77ea3e"
           },
           {
             "url": "/adaptive-english/index.html",
-            "sha256": "853076b4769eedd730cf3dc37c2d080eb1a4e8752d3b5a216bae6cb8049092ff"
+            "sha256": "dbc2e209b053b930fc6d5205be5969f57d63e3aecb91f05224aabd5312d9f029"
           },
           {
             "url": "/adaptive-english/service-worker.js",
-            "sha256": "d3acd1137a98673c7619b618f068230739b6faa62efa93e730e500b2b105e09a"
+            "sha256": "326e2cf96e7891ceeceacf63afbbada7adfcb5a2f08d4ea466e63c8b1b0739a4"
           },
           {
             "url": "/adaptive-english/build-assets.js",
-            "sha256": "4b3a31fc562b4e9744f03309491bd5706074b4d162d51e5b551fdf613bf4bbf3"
+            "sha256": "0859d0ecce0b285247e7bf512498ac8b61c10c4756bb065895df4fb507c6eb79"
           },
           {
             "url": "/adaptive-english/quiz-ergonomics.js",
@@ -1194,13 +1203,22 @@
           }
         ]
       },
-      "sourceCommit": "3a75bedb08eceb41dc19c1d15403276a2f6edb92",
-      "cacheBuild": "30d6ea39a98154d3",
+      "sourceCommit": "55c7a6e50ed45ee851c29382912570aad865b2ed",
+      "cacheBuild": "767dbb3d89d8360b",
       "sourceDirty": false,
       "cachePrefixes": [
         "ae-campaign1-"
       ],
       "history": [
+        {
+          "version": "3.36.20",
+          "build": "sha256-96677242e507",
+          "releasedAt": "2026-10-31",
+          "changes": [
+            "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
+            "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+          ]
+        },
         {
           "version": "3.36.19",
           "build": "sha256-ab222390ce40",
@@ -1436,31 +1454,31 @@
     {
       "id": "phrasal-verbs",
       "name": "Phrasal Sprint",
-      "version": "0.13.24",
-      "build": "sha256-c856634dc43d",
-      "releasedAt": "2026-10-31",
+      "version": "0.13.25",
+      "build": "sha256-a5faaa59867e",
+      "releasedAt": "2026-11-02",
       "kind": "public",
       "changes": [
-        "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
-        "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+        "Sync 1.0.16: retirados los avisos flotantes de sincronización en los juegos; guardado y reintentos conservados.",
+        "Integridad y simulaciones verificadas. Comprobación física de Pixel y sincronización privada pendientes."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-phrasal-verbs/app.js",
-            "sha256": "9a8e44dce8f7858710d9b2d1a6180383066eb8976777a6ef1e46069d3120e71f"
+            "sha256": "a5faaa59867e8e0f468978b253186e96de46f85ed8dcad362f52f0352decb550"
           },
           {
             "url": "/adaptive-phrasal-verbs/index.html",
-            "sha256": "7cc8e93058ab0ec35f9a1a18fe23b06199758697a357607da2dcfab8ff55c3e5"
+            "sha256": "4b69d8e3f572c610e7a845bbd208291fa92faee991eebdf266779947f65970b2"
           },
           {
             "url": "/adaptive-phrasal-verbs/service-worker.js",
-            "sha256": "3e331347ae33a68b438881544f258ad7954b56d5b67ff6fb2b10ab8b56453ad8"
+            "sha256": "44954029f5389c7ad3bda473501e318afb0d64650a33e7f44dc1e87d484a7ce4"
           },
           {
             "url": "/adaptive-phrasal-verbs/build-assets.js",
-            "sha256": "3e5ba1123df04b706b7ecb242a8932dd822f927c78d04de8771e6a63b3cb8849"
+            "sha256": "741da163e922bc6bbfb6a2ab4b7d4cf6aa0c8c2c0d92a5d68c1feb453c29bd44"
           },
           {
             "url": "/adaptive-phrasal-verbs/quiz-ergonomics.js",
@@ -1472,13 +1490,22 @@
           }
         ]
       },
-      "sourceCommit": "1a0c6667afa2d1a46c675750e3579dd19987c2d9",
-      "cacheBuild": "b01bb96b2b4d3f07",
+      "sourceCommit": "ed259fe5ca33709f8628e1aa31dd31536579169e",
+      "cacheBuild": "6ed091ed75b28d9c",
       "sourceDirty": false,
       "cachePrefixes": [
         "apv-"
       ],
       "history": [
+        {
+          "version": "0.13.24",
+          "build": "sha256-c856634dc43d",
+          "releasedAt": "2026-10-31",
+          "changes": [
+            "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
+            "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+          ]
+        },
         {
           "version": "0.13.23",
           "build": "sha256-4f59558536f9",
@@ -1859,31 +1886,31 @@
     {
       "id": "b2-cloze",
       "name": "Cloze Quiz",
-      "version": "1.12.11",
-      "build": "sha256-4245e46d1a60",
-      "releasedAt": "2026-10-31",
+      "version": "1.12.12",
+      "build": "sha256-a9939dc617fb",
+      "releasedAt": "2026-11-02",
       "kind": "public",
       "changes": [
-        "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
-        "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+        "Sync 1.0.16: retirados los avisos flotantes de sincronización en los juegos; guardado y reintentos conservados.",
+        "Integridad y simulaciones verificadas. Comprobación física de Pixel y sincronización privada pendientes."
       ],
       "verify": {
         "files": [
           {
             "url": "/b2-multiple-choice-cloze/app.js",
-            "sha256": "7f8fded19a772cc3f120d8474772961dadbe03b6de368e3ed2d8f61c06be633e"
+            "sha256": "a9939dc617fb533cf92e505624ac3c2645ab705c148060cd6389b06245cce113"
           },
           {
             "url": "/b2-multiple-choice-cloze/index.html",
-            "sha256": "17648a30f8bf603616f14f6471346647644f47a7c5d6b0e21b5032b60e81fd6d"
+            "sha256": "e3c58678e359f77565e588cea3d8d328137124eca822a53ef08e7846fe1248c4"
           },
           {
             "url": "/b2-multiple-choice-cloze/service-worker.js",
-            "sha256": "ccebb1ab1a462b7154a262e9ccacaf4d736ec65b1713ada0edbf4892dc96434c"
+            "sha256": "386707445b593ef7d32c82cfda13e5b8e5aa149e0a8fe3bde3dfd805af78669d"
           },
           {
             "url": "/b2-multiple-choice-cloze/build-assets.js",
-            "sha256": "b175c44e89db53d894f6be6e4088e738fedb279d4ee38ab314b9f16031b1f6c4"
+            "sha256": "404dbb85f9c298971d739d5fcb331a72d22926ba2a049a8ad4f942ef3c8a7a24"
           },
           {
             "url": "/b2-multiple-choice-cloze/quiz-ergonomics.js",
@@ -1895,13 +1922,22 @@
           }
         ]
       },
-      "sourceCommit": "fbe3f14cdd2ee4cd1d731befc0571106ff256abf",
-      "cacheBuild": "f2a1dd5f407f803c",
+      "sourceCommit": "04fa6ff3951a40e9955cf5780496c25bfb83c8d5",
+      "cacheBuild": "cdd9845025e62aa1",
       "sourceDirty": false,
       "cachePrefixes": [
         "b2-territorio-1-"
       ],
       "history": [
+        {
+          "version": "1.12.11",
+          "build": "sha256-4245e46d1a60",
+          "releasedAt": "2026-10-31",
+          "changes": [
+            "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
+            "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+          ]
+        },
         {
           "version": "1.12.10",
           "build": "sha256-d954d9bfd9d8",
@@ -2503,31 +2539,31 @@
     {
       "id": "catala",
       "name": "Conjuga CAT",
-      "version": "0.10.20",
-      "build": "sha256-5a4a0cb7125a",
-      "releasedAt": "2026-10-31",
+      "version": "0.10.21",
+      "build": "sha256-382089fd5f35",
+      "releasedAt": "2026-11-02",
       "kind": "public",
       "changes": [
-        "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
-        "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+        "Sync 1.0.16: retirados los avisos flotantes de sincronización en los juegos; guardado y reintentos conservados.",
+        "Integridad y simulaciones verificadas. Comprobación física de Pixel y sincronización privada pendientes."
       ],
       "verify": {
         "files": [
           {
             "url": "/adaptive-verbs-catala/app.js",
-            "sha256": "84b85f5ecc9c44f3f07fc437e2d3b35fdc04a4ce6ac3b77e6d5d13113a8ada1f"
+            "sha256": "382089fd5f35e27eefbe7914b3b0f8ea05925f17cf074824830d1ff6bcdd751b"
           },
           {
             "url": "/adaptive-verbs-catala/index.html",
-            "sha256": "f07d928c4255d34779bbd3b1545f38340be4ece86848a3a1b43c903ce18285a7"
+            "sha256": "e1adca82929a58835a24721acfbce6a93a3ec4139be4e313242857011e79e06f"
           },
           {
             "url": "/adaptive-verbs-catala/service-worker.js",
-            "sha256": "ea66e1cc42a0e3166ee2f8f4e293d920e9bc0edb3cd38747537833aebdade6d1"
+            "sha256": "418e4c98c72992772d656b3ffd42057a022d2763d2d9378a7400adcca71e2bee"
           },
           {
             "url": "/adaptive-verbs-catala/build-assets.js",
-            "sha256": "52117f33db44b5f55842bd216270721394f9ac56ec1e2e1a825d97d85b3f38ae"
+            "sha256": "5c1c87ff6dfdd130e0beee7413df3d8fa06a8c4cfa7bdfd22715d0c4c9c050ab"
           },
           {
             "url": "/adaptive-verbs-catala/performance-adapter.js",
@@ -2535,13 +2571,22 @@
           }
         ]
       },
-      "sourceCommit": "54ba7806f728091f93ed31d08fbfca1e5cf8667b",
-      "cacheBuild": "8ffc7e3369d42965",
+      "sourceCommit": "77bd678e2740019914c661ac3f1f357dd02e3e8e",
+      "cacheBuild": "a8ec47e0cada608b",
       "sourceDirty": false,
       "cachePrefixes": [
         "avc-campaign1-"
       ],
       "history": [
+        {
+          "version": "0.10.20",
+          "build": "sha256-5a4a0cb7125a",
+          "releasedAt": "2026-10-31",
+          "changes": [
+            "No iniciar partidas con nivel cero cuando la recuperación de Adrián Sync no está verificada",
+            "Cola Sync: los registros idénticos al servidor dejan de producir conflictos; ningún progreso se descarta automáticamente"
+          ]
+        },
         {
           "version": "0.10.19",
           "build": "sha256-6af2aa5961ac",
