@@ -1,4 +1,4 @@
-# Retirada de avisos Sync en juegos · candidato sin publicar
+# Retirada de avisos Sync en juegos · publicada el 02/11/2026
 
 ## Causa comprobada
 Grammar Quest publicado muestra 3.36.20 y carga Core Sync 1.0.15.
@@ -22,7 +22,8 @@ protocolo, temporizadores, claves de progreso ni protección de base remota.
 El Hub conserva su indicador. Ningún banner/toast/modal nuevo en los juegos.
 Versiones candidatas: Grammar 3.36.21, Cloze 1.12.12, Català 0.10.21,
 Phrasal 0.13.25 y Hub 30.5.32. Referencias de script/worker y manifiestos actualizados.
-No se han subido commits, publicado GitHub Pages ni cambiado datos reales.
+En la preparación no se subieron commits ni se publicó GitHub Pages. Tras la aceptación
+QQS del usuario se publicó el cambio; véase el cierre de verificación. No se cambiaron datos reales.
 
 ## Verificación y límites
 `node ../adrian-core/scripts/test_sync_no_game_overlay.cjs`: 12 escenarios con el módulo
@@ -47,7 +48,7 @@ de integridad de caché aceptan Sync 1.0.16 y rechazan los bytes de 1.0.15.
 Comparación normalizada contra origin/main confirma que los cuatro motores solo
 cambian versión/notas, sin cambios de lógica educativa ni almacenamiento.
 Commits locales de juegos: Grammar 5d91a2f, Cloze 50f778d, Català 0f2f782,
-Phrasal 392fe2b; Core d4fe1ff. Publicación no realizada.
+Phrasal 392fe2b; Core d4fe1ff. Esta fue la validación anterior a publicar.
 
 ## Publicación y reversión
 Requiere autorización expresa de Adrián y superar las comprobaciones pendientes aplicables.
@@ -55,3 +56,34 @@ Publicar primero Core y después las apps/Hub con sus manifiestos correspondient
 durante el cambio de Core a apps las huellas antiguas pueden rechazar una instalación nueva.
 No limpiar localStorage, IndexedDB ni cachés durables de progreso. Las versiones anteriores
 quedan en los padres de los commits locales para preparar reversión con huellas coherentes.
+
+
+## Cierre de publicación verificado
+
+Publicación autorizada mediante QQS en respuesta a la propuesta concreta de publicar.
+El conector GitHub publicó árboles idénticos a los candidatos comprobados,
+sobre las cabeceras remotas vigentes, sin forzar referencias ni sobrescribir otros cambios.
+Commits funcionales publicados:
+- Core Sync 1.0.16: 569b553d90214c958964d3e371b772304eaff95d.
+- Grammar Quest 3.36.21: 55c7a6e50ed45ee851c29382912570aad865b2ed.
+- Cloze Quiz 1.12.12: 04fa6ff3951a40e9955cf5780496c25bfb83c8d5.
+- Conjuga CAT 0.10.21: 77bd678e2740019914c661ac3f1f357dd02e3e8e.
+- Phrasal Sprint 0.13.25: ed259fe5ca33709f8628e1aa31dd31536579169e.
+- Hub 30.5.32 y registro coherente: 465468e37ba59aabdd6711b7d2d18f759806112a.
+
+Los seis despliegues GitHub Pages terminaron con éxito.
+203/203 recursos públicos únicos comprobados por SHA-256 coinciden con las fuentes
+publicadas: manifiestos de cuatro juegos/Hub, dependencias compartidas y versions.json.
+El control obligatorio de manifiestos volvió a pasar sobre las cabeceras publicadas:
+173/173 huellas, cero fallos. Los 12 escenarios VM vuelven a pasar sin modificaciones.
+
+Chrome remoto abrió las cuatro URLs oficiales: versiones nuevas visibles y ausencia
+del nodo adrianSyncStatus. Grammar 3.36.21 siguió sin aviso después de varias ventanas
+de reintento y una recarga; Hub confirmó 30.5.32. Se observaron cargas iniciales
+transitorias durante el despliegue, resueltas al completar la carga/recargar.
+No se iniciaron partidas ni se generaron respuestas o sesiones personales.
+
+Límites vigentes: estas comprobaciones son de publicación y portadas en Chrome remoto.
+No acreditan una partida física en Pixel, actualización de su PWA instalada, IndexedDB
+real del usuario ni conectividad con el servidor privado. Las simulaciones cubren
+el guardado offline y la reconexión, pero no se presentan como sincronización física.
